@@ -12,27 +12,15 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventConnectionAuthParametersOauthArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The URL to the authorization endpoint.
-        /// </summary>
         [Input("authorizationEndpoint", required: true)]
         public Input<string> AuthorizationEndpoint { get; set; } = null!;
 
-        /// <summary>
-        /// Contains the client parameters for OAuth authorization. Contains the following two parameters.
-        /// </summary>
         [Input("clientParameters")]
         public Input<Inputs.EventConnectionAuthParametersOauthClientParametersArgs>? ClientParameters { get; set; }
 
-        /// <summary>
-        /// A password for the authorization. Created and stored in AWS Secrets Manager.
-        /// </summary>
         [Input("httpMethod", required: true)]
         public Input<string> HttpMethod { get; set; } = null!;
 
-        /// <summary>
-        /// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        /// </summary>
         [Input("oauthHttpParameters", required: true)]
         public Input<Inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs> OauthHttpParameters { get; set; } = null!;
 

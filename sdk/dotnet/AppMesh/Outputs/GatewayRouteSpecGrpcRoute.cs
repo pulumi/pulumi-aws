@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecGrpcRoute
     {
-        /// <summary>
-        /// Action to take if a match is determined.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecGrpcRouteAction Action;
-        /// <summary>
-        /// Criteria for determining a request match.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecGrpcRouteMatch Match;
 
         [OutputConstructor]

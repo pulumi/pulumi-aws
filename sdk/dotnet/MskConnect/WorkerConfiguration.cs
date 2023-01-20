@@ -9,68 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MskConnect
 {
-    /// <summary>
-    /// Provides an Amazon MSK Connect Worker Configuration Resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.MskConnect.WorkerConfiguration("example", new()
-    ///     {
-    ///         PropertiesFileContent = @"key.converter=org.apache.kafka.connect.storage.StringConverter
-    /// value.converter=org.apache.kafka.connect.storage.StringConverter
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:mskconnect/workerConfiguration:WorkerConfiguration")]
     public partial class WorkerConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// the Amazon Resource Name (ARN) of the worker configuration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A summary description of the worker configuration.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// an ID of the latest successfully created revision of the worker configuration.
-        /// </summary>
         [Output("latestRevision")]
         public Output<int> LatestRevision { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the worker configuration.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-        /// </summary>
         [Output("propertiesFileContent")]
         public Output<string> PropertiesFileContent { get; private set; } = null!;
 
@@ -120,21 +73,12 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class WorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A summary description of the worker configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the worker configuration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-        /// </summary>
         [Input("propertiesFileContent", required: true)]
         public Input<string> PropertiesFileContent { get; set; } = null!;
 
@@ -146,33 +90,18 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class WorkerConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// the Amazon Resource Name (ARN) of the worker configuration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A summary description of the worker configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// an ID of the latest successfully created revision of the worker configuration.
-        /// </summary>
         [Input("latestRevision")]
         public Input<int>? LatestRevision { get; set; }
 
-        /// <summary>
-        /// The name of the worker configuration.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-        /// </summary>
         [Input("propertiesFileContent")]
         public Input<string>? PropertiesFileContent { get; set; }
 

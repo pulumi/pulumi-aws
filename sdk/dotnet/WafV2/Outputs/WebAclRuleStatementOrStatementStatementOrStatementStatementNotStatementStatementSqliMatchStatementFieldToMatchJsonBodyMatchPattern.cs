@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll? All;
         public readonly ImmutableArray<string> IncludedPaths;
 

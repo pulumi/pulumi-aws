@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class IndexingConfigurationThingIndexingConfigurationManagedField
     {
-        /// <summary>
-        /// The name of the field.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

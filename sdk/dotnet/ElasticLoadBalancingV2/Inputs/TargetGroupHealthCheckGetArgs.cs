@@ -12,57 +12,30 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
 
     public sealed class TargetGroupHealthCheckGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean to enable / disable `stickiness`. Default is `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
-        /// </summary>
         [Input("healthyThreshold")]
         public Input<int>? HealthyThreshold { get; set; }
 
-        /// <summary>
-        /// Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
-        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
-        /// <summary>
-        /// Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
-        /// </summary>
         [Input("matcher")]
         public Input<string>? Matcher { get; set; }
 
-        /// <summary>
-        /// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
-        /// <summary>
-        /// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
-        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        /// <summary>
-        /// Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
-        /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
-        /// <summary>
-        /// Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
-        /// </summary>
         [Input("unhealthyThreshold")]
         public Input<int>? UnhealthyThreshold { get; set; }
 

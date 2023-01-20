@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class GetScriptDagEdgeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the node at which the edge starts.
-        /// </summary>
         [Input("source", required: true)]
         public string Source { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the node at which the edge ends.
-        /// </summary>
         [Input("target", required: true)]
         public string Target { get; set; } = null!;
 
-        /// <summary>
-        /// Target of the edge.
-        /// </summary>
         [Input("targetParameter")]
         public string? TargetParameter { get; set; }
 

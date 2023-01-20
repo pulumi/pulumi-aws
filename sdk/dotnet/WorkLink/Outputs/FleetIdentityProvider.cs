@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WorkLink.Outputs
     [OutputType]
     public sealed class FleetIdentityProvider
     {
-        /// <summary>
-        /// The SAML metadata document provided by the customer’s identity provider.
-        /// </summary>
         public readonly string SamlMetadata;
-        /// <summary>
-        /// The type of identity provider.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

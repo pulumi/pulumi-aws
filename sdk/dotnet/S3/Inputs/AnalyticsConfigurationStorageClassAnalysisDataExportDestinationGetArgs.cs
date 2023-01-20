@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Analytics data export currently only supports an S3 bucket destination (documented below).
-        /// </summary>
         [Input("s3BucketDestination", required: true)]
         public Input<Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs> S3BucketDestination { get; set; } = null!;
 

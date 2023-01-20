@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class ReplicationConfigurationReplicationConfiguration
     {
-        /// <summary>
-        /// The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-        /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationConfigurationRule> Rules;
 
         [OutputConstructor]

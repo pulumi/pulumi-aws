@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Evidently.Outputs
     [OutputType]
     public sealed class ProjectDataDeliveryCloudwatchLogs
     {
-        /// <summary>
-        /// The name of the log group where the project stores evaluation events.
-        /// </summary>
         public readonly string? LogGroup;
 
         [OutputConstructor]

@@ -11,61 +11,9 @@ namespace Pulumi.Aws.CloudWatch
 {
     public static class GetEventBus
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// EventBridge event bus. Use this data source to compute the ARN of
-        /// an event bus, given the name of the bus.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetEventBus.Invoke(new()
-        ///     {
-        ///         Name = "example-bus-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetEventBusResult> InvokeAsync(GetEventBusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventBusResult>("aws:cloudwatch/getEventBus:getEventBus", args ?? new GetEventBusArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// EventBridge event bus. Use this data source to compute the ARN of
-        /// an event bus, given the name of the bus.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudWatch.GetEventBus.Invoke(new()
-        ///     {
-        ///         Name = "example-bus-name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetEventBusResult> Invoke(GetEventBusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventBusResult>("aws:cloudwatch/getEventBus:getEventBus", args ?? new GetEventBusInvokeArgs(), options.WithDefaults());
     }
@@ -73,9 +21,6 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetEventBusArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly EventBridge event bus name.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -87,9 +32,6 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetEventBusInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly EventBridge event bus name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -103,9 +45,6 @@ namespace Pulumi.Aws.CloudWatch
     [OutputType]
     public sealed class GetEventBusResult
     {
-        /// <summary>
-        /// ARN.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

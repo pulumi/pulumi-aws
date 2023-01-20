@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterIdentityResult
     {
-        /// <summary>
-        /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterIdentityOidcResult> Oidcs;
 
         [OutputConstructor]

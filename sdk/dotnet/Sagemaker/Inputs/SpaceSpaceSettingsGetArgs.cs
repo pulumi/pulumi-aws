@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class SpaceSpaceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
-        /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.SpaceSpaceSettingsJupyterServerAppSettingsGetArgs>? JupyterServerAppSettings { get; set; }
 
-        /// <summary>
-        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
-        /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.SpaceSpaceSettingsKernelGatewayAppSettingsGetArgs>? KernelGatewayAppSettings { get; set; }
 

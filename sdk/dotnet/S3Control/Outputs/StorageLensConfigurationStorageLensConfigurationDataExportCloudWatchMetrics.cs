@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics
     {
-        /// <summary>
-        /// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

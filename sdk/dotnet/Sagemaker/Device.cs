@@ -9,60 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker Device resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Device("example", new()
-    ///     {
-    ///         DeviceFleetName = aws_sagemaker_device_fleet.Example.Device_fleet_name,
-    ///         DeviceDetails = new Aws.Sagemaker.Inputs.DeviceDeviceArgs
-    ///         {
-    ///             DeviceName = "example",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/device:Device")]
     public partial class Device : global::Pulumi.CustomResource
     {
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The device to register with SageMaker Edge Manager. See Device details below.
-        /// </summary>
         [Output("device")]
         public Output<Outputs.DeviceDevice> DeviceDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Device Fleet.
-        /// </summary>
         [Output("deviceFleetName")]
         public Output<string> DeviceFleetName { get; private set; } = null!;
 
@@ -112,15 +70,9 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The device to register with SageMaker Edge Manager. See Device details below.
-        /// </summary>
         [Input("device", required: true)]
         public Input<Inputs.DeviceDeviceArgs> DeviceDetails { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Device Fleet.
-        /// </summary>
         [Input("deviceFleetName", required: true)]
         public Input<string> DeviceFleetName { get; set; } = null!;
 
@@ -135,21 +87,12 @@ namespace Pulumi.Aws.Sagemaker
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The device to register with SageMaker Edge Manager. See Device details below.
-        /// </summary>
         [Input("device")]
         public Input<Inputs.DeviceDeviceGetArgs>? DeviceDetails { get; set; }
 
-        /// <summary>
-        /// The name of the Device Fleet.
-        /// </summary>
         [Input("deviceFleetName")]
         public Input<string>? DeviceFleetName { get; set; }
 

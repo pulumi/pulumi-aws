@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Ecs
 {
     public static class GetContainerDefinition
     {
-        /// <summary>
-        /// The ECS container definition data source allows access to details of
-        /// a specific container within an AWS ECS service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
-        ///     {
-        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
-        ///         ContainerName = "mongodb",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetContainerDefinitionResult> InvokeAsync(GetContainerDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECS container definition data source allows access to details of
-        /// a specific container within an AWS ECS service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetContainerDefinition.Invoke(new()
-        ///     {
-        ///         TaskDefinition = aws_ecs_task_definition.Mongo.Id,
-        ///         ContainerName = "mongodb",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetContainerDefinitionResult> Invoke(GetContainerDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionInvokeArgs(), options.WithDefaults());
     }
@@ -73,15 +21,9 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetContainerDefinitionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the container definition
-        /// </summary>
         [Input("containerName", required: true)]
         public string ContainerName { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the task definition which contains the container
-        /// </summary>
         [Input("taskDefinition", required: true)]
         public string TaskDefinition { get; set; } = null!;
 
@@ -93,15 +35,9 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetContainerDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the container definition
-        /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the task definition which contains the container
-        /// </summary>
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;
 
@@ -116,41 +52,17 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetContainerDefinitionResult
     {
         public readonly string ContainerName;
-        /// <summary>
-        /// CPU limit for this container definition
-        /// </summary>
         public readonly int Cpu;
-        /// <summary>
-        /// Indicator if networking is disabled
-        /// </summary>
         public readonly bool DisableNetworking;
-        /// <summary>
-        /// Set docker labels
-        /// </summary>
         public readonly ImmutableDictionary<string, string> DockerLabels;
-        /// <summary>
-        /// Environment in use
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Environment;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Docker image in use, including the digest
-        /// </summary>
         public readonly string Image;
-        /// <summary>
-        /// Digest of the docker image in use
-        /// </summary>
         public readonly string ImageDigest;
-        /// <summary>
-        /// Memory limit for this container definition
-        /// </summary>
         public readonly int Memory;
-        /// <summary>
-        /// Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
-        /// </summary>
         public readonly int MemoryReservation;
         public readonly string TaskDefinition;
 

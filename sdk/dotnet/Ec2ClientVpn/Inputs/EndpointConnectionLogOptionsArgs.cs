@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
 
     public sealed class EndpointConnectionLogOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the CloudWatch Logs log group.
-        /// </summary>
         [Input("cloudwatchLogGroup")]
         public Input<string>? CloudwatchLogGroup { get; set; }
 
-        /// <summary>
-        /// The name of the CloudWatch Logs log stream to which the connection data is published.
-        /// </summary>
         [Input("cloudwatchLogStream")]
         public Input<string>? CloudwatchLogStream { get; set; }
 
-        /// <summary>
-        /// Indicates whether connection logging is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogDatabaseTargetDatabaseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the Data Catalog in which the database resides.
-        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the catalog database.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 

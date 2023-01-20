@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class ClassifierGrokClassifier
     {
-        /// <summary>
-        /// An identifier of the data format that the classifier matches.
-        /// </summary>
         public readonly string Classification;
-        /// <summary>
-        /// Custom grok patterns used by this classifier.
-        /// </summary>
         public readonly string? CustomPatterns;
-        /// <summary>
-        /// The grok pattern used by this classifier.
-        /// </summary>
         public readonly string GrokPattern;
 
         [OutputConstructor]

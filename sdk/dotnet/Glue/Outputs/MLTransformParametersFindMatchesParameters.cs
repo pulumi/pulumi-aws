@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class MLTransformParametersFindMatchesParameters
     {
-        /// <summary>
-        /// The value that is selected when tuning your transform for a balance between accuracy and cost.
-        /// </summary>
         public readonly double? AccuracyCostTradeOff;
-        /// <summary>
-        /// The value to switch on or off to force the output to match the provided labels from users.
-        /// </summary>
         public readonly bool? EnforceProvidedLabels;
-        /// <summary>
-        /// The value selected when tuning your transform for a balance between precision and recall.
-        /// </summary>
         public readonly double? PrecisionRecallTradeOff;
-        /// <summary>
-        /// The name of a column that uniquely identifies rows in the source table.
-        /// </summary>
         public readonly string? PrimaryKeyColumnName;
 
         [OutputConstructor]

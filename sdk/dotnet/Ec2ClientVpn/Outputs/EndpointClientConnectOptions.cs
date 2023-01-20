@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
     [OutputType]
     public sealed class EndpointClientConnectOptions
     {
-        /// <summary>
-        /// Indicates whether connection logging is enabled.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-        /// </summary>
         public readonly string? LambdaFunctionArn;
 
         [OutputConstructor]

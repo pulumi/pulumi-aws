@@ -11,81 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetInternetGateway
     {
-        /// <summary>
-        /// `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
-        ///     var @default = Aws.Ec2.GetInternetGateway.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInternetGatewayFilterInputArgs
-        ///             {
-        ///                 Name = "attachment.vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     vpcId,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetInternetGatewayResult> InvokeAsync(GetInternetGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInternetGatewayResult>("aws:ec2/getInternetGateway:getInternetGateway", args ?? new GetInternetGatewayArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
-        ///     var @default = Aws.Ec2.GetInternetGateway.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInternetGatewayFilterInputArgs
-        ///             {
-        ///                 Name = "attachment.vpc-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     vpcId,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws:ec2/getInternetGateway:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
     }
@@ -95,29 +23,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetInternetGatewayFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetInternetGatewayFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetInternetGatewayFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific Internet Gateway to retrieve.
-        /// </summary>
         [Input("internetGatewayId")]
         public string? InternetGatewayId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired Internet Gateway.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -134,29 +50,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetInternetGatewayFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetInternetGatewayFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetInternetGatewayFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the specific Internet Gateway to retrieve.
-        /// </summary>
         [Input("internetGatewayId")]
         public Input<string>? InternetGatewayId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired Internet Gateway.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -173,9 +77,6 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetInternetGatewayResult
     {
-        /// <summary>
-        /// ARN of the Internet Gateway.
-        /// </summary>
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetInternetGatewayAttachmentResult> Attachments;
         public readonly ImmutableArray<Outputs.GetInternetGatewayFilterResult> Filters;
@@ -184,9 +85,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly string InternetGatewayId;
-        /// <summary>
-        /// ID of the AWS account that owns the internet gateway.
-        /// </summary>
         public readonly string OwnerId;
         public readonly ImmutableDictionary<string, string> Tags;
 

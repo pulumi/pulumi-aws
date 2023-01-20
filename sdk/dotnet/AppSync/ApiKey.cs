@@ -9,64 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
-    /// <summary>
-    /// Provides an AppSync API Key.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
-    ///     {
-    ///         AuthenticationType = "API_KEY",
-    ///     });
-    /// 
-    ///     var exampleApiKey = new Aws.AppSync.ApiKey("exampleApiKey", new()
-    ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
-    ///         Expires = "2018-05-03T04:00:00Z",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appsync/apiKey:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the associated AppSync API
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// API key description. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        /// </summary>
         [Output("expires")]
         public Output<string?> Expires { get; private set; } = null!;
 
-        /// <summary>
-        /// API key
-        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -120,21 +74,12 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the associated AppSync API
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// API key description. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        /// </summary>
         [Input("expires")]
         public Input<string>? Expires { get; set; }
 
@@ -147,30 +92,17 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the associated AppSync API
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// API key description. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        /// </summary>
         [Input("expires")]
         public Input<string>? Expires { get; set; }
 
         [Input("key")]
         private Input<string>? _key;
-
-        /// <summary>
-        /// API key
-        /// </summary>
         public Input<string>? Key
         {
             get => _key;

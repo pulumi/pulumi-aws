@@ -11,57 +11,9 @@ namespace Pulumi.Aws.ApiGatewayV2
 {
     public static class GetApis
     {
-        /// <summary>
-        /// Provides details about multiple Amazon API Gateway Version 2 APIs.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGatewayV2.GetApis.Invoke(new()
-        ///     {
-        ///         ProtocolType = "HTTP",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetApisResult> InvokeAsync(GetApisArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApisResult>("aws:apigatewayv2/getApis:getApis", args ?? new GetApisArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about multiple Amazon API Gateway Version 2 APIs.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGatewayV2.GetApis.Invoke(new()
-        ///     {
-        ///         ProtocolType = "HTTP",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetApisResult> Invoke(GetApisInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApisResult>("aws:apigatewayv2/getApis:getApis", args ?? new GetApisInvokeArgs(), options.WithDefaults());
     }
@@ -69,25 +21,14 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class GetApisArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// API name.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// API protocol.
-        /// </summary>
         [Input("protocolType")]
         public string? ProtocolType { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired APIs.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -102,25 +43,14 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class GetApisInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// API name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// API protocol.
-        /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired APIs.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -141,9 +71,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of API identifiers.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string? Name;
         public readonly string? ProtocolType;

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkteamMemberDefinitionOidcMemberDefinition
     {
-        /// <summary>
-        /// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-        /// </summary>
         public readonly ImmutableArray<string> Groups;
 
         [OutputConstructor]

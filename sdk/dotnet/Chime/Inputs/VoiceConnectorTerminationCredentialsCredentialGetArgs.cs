@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Chime.Inputs
     {
         [Input("password", required: true)]
         private Input<string>? _password;
-
-        /// <summary>
-        /// RFC2617 compliant password associated with the SIP credentials.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -28,9 +24,6 @@ namespace Pulumi.Aws.Chime.Inputs
             }
         }
 
-        /// <summary>
-        /// RFC2617 compliant username associated with the SIP credentials.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

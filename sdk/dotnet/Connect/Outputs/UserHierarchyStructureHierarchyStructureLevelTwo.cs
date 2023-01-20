@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class UserHierarchyStructureHierarchyStructureLevelTwo
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy level.
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// The identifier of the hierarchy level.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The name of the user hierarchy level. Must not be more than 50 characters.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

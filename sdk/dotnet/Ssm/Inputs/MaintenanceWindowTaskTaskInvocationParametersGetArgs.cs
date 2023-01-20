@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class MaintenanceWindowTaskTaskInvocationParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The parameters for an AUTOMATION task type. Documented below.
-        /// </summary>
         [Input("automationParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersGetArgs>? AutomationParameters { get; set; }
 
-        /// <summary>
-        /// The parameters for a LAMBDA task type. Documented below.
-        /// </summary>
         [Input("lambdaParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs>? LambdaParameters { get; set; }
 
-        /// <summary>
-        /// The parameters for a RUN_COMMAND task type. Documented below.
-        /// </summary>
         [Input("runCommandParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersGetArgs>? RunCommandParameters { get; set; }
 
-        /// <summary>
-        /// The parameters for a STEP_FUNCTIONS task type. Documented below.
-        /// </summary>
         [Input("stepFunctionsParameters")]
         public Input<Inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersGetArgs>? StepFunctionsParameters { get; set; }
 

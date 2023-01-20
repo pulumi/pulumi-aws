@@ -9,88 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.EcrPublic
 {
-    /// <summary>
-    /// Provides an Elastic Container Registry Public Repository Policy.
-    /// 
-    /// Note that currently only one policy may be applied to a repository.
-    /// 
-    /// &gt; **NOTE:** This resource can only be used with `us-east-1` region.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRepository = new Aws.EcrPublic.Repository("exampleRepository", new()
-    ///     {
-    ///         RepositoryName = "example",
-    ///     });
-    /// 
-    ///     var exampleRepositoryPolicy = new Aws.EcrPublic.RepositoryPolicy("exampleRepositoryPolicy", new()
-    ///     {
-    ///         RepositoryName = exampleRepository.RepositoryName,
-    ///         Policy = @"{
-    ///     ""Version"": ""2008-10-17"",
-    ///     ""Statement"": [
-    ///         {
-    ///             ""Sid"": ""new policy"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": ""*"",
-    ///             ""Action"": [
-    ///                 ""ecr:GetDownloadUrlForLayer"",
-    ///                 ""ecr:BatchGetImage"",
-    ///                 ""ecr:BatchCheckLayerAvailability"",
-    ///                 ""ecr:PutImage"",
-    ///                 ""ecr:InitiateLayerUpload"",
-    ///                 ""ecr:UploadLayerPart"",
-    ///                 ""ecr:CompleteLayerUpload"",
-    ///                 ""ecr:DescribeRepositories"",
-    ///                 ""ecr:GetRepositoryPolicy"",
-    ///                 ""ecr:ListImages"",
-    ///                 ""ecr:DeleteRepository"",
-    ///                 ""ecr:BatchDeleteImage"",
-    ///                 ""ecr:SetRepositoryPolicy"",
-    ///                 ""ecr:DeleteRepositoryPolicy""
-    ///             ]
-    ///         }
-    ///     ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ECR Public Repository Policy can be imported using the repository name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecrpublic/repositoryPolicy:RepositoryPolicy")]
     public partial class RepositoryPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry ID where the repository was created.
-        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the repository to apply the policy.
-        /// </summary>
         [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
@@ -140,15 +67,9 @@ namespace Pulumi.Aws.EcrPublic
 
     public sealed class RepositoryPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the repository to apply the policy.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
@@ -160,21 +81,12 @@ namespace Pulumi.Aws.EcrPublic
 
     public sealed class RepositoryPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// The registry ID where the repository was created.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the repository to apply the policy.
-        /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 

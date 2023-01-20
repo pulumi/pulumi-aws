@@ -9,60 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amp
 {
-    /// <summary>
-    /// Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
-    /// 
-    ///     var demoRuleGroupNamespace = new Aws.Amp.RuleGroupNamespace("demoRuleGroupNamespace", new()
-    ///     {
-    ///         WorkspaceId = demoWorkspace.Id,
-    ///         Data = @"groups:
-    ///   - name: test
-    ///     rules:
-    ///     - record: metric:recording_rule
-    ///       expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// The prometheus rule group namespace can be imported using the arn, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:amp/ruleGroupNamespace:RuleGroupNamespace")]
     public partial class RuleGroupNamespace : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the rule group namespace
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the prometheus workspace the rule group namespace should be linked to
-        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
@@ -112,21 +67,12 @@ namespace Pulumi.Aws.Amp
 
     public sealed class RuleGroupNamespaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        /// </summary>
         [Input("data", required: true)]
         public Input<string> Data { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the rule group namespace
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of the prometheus workspace the rule group namespace should be linked to
-        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -138,21 +84,12 @@ namespace Pulumi.Aws.Amp
 
     public sealed class RuleGroupNamespaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
-        /// <summary>
-        /// The name of the rule group namespace
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of the prometheus workspace the rule group namespace should be linked to
-        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 

@@ -12,24 +12,14 @@ namespace Pulumi.Aws.GameLift.Inputs
 
     public sealed class FleetRuntimeConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-        /// </summary>
         [Input("gameSessionActivationTimeoutSeconds")]
         public Input<int>? GameSessionActivationTimeoutSeconds { get; set; }
 
-        /// <summary>
-        /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-        /// </summary>
         [Input("maxConcurrentGameSessionActivations")]
         public Input<int>? MaxConcurrentGameSessionActivations { get; set; }
 
         [Input("serverProcesses")]
         private InputList<Inputs.FleetRuntimeConfigurationServerProcessArgs>? _serverProcesses;
-
-        /// <summary>
-        /// Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-        /// </summary>
         public InputList<Inputs.FleetRuntimeConfigurationServerProcessArgs> ServerProcesses
         {
             get => _serverProcesses ?? (_serverProcesses = new InputList<Inputs.FleetRuntimeConfigurationServerProcessArgs>());

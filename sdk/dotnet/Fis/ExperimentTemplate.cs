@@ -9,115 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fis
 {
-    /// <summary>
-    /// Provides an FIS Experiment Template, which can be used to run an experiment.
-    /// An experiment template contains one or more actions to run on specified targets during an experiment.
-    /// It also contains the stop conditions that prevent the experiment from going out of bounds.
-    /// See [Amazon Fault Injection Simulator](https://docs.aws.amazon.com/fis/index.html)
-    /// for more information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Fis.ExperimentTemplate("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         StopConditions = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
-    ///             {
-    ///                 Source = "none",
-    ///             },
-    ///         },
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
-    ///             {
-    ///                 Name = "example-action",
-    ///                 ActionId = "aws:ec2:terminate-instances",
-    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
-    ///                 {
-    ///                     Key = "Instances",
-    ///                     Value = "example-target",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
-    ///             {
-    ///                 Name = "example-target",
-    ///                 ResourceType = "aws:ec2:instance",
-    ///                 SelectionMode = "COUNT(1)",
-    ///                 ResourceTags = new[]
-    ///                 {
-    ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
-    ///                     {
-    ///                         Key = "env",
-    ///                         Value = "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// FIS Experiment Templates can be imported using the `id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]
     public partial class ExperimentTemplate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Action to be performed during an experiment. See below.
-        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateAction>> Actions { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the action.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// When an ongoing experiment should be stopped. See below.
-        /// </summary>
         [Output("stopConditions")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Action's target, if applicable. See below.
-        /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateTarget>> Targets { get; private set; } = null!;
 
@@ -169,34 +81,20 @@ namespace Pulumi.Aws.Fis
     {
         [Input("actions", required: true)]
         private InputList<Inputs.ExperimentTemplateActionArgs>? _actions;
-
-        /// <summary>
-        /// Action to be performed during an experiment. See below.
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.ExperimentTemplateActionArgs>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// Description of the action.
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("stopConditions", required: true)]
         private InputList<Inputs.ExperimentTemplateStopConditionArgs>? _stopConditions;
-
-        /// <summary>
-        /// When an ongoing experiment should be stopped. See below.
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateStopConditionArgs> StopConditions
         {
             get => _stopConditions ?? (_stopConditions = new InputList<Inputs.ExperimentTemplateStopConditionArgs>());
@@ -205,10 +103,6 @@ namespace Pulumi.Aws.Fis
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -217,10 +111,6 @@ namespace Pulumi.Aws.Fis
 
         [Input("targets")]
         private InputList<Inputs.ExperimentTemplateTargetArgs>? _targets;
-
-        /// <summary>
-        /// Action's target, if applicable. See below.
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.ExperimentTemplateTargetArgs>());
@@ -237,34 +127,20 @@ namespace Pulumi.Aws.Fis
     {
         [Input("actions")]
         private InputList<Inputs.ExperimentTemplateActionGetArgs>? _actions;
-
-        /// <summary>
-        /// Action to be performed during an experiment. See below.
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateActionGetArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.ExperimentTemplateActionGetArgs>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// Description of the action.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("stopConditions")]
         private InputList<Inputs.ExperimentTemplateStopConditionGetArgs>? _stopConditions;
-
-        /// <summary>
-        /// When an ongoing experiment should be stopped. See below.
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateStopConditionGetArgs> StopConditions
         {
             get => _stopConditions ?? (_stopConditions = new InputList<Inputs.ExperimentTemplateStopConditionGetArgs>());
@@ -273,10 +149,6 @@ namespace Pulumi.Aws.Fis
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -293,10 +165,6 @@ namespace Pulumi.Aws.Fis
 
         [Input("targets")]
         private InputList<Inputs.ExperimentTemplateTargetGetArgs>? _targets;
-
-        /// <summary>
-        /// Action's target, if applicable. See below.
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateTargetGetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.ExperimentTemplateTargetGetArgs>());

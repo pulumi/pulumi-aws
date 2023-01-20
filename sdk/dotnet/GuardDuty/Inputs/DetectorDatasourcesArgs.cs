@@ -12,24 +12,12 @@ namespace Pulumi.Aws.GuardDuty.Inputs
 
     public sealed class DetectorDatasourcesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        /// See Kubernetes and Kubernetes Audit Logs below for more details.
-        /// </summary>
         [Input("kubernetes")]
         public Input<Inputs.DetectorDatasourcesKubernetesArgs>? Kubernetes { get; set; }
 
-        /// <summary>
-        /// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-        /// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-        /// </summary>
         [Input("malwareProtection")]
         public Input<Inputs.DetectorDatasourcesMalwareProtectionArgs>? MalwareProtection { get; set; }
 
-        /// <summary>
-        /// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-        /// See S3 Logs below for more details.
-        /// </summary>
         [Input("s3Logs")]
         public Input<Inputs.DetectorDatasourcesS3LogsArgs>? S3Logs { get; set; }
 

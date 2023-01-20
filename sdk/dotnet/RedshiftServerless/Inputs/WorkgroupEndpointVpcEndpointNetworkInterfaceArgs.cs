@@ -12,27 +12,15 @@ namespace Pulumi.Aws.RedshiftServerless.Inputs
 
     public sealed class WorkgroupEndpointVpcEndpointNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The availability Zone.
-        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the network interface.
-        /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
-        /// <summary>
-        /// The IPv4 address of the network interface within the subnet.
-        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the subnet.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 

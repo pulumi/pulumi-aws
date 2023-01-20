@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Athena.Outputs
     [OutputType]
     public sealed class WorkgroupConfigurationResultConfigurationAclConfiguration
     {
-        /// <summary>
-        /// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-        /// </summary>
         public readonly string S3AclOption;
 
         [OutputConstructor]

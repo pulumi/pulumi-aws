@@ -12,21 +12,12 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class InsightFiltersProductFieldGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        /// </summary>
         [Input("comparison", required: true)]
         public Input<string> Comparison { get; set; } = null!;
 
-        /// <summary>
-        /// The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// A date range value for the date filter, provided as an Integer.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

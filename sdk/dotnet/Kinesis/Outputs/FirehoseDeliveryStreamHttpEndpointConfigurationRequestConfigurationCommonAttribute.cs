@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute
     {
-        /// <summary>
-        /// The name of the HTTP endpoint common attribute.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value of the HTTP endpoint common attribute.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

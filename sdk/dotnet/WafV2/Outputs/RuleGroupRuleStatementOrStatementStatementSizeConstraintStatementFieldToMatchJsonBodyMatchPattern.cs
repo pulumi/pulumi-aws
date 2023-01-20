@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         public readonly Outputs.RuleGroupRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll? All;
         public readonly ImmutableArray<string> IncludedPaths;
 

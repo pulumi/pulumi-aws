@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cfg.Inputs
 
     public sealed class OrganizationConformancePackInputParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The input key.
-        /// </summary>
         [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
 
-        /// <summary>
-        /// The input value.
-        /// </summary>
         [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 

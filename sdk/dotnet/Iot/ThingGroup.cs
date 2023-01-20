@@ -9,94 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Manages an AWS IoT Thing Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var parent = new Aws.Iot.ThingGroup("parent");
-    /// 
-    ///     var example = new Aws.Iot.ThingGroup("example", new()
-    ///     {
-    ///         ParentGroupName = parent.Name,
-    ///         Properties = new Aws.Iot.Inputs.ThingGroupPropertiesArgs
-    ///         {
-    ///             AttributePayload = new Aws.Iot.Inputs.ThingGroupPropertiesAttributePayloadArgs
-    ///             {
-    ///                 Attributes = 
-    ///                 {
-    ///                     { "One", "11111" },
-    ///                     { "Two", "TwoTwo" },
-    ///                 },
-    ///             },
-    ///             Description = "This is my thing group",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "managed", "true" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IoT Things Groups can be imported using the name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/thingGroup:ThingGroup example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/thingGroup:ThingGroup")]
     public partial class ThingGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Thing Group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("metadatas")]
         public Output<ImmutableArray<Outputs.ThingGroupMetadata>> Metadatas { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Thing Group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the parent Thing Group.
-        /// </summary>
         [Output("parentGroupName")]
         public Output<string?> ParentGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The Thing Group properties. Defined below.
-        /// </summary>
         [Output("properties")]
         public Output<Outputs.ThingGroupProperties?> Properties { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The current version of the Thing Group record in the registry.
-        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -146,30 +82,17 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Thing Group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the parent Thing Group.
-        /// </summary>
         [Input("parentGroupName")]
         public Input<string>? ParentGroupName { get; set; }
 
-        /// <summary>
-        /// The Thing Group properties. Defined below.
-        /// </summary>
         [Input("properties")]
         public Input<Inputs.ThingGroupPropertiesArgs>? Properties { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -184,9 +107,6 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Thing Group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -198,30 +118,17 @@ namespace Pulumi.Aws.Iot
             set => _metadatas = value;
         }
 
-        /// <summary>
-        /// The name of the Thing Group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the parent Thing Group.
-        /// </summary>
         [Input("parentGroupName")]
         public Input<string>? ParentGroupName { get; set; }
 
-        /// <summary>
-        /// The Thing Group properties. Defined below.
-        /// </summary>
         [Input("properties")]
         public Input<Inputs.ThingGroupPropertiesGetArgs>? Properties { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -236,9 +143,6 @@ namespace Pulumi.Aws.Iot
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The current version of the Thing Group record in the registry.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

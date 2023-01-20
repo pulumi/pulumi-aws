@@ -13,21 +13,9 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectLogsConfigS3Logs
     {
-        /// <summary>
-        /// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        /// </summary>
         public readonly string? BucketOwnerAccess;
-        /// <summary>
-        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        /// </summary>
         public readonly bool? EncryptionDisabled;
-        /// <summary>
-        /// Location of the source code from git or s3.
-        /// </summary>
         public readonly string? Location;
-        /// <summary>
-        /// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

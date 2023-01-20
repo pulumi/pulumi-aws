@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupAutoRollbackConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("events")]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());

@@ -13,28 +13,10 @@ namespace Pulumi.Aws.Elb.Outputs
     [OutputType]
     public sealed class LoadBalancerListener
     {
-        /// <summary>
-        /// The port on the instance to route to
-        /// </summary>
         public readonly int InstancePort;
-        /// <summary>
-        /// The protocol to use to the instance. Valid
-        /// values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
-        /// </summary>
         public readonly string InstanceProtocol;
-        /// <summary>
-        /// The port to listen on for the load balancer
-        /// </summary>
         public readonly int LbPort;
-        /// <summary>
-        /// The protocol to listen on. Valid values are `HTTP`,
-        /// `HTTPS`, `TCP`, or `SSL`
-        /// </summary>
         public readonly string LbProtocol;
-        /// <summary>
-        /// The ARN of an SSL certificate you have
-        /// uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
-        /// </summary>
         public readonly string? SslCertificateId;
 
         [OutputConstructor]

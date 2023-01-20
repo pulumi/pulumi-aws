@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration
     {
-        /// <summary>
-        /// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration InputFormatConfiguration;
-        /// <summary>
-        /// Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration OutputFormatConfiguration;
-        /// <summary>
-        /// Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration SchemaConfiguration;
 
         [OutputConstructor]

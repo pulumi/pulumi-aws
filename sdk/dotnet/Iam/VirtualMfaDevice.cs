@@ -9,78 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides an IAM Virtual MFA Device.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// **Using certs on file:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.VirtualMfaDevice("example", new()
-    ///     {
-    ///         VirtualMfaDeviceName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IAM Virtual MFA Devices can be imported using the `arn`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/virtualMfaDevice:VirtualMfaDevice")]
     public partial class VirtualMfaDevice : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
-        /// </summary>
         [Output("base32StringSeed")]
         public Output<string> Base32StringSeed { get; private set; } = null!;
 
-        /// <summary>
-        /// The path for the virtual MFA device.
-        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
-        /// <summary>
-        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
-        /// </summary>
         [Output("qrCodePng")]
         public Output<string> QrCodePng { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-        /// </summary>
         [Output("virtualMfaDeviceName")]
         public Output<string> VirtualMfaDeviceName { get; private set; } = null!;
 
@@ -130,27 +79,17 @@ namespace Pulumi.Aws.Iam
 
     public sealed class VirtualMfaDeviceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The path for the virtual MFA device.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-        /// </summary>
         [Input("virtualMfaDeviceName", required: true)]
         public Input<string> VirtualMfaDeviceName { get; set; } = null!;
 
@@ -162,36 +101,20 @@ namespace Pulumi.Aws.Iam
 
     public sealed class VirtualMfaDeviceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
-        /// </summary>
         [Input("base32StringSeed")]
         public Input<string>? Base32StringSeed { get; set; }
 
-        /// <summary>
-        /// The path for the virtual MFA device.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
-        /// <summary>
-        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
-        /// </summary>
         [Input("qrCodePng")]
         public Input<string>? QrCodePng { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -200,19 +123,12 @@ namespace Pulumi.Aws.Iam
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
-        /// </summary>
         [Input("virtualMfaDeviceName")]
         public Input<string>? VirtualMfaDeviceName { get; set; }
 

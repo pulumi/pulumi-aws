@@ -12,34 +12,18 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
     public sealed class WebAclRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-        /// </summary>
         [Input("action")]
         public Input<Inputs.WebAclRuleActionArgs>? Action { get; set; }
 
-        /// <summary>
-        /// Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-        /// </summary>
         [Input("overrideAction")]
         public Input<Inputs.WebAclRuleOverrideActionArgs>? OverrideAction { get; set; }
 
-        /// <summary>
-        /// Specifies the order in which the rules in a WebACL are evaluated.
-        /// Rules with a lower value are evaluated before rules with a higher value.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-        /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

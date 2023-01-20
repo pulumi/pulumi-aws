@@ -14,10 +14,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// The Security Group IDs used by the VPC configuration.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The Subnet IDs used by the VPC configuration.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

@@ -13,49 +13,16 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerRuleActionAuthenticateOidc
     {
-        /// <summary>
-        /// The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
-        /// <summary>
-        /// The authorization endpoint of the IdP.
-        /// </summary>
         public readonly string AuthorizationEndpoint;
-        /// <summary>
-        /// The OAuth 2.0 client identifier.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// The OAuth 2.0 client secret.
-        /// </summary>
         public readonly string ClientSecret;
-        /// <summary>
-        /// The OIDC issuer identifier of the IdP.
-        /// </summary>
         public readonly string Issuer;
-        /// <summary>
-        /// The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
         public readonly string? OnUnauthenticatedRequest;
-        /// <summary>
-        /// The set of user claims to be requested from the IdP.
-        /// </summary>
         public readonly string? Scope;
-        /// <summary>
-        /// The name of the cookie used to maintain session information.
-        /// </summary>
         public readonly string? SessionCookieName;
-        /// <summary>
-        /// The maximum duration of the authentication session, in seconds.
-        /// </summary>
         public readonly int? SessionTimeout;
-        /// <summary>
-        /// The token endpoint of the IdP.
-        /// </summary>
         public readonly string TokenEndpoint;
-        /// <summary>
-        /// The user info endpoint of the IdP.
-        /// </summary>
         public readonly string UserInfoEndpoint;
 
         [OutputConstructor]

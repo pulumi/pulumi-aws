@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics
     {
-        /// <summary>
-        /// Whether prefix-level storage metrics are enabled.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Selection criteria. See Selection Criteria below for more details.
-        /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria? SelectionCriteria;
 
         [OutputConstructor]

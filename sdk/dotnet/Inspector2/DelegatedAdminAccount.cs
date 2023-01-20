@@ -9,49 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Inspector2
 {
-    /// <summary>
-    /// Resource for managing an AWS Inspector V2 Delegated Admin Account.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = new Aws.Inspector2.DelegatedAdminAccount("example", new()
-    ///     {
-    ///         AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")]
     public partial class DelegatedAdminAccount : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Account to enable as delegated admin account.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of this delegated admin account.
-        /// </summary>
         [Output("relationshipStatus")]
         public Output<string> RelationshipStatus { get; private set; } = null!;
 
@@ -101,9 +64,6 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class DelegatedAdminAccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Account to enable as delegated admin account.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -115,15 +75,9 @@ namespace Pulumi.Aws.Inspector2
 
     public sealed class DelegatedAdminAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Account to enable as delegated admin account.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// Status of this delegated admin account.
-        /// </summary>
         [Input("relationshipStatus")]
         public Input<string>? RelationshipStatus { get; set; }
 

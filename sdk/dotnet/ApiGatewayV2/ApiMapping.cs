@@ -9,62 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
-    /// <summary>
-    /// Manages an Amazon API Gateway Version 2 API mapping.
-    /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
-    /// 
-    /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.ApiMapping("example", new()
-    ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         DomainName = aws_apigatewayv2_domain_name.Example.Id,
-    ///         Stage = aws_apigatewayv2_stage.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_apigatewayv2_api_mapping` can be imported by using the API mapping identifier and domain name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigatewayv2/apiMapping:ApiMapping")]
     public partial class ApiMapping : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        /// </summary>
         [Output("apiMappingKey")]
         public Output<string?> ApiMappingKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-        /// </summary>
         [Output("stage")]
         public Output<string> Stage { get; private set; } = null!;
 
@@ -114,27 +70,15 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class ApiMappingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        /// </summary>
         [Input("apiMappingKey")]
         public Input<string>? ApiMappingKey { get; set; }
 
-        /// <summary>
-        /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-        /// </summary>
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
 
@@ -146,27 +90,15 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class ApiMappingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-        /// </summary>
         [Input("apiMappingKey")]
         public Input<string>? ApiMappingKey { get; set; }
 
-        /// <summary>
-        /// Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-        /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 

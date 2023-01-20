@@ -9,89 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Location
 {
-    /// <summary>
-    /// Provides a Location Service Place Index.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Location.PlaceIndex("example", new()
-    ///     {
-    ///         DataSource = "Here",
-    ///         IndexName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_location_place_index` resources can be imported using the place index name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:location/placeIndex:PlaceIndex example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:location/placeIndex:PlaceIndex")]
     public partial class PlaceIndex : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The timestamp for when the place index resource was created in ISO 8601 format.
-        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the geospatial data provider for the new place index.
-        /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with the data storage option chosen for requesting Places. Detailed below.
-        /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.PlaceIndexDataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The optional description for the place index resource.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
-        /// </summary>
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the place index resource.
-        /// </summary>
         [Output("indexName")]
         public Output<string> IndexName { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The timestamp for when the place index resource was last update in ISO 8601.
-        /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -141,36 +85,20 @@ namespace Pulumi.Aws.Location
 
     public sealed class PlaceIndexArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the geospatial data provider for the new place index.
-        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block with the data storage option chosen for requesting Places. Detailed below.
-        /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.PlaceIndexDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// The optional description for the place index resource.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the place index resource.
-        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -185,48 +113,26 @@ namespace Pulumi.Aws.Location
 
     public sealed class PlaceIndexState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The timestamp for when the place index resource was created in ISO 8601 format.
-        /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
-        /// <summary>
-        /// Specifies the geospatial data provider for the new place index.
-        /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
 
-        /// <summary>
-        /// Configuration block with the data storage option chosen for requesting Places. Detailed below.
-        /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.PlaceIndexDataSourceConfigurationGetArgs>? DataSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// The optional description for the place index resource.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
-        /// </summary>
         [Input("indexArn")]
         public Input<string>? IndexArn { get; set; }
 
-        /// <summary>
-        /// The name of the place index resource.
-        /// </summary>
         [Input("indexName")]
         public Input<string>? IndexName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -235,19 +141,12 @@ namespace Pulumi.Aws.Location
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The timestamp for when the place index resource was last update in ISO 8601.
-        /// </summary>
         [Input("updateTime")]
         public Input<string>? UpdateTime { get; set; }
 

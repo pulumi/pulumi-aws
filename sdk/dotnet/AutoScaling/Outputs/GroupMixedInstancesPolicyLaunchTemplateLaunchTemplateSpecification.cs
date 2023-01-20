@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
     {
-        /// <summary>
-        /// ID of the launch template. Conflicts with `launch_template_name`.
-        /// </summary>
         public readonly string? LaunchTemplateId;
-        /// <summary>
-        /// Name of the launch template. Conflicts with `launch_template_id`.
-        /// </summary>
         public readonly string? LaunchTemplateName;
-        /// <summary>
-        /// Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

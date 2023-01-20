@@ -23,52 +23,29 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         [Input("inputId")]
         public Input<string>? InputId { get; set; }
 
-        /// <summary>
-        /// Describes the number of in-application streams to create.
-        /// </summary>
         [Input("inputParallelism")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs>? InputParallelism { get; set; }
 
-        /// <summary>
-        /// The input processing configuration for the input.
-        /// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-        /// </summary>
         [Input("inputProcessingConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs>? InputProcessingConfiguration { get; set; }
 
-        /// <summary>
-        /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        /// </summary>
         [Input("inputSchema", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs> InputSchema { get; set; } = null!;
 
         [Input("inputStartingPositionConfigurations")]
         private InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>? _inputStartingPositionConfigurations;
-
-        /// <summary>
-        /// The point at which the application starts processing records from the streaming source.
-        /// </summary>
         public InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs> InputStartingPositionConfigurations
         {
             get => _inputStartingPositionConfigurations ?? (_inputStartingPositionConfigurations = new InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>());
             set => _inputStartingPositionConfigurations = value;
         }
 
-        /// <summary>
-        /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        /// </summary>
         [Input("kinesisFirehoseInput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs>? KinesisFirehoseInput { get; set; }
 
-        /// <summary>
-        /// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        /// </summary>
         [Input("kinesisStreamsInput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs>? KinesisStreamsInput { get; set; }
 
-        /// <summary>
-        /// The name prefix to use when creating an in-application stream.
-        /// </summary>
         [Input("namePrefix", required: true)]
         public Input<string> NamePrefix { get; set; } = null!;
 

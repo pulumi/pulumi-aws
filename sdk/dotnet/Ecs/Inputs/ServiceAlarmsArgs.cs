@@ -20,15 +20,9 @@ namespace Pulumi.Aws.Ecs.Inputs
             set => _alarmNames = value;
         }
 
-        /// <summary>
-        /// Determines whether to use the CloudWatch alarm option in the service deployment process.
-        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
-        /// <summary>
-        /// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-        /// </summary>
         [Input("rollback", required: true)]
         public Input<bool> Rollback { get; set; } = null!;
 

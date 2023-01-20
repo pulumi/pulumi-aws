@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestination
     {
-        /// <summary>
-        /// Analytics data export currently only supports an S3 bucket destination (documented below).
-        /// </summary>
         public readonly Outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination S3BucketDestination;
 
         [OutputConstructor]

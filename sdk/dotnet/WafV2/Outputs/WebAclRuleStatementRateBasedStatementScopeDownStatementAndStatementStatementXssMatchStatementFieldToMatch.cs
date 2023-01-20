@@ -13,45 +13,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatch
     {
-        /// <summary>
-        /// Inspect all query arguments.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments;
-        /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchBody? Body;
-        /// <summary>
-        /// Inspect the cookies in the web request. See Cookies below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchCookies? Cookies;
-        /// <summary>
-        /// Inspect the request headers. See Headers below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchHeader> Headers;
-        /// <summary>
-        /// Inspect the request body as JSON. See JSON Body for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchJsonBody? JsonBody;
-        /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchMethod? Method;
-        /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString? QueryString;
-        /// <summary>
-        /// Inspect a single header. See Single Header below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader? SingleHeader;
-        /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
-        /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath? UriPath;
 
         [OutputConstructor]

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("dimensions", required: true)]
         private InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionGetArgs>? _dimensions;
-
-        /// <summary>
-        /// Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionGetArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionGetArgs>());

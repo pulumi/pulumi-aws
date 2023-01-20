@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainAutoTuneOptionMaintenanceScheduleResult
     {
-        /// <summary>
-        /// Cron expression for an Auto-Tune maintenance schedule.
-        /// </summary>
         public readonly string CronExpressionForRecurrence;
-        /// <summary>
-        /// Configuration block for the duration of the Auto-Tune maintenance window.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult> Durations;
-        /// <summary>
-        /// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         public readonly string StartAt;
 
         [OutputConstructor]

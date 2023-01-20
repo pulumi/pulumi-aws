@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The override value for the owner on replicated objects. Currently only `Destination` is supported.
-        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 

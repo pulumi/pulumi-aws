@@ -11,89 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetInstanceTypeOffering
     {
-        /// <summary>
-        /// Information about single EC2 Instance Type Offering.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetInstanceTypeOffering.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingFilterInputArgs
-        ///             {
-        ///                 Name = "instance-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "t2.micro",
-        ///                     "t3.micro",
-        ///                 },
-        ///             },
-        ///         },
-        ///         PreferredInstanceTypes = new[]
-        ///         {
-        ///             "t3.micro",
-        ///             "t2.micro",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetInstanceTypeOfferingResult> InvokeAsync(GetInstanceTypeOfferingArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about single EC2 Instance Type Offering.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetInstanceTypeOffering.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingFilterInputArgs
-        ///             {
-        ///                 Name = "instance-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "t2.micro",
-        ///                     "t3.micro",
-        ///                 },
-        ///             },
-        ///         },
-        ///         PreferredInstanceTypes = new[]
-        ///         {
-        ///             "t3.micro",
-        ///             "t2.micro",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetInstanceTypeOfferingResult> Invoke(GetInstanceTypeOfferingInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingInvokeArgs(), options.WithDefaults());
     }
@@ -103,28 +23,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetInstanceTypeOfferingFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetInstanceTypeOfferingFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetInstanceTypeOfferingFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-        /// </summary>
         [Input("locationType")]
         public string? LocationType { get; set; }
 
         [Input("preferredInstanceTypes")]
         private List<string>? _preferredInstanceTypes;
-
-        /// <summary>
-        /// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-        /// </summary>
         public List<string> PreferredInstanceTypes
         {
             get => _preferredInstanceTypes ?? (_preferredInstanceTypes = new List<string>());
@@ -141,28 +50,17 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetInstanceTypeOfferingFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetInstanceTypeOfferingFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetInstanceTypeOfferingFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-        /// </summary>
         [Input("locationType")]
         public Input<string>? LocationType { get; set; }
 
         [Input("preferredInstanceTypes")]
         private InputList<string>? _preferredInstanceTypes;
-
-        /// <summary>
-        /// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-        /// </summary>
         public InputList<string> PreferredInstanceTypes
         {
             get => _preferredInstanceTypes ?? (_preferredInstanceTypes = new InputList<string>());
@@ -184,9 +82,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// EC2 Instance Type.
-        /// </summary>
         public readonly string InstanceType;
         public readonly string? LocationType;
         public readonly ImmutableArray<string> PreferredInstanceTypes;

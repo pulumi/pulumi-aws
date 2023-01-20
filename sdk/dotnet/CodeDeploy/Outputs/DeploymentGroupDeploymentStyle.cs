@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupDeploymentStyle
     {
-        /// <summary>
-        /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-        /// </summary>
         public readonly string? DeploymentOption;
-        /// <summary>
-        /// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
-        /// </summary>
         public readonly string? DeploymentType;
 
         [OutputConstructor]

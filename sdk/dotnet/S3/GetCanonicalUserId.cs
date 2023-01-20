@@ -11,34 +11,6 @@ namespace Pulumi.Aws.S3
 {
     public static class GetCanonicalUserId
     {
-        /// <summary>
-        /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
-        /// for the effective account in which this provider is working.  
-        /// 
-        /// &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["canonicalUserId"] = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetCanonicalUserIdResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -47,9 +19,6 @@ namespace Pulumi.Aws.S3
     [OutputType]
     public sealed class GetCanonicalUserIdResult
     {
-        /// <summary>
-        /// Human-friendly name linked to the canonical user ID. The bucket owner's display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
-        /// </summary>
         public readonly string DisplayName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

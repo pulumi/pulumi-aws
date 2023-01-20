@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     [OutputType]
     public sealed class ConfigurationSetDeliveryOptions
     {
-        /// <summary>
-        /// The name of the dedicated IP pool to associate with the configuration set.
-        /// </summary>
         public readonly string? SendingPoolName;
-        /// <summary>
-        /// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-        /// </summary>
         public readonly string? TlsPolicy;
 
         [OutputConstructor]

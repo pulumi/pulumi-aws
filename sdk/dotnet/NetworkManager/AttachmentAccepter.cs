@@ -9,105 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Resource for managing an AWS NetworkManager Attachment Accepter.
-    /// 
-    /// ## Example Usage
-    /// ### Example with VPC attachment
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
-    ///     {
-    ///         AttachmentId = aws_networkmanager_vpc_attachment.Vpc.Id,
-    ///         AttachmentType = aws_networkmanager_vpc_attachment.Vpc.Attachment_type,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example with site-to-site VPN attachment
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.NetworkManager.AttachmentAccepter("test", new()
-    ///     {
-    ///         AttachmentId = aws_networkmanager_site_to_site_vpn_attachment.Vpn.Id,
-    ///         AttachmentType = aws_networkmanager_site_to_site_vpn_attachment.Vpn.Attachment_type,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/attachmentAccepter:AttachmentAccepter")]
     public partial class AttachmentAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the attachment.
-        /// </summary>
         [Output("attachmentId")]
         public Output<string> AttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy rule number associated with the attachment.
-        /// </summary>
         [Output("attachmentPolicyRuleNumber")]
         public Output<int> AttachmentPolicyRuleNumber { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
-        /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of a core network.
-        /// </summary>
         [Output("coreNetworkArn")]
         public Output<string> CoreNetworkArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The id of a core network.
-        /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Region where the edge is located.
-        /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the attachment account owner.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The attachment resource ARN.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the segment attachment.
-        /// </summary>
         [Output("segmentName")]
         public Output<string> SegmentName { get; private set; } = null!;
 
-        /// <summary>
-        /// The state of the attachment.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -157,15 +88,9 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class AttachmentAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the attachment.
-        /// </summary>
         [Input("attachmentId", required: true)]
         public Input<string> AttachmentId { get; set; } = null!;
 
-        /// <summary>
-        /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
-        /// </summary>
         [Input("attachmentType", required: true)]
         public Input<string> AttachmentType { get; set; } = null!;
 
@@ -177,63 +102,33 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class AttachmentAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the attachment.
-        /// </summary>
         [Input("attachmentId")]
         public Input<string>? AttachmentId { get; set; }
 
-        /// <summary>
-        /// The policy rule number associated with the attachment.
-        /// </summary>
         [Input("attachmentPolicyRuleNumber")]
         public Input<int>? AttachmentPolicyRuleNumber { get; set; }
 
-        /// <summary>
-        /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
-        /// </summary>
         [Input("attachmentType")]
         public Input<string>? AttachmentType { get; set; }
 
-        /// <summary>
-        /// The ARN of a core network.
-        /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
-        /// <summary>
-        /// The id of a core network.
-        /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }
 
-        /// <summary>
-        /// The Region where the edge is located.
-        /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
 
-        /// <summary>
-        /// The ID of the attachment account owner.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// The attachment resource ARN.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// The name of the segment attachment.
-        /// </summary>
         [Input("segmentName")]
         public Input<string>? SegmentName { get; set; }
 
-        /// <summary>
-        /// The state of the attachment.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

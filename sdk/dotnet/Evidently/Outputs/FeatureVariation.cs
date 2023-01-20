@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Evidently.Outputs
     [OutputType]
     public sealed class FeatureVariation
     {
-        /// <summary>
-        /// The name of the variation. Minimum length of `1`. Maximum length of `127`.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A block that specifies the value assigned to this variation. Detailed below
-        /// </summary>
         public readonly Outputs.FeatureVariationValue Value;
 
         [OutputConstructor]

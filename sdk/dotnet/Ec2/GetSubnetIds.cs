@@ -11,23 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetSubnetIds
     {
-        /// <summary>
-        /// `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-        /// 
-        /// This resource can be useful for getting back a set of subnet ids for a vpc.
-        /// 
-        /// &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-        /// </summary>
         public static Task<GetSubnetIdsResult> InvokeAsync(GetSubnetIdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-        /// 
-        /// This resource can be useful for getting back a set of subnet ids for a vpc.
-        /// 
-        /// &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-        /// </summary>
         public static Output<GetSubnetIdsResult> Invoke(GetSubnetIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsInvokeArgs(), options.WithDefaults());
     }
@@ -37,10 +23,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetSubnetIdsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetSubnetIdsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetSubnetIdsFilterArgs>());
@@ -49,20 +31,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired subnets.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC ID that you want to filter from.
-        /// </summary>
         [Input("vpcId", required: true)]
         public string VpcId { get; set; } = null!;
 
@@ -76,10 +50,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetSubnetIdsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetSubnetIdsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetSubnetIdsFilterInputArgs>());
@@ -88,20 +58,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired subnets.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC ID that you want to filter from.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -120,9 +82,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of all the subnet ids found. This data source will fail if none are found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;

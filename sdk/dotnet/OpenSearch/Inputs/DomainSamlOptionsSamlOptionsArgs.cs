@@ -12,30 +12,17 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainSamlOptionsSamlOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether SAML authentication is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Information from your identity provider.
-        /// </summary>
         [Input("idp")]
         public Input<Inputs.DomainSamlOptionsSamlOptionsIdpArgs>? Idp { get; set; }
 
-        /// <summary>
-        /// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-        /// </summary>
         [Input("masterBackendRole")]
         public Input<string>? MasterBackendRole { get; set; }
 
         [Input("masterUserName")]
         private Input<string>? _masterUserName;
-
-        /// <summary>
-        /// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-        /// </summary>
         public Input<string>? MasterUserName
         {
             get => _masterUserName;
@@ -46,21 +33,12 @@ namespace Pulumi.Aws.OpenSearch.Inputs
             }
         }
 
-        /// <summary>
-        /// Element of the SAML assertion to use for backend roles. Default is roles.
-        /// </summary>
         [Input("rolesKey")]
         public Input<string>? RolesKey { get; set; }
 
-        /// <summary>
-        /// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-        /// </summary>
         [Input("sessionTimeoutMinutes")]
         public Input<int>? SessionTimeoutMinutes { get; set; }
 
-        /// <summary>
-        /// Element of the SAML assertion to use for username. Default is NameID.
-        /// </summary>
         [Input("subjectKey")]
         public Input<string>? SubjectKey { get; set; }
 

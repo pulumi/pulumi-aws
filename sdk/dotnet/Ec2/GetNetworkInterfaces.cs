@@ -11,171 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetNetworkInterfaces
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following shows outputing all network interface ids in a region.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Name", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example1"] = example.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// The following example retrieves a network interface ids which associated
-        /// with specific subnet.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetNetworkInterfacesFilterInputArgs
-        ///             {
-        ///                 Name = "subnet-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     aws_subnet.Test.Id,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetNetworkInterfacesResult> InvokeAsync(GetNetworkInterfacesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacesResult>("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args ?? new GetNetworkInterfacesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following shows outputing all network interface ids in a region.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Name", "test" },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example1"] = example.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// The following example retrieves a network interface ids which associated
-        /// with specific subnet.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleNetworkInterfaces = Aws.Ec2.GetNetworkInterfaces.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetNetworkInterfacesFilterInputArgs
-        ///             {
-        ///                 Name = "subnet-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     aws_subnet.Test.Id,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example"] = exampleNetworkInterfaces.Apply(getNetworkInterfacesResult =&gt; getNetworkInterfacesResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetNetworkInterfacesResult> Invoke(GetNetworkInterfacesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfacesResult>("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args ?? new GetNetworkInterfacesInvokeArgs(), options.WithDefaults());
     }
@@ -185,10 +23,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetNetworkInterfacesFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetNetworkInterfacesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetNetworkInterfacesFilterArgs>());
@@ -197,11 +31,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired network interfaces.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -218,10 +47,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetNetworkInterfacesFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetNetworkInterfacesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetNetworkInterfacesFilterInputArgs>());
@@ -230,11 +55,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired network interfaces.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -256,9 +76,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of all the network interface ids found.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string> Tags;
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class GetExperienceConfigurationContentSourceConfigurationResult
     {
-        /// <summary>
-        /// Identifiers of the data sources you want to use for your Amazon Kendra Experience.
-        /// </summary>
         public readonly ImmutableArray<string> DataSourceIds;
-        /// <summary>
-        /// Whether to use documents you indexed directly using the `BatchPutDocument API`.
-        /// </summary>
         public readonly bool DirectPutContent;
-        /// <summary>
-        /// Identifier of the FAQs that you want to use for your Amazon Kendra Experience.
-        /// </summary>
         public readonly ImmutableArray<string> FaqIds;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesS3
     {
-        /// <summary>
-        /// Amazon S3 bucket name where the source files are stored.
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// Object key for the Amazon S3 bucket in which the source files are stored.
-        /// </summary>
         public readonly string? BucketPrefix;
-        /// <summary>
-        /// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
-        /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig? S3InputFormatConfig;
 
         [OutputConstructor]

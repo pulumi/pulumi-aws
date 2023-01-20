@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointDeploymentConfigAutoRollbackConfigurationAlarm
     {
-        /// <summary>
-        /// The name of a CloudWatch alarm in your account.
-        /// </summary>
         public readonly string AlarmName;
 
         [OutputConstructor]

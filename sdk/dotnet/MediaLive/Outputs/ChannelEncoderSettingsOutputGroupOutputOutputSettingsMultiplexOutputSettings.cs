@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings
     {
-        /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination Destination;
 
         [OutputConstructor]

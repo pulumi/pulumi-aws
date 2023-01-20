@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleErrorActionIotAnalyticsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of AWS IOT Analytics channel.
-        /// </summary>
         [Input("channelName", required: true)]
         public Input<string> ChannelName { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

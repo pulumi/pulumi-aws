@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class IdentityProviderConfigOidc
     {
-        /// <summary>
-        /// Client ID for the OpenID Connect identity provider.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// The JWT claim that the provider will use to return groups.
-        /// </summary>
         public readonly string? GroupsClaim;
-        /// <summary>
-        /// A prefix that is prepended to group claims e.g., `oidc:`.
-        /// </summary>
         public readonly string? GroupsPrefix;
-        /// <summary>
-        /// The name of the identity provider config.
-        /// </summary>
         public readonly string IdentityProviderConfigName;
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
         public readonly string IssuerUrl;
-        /// <summary>
-        /// The key value pairs that describe required claims in the identity token.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? RequiredClaims;
-        /// <summary>
-        /// The JWT claim that the provider will use as the username.
-        /// </summary>
         public readonly string? UsernameClaim;
-        /// <summary>
-        /// A prefix that is prepended to username claims.
-        /// </summary>
         public readonly string? UsernamePrefix;
 
         [OutputConstructor]

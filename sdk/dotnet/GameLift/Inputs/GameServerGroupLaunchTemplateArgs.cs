@@ -12,21 +12,12 @@ namespace Pulumi.Aws.GameLift.Inputs
 
     public sealed class GameServerGroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique identifier for an existing EC2 launch template.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// A readable identifier for an existing EC2 launch template.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The version of the EC2 launch template to use. If none is set, the default is the first version created.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

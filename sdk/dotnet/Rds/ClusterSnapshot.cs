@@ -9,95 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `aws.rds.Snapshot` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rds.ClusterSnapshot("example", new()
-    ///     {
-    ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
-    ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_db_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/clusterSnapshot:ClusterSnapshot")]
     public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Allocated storage size in gigabytes (GB).
-        /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
 
-        /// <summary>
-        /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
-        /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
-        /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Identifier for the snapshot.
-        /// </summary>
         [Output("dbClusterSnapshotIdentifier")]
         public Output<string> DbClusterSnapshotIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the database engine.
-        /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the database engine for this DB cluster snapshot.
-        /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// License model information for the restored DB cluster.
-        /// </summary>
         [Output("licenseModel")]
         public Output<string> LicenseModel { get; private set; } = null!;
 
-        /// <summary>
-        /// Port that the DB cluster was listening on at the time of the snapshot.
-        /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
@@ -107,33 +48,18 @@ namespace Pulumi.Aws.Rds
         [Output("sourceDbClusterSnapshotArn")]
         public Output<string> SourceDbClusterSnapshotArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of this DB Cluster Snapshot.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the DB cluster snapshot is encrypted.
-        /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC ID associated with the DB cluster snapshot.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -183,24 +109,14 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterSnapshotArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
-        /// </summary>
         [Input("dbClusterIdentifier", required: true)]
         public Input<string> DbClusterIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The Identifier for the snapshot.
-        /// </summary>
         [Input("dbClusterSnapshotIdentifier", required: true)]
         public Input<string> DbClusterSnapshotIdentifier { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -215,69 +131,38 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ClusterSnapshotState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Allocated storage size in gigabytes (GB).
-        /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
-
-        /// <summary>
-        /// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
             set => _availabilityZones = value;
         }
 
-        /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
-        /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }
 
-        /// <summary>
-        /// The Identifier for the snapshot.
-        /// </summary>
         [Input("dbClusterSnapshotIdentifier")]
         public Input<string>? DbClusterSnapshotIdentifier { get; set; }
 
-        /// <summary>
-        /// Name of the database engine.
-        /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
-        /// <summary>
-        /// Version of the database engine for this DB cluster snapshot.
-        /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
-        /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// License model information for the restored DB cluster.
-        /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
 
-        /// <summary>
-        /// Port that the DB cluster was listening on at the time of the snapshot.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
@@ -287,24 +172,14 @@ namespace Pulumi.Aws.Rds
         [Input("sourceDbClusterSnapshotArn")]
         public Input<string>? SourceDbClusterSnapshotArn { get; set; }
 
-        /// <summary>
-        /// The status of this DB Cluster Snapshot.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// Whether the DB cluster snapshot is encrypted.
-        /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -313,19 +188,12 @@ namespace Pulumi.Aws.Rds
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The VPC ID associated with the DB cluster snapshot.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

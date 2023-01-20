@@ -9,55 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Msk
 {
-    /// <summary>
-    /// Manages an Amazon MSK Serverless cluster.
-    /// 
-    /// &gt; **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
-    /// 
-    /// ## Import
-    /// 
-    /// MSK serverless clusters can be imported using the cluster `arn`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:msk/serverlessCluster:ServerlessCluster")]
     public partial class ServerlessCluster : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the serverless cluster.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies client authentication information for the serverless cluster. See below.
-        /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ServerlessClusterClientAuthentication> ClientAuthentication { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the serverless cluster.
-        /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// VPC configuration information. See below.
-        /// </summary>
         [Output("vpcConfigs")]
         public Output<ImmutableArray<Outputs.ServerlessClusterVpcConfig>> VpcConfigs { get; private set; } = null!;
 
@@ -107,24 +76,14 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ServerlessClusterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies client authentication information for the serverless cluster. See below.
-        /// </summary>
         [Input("clientAuthentication", required: true)]
         public Input<Inputs.ServerlessClusterClientAuthenticationArgs> ClientAuthentication { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the serverless cluster.
-        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -133,10 +92,6 @@ namespace Pulumi.Aws.Msk
 
         [Input("vpcConfigs", required: true)]
         private InputList<Inputs.ServerlessClusterVpcConfigArgs>? _vpcConfigs;
-
-        /// <summary>
-        /// VPC configuration information. See below.
-        /// </summary>
         public InputList<Inputs.ServerlessClusterVpcConfigArgs> VpcConfigs
         {
             get => _vpcConfigs ?? (_vpcConfigs = new InputList<Inputs.ServerlessClusterVpcConfigArgs>());
@@ -151,30 +106,17 @@ namespace Pulumi.Aws.Msk
 
     public sealed class ServerlessClusterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the serverless cluster.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Specifies client authentication information for the serverless cluster. See below.
-        /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ServerlessClusterClientAuthenticationGetArgs>? ClientAuthentication { get; set; }
 
-        /// <summary>
-        /// The name of the serverless cluster.
-        /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -183,10 +125,6 @@ namespace Pulumi.Aws.Msk
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -195,10 +133,6 @@ namespace Pulumi.Aws.Msk
 
         [Input("vpcConfigs")]
         private InputList<Inputs.ServerlessClusterVpcConfigGetArgs>? _vpcConfigs;
-
-        /// <summary>
-        /// VPC configuration information. See below.
-        /// </summary>
         public InputList<Inputs.ServerlessClusterVpcConfigGetArgs> VpcConfigs
         {
             get => _vpcConfigs ?? (_vpcConfigs = new InputList<Inputs.ServerlessClusterVpcConfigGetArgs>());

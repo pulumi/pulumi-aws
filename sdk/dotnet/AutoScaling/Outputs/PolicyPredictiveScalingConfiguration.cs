@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingConfiguration
     {
-        /// <summary>
-        /// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
-        /// </summary>
         public readonly string? MaxCapacityBreachBehavior;
-        /// <summary>
-        /// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
-        /// </summary>
         public readonly string? MaxCapacityBuffer;
-        /// <summary>
-        /// This structure includes the metrics and target utilization to use for predictive scaling.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingConfigurationMetricSpecification MetricSpecification;
-        /// <summary>
-        /// Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
-        /// </summary>
         public readonly string? Mode;
-        /// <summary>
-        /// Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
-        /// </summary>
         public readonly string? SchedulingBufferTime;
 
         [OutputConstructor]

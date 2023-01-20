@@ -9,73 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Creates and manages an AWS IoT Thing.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.Thing("example", new()
-    ///     {
-    ///         Attributes = 
-    ///         {
-    ///             { "First", "examplevalue" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IOT Things can be imported using the name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/thing:Thing example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/thing:Thing")]
     public partial class Thing : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the thing.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of attributes of the thing.
-        /// </summary>
         [Output("attributes")]
         public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
-        /// <summary>
-        /// The default client ID.
-        /// </summary>
         [Output("defaultClientId")]
         public Output<string> DefaultClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the thing.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The thing type name.
-        /// </summary>
         [Output("thingTypeName")]
         public Output<string?> ThingTypeName { get; private set; } = null!;
 
-        /// <summary>
-        /// The current version of the thing record in the registry.
-        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -127,25 +78,15 @@ namespace Pulumi.Aws.Iot
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
-
-        /// <summary>
-        /// Map of attributes of the thing.
-        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 
-        /// <summary>
-        /// The name of the thing.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The thing type name.
-        /// </summary>
         [Input("thingTypeName")]
         public Input<string>? ThingTypeName { get; set; }
 
@@ -157,45 +98,26 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ThingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the thing.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("attributes")]
         private InputMap<string>? _attributes;
-
-        /// <summary>
-        /// Map of attributes of the thing.
-        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 
-        /// <summary>
-        /// The default client ID.
-        /// </summary>
         [Input("defaultClientId")]
         public Input<string>? DefaultClientId { get; set; }
 
-        /// <summary>
-        /// The name of the thing.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The thing type name.
-        /// </summary>
         [Input("thingTypeName")]
         public Input<string>? ThingTypeName { get; set; }
 
-        /// <summary>
-        /// The current version of the thing record in the registry.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

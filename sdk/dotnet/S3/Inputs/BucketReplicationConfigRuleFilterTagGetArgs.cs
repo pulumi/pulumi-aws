@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigRuleFilterTagGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the object key.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the tag.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

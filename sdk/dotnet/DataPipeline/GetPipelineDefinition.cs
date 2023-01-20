@@ -11,57 +11,9 @@ namespace Pulumi.Aws.DataPipeline
 {
     public static class GetPipelineDefinition
     {
-        /// <summary>
-        /// Provides details about a specific DataPipeline Pipeline Definition.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DataPipeline.GetPipelineDefinition.Invoke(new()
-        ///     {
-        ///         PipelineId = "pipelineID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetPipelineDefinitionResult> InvokeAsync(GetPipelineDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific DataPipeline Pipeline Definition.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DataPipeline.GetPipelineDefinition.Invoke(new()
-        ///     {
-        ///         PipelineId = "pipelineID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetPipelineDefinitionResult> Invoke(GetPipelineDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionInvokeArgs(), options.WithDefaults());
     }
@@ -71,19 +23,12 @@ namespace Pulumi.Aws.DataPipeline
     {
         [Input("parameterValues")]
         private List<Inputs.GetPipelineDefinitionParameterValueArgs>? _parameterValues;
-
-        /// <summary>
-        /// Parameter values used in the pipeline definition. See below
-        /// </summary>
         public List<Inputs.GetPipelineDefinitionParameterValueArgs> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new List<Inputs.GetPipelineDefinitionParameterValueArgs>());
             set => _parameterValues = value;
         }
 
-        /// <summary>
-        /// ID of the pipeline.
-        /// </summary>
         [Input("pipelineId", required: true)]
         public string PipelineId { get; set; } = null!;
 
@@ -97,19 +42,12 @@ namespace Pulumi.Aws.DataPipeline
     {
         [Input("parameterValues")]
         private InputList<Inputs.GetPipelineDefinitionParameterValueInputArgs>? _parameterValues;
-
-        /// <summary>
-        /// Parameter values used in the pipeline definition. See below
-        /// </summary>
         public InputList<Inputs.GetPipelineDefinitionParameterValueInputArgs> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputList<Inputs.GetPipelineDefinitionParameterValueInputArgs>());
             set => _parameterValues = value;
         }
 
-        /// <summary>
-        /// ID of the pipeline.
-        /// </summary>
         [Input("pipelineId", required: true)]
         public Input<string> PipelineId { get; set; } = null!;
 
@@ -127,18 +65,9 @@ namespace Pulumi.Aws.DataPipeline
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Parameter objects used in the pipeline definition. See below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPipelineDefinitionParameterObjectResult> ParameterObjects;
-        /// <summary>
-        /// Parameter values used in the pipeline definition. See below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPipelineDefinitionParameterValueResult> ParameterValues;
         public readonly string PipelineId;
-        /// <summary>
-        /// Objects defined in the pipeline. See below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPipelineDefinitionPipelineObjectResult> PipelineObjects;
 
         [OutputConstructor]

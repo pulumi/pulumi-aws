@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelDestinationMediaPackageSetting
     {
-        /// <summary>
-        /// ID of the channel in MediaPackage that is the destination for this output group.
-        /// </summary>
         public readonly string ChannelId;
 
         [OutputConstructor]

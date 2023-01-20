@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DirectoryService.Outputs
     [OutputType]
     public sealed class ServiceRegionVpcSettings
     {
-        /// <summary>
-        /// The identifiers of the subnets for the directory servers.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The identifier of the VPC in which to create the directory.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

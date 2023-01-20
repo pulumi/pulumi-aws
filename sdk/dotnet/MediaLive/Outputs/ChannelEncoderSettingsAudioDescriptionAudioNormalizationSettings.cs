@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings
     {
-        /// <summary>
-        /// Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-        /// </summary>
         public readonly string? Algorithm;
-        /// <summary>
-        /// Algorithm control for the audio description.
-        /// </summary>
         public readonly string? AlgorithmControl;
-        /// <summary>
-        /// Target LKFS (loudness) to adjust volume to.
-        /// </summary>
         public readonly double? TargetLkfs;
 
         [OutputConstructor]

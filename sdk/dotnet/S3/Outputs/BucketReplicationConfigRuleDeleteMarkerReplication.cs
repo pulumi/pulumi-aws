@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketReplicationConfigRuleDeleteMarkerReplication
     {
-        /// <summary>
-        /// Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
-        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

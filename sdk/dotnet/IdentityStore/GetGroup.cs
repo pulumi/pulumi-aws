@@ -11,15 +11,9 @@ namespace Pulumi.Aws.IdentityStore
 {
     public static class GetGroup
     {
-        /// <summary>
-        /// Use this data source to get an Identity Store Group.
-        /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get an Identity Store Group.
-        /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws:identitystore/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -27,27 +21,15 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-        /// </summary>
         [Input("alternateIdentifier")]
         public Inputs.GetGroupAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
-        /// <summary>
-        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
-        /// </summary>
         [Input("filter")]
         public Inputs.GetGroupFilterArgs? Filter { get; set; }
 
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         [Input("groupId")]
         public string? GroupId { get; set; }
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
 
@@ -59,27 +41,15 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-        /// </summary>
         [Input("alternateIdentifier")]
         public Input<Inputs.GetGroupAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
 
-        /// <summary>
-        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.GetGroupFilterInputArgs>? Filter { get; set; }
 
-        /// <summary>
-        /// The identifier for a group in the Identity Store.
-        /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
 
@@ -94,17 +64,8 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetGroupResult
     {
         public readonly Outputs.GetGroupAlternateIdentifierResult? AlternateIdentifier;
-        /// <summary>
-        /// Description of the specified group.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Group's display name value.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// List of identifiers issued to this resource by an external identity provider.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupExternalIdResult> ExternalIds;
         public readonly Outputs.GetGroupFilterResult? Filter;
         public readonly string GroupId;

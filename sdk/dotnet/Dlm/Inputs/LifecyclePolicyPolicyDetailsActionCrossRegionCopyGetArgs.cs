@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-        /// </summary>
         [Input("encryptionConfiguration", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationGetArgs> EncryptionConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
-        /// </summary>
         [Input("retainRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleGetArgs>? RetainRule { get; set; }
 
-        /// <summary>
-        /// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 

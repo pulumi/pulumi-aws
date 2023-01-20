@@ -12,34 +12,18 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ReportGroupExportConfigS3DestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the S3 bucket where the raw data of a report are exported.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// A boolean value that specifies if the results of a report are encrypted.
-        /// **Note: the API does not currently allow setting encryption as disabled**
-        /// </summary>
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }
 
-        /// <summary>
-        /// The encryption key for the report's encrypted raw data. The KMS key ARN.
-        /// </summary>
         [Input("encryptionKey", required: true)]
         public Input<string> EncryptionKey { get; set; } = null!;
 
-        /// <summary>
-        /// The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-        /// </summary>
         [Input("packaging")]
         public Input<string>? Packaging { get; set; }
 
-        /// <summary>
-        /// The path to the exported report's raw data results.
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

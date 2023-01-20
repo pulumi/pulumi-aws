@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Waf.Outputs
     [OutputType]
     public sealed class RuleGroupActivatedRuleAction
     {
-        /// <summary>
-        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

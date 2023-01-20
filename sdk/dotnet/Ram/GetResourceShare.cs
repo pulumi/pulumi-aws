@@ -11,115 +11,9 @@ namespace Pulumi.Aws.Ram
 {
     public static class GetResourceShare
     {
-        /// <summary>
-        /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ram.GetResourceShare.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         ResourceOwner = "SELF",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// ## Search by filters
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
-        ///             {
-        ///                 Name = "NameOfTag",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "exampleNameTagValue",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Name = "MyResourceName",
-        ///         ResourceOwner = "SELF",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ram.GetResourceShare.Invoke(new()
-        ///     {
-        ///         Name = "example",
-        ///         ResourceOwner = "SELF",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// ## Search by filters
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
-        ///             {
-        ///                 Name = "NameOfTag",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "exampleNameTagValue",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Name = "MyResourceName",
-        ///         ResourceOwner = "SELF",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// </summary>
         public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
     }
@@ -129,40 +23,23 @@ namespace Pulumi.Aws.Ram
     {
         [Input("filters")]
         private List<Inputs.GetResourceShareFilterArgs>? _filters;
-
-        /// <summary>
-        /// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-        /// </summary>
         public List<Inputs.GetResourceShareFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetResourceShareFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Name of the tag key to filter on.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-        /// </summary>
         [Input("resourceOwner", required: true)]
         public string ResourceOwner { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-        /// </summary>
         [Input("resourceShareStatus")]
         public string? ResourceShareStatus { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags attached to the RAM share
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -179,40 +56,23 @@ namespace Pulumi.Aws.Ram
     {
         [Input("filters")]
         private InputList<Inputs.GetResourceShareFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-        /// </summary>
         public InputList<Inputs.GetResourceShareFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetResourceShareFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Name of the tag key to filter on.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-        /// </summary>
         [Input("resourceOwner", required: true)]
         public Input<string> ResourceOwner { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-        /// </summary>
         [Input("resourceShareStatus")]
         public Input<string>? ResourceShareStatus { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags attached to the RAM share
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -229,9 +89,6 @@ namespace Pulumi.Aws.Ram
     [OutputType]
     public sealed class GetResourceShareResult
     {
-        /// <summary>
-        /// ARN of the resource share.
-        /// </summary>
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetResourceShareFilterResult> Filters;
         /// <summary>
@@ -239,19 +96,10 @@ namespace Pulumi.Aws.Ram
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// ID of the AWS account that owns the resource share.
-        /// </summary>
         public readonly string OwningAccountId;
         public readonly string ResourceOwner;
         public readonly string? ResourceShareStatus;
-        /// <summary>
-        /// Status of the RAM share.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Tags attached to the RAM share
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup
     {
-        /// <summary>
-        /// The key of the application execution property key-value map.
-        /// </summary>
         public readonly string PropertyGroupId;
-        /// <summary>
-        /// Application execution property key-value map.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> PropertyMap;
 
         [OutputConstructor]

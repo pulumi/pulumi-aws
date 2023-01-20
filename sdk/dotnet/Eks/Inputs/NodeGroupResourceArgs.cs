@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Eks.Inputs
     {
         [Input("autoscalingGroups")]
         private InputList<Inputs.NodeGroupResourceAutoscalingGroupArgs>? _autoscalingGroups;
-
-        /// <summary>
-        /// List of objects containing information about AutoScaling Groups.
-        /// </summary>
         public InputList<Inputs.NodeGroupResourceAutoscalingGroupArgs> AutoscalingGroups
         {
             get => _autoscalingGroups ?? (_autoscalingGroups = new InputList<Inputs.NodeGroupResourceAutoscalingGroupArgs>());
             set => _autoscalingGroups = value;
         }
 
-        /// <summary>
-        /// Identifier of the remote access EC2 Security Group.
-        /// </summary>
         [Input("remoteAccessSecurityGroupId")]
         public Input<string>? RemoteAccessSecurityGroupId { get; set; }
 

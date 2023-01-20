@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolSchemaStringAttributeConstraintsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum length of an attribute value of the string type.
-        /// </summary>
         [Input("maxLength")]
         public Input<string>? MaxLength { get; set; }
 
-        /// <summary>
-        /// Minimum length of an attribute value of the string type.
-        /// </summary>
         [Input("minLength")]
         public Input<string>? MinLength { get; set; }
 

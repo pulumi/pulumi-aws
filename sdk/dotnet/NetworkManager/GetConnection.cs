@@ -11,59 +11,9 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetConnection
     {
-        /// <summary>
-        /// Retrieve information about a connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         ConnectionId = @var.Connection_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:networkmanager/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetConnection.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         ConnectionId = @var.Connection_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:networkmanager/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
@@ -71,24 +21,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the specific connection to retrieve.
-        /// </summary>
         [Input("connectionId", required: true)]
         public string ConnectionId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the Global Network of the connection to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the connection.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -103,24 +43,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the specific connection to retrieve.
-        /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the Global Network of the connection to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the connection.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -137,39 +67,18 @@ namespace Pulumi.Aws.NetworkManager
     [OutputType]
     public sealed class GetConnectionResult
     {
-        /// <summary>
-        /// ARN of the connection.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// ID of the second device in the connection.
-        /// </summary>
         public readonly string ConnectedDeviceId;
-        /// <summary>
-        /// ID of the link for the second device.
-        /// </summary>
         public readonly string ConnectedLinkId;
         public readonly string ConnectionId;
-        /// <summary>
-        /// Description of the connection.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// ID of the first device in the connection.
-        /// </summary>
         public readonly string DeviceId;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ID of the link for the first device.
-        /// </summary>
         public readonly string LinkId;
-        /// <summary>
-        /// Key-value tags for the connection.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

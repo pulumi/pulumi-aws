@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterEncryptionInfoEncryptionInTransit
     {
-        /// <summary>
-        /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-        /// </summary>
         public readonly string? ClientBroker;
-        /// <summary>
-        /// Whether data communication among broker nodes is encrypted. Default value: `true`.
-        /// </summary>
         public readonly bool? InCluster;
 
         [OutputConstructor]

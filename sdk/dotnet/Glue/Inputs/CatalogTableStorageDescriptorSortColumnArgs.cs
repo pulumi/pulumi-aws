@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableStorageDescriptorSortColumnArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the column.
-        /// </summary>
         [Input("column", required: true)]
         public Input<string> Column { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the column is sorted in ascending (`1`) or descending order (`0`).
-        /// </summary>
         [Input("sortOrder", required: true)]
         public Input<int> SortOrder { get; set; } = null!;
 

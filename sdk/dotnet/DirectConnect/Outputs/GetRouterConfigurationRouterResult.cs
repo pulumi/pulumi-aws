@@ -13,25 +13,10 @@ namespace Pulumi.Aws.DirectConnect.Outputs
     [OutputType]
     public sealed class GetRouterConfigurationRouterResult
     {
-        /// <summary>
-        /// Router platform
-        /// </summary>
         public readonly string Platform;
-        /// <summary>
-        /// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-        /// </summary>
         public readonly string RouterTypeIdentifier;
-        /// <summary>
-        /// Router operating system
-        /// </summary>
         public readonly string Software;
-        /// <summary>
-        /// Router vendor
-        /// </summary>
         public readonly string Vendor;
-        /// <summary>
-        /// Router XSLT Template Name
-        /// </summary>
         public readonly string XsltTemplateName;
         public readonly string XsltTemplateNameForMacSec;
 

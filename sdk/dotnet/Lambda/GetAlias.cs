@@ -11,59 +11,9 @@ namespace Pulumi.Aws.Lambda
 {
     public static class GetAlias
     {
-        /// <summary>
-        /// Provides information about a Lambda Alias.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var production = Aws.Lambda.GetAlias.Invoke(new()
-        ///     {
-        ///         FunctionName = "my-lambda-func",
-        ///         Name = "production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Lambda Alias.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var production = Aws.Lambda.GetAlias.Invoke(new()
-        ///     {
-        ///         FunctionName = "my-lambda-func",
-        ///         Name = "production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
@@ -71,15 +21,9 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the aliased Lambda function.
-        /// </summary>
         [Input("functionName", required: true)]
         public string FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Lambda alias.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -91,15 +35,9 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the aliased Lambda function.
-        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Lambda alias.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -113,26 +51,14 @@ namespace Pulumi.Aws.Lambda
     [OutputType]
     public sealed class GetAliasResult
     {
-        /// <summary>
-        /// ARN identifying the Lambda function alias.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of alias.
-        /// </summary>
         public readonly string Description;
         public readonly string FunctionName;
-        /// <summary>
-        /// Lambda function version which the alias uses.
-        /// </summary>
         public readonly string FunctionVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
-        /// </summary>
         public readonly string InvokeArn;
         public readonly string Name;
 

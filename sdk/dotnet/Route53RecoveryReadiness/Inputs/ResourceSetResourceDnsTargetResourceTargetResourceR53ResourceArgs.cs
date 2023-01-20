@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
 
     public sealed class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Domain name that is targeted.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// Resource record set ID that is targeted.
-        /// </summary>
         [Input("recordSetId")]
         public Input<string>? RecordSetId { get; set; }
 

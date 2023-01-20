@@ -14,28 +14,17 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     {
         [Input("edgeLocations")]
         private InputList<string>? _edgeLocations;
-
-        /// <summary>
-        /// Regions where the edges are located.
-        /// </summary>
         public InputList<string> EdgeLocations
         {
             get => _edgeLocations ?? (_edgeLocations = new InputList<string>());
             set => _edgeLocations = value;
         }
 
-        /// <summary>
-        /// Name of a core network segment.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("sharedSegments")]
         private InputList<string>? _sharedSegments;
-
-        /// <summary>
-        /// Shared segments of a core network.
-        /// </summary>
         public InputList<string> SharedSegments
         {
             get => _sharedSegments ?? (_sharedSegments = new InputList<string>());

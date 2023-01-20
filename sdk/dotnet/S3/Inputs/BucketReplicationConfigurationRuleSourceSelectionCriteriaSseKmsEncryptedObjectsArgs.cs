@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Boolean which indicates if this criteria is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

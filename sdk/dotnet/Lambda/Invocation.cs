@@ -9,80 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Lambda
 {
-    /// <summary>
-    /// Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
-    /// 
-    /// &gt; **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source.
-    /// 
-    /// ## Example Usage
-    /// ### Dynamic Invocation Example Using Triggers
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Security.Cryptography;
-    /// using System.Text;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ComputeSHA1(string input) {
-    /// 		return BitConverter.ToString(
-    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
-    /// 		).Replace("-","").ToLowerInvariant());
-    /// 	}
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.Invocation("example", new()
-    ///     {
-    ///         FunctionName = aws_lambda_function.Lambda_function_test.Function_name,
-    ///         Triggers = 
-    ///         {
-    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(new[]
-    ///             {
-    ///                 aws_lambda_function.Example.Environment,
-    ///             })) },
-    ///         },
-    ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["key1"] = "value1",
-    ///             ["key2"] = "value2",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lambda/invocation:Invocation")]
     public partial class Invocation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the lambda function.
-        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON payload to the lambda function.
-        /// </summary>
         [Output("input")]
         public Output<string> Input { get; private set; } = null!;
 
-        /// <summary>
-        /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        /// </summary>
         [Output("qualifier")]
         public Output<string?> Qualifier { get; private set; } = null!;
 
-        /// <summary>
-        /// String result of the lambda function invocation.
-        /// </summary>
         [Output("result")]
         public Output<string> Result { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-        /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
@@ -132,30 +73,17 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class InvocationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the lambda function.
-        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// JSON payload to the lambda function.
-        /// </summary>
         [Input("input", required: true)]
         public Input<string> Input { get; set; } = null!;
 
-        /// <summary>
-        /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
-
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());
@@ -170,36 +98,20 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class InvocationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the lambda function.
-        /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
-        /// <summary>
-        /// JSON payload to the lambda function.
-        /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }
 
-        /// <summary>
-        /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
-        /// <summary>
-        /// String result of the lambda function invocation.
-        /// </summary>
         [Input("result")]
         public Input<string>? Result { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
-
-        /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
     {
-        /// <summary>
-        /// The ID of the Amazon EC2 launch template to use.
-        /// </summary>
         public readonly string? LaunchTemplateId;
-        /// <summary>
-        /// The name of the launch template to use for faster launching for a Windows AMI.
-        /// </summary>
         public readonly string? LaunchTemplateName;
-        /// <summary>
-        /// The version of the launch template to use for faster launching for a Windows AMI.
-        /// </summary>
         public readonly string? LaunchTemplateVersion;
 
         [OutputConstructor]

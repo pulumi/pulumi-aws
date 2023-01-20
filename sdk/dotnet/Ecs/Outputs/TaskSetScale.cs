@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class TaskSetScale
     {
-        /// <summary>
-        /// The unit of measure for the scale value. Default: `PERCENT`.
-        /// </summary>
         public readonly string? Unit;
-        /// <summary>
-        /// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
-        /// </summary>
         public readonly double? Value;
 
         [OutputConstructor]

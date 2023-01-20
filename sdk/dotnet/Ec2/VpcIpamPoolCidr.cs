@@ -9,40 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provisions a CIDR from an IPAM address pool.
-    /// 
-    /// &gt; **NOTE:** Provisioning Public IPv4 or Public IPv6 require [steps outside the scope of this resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip). The resource accepts `message` and `signature` as part of the `cidr_authorization_context` attribute but those must be generated ahead of time. Public IPv6 CIDRs that are provisioned into a Pool with `publicly_advertisable = true` and all public IPv4 CIDRs also require creating a Route Origin Authorization (ROA) object in your Regional Internet Registry (RIR).
-    /// 
-    /// &gt; **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
-    /// either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
-    /// 
-    /// ## Import
-    /// 
-    /// IPAMs can be imported using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr")]
     public partial class VpcIpamPoolCidr : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The CIDR you want to assign to the pool.
-        /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
 
-        /// <summary>
-        /// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        /// </summary>
         [Output("cidrAuthorizationContext")]
         public Output<Outputs.VpcIpamPoolCidrCidrAuthorizationContext?> CidrAuthorizationContext { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
-        /// </summary>
         [Output("ipamPoolId")]
         public Output<string> IpamPoolId { get; private set; } = null!;
 
@@ -92,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamPoolCidrArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CIDR you want to assign to the pool.
-        /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 
-        /// <summary>
-        /// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        /// </summary>
         [Input("cidrAuthorizationContext")]
         public Input<Inputs.VpcIpamPoolCidrCidrAuthorizationContextArgs>? CidrAuthorizationContext { get; set; }
 
-        /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
-        /// </summary>
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
@@ -118,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamPoolCidrState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CIDR you want to assign to the pool.
-        /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 
-        /// <summary>
-        /// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        /// </summary>
         [Input("cidrAuthorizationContext")]
         public Input<Inputs.VpcIpamPoolCidrCidrAuthorizationContextGetArgs>? CidrAuthorizationContext { get; set; }
 
-        /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
-        /// </summary>
         [Input("ipamPoolId")]
         public Input<string>? IpamPoolId { get; set; }
 

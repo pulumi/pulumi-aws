@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Lambda
 {
     public static class GetLayerVersion
     {
-        /// <summary>
-        /// Provides information about a Lambda Layer Version.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var layerName = config.Require("layerName");
-        ///     var existing = Aws.Lambda.GetLayerVersion.Invoke(new()
-        ///     {
-        ///         LayerName = layerName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetLayerVersionResult> InvokeAsync(GetLayerVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Lambda Layer Version.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var layerName = config.Require("layerName");
-        ///     var existing = Aws.Lambda.GetLayerVersion.Invoke(new()
-        ///     {
-        ///         LayerName = layerName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithDefaults());
     }
@@ -73,27 +21,15 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetLayerVersionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
-        /// </summary>
         [Input("compatibleArchitecture")]
         public string? CompatibleArchitecture { get; set; }
 
-        /// <summary>
-        /// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-        /// </summary>
         [Input("compatibleRuntime")]
         public string? CompatibleRuntime { get; set; }
 
-        /// <summary>
-        /// Name of the lambda layer.
-        /// </summary>
         [Input("layerName", required: true)]
         public string LayerName { get; set; } = null!;
 
-        /// <summary>
-        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
-        /// </summary>
         [Input("version")]
         public int? Version { get; set; }
 
@@ -105,27 +41,15 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetLayerVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
-        /// </summary>
         [Input("compatibleArchitecture")]
         public Input<string>? CompatibleArchitecture { get; set; }
 
-        /// <summary>
-        /// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-        /// </summary>
         [Input("compatibleRuntime")]
         public Input<string>? CompatibleRuntime { get; set; }
 
-        /// <summary>
-        /// Name of the lambda layer.
-        /// </summary>
         [Input("layerName", required: true)]
         public Input<string> LayerName { get; set; } = null!;
 
-        /// <summary>
-        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 
@@ -139,60 +63,24 @@ namespace Pulumi.Aws.Lambda
     [OutputType]
     public sealed class GetLayerVersionResult
     {
-        /// <summary>
-        /// ARN of the Lambda Layer with version.
-        /// </summary>
         public readonly string Arn;
         public readonly string? CompatibleArchitecture;
-        /// <summary>
-        /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
-        /// </summary>
         public readonly ImmutableArray<string> CompatibleArchitectures;
         public readonly string? CompatibleRuntime;
-        /// <summary>
-        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
-        /// </summary>
         public readonly ImmutableArray<string> CompatibleRuntimes;
-        /// <summary>
-        /// Date this resource was created.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Description of the specific Lambda Layer version.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN of the Lambda Layer without version.
-        /// </summary>
         public readonly string LayerArn;
         public readonly string LayerName;
-        /// <summary>
-        /// License info associated with the specific Lambda Layer version.
-        /// </summary>
         public readonly string LicenseInfo;
-        /// <summary>
-        /// ARN of a signing job.
-        /// </summary>
         public readonly string SigningJobArn;
-        /// <summary>
-        /// The ARN for a signing profile version.
-        /// </summary>
         public readonly string SigningProfileVersionArn;
-        /// <summary>
-        /// Base64-encoded representation of raw SHA-256 sum of the zip file.
-        /// </summary>
         public readonly string SourceCodeHash;
-        /// <summary>
-        /// Size in bytes of the function .zip file.
-        /// </summary>
         public readonly int SourceCodeSize;
-        /// <summary>
-        /// This Lamba Layer version.
-        /// </summary>
         public readonly int Version;
 
         [OutputConstructor]

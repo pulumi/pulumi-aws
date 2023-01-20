@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class VpcIpamPoolCidrCidrAuthorizationContextGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The plain-text authorization message for the prefix and account.
-        /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        /// <summary>
-        /// The signed authorization message for the prefix and account.
-        /// </summary>
         [Input("signature")]
         public Input<string>? Signature { get; set; }
 

@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class IndexDocumentMetadataConfigurationUpdateRelevance
     {
-        /// <summary>
-        /// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-        /// </summary>
         public readonly string? Duration;
-        /// <summary>
-        /// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-        /// </summary>
         public readonly bool? Freshness;
-        /// <summary>
-        /// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-        /// </summary>
         public readonly int? Importance;
-        /// <summary>
-        /// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-        /// </summary>
         public readonly string? RankOrder;
-        /// <summary>
-        /// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-        /// </summary>
         public readonly ImmutableDictionary<string, int>? ValuesImportanceMap;
 
         [OutputConstructor]

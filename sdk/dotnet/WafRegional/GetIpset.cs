@@ -11,57 +11,9 @@ namespace Pulumi.Aws.WafRegional
 {
     public static class GetIpset
     {
-        /// <summary>
-        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafRegional.GetIpset.Invoke(new()
-        ///     {
-        ///         Name = "tfWAFRegionalIPSet",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetIpsetResult> InvokeAsync(GetIpsetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafRegional.GetIpset.Invoke(new()
-        ///     {
-        ///         Name = "tfWAFRegionalIPSet",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetIpsetResult> Invoke(GetIpsetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetInvokeArgs(), options.WithDefaults());
     }
@@ -69,9 +21,6 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class GetIpsetArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the WAF Regional IP set.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -83,9 +32,6 @@ namespace Pulumi.Aws.WafRegional
 
     public sealed class GetIpsetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the WAF Regional IP set.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

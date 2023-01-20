@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Macie.Outputs
     [OutputType]
     public sealed class FindingsFilterFindingCriteriaCriterion
     {
-        /// <summary>
-        /// The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        /// </summary>
         public readonly ImmutableArray<string> EqExactMatches;
-        /// <summary>
-        /// The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        /// </summary>
         public readonly ImmutableArray<string> Eqs;
-        /// <summary>
-        /// The name of the field to be evaluated.
-        /// </summary>
         public readonly string Field;
-        /// <summary>
-        /// The value for the property is greater than the specified value.
-        /// </summary>
         public readonly string? Gt;
-        /// <summary>
-        /// The value for the property is greater than or equal to the specified value.
-        /// </summary>
         public readonly string? Gte;
-        /// <summary>
-        /// The value for the property is less than the specified value.
-        /// </summary>
         public readonly string? Lt;
-        /// <summary>
-        /// The value for the property is less than or equal to the specified value.
-        /// </summary>
         public readonly string? Lte;
-        /// <summary>
-        /// The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        /// </summary>
         public readonly ImmutableArray<string> Neqs;
 
         [OutputConstructor]

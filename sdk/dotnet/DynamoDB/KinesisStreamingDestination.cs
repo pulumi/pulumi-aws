@@ -9,66 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
-    /// <summary>
-    /// Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
-    ///         HashKey = "id",
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "id",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
-    ///     {
-    ///         ShardCount = 1,
-    ///     });
-    /// 
-    ///     var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("exampleKinesisStreamingDestination", new()
-    ///     {
-    ///         StreamArn = exampleStream.Arn,
-    ///         TableName = exampleTable.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")]
     public partial class KinesisStreamingDestination : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        /// </summary>
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the DynamoDB table. There
-        /// can only be one Kinesis streaming destination for a given DynamoDB table.
-        /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
 
@@ -118,16 +64,9 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class KinesisStreamingDestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the DynamoDB table. There
-        /// can only be one Kinesis streaming destination for a given DynamoDB table.
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -139,16 +78,9 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class KinesisStreamingDestinationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }
 
-        /// <summary>
-        /// The name of the DynamoDB table. There
-        /// can only be one Kinesis streaming destination for a given DynamoDB table.
-        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 

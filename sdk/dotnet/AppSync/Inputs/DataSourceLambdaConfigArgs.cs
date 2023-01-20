@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceLambdaConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN for the Lambda function.
-        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 

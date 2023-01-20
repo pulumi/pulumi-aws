@@ -13,31 +13,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationOutput
     {
-        /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
-        /// See Kinesis Firehose below for more details.
-        /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputKinesisFirehose? KinesisFirehose;
-        /// <summary>
-        /// The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
-        /// See Kinesis Stream below for more details.
-        /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputKinesisStream? KinesisStream;
-        /// <summary>
-        /// The Lambda function destination. See Lambda below for more details.
-        /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputLambda? Lambda;
-        /// <summary>
-        /// The Name of the in-application stream.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The Schema format of the data written to the destination. See Destination Schema below for more details.
-        /// </summary>
         public readonly Outputs.AnalyticsApplicationOutputSchema Schema;
 
         [OutputConstructor]

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class QuickConnectQuickConnectConfigUserConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the identifier of the contact flow.
-        /// </summary>
         [Input("contactFlowId", required: true)]
         public Input<string> ContactFlowId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the identifier for the user.
-        /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 

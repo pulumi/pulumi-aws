@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class IndexServerSideEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

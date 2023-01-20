@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MskConnect.Outputs
     [OutputType]
     public sealed class ConnectorKafkaClusterEncryptionInTransit
     {
-        /// <summary>
-        /// The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
-        /// </summary>
         public readonly string? EncryptionType;
 
         [OutputConstructor]

@@ -14,19 +14,12 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.PipelineStageActionArgs>? _actions;
-
-        /// <summary>
-        /// The action(s) to include in the stage. Defined as an `action` block below
-        /// </summary>
         public InputList<Inputs.PipelineStageActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.PipelineStageActionArgs>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// The name of the stage.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

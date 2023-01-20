@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Macie2.Inputs
 
     public sealed class ClassificationExportConfigurationS3DestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// The object key for the bucket in which Amazon Macie exports the data classification results.
-        /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 

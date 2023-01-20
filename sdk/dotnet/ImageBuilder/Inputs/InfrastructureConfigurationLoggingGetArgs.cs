@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class InfrastructureConfigurationLoggingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block with S3 logging settings. Detailed below.
-        /// </summary>
         [Input("s3Logs", required: true)]
         public Input<Inputs.InfrastructureConfigurationLoggingS3LogsGetArgs> S3Logs { get; set; } = null!;
 

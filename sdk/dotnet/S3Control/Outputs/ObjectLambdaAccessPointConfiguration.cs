@@ -13,21 +13,9 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class ObjectLambdaAccessPointConfiguration
     {
-        /// <summary>
-        /// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-        /// </summary>
         public readonly ImmutableArray<string> AllowedFeatures;
-        /// <summary>
-        /// Whether or not the CloudWatch metrics configuration is enabled.
-        /// </summary>
         public readonly bool? CloudWatchMetricsEnabled;
-        /// <summary>
-        /// Standard access point associated with the Object Lambda Access Point.
-        /// </summary>
         public readonly string SupportingAccessPoint;
-        /// <summary>
-        /// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ObjectLambdaAccessPointConfigurationTransformationConfiguration> TransformationConfigurations;
 
         [OutputConstructor]

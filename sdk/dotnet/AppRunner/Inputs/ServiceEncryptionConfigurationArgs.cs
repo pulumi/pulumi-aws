@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the KMS key used for encryption.
-        /// </summary>
         [Input("kmsKey", required: true)]
         public Input<string> KmsKey { get; set; } = null!;
 

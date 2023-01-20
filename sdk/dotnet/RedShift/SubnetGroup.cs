@@ -9,105 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
-    ///     {
-    ///         CidrBlock = "10.1.1.0/24",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         VpcId = fooVpc.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-dbsubnet-test-1" },
-    ///         },
-    ///     });
-    /// 
-    ///     var bar = new Aws.Ec2.Subnet("bar", new()
-    ///     {
-    ///         CidrBlock = "10.1.2.0/24",
-    ///         AvailabilityZone = "us-west-2b",
-    ///         VpcId = fooVpc.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-dbsubnet-test-2" },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             fooSubnet.Id,
-    ///             bar.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Redshift subnet groups can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Subnet group name
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Redshift Subnet group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of VPC subnet IDs.
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -157,24 +76,14 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the Redshift Subnet group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// An array of VPC subnet IDs.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -183,10 +92,6 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -202,30 +107,17 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Subnet group name
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the Redshift Subnet group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// An array of VPC subnet IDs.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -234,10 +126,6 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -246,10 +134,6 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

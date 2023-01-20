@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class DeviceLocation
     {
-        /// <summary>
-        /// The physical address.
-        /// </summary>
         public readonly string? Address;
-        /// <summary>
-        /// The latitude.
-        /// </summary>
         public readonly string? Latitude;
-        /// <summary>
-        /// The longitude.
-        /// </summary>
         public readonly string? Longitude;
 
         [OutputConstructor]

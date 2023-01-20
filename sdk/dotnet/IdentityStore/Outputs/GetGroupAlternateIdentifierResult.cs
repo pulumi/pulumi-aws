@@ -13,13 +13,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetGroupAlternateIdentifierResult
     {
-        /// <summary>
-        /// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        /// </summary>
         public readonly Outputs.GetGroupAlternateIdentifierExternalIdResult? ExternalId;
-        /// <summary>
-        /// An entity attribute that's unique to a specific entity. Detailed below.
-        /// </summary>
         public readonly Outputs.GetGroupAlternateIdentifierUniqueAttributeResult? UniqueAttribute;
 
         [OutputConstructor]

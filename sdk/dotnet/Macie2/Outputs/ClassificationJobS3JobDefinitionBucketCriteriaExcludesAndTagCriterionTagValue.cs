@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue
     {
-        /// <summary>
-        /// The tag key.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// The tag value.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

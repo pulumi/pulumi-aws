@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings
     {
-        /// <summary>
-        /// Post filter sharpening.
-        /// </summary>
         public readonly string? PostFilterSharpening;
-        /// <summary>
-        /// Filter strength.
-        /// </summary>
         public readonly string? Strength;
 
         [OutputConstructor]

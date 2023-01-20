@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainNodeToNodeEncryptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

@@ -9,164 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppSync
 {
-    /// <summary>
-    /// Provides an AppSync Data Source.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
-    ///         HashKey = "UserId",
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "UserId",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""appsync.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
-    ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = exampleTable.Arn.Apply(arn =&gt; @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Action"": [
-    ///         ""dynamodb:*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": [
-    ///         ""{arn}""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// "),
-    ///     });
-    /// 
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
-    ///     {
-    ///         AuthenticationType = "API_KEY",
-    ///     });
-    /// 
-    ///     var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new()
-    ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
-    ///         Name = "my_appsync_example",
-    ///         ServiceRoleArn = exampleRole.Arn,
-    ///         Type = "AMAZON_DYNAMODB",
-    ///         DynamodbConfig = new Aws.AppSync.Inputs.DataSourceDynamodbConfigArgs
-    ///         {
-    ///             TableName = exampleTable.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appsync/dataSource:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// API ID for the GraphQL API for the data source.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the data source.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// DynamoDB settings. See below
-        /// </summary>
         [Output("dynamodbConfig")]
         public Output<Outputs.DataSourceDynamodbConfig?> DynamodbConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Elasticsearch settings. See below
-        /// </summary>
         [Output("elasticsearchConfig")]
         public Output<Outputs.DataSourceElasticsearchConfig?> ElasticsearchConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// HTTP settings. See below
-        /// </summary>
         [Output("httpConfig")]
         public Output<Outputs.DataSourceHttpConfig?> HttpConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Lambda settings. See below
-        /// </summary>
         [Output("lambdaConfig")]
         public Output<Outputs.DataSourceLambdaConfig?> LambdaConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// User-supplied name for the data source.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS RDS settings. See Relational Database Config
-        /// </summary>
         [Output("relationalDatabaseConfig")]
         public Output<Outputs.DataSourceRelationalDatabaseConfig?> RelationalDatabaseConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// IAM service role ARN for the data source.
-        /// </summary>
         [Output("serviceRoleArn")]
         public Output<string?> ServiceRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -216,63 +91,33 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API ID for the GraphQL API for the data source.
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the data source.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// DynamoDB settings. See below
-        /// </summary>
         [Input("dynamodbConfig")]
         public Input<Inputs.DataSourceDynamodbConfigArgs>? DynamodbConfig { get; set; }
 
-        /// <summary>
-        /// Amazon Elasticsearch settings. See below
-        /// </summary>
         [Input("elasticsearchConfig")]
         public Input<Inputs.DataSourceElasticsearchConfigArgs>? ElasticsearchConfig { get; set; }
 
-        /// <summary>
-        /// HTTP settings. See below
-        /// </summary>
         [Input("httpConfig")]
         public Input<Inputs.DataSourceHttpConfigArgs>? HttpConfig { get; set; }
 
-        /// <summary>
-        /// AWS Lambda settings. See below
-        /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.DataSourceLambdaConfigArgs>? LambdaConfig { get; set; }
 
-        /// <summary>
-        /// User-supplied name for the data source.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// AWS RDS settings. See Relational Database Config
-        /// </summary>
         [Input("relationalDatabaseConfig")]
         public Input<Inputs.DataSourceRelationalDatabaseConfigArgs>? RelationalDatabaseConfig { get; set; }
 
-        /// <summary>
-        /// IAM service role ARN for the data source.
-        /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
 
-        /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -284,69 +129,36 @@ namespace Pulumi.Aws.AppSync
 
     public sealed class DataSourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API ID for the GraphQL API for the data source.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// ARN
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Description of the data source.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// DynamoDB settings. See below
-        /// </summary>
         [Input("dynamodbConfig")]
         public Input<Inputs.DataSourceDynamodbConfigGetArgs>? DynamodbConfig { get; set; }
 
-        /// <summary>
-        /// Amazon Elasticsearch settings. See below
-        /// </summary>
         [Input("elasticsearchConfig")]
         public Input<Inputs.DataSourceElasticsearchConfigGetArgs>? ElasticsearchConfig { get; set; }
 
-        /// <summary>
-        /// HTTP settings. See below
-        /// </summary>
         [Input("httpConfig")]
         public Input<Inputs.DataSourceHttpConfigGetArgs>? HttpConfig { get; set; }
 
-        /// <summary>
-        /// AWS Lambda settings. See below
-        /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.DataSourceLambdaConfigGetArgs>? LambdaConfig { get; set; }
 
-        /// <summary>
-        /// User-supplied name for the data source.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// AWS RDS settings. See Relational Database Config
-        /// </summary>
         [Input("relationalDatabaseConfig")]
         public Input<Inputs.DataSourceRelationalDatabaseConfigGetArgs>? RelationalDatabaseConfig { get; set; }
 
-        /// <summary>
-        /// IAM service role ARN for the data source.
-        /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
 
-        /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

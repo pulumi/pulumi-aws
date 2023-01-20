@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Budgets.Outputs
     [OutputType]
     public sealed class BudgetNotification
     {
-        /// <summary>
-        /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        /// </summary>
         public readonly string ComparisonOperator;
-        /// <summary>
-        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        /// </summary>
         public readonly string NotificationType;
-        /// <summary>
-        /// (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        /// </summary>
         public readonly ImmutableArray<string> SubscriberEmailAddresses;
-        /// <summary>
-        /// (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        /// </summary>
         public readonly ImmutableArray<string> SubscriberSnsTopicArns;
-        /// <summary>
-        /// (Required) Threshold when the notification should be sent.
-        /// </summary>
         public readonly double Threshold;
-        /// <summary>
-        /// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        /// </summary>
         public readonly string ThresholdType;
 
         [OutputConstructor]

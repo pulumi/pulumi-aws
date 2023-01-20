@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the Cloudwatch Log Group to deliver logs to.
-        /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 

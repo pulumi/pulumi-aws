@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTrustedSigner
     {
-        /// <summary>
-        /// A flag that specifies whether Origin Shield is enabled.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// List of nested attributes for each trusted signer
-        /// </summary>
         public readonly ImmutableArray<Outputs.DistributionTrustedSignerItem> Items;
 
         [OutputConstructor]

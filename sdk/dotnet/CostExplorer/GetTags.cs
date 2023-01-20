@@ -11,65 +11,9 @@ namespace Pulumi.Aws.CostExplorer
 {
     public static class GetTags
     {
-        /// <summary>
-        /// Provides details about a specific CE Tags.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CostExplorer.GetTags.Invoke(new()
-        ///     {
-        ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
-        ///         {
-        ///             End = "2022-12-01",
-        ///             Start = "2021-01-01",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTagsResult> InvokeAsync(GetTagsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific CE Tags.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CostExplorer.GetTags.Invoke(new()
-        ///     {
-        ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
-        ///         {
-        ///             End = "2022-12-01",
-        ///             Start = "2021-01-01",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTagsResult> Invoke(GetTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsInvokeArgs(), options.WithDefaults());
     }
@@ -77,39 +21,23 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class GetTagsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
-        /// </summary>
         [Input("filter")]
         public Inputs.GetTagsFilterArgs? Filter { get; set; }
 
-        /// <summary>
-        /// Value that you want to search for.
-        /// </summary>
         [Input("searchString")]
         public string? SearchString { get; set; }
 
         [Input("sortBies")]
         private List<Inputs.GetTagsSortByArgs>? _sortBies;
-
-        /// <summary>
-        /// Configuration block for the value by which you want to sort the data. See below.
-        /// </summary>
         public List<Inputs.GetTagsSortByArgs> SortBies
         {
             get => _sortBies ?? (_sortBies = new List<Inputs.GetTagsSortByArgs>());
             set => _sortBies = value;
         }
 
-        /// <summary>
-        /// Key of the tag that you want to return values for.
-        /// </summary>
         [Input("tagKey")]
         public string? TagKey { get; set; }
 
-        /// <summary>
-        /// Configuration block for the start and end dates for retrieving the dimension values.
-        /// </summary>
         [Input("timePeriod", required: true)]
         public Inputs.GetTagsTimePeriodArgs TimePeriod { get; set; } = null!;
 
@@ -121,39 +49,23 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class GetTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.GetTagsFilterInputArgs>? Filter { get; set; }
 
-        /// <summary>
-        /// Value that you want to search for.
-        /// </summary>
         [Input("searchString")]
         public Input<string>? SearchString { get; set; }
 
         [Input("sortBies")]
         private InputList<Inputs.GetTagsSortByInputArgs>? _sortBies;
-
-        /// <summary>
-        /// Configuration block for the value by which you want to sort the data. See below.
-        /// </summary>
         public InputList<Inputs.GetTagsSortByInputArgs> SortBies
         {
             get => _sortBies ?? (_sortBies = new InputList<Inputs.GetTagsSortByInputArgs>());
             set => _sortBies = value;
         }
 
-        /// <summary>
-        /// Key of the tag that you want to return values for.
-        /// </summary>
         [Input("tagKey")]
         public Input<string>? TagKey { get; set; }
 
-        /// <summary>
-        /// Configuration block for the start and end dates for retrieving the dimension values.
-        /// </summary>
         [Input("timePeriod", required: true)]
         public Input<Inputs.GetTagsTimePeriodInputArgs> TimePeriod { get; set; } = null!;
 
@@ -175,9 +87,6 @@ namespace Pulumi.Aws.CostExplorer
         public readonly string? SearchString;
         public readonly ImmutableArray<Outputs.GetTagsSortByResult> SortBies;
         public readonly string? TagKey;
-        /// <summary>
-        /// Tags that match your request.
-        /// </summary>
         public readonly ImmutableArray<string> Tags;
         public readonly Outputs.GetTagsTimePeriodResult TimePeriod;
 

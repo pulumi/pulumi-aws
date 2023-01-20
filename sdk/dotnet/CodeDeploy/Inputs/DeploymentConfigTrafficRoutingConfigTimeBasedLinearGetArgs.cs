@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedLinearGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
-        /// <summary>
-        /// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-        /// </summary>
         [Input("percentage")]
         public Input<int>? Percentage { get; set; }
 

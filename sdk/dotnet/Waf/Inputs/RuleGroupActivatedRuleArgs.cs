@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Waf.Inputs
 
     public sealed class RuleGroupActivatedRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
-        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RuleGroupActivatedRuleActionArgs> Action { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of a rule
-        /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
 
-        /// <summary>
-        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

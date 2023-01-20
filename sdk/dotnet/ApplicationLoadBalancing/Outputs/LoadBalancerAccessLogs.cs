@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
     [OutputType]
     public sealed class LoadBalancerAccessLogs
     {
-        /// <summary>
-        /// The S3 bucket name to store the logs in.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
-        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

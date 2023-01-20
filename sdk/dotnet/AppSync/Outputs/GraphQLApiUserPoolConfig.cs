@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class GraphQLApiUserPoolConfig
     {
-        /// <summary>
-        /// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-        /// </summary>
         public readonly string? AppIdClientRegex;
-        /// <summary>
-        /// AWS region in which the user pool was created.
-        /// </summary>
         public readonly string? AwsRegion;
-        /// <summary>
-        /// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-        /// </summary>
         public readonly string DefaultAction;
-        /// <summary>
-        /// User pool ID.
-        /// </summary>
         public readonly string UserPoolId;
 
         [OutputConstructor]

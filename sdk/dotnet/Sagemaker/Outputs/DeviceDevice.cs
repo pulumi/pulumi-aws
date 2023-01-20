@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DeviceDevice
     {
-        /// <summary>
-        /// A description for the device.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The name of the device.
-        /// </summary>
         public readonly string DeviceName;
-        /// <summary>
-        /// Amazon Web Services Internet of Things (IoT) object name.
-        /// </summary>
         public readonly string? IotThingName;
 
         [OutputConstructor]

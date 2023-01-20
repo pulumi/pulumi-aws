@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class ClusterCoreInstanceFleetLaunchSpecifications
     {
-        /// <summary>
-        /// Configuration block for on demand instances launch specifications.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> OnDemandSpecifications;
-        /// <summary>
-        /// Configuration block for spot instances launch specifications.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> SpotSpecifications;
 
         [OutputConstructor]

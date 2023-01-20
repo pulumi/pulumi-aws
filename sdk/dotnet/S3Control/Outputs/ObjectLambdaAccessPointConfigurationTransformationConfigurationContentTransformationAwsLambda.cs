@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Lambda function.
-        /// </summary>
         public readonly string FunctionArn;
-        /// <summary>
-        /// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-        /// </summary>
         public readonly string? FunctionPayload;
 
         [OutputConstructor]

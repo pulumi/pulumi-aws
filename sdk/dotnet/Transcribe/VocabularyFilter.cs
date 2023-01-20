@@ -9,91 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transcribe
 {
-    /// <summary>
-    /// Resource for managing an AWS Transcribe VocabularyFilter.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transcribe.VocabularyFilter("example", new()
-    ///     {
-    ///         LanguageCode = "en-US",
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value3" },
-    ///         },
-    ///         VocabularyFilterName = "example",
-    ///         Words = new[]
-    ///         {
-    ///             "cars",
-    ///             "bucket",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Transcribe VocabularyFilter can be imported using the `vocabulary_filter_name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:transcribe/vocabularyFilter:VocabularyFilter")]
     public partial class VocabularyFilter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the VocabularyFilter.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Generated download URI.
-        /// </summary>
         [Output("downloadUri")]
         public Output<string> DownloadUri { get; private set; } = null!;
 
-        /// <summary>
-        /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
-        /// </summary>
         [Output("vocabularyFilterFileUri")]
         public Output<string?> VocabularyFilterFileUri { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the VocabularyFilter.
-        /// </summary>
         [Output("vocabularyFilterName")]
         public Output<string> VocabularyFilterName { get; private set; } = null!;
 
-        /// <summary>
-        /// - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        /// </summary>
         [Output("words")]
         public Output<ImmutableArray<string>> Words { get; private set; } = null!;
 
@@ -143,42 +82,25 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class VocabularyFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
-        /// </summary>
         [Input("vocabularyFilterFileUri")]
         public Input<string>? VocabularyFilterFileUri { get; set; }
 
-        /// <summary>
-        /// The name of the VocabularyFilter.
-        /// </summary>
         [Input("vocabularyFilterName", required: true)]
         public Input<string> VocabularyFilterName { get; set; } = null!;
 
         [Input("words")]
         private InputList<string>? _words;
-
-        /// <summary>
-        /// - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        /// </summary>
         public InputList<string> Words
         {
             get => _words ?? (_words = new InputList<string>());
@@ -193,30 +115,17 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class VocabularyFilterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the VocabularyFilter.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Generated download URI.
-        /// </summary>
         [Input("downloadUri")]
         public Input<string>? DownloadUri { get; set; }
 
-        /// <summary>
-        /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -231,24 +140,14 @@ namespace Pulumi.Aws.Transcribe
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
-        /// </summary>
         [Input("vocabularyFilterFileUri")]
         public Input<string>? VocabularyFilterFileUri { get; set; }
 
-        /// <summary>
-        /// The name of the VocabularyFilter.
-        /// </summary>
         [Input("vocabularyFilterName")]
         public Input<string>? VocabularyFilterName { get; set; }
 
         [Input("words")]
         private InputList<string>? _words;
-
-        /// <summary>
-        /// - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-        /// </summary>
         public InputList<string> Words
         {
             get => _words ?? (_words = new InputList<string>());

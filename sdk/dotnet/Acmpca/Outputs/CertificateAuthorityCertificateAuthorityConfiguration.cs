@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Acmpca.Outputs
     [OutputType]
     public sealed class CertificateAuthorityCertificateAuthorityConfiguration
     {
-        /// <summary>
-        /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
         public readonly string KeyAlgorithm;
-        /// <summary>
-        /// Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        /// </summary>
         public readonly string SigningAlgorithm;
-        /// <summary>
-        /// Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        /// </summary>
         public readonly Outputs.CertificateAuthorityCertificateAuthorityConfigurationSubject Subject;
 
         [OutputConstructor]

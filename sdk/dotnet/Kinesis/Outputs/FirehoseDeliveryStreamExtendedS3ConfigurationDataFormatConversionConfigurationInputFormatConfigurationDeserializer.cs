@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer
     {
-        /// <summary>
-        /// Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe? HiveJsonSerDe;
-        /// <summary>
-        /// Nested argument that specifies the OpenX SerDe. More details below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe? OpenXJsonSerDe;
 
         [OutputConstructor]

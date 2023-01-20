@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleOverrideActionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
-        /// </summary>
         [Input("count")]
         public Input<Inputs.WebAclRuleOverrideActionCountGetArgs>? Count { get; set; }
 
-        /// <summary>
-        /// Don't override the rule action setting. Configured as an empty block `{}`.
-        /// </summary>
         [Input("none")]
         public Input<Inputs.WebAclRuleOverrideActionNoneGetArgs>? None { get; set; }
 

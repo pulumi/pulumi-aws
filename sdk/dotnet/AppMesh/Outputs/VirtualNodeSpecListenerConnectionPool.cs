@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecListenerConnectionPool
     {
-        /// <summary>
-        /// Connection pool information for gRPC listeners.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerConnectionPoolGrpc? Grpc;
-        /// <summary>
-        /// Connection pool information for HTTP listeners.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerConnectionPoolHttp? Http;
-        /// <summary>
-        /// Connection pool information for HTTP2 listeners.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerConnectionPoolHttp2? Http2;
-        /// <summary>
-        /// Connection pool information for TCP listeners.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerConnectionPoolTcp? Tcp;
 
         [OutputConstructor]

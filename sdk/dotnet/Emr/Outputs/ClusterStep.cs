@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Emr.Outputs
     [OutputType]
     public sealed class ClusterStep
     {
-        /// <summary>
-        /// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-        /// </summary>
         public readonly string ActionOnFailure;
-        /// <summary>
-        /// JAR file used for the step. See below.
-        /// </summary>
         public readonly Outputs.ClusterStepHadoopJarStep HadoopJarStep;
-        /// <summary>
-        /// Name of the step.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

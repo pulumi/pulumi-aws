@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SecurityHub.Outputs
     [OutputType]
     public sealed class InsightFiltersNetworkDestinationIpv6
     {
-        /// <summary>
-        /// A finding's CIDR value.
-        /// </summary>
         public readonly string Cidr;
 
         [OutputConstructor]

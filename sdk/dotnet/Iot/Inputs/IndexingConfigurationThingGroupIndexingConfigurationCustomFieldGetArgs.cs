@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the field.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleTargetSqsParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// FIFO message group ID to use as the target.
-        /// </summary>
         [Input("messageGroupId")]
         public Input<string>? MessageGroupId { get; set; }
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ClusterConfiguration
     {
-        /// <summary>
-        /// The details of the execute command configuration. Detailed below.
-        /// </summary>
         public readonly Outputs.ClusterConfigurationExecuteCommandConfiguration? ExecuteCommandConfiguration;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOriginGroupMember
     {
-        /// <summary>
-        /// The unique identifier of the member origin
-        /// </summary>
         public readonly string OriginId;
 
         [OutputConstructor]

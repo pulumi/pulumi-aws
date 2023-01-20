@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum.
-        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
-        /// <summary>
-        /// Minimum.
-        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

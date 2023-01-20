@@ -9,154 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFormation
 {
-    /// <summary>
-    /// Provides a CloudFormation Stack resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var network = new Aws.CloudFormation.Stack("network", new()
-    ///     {
-    ///         Parameters = 
-    ///         {
-    ///             { "VPCCidr", "10.0.0.0/16" },
-    ///         },
-    ///         TemplateBody = @"{
-    ///   ""Parameters"" : {
-    ///     ""VPCCidr"" : {
-    ///       ""Type"" : ""String"",
-    ///       ""Default"" : ""10.0.0.0/16"",
-    ///       ""Description"" : ""Enter the CIDR block for the VPC. Default is 10.0.0.0/16.""
-    ///     }
-    ///   },
-    ///   ""Resources"" : {
-    ///     ""myVpc"": {
-    ///       ""Type"" : ""AWS::EC2::VPC"",
-    ///       ""Properties"" : {
-    ///         ""CidrBlock"" : { ""Ref"" : ""VPCCidr"" },
-    ///         ""Tags"" : [
-    ///           {""Key"": ""Name"", ""Value"": ""Primary_CF_VPC""}
-    ///         ]
-    ///       }
-    ///     }
-    ///   }
-    /// }
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Cloudformation Stacks can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudformation/stack:Stack")]
     public partial class Stack : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A list of capabilities.
-        /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
-        /// <summary>
-        /// Set to true to disable rollback of the stack if stack creation failed.
-        /// Conflicts with `on_failure`.
-        /// </summary>
         [Output("disableRollback")]
         public Output<bool?> DisableRollback { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        /// </summary>
         [Output("iamRoleArn")]
         public Output<string?> IamRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Stack name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of SNS topic ARNs to publish stack related events.
-        /// </summary>
         [Output("notificationArns")]
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
 
-        /// <summary>
-        /// Action to be taken if stack creation fails. This must be
-        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        /// </summary>
         [Output("onFailure")]
         public Output<string?> OnFailure { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of outputs from the stack.
-        /// </summary>
         [Output("outputs")]
         public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of Parameter structures that specify input parameters for the stack.
-        /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Structure containing the stack policy body.
-        /// Conflicts w/ `policy_url`.
-        /// </summary>
         [Output("policyBody")]
         public Output<string> PolicyBody { get; private set; } = null!;
 
-        /// <summary>
-        /// Location of a file containing the stack policy.
-        /// Conflicts w/ `policy_body`.
-        /// </summary>
         [Output("policyUrl")]
         public Output<string?> PolicyUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Structure containing the template body (max size: 51,200 bytes).
-        /// </summary>
         [Output("templateBody")]
         public Output<string> TemplateBody { get; private set; } = null!;
 
-        /// <summary>
-        /// Location of a file containing the template body (max size: 460,800 bytes).
-        /// </summary>
         [Output("templateUrl")]
         public Output<string?> TemplateUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-        /// </summary>
         [Output("timeoutInMinutes")]
         public Output<int?> TimeoutInMinutes { get; private set; } = null!;
 
@@ -208,108 +105,60 @@ namespace Pulumi.Aws.CloudFormation
     {
         [Input("capabilities")]
         private InputList<string>? _capabilities;
-
-        /// <summary>
-        /// A list of capabilities.
-        /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        /// </summary>
         public InputList<string> Capabilities
         {
             get => _capabilities ?? (_capabilities = new InputList<string>());
             set => _capabilities = value;
         }
 
-        /// <summary>
-        /// Set to true to disable rollback of the stack if stack creation failed.
-        /// Conflicts with `on_failure`.
-        /// </summary>
         [Input("disableRollback")]
         public Input<bool>? DisableRollback { get; set; }
 
-        /// <summary>
-        /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
-        /// <summary>
-        /// Stack name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notificationArns")]
         private InputList<string>? _notificationArns;
-
-        /// <summary>
-        /// A list of SNS topic ARNs to publish stack related events.
-        /// </summary>
         public InputList<string> NotificationArns
         {
             get => _notificationArns ?? (_notificationArns = new InputList<string>());
             set => _notificationArns = value;
         }
 
-        /// <summary>
-        /// Action to be taken if stack creation fails. This must be
-        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        /// </summary>
         [Input("onFailure")]
         public Input<string>? OnFailure { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// A map of Parameter structures that specify input parameters for the stack.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Structure containing the stack policy body.
-        /// Conflicts w/ `policy_url`.
-        /// </summary>
         [Input("policyBody")]
         public Input<string>? PolicyBody { get; set; }
 
-        /// <summary>
-        /// Location of a file containing the stack policy.
-        /// Conflicts w/ `policy_body`.
-        /// </summary>
         [Input("policyUrl")]
         public Input<string>? PolicyUrl { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Structure containing the template body (max size: 51,200 bytes).
-        /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
-        /// <summary>
-        /// Location of a file containing the template body (max size: 460,800 bytes).
-        /// </summary>
         [Input("templateUrl")]
         public Input<string>? TemplateUrl { get; set; }
 
-        /// <summary>
-        /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-        /// </summary>
         [Input("timeoutInMinutes")]
         public Input<int>? TimeoutInMinutes { get; set; }
 
@@ -323,61 +172,34 @@ namespace Pulumi.Aws.CloudFormation
     {
         [Input("capabilities")]
         private InputList<string>? _capabilities;
-
-        /// <summary>
-        /// A list of capabilities.
-        /// Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
-        /// </summary>
         public InputList<string> Capabilities
         {
             get => _capabilities ?? (_capabilities = new InputList<string>());
             set => _capabilities = value;
         }
 
-        /// <summary>
-        /// Set to true to disable rollback of the stack if stack creation failed.
-        /// Conflicts with `on_failure`.
-        /// </summary>
         [Input("disableRollback")]
         public Input<bool>? DisableRollback { get; set; }
 
-        /// <summary>
-        /// The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
-        /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
-        /// <summary>
-        /// Stack name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notificationArns")]
         private InputList<string>? _notificationArns;
-
-        /// <summary>
-        /// A list of SNS topic ARNs to publish stack related events.
-        /// </summary>
         public InputList<string> NotificationArns
         {
             get => _notificationArns ?? (_notificationArns = new InputList<string>());
             set => _notificationArns = value;
         }
 
-        /// <summary>
-        /// Action to be taken if stack creation fails. This must be
-        /// one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
-        /// </summary>
         [Input("onFailure")]
         public Input<string>? OnFailure { get; set; }
 
         [Input("outputs")]
         private InputMap<string>? _outputs;
-
-        /// <summary>
-        /// A map of outputs from the stack.
-        /// </summary>
         public InputMap<string> Outputs
         {
             get => _outputs ?? (_outputs = new InputMap<string>());
@@ -386,36 +208,20 @@ namespace Pulumi.Aws.CloudFormation
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// A map of Parameter structures that specify input parameters for the stack.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Structure containing the stack policy body.
-        /// Conflicts w/ `policy_url`.
-        /// </summary>
         [Input("policyBody")]
         public Input<string>? PolicyBody { get; set; }
 
-        /// <summary>
-        /// Location of a file containing the stack policy.
-        /// Conflicts w/ `policy_body`.
-        /// </summary>
         [Input("policyUrl")]
         public Input<string>? PolicyUrl { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -424,31 +230,18 @@ namespace Pulumi.Aws.CloudFormation
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Structure containing the template body (max size: 51,200 bytes).
-        /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
-        /// <summary>
-        /// Location of a file containing the template body (max size: 460,800 bytes).
-        /// </summary>
         [Input("templateUrl")]
         public Input<string>? TemplateUrl { get; set; }
 
-        /// <summary>
-        /// The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
-        /// </summary>
         [Input("timeoutInMinutes")]
         public Input<int>? TimeoutInMinutes { get; set; }
 

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleDestinationVpcConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// The security groups of the VPC destination.
-        /// </summary>
         public InputList<string> SecurityGroups
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
@@ -32,19 +25,12 @@ namespace Pulumi.Aws.Iot.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The subnet IDs of the VPC destination.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// The ID of the VPC.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

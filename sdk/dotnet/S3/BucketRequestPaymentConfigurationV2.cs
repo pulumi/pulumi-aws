@@ -9,61 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
-    /// 
-    /// &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.BucketRequestPaymentConfigurationV2("example", new()
-    ///     {
-    ///         Bucket = aws_s3_bucket.Example.Bucket,
-    ///         Payer = "Requester",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// S3 bucket request payment configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
-    /// ```
-    /// 
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")]
     public partial class BucketRequestPaymentConfigurationV2 : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        /// </summary>
         [Output("payer")]
         public Output<string> Payer { get; private set; } = null!;
 
@@ -113,21 +67,12 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketRequestPaymentConfigurationV2Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        /// </summary>
         [Input("payer", required: true)]
         public Input<string> Payer { get; set; } = null!;
 
@@ -139,21 +84,12 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketRequestPaymentConfigurationV2State : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
-        /// <summary>
-        /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-        /// </summary>
         [Input("payer")]
         public Input<string>? Payer { get; set; }
 

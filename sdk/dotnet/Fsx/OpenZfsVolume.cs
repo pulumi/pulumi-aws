@@ -9,119 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fsx
 {
-    /// <summary>
-    /// Manages an Amazon FSx for OpenZFS volume.
-    /// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OpenZfsVolume("test", new()
-    ///     {
-    ///         ParentVolumeId = aws_fsx_openzfs_file_system.Test.Root_volume_id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// FSx Volumes can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:fsx/openZfsVolume:OpenZfsVolume")]
     public partial class OpenZfsVolume : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name of the file system.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-        /// </summary>
         [Output("copyTagsToSnapshots")]
         public Output<bool?> CopyTagsToSnapshots { get; private set; } = null!;
 
-        /// <summary>
-        /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        /// </summary>
         [Output("dataCompressionType")]
         public Output<string?> DataCompressionType { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
-        /// </summary>
         [Output("nfsExports")]
         public Output<Outputs.OpenZfsVolumeNfsExports?> NfsExports { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the source snapshot to create the volume from.
-        /// </summary>
         [Output("originSnapshot")]
         public Output<Outputs.OpenZfsVolumeOriginSnapshot?> OriginSnapshot { get; private set; } = null!;
 
-        /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
-        /// </summary>
         [Output("parentVolumeId")]
         public Output<string> ParentVolumeId { get; private set; } = null!;
 
-        /// <summary>
-        /// specifies whether the volume is read-only. Default is false.
-        /// </summary>
         [Output("readOnly")]
         public Output<bool> ReadOnly { get; private set; } = null!;
 
-        /// <summary>
-        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        /// </summary>
         [Output("recordSizeKib")]
         public Output<int?> RecordSizeKib { get; private set; } = null!;
 
-        /// <summary>
-        /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-        /// </summary>
         [Output("storageCapacityQuotaGib")]
         public Output<int> StorageCapacityQuotaGib { get; private set; } = null!;
 
-        /// <summary>
-        /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-        /// </summary>
         [Output("storageCapacityReservationGib")]
         public Output<int> StorageCapacityReservationGib { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
-        /// </summary>
         [Output("userAndGroupQuotas")]
         public Output<ImmutableArray<Outputs.OpenZfsVolumeUserAndGroupQuota>> UserAndGroupQuotas { get; private set; } = null!;
 
@@ -174,72 +103,38 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class OpenZfsVolumeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-        /// </summary>
         [Input("copyTagsToSnapshots")]
         public Input<bool>? CopyTagsToSnapshots { get; set; }
 
-        /// <summary>
-        /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        /// </summary>
         [Input("dataCompressionType")]
         public Input<string>? DataCompressionType { get; set; }
 
-        /// <summary>
-        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
-        /// </summary>
         [Input("nfsExports")]
         public Input<Inputs.OpenZfsVolumeNfsExportsArgs>? NfsExports { get; set; }
 
-        /// <summary>
-        /// The ARN of the source snapshot to create the volume from.
-        /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotArgs>? OriginSnapshot { get; set; }
 
-        /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
-        /// </summary>
         [Input("parentVolumeId", required: true)]
         public Input<string> ParentVolumeId { get; set; } = null!;
 
-        /// <summary>
-        /// specifies whether the volume is read-only. Default is false.
-        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
-        /// <summary>
-        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        /// </summary>
         [Input("recordSizeKib")]
         public Input<int>? RecordSizeKib { get; set; }
 
-        /// <summary>
-        /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-        /// </summary>
         [Input("storageCapacityQuotaGib")]
         public Input<int>? StorageCapacityQuotaGib { get; set; }
 
-        /// <summary>
-        /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-        /// </summary>
         [Input("storageCapacityReservationGib")]
         public Input<int>? StorageCapacityReservationGib { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -248,10 +143,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("userAndGroupQuotas")]
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>? _userAndGroupQuotas;
-
-        /// <summary>
-        /// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
-        /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs> UserAndGroupQuotas
         {
             get => _userAndGroupQuotas ?? (_userAndGroupQuotas = new InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>());
@@ -269,78 +160,41 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class OpenZfsVolumeState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name of the file system.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-        /// </summary>
         [Input("copyTagsToSnapshots")]
         public Input<bool>? CopyTagsToSnapshots { get; set; }
 
-        /// <summary>
-        /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        /// </summary>
         [Input("dataCompressionType")]
         public Input<string>? DataCompressionType { get; set; }
 
-        /// <summary>
-        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
-        /// </summary>
         [Input("nfsExports")]
         public Input<Inputs.OpenZfsVolumeNfsExportsGetArgs>? NfsExports { get; set; }
 
-        /// <summary>
-        /// The ARN of the source snapshot to create the volume from.
-        /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotGetArgs>? OriginSnapshot { get; set; }
 
-        /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
-        /// </summary>
         [Input("parentVolumeId")]
         public Input<string>? ParentVolumeId { get; set; }
 
-        /// <summary>
-        /// specifies whether the volume is read-only. Default is false.
-        /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
-        /// <summary>
-        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        /// </summary>
         [Input("recordSizeKib")]
         public Input<int>? RecordSizeKib { get; set; }
 
-        /// <summary>
-        /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-        /// </summary>
         [Input("storageCapacityQuotaGib")]
         public Input<int>? StorageCapacityQuotaGib { get; set; }
 
-        /// <summary>
-        /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-        /// </summary>
         [Input("storageCapacityReservationGib")]
         public Input<int>? StorageCapacityReservationGib { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -349,10 +203,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -361,10 +211,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("userAndGroupQuotas")]
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs>? _userAndGroupQuotas;
-
-        /// <summary>
-        /// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
-        /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs> UserAndGroupQuotas
         {
             get => _userAndGroupQuotas ?? (_userAndGroupQuotas = new InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs>());

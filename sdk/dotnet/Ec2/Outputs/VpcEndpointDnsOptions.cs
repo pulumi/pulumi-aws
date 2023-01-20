@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class VpcEndpointDnsOptions
     {
-        /// <summary>
-        /// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-        /// </summary>
         public readonly string? DnsRecordIpType;
 
         [OutputConstructor]

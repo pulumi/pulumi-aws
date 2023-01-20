@@ -9,68 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to create a VPC Internet Gateway.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
-    ///     {
-    ///         VpcId = aws_vpc.Main.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "main" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Internet Gateways can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/internetGateway:InternetGateway")]
     public partial class InternetGateway : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Internet Gateway.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the AWS account that owns the internet gateway.
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -122,19 +75,12 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
@@ -146,24 +92,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class InternetGatewayState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Internet Gateway.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID of the AWS account that owns the internet gateway.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -172,19 +108,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

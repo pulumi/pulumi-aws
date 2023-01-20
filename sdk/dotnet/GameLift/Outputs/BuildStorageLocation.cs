@@ -13,21 +13,9 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class BuildStorageLocation
     {
-        /// <summary>
-        /// Name of your S3 bucket.
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// Name of the zip file containing your build files.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// A specific version of the file. If not set, the latest version of the file is retrieved.
-        /// </summary>
         public readonly string? ObjectVersion;
-        /// <summary>
-        /// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

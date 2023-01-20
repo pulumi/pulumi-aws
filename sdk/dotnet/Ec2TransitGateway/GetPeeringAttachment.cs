@@ -11,115 +11,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetPeeringAttachment
     {
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway Peering Attachment.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "transit-gateway-attachment-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "tgw-attach-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var attachment = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
-        ///     {
-        ///         Id = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetPeeringAttachmentResult> InvokeAsync(GetPeeringAttachmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPeeringAttachmentResult>("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", args ?? new GetPeeringAttachmentArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway Peering Attachment.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentFilterInputArgs
-        ///             {
-        ///                 Name = "transit-gateway-attachment-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "tgw-attach-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var attachment = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
-        ///     {
-        ///         Id = "tgw-attach-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetPeeringAttachmentResult> Invoke(GetPeeringAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringAttachmentResult>("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", args ?? new GetPeeringAttachmentInvokeArgs(), options.WithDefaults());
     }
@@ -129,29 +23,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetPeeringAttachmentFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetPeeringAttachmentFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetPeeringAttachmentFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway Peering Attachment.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -168,29 +50,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetPeeringAttachmentFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetPeeringAttachmentFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetPeeringAttachmentFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway Peering Attachment.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -209,22 +79,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         public readonly ImmutableArray<Outputs.GetPeeringAttachmentFilterResult> Filters;
         public readonly string Id;
-        /// <summary>
-        /// Identifier of the peer AWS account
-        /// </summary>
         public readonly string PeerAccountId;
-        /// <summary>
-        /// Identifier of the peer AWS region
-        /// </summary>
         public readonly string PeerRegion;
-        /// <summary>
-        /// Identifier of the peer EC2 Transit Gateway
-        /// </summary>
         public readonly string PeerTransitGatewayId;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Identifier of the local EC2 Transit Gateway
-        /// </summary>
         public readonly string TransitGatewayId;
 
         [OutputConstructor]

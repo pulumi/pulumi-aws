@@ -9,77 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example cross-account attachment" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_ec2_transit_gateway_peering_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter")]
     public partial class PeeringAttachmentAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier of the AWS account that owns the EC2 TGW peering.
-        /// </summary>
         [Output("peerAccountId")]
         public Output<string> PeerAccountId { get; private set; } = null!;
 
         [Output("peerRegion")]
         public Output<string> PeerRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway to peer with.
-        /// </summary>
         [Output("peerTransitGatewayId")]
         public Output<string> PeerTransitGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the EC2 Transit Gateway Peering Attachment to manage.
-        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway.
-        /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
@@ -135,19 +85,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The ID of the EC2 Transit Gateway Peering Attachment to manage.
-        /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
@@ -159,27 +102,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PeeringAttachmentAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the AWS account that owns the EC2 TGW peering.
-        /// </summary>
         [Input("peerAccountId")]
         public Input<string>? PeerAccountId { get; set; }
 
         [Input("peerRegion")]
         public Input<string>? PeerRegion { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway to peer with.
-        /// </summary>
         [Input("peerTransitGatewayId")]
         public Input<string>? PeerTransitGatewayId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -188,25 +121,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The ID of the EC2 Transit Gateway Peering Attachment to manage.
-        /// </summary>
         [Input("transitGatewayAttachmentId")]
         public Input<string>? TransitGatewayAttachmentId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Transit Gateway.
-        /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 

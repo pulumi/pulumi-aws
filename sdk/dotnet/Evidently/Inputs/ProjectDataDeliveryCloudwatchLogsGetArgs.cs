@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class ProjectDataDeliveryCloudwatchLogsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the log group where the project stores evaluation events.
-        /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 

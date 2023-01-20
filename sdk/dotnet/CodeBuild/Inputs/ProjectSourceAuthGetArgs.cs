@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     {
         [Input("resource")]
         private Input<string>? _resource;
-
-        /// <summary>
-        /// Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
-        /// </summary>
         [Obsolete(@"Use the aws_codebuild_source_credential resource instead")]
         public Input<string>? Resource
         {
@@ -29,9 +25,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
             }
         }
 
-        /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

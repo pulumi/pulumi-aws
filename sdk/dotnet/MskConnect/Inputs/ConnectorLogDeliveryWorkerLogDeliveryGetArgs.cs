@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Details about delivering logs to Amazon CloudWatch Logs. See below.
-        /// </summary>
         [Input("cloudwatchLogs")]
         public Input<Inputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsGetArgs>? CloudwatchLogs { get; set; }
 
-        /// <summary>
-        /// Details about delivering logs to Amazon Kinesis Data Firehose. See below.
-        /// </summary>
         [Input("firehose")]
         public Input<Inputs.ConnectorLogDeliveryWorkerLogDeliveryFirehoseGetArgs>? Firehose { get; set; }
 
-        /// <summary>
-        /// Details about delivering logs to Amazon S3. See below.
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.ConnectorLogDeliveryWorkerLogDeliveryS3GetArgs>? S3 { get; set; }
 

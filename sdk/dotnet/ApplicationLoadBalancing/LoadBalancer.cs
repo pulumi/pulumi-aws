@@ -9,228 +9,82 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApplicationLoadBalancing
 {
-    /// <summary>
-    /// Provides a Load Balancer resource.
-    /// 
-    /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// ### Specifying Elastic IPs
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LB.LoadBalancer("example", new()
-    ///     {
-    ///         LoadBalancerType = "network",
-    ///         SubnetMappings = new[]
-    ///         {
-    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Example1.Id,
-    ///                 AllocationId = aws_eip.Example1.Id,
-    ///             },
-    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Example2.Id,
-    ///                 AllocationId = aws_eip.Example2.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Specifying private IP addresses for an internal-facing load balancer
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LB.LoadBalancer("example", new()
-    ///     {
-    ///         LoadBalancerType = "network",
-    ///         SubnetMappings = new[]
-    ///         {
-    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Example1.Id,
-    ///                 PrivateIpv4Address = "10.0.1.15",
-    ///             },
-    ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Example2.Id,
-    ///                 PrivateIpv4Address = "10.0.2.15",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// LBs can be imported using their ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:applicationloadbalancing/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
-    /// ```
-    /// </summary>
     [Obsolete(@"aws.applicationloadbalancing.LoadBalancer has been deprecated in favor of aws.alb.LoadBalancer")]
     [AwsResourceType("aws:applicationloadbalancing/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An Access Logs block. Access Logs documented below.
-        /// </summary>
         [Output("accessLogs")]
         public Output<Outputs.LoadBalancerAccessLogs?> AccessLogs { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the load balancer (matches `id`).
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN suffix for use with CloudWatch Metrics.
-        /// </summary>
         [Output("arnSuffix")]
         public Output<string> ArnSuffix { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the customer owned ipv4 pool to use for this load balancer.
-        /// </summary>
         [Output("customerOwnedIpv4Pool")]
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
-        /// <summary>
-        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        /// </summary>
         [Output("desyncMitigationMode")]
         public Output<string?> DesyncMitigationMode { get; private set; } = null!;
 
-        /// <summary>
-        /// The DNS name of the load balancer.
-        /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        /// </summary>
         [Output("dropInvalidHeaderFields")]
         public Output<bool?> DropInvalidHeaderFields { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        /// </summary>
         [Output("enableCrossZoneLoadBalancing")]
         public Output<bool?> EnableCrossZoneLoadBalancing { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        /// </summary>
         [Output("enableDeletionProtection")]
         public Output<bool?> EnableDeletionProtection { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        /// </summary>
         [Output("enableHttp2")]
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        /// </summary>
         [Output("enableWafFailOpen")]
         public Output<bool?> EnableWafFailOpen { get; private set; } = null!;
 
-        /// <summary>
-        /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        /// </summary>
         [Output("idleTimeout")]
         public Output<int?> IdleTimeout { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, the LB will be internal.
-        /// </summary>
         [Output("internal")]
         public Output<bool> Internal { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        /// </summary>
         [Output("ipAddressType")]
         public Output<string> IpAddressType { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        /// </summary>
         [Output("loadBalancerType")]
         public Output<string?> LoadBalancerType { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-        /// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-        /// this provider will autogenerate a name beginning with `tf-lb`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string?> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        /// </summary>
         [Output("preserveHostHeader")]
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
 
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// A subnet mapping block as documented below.
-        /// </summary>
         [Output("subnetMappings")]
         public Output<ImmutableArray<Outputs.LoadBalancerSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of subnet IDs to attach to the LB. Subnets
-        /// cannot be updated for Load Balancers of type `network`. Changing this value
-        /// for load balancers of type `network` will force a recreation of the resource.
-        /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
-        /// <summary>
-        /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-        /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
 
@@ -280,95 +134,48 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
     public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An Access Logs block. Access Logs documented below.
-        /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.LoadBalancerAccessLogsArgs>? AccessLogs { get; set; }
 
-        /// <summary>
-        /// The ID of the customer owned ipv4 pool to use for this load balancer.
-        /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
-        /// <summary>
-        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        /// </summary>
         [Input("desyncMitigationMode")]
         public Input<string>? DesyncMitigationMode { get; set; }
 
-        /// <summary>
-        /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        /// </summary>
         [Input("dropInvalidHeaderFields")]
         public Input<bool>? DropInvalidHeaderFields { get; set; }
 
-        /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        /// </summary>
         [Input("enableCrossZoneLoadBalancing")]
         public Input<bool>? EnableCrossZoneLoadBalancing { get; set; }
 
-        /// <summary>
-        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        /// </summary>
         [Input("enableDeletionProtection")]
         public Input<bool>? EnableDeletionProtection { get; set; }
 
-        /// <summary>
-        /// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
-        /// <summary>
-        /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        /// </summary>
         [Input("enableWafFailOpen")]
         public Input<bool>? EnableWafFailOpen { get; set; }
 
-        /// <summary>
-        /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        /// </summary>
         [Input("idleTimeout")]
         public Input<int>? IdleTimeout { get; set; }
 
-        /// <summary>
-        /// If true, the LB will be internal.
-        /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
 
-        /// <summary>
-        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
-        /// <summary>
-        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }
 
-        /// <summary>
-        /// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-        /// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-        /// this provider will autogenerate a name beginning with `tf-lb`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        /// </summary>
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
 
@@ -382,10 +189,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("subnetMappings")]
         private InputList<Inputs.LoadBalancerSubnetMappingArgs>? _subnetMappings;
-
-        /// <summary>
-        /// A subnet mapping block as documented below.
-        /// </summary>
         public InputList<Inputs.LoadBalancerSubnetMappingArgs> SubnetMappings
         {
             get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingArgs>());
@@ -394,12 +197,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("subnets")]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// A list of subnet IDs to attach to the LB. Subnets
-        /// cannot be updated for Load Balancers of type `network`. Changing this value
-        /// for load balancers of type `network` will force a recreation of the resource.
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());
@@ -408,10 +205,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -426,113 +219,57 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
     public sealed class LoadBalancerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An Access Logs block. Access Logs documented below.
-        /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.LoadBalancerAccessLogsGetArgs>? AccessLogs { get; set; }
 
-        /// <summary>
-        /// The ARN of the load balancer (matches `id`).
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ARN suffix for use with CloudWatch Metrics.
-        /// </summary>
         [Input("arnSuffix")]
         public Input<string>? ArnSuffix { get; set; }
 
-        /// <summary>
-        /// The ID of the customer owned ipv4 pool to use for this load balancer.
-        /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
-        /// <summary>
-        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        /// </summary>
         [Input("desyncMitigationMode")]
         public Input<string>? DesyncMitigationMode { get; set; }
 
-        /// <summary>
-        /// The DNS name of the load balancer.
-        /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
-        /// <summary>
-        /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        /// </summary>
         [Input("dropInvalidHeaderFields")]
         public Input<bool>? DropInvalidHeaderFields { get; set; }
 
-        /// <summary>
-        /// If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        /// </summary>
         [Input("enableCrossZoneLoadBalancing")]
         public Input<bool>? EnableCrossZoneLoadBalancing { get; set; }
 
-        /// <summary>
-        /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        /// </summary>
         [Input("enableDeletionProtection")]
         public Input<bool>? EnableDeletionProtection { get; set; }
 
-        /// <summary>
-        /// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
 
-        /// <summary>
-        /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        /// </summary>
         [Input("enableWafFailOpen")]
         public Input<bool>? EnableWafFailOpen { get; set; }
 
-        /// <summary>
-        /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        /// </summary>
         [Input("idleTimeout")]
         public Input<int>? IdleTimeout { get; set; }
 
-        /// <summary>
-        /// If true, the LB will be internal.
-        /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
 
-        /// <summary>
-        /// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
-        /// <summary>
-        /// The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        /// </summary>
         [Input("loadBalancerType")]
         public Input<string>? LoadBalancerType { get; set; }
 
-        /// <summary>
-        /// The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-        /// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-        /// this provider will autogenerate a name beginning with `tf-lb`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        /// </summary>
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
 
@@ -546,10 +283,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("subnetMappings")]
         private InputList<Inputs.LoadBalancerSubnetMappingGetArgs>? _subnetMappings;
-
-        /// <summary>
-        /// A subnet mapping block as documented below.
-        /// </summary>
         public InputList<Inputs.LoadBalancerSubnetMappingGetArgs> SubnetMappings
         {
             get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.LoadBalancerSubnetMappingGetArgs>());
@@ -558,12 +291,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("subnets")]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// A list of subnet IDs to attach to the LB. Subnets
-        /// cannot be updated for Load Balancers of type `network`. Changing this value
-        /// for load balancers of type `network` will force a recreation of the resource.
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());
@@ -572,10 +299,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -584,10 +307,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -597,9 +316,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
-        /// <summary>
-        /// The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-        /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
 

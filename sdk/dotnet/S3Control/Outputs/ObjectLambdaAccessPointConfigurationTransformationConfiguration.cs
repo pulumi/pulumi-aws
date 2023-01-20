@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class ObjectLambdaAccessPointConfigurationTransformationConfiguration
     {
-        /// <summary>
-        /// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-        /// </summary>
         public readonly ImmutableArray<string> Actions;
-        /// <summary>
-        /// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
-        /// </summary>
         public readonly Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation ContentTransformation;
 
         [OutputConstructor]

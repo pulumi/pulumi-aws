@@ -9,52 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// &gt; **Note:** There is only a single subscription allowed per account.
-    /// 
-    /// To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
-    /// This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2");
-    /// 
-    ///     var defaultSpotDatafeedSubscription = new Aws.Ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", new()
-    ///     {
-    ///         Bucket = defaultBucketV2.Bucket,
-    ///         Prefix = "my_subdirectory",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]
     public partial class SpotDatafeedSubscription : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which to store the Spot instance data feed.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Path of folder inside bucket to place spot pricing data.
-        /// </summary>
         [Output("prefix")]
         public Output<string?> Prefix { get; private set; } = null!;
 
@@ -104,15 +64,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SpotDatafeedSubscriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which to store the Spot instance data feed.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Path of folder inside bucket to place spot pricing data.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
@@ -124,15 +78,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SpotDatafeedSubscriptionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which to store the Spot instance data feed.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Path of folder inside bucket to place spot pricing data.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

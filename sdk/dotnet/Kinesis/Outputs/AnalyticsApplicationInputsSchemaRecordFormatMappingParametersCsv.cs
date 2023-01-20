@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv
     {
-        /// <summary>
-        /// The Column Delimiter.
-        /// </summary>
         public readonly string RecordColumnDelimiter;
-        /// <summary>
-        /// The Row Delimiter.
-        /// </summary>
         public readonly string RecordRowDelimiter;
 
         [OutputConstructor]

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Connect.Inputs
     {
         [Input("levelFives")]
         private InputList<Inputs.UserHierarchyGroupHierarchyPathLevelFifeArgs>? _levelFives;
-
-        /// <summary>
-        /// A block that defines the details of level five. The level block is documented below.
-        /// </summary>
         public InputList<Inputs.UserHierarchyGroupHierarchyPathLevelFifeArgs> LevelFives
         {
             get => _levelFives ?? (_levelFives = new InputList<Inputs.UserHierarchyGroupHierarchyPathLevelFifeArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Connect.Inputs
 
         [Input("levelFours")]
         private InputList<Inputs.UserHierarchyGroupHierarchyPathLevelFourArgs>? _levelFours;
-
-        /// <summary>
-        /// A block that defines the details of level four. The level block is documented below.
-        /// </summary>
         public InputList<Inputs.UserHierarchyGroupHierarchyPathLevelFourArgs> LevelFours
         {
             get => _levelFours ?? (_levelFours = new InputList<Inputs.UserHierarchyGroupHierarchyPathLevelFourArgs>());
@@ -38,10 +30,6 @@ namespace Pulumi.Aws.Connect.Inputs
 
         [Input("levelOnes")]
         private InputList<Inputs.UserHierarchyGroupHierarchyPathLevelOneArgs>? _levelOnes;
-
-        /// <summary>
-        /// A block that defines the details of level one. The level block is documented below.
-        /// </summary>
         public InputList<Inputs.UserHierarchyGroupHierarchyPathLevelOneArgs> LevelOnes
         {
             get => _levelOnes ?? (_levelOnes = new InputList<Inputs.UserHierarchyGroupHierarchyPathLevelOneArgs>());
@@ -50,10 +38,6 @@ namespace Pulumi.Aws.Connect.Inputs
 
         [Input("levelThrees")]
         private InputList<Inputs.UserHierarchyGroupHierarchyPathLevelThreeArgs>? _levelThrees;
-
-        /// <summary>
-        /// A block that defines the details of level three. The level block is documented below.
-        /// </summary>
         public InputList<Inputs.UserHierarchyGroupHierarchyPathLevelThreeArgs> LevelThrees
         {
             get => _levelThrees ?? (_levelThrees = new InputList<Inputs.UserHierarchyGroupHierarchyPathLevelThreeArgs>());
@@ -62,10 +46,6 @@ namespace Pulumi.Aws.Connect.Inputs
 
         [Input("levelTwos")]
         private InputList<Inputs.UserHierarchyGroupHierarchyPathLevelTwoArgs>? _levelTwos;
-
-        /// <summary>
-        /// A block that defines the details of level two. The level block is documented below.
-        /// </summary>
         public InputList<Inputs.UserHierarchyGroupHierarchyPathLevelTwoArgs> LevelTwos
         {
             get => _levelTwos ?? (_levelTwos = new InputList<Inputs.UserHierarchyGroupHierarchyPathLevelTwoArgs>());

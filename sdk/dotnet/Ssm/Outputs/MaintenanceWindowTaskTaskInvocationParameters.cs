@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class MaintenanceWindowTaskTaskInvocationParameters
     {
-        /// <summary>
-        /// The parameters for an AUTOMATION task type. Documented below.
-        /// </summary>
         public readonly Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters? AutomationParameters;
-        /// <summary>
-        /// The parameters for a LAMBDA task type. Documented below.
-        /// </summary>
         public readonly Outputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters? LambdaParameters;
-        /// <summary>
-        /// The parameters for a RUN_COMMAND task type. Documented below.
-        /// </summary>
         public readonly Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters? RunCommandParameters;
-        /// <summary>
-        /// The parameters for a STEP_FUNCTIONS task type. Documented below.
-        /// </summary>
         public readonly Outputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters? StepFunctionsParameters;
 
         [OutputConstructor]

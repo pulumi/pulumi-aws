@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class MLTransformParametersFindMatchesParametersArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The value that is selected when tuning your transform for a balance between accuracy and cost.
-        /// </summary>
         [Input("accuracyCostTradeOff")]
         public Input<double>? AccuracyCostTradeOff { get; set; }
 
-        /// <summary>
-        /// The value to switch on or off to force the output to match the provided labels from users.
-        /// </summary>
         [Input("enforceProvidedLabels")]
         public Input<bool>? EnforceProvidedLabels { get; set; }
 
-        /// <summary>
-        /// The value selected when tuning your transform for a balance between precision and recall.
-        /// </summary>
         [Input("precisionRecallTradeOff")]
         public Input<double>? PrecisionRecallTradeOff { get; set; }
 
-        /// <summary>
-        /// The name of a column that uniquely identifies rows in the source table.
-        /// </summary>
         [Input("primaryKeyColumnName")]
         public Input<string>? PrimaryKeyColumnName { get; set; }
 

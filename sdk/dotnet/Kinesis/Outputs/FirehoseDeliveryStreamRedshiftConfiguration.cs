@@ -13,53 +13,17 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamRedshiftConfiguration
     {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
-        /// <summary>
-        /// The jdbcurl of the redshift cluster.
-        /// </summary>
         public readonly string ClusterJdbcurl;
-        /// <summary>
-        /// Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
-        /// </summary>
         public readonly string? CopyOptions;
-        /// <summary>
-        /// The data table columns that will be targeted by the copy command.
-        /// </summary>
         public readonly string? DataTableColumns;
-        /// <summary>
-        /// The name of the table in the redshift cluster that the s3 bucket will copy to.
-        /// </summary>
         public readonly string DataTableName;
-        /// <summary>
-        /// The password for the username above.
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration? ProcessingConfiguration;
-        /// <summary>
-        /// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
-        /// </summary>
         public readonly int? RetryDuration;
-        /// <summary>
-        /// The arn of the role the stream assumes.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration? S3BackupConfiguration;
-        /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
-        /// </summary>
         public readonly string? S3BackupMode;
-        /// <summary>
-        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

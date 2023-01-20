@@ -13,29 +13,11 @@ namespace Pulumi.Aws.OpsWorks.Outputs
     [OutputType]
     public sealed class ApplicationAppSource
     {
-        /// <summary>
-        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         public readonly string? Password;
-        /// <summary>
-        /// For sources that are version-aware, the revision to use.
-        /// </summary>
         public readonly string? Revision;
-        /// <summary>
-        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         public readonly string? SshKey;
-        /// <summary>
-        /// The type of source to use. For example, "archive".
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The URL where the app resource can be found.
-        /// </summary>
         public readonly string? Url;
-        /// <summary>
-        /// Username to use when authenticating to the source.
-        /// </summary>
         public readonly string? Username;
 
         [OutputConstructor]

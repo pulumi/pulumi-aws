@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectCache
     {
-        /// <summary>
-        /// Location of the source code from git or s3.
-        /// </summary>
         public readonly string? Location;
-        /// <summary>
-        /// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        /// </summary>
         public readonly ImmutableArray<string> Modes;
-        /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

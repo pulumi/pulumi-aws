@@ -14,37 +14,18 @@ namespace Pulumi.Aws.Comprehend.Inputs
     {
         [Input("augmentedManifests")]
         private InputList<Inputs.DocumentClassifierInputDataConfigAugmentedManifestGetArgs>? _augmentedManifests;
-
-        /// <summary>
-        /// List of training datasets produced by Amazon SageMaker Ground Truth.
-        /// Used if `data_format` is `AUGMENTED_MANIFEST`.
-        /// See the `augmented_manifests` Configuration Block section below.
-        /// </summary>
         public InputList<Inputs.DocumentClassifierInputDataConfigAugmentedManifestGetArgs> AugmentedManifests
         {
             get => _augmentedManifests ?? (_augmentedManifests = new InputList<Inputs.DocumentClassifierInputDataConfigAugmentedManifestGetArgs>());
             set => _augmentedManifests = value;
         }
 
-        /// <summary>
-        /// The format for the training data.
-        /// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        /// </summary>
         [Input("dataFormat")]
         public Input<string>? DataFormat { get; set; }
 
-        /// <summary>
-        /// Delimiter between labels when training a multi-label classifier.
-        /// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
-        /// Default is `|`.
-        /// </summary>
         [Input("labelDelimiter")]
         public Input<string>? LabelDelimiter { get; set; }
 
-        /// <summary>
-        /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `output_s3_uri`.
-        /// </summary>
         [Input("s3Uri")]
         public Input<string>? S3Uri { get; set; }
 

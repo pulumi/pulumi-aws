@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketWebsiteConfigurationV2RoutingRule
     {
-        /// <summary>
-        /// A configuration block for describing a condition that must be met for the specified redirect to apply detailed below.
-        /// </summary>
         public readonly Outputs.BucketWebsiteConfigurationV2RoutingRuleCondition? Condition;
-        /// <summary>
-        /// A configuration block for redirect information detailed below.
-        /// </summary>
         public readonly Outputs.BucketWebsiteConfigurationV2RoutingRuleRedirect Redirect;
 
         [OutputConstructor]

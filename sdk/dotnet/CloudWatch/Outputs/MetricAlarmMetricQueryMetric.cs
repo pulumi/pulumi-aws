@@ -13,32 +13,11 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class MetricAlarmMetricQueryMetric
     {
-        /// <summary>
-        /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Dimensions;
-        /// <summary>
-        /// The name for this metric.
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
         public readonly string MetricName;
-        /// <summary>
-        /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-        /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        /// </summary>
         public readonly string? Namespace;
-        /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
-        /// </summary>
         public readonly int Period;
-        /// <summary>
-        /// The statistic to apply to this metric.
-        /// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-        /// </summary>
         public readonly string Stat;
-        /// <summary>
-        /// The unit for this metric.
-        /// </summary>
         public readonly string? Unit;
 
         [OutputConstructor]

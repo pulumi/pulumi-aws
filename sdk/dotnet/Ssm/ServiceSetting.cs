@@ -9,59 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm
 {
-    /// <summary>
-    /// This setting defines how a user interacts with or uses a service or a feature of a service.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testSetting = new Aws.Ssm.ServiceSetting("testSetting", new()
-    ///     {
-    ///         SettingId = "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
-    ///         SettingValue = "true",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AWS SSM Service Setting can be imported using the `setting_id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssm/serviceSetting:ServiceSetting")]
     public partial class ServiceSetting : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the service setting.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the service setting.
-        /// </summary>
         [Output("settingId")]
         public Output<string> SettingId { get; private set; } = null!;
 
-        /// <summary>
-        /// Value of the service setting.
-        /// </summary>
         [Output("settingValue")]
         public Output<string> SettingValue { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -111,15 +70,9 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class ServiceSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the service setting.
-        /// </summary>
         [Input("settingId", required: true)]
         public Input<string> SettingId { get; set; } = null!;
 
-        /// <summary>
-        /// Value of the service setting.
-        /// </summary>
         [Input("settingValue", required: true)]
         public Input<string> SettingValue { get; set; } = null!;
 
@@ -131,27 +84,15 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class ServiceSettingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the service setting.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ID of the service setting.
-        /// </summary>
         [Input("settingId")]
         public Input<string>? SettingId { get; set; }
 
-        /// <summary>
-        /// Value of the service setting.
-        /// </summary>
         [Input("settingValue")]
         public Input<string>? SettingValue { get; set; }
 
-        /// <summary>
-        /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

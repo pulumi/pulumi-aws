@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Budgets.Outputs
     [OutputType]
     public sealed class BudgetPlannedLimit
     {
-        /// <summary>
-        /// (Required) The amount of cost or usage being measured for a budget.
-        /// </summary>
         public readonly string Amount;
-        /// <summary>
-        /// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        /// </summary>
         public readonly string StartTime;
-        /// <summary>
-        /// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        /// </summary>
         public readonly string Unit;
 
         [OutputConstructor]

@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Ebs.Inputs
 
     public sealed class SnapshotImportClientDataGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A user-defined comment about the disk upload.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// The time that the disk upload ends.
-        /// </summary>
         [Input("uploadEnd")]
         public Input<string>? UploadEnd { get; set; }
 
-        /// <summary>
-        /// The size of the uploaded disk image, in GiB.
-        /// </summary>
         [Input("uploadSize")]
         public Input<double>? UploadSize { get; set; }
 
-        /// <summary>
-        /// The time that the disk upload starts.
-        /// </summary>
         [Input("uploadStart")]
         public Input<string>? UploadStart { get; set; }
 

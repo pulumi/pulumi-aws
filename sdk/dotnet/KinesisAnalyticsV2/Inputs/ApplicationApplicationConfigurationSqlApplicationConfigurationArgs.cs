@@ -12,27 +12,17 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The input stream used by the application.
-        /// </summary>
         [Input("input")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs>? Input { get; set; }
 
         [Input("outputs")]
         private InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>? _outputs;
-
-        /// <summary>
-        /// The destination streams used by the application.
-        /// </summary>
         public InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs> Outputs
         {
             get => _outputs ?? (_outputs = new InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>());
             set => _outputs = value;
         }
 
-        /// <summary>
-        /// The reference data source used by the application.
-        /// </summary>
         [Input("referenceDataSource")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs>? ReferenceDataSource { get; set; }
 

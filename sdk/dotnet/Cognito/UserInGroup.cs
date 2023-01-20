@@ -9,69 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Adds the specified user to the specified group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
-    ///     {
-    ///         PasswordPolicy = new Aws.Cognito.Inputs.UserPoolPasswordPolicyArgs
-    ///         {
-    ///             TemporaryPasswordValidityDays = 7,
-    ///             MinimumLength = 6,
-    ///             RequireUppercase = false,
-    ///             RequireSymbols = false,
-    ///             RequireNumbers = false,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
-    ///     {
-    ///         UserPoolId = aws_cognito_user_pool.Test.Id,
-    ///         Username = "example",
-    ///     });
-    /// 
-    ///     var exampleUserGroup = new Aws.Cognito.UserGroup("exampleUserGroup", new()
-    ///     {
-    ///         UserPoolId = aws_cognito_user_pool.Test.Id,
-    ///     });
-    /// 
-    ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup("exampleUserInGroup", new()
-    ///     {
-    ///         UserPoolId = exampleUserPool.Id,
-    ///         GroupName = exampleUserGroup.Name,
-    ///         Username = exampleUser.Username,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/userInGroup:UserInGroup")]
     public partial class UserInGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the group to which the user is to be added.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The user pool ID of the user and group.
-        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
-        /// <summary>
-        /// The username of the user to be added to the group.
-        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -121,21 +67,12 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserInGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the group to which the user is to be added.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The user pool ID of the user and group.
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
-        /// <summary>
-        /// The username of the user to be added to the group.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
@@ -147,21 +84,12 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserInGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the group to which the user is to be added.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// The user pool ID of the user and group.
-        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 
-        /// <summary>
-        /// The username of the user to be added to the group.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

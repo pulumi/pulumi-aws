@@ -13,13 +13,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     [OutputType]
     public sealed class ListenerPortRange
     {
-        /// <summary>
-        /// The first port in the range of ports, inclusive.
-        /// </summary>
         public readonly int? FromPort;
-        /// <summary>
-        /// The last port in the range of ports, inclusive.
-        /// </summary>
         public readonly int? ToPort;
 
         [OutputConstructor]

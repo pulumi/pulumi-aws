@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class GetAccessPointRootDirectoryResult
     {
-        /// <summary>
-        /// Single element list containing information on the creation permissions of the directory
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointRootDirectoryCreationInfoResult> CreationInfos;
-        /// <summary>
-        /// Path exposed as the root directory
-        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class ClusterClusterNodeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the node is a leader node or a compute node
-        /// </summary>
         [Input("nodeRole")]
         public Input<string>? NodeRole { get; set; }
 
-        /// <summary>
-        /// The private IP address of a node within a cluster
-        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
-        /// <summary>
-        /// The public IP address of a node within a cluster
-        /// </summary>
         [Input("publicIpAddress")]
         public Input<string>? PublicIpAddress { get; set; }
 

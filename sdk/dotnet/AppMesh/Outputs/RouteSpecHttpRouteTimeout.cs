@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecHttpRouteTimeout
     {
-        /// <summary>
-        /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        /// </summary>
         public readonly Outputs.RouteSpecHttpRouteTimeoutIdle? Idle;
-        /// <summary>
-        /// Per request timeout.
-        /// </summary>
         public readonly Outputs.RouteSpecHttpRouteTimeoutPerRequest? PerRequest;
 
         [OutputConstructor]

@@ -9,60 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LB
 {
-    /// <summary>
-    /// Provides a Load Balancer Listener Certificate resource.
-    /// 
-    /// This resource is for additional certificates and does not replace the default certificate on the listener.
-    /// 
-    /// &gt; **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate");
-    /// 
-    ///     // ...
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
-    /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener");
-    /// 
-    ///     // ...
-    ///     var exampleListenerCertificate = new Aws.LB.ListenerCertificate("exampleListenerCertificate", new()
-    ///     {
-    ///         ListenerArn = frontEndListener.Arn,
-    ///         CertificateArn = exampleCertificate.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:lb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lb/listenerCertificate:ListenerCertificate")]
     public partial class ListenerCertificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the certificate to attach to the listener.
-        /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the certificate.
-        /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
@@ -116,15 +68,9 @@ namespace Pulumi.Aws.LB
 
     public sealed class ListenerCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the certificate to attach to the listener.
-        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the certificate.
-        /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
@@ -136,15 +82,9 @@ namespace Pulumi.Aws.LB
 
     public sealed class ListenerCertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the certificate to attach to the listener.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
-        /// <summary>
-        /// The ARN of the listener to which to attach the certificate.
-        /// </summary>
         [Input("listenerArn")]
         public Input<string>? ListenerArn { get; set; }
 

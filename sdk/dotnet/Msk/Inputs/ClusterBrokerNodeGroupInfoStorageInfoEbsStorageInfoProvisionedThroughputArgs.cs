@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
-        /// </summary>
         [Input("volumeThroughput")]
         public Input<int>? VolumeThroughput { get; set; }
 

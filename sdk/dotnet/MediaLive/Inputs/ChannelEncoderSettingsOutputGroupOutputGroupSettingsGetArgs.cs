@@ -14,10 +14,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
     {
         [Input("archiveGroupSettings")]
         private InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingGetArgs>? _archiveGroupSettings;
-
-        /// <summary>
-        /// Archive group settings. See Archive Group Settings for more details.
-        /// </summary>
         public InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingGetArgs> ArchiveGroupSettings
         {
             get => _archiveGroupSettings ?? (_archiveGroupSettings = new InputList<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingGetArgs>());
@@ -30,9 +26,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("hlsGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsGetArgs>? HlsGroupSettings { get; set; }
 
-        /// <summary>
-        /// Media package group settings. See Media Package Group Settings for more details.
-        /// </summary>
         [Input("mediaPackageGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsGetArgs>? MediaPackageGroupSettings { get; set; }
 
@@ -42,9 +35,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("multiplexGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsGetArgs>? MultiplexGroupSettings { get; set; }
 
-        /// <summary>
-        /// RTMP group settings. See RTMP Group Settings for more details.
-        /// </summary>
         [Input("rtmpGroupSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsGetArgs>? RtmpGroupSettings { get; set; }
 

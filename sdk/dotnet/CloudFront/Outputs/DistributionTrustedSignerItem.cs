@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionTrustedSignerItem
     {
-        /// <summary>
-        /// AWS account ID or `self`
-        /// </summary>
         public readonly string? AwsAccountNumber;
-        /// <summary>
-        /// Set of active CloudFront key pairs associated with the signer account
-        /// </summary>
         public readonly ImmutableArray<string> KeyPairIds;
 
         [OutputConstructor]

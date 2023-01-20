@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class GetApplicationAppversionLifecycleResult
     {
-        /// <summary>
-        /// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-        /// </summary>
         public readonly bool DeleteSourceFromS3;
-        /// <summary>
-        /// Number of days to retain an application version.
-        /// </summary>
         public readonly int MaxAgeInDays;
-        /// <summary>
-        /// Maximum number of application versions to retain.
-        /// </summary>
         public readonly int MaxCount;
-        /// <summary>
-        /// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        /// </summary>
         public readonly string ServiceRole;
 
         [OutputConstructor]

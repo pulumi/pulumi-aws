@@ -13,45 +13,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch
     {
-        /// <summary>
-        /// Inspect all query arguments.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments;
-        /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody? Body;
-        /// <summary>
-        /// Inspect the cookies in the web request. See Cookies below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchCookies? Cookies;
-        /// <summary>
-        /// Inspect the request headers. See Headers below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchHeader> Headers;
-        /// <summary>
-        /// Inspect the request body as JSON. See JSON Body for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody;
-        /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod? Method;
-        /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString? QueryString;
-        /// <summary>
-        /// Inspect a single header. See Single Header below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader? SingleHeader;
-        /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
-        /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath? UriPath;
 
         [OutputConstructor]

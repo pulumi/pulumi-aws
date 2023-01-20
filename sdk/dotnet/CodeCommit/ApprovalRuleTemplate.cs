@@ -9,93 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeCommit
 {
-    /// <summary>
-    /// Provides a CodeCommit Approval Rule Template Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplate("example", new()
-    ///     {
-    ///         Content = @"{
-    ///     ""Version"": ""2018-11-08"",
-    ///     ""DestinationReferences"": [""refs/heads/master""],
-    ///     ""Statements"": [{
-    ///         ""Type"": ""Approvers"",
-    ///         ""NumberOfApprovalsNeeded"": 2,
-    ///         ""ApprovalPoolMembers"": [""arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*""]
-    ///     }]
-    /// }
-    /// 
-    /// ",
-    ///         Description = "This is an example approval rule template",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CodeCommit approval rule templates can be imported using the `name`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")]
     public partial class ApprovalRuleTemplate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the approval rule template
-        /// </summary>
         [Output("approvalRuleTemplateId")]
         public Output<string> ApprovalRuleTemplateId { get; private set; } = null!;
 
-        /// <summary>
-        /// The content of the approval rule template. Maximum of 3000 characters.
-        /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
-        /// <summary>
-        /// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the approval rule template. Maximum of 1000 characters.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Output("lastModifiedDate")]
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-        /// </summary>
         [Output("lastModifiedUser")]
         public Output<string> LastModifiedUser { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for the approval rule template. Maximum of 100 characters.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The SHA-256 hash signature for the content of the approval rule template.
-        /// </summary>
         [Output("ruleContentSha256")]
         public Output<string> RuleContentSha256 { get; private set; } = null!;
 
@@ -145,21 +82,12 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class ApprovalRuleTemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The content of the approval rule template. Maximum of 3000 characters.
-        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
-        /// <summary>
-        /// The description of the approval rule template. Maximum of 1000 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name for the approval rule template. Maximum of 100 characters.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -171,51 +99,27 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class ApprovalRuleTemplateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the approval rule template
-        /// </summary>
         [Input("approvalRuleTemplateId")]
         public Input<string>? ApprovalRuleTemplateId { get; set; }
 
-        /// <summary>
-        /// The content of the approval rule template. Maximum of 3000 characters.
-        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
-        /// <summary>
-        /// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
-        /// <summary>
-        /// The description of the approval rule template. Maximum of 1000 characters.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Input("lastModifiedDate")]
         public Input<string>? LastModifiedDate { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-        /// </summary>
         [Input("lastModifiedUser")]
         public Input<string>? LastModifiedUser { get; set; }
 
-        /// <summary>
-        /// The name for the approval rule template. Maximum of 100 characters.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The SHA-256 hash signature for the content of the approval rule template.
-        /// </summary>
         [Input("ruleContentSha256")]
         public Input<string>? RuleContentSha256 { get; set; }
 

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DeviceDeviceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the device.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the device.
-        /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
-        /// <summary>
-        /// Amazon Web Services Internet of Things (IoT) object name.
-        /// </summary>
         [Input("iotThingName")]
         public Input<string>? IotThingName { get; set; }
 

@@ -11,19 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcIamPoolCidrs
     {
-        /// <summary>
-        /// `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
-        /// 
-        /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
-        /// </summary>
         public static Task<GetVpcIamPoolCidrsResult> InvokeAsync(GetVpcIamPoolCidrsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolCidrsResult>("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args ?? new GetVpcIamPoolCidrsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
-        /// 
-        /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
-        /// </summary>
         public static Output<GetVpcIamPoolCidrsResult> Invoke(GetVpcIamPoolCidrsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolCidrsResult>("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args ?? new GetVpcIamPoolCidrsInvokeArgs(), options.WithDefaults());
     }
@@ -33,19 +23,12 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetVpcIamPoolCidrsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetVpcIamPoolCidrsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcIamPoolCidrsFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the IPAM pool you would like the list of provisioned CIDRs.
-        /// </summary>
         [Input("ipamPoolId", required: true)]
         public string IpamPoolId { get; set; } = null!;
 
@@ -59,19 +42,12 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcIamPoolCidrsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetVpcIamPoolCidrsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcIamPoolCidrsFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the IPAM pool you would like the list of provisioned CIDRs.
-        /// </summary>
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
@@ -90,9 +66,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The CIDRs provisioned into the IPAM pool, described below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIamPoolCidrsIpamPoolCidrResult> IpamPoolCidrs;
         public readonly string IpamPoolId;
 

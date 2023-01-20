@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchConfigurationMetadataOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The state of the metadata service: `enabled`, `disabled`.
-        /// </summary>
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
 
-        /// <summary>
-        /// The desired HTTP PUT response hop limit for instance metadata requests.
-        /// </summary>
         [Input("httpPutResponseHopLimit")]
         public Input<int>? HttpPutResponseHopLimit { get; set; }
 
-        /// <summary>
-        /// If session tokens are required: `optional`, `required`.
-        /// </summary>
         [Input("httpTokens")]
         public Input<string>? HttpTokens { get; set; }
 

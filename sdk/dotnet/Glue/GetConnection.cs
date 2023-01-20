@@ -11,57 +11,9 @@ namespace Pulumi.Aws.Glue
 {
     public static class GetConnection
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific Glue Connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Glue.GetConnection.Invoke(new()
-        ///     {
-        ///         Id = "123456789123:connection",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:glue/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific Glue Connection.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Glue.GetConnection.Invoke(new()
-        ///     {
-        ///         Id = "123456789123:connection",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:glue/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
@@ -69,19 +21,11 @@ namespace Pulumi.Aws.Glue
 
     public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Concatenation of the catalog ID and connection name. For example, if your account ID is
-        /// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the resource
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -96,19 +40,11 @@ namespace Pulumi.Aws.Glue
 
     public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Concatenation of the catalog ID and connection name. For example, if your account ID is
-        /// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the resource
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -125,39 +61,15 @@ namespace Pulumi.Aws.Glue
     [OutputType]
     public sealed class GetConnectionResult
     {
-        /// <summary>
-        /// ARN of the Glue Connection.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Catalog ID of the Glue Connection.
-        /// </summary>
         public readonly string CatalogId;
         public readonly ImmutableDictionary<string, string> ConnectionProperties;
-        /// <summary>
-        /// Type of Glue Connection.
-        /// </summary>
         public readonly string ConnectionType;
-        /// <summary>
-        /// Description of the connection.
-        /// </summary>
         public readonly string Description;
         public readonly string Id;
-        /// <summary>
-        /// A list of criteria that can be used in selecting this connection.
-        /// </summary>
         public readonly ImmutableArray<string> MatchCriterias;
-        /// <summary>
-        /// Name of the Glue Connection.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// A map of physical connection requirements, such as VPC and SecurityGroup.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> PhysicalConnectionRequirements;
-        /// <summary>
-        /// Tags assigned to the resource
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

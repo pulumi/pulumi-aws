@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAwsOrgGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 

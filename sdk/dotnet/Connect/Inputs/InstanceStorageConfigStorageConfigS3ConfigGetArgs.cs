@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class InstanceStorageConfigStorageConfigS3ConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// The S3 bucket prefix.
-        /// </summary>
         [Input("bucketPrefix", required: true)]
         public Input<string> BucketPrefix { get; set; } = null!;
 
-        /// <summary>
-        /// The encryption configuration. Documented below.
-        /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigGetArgs>? EncryptionConfig { get; set; }
 

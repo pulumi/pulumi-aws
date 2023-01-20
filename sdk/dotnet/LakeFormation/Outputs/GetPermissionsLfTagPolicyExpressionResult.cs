@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class GetPermissionsLfTagPolicyExpressionResult
     {
-        /// <summary>
-        /// Key-name of an LF-Tag.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// List of possible values of an LF-Tag.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

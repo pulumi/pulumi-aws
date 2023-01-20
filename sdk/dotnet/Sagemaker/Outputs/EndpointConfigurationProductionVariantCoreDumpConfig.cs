@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class EndpointConfigurationProductionVariantCoreDumpConfig
     {
-        /// <summary>
-        /// The URL for S3 location where the captured data is stored.
-        /// </summary>
         public readonly string DestinationS3Uri;
-        /// <summary>
-        /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

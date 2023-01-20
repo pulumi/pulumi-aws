@@ -9,79 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectoryService
 {
-    /// <summary>
-    /// Accepts a shared directory in a consumer account.
-    /// 
-    /// &gt; **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
-    ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         Notes = "example",
-    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
-    ///         {
-    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSharedDirectoryAccepter = new Aws.DirectoryService.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", new()
-    ///     {
-    ///         SharedDirectoryId = exampleSharedDirectory.SharedDirectoryId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter")]
     public partial class SharedDirectoryAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-        /// </summary>
         [Output("method")]
         public Output<string> Method { get; private set; } = null!;
 
-        /// <summary>
-        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        /// </summary>
         [Output("notes")]
         public Output<string> Notes { get; private set; } = null!;
 
-        /// <summary>
-        /// Account identifier of the directory owner.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-        /// </summary>
         [Output("ownerDirectoryId")]
         public Output<string> OwnerDirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        /// </summary>
         [Output("sharedDirectoryId")]
         public Output<string> SharedDirectoryId { get; private set; } = null!;
 
@@ -131,9 +73,6 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class SharedDirectoryAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        /// </summary>
         [Input("sharedDirectoryId", required: true)]
         public Input<string> SharedDirectoryId { get; set; } = null!;
 
@@ -145,33 +84,18 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class SharedDirectoryAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-        /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }
 
-        /// <summary>
-        /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
-        /// <summary>
-        /// Account identifier of the directory owner.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-        /// </summary>
         [Input("ownerDirectoryId")]
         public Input<string>? OwnerDirectoryId { get; set; }
 
-        /// <summary>
-        /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        /// </summary>
         [Input("sharedDirectoryId")]
         public Input<string>? SharedDirectoryId { get; set; }
 

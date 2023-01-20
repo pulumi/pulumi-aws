@@ -15,21 +15,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("automaticInputFailoverSettings")]
         public Input<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsArgs>? AutomaticInputFailoverSettings { get; set; }
 
-        /// <summary>
-        /// User-specified name for the attachment.
-        /// </summary>
         [Input("inputAttachmentName", required: true)]
         public Input<string> InputAttachmentName { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the input.
-        /// </summary>
         [Input("inputId", required: true)]
         public Input<string> InputId { get; set; } = null!;
 
-        /// <summary>
-        /// Settings of an input. See Input Settings for more details
-        /// </summary>
         [Input("inputSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsArgs>? InputSettings { get; set; }
 

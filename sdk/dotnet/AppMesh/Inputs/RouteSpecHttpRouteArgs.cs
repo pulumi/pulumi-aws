@@ -12,27 +12,15 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class RouteSpecHttpRouteArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action to take if a match is determined.
-        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RouteSpecHttpRouteActionArgs> Action { get; set; } = null!;
 
-        /// <summary>
-        /// Criteria for determining an HTTP request match.
-        /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.RouteSpecHttpRouteMatchArgs> Match { get; set; } = null!;
 
-        /// <summary>
-        /// Retry policy.
-        /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.RouteSpecHttpRouteRetryPolicyArgs>? RetryPolicy { get; set; }
 
-        /// <summary>
-        /// Types of timeouts.
-        /// </summary>
         [Input("timeout")]
         public Input<Inputs.RouteSpecHttpRouteTimeoutArgs>? Timeout { get; set; }
 

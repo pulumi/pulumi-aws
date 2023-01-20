@@ -9,71 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Creates a domain entry resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testDomain = new Aws.LightSail.Domain("testDomain", new()
-    ///     {
-    ///         DomainName = "mydomain.com",
-    ///     });
-    /// 
-    ///     var testDomainEntry = new Aws.LightSail.DomainEntry("testDomainEntry", new()
-    ///     {
-    ///         DomainName = aws_lightsail_domain.Domain_test.Domain_name,
-    ///         Type = "A",
-    ///         Target = "127.0.0.1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www_mydomain.com_A_127.0.0.1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/domainEntry:DomainEntry")]
     public partial class DomainEntry : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the Lightsail domain in which to create the entry
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// If the entry should be an alias Defaults to `false`
-        /// </summary>
         [Output("isAlias")]
         public Output<bool?> IsAlias { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the entry record
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Target of the domain entry
-        /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of record
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -123,33 +73,18 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DomainEntryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Lightsail domain in which to create the entry
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// If the entry should be an alias Defaults to `false`
-        /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }
 
-        /// <summary>
-        /// Name of the entry record
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Target of the domain entry
-        /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
-        /// <summary>
-        /// Type of record
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -161,33 +96,18 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class DomainEntryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Lightsail domain in which to create the entry
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// If the entry should be an alias Defaults to `false`
-        /// </summary>
         [Input("isAlias")]
         public Input<bool>? IsAlias { get; set; }
 
-        /// <summary>
-        /// Name of the entry record
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Target of the domain entry
-        /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 
-        /// <summary>
-        /// Type of record
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class AssociationTarget
     {
-        /// <summary>
-        /// Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// A list of instance IDs or tag values. AWS currently limits this list size to one value.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

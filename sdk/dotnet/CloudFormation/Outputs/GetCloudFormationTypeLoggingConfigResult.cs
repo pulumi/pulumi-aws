@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     [OutputType]
     public sealed class GetCloudFormationTypeLoggingConfigResult
     {
-        /// <summary>
-        /// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        /// </summary>
         public readonly string LogGroupName;
-        /// <summary>
-        /// ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        /// </summary>
         public readonly string LogRoleArn;
 
         [OutputConstructor]

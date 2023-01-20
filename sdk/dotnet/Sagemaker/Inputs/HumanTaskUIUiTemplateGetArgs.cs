@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class HumanTaskUIUiTemplateGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The content of the Liquid template for the worker user interface.
-        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
-        /// <summary>
-        /// The SHA-256 digest of the contents of the template.
-        /// </summary>
         [Input("contentSha256")]
         public Input<string>? ContentSha256 { get; set; }
 
-        /// <summary>
-        /// The URL for the user interface template.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

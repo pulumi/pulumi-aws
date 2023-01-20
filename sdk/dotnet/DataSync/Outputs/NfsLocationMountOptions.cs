@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class NfsLocationMountOptions
     {
-        /// <summary>
-        /// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

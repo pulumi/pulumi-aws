@@ -13,17 +13,8 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     [OutputType]
     public sealed class OrganizationConfigurationDatasources
     {
-        /// <summary>
-        /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-        /// </summary>
         public readonly Outputs.OrganizationConfigurationDatasourcesKubernetes? Kubernetes;
-        /// <summary>
-        /// Enable Malware Protection automatically for new member accounts.
-        /// </summary>
         public readonly Outputs.OrganizationConfigurationDatasourcesMalwareProtection? MalwareProtection;
-        /// <summary>
-        /// Enable S3 Protection automatically for new member accounts.
-        /// </summary>
         public readonly Outputs.OrganizationConfigurationDatasourcesS3Logs? S3Logs;
 
         [OutputConstructor]

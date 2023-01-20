@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleHttpHttpHeaderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the HTTP header.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the HTTP header.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

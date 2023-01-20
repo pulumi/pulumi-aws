@@ -9,43 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SsoAdmin
 {
-    /// <summary>
-    /// Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
-    /// 
-    /// &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-    /// 
-    /// ## Import
-    /// 
-    /// SSO Managed Policy Attachments can be imported using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")]
     public partial class ManagedPolicyAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-        /// </summary>
         [Output("managedPolicyArn")]
         public Output<string> ManagedPolicyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the IAM Managed Policy.
-        /// </summary>
         [Output("managedPolicyName")]
         public Output<string> ManagedPolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
@@ -95,21 +70,12 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ManagedPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-        /// </summary>
         [Input("managedPolicyArn", required: true)]
         public Input<string> ManagedPolicyArn { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
@@ -121,27 +87,15 @@ namespace Pulumi.Aws.SsoAdmin
 
     public sealed class ManagedPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
-        /// <summary>
-        /// The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-        /// </summary>
         [Input("managedPolicyArn")]
         public Input<string>? ManagedPolicyArn { get; set; }
 
-        /// <summary>
-        /// The name of the IAM Managed Policy.
-        /// </summary>
         [Input("managedPolicyName")]
         public Input<string>? ManagedPolicyName { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
-        /// </summary>
         [Input("permissionSetArn")]
         public Input<string>? PermissionSetArn { get; set; }
 

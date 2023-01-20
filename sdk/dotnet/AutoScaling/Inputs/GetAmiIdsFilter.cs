@@ -12,18 +12,11 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GetAmiIdsFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// Value of the filter.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

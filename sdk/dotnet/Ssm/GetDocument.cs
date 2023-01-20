@@ -11,107 +11,9 @@ namespace Pulumi.Aws.Ssm
 {
     public static class GetDocument
     {
-        /// <summary>
-        /// Gets the contents of the specified Systems Manager document.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// To get the contents of the document owned by AWS.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetDocument.Invoke(new()
-        ///     {
-        ///         Name = "AWS-GatherSoftwareInventory",
-        ///         DocumentFormat = "YAML",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["content"] = foo.Apply(getDocumentResult =&gt; getDocumentResult.Content),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// To get the contents of the custom document.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ssm.GetDocument.Invoke(new()
-        ///     {
-        ///         Name = aws_ssm_document.Test.Name,
-        ///         DocumentFormat = "JSON",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetDocumentResult> InvokeAsync(GetDocumentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Gets the contents of the specified Systems Manager document.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// To get the contents of the document owned by AWS.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetDocument.Invoke(new()
-        ///     {
-        ///         Name = "AWS-GatherSoftwareInventory",
-        ///         DocumentFormat = "YAML",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["content"] = foo.Apply(getDocumentResult =&gt; getDocumentResult.Content),
-        ///     };
-        /// });
-        /// ```
-        /// 
-        /// To get the contents of the custom document.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ssm.GetDocument.Invoke(new()
-        ///     {
-        ///         Name = aws_ssm_document.Test.Name,
-        ///         DocumentFormat = "JSON",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
     }
@@ -119,21 +21,12 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class GetDocumentArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
-        /// </summary>
         [Input("documentFormat")]
         public string? DocumentFormat { get; set; }
 
-        /// <summary>
-        /// Document version for which you want information.
-        /// </summary>
         [Input("documentVersion")]
         public string? DocumentVersion { get; set; }
 
-        /// <summary>
-        /// Name of the Systems Manager document.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -145,21 +38,12 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class GetDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
-        /// </summary>
         [Input("documentFormat")]
         public Input<string>? DocumentFormat { get; set; }
 
-        /// <summary>
-        /// Document version for which you want information.
-        /// </summary>
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 
-        /// <summary>
-        /// Name of the Systems Manager document.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -173,18 +57,9 @@ namespace Pulumi.Aws.Ssm
     [OutputType]
     public sealed class GetDocumentResult
     {
-        /// <summary>
-        /// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Contents of the document.
-        /// </summary>
         public readonly string Content;
         public readonly string? DocumentFormat;
-        /// <summary>
-        /// Type of the document.
-        /// </summary>
         public readonly string DocumentType;
         public readonly string? DocumentVersion;
         /// <summary>

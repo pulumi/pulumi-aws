@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class GetAmiFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the AMI that was provided during image creation.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

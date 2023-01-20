@@ -13,28 +13,10 @@ namespace Pulumi.Aws.ElasticLoadBalancing.Outputs
     [OutputType]
     public sealed class LoadBalancerHealthCheck
     {
-        /// <summary>
-        /// The number of checks before the instance is declared healthy.
-        /// </summary>
         public readonly int HealthyThreshold;
-        /// <summary>
-        /// The interval between checks.
-        /// </summary>
         public readonly int Interval;
-        /// <summary>
-        /// The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
-        /// values are:
-        /// * `HTTP`, `HTTPS` - PORT and PATH are required
-        /// * `TCP`, `SSL` - PORT is required, PATH is not supported
-        /// </summary>
         public readonly string Target;
-        /// <summary>
-        /// The length of time before the check times out.
-        /// </summary>
         public readonly int Timeout;
-        /// <summary>
-        /// The number of checks before the instance is declared unhealthy.
-        /// </summary>
         public readonly int UnhealthyThreshold;
 
         [OutputConstructor]

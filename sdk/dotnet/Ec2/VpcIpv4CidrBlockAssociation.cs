@@ -9,67 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
-    /// 
-    /// When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
-    /// The `aws.ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ec2.Vpc("main", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
-    ///     {
-    ///         VpcId = main.Id,
-    ///         CidrBlock = "172.2.0.0/16",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")]
     public partial class VpcIpv4CidrBlockAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        /// </summary>
         [Output("ipv4IpamPoolId")]
         public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
 
-        /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        /// </summary>
         [Output("ipv4NetmaskLength")]
         public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC to make the association with.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -119,27 +70,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpv4CidrBlockAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
-        /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        /// </summary>
         [Input("ipv4IpamPoolId")]
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
-        /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC to make the association with.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -151,27 +90,15 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpv4CidrBlockAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
-        /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        /// </summary>
         [Input("ipv4IpamPoolId")]
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
-        /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC to make the association with.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

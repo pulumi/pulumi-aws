@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the launch template. Conflicts with `name`.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The name of the launch template. Conflicts with `id`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

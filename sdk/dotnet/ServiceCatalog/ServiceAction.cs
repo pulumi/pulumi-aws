@@ -9,63 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog self-service action.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.ServiceAction("example", new()
-    ///     {
-    ///         Definition = new Aws.ServiceCatalog.Inputs.ServiceActionDefinitionArgs
-    ///         {
-    ///             Name = "AWS-RestartEC2Instance",
-    ///         },
-    ///         Description = "Motor generator unit",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/serviceAction:ServiceAction")]
     public partial class ServiceAction : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
-        /// <summary>
-        /// Self-service action definition configuration block. Detailed below.
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.ServiceActionDefinition> Definition { get; private set; } = null!;
 
-        /// <summary>
-        /// Self-service action description.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Self-service action name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -115,27 +70,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ServiceActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Self-service action definition configuration block. Detailed below.
-        /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.ServiceActionDefinitionArgs> Definition { get; set; } = null!;
 
-        /// <summary>
-        /// Self-service action description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Self-service action name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -147,27 +90,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class ServiceActionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Self-service action definition configuration block. Detailed below.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.ServiceActionDefinitionGetArgs>? Definition { get; set; }
 
-        /// <summary>
-        /// Self-service action description.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Self-service action name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

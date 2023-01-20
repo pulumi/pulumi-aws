@@ -9,74 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticSearch
 {
-    /// <summary>
-    /// Manages SAML authentication options for an AWS Elasticsearch Domain.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new()
-    ///     {
-    ///         ElasticsearchVersion = "1.5",
-    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
-    ///         {
-    ///             InstanceType = "r4.large.elasticsearch",
-    ///         },
-    ///         SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
-    ///         {
-    ///             AutomatedSnapshotStartHour = 23,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Domain", "TestDomain" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
-    ///     {
-    ///         DomainName = exampleDomain.DomainName,
-    ///         SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
-    ///             {
-    ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Elasticsearch domains can be imported using the `domain_name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:elasticsearch/domainSamlOptions:DomainSamlOptions")]
     public partial class DomainSamlOptions : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// The SAML authentication options for an AWS Elasticsearch Domain.
-        /// </summary>
         [Output("samlOptions")]
         public Output<Outputs.DomainSamlOptionsSamlOptions?> SamlOptions { get; private set; } = null!;
 
@@ -126,15 +64,9 @@ namespace Pulumi.Aws.ElasticSearch
 
     public sealed class DomainSamlOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// The SAML authentication options for an AWS Elasticsearch Domain.
-        /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.DomainSamlOptionsSamlOptionsArgs>? SamlOptions { get; set; }
 
@@ -146,15 +78,9 @@ namespace Pulumi.Aws.ElasticSearch
 
     public sealed class DomainSamlOptionsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the domain.
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// The SAML authentication options for an AWS Elasticsearch Domain.
-        /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.DomainSamlOptionsSamlOptionsGetArgs>? SamlOptions { get; set; }
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewaySpecListenerTlsCertificate
     {
-        /// <summary>
-        /// An AWS Certificate Manager (ACM) certificate.
-        /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerTlsCertificateAcm? Acm;
-        /// <summary>
-        /// Local file certificate.
-        /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerTlsCertificateFile? File;
-        /// <summary>
-        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerTlsCertificateSds? Sds;
 
         [OutputConstructor]

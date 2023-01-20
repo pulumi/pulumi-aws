@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class PlanRuleCopyActionLifecycle
     {
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is moved to cold storage.
-        /// </summary>
         public readonly int? ColdStorageAfter;
-        /// <summary>
-        /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
-        /// </summary>
         public readonly int? DeleteAfter;
 
         [OutputConstructor]

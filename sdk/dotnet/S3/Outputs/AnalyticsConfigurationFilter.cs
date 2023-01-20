@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class AnalyticsConfigurationFilter
     {
-        /// <summary>
-        /// Object prefix for filtering.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Set of object tags for filtering.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

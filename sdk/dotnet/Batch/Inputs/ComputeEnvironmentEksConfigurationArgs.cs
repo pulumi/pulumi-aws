@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class ComputeEnvironmentEksConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-        /// </summary>
         [Input("eksClusterArn", required: true)]
         public Input<string> EksClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-        /// </summary>
         [Input("kubernetesNamespace", required: true)]
         public Input<string> KubernetesNamespace { get; set; } = null!;
 

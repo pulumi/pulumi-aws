@@ -12,21 +12,12 @@ namespace Pulumi.Aws.RedShift.Inputs
 
     public sealed class ScheduledActionTargetActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An action that runs a `PauseCluster` API operation. Documented below.
-        /// </summary>
         [Input("pauseCluster")]
         public Input<Inputs.ScheduledActionTargetActionPauseClusterArgs>? PauseCluster { get; set; }
 
-        /// <summary>
-        /// An action that runs a `ResizeCluster` API operation. Documented below.
-        /// </summary>
         [Input("resizeCluster")]
         public Input<Inputs.ScheduledActionTargetActionResizeClusterArgs>? ResizeCluster { get; set; }
 
-        /// <summary>
-        /// An action that runs a `ResumeCluster` API operation. Documented below.
-        /// </summary>
         [Input("resumeCluster")]
         public Input<Inputs.ScheduledActionTargetActionResumeClusterArgs>? ResumeCluster { get; set; }
 

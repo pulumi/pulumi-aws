@@ -9,68 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var fooOutboundConnection = new Aws.OpenSearch.OutboundConnection("fooOutboundConnection", new()
-    ///     {
-    ///         ConnectionAlias = "outbound_connection",
-    ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
-    ///         {
-    ///             OwnerId = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             DomainName = aws_opensearch_domain.Local_domain.Domain_name,
-    ///         },
-    ///         RemoteDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionRemoteDomainInfoArgs
-    ///         {
-    ///             OwnerId = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             DomainName = aws_opensearch_domain.Remote_domain.Domain_name,
-    ///         },
-    ///     });
-    /// 
-    ///     var fooInboundConnectionAccepter = new Aws.OpenSearch.InboundConnectionAccepter("fooInboundConnectionAccepter", new()
-    ///     {
-    ///         ConnectionId = fooOutboundConnection.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AWS Opensearch Inbound Connection Accepters can be imported by using the Inbound Connection ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")]
     public partial class InboundConnectionAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the ID of the connection to accept.
-        /// </summary>
         [Output("connectionId")]
         public Output<string> ConnectionId { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
@@ -120,9 +64,6 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class InboundConnectionAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the ID of the connection to accept.
-        /// </summary>
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
@@ -134,15 +75,9 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class InboundConnectionAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the ID of the connection to accept.
-        /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }
 

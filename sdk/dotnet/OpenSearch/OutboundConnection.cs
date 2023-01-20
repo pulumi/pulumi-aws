@@ -9,75 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpenSearch
 {
-    /// <summary>
-    /// Manages an AWS Opensearch Outbound Connection.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var foo = new Aws.OpenSearch.OutboundConnection("foo", new()
-    ///     {
-    ///         ConnectionAlias = "outbound_connection",
-    ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
-    ///         {
-    ///             OwnerId = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             DomainName = aws_opensearch_domain.Local_domain.Domain_name,
-    ///         },
-    ///         RemoteDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionRemoteDomainInfoArgs
-    ///         {
-    ///             OwnerId = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             DomainName = aws_opensearch_domain.Remote_domain.Domain_name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opensearch/outboundConnection:OutboundConnection")]
     public partial class OutboundConnection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies the connection alias that will be used by the customer for this connection.
-        /// </summary>
         [Output("connectionAlias")]
         public Output<string> ConnectionAlias { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the local Opensearch domain.
-        /// </summary>
         [Output("localDomainInfo")]
         public Output<Outputs.OutboundConnectionLocalDomainInfo> LocalDomainInfo { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the remote Opensearch domain.
-        /// </summary>
         [Output("remoteDomainInfo")]
         public Output<Outputs.OutboundConnectionRemoteDomainInfo> RemoteDomainInfo { get; private set; } = null!;
 
@@ -127,21 +70,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class OutboundConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the connection alias that will be used by the customer for this connection.
-        /// </summary>
         [Input("connectionAlias", required: true)]
         public Input<string> ConnectionAlias { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the local Opensearch domain.
-        /// </summary>
         [Input("localDomainInfo", required: true)]
         public Input<Inputs.OutboundConnectionLocalDomainInfoArgs> LocalDomainInfo { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the remote Opensearch domain.
-        /// </summary>
         [Input("remoteDomainInfo", required: true)]
         public Input<Inputs.OutboundConnectionRemoteDomainInfoArgs> RemoteDomainInfo { get; set; } = null!;
 
@@ -153,27 +87,15 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class OutboundConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the connection alias that will be used by the customer for this connection.
-        /// </summary>
         [Input("connectionAlias")]
         public Input<string>? ConnectionAlias { get; set; }
 
-        /// <summary>
-        /// Status of the connection request.
-        /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }
 
-        /// <summary>
-        /// Configuration block for the local Opensearch domain.
-        /// </summary>
         [Input("localDomainInfo")]
         public Input<Inputs.OutboundConnectionLocalDomainInfoGetArgs>? LocalDomainInfo { get; set; }
 
-        /// <summary>
-        /// Configuration block for the remote Opensearch domain.
-        /// </summary>
         [Input("remoteDomainInfo")]
         public Input<Inputs.OutboundConnectionRemoteDomainInfoGetArgs>? RemoteDomainInfo { get; set; }
 

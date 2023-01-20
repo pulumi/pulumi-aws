@@ -11,57 +11,9 @@ namespace Pulumi.Aws.ImageBuilder
 {
     public static class GetImagePipeline
     {
-        /// <summary>
-        /// Provides details about an Image Builder Image Pipeline.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetImagePipeline.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetImagePipelineResult> InvokeAsync(GetImagePipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about an Image Builder Image Pipeline.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ImageBuilder.GetImagePipeline.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());
     }
@@ -69,18 +21,11 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetImagePipelineArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the image pipeline.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the image pipeline.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -95,18 +40,11 @@ namespace Pulumi.Aws.ImageBuilder
 
     public sealed class GetImagePipelineInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the image pipeline.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags for the image pipeline.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -124,73 +62,25 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class GetImagePipelineResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// ARN of the container recipe.
-        /// </summary>
         public readonly string ContainerRecipeArn;
-        /// <summary>
-        /// Date the image pipeline was created.
-        /// </summary>
         public readonly string DateCreated;
-        /// <summary>
-        /// Date the image pipeline was last run.
-        /// </summary>
         public readonly string DateLastRun;
-        /// <summary>
-        /// Date the image pipeline will run next.
-        /// </summary>
         public readonly string DateNextRun;
-        /// <summary>
-        /// Date the image pipeline was updated.
-        /// </summary>
         public readonly string DateUpdated;
-        /// <summary>
-        /// Description of the image pipeline.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// ARN of the Image Builder Distribution Configuration.
-        /// </summary>
         public readonly string DistributionConfigurationArn;
-        /// <summary>
-        /// Whether additional information about the image being created is collected.
-        /// </summary>
         public readonly bool EnhancedImageMetadataEnabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN of the image recipe.
-        /// </summary>
         public readonly string ImageRecipeArn;
-        /// <summary>
-        /// List of an object with image tests configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetImagePipelineImageTestsConfigurationResult> ImageTestsConfigurations;
-        /// <summary>
-        /// ARN of the Image Builder Infrastructure Configuration.
-        /// </summary>
         public readonly string InfrastructureConfigurationArn;
-        /// <summary>
-        /// Name of the image pipeline.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Platform of the image pipeline.
-        /// </summary>
         public readonly string Platform;
-        /// <summary>
-        /// List of an object with schedule settings.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetImagePipelineScheduleResult> Schedules;
-        /// <summary>
-        /// Status of the image pipeline.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Key-value map of resource tags for the image pipeline.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

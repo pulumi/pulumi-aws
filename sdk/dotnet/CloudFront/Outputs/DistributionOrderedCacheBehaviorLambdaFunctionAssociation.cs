@@ -13,18 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOrderedCacheBehaviorLambdaFunctionAssociation
     {
-        /// <summary>
-        /// The specific event to trigger this function.
-        /// Valid values: `viewer-request` or `viewer-response`
-        /// </summary>
         public readonly string EventType;
-        /// <summary>
-        /// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
-        /// </summary>
         public readonly bool? IncludeBody;
-        /// <summary>
-        /// ARN of the Lambda function.
-        /// </summary>
         public readonly string LambdaArn;
 
         [OutputConstructor]

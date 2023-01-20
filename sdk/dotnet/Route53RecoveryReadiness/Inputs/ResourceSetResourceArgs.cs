@@ -15,27 +15,17 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
 
-        /// <summary>
-        /// Component for DNS/Routing Control Readiness Checks.
-        /// </summary>
         [Input("dnsTargetResource")]
         public Input<Inputs.ResourceSetResourceDnsTargetResourceArgs>? DnsTargetResource { get; set; }
 
         [Input("readinessScopes")]
         private InputList<string>? _readinessScopes;
-
-        /// <summary>
-        /// Recovery group ARN or cell ARN that contains this resource set.
-        /// </summary>
         public InputList<string> ReadinessScopes
         {
             get => _readinessScopes ?? (_readinessScopes = new InputList<string>());
             set => _readinessScopes = value;
         }
 
-        /// <summary>
-        /// ARN of the resource.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

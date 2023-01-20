@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstanceMaintenanceOptionResult
     {
-        /// <summary>
-        /// Automatic recovery behavior of the instance.
-        /// </summary>
         public readonly string AutoRecovery;
 
         [OutputConstructor]

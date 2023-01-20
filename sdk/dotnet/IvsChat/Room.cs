@@ -9,121 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.IvsChat
 {
-    /// <summary>
-    /// Resource for managing an AWS IVS (Interactive Video) Chat Room.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.IvsChat.Room("example");
-    /// 
-    /// });
-    /// ```
-    /// ## Usage with Logging Configuration to S3 Bucket
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
-    ///     {
-    ///         BucketPrefix = "tf-ivschat-logging-bucket-",
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
-    ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
-    ///         {
-    ///             S3 = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationS3Args
-    ///             {
-    ///                 BucketName = exampleBucketV2.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRoom = new Aws.IvsChat.Room("exampleRoom", new()
-    ///     {
-    ///         LoggingConfigurationIdentifiers = new[]
-    ///         {
-    ///             exampleLoggingConfiguration.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ivschat/room:Room")]
     public partial class Room : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Room.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// List of Logging Configuration
-        /// ARNs to attach to the room.
-        /// </summary>
         [Output("loggingConfigurationIdentifiers")]
         public Output<ImmutableArray<string>> LoggingConfigurationIdentifiers { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximum number of characters in a single
-        /// message. Messages are expected to be UTF-8 encoded and this limit applies
-        /// specifically to rune/code-point count, not number of bytes.
-        /// </summary>
         [Output("maximumMessageLength")]
         public Output<int> MaximumMessageLength { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximum number of messages per
-        /// second that can be sent to the room (by all clients).
-        /// </summary>
         [Output("maximumMessageRatePerSecond")]
         public Output<int> MaximumMessageRatePerSecond { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration information for optional
-        /// review of messages.
-        /// </summary>
         [Output("messageReviewHandler")]
         public Output<Outputs.RoomMessageReviewHandler?> MessageReviewHandler { get; private set; } = null!;
 
-        /// <summary>
-        /// Room name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -175,51 +84,26 @@ namespace Pulumi.Aws.IvsChat
     {
         [Input("loggingConfigurationIdentifiers")]
         private InputList<string>? _loggingConfigurationIdentifiers;
-
-        /// <summary>
-        /// List of Logging Configuration
-        /// ARNs to attach to the room.
-        /// </summary>
         public InputList<string> LoggingConfigurationIdentifiers
         {
             get => _loggingConfigurationIdentifiers ?? (_loggingConfigurationIdentifiers = new InputList<string>());
             set => _loggingConfigurationIdentifiers = value;
         }
 
-        /// <summary>
-        /// Maximum number of characters in a single
-        /// message. Messages are expected to be UTF-8 encoded and this limit applies
-        /// specifically to rune/code-point count, not number of bytes.
-        /// </summary>
         [Input("maximumMessageLength")]
         public Input<int>? MaximumMessageLength { get; set; }
 
-        /// <summary>
-        /// Maximum number of messages per
-        /// second that can be sent to the room (by all clients).
-        /// </summary>
         [Input("maximumMessageRatePerSecond")]
         public Input<int>? MaximumMessageRatePerSecond { get; set; }
 
-        /// <summary>
-        /// Configuration information for optional
-        /// review of messages.
-        /// </summary>
         [Input("messageReviewHandler")]
         public Input<Inputs.RoomMessageReviewHandlerArgs>? MessageReviewHandler { get; set; }
 
-        /// <summary>
-        /// Room name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -234,59 +118,31 @@ namespace Pulumi.Aws.IvsChat
 
     public sealed class RoomState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Room.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("loggingConfigurationIdentifiers")]
         private InputList<string>? _loggingConfigurationIdentifiers;
-
-        /// <summary>
-        /// List of Logging Configuration
-        /// ARNs to attach to the room.
-        /// </summary>
         public InputList<string> LoggingConfigurationIdentifiers
         {
             get => _loggingConfigurationIdentifiers ?? (_loggingConfigurationIdentifiers = new InputList<string>());
             set => _loggingConfigurationIdentifiers = value;
         }
 
-        /// <summary>
-        /// Maximum number of characters in a single
-        /// message. Messages are expected to be UTF-8 encoded and this limit applies
-        /// specifically to rune/code-point count, not number of bytes.
-        /// </summary>
         [Input("maximumMessageLength")]
         public Input<int>? MaximumMessageLength { get; set; }
 
-        /// <summary>
-        /// Maximum number of messages per
-        /// second that can be sent to the room (by all clients).
-        /// </summary>
         [Input("maximumMessageRatePerSecond")]
         public Input<int>? MaximumMessageRatePerSecond { get; set; }
 
-        /// <summary>
-        /// Configuration information for optional
-        /// review of messages.
-        /// </summary>
         [Input("messageReviewHandler")]
         public Input<Inputs.RoomMessageReviewHandlerGetArgs>? MessageReviewHandler { get; set; }
 
-        /// <summary>
-        /// Room name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -295,10 +151,6 @@ namespace Pulumi.Aws.IvsChat
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

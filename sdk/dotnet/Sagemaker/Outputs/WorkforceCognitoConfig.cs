@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class WorkforceCognitoConfig
     {
-        /// <summary>
-        /// The OIDC IdP client ID used to configure your private workforce.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// ID for your Amazon Cognito user pool.
-        /// </summary>
         public readonly string UserPool;
 
         [OutputConstructor]

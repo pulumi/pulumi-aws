@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettings
     {
-        /// <summary>
-        /// The execution role ARN for the user.
-        /// </summary>
         public readonly string ExecutionRole;
-        /// <summary>
-        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings? JupyterServerAppSettings;
-        /// <summary>
-        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
-        /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
-        /// <summary>
-        /// A list of security group IDs that will be attached to the user.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
 
         [OutputConstructor]

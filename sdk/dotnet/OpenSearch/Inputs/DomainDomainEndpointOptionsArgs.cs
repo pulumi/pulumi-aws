@@ -12,33 +12,18 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainDomainEndpointOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Fully qualified domain for your custom endpoint.
-        /// </summary>
         [Input("customEndpoint")]
         public Input<string>? CustomEndpoint { get; set; }
 
-        /// <summary>
-        /// ACM certificate ARN for your custom endpoint.
-        /// </summary>
         [Input("customEndpointCertificateArn")]
         public Input<string>? CustomEndpointCertificateArn { get; set; }
 
-        /// <summary>
-        /// Whether to enable custom endpoint for the OpenSearch domain.
-        /// </summary>
         [Input("customEndpointEnabled")]
         public Input<bool>? CustomEndpointEnabled { get; set; }
 
-        /// <summary>
-        /// Whether or not to require HTTPS. Defaults to `true`.
-        /// </summary>
         [Input("enforceHttps")]
         public Input<bool>? EnforceHttps { get; set; }
 
-        /// <summary>
-        /// Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
-        /// </summary>
         [Input("tlsSecurityPolicy")]
         public Input<string>? TlsSecurityPolicy { get; set; }
 

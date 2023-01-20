@@ -9,112 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Associates a customer gateway with a device and optionally, with a link.
-    /// If you specify a link, it must be associated with the specified device.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
-    ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///     });
-    /// 
-    ///     var exampleDevice = new Aws.NetworkManager.Device("exampleDevice", new()
-    ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///         SiteId = exampleSite.Id,
-    ///     });
-    /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
-    ///     {
-    ///         BgpAsn = "65000",
-    ///         IpAddress = "172.83.124.10",
-    ///         Type = "ipsec.1",
-    ///     });
-    /// 
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
-    /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
-    ///     {
-    ///         CustomerGatewayId = exampleCustomerGateway.Id,
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///         Type = exampleCustomerGateway.Type,
-    ///         StaticRoutesOnly = true,
-    ///     });
-    /// 
-    ///     var exampleTransitGatewayRegistration = new Aws.NetworkManager.TransitGatewayRegistration("exampleTransitGatewayRegistration", new()
-    ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///         TransitGatewayArn = exampleTransitGateway.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVpnConnection,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCustomerGatewayAssociation = new Aws.NetworkManager.CustomerGatewayAssociation("exampleCustomerGatewayAssociation", new()
-    ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///         CustomerGatewayArn = exampleCustomerGateway.Arn,
-    ///         DeviceId = exampleDevice.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleTransitGatewayRegistration,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_networkmanager_customer_gateway_association` can be imported using the global network ID and customer gateway ARN, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")]
     public partial class CustomerGatewayAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer gateway.
-        /// </summary>
         [Output("customerGatewayArn")]
         public Output<string> CustomerGatewayArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the device.
-        /// </summary>
         [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the global network.
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the link.
-        /// </summary>
         [Output("linkId")]
         public Output<string?> LinkId { get; private set; } = null!;
 
@@ -164,27 +70,15 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class CustomerGatewayAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer gateway.
-        /// </summary>
         [Input("customerGatewayArn", required: true)]
         public Input<string> CustomerGatewayArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the device.
-        /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the global network.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the link.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
@@ -196,27 +90,15 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class CustomerGatewayAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer gateway.
-        /// </summary>
         [Input("customerGatewayArn")]
         public Input<string>? CustomerGatewayArn { get; set; }
 
-        /// <summary>
-        /// The ID of the device.
-        /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
-        /// <summary>
-        /// The ID of the global network.
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// The ID of the link.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 

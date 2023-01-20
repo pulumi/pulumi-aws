@@ -12,15 +12,9 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
 
     public sealed class EndpointGroupPortOverrideArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-        /// </summary>
         [Input("endpointPort", required: true)]
         public Input<int> EndpointPort { get; set; } = null!;
 
-        /// <summary>
-        /// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-        /// </summary>
         [Input("listenerPort", required: true)]
         public Input<int> ListenerPort { get; set; } = null!;
 

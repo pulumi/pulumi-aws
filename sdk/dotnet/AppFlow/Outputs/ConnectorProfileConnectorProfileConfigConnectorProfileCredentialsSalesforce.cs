@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
     {
-        /// <summary>
-        /// The credentials used to access protected Zendesk resources.
-        /// </summary>
         public readonly string? AccessToken;
-        /// <summary>
-        /// The secret manager ARN, which contains the client ID and client secret of the connected app.
-        /// </summary>
         public readonly string? ClientCredentialsArn;
-        /// <summary>
-        /// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest? OauthRequest;
-        /// <summary>
-        /// The refresh token used to refresh expired access token.
-        /// </summary>
         public readonly string? RefreshToken;
 
         [OutputConstructor]

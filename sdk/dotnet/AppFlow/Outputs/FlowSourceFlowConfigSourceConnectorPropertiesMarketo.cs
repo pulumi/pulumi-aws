@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesMarketo
     {
-        /// <summary>
-        /// Object specified in the Veeva flow source.
-        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

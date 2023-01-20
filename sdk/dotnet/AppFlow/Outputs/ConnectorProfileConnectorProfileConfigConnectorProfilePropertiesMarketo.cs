@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo
     {
-        /// <summary>
-        /// The location of the Salesforce resource.
-        /// </summary>
         public readonly string InstanceUrl;
 
         [OutputConstructor]

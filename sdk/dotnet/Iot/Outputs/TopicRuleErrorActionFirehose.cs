@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionFirehose
     {
-        /// <summary>
-        /// The delivery stream name.
-        /// </summary>
         public readonly string DeliveryStreamName;
-        /// <summary>
-        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-        /// </summary>
         public readonly string? Separator;
 
         [OutputConstructor]

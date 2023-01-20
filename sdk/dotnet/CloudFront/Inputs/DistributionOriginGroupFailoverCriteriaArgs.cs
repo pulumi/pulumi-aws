@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("statusCodes", required: true)]
         private InputList<int>? _statusCodes;
-
-        /// <summary>
-        /// A list of HTTP status codes for the origin group
-        /// </summary>
         public InputList<int> StatusCodes
         {
             get => _statusCodes ?? (_statusCodes = new InputList<int>());

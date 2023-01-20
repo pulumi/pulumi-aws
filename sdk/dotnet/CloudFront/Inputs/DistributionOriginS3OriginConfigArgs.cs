@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOriginS3OriginConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CloudFront origin access identity to associate with the origin.
-        /// </summary>
         [Input("originAccessIdentity", required: true)]
         public Input<string> OriginAccessIdentity { get; set; } = null!;
 

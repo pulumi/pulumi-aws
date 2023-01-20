@@ -14,25 +14,15 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     {
         [Input("dimensions")]
         private InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs>? _dimensions;
-
-        /// <summary>
-        /// Dimensions of the metric.
-        /// </summary>
         public InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs>());
             set => _dimensions = value;
         }
 
-        /// <summary>
-        /// Name of the metric.
-        /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
-        /// <summary>
-        /// Namespace of the metric.
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

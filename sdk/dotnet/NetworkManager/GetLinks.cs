@@ -11,65 +11,9 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetLinks
     {
-        /// <summary>
-        /// Retrieve information about link.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetLinks.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetLinksResult> InvokeAsync(GetLinksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinksResult>("aws:networkmanager/getLinks:getLinks", args ?? new GetLinksArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about link.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetLinks.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetLinksResult> Invoke(GetLinksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinksResult>("aws:networkmanager/getLinks:getLinks", args ?? new GetLinksInvokeArgs(), options.WithDefaults());
     }
@@ -77,39 +21,23 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetLinksArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Global Network of the links to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Link provider to retrieve.
-        /// </summary>
         [Input("providerName")]
         public string? ProviderName { get; set; }
 
-        /// <summary>
-        /// ID of the site of the links to retrieve.
-        /// </summary>
         [Input("siteId")]
         public string? SiteId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the links with these tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Link type to retrieve.
-        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -121,39 +49,23 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetLinksInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Global Network of the links to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Link provider to retrieve.
-        /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
-        /// <summary>
-        /// ID of the site of the links to retrieve.
-        /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the links with these tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Link type to retrieve.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -172,9 +84,6 @@ namespace Pulumi.Aws.NetworkManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IDs of the links.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string? ProviderName;
         public readonly string? SiteId;

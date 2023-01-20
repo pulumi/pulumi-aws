@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     {
         [Input("groups", required: true)]
         private InputList<string>? _groups;
-
-        /// <summary>
-        /// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());

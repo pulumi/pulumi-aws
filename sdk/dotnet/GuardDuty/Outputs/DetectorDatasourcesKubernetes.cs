@@ -13,10 +13,6 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     [OutputType]
     public sealed class DetectorDatasourcesKubernetes
     {
-        /// <summary>
-        /// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        /// See Kubernetes Audit Logs below for more details.
-        /// </summary>
         public readonly Outputs.DetectorDatasourcesKubernetesAuditLogs AuditLogs;
 
         [OutputConstructor]

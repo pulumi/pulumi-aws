@@ -12,18 +12,11 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("excludedRules")]
         private InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleGetArgs>? _excludedRules;
-
-        /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
-        /// </summary>
         [Obsolete(@"Use rule_action_override instead")]
         public InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleGetArgs> ExcludedRules
         {

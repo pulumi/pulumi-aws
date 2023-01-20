@@ -11,65 +11,9 @@ namespace Pulumi.Aws.Rds
 {
     public static class GetReservedInstanceOffering
     {
-        /// <summary>
-        /// Information about a single RDS Reserved Instance Offering.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetReservedInstanceOffering.Invoke(new()
-        ///     {
-        ///         DbInstanceClass = "db.t2.micro",
-        ///         Duration = 31536000,
-        ///         MultiAz = false,
-        ///         OfferingType = "All Upfront",
-        ///         ProductDescription = "mysql",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetReservedInstanceOfferingResult> InvokeAsync(GetReservedInstanceOfferingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReservedInstanceOfferingResult>("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args ?? new GetReservedInstanceOfferingArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about a single RDS Reserved Instance Offering.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetReservedInstanceOffering.Invoke(new()
-        ///     {
-        ///         DbInstanceClass = "db.t2.micro",
-        ///         Duration = 31536000,
-        ///         MultiAz = false,
-        ///         OfferingType = "All Upfront",
-        ///         ProductDescription = "mysql",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetReservedInstanceOfferingResult> Invoke(GetReservedInstanceOfferingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReservedInstanceOfferingResult>("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args ?? new GetReservedInstanceOfferingInvokeArgs(), options.WithDefaults());
     }
@@ -77,33 +21,18 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetReservedInstanceOfferingArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// DB instance class for the reserved DB instance.
-        /// </summary>
         [Input("dbInstanceClass", required: true)]
         public string DbInstanceClass { get; set; } = null!;
 
-        /// <summary>
-        /// Duration of the reservation in seconds.
-        /// </summary>
         [Input("duration", required: true)]
         public int Duration { get; set; }
 
-        /// <summary>
-        /// Whether the reservation applies to Multi-AZ deployments.
-        /// </summary>
         [Input("multiAz", required: true)]
         public bool MultiAz { get; set; }
 
-        /// <summary>
-        /// Offering type of this reserved DB instance.
-        /// </summary>
         [Input("offeringType", required: true)]
         public string OfferingType { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the reserved DB instance.
-        /// </summary>
         [Input("productDescription", required: true)]
         public string ProductDescription { get; set; } = null!;
 
@@ -115,33 +44,18 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetReservedInstanceOfferingInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// DB instance class for the reserved DB instance.
-        /// </summary>
         [Input("dbInstanceClass", required: true)]
         public Input<string> DbInstanceClass { get; set; } = null!;
 
-        /// <summary>
-        /// Duration of the reservation in seconds.
-        /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the reservation applies to Multi-AZ deployments.
-        /// </summary>
         [Input("multiAz", required: true)]
         public Input<bool> MultiAz { get; set; } = null!;
 
-        /// <summary>
-        /// Offering type of this reserved DB instance.
-        /// </summary>
         [Input("offeringType", required: true)]
         public Input<string> OfferingType { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the reserved DB instance.
-        /// </summary>
         [Input("productDescription", required: true)]
         public Input<string> ProductDescription { get; set; } = null!;
 
@@ -155,24 +69,15 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetReservedInstanceOfferingResult
     {
-        /// <summary>
-        /// Currency code for the reserved DB instance.
-        /// </summary>
         public readonly string CurrencyCode;
         public readonly string DbInstanceClass;
         public readonly int Duration;
-        /// <summary>
-        /// Fixed price charged for this reserved DB instance.
-        /// </summary>
         public readonly double FixedPrice;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool MultiAz;
-        /// <summary>
-        /// Unique identifier for the reservation.
-        /// </summary>
         public readonly string OfferingId;
         public readonly string OfferingType;
         public readonly string ProductDescription;

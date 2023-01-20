@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupBlueGreenDeploymentConfig
     {
-        /// <summary>
-        /// Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-        /// </summary>
         public readonly Outputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption? DeploymentReadyOption;
-        /// <summary>
-        /// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-        /// </summary>
         public readonly Outputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption? GreenFleetProvisioningOption;
-        /// <summary>
-        /// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
-        /// </summary>
         public readonly Outputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess? TerminateBlueInstancesOnDeploymentSuccess;
 
         [OutputConstructor]

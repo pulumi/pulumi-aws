@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketObjectLockConfiguration
     {
-        /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-        /// </summary>
         public readonly string ObjectLockEnabled;
-        /// <summary>
-        /// The Object Lock rule in place for this bucket.
-        /// </summary>
         public readonly Outputs.BucketObjectLockConfigurationRule? Rule;
 
         [OutputConstructor]

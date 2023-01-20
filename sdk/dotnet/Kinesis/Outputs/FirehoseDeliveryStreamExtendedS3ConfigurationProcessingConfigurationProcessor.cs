@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor
     {
-        /// <summary>
-        /// Array of processor parameters. More details are given below
-        /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter> Parameters;
-        /// <summary>
-        /// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

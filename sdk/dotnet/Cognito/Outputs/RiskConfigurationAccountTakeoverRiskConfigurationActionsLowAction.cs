@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction
     {
-        /// <summary>
-        /// The event action. Valid values are `BLOCK` or `NO_ACTION`.
-        /// </summary>
         public readonly string EventAction;
-        /// <summary>
-        /// Whether to send a notification.
-        /// </summary>
         public readonly bool Notify;
 
         [OutputConstructor]

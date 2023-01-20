@@ -13,17 +13,8 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class EndpointAccessVpcEndpoint
     {
-        /// <summary>
-        /// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointAccessVpcEndpointNetworkInterface> NetworkInterfaces;
-        /// <summary>
-        /// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        /// </summary>
         public readonly string? VpcEndpointId;
-        /// <summary>
-        /// The VPC identifier that the endpoint is associated.
-        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

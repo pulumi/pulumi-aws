@@ -12,21 +12,12 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CPU requirements for every worker instance of the worker type.
-        /// </summary>
         [Input("cpu", required: true)]
         public Input<string> Cpu { get; set; } = null!;
 
-        /// <summary>
-        /// The disk requirements for every worker instance of the worker type.
-        /// </summary>
         [Input("disk")]
         public Input<string>? Disk { get; set; }
 
-        /// <summary>
-        /// The memory requirements for every worker instance of the worker type.
-        /// </summary>
         [Input("memory", required: true)]
         public Input<string> Memory { get; set; } = null!;
 

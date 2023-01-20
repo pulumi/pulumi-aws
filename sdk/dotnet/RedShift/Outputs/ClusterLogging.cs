@@ -13,26 +13,10 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class ClusterLogging
     {
-        /// <summary>
-        /// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
-        /// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
-        /// </summary>
         public readonly bool Enable;
-        /// <summary>
-        /// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
-        /// </summary>
         public readonly string? LogDestinationType;
-        /// <summary>
-        /// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
-        /// </summary>
         public readonly ImmutableArray<string> LogExports;
-        /// <summary>
-        /// The prefix applied to the log file names.
-        /// </summary>
         public readonly string? S3KeyPrefix;
 
         [OutputConstructor]

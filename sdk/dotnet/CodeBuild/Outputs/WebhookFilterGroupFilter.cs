@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class WebhookFilterGroupFilter
     {
-        /// <summary>
-        /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        /// </summary>
         public readonly bool? ExcludeMatchedPattern;
-        /// <summary>
-        /// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub &amp; GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        /// </summary>
         public readonly string Pattern;
-        /// <summary>
-        /// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

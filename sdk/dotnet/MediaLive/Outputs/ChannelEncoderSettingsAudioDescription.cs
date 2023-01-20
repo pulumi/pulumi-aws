@@ -13,43 +13,16 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsAudioDescription
     {
-        /// <summary>
-        /// Advanced audio normalization settings. See Audio Normalization Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings? AudioNormalizationSettings;
-        /// <summary>
-        /// The name of the audio selector used as the source for this AudioDescription.
-        /// </summary>
         public readonly string AudioSelectorName;
-        /// <summary>
-        /// Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
-        /// </summary>
         public readonly string? AudioType;
-        /// <summary>
-        /// Determined how audio type is determined.
-        /// </summary>
         public readonly string? AudioTypeControl;
-        /// <summary>
-        /// Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings? AudioWatermarkSettings;
-        /// <summary>
-        /// The video codec settings. See Video Codec Settings for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings? CodecSettings;
-        /// <summary>
-        /// When specified this field indicates the three letter language code of the caption track to extract from the source.
-        /// </summary>
         public readonly string? LanguageCode;
         public readonly string? LanguageCodeControl;
-        /// <summary>
-        /// The name of the video description.
-        /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings? RemixSettings;
-        /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
-        /// </summary>
         public readonly string? StreamName;
 
         [OutputConstructor]

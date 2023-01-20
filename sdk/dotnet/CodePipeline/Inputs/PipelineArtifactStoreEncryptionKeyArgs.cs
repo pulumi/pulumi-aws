@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodePipeline.Inputs
 
     public sealed class PipelineArtifactStoreEncryptionKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The KMS key ARN or ID
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// The type of key; currently only `KMS` is supported
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

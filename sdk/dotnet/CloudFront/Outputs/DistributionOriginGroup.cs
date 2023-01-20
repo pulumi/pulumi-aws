@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOriginGroup
     {
-        /// <summary>
-        /// The failover criteria for when to failover to the secondary origin
-        /// </summary>
         public readonly Outputs.DistributionOriginGroupFailoverCriteria FailoverCriteria;
-        /// <summary>
-        /// Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
-        /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOriginGroupMember> Members;
-        /// <summary>
-        /// The unique identifier of the member origin
-        /// </summary>
         public readonly string OriginId;
 
         [OutputConstructor]

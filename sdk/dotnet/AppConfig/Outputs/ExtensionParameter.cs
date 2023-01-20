@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppConfig.Outputs
     [OutputType]
     public sealed class ExtensionParameter
     {
-        /// <summary>
-        /// Information about the parameter.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Determines if a parameter value must be specified in the extension association.
-        /// </summary>
         public readonly bool? Required;
 
         [OutputConstructor]

@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Lambda
 {
     public static class GetCodeSigningConfig
     {
-        /// <summary>
-        /// Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
-        /// 
-        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
-        ///     {
-        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetCodeSigningConfigResult> InvokeAsync(GetCodeSigningConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
-        /// 
-        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
-        ///     {
-        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithDefaults());
     }
@@ -73,9 +21,6 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetCodeSigningConfigArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the code signing configuration.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -87,9 +32,6 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetCodeSigningConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the code signing configuration.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -103,30 +45,15 @@ namespace Pulumi.Aws.Lambda
     [OutputType]
     public sealed class GetCodeSigningConfigResult
     {
-        /// <summary>
-        /// List of allowed publishers as signing profiles for this code signing configuration.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCodeSigningConfigAllowedPublisherResult> AllowedPublishers;
         public readonly string Arn;
-        /// <summary>
-        /// Unique identifier for the code signing configuration.
-        /// </summary>
         public readonly string ConfigId;
-        /// <summary>
-        /// Code signing configuration description.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Date and time that the code signing configuration was last modified.
-        /// </summary>
         public readonly string LastModified;
-        /// <summary>
-        /// List of code signing policies that control the validation failure action for signature mismatch or expiry.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> Policies;
 
         [OutputConstructor]

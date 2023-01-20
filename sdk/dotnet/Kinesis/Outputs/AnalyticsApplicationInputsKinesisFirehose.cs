@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationInputsKinesisFirehose
     {
-        /// <summary>
-        /// The ARN of the Kinesis Firehose delivery stream.
-        /// </summary>
         public readonly string ResourceArn;
-        /// <summary>
-        /// The ARN of the IAM Role used to access the stream.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

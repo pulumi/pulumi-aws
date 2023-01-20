@@ -11,77 +11,9 @@ namespace Pulumi.Aws.SecretsManager
 {
     public static class GetSecrets
     {
-        /// <summary>
-        /// Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SecretsManager.GetSecrets.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.SecretsManager.Inputs.GetSecretsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:secretsmanager/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.SecretsManager.GetSecrets.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.SecretsManager.Inputs.GetSecretsFilterInputArgs
-        ///             {
-        ///                 Name = "name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("aws:secretsmanager/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
     }
@@ -91,10 +23,6 @@ namespace Pulumi.Aws.SecretsManager
     {
         [Input("filters")]
         private List<Inputs.GetSecretsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public List<Inputs.GetSecretsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetSecretsFilterArgs>());
@@ -111,10 +39,6 @@ namespace Pulumi.Aws.SecretsManager
     {
         [Input("filters")]
         private InputList<Inputs.GetSecretsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetSecretsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetSecretsFilterInputArgs>());
@@ -131,18 +55,12 @@ namespace Pulumi.Aws.SecretsManager
     [OutputType]
     public sealed class GetSecretsResult
     {
-        /// <summary>
-        /// Set of ARNs of the matched Secrets Manager secrets.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetSecretsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of names of the matched Secrets Manager secrets.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

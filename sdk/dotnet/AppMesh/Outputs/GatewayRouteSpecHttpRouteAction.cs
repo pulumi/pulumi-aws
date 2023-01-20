@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttpRouteAction
     {
-        /// <summary>
-        /// Gateway route action to rewrite.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteActionRewrite? Rewrite;
-        /// <summary>
-        /// Target that traffic is routed to when a request matches the gateway route.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteActionTarget Target;
 
         [OutputConstructor]

@@ -9,150 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// Provides an RDS DB proxy target resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProxy = new Aws.Rds.Proxy("exampleProxy", new()
-    ///     {
-    ///         DebugLogging = false,
-    ///         EngineFamily = "MYSQL",
-    ///         IdleClientTimeout = 1800,
-    ///         RequireTls = true,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         VpcSecurityGroupIds = new[]
-    ///         {
-    ///             aws_security_group.Example.Id,
-    ///         },
-    ///         VpcSubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
-    ///         Auths = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ProxyAuthArgs
-    ///             {
-    ///                 AuthScheme = "SECRETS",
-    ///                 Description = "example",
-    ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///             { "Key", "value" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new()
-    ///     {
-    ///         DbProxyName = exampleProxy.Name,
-    ///         ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
-    ///         {
-    ///             ConnectionBorrowTimeout = 120,
-    ///             InitQuery = "SET x=1, y=2",
-    ///             MaxConnectionsPercent = 100,
-    ///             MaxIdleConnectionsPercent = 50,
-    ///             SessionPinningFilters = new[]
-    ///             {
-    ///                 "EXCLUDE_VARIABLE_SETS",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProxyTarget = new Aws.Rds.ProxyTarget("exampleProxyTarget", new()
-    ///     {
-    ///         DbInstanceIdentifier = aws_db_instance.Example.Id,
-    ///         DbProxyName = exampleProxy.Name,
-    ///         TargetGroupName = exampleProxyDefaultTargetGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
-    /// ```
-    /// 
-    ///  Provisioned Clusters
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/proxyTarget:ProxyTarget")]
     public partial class ProxyTarget : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// DB cluster identifier.
-        /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string?> DbClusterIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// DB instance identifier.
-        /// </summary>
         [Output("dbInstanceIdentifier")]
         public Output<string?> DbInstanceIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the DB proxy.
-        /// </summary>
         [Output("dbProxyName")]
         public Output<string> DbProxyName { get; private set; } = null!;
 
-        /// <summary>
-        /// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
-        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// Port for the target RDS DB Instance or Aurora DB Cluster.
-        /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier representing the DB Instance or DB Cluster target.
-        /// </summary>
         [Output("rdsResourceId")]
         public Output<string> RdsResourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
-        /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the target group.
-        /// </summary>
         [Output("targetGroupName")]
         public Output<string> TargetGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-        /// </summary>
         [Output("trackedClusterId")]
         public Output<string> TrackedClusterId { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -202,27 +88,15 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ProxyTargetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DB cluster identifier.
-        /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// DB instance identifier.
-        /// </summary>
         [Input("dbInstanceIdentifier")]
         public Input<string>? DbInstanceIdentifier { get; set; }
 
-        /// <summary>
-        /// The name of the DB proxy.
-        /// </summary>
         [Input("dbProxyName", required: true)]
         public Input<string> DbProxyName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the target group.
-        /// </summary>
         [Input("targetGroupName", required: true)]
         public Input<string> TargetGroupName { get; set; } = null!;
 
@@ -234,63 +108,33 @@ namespace Pulumi.Aws.Rds
 
     public sealed class ProxyTargetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// DB cluster identifier.
-        /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// DB instance identifier.
-        /// </summary>
         [Input("dbInstanceIdentifier")]
         public Input<string>? DbInstanceIdentifier { get; set; }
 
-        /// <summary>
-        /// The name of the DB proxy.
-        /// </summary>
         [Input("dbProxyName")]
         public Input<string>? DbProxyName { get; set; }
 
-        /// <summary>
-        /// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
-        /// <summary>
-        /// Port for the target RDS DB Instance or Aurora DB Cluster.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Identifier representing the DB Instance or DB Cluster target.
-        /// </summary>
         [Input("rdsResourceId")]
         public Input<string>? RdsResourceId { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
-        /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }
 
-        /// <summary>
-        /// The name of the target group.
-        /// </summary>
         [Input("targetGroupName")]
         public Input<string>? TargetGroupName { get; set; }
 
-        /// <summary>
-        /// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-        /// </summary>
         [Input("trackedClusterId")]
         public Input<string>? TrackedClusterId { get; set; }
 
-        /// <summary>
-        /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

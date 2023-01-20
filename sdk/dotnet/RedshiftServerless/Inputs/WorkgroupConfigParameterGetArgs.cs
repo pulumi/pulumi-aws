@@ -12,15 +12,9 @@ namespace Pulumi.Aws.RedshiftServerless.Inputs
 
     public sealed class WorkgroupConfigParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
-        /// </summary>
         [Input("parameterKey", required: true)]
         public Input<string> ParameterKey { get; set; } = null!;
 
-        /// <summary>
-        /// The value of the parameter to set.
-        /// </summary>
         [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 

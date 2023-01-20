@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class InputMediaConnectFlow
     {
-        /// <summary>
-        /// The ARN of the MediaConnect Flow
-        /// </summary>
         public readonly string FlowArn;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings
     {
-        /// <summary>
-        /// The ad marker type for this output group.
-        /// </summary>
         public readonly ImmutableArray<string> AdMarkers;
         public readonly string? BaseUrlContent;
         public readonly string? BaseUrlContent1;
@@ -26,9 +23,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? ClientCache;
         public readonly string? CodecSpecification;
         public readonly string? ConstantIv;
-        /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination Destination;
         public readonly string? DirectoryStructure;
         public readonly string? DiscontinuityTags;
@@ -38,9 +32,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? IframeOnlyPlaylists;
         public readonly string? IncompleteSegmentBehavior;
         public readonly int? IndexNSegments;
-        /// <summary>
-        /// Specifies behavior of last resort when input video os lost.
-        /// </summary>
         public readonly string? InputLossAction;
         public readonly string? IvInManifest;
         public readonly string? IvSource;
@@ -60,9 +51,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly int? SegmentLength;
         public readonly int? SegmentsPerSubdirectory;
         public readonly string? StreamInfResolution;
-        /// <summary>
-        /// Indicates ID3 frame that has the timecode.
-        /// </summary>
         public readonly string? TimedMetadataId3Frame;
         public readonly int? TimedMetadataId3Period;
         public readonly int? TimestampDeltaMilliseconds;

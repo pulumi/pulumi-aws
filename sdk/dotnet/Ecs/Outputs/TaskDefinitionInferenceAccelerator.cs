@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class TaskDefinitionInferenceAccelerator
     {
-        /// <summary>
-        /// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-        /// </summary>
         public readonly string DeviceName;
-        /// <summary>
-        /// Elastic Inference accelerator type to use.
-        /// </summary>
         public readonly string DeviceType;
 
         [OutputConstructor]

@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class ThingGroupMetadata
     {
         public readonly string? CreationDate;
-        /// <summary>
-        /// The name of the parent Thing Group.
-        /// </summary>
         public readonly string? ParentGroupName;
         public readonly ImmutableArray<Outputs.ThingGroupMetadataRootToParentGroup> RootToParentGroups;
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
     public sealed class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
-        /// <summary>
-        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.EmrServerless.Inputs
 
     public sealed class ApplicationInitialCapacityInitialCapacityConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The resource configuration of the initial capacity configuration.
-        /// </summary>
         [Input("workerConfiguration")]
         public Input<Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationGetArgs>? WorkerConfiguration { get; set; }
 
-        /// <summary>
-        /// The number of workers in the initial capacity configuration.
-        /// </summary>
         [Input("workerCount", required: true)]
         public Input<int> WorkerCount { get; set; } = null!;
 

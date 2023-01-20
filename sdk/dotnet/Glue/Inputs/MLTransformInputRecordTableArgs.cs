@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class MLTransformInputRecordTableArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique identifier for the AWS Glue Data Catalog.
-        /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        /// <summary>
-        /// The name of the connection to the AWS Glue Data Catalog.
-        /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
-        /// <summary>
-        /// A database name in the AWS Glue Data Catalog.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// A table name in the AWS Glue Data Catalog.
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

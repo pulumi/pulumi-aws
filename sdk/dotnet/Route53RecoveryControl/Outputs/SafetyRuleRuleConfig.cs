@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Route53RecoveryControl.Outputs
     [OutputType]
     public sealed class SafetyRuleRuleConfig
     {
-        /// <summary>
-        /// Logical negation of the rule.
-        /// </summary>
         public readonly bool Inverted;
-        /// <summary>
-        /// Number of controls that must be set when you specify an `ATLEAST` type rule.
-        /// </summary>
         public readonly int Threshold;
-        /// <summary>
-        /// Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -9,113 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecr
 {
-    /// <summary>
-    /// Manages an ECR repository lifecycle policy.
-    /// 
-    /// &gt; **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
-    /// 
-    /// &gt; **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
-    /// 
-    /// ## Example Usage
-    /// ### Policy on untagged image
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ecr.Repository("foo");
-    /// 
-    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new()
-    ///     {
-    ///         Repository = foo.Name,
-    ///         Policy = @"{
-    ///     ""rules"": [
-    ///         {
-    ///             ""rulePriority"": 1,
-    ///             ""description"": ""Expire images older than 14 days"",
-    ///             ""selection"": {
-    ///                 ""tagStatus"": ""untagged"",
-    ///                 ""countType"": ""sinceImagePushed"",
-    ///                 ""countUnit"": ""days"",
-    ///                 ""countNumber"": 14
-    ///             },
-    ///             ""action"": {
-    ///                 ""type"": ""expire""
-    ///             }
-    ///         }
-    ///     ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Policy on tagged image
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ecr.Repository("foo");
-    /// 
-    ///     var foopolicy = new Aws.Ecr.LifecyclePolicy("foopolicy", new()
-    ///     {
-    ///         Repository = foo.Name,
-    ///         Policy = @"{
-    ///     ""rules"": [
-    ///         {
-    ///             ""rulePriority"": 1,
-    ///             ""description"": ""Keep last 30 images"",
-    ///             ""selection"": {
-    ///                 ""tagStatus"": ""tagged"",
-    ///                 ""tagPrefixList"": [""v""],
-    ///                 ""countType"": ""imageCountMoreThan"",
-    ///                 ""countNumber"": 30
-    ///             },
-    ///             ""action"": {
-    ///                 ""type"": ""expire""
-    ///             }
-    ///         }
-    ///     ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecr/lifecyclePolicy:LifecyclePolicy")]
     public partial class LifecyclePolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry ID where the repository was created.
-        /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the repository to apply the policy.
-        /// </summary>
         [Output("repository")]
         public Output<string> Repository { get; private set; } = null!;
 
@@ -165,15 +67,9 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class LifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the repository to apply the policy.
-        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -185,21 +81,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class LifecyclePolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        /// <summary>
-        /// The registry ID where the repository was created.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the repository to apply the policy.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 

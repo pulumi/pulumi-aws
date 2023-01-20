@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class AssociationOutputLocation
     {
-        /// <summary>
-        /// The S3 bucket name.
-        /// </summary>
         public readonly string S3BucketName;
-        /// <summary>
-        /// The S3 bucket prefix. Results stored in the root if not configured.
-        /// </summary>
         public readonly string? S3KeyPrefix;
-        /// <summary>
-        /// The S3 bucket region.
-        /// </summary>
         public readonly string? S3Region;
 
         [OutputConstructor]

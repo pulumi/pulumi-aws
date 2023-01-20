@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectEnvironmentEnvironmentVariable
     {
-        /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-        /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// Environment variable's value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

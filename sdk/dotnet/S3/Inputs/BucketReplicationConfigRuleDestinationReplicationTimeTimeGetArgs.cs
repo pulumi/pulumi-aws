@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketReplicationConfigRuleDestinationReplicationTimeTimeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Time in minutes. Valid values: `15`.
-        /// </summary>
         [Input("minutes", required: true)]
         public Input<int> Minutes { get; set; } = null!;
 

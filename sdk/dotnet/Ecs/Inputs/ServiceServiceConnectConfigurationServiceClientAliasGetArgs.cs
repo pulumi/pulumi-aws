@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationServiceClientAliasGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name that you use in the applications of client tasks to connect to this service.
-        /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
-        /// <summary>
-        /// The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 

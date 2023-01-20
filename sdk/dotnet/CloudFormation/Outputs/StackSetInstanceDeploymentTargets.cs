@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     [OutputType]
     public sealed class StackSetInstanceDeploymentTargets
     {
-        /// <summary>
-        /// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnitIds;
 
         [OutputConstructor]

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupOnPremisesInstanceTagFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The key of the tag filter.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The value of the tag filter.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

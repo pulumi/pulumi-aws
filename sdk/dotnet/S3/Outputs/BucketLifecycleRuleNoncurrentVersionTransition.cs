@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketLifecycleRuleNoncurrentVersionTransition
     {
-        /// <summary>
-        /// Specifies the number of days noncurrent object versions transition.
-        /// </summary>
         public readonly int? Days;
-        /// <summary>
-        /// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-        /// </summary>
         public readonly string StorageClass;
 
         [OutputConstructor]

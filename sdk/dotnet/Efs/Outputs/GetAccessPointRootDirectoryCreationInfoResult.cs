@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class GetAccessPointRootDirectoryCreationInfoResult
     {
-        /// <summary>
-        /// POSIX owner group ID
-        /// </summary>
         public readonly int OwnerGid;
-        /// <summary>
-        /// POSIX owner user ID
-        /// </summary>
         public readonly int OwnerUid;
-        /// <summary>
-        /// POSIX permissions mode
-        /// </summary>
         public readonly string Permissions;
 
         [OutputConstructor]

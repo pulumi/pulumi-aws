@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class ZoneVpcArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the VPC to associate.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
-        /// <summary>
-        /// Region of the VPC to associate. Defaults to AWS provider region.
-        /// </summary>
         [Input("vpcRegion")]
         public Input<string>? VpcRegion { get; set; }
 

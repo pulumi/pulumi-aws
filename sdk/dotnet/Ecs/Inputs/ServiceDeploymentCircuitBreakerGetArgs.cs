@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceDeploymentCircuitBreakerGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable the deployment circuit breaker logic for the service.
-        /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-        /// </summary>
         [Input("rollback", required: true)]
         public Input<bool> Rollback { get; set; } = null!;
 

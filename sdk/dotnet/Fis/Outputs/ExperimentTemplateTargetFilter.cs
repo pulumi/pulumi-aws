@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateTargetFilter
     {
-        /// <summary>
-        /// Attribute path for the filter.
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// Set of attribute values for the filter.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

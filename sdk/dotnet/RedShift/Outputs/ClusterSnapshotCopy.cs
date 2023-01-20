@@ -13,17 +13,8 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class ClusterSnapshotCopy
     {
-        /// <summary>
-        /// The destination region that you want to copy snapshots to.
-        /// </summary>
         public readonly string DestinationRegion;
-        /// <summary>
-        /// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-        /// </summary>
         public readonly string? GrantName;
-        /// <summary>
-        /// The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
-        /// </summary>
         public readonly int? RetentionPeriod;
 
         [OutputConstructor]

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class GetFrameworkControlResult
     {
-        /// <summary>
-        /// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFrameworkControlInputParameterResult> InputParameters;
-        /// <summary>
-        /// Backup framework name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFrameworkControlScopeResult> Scopes;
 
         [OutputConstructor]

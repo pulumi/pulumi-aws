@@ -9,112 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticLoadBalancing
 {
-    /// <summary>
-    /// Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         Listeners = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "https",
-    ///                 LbPort = 443,
-    ///                 LbProtocol = "https",
-    ///                 SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var foo = new Aws.Elb.SslNegotiationPolicy("foo", new()
-    ///     {
-    ///         LoadBalancer = lb.Id,
-    ///         LbPort = 443,
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///             {
-    ///                 Name = "Protocol-TLSv1",
-    ///                 Value = "false",
-    ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///             {
-    ///                 Name = "Protocol-TLSv1.1",
-    ///                 Value = "false",
-    ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///             {
-    ///                 Name = "Protocol-TLSv1.2",
-    ///                 Value = "true",
-    ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///             {
-    ///                 Name = "Server-Defined-Cipher-Order",
-    ///                 Value = "true",
-    ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///             {
-    ///                 Name = "ECDHE-RSA-AES128-GCM-SHA256",
-    ///                 Value = "true",
-    ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///             {
-    ///                 Name = "AES128-GCM-SHA256",
-    ///                 Value = "true",
-    ///             },
-    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///             {
-    ///                 Name = "EDH-RSA-DES-CBC3-SHA",
-    ///                 Value = "false",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy")]
     [AwsResourceType("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy")]
     public partial class SslNegotiationPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An SSL Negotiation policy attribute. Each has two properties:
-        /// </summary>
         [Output("attributes")]
         public Output<ImmutableArray<Outputs.SslNegotiationPolicyAttribute>> Attributes { get; private set; } = null!;
 
-        /// <summary>
-        /// The load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
-        /// </summary>
         [Output("lbPort")]
         public Output<int> LbPort { get; private set; } = null!;
 
-        /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
-        /// </summary>
         [Output("loadBalancer")]
         public Output<string> LoadBalancer { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the attribute
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -166,34 +73,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     {
         [Input("attributes")]
         private InputList<Inputs.SslNegotiationPolicyAttributeArgs>? _attributes;
-
-        /// <summary>
-        /// An SSL Negotiation policy attribute. Each has two properties:
-        /// </summary>
         public InputList<Inputs.SslNegotiationPolicyAttributeArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.SslNegotiationPolicyAttributeArgs>());
             set => _attributes = value;
         }
 
-        /// <summary>
-        /// The load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
-        /// </summary>
         [Input("lbPort", required: true)]
         public Input<int> LbPort { get; set; } = null!;
 
-        /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
-        /// </summary>
         [Input("loadBalancer", required: true)]
         public Input<string> LoadBalancer { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the attribute
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -207,34 +98,18 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     {
         [Input("attributes")]
         private InputList<Inputs.SslNegotiationPolicyAttributeGetArgs>? _attributes;
-
-        /// <summary>
-        /// An SSL Negotiation policy attribute. Each has two properties:
-        /// </summary>
         public InputList<Inputs.SslNegotiationPolicyAttributeGetArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.SslNegotiationPolicyAttributeGetArgs>());
             set => _attributes = value;
         }
 
-        /// <summary>
-        /// The load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
-        /// </summary>
         [Input("lbPort")]
         public Input<int>? LbPort { get; set; }
 
-        /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
-        /// </summary>
         [Input("loadBalancer")]
         public Input<string>? LoadBalancer { get; set; }
 
-        /// <summary>
-        /// The name of the attribute
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

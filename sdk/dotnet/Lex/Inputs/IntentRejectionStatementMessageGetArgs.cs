@@ -12,22 +12,12 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class IntentRejectionStatementMessageGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The text of the message. Must be less than or equal to 1000 characters in length.
-        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
-        /// <summary>
-        /// The content type of the message string.
-        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        /// <summary>
-        /// Identifies the message group that the message belongs to. When a group
-        /// is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
-        /// </summary>
         [Input("groupNumber")]
         public Input<int>? GroupNumber { get; set; }
 

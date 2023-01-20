@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-        /// </summary>
         [Input("cloudwatchEncryptionMode")]
         public Input<string>? CloudwatchEncryptionMode { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

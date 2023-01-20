@@ -9,45 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.LoggingOptions("example", new()
-    ///     {
-    ///         DefaultLogLevel = "WARN",
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/loggingOptions:LoggingOptions")]
     public partial class LoggingOptions : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        /// </summary>
         [Output("defaultLogLevel")]
         public Output<string> DefaultLogLevel { get; private set; } = null!;
 
-        /// <summary>
-        /// If `true` all logs are disabled. The default is `false`.
-        /// </summary>
         [Output("disableAllLogs")]
         public Output<bool?> DisableAllLogs { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the role that allows IoT to write to Cloudwatch logs.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -97,21 +67,12 @@ namespace Pulumi.Aws.Iot
 
     public sealed class LoggingOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        /// </summary>
         [Input("defaultLogLevel", required: true)]
         public Input<string> DefaultLogLevel { get; set; } = null!;
 
-        /// <summary>
-        /// If `true` all logs are disabled. The default is `false`.
-        /// </summary>
         [Input("disableAllLogs")]
         public Input<bool>? DisableAllLogs { get; set; }
 
-        /// <summary>
-        /// The ARN of the role that allows IoT to write to Cloudwatch logs.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -123,21 +84,12 @@ namespace Pulumi.Aws.Iot
 
     public sealed class LoggingOptionsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        /// </summary>
         [Input("defaultLogLevel")]
         public Input<string>? DefaultLogLevel { get; set; }
 
-        /// <summary>
-        /// If `true` all logs are disabled. The default is `false`.
-        /// </summary>
         [Input("disableAllLogs")]
         public Input<bool>? DisableAllLogs { get; set; }
 
-        /// <summary>
-        /// The ARN of the role that allows IoT to write to Cloudwatch logs.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

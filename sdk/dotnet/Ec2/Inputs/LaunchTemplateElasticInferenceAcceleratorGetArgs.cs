@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateElasticInferenceAcceleratorGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Accelerator type.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

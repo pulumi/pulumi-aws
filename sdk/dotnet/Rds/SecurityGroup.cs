@@ -9,81 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rds
 {
-    /// <summary>
-    /// Provides an RDS security group resource. This is only for DB instances in the
-    /// EC2-Classic Platform. For instances inside a VPC, use the
-    /// `aws_db_instance.vpc_security_group_ids`
-    /// attribute instead.
-    /// 
-    /// !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.rds.SecurityGroup` resource has been deprecated and will be removed in a future version.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Rds.SecurityGroup("default", new()
-    ///     {
-    ///         Ingress = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.SecurityGroupIngressArgs
-    ///             {
-    ///                 Cidr = "10.0.0.0/24",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// DB Security groups can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/securityGroup:SecurityGroup default aws_rds_sg-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rds/securityGroup:SecurityGroup")]
     public partial class SecurityGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The arn of the DB security group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the DB security group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of ingress rules.
-        /// </summary>
         [Output("ingress")]
         public Output<ImmutableArray<Outputs.SecurityGroupIngress>> Ingress { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the DB security group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -133,36 +76,22 @@ namespace Pulumi.Aws.Rds
 
     public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the DB security group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ingress", required: true)]
         private InputList<Inputs.SecurityGroupIngressArgs>? _ingress;
-
-        /// <summary>
-        /// A list of ingress rules.
-        /// </summary>
         public InputList<Inputs.SecurityGroupIngressArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.SecurityGroupIngressArgs>());
             set => _ingress = value;
         }
 
-        /// <summary>
-        /// The name of the DB security group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -178,42 +107,25 @@ namespace Pulumi.Aws.Rds
 
     public sealed class SecurityGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The arn of the DB security group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The description of the DB security group. Defaults to "Managed by Pulumi".
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ingress")]
         private InputList<Inputs.SecurityGroupIngressGetArgs>? _ingress;
-
-        /// <summary>
-        /// A list of ingress rules.
-        /// </summary>
         public InputList<Inputs.SecurityGroupIngressGetArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.SecurityGroupIngressGetArgs>());
             set => _ingress = value;
         }
 
-        /// <summary>
-        /// The name of the DB security group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -222,10 +134,6 @@ namespace Pulumi.Aws.Rds
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

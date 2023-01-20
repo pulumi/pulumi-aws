@@ -14,9 +14,6 @@ namespace Pulumi.Aws.OpsWorks.Outputs
     public sealed class CustomLayerCloudwatchConfiguration
     {
         public readonly bool? Enabled;
-        /// <summary>
-        /// A block the specifies how an opsworks logs look like. See Log Streams.
-        /// </summary>
         public readonly ImmutableArray<Outputs.CustomLayerCloudwatchConfigurationLogStream> LogStreams;
 
         [OutputConstructor]

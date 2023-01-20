@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionCloudwatchAlarm
     {
-        /// <summary>
-        /// The CloudWatch alarm name.
-        /// </summary>
         public readonly string AlarmName;
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The reason for the alarm change.
-        /// </summary>
         public readonly string StateReason;
-        /// <summary>
-        /// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-        /// </summary>
         public readonly string StateValue;
 
         [OutputConstructor]

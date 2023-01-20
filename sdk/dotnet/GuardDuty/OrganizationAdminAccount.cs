@@ -9,57 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GuardDuty
 {
-    /// <summary>
-    /// Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "guardduty.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector");
-    /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
-    ///     {
-    ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleOrganization,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]
     public partial class OrganizationAdminAccount : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for GuardDuty.
-        /// </summary>
         [Output("adminAccountId")]
         public Output<string> AdminAccountId { get; private set; } = null!;
 
@@ -109,9 +61,6 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class OrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for GuardDuty.
-        /// </summary>
         [Input("adminAccountId", required: true)]
         public Input<string> AdminAccountId { get; set; } = null!;
 
@@ -123,9 +72,6 @@ namespace Pulumi.Aws.GuardDuty
 
     public sealed class OrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS account identifier to designate as a delegated administrator for GuardDuty.
-        /// </summary>
         [Input("adminAccountId")]
         public Input<string>? AdminAccountId { get; set; }
 

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
     {
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -28,18 +24,11 @@ namespace Pulumi.Aws.OpsWorks.Inputs
             }
         }
 
-        /// <summary>
-        /// For sources that are version-aware, the revision to use.
-        /// </summary>
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
         [Input("sshKey")]
         private Input<string>? _sshKey;
-
-        /// <summary>
-        /// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-        /// </summary>
         public Input<string>? SshKey
         {
             get => _sshKey;
@@ -50,21 +39,12 @@ namespace Pulumi.Aws.OpsWorks.Inputs
             }
         }
 
-        /// <summary>
-        /// The type of source to use. For example, "archive".
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        /// <summary>
-        /// The URL where the app resource can be found.
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
-        /// <summary>
-        /// Username to use when authenticating to the source.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

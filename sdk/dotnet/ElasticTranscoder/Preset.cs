@@ -9,157 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticTranscoder
 {
-    /// <summary>
-    /// Provides an Elastic Transcoder preset resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bar = new Aws.ElasticTranscoder.Preset("bar", new()
-    ///     {
-    ///         Audio = new Aws.ElasticTranscoder.Inputs.PresetAudioArgs
-    ///         {
-    ///             AudioPackingMode = "SingleTrack",
-    ///             BitRate = "96",
-    ///             Channels = "2",
-    ///             Codec = "AAC",
-    ///             SampleRate = "44100",
-    ///         },
-    ///         AudioCodecOptions = new Aws.ElasticTranscoder.Inputs.PresetAudioCodecOptionsArgs
-    ///         {
-    ///             Profile = "AAC-LC",
-    ///         },
-    ///         Container = "mp4",
-    ///         Description = "Sample Preset",
-    ///         Thumbnails = new Aws.ElasticTranscoder.Inputs.PresetThumbnailsArgs
-    ///         {
-    ///             Format = "png",
-    ///             Interval = "120",
-    ///             MaxHeight = "auto",
-    ///             MaxWidth = "auto",
-    ///             PaddingPolicy = "Pad",
-    ///             SizingPolicy = "Fit",
-    ///         },
-    ///         Video = new Aws.ElasticTranscoder.Inputs.PresetVideoArgs
-    ///         {
-    ///             BitRate = "1600",
-    ///             Codec = "H.264",
-    ///             DisplayAspectRatio = "16:9",
-    ///             FixedGop = "false",
-    ///             FrameRate = "auto",
-    ///             KeyframesMaxDist = "240",
-    ///             MaxFrameRate = "60",
-    ///             MaxHeight = "auto",
-    ///             MaxWidth = "auto",
-    ///             PaddingPolicy = "Pad",
-    ///             SizingPolicy = "Fit",
-    ///         },
-    ///         VideoCodecOptions = 
-    ///         {
-    ///             { "ColorSpaceConversionMode", "None" },
-    ///             { "InterlacedMode", "Progressive" },
-    ///             { "Level", "2.2" },
-    ///             { "MaxReferenceFrames", "3" },
-    ///             { "Profile", "main" },
-    ///         },
-    ///         VideoWatermarks = new[]
-    ///         {
-    ///             new Aws.ElasticTranscoder.Inputs.PresetVideoWatermarkArgs
-    ///             {
-    ///                 HorizontalAlign = "Right",
-    ///                 HorizontalOffset = "10px",
-    ///                 Id = "Test",
-    ///                 MaxHeight = "20%",
-    ///                 MaxWidth = "20%",
-    ///                 Opacity = "55.5",
-    ///                 SizingPolicy = "ShrinkToFit",
-    ///                 Target = "Content",
-    ///                 VerticalAlign = "Bottom",
-    ///                 VerticalOffset = "10px",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Elastic Transcoder presets can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:elastictranscoder/preset:Preset")]
     public partial class Preset : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Audio parameters object (documented below).
-        /// </summary>
         [Output("audio")]
         public Output<Outputs.PresetAudio?> Audio { get; private set; } = null!;
 
-        /// <summary>
-        /// Codec options for the audio parameters (documented below)
-        /// </summary>
         [Output("audioCodecOptions")]
         public Output<Outputs.PresetAudioCodecOptions> AudioCodecOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-        /// </summary>
         [Output("container")]
         public Output<string> Container { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the preset (maximum 255 characters)
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the preset. (maximum 40 characters)
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Thumbnail parameters object (documented below)
-        /// </summary>
         [Output("thumbnails")]
         public Output<Outputs.PresetThumbnails?> Thumbnails { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Video parameters object (documented below)
-        /// </summary>
         [Output("video")]
         public Output<Outputs.PresetVideo?> Video { get; private set; } = null!;
 
-        /// <summary>
-        /// Codec options for the video parameters
-        /// </summary>
         [Output("videoCodecOptions")]
         public Output<ImmutableDictionary<string, string>?> VideoCodecOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Watermark parameters for the video parameters (documented below)
-        /// </summary>
         [Output("videoWatermarks")]
         public Output<ImmutableArray<Outputs.PresetVideoWatermark>> VideoWatermarks { get; private set; } = null!;
 
@@ -209,57 +91,32 @@ namespace Pulumi.Aws.ElasticTranscoder
 
     public sealed class PresetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Audio parameters object (documented below).
-        /// </summary>
         [Input("audio")]
         public Input<Inputs.PresetAudioArgs>? Audio { get; set; }
 
-        /// <summary>
-        /// Codec options for the audio parameters (documented below)
-        /// </summary>
         [Input("audioCodecOptions")]
         public Input<Inputs.PresetAudioCodecOptionsArgs>? AudioCodecOptions { get; set; }
 
-        /// <summary>
-        /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-        /// </summary>
         [Input("container", required: true)]
         public Input<string> Container { get; set; } = null!;
 
-        /// <summary>
-        /// A description of the preset (maximum 255 characters)
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the preset. (maximum 40 characters)
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Thumbnail parameters object (documented below)
-        /// </summary>
         [Input("thumbnails")]
         public Input<Inputs.PresetThumbnailsArgs>? Thumbnails { get; set; }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Video parameters object (documented below)
-        /// </summary>
         [Input("video")]
         public Input<Inputs.PresetVideoArgs>? Video { get; set; }
 
         [Input("videoCodecOptions")]
         private InputMap<string>? _videoCodecOptions;
-
-        /// <summary>
-        /// Codec options for the video parameters
-        /// </summary>
         public InputMap<string> VideoCodecOptions
         {
             get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<string>());
@@ -268,10 +125,6 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         [Input("videoWatermarks")]
         private InputList<Inputs.PresetVideoWatermarkArgs>? _videoWatermarks;
-
-        /// <summary>
-        /// Watermark parameters for the video parameters (documented below)
-        /// </summary>
         public InputList<Inputs.PresetVideoWatermarkArgs> VideoWatermarks
         {
             get => _videoWatermarks ?? (_videoWatermarks = new InputList<Inputs.PresetVideoWatermarkArgs>());
@@ -286,63 +139,35 @@ namespace Pulumi.Aws.ElasticTranscoder
 
     public sealed class PresetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Audio parameters object (documented below).
-        /// </summary>
         [Input("audio")]
         public Input<Inputs.PresetAudioGetArgs>? Audio { get; set; }
 
-        /// <summary>
-        /// Codec options for the audio parameters (documented below)
-        /// </summary>
         [Input("audioCodecOptions")]
         public Input<Inputs.PresetAudioCodecOptionsGetArgs>? AudioCodecOptions { get; set; }
 
-        /// <summary>
-        /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-        /// </summary>
         [Input("container")]
         public Input<string>? Container { get; set; }
 
-        /// <summary>
-        /// A description of the preset (maximum 255 characters)
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the preset. (maximum 40 characters)
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Thumbnail parameters object (documented below)
-        /// </summary>
         [Input("thumbnails")]
         public Input<Inputs.PresetThumbnailsGetArgs>? Thumbnails { get; set; }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Video parameters object (documented below)
-        /// </summary>
         [Input("video")]
         public Input<Inputs.PresetVideoGetArgs>? Video { get; set; }
 
         [Input("videoCodecOptions")]
         private InputMap<string>? _videoCodecOptions;
-
-        /// <summary>
-        /// Codec options for the video parameters
-        /// </summary>
         public InputMap<string> VideoCodecOptions
         {
             get => _videoCodecOptions ?? (_videoCodecOptions = new InputMap<string>());
@@ -351,10 +176,6 @@ namespace Pulumi.Aws.ElasticTranscoder
 
         [Input("videoWatermarks")]
         private InputList<Inputs.PresetVideoWatermarkGetArgs>? _videoWatermarks;
-
-        /// <summary>
-        /// Watermark parameters for the video parameters (documented below)
-        /// </summary>
         public InputList<Inputs.PresetVideoWatermarkGetArgs> VideoWatermarks
         {
             get => _videoWatermarks ?? (_videoWatermarks = new InputList<Inputs.PresetVideoWatermarkGetArgs>());

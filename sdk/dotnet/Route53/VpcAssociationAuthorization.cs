@@ -9,92 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var alternate = new Aws.Provider("alternate");
-    /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.6.0.0/16",
-    ///         EnableDnsHostnames = true,
-    ///         EnableDnsSupport = true,
-    ///     });
-    /// 
-    ///     var exampleZone = new Aws.Route53.Zone("exampleZone", new()
-    ///     {
-    ///         Vpcs = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.ZoneVpcArgs
-    ///             {
-    ///                 VpcId = exampleVpc.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var alternateVpc = new Aws.Ec2.Vpc("alternateVpc", new()
-    ///     {
-    ///         CidrBlock = "10.7.0.0/16",
-    ///         EnableDnsHostnames = true,
-    ///         EnableDnsSupport = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "aws.alternate",
-    ///     });
-    /// 
-    ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", new()
-    ///     {
-    ///         VpcId = alternateVpc.Id,
-    ///         ZoneId = exampleZone.Id,
-    ///     });
-    /// 
-    ///     var exampleZoneAssociation = new Aws.Route53.ZoneAssociation("exampleZoneAssociation", new()
-    ///     {
-    ///         VpcId = exampleVpcAssociationAuthorization.VpcId,
-    ///         ZoneId = exampleVpcAssociationAuthorization.ZoneId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "aws.alternate",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")]
     public partial class VpcAssociationAuthorization : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The VPC to authorize for association with the private hosted zone.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC's region. Defaults to the region of the AWS provider.
-        /// </summary>
         [Output("vpcRegion")]
         public Output<string> VpcRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the private hosted zone that you want to authorize associating a VPC with.
-        /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
 
@@ -144,21 +67,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class VpcAssociationAuthorizationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The VPC to authorize for association with the private hosted zone.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
-        /// <summary>
-        /// The VPC's region. Defaults to the region of the AWS provider.
-        /// </summary>
         [Input("vpcRegion")]
         public Input<string>? VpcRegion { get; set; }
 
-        /// <summary>
-        /// The ID of the private hosted zone that you want to authorize associating a VPC with.
-        /// </summary>
         [Input("zoneId", required: true)]
         public Input<string> ZoneId { get; set; } = null!;
 
@@ -170,21 +84,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class VpcAssociationAuthorizationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The VPC to authorize for association with the private hosted zone.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
-        /// <summary>
-        /// The VPC's region. Defaults to the region of the AWS provider.
-        /// </summary>
         [Input("vpcRegion")]
         public Input<string>? VpcRegion { get; set; }
 
-        /// <summary>
-        /// The ID of the private hosted zone that you want to authorize associating a VPC with.
-        /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
 

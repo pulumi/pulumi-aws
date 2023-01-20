@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DataSync.Inputs
 
     public sealed class LocationSmbMountOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

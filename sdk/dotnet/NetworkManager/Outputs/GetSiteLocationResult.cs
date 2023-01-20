@@ -13,17 +13,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetSiteLocationResult
     {
-        /// <summary>
-        /// Address of the location.
-        /// </summary>
         public readonly string Address;
-        /// <summary>
-        /// Latitude of the location.
-        /// </summary>
         public readonly string Latitude;
-        /// <summary>
-        /// Longitude of the location.
-        /// </summary>
         public readonly string Longitude;
 
         [OutputConstructor]

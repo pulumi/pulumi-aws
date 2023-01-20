@@ -13,21 +13,9 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     [OutputType]
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult
     {
-        /// <summary>
-        /// string value
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-        /// </summary>
         public readonly string? Operator;
-        /// <summary>
-        /// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// string value
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

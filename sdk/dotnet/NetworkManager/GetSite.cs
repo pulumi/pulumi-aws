@@ -11,59 +11,9 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetSite
     {
-        /// <summary>
-        /// Retrieve information about a site.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetSite.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         SiteId = @var.Site_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a site.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetSite.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         SiteId = @var.Site_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
@@ -71,24 +21,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetSiteArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Global Network of the site to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the specific site to retrieve.
-        /// </summary>
         [Input("siteId", required: true)]
         public string SiteId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the Site.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -103,24 +43,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the Global Network of the site to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the specific site to retrieve.
-        /// </summary>
         [Input("siteId", required: true)]
         public Input<string> SiteId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the Site.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -137,27 +67,15 @@ namespace Pulumi.Aws.NetworkManager
     [OutputType]
     public sealed class GetSiteResult
     {
-        /// <summary>
-        /// ARN of the site.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the site.
-        /// </summary>
         public readonly string Description;
         public readonly string GlobalNetworkId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Site location as documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSiteLocationResult> Locations;
         public readonly string SiteId;
-        /// <summary>
-        /// Key-value tags for the Site.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

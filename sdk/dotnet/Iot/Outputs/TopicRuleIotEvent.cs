@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleIotEvent
     {
-        /// <summary>
-        /// The name of the AWS IoT Events input.
-        /// </summary>
         public readonly string InputName;
-        /// <summary>
-        /// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-        /// </summary>
         public readonly string? MessageId;
-        /// <summary>
-        /// The ARN of the IAM role that grants access.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

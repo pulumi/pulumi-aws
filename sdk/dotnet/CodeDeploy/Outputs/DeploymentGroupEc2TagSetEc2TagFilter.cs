@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupEc2TagSetEc2TagFilter
     {
-        /// <summary>
-        /// The key of the tag filter.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-        /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// The value of the tag filter.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

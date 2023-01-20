@@ -9,78 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedshiftServerless
 {
-    /// <summary>
-    /// Creates a new Amazon Redshift Serverless Usage Limit.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleWorkgroup = new Aws.RedshiftServerless.Workgroup("exampleWorkgroup", new()
-    ///     {
-    ///         NamespaceName = aws_redshiftserverless_namespace.Example.Namespace_name,
-    ///         WorkgroupName = "example",
-    ///     });
-    /// 
-    ///     var exampleUsageLimit = new Aws.RedshiftServerless.UsageLimit("exampleUsageLimit", new()
-    ///     {
-    ///         ResourceArn = exampleWorkgroup.Arn,
-    ///         UsageType = "serverless-compute",
-    ///         Amount = 60,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Redshift Serverless Usage Limits can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshiftserverless/usageLimit:UsageLimit")]
     public partial class UsageLimit : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        /// </summary>
         [Output("amount")]
         public Output<int> Amount { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        /// </summary>
         [Output("breachAction")]
         public Output<string?> BreachAction { get; private set; } = null!;
 
-        /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        /// </summary>
         [Output("period")]
         public Output<string?> Period { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-        /// </summary>
         [Output("usageType")]
         public Output<string> UsageType { get; private set; } = null!;
 
@@ -130,33 +76,18 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class UsageLimitArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        /// </summary>
         [Input("amount", required: true)]
         public Input<int> Amount { get; set; } = null!;
 
-        /// <summary>
-        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        /// </summary>
         [Input("breachAction")]
         public Input<string>? BreachAction { get; set; }
 
-        /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-        /// </summary>
         [Input("usageType", required: true)]
         public Input<string> UsageType { get; set; } = null!;
 
@@ -168,39 +99,21 @@ namespace Pulumi.Aws.RedshiftServerless
 
     public sealed class UsageLimitState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
-        /// </summary>
         [Input("amount")]
         public Input<int>? Amount { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
-        /// </summary>
         [Input("breachAction")]
         public Input<string>? BreachAction { get; set; }
 
-        /// <summary>
-        /// The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
-        /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
-        /// </summary>
         [Input("usageType")]
         public Input<string>? UsageType { get; set; }
 

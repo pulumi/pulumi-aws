@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class TagTag
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Whether to propagate the tags to instances launched by the ASG.
-        /// </summary>
         public readonly bool PropagateAtLaunch;
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

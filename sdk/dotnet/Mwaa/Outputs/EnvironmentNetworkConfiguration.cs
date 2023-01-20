@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentNetworkConfiguration
     {
-        /// <summary>
-        /// Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

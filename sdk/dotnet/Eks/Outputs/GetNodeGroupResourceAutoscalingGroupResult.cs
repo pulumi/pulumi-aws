@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetNodeGroupResourceAutoscalingGroupResult
     {
-        /// <summary>
-        /// Name of the AutoScaling Group.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

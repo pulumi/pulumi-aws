@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class GetUserHierarchyGroupHierarchyPathLevelFifeResult
     {
-        /// <summary>
-        /// ARN of the hierarchy group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The identifier of the hierarchy group.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Returns information on a specific hierarchy group by name
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

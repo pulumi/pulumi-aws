@@ -9,80 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Attaches a Lightsail Instance to a Lightsail Load Balancer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
-    ///     {
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
-    ///     {
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         BlueprintId = "amazon_linux",
-    ///         BundleId = "nano_1_0",
-    ///     });
-    /// 
-    ///     var testLbAttachment = new Aws.LightSail.LbAttachment("testLbAttachment", new()
-    ///     {
-    ///         LbName = testLb.Name,
-    ///         InstanceName = testInstance.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_lightsail_lb_attachment` can be imported by using the name attribute, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/lbAttachment:LbAttachment")]
     public partial class LbAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the instance to attach to the load balancer.
-        /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Lightsail load balancer.
-        /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
 
@@ -132,15 +64,9 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the instance to attach to the load balancer.
-        /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Lightsail load balancer.
-        /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
 
@@ -152,15 +78,9 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class LbAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the instance to attach to the load balancer.
-        /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
-        /// <summary>
-        /// The name of the Lightsail load balancer.
-        /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
 

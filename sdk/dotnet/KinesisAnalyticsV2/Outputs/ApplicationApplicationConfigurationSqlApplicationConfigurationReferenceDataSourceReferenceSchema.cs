@@ -13,17 +13,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema
     {
-        /// <summary>
-        /// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> RecordColumns;
-        /// <summary>
-        /// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        /// </summary>
         public readonly string? RecordEncoding;
-        /// <summary>
-        /// Specifies the format of the records on the streaming source.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat RecordFormat;
 
         [OutputConstructor]

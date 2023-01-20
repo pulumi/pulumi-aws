@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttp2RouteActionTargetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Virtual service gateway route target.
-        /// </summary>
         [Input("virtualService", required: true)]
         public Input<Inputs.GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs> VirtualService { get; set; } = null!;
 

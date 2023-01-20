@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppStream.Outputs
     [OutputType]
     public sealed class ImageBuilderDomainJoinInfo
     {
-        /// <summary>
-        /// Fully qualified name of the directory (for example, corp.example.com).
-        /// </summary>
         public readonly string? DirectoryName;
-        /// <summary>
-        /// Distinguished name of the organizational unit for computer accounts.
-        /// </summary>
         public readonly string? OrganizationalUnitDistinguishedName;
 
         [OutputConstructor]

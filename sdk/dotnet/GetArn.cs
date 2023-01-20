@@ -11,57 +11,9 @@ namespace Pulumi.Aws
 {
     public static class GetArn
     {
-        /// <summary>
-        /// Parses an ARN into its constituent parts.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var dbInstance = Aws.GetArn.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetArnResult> InvokeAsync(GetArnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Parses an ARN into its constituent parts.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var dbInstance = Aws.GetArn.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetArnResult> Invoke(GetArnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnInvokeArgs(), options.WithDefaults());
     }
@@ -69,9 +21,6 @@ namespace Pulumi.Aws
 
     public sealed class GetArnArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN to parse.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -83,9 +32,6 @@ namespace Pulumi.Aws
 
     public sealed class GetArnInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN to parse.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -99,32 +45,15 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetArnResult
     {
-        /// <summary>
-        /// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
-        /// </summary>
         public readonly string Account;
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Partition that the resource is in.
-        /// </summary>
         public readonly string Partition;
-        /// <summary>
-        /// Region the resource resides in.
-        /// Note that the ARNs for some resources do not require a region, so this component might be omitted.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Content of this part of the ARN varies by service.
-        /// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
-        /// </summary>
         public readonly string Resource;
-        /// <summary>
-        /// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
-        /// </summary>
         public readonly string Service;
 
         [OutputConstructor]

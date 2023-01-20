@@ -15,34 +15,16 @@ namespace Pulumi.Aws.MediaLive.Outputs
     {
         public readonly string? AcquisitionPointId;
         public readonly string? AudioOnlyTimecodecControl;
-        /// <summary>
-        /// Setting to allow self signed or verified RTMP certificates.
-        /// </summary>
         public readonly string? CertificateMode;
-        /// <summary>
-        /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        /// </summary>
         public readonly int? ConnectionRetryInterval;
-        /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
-        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination Destination;
         public readonly int? EventId;
         public readonly string? EventIdMode;
         public readonly string? EventStopBehavior;
         public readonly int? FilecacheDuration;
         public readonly int? FragmentLength;
-        /// <summary>
-        /// Specifies behavior of last resort when input video os lost.
-        /// </summary>
         public readonly string? InputLossAction;
-        /// <summary>
-        /// Number of retry attempts.
-        /// </summary>
         public readonly int? NumRetries;
-        /// <summary>
-        /// Number of seconds to wait until a restart is initiated.
-        /// </summary>
         public readonly int? RestartDelay;
         public readonly string? SegmentationMode;
         public readonly int? SendDelayMs;

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class InputDestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A unique name for the location the RTMP stream is being pushed to.
-        /// </summary>
         [Input("streamName", required: true)]
         public Input<string> StreamName { get; set; } = null!;
 

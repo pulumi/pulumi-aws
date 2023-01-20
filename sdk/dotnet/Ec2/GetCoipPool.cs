@@ -11,23 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetCoipPool
     {
-        /// <summary>
-        /// Provides details about a specific EC2 Customer-Owned IP Pool.
-        /// 
-        /// This data source can prove useful when a module accepts a coip pool id as
-        /// an input variable and needs to, for example, determine the CIDR block of that
-        /// COIP Pool.
-        /// </summary>
         public static Task<GetCoipPoolResult> InvokeAsync(GetCoipPoolArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific EC2 Customer-Owned IP Pool.
-        /// 
-        /// This data source can prove useful when a module accepts a coip pool id as
-        /// an input variable and needs to, for example, determine the CIDR block of that
-        /// COIP Pool.
-        /// </summary>
         public static Output<GetCoipPoolResult> Invoke(GetCoipPoolInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolInvokeArgs(), options.WithDefaults());
     }
@@ -43,25 +29,14 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Local Gateway Route Table Id assigned to desired COIP Pool
-        /// </summary>
         [Input("localGatewayRouteTableId")]
         public string? LocalGatewayRouteTableId { get; set; }
 
-        /// <summary>
-        /// ID of the specific COIP Pool to retrieve.
-        /// </summary>
         [Input("poolId")]
         public string? PoolId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired COIP Pool.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -84,25 +59,14 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Local Gateway Route Table Id assigned to desired COIP Pool
-        /// </summary>
         [Input("localGatewayRouteTableId")]
         public Input<string>? LocalGatewayRouteTableId { get; set; }
 
-        /// <summary>
-        /// ID of the specific COIP Pool to retrieve.
-        /// </summary>
         [Input("poolId")]
         public Input<string>? PoolId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired COIP Pool.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -119,9 +83,6 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetCoipPoolResult
     {
-        /// <summary>
-        /// ARN of the COIP pool
-        /// </summary>
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetCoipPoolFilterResult> Filters;
         /// <summary>
@@ -129,9 +90,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly string LocalGatewayRouteTableId;
-        /// <summary>
-        /// Set of CIDR blocks in pool
-        /// </summary>
         public readonly ImmutableArray<string> PoolCidrs;
         public readonly string PoolId;
         public readonly ImmutableDictionary<string, string> Tags;

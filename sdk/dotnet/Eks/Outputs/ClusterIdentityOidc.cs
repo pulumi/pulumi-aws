@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class ClusterIdentityOidc
     {
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
         public readonly string? Issuer;
 
         [OutputConstructor]

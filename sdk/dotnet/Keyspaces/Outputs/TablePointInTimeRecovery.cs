@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     [OutputType]
     public sealed class TablePointInTimeRecovery
     {
-        /// <summary>
-        /// Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

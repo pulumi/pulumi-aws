@@ -14,9 +14,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetLaunchTemplateTagSpecificationResult
     {
         public readonly string ResourceType;
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

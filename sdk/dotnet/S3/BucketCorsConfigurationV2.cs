@@ -9,97 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
-    /// 
-    /// &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         CorsRules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
-    ///             {
-    ///                 AllowedHeaders = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "PUT",
-    ///                     "POST",
-    ///                 },
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "https://s3-website-test.domain.example",
-    ///                 },
-    ///                 ExposeHeaders = new[]
-    ///                 {
-    ///                     "ETag",
-    ///                 },
-    ///                 MaxAgeSeconds = 3000,
-    ///             },
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
-    ///             {
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "GET",
-    ///                 },
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
-    /// ```
-    /// 
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]
     public partial class BucketCorsConfigurationV2 : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        /// </summary>
         [Output("corsRules")]
         public Output<ImmutableArray<Outputs.BucketCorsConfigurationV2CorsRule>> CorsRules { get; private set; } = null!;
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
@@ -149,27 +67,17 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketCorsConfigurationV2Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         [Input("corsRules", required: true)]
         private InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs>? _corsRules;
-
-        /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        /// </summary>
         public InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<Inputs.BucketCorsConfigurationV2CorsRuleArgs>());
             set => _corsRules = value;
         }
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
@@ -181,27 +89,17 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketCorsConfigurationV2State : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
         [Input("corsRules")]
         private InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs>? _corsRules;
-
-        /// <summary>
-        /// Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        /// </summary>
         public InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<Inputs.BucketCorsConfigurationV2CorsRuleGetArgs>());
             set => _corsRules = value;
         }
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 

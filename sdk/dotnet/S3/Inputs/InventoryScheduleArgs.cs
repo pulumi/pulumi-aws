@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class InventoryScheduleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
-        /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 

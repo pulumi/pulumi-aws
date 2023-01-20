@@ -9,296 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Amplify
 {
-    /// <summary>
-    /// Provides an Amplify App resource, a fullstack serverless app hosted on the [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
-    /// 
-    /// &gt; **Note:** When you create/update an Amplify App from the provider, you may end up with the error "BadRequestException: You should at least provide one valid token" because of authentication issues. See the section "Repository with Tokens" below.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         BuildSpec = @"  version: 0.1
-    ///   frontend:
-    ///     phases:
-    ///       preBuild:
-    ///         commands:
-    ///           - yarn install
-    ///       build:
-    ///         commands:
-    ///           - yarn run build
-    ///     artifacts:
-    ///       baseDirectory: build
-    ///       files:
-    ///         - '**/*'
-    ///     cache:
-    ///       paths:
-    ///         - node_modules/**/*
-    /// 
-    /// ",
-    ///         CustomRules = new[]
-    ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///             {
-    ///                 Source = "/&lt;*&gt;",
-    ///                 Status = "404",
-    ///                 Target = "/index.html",
-    ///             },
-    ///         },
-    ///         EnvironmentVariables = 
-    ///         {
-    ///             { "ENV", "test" },
-    ///         },
-    ///         Repository = "https://github.com/example/app",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Repository with Tokens
-    /// 
-    /// If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         AccessToken = "...",
-    ///         Repository = "https://github.com/example/app",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
-    /// ### Auto Branch Creation
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         AutoBranchCreationConfig = new Aws.Amplify.Inputs.AppAutoBranchCreationConfigArgs
-    ///         {
-    ///             EnableAutoBuild = true,
-    ///         },
-    ///         AutoBranchCreationPatterns = new[]
-    ///         {
-    ///             "*",
-    ///             "*/**",
-    ///         },
-    ///         EnableAutoBranchCreation = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Rewrites and Redirects
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         CustomRules = new[]
-    ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///             {
-    ///                 Source = "/api/&lt;*&gt;",
-    ///                 Status = "200",
-    ///                 Target = "https://api.example.com/api/&lt;*&gt;",
-    ///             },
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///             {
-    ///                 Source = "&lt;/^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/&gt;",
-    ///                 Status = "200",
-    ///                 Target = "/index.html",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Custom Image
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         EnvironmentVariables = 
-    ///         {
-    ///             { "_CUSTOM_IMAGE", "node:16" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Amplify App can be imported using Amplify App ID (appId), e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
-    /// ```
-    /// 
-    ///  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
-    /// </summary>
     [AwsResourceType("aws:amplify/app:App")]
     public partial class App : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-        /// </summary>
         [Output("accessToken")]
         public Output<string?> AccessToken { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the Amplify app.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
-        /// </summary>
         [Output("autoBranchCreationConfig")]
         public Output<Outputs.AppAutoBranchCreationConfig> AutoBranchCreationConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Automated branch creation glob patterns for an Amplify app.
-        /// </summary>
         [Output("autoBranchCreationPatterns")]
         public Output<ImmutableArray<string>> AutoBranchCreationPatterns { get; private set; } = null!;
 
-        /// <summary>
-        /// Credentials for basic authorization for an Amplify app.
-        /// </summary>
         [Output("basicAuthCredentials")]
         public Output<string?> BasicAuthCredentials { get; private set; } = null!;
 
-        /// <summary>
-        /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-        /// </summary>
         [Output("buildSpec")]
         public Output<string> BuildSpec { get; private set; } = null!;
 
-        /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
-        /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.AppCustomRule>> CustomRules { get; private set; } = null!;
 
-        /// <summary>
-        /// Default domain for the Amplify app.
-        /// </summary>
         [Output("defaultDomain")]
         public Output<string> DefaultDomain { get; private set; } = null!;
 
-        /// <summary>
-        /// Description for an Amplify app.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables automated branch creation for an Amplify app.
-        /// </summary>
         [Output("enableAutoBranchCreation")]
         public Output<bool?> EnableAutoBranchCreation { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
-        /// </summary>
         [Output("enableBasicAuth")]
         public Output<bool?> EnableBasicAuth { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables auto-building of branches for the Amplify App.
-        /// </summary>
         [Output("enableBranchAutoBuild")]
         public Output<bool?> EnableBranchAutoBuild { get; private set; } = null!;
 
-        /// <summary>
-        /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-        /// </summary>
         [Output("enableBranchAutoDeletion")]
         public Output<bool?> EnableBranchAutoDeletion { get; private set; } = null!;
 
-        /// <summary>
-        /// Environment variables map for an Amplify app.
-        /// </summary>
         [Output("environmentVariables")]
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Identity and Access Management (IAM) service role for an Amplify app.
-        /// </summary>
         [Output("iamServiceRoleArn")]
         public Output<string?> IamServiceRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name for an Amplify app.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        /// </summary>
         [Output("oauthToken")]
         public Output<string?> OauthToken { get; private set; } = null!;
 
-        /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
-        /// </summary>
         [Output("platform")]
         public Output<string?> Platform { get; private set; } = null!;
 
-        /// <summary>
-        /// Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
-        /// </summary>
         [Output("productionBranches")]
         public Output<ImmutableArray<Outputs.AppProductionBranch>> ProductionBranches { get; private set; } = null!;
 
-        /// <summary>
-        /// Repository for an Amplify app.
-        /// </summary>
         [Output("repository")]
         public Output<string?> Repository { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -356,10 +132,6 @@ namespace Pulumi.Aws.Amplify
     {
         [Input("accessToken")]
         private Input<string>? _accessToken;
-
-        /// <summary>
-        /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-        /// </summary>
         public Input<string>? AccessToken
         {
             get => _accessToken;
@@ -370,18 +142,11 @@ namespace Pulumi.Aws.Amplify
             }
         }
 
-        /// <summary>
-        /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
-        /// </summary>
         [Input("autoBranchCreationConfig")]
         public Input<Inputs.AppAutoBranchCreationConfigArgs>? AutoBranchCreationConfig { get; set; }
 
         [Input("autoBranchCreationPatterns")]
         private InputList<string>? _autoBranchCreationPatterns;
-
-        /// <summary>
-        /// Automated branch creation glob patterns for an Amplify app.
-        /// </summary>
         public InputList<string> AutoBranchCreationPatterns
         {
             get => _autoBranchCreationPatterns ?? (_autoBranchCreationPatterns = new InputList<string>());
@@ -390,10 +155,6 @@ namespace Pulumi.Aws.Amplify
 
         [Input("basicAuthCredentials")]
         private Input<string>? _basicAuthCredentials;
-
-        /// <summary>
-        /// Credentials for basic authorization for an Amplify app.
-        /// </summary>
         public Input<string>? BasicAuthCredentials
         {
             get => _basicAuthCredentials;
@@ -404,84 +165,48 @@ namespace Pulumi.Aws.Amplify
             }
         }
 
-        /// <summary>
-        /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-        /// </summary>
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
         [Input("customRules")]
         private InputList<Inputs.AppCustomRuleArgs>? _customRules;
-
-        /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
-        /// </summary>
         public InputList<Inputs.AppCustomRuleArgs> CustomRules
         {
             get => _customRules ?? (_customRules = new InputList<Inputs.AppCustomRuleArgs>());
             set => _customRules = value;
         }
 
-        /// <summary>
-        /// Description for an Amplify app.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Enables automated branch creation for an Amplify app.
-        /// </summary>
         [Input("enableAutoBranchCreation")]
         public Input<bool>? EnableAutoBranchCreation { get; set; }
 
-        /// <summary>
-        /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
-        /// </summary>
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
 
-        /// <summary>
-        /// Enables auto-building of branches for the Amplify App.
-        /// </summary>
         [Input("enableBranchAutoBuild")]
         public Input<bool>? EnableBranchAutoBuild { get; set; }
 
-        /// <summary>
-        /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-        /// </summary>
         [Input("enableBranchAutoDeletion")]
         public Input<bool>? EnableBranchAutoDeletion { get; set; }
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
-
-        /// <summary>
-        /// Environment variables map for an Amplify app.
-        /// </summary>
         public InputMap<string> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
             set => _environmentVariables = value;
         }
 
-        /// <summary>
-        /// AWS Identity and Access Management (IAM) service role for an Amplify app.
-        /// </summary>
         [Input("iamServiceRoleArn")]
         public Input<string>? IamServiceRoleArn { get; set; }
 
-        /// <summary>
-        /// Name for an Amplify app.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("oauthToken")]
         private Input<string>? _oauthToken;
-
-        /// <summary>
-        /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        /// </summary>
         public Input<string>? OauthToken
         {
             get => _oauthToken;
@@ -492,24 +217,14 @@ namespace Pulumi.Aws.Amplify
             }
         }
 
-        /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
-        /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
 
-        /// <summary>
-        /// Repository for an Amplify app.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -526,10 +241,6 @@ namespace Pulumi.Aws.Amplify
     {
         [Input("accessToken")]
         private Input<string>? _accessToken;
-
-        /// <summary>
-        /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-        /// </summary>
         public Input<string>? AccessToken
         {
             get => _accessToken;
@@ -540,24 +251,14 @@ namespace Pulumi.Aws.Amplify
             }
         }
 
-        /// <summary>
-        /// ARN of the Amplify app.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
-        /// </summary>
         [Input("autoBranchCreationConfig")]
         public Input<Inputs.AppAutoBranchCreationConfigGetArgs>? AutoBranchCreationConfig { get; set; }
 
         [Input("autoBranchCreationPatterns")]
         private InputList<string>? _autoBranchCreationPatterns;
-
-        /// <summary>
-        /// Automated branch creation glob patterns for an Amplify app.
-        /// </summary>
         public InputList<string> AutoBranchCreationPatterns
         {
             get => _autoBranchCreationPatterns ?? (_autoBranchCreationPatterns = new InputList<string>());
@@ -566,10 +267,6 @@ namespace Pulumi.Aws.Amplify
 
         [Input("basicAuthCredentials")]
         private Input<string>? _basicAuthCredentials;
-
-        /// <summary>
-        /// Credentials for basic authorization for an Amplify app.
-        /// </summary>
         public Input<string>? BasicAuthCredentials
         {
             get => _basicAuthCredentials;
@@ -580,90 +277,51 @@ namespace Pulumi.Aws.Amplify
             }
         }
 
-        /// <summary>
-        /// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-        /// </summary>
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
         [Input("customRules")]
         private InputList<Inputs.AppCustomRuleGetArgs>? _customRules;
-
-        /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
-        /// </summary>
         public InputList<Inputs.AppCustomRuleGetArgs> CustomRules
         {
             get => _customRules ?? (_customRules = new InputList<Inputs.AppCustomRuleGetArgs>());
             set => _customRules = value;
         }
 
-        /// <summary>
-        /// Default domain for the Amplify app.
-        /// </summary>
         [Input("defaultDomain")]
         public Input<string>? DefaultDomain { get; set; }
 
-        /// <summary>
-        /// Description for an Amplify app.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Enables automated branch creation for an Amplify app.
-        /// </summary>
         [Input("enableAutoBranchCreation")]
         public Input<bool>? EnableAutoBranchCreation { get; set; }
 
-        /// <summary>
-        /// Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
-        /// </summary>
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
 
-        /// <summary>
-        /// Enables auto-building of branches for the Amplify App.
-        /// </summary>
         [Input("enableBranchAutoBuild")]
         public Input<bool>? EnableBranchAutoBuild { get; set; }
 
-        /// <summary>
-        /// Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-        /// </summary>
         [Input("enableBranchAutoDeletion")]
         public Input<bool>? EnableBranchAutoDeletion { get; set; }
 
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
-
-        /// <summary>
-        /// Environment variables map for an Amplify app.
-        /// </summary>
         public InputMap<string> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
             set => _environmentVariables = value;
         }
 
-        /// <summary>
-        /// AWS Identity and Access Management (IAM) service role for an Amplify app.
-        /// </summary>
         [Input("iamServiceRoleArn")]
         public Input<string>? IamServiceRoleArn { get; set; }
 
-        /// <summary>
-        /// Name for an Amplify app.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("oauthToken")]
         private Input<string>? _oauthToken;
-
-        /// <summary>
-        /// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-        /// </summary>
         public Input<string>? OauthToken
         {
             get => _oauthToken;
@@ -674,36 +332,22 @@ namespace Pulumi.Aws.Amplify
             }
         }
 
-        /// <summary>
-        /// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
-        /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
 
         [Input("productionBranches")]
         private InputList<Inputs.AppProductionBranchGetArgs>? _productionBranches;
-
-        /// <summary>
-        /// Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
-        /// </summary>
         public InputList<Inputs.AppProductionBranchGetArgs> ProductionBranches
         {
             get => _productionBranches ?? (_productionBranches = new InputList<Inputs.AppProductionBranchGetArgs>());
             set => _productionBranches = value;
         }
 
-        /// <summary>
-        /// Repository for an Amplify app.
-        /// </summary>
         [Input("repository")]
         public Input<string>? Repository { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -712,10 +356,6 @@ namespace Pulumi.Aws.Amplify
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

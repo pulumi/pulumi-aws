@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetEcsParametersCapacityProviderStrategy
     {
-        /// <summary>
-        /// How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
-        /// </summary>
         public readonly int? Base;
-        /// <summary>
-        /// Short name of the capacity provider.
-        /// </summary>
         public readonly string CapacityProvider;
-        /// <summary>
-        /// Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
-        /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]

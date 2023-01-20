@@ -11,59 +11,9 @@ namespace Pulumi.Aws.Grafana
 {
     public static class GetWorkspace
     {
-        /// <summary>
-        /// Provides an Amazon Managed Grafana workspace data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic configuration
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Grafana.GetWorkspace.Invoke(new()
-        ///     {
-        ///         WorkspaceId = "g-2054c75a02",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws:grafana/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides an Amazon Managed Grafana workspace data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic configuration
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Grafana.GetWorkspace.Invoke(new()
-        ///     {
-        ///         WorkspaceId = "g-2054c75a02",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:grafana/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
@@ -73,19 +23,12 @@ namespace Pulumi.Aws.Grafana
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the resource
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Grafana workspace ID.
-        /// </summary>
         [Input("workspaceId", required: true)]
         public string WorkspaceId { get; set; } = null!;
 
@@ -99,19 +42,12 @@ namespace Pulumi.Aws.Grafana
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags assigned to the resource
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Grafana workspace ID.
-        /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
 
@@ -125,82 +61,28 @@ namespace Pulumi.Aws.Grafana
     [OutputType]
     public sealed class GetWorkspaceResult
     {
-        /// <summary>
-        /// (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        /// </summary>
         public readonly string AccountAccessType;
-        /// <summary>
-        /// ARN of the Grafana workspace.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        /// </summary>
         public readonly ImmutableArray<string> AuthenticationProviders;
-        /// <summary>
-        /// Creation date of the Grafana workspace.
-        /// </summary>
         public readonly string CreatedDate;
-        /// <summary>
-        /// Data sources for the workspace.
-        /// </summary>
         public readonly ImmutableArray<string> DataSources;
-        /// <summary>
-        /// Workspace description.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Endpoint of the Grafana workspace.
-        /// </summary>
         public readonly string Endpoint;
-        /// <summary>
-        /// Version of Grafana running on the workspace.
-        /// </summary>
         public readonly string GrafanaVersion;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Last updated date of the Grafana workspace.
-        /// </summary>
         public readonly string LastUpdatedDate;
-        /// <summary>
-        /// Grafana workspace name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The notification destinations.
-        /// </summary>
         public readonly ImmutableArray<string> NotificationDestinations;
-        /// <summary>
-        /// The role name that the workspace uses to access resources through Amazon Organizations.
-        /// </summary>
         public readonly string OrganizationRoleName;
-        /// <summary>
-        /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnits;
-        /// <summary>
-        /// Permission type of the workspace.
-        /// </summary>
         public readonly string PermissionType;
-        /// <summary>
-        /// IAM role ARN that the workspace assumes.
-        /// </summary>
         public readonly string RoleArn;
         public readonly string SamlConfigurationStatus;
-        /// <summary>
-        /// AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        /// </summary>
         public readonly string StackSetName;
-        /// <summary>
-        /// Status of the Grafana workspace.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Tags assigned to the resource
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string WorkspaceId;
 

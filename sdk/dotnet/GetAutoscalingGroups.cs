@@ -12,121 +12,9 @@ namespace Pulumi.Aws
     [Obsolete(@"aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds")]
     public static class GetAutoscalingGroups
     {
-        /// <summary>
-        /// The Autoscaling Groups data source allows access to the list of AWS
-        /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var groups = Aws.AutoScaling.GetAmiIds.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Team",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Pets",
-        ///                 },
-        ///             },
-        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "tag-key",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Environment",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new()
-        ///     {
-        ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
-        ///         Notifications = new[]
-        ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
-        ///         },
-        ///         TopicArn = "TOPIC ARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetAutoscalingGroupsResult> InvokeAsync(GetAutoscalingGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Autoscaling Groups data source allows access to the list of AWS
-        /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var groups = Aws.AutoScaling.GetAmiIds.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Team",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Pets",
-        ///                 },
-        ///             },
-        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
-        ///             {
-        ///                 Name = "tag-key",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Environment",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new()
-        ///     {
-        ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
-        ///         Notifications = new[]
-        ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
-        ///         },
-        ///         TopicArn = "TOPIC ARN",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetAutoscalingGroupsResult> Invoke(GetAutoscalingGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsInvokeArgs(), options.WithDefaults());
     }
@@ -136,10 +24,6 @@ namespace Pulumi.Aws
     {
         [Input("filters")]
         private List<Inputs.GetAutoscalingGroupsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-        /// </summary>
         public List<Inputs.GetAutoscalingGroupsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetAutoscalingGroupsFilterArgs>());
@@ -148,10 +32,6 @@ namespace Pulumi.Aws
 
         [Input("names")]
         private List<string>? _names;
-
-        /// <summary>
-        /// List of autoscaling group names
-        /// </summary>
         public List<string> Names
         {
             get => _names ?? (_names = new List<string>());
@@ -168,10 +48,6 @@ namespace Pulumi.Aws
     {
         [Input("filters")]
         private InputList<Inputs.GetAutoscalingGroupsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-        /// </summary>
         public InputList<Inputs.GetAutoscalingGroupsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetAutoscalingGroupsFilterInputArgs>());
@@ -180,10 +56,6 @@ namespace Pulumi.Aws
 
         [Input("names")]
         private InputList<string>? _names;
-
-        /// <summary>
-        /// List of autoscaling group names
-        /// </summary>
         public InputList<string> Names
         {
             get => _names ?? (_names = new InputList<string>());
@@ -200,18 +72,12 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetAutoscalingGroupsResult
     {
-        /// <summary>
-        /// List of the Autoscaling Groups Arns in the current region.
-        /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly ImmutableArray<Outputs.GetAutoscalingGroupsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of the Autoscaling Groups in the current region.
-        /// </summary>
         public readonly ImmutableArray<string> Names;
 
         [OutputConstructor]

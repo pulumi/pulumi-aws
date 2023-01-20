@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AccessAnalyzer.Outputs
     [OutputType]
     public sealed class ArchiveRuleFilter
     {
-        /// <summary>
-        /// Contains comparator.
-        /// </summary>
         public readonly ImmutableArray<string> Contains;
-        /// <summary>
-        /// Filter criteria.
-        /// </summary>
         public readonly string Criteria;
-        /// <summary>
-        /// Equals comparator.
-        /// </summary>
         public readonly ImmutableArray<string> Eqs;
-        /// <summary>
-        /// Boolean comparator.
-        /// </summary>
         public readonly string? Exists;
-        /// <summary>
-        /// Not Equals comparator.
-        /// </summary>
         public readonly ImmutableArray<string> Neqs;
 
         [OutputConstructor]

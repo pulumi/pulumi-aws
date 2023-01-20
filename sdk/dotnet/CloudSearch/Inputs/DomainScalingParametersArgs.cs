@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudSearch.Inputs
 
     public sealed class DomainScalingParametersArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
-        /// </summary>
         [Input("desiredInstanceType")]
         public Input<string>? DesiredInstanceType { get; set; }
 
-        /// <summary>
-        /// The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
-        /// </summary>
         [Input("desiredPartitionCount")]
         public Input<int>? DesiredPartitionCount { get; set; }
 
-        /// <summary>
-        /// The number of replicas you want to preconfigure for each index partition.
-        /// </summary>
         [Input("desiredReplicationCount")]
         public Input<int>? DesiredReplicationCount { get; set; }
 

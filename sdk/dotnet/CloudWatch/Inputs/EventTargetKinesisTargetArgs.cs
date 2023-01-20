@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventTargetKinesisTargetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The JSON path to be extracted from the event and used as the partition key.
-        /// </summary>
         [Input("partitionKeyPath")]
         public Input<string>? PartitionKeyPath { get; set; }
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class ManagedPrefixListEntryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
-        /// <summary>
-        /// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

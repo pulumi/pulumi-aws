@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
     [OutputType]
     public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo
     {
-        /// <summary>
-        /// Configuration block for the production traffic route (documented below).
-        /// </summary>
         public readonly Outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute ProdTrafficRoute;
-        /// <summary>
-        /// Configuration blocks for a target group within a target group pair (documented below).
-        /// </summary>
         public readonly ImmutableArray<Outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> TargetGroups;
-        /// <summary>
-        /// Configuration block for the test traffic route (documented below).
-        /// </summary>
         public readonly Outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute? TestTrafficRoute;
 
         [OutputConstructor]

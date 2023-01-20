@@ -13,40 +13,11 @@ namespace Pulumi.Aws.Comprehend.Outputs
     [OutputType]
     public sealed class EntityRecognizerInputDataConfig
     {
-        /// <summary>
-        /// Specifies location of the document annotation data.
-        /// See the `annotations` Configuration Block section below.
-        /// One of `annotations` or `entity_list` is required.
-        /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigAnnotations? Annotations;
-        /// <summary>
-        /// List of training datasets produced by Amazon SageMaker Ground Truth.
-        /// Used if `data_format` is `AUGMENTED_MANIFEST`.
-        /// See the `augmented_manifests` Configuration Block section below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EntityRecognizerInputDataConfigAugmentedManifest> AugmentedManifests;
-        /// <summary>
-        /// The format for the training data.
-        /// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        /// </summary>
         public readonly string? DataFormat;
-        /// <summary>
-        /// Specifies a collection of training documents.
-        /// Used if `data_format` is `COMPREHEND_CSV`.
-        /// See the `documents` Configuration Block section below.
-        /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigDocuments? Documents;
-        /// <summary>
-        /// Specifies location of the entity list data.
-        /// See the `entity_list` Configuration Block section below.
-        /// One of `entity_list` or `annotations` is required.
-        /// </summary>
         public readonly Outputs.EntityRecognizerInputDataConfigEntityList? EntityList;
-        /// <summary>
-        /// Set of entity types to be recognized.
-        /// Has a maximum of 25 items.
-        /// See the `entity_types` Configuration Block section below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EntityRecognizerInputDataConfigEntityType> EntityTypes;
 
         [OutputConstructor]

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// The array of strings.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

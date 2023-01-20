@@ -12,9 +12,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class InsightFiltersKeywordGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A value for the keyword.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

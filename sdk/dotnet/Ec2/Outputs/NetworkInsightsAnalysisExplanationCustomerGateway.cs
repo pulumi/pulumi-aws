@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class NetworkInsightsAnalysisExplanationCustomerGateway
     {
-        /// <summary>
-        /// ARN of the Network Insights Analysis.
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// ID of the Network Insights Analysis.
-        /// </summary>
         public readonly string? Id;
         public readonly string? Name;
 

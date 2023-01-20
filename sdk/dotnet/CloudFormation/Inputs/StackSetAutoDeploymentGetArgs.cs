@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFormation.Inputs
 
     public sealed class StackSetAutoDeploymentGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether or not auto-deployment is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Whether or not to retain stacks when the account is removed.
-        /// </summary>
         [Input("retainStacksOnAccountRemoval")]
         public Input<bool>? RetainStacksOnAccountRemoval { get; set; }
 

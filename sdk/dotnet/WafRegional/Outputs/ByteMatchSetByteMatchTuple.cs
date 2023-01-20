@@ -13,21 +13,9 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class ByteMatchSetByteMatchTuple
     {
-        /// <summary>
-        /// Settings for the ByteMatchTuple. FieldToMatch documented below.
-        /// </summary>
         public readonly Outputs.ByteMatchSetByteMatchTupleFieldToMatch FieldToMatch;
-        /// <summary>
-        /// Within the portion of a web request that you want to search.
-        /// </summary>
         public readonly string PositionalConstraint;
-        /// <summary>
-        /// The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
-        /// </summary>
         public readonly string? TargetString;
-        /// <summary>
-        /// The formatting way for web request.
-        /// </summary>
         public readonly string TextTransformation;
 
         [OutputConstructor]

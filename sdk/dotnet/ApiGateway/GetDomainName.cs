@@ -11,57 +11,9 @@ namespace Pulumi.Aws.ApiGateway
 {
     public static class GetDomainName
     {
-        /// <summary>
-        /// Use this data source to get the custom domain name for use with AWS API Gateway.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetDomainName.Invoke(new()
-        ///     {
-        ///         DomainName = "api.example.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetDomainNameResult> InvokeAsync(GetDomainNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameResult>("aws:apigateway/getDomainName:getDomainName", args ?? new GetDomainNameArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the custom domain name for use with AWS API Gateway.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ApiGateway.GetDomainName.Invoke(new()
-        ///     {
-        ///         DomainName = "api.example.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws:apigateway/getDomainName:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
     }
@@ -69,18 +21,11 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetDomainNameArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-        /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of tags for the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -95,18 +40,11 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetDomainNameInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of tags for the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,62 +61,23 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetDomainNameResult
     {
-        /// <summary>
-        /// ARN of the found custom domain name.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// ARN for an AWS-managed certificate that is used by edge-optimized endpoint for this domain name.
-        /// </summary>
         public readonly string CertificateArn;
-        /// <summary>
-        /// Name of the certificate that is used by edge-optimized endpoint for this domain name.
-        /// </summary>
         public readonly string CertificateName;
-        /// <summary>
-        /// Upload date associated with the domain certificate.
-        /// </summary>
         public readonly string CertificateUploadDate;
-        /// <summary>
-        /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-        /// </summary>
         public readonly string CloudfrontDomainName;
-        /// <summary>
-        /// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-        /// </summary>
         public readonly string CloudfrontZoneId;
         public readonly string DomainName;
-        /// <summary>
-        /// List of objects with the endpoint configuration of this domain name.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainNameEndpointConfigurationResult> EndpointConfigurations;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN for an AWS-managed certificate that is used for validating the regional domain name.
-        /// </summary>
         public readonly string RegionalCertificateArn;
-        /// <summary>
-        /// User-friendly name of the certificate that is used by regional endpoint for this domain name.
-        /// </summary>
         public readonly string RegionalCertificateName;
-        /// <summary>
-        /// Hostname for the custom domain's regional endpoint.
-        /// </summary>
         public readonly string RegionalDomainName;
-        /// <summary>
-        /// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-        /// </summary>
         public readonly string RegionalZoneId;
-        /// <summary>
-        /// Security policy for the domain name.
-        /// </summary>
         public readonly string SecurityPolicy;
-        /// <summary>
-        /// Key-value map of tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
-        /// </summary>
         [Input("homeEfsFileSystem")]
         public Input<string>? HomeEfsFileSystem { get; set; }
 

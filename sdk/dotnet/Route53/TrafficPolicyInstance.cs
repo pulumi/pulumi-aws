@@ -9,67 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route53 traffic policy instance resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Route53.TrafficPolicyInstance("test", new()
-    ///     {
-    ///         HostedZoneId = "Z033120931TAQO548OGJC",
-    ///         TrafficPolicyId = "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
-    ///         TrafficPolicyVersion = 1,
-    ///         Ttl = 360,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Route53 traffic policy instance can be imported using its id.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/trafficPolicyInstance:TrafficPolicyInstance")]
     public partial class TrafficPolicyInstance : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-        /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
 
-        /// <summary>
-        /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-        /// </summary>
         [Output("trafficPolicyId")]
         public Output<string> TrafficPolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Version of the traffic policy
-        /// </summary>
         [Output("trafficPolicyVersion")]
         public Output<int> TrafficPolicyVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-        /// </summary>
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
 
@@ -119,33 +73,18 @@ namespace Pulumi.Aws.Route53
 
     public sealed class TrafficPolicyInstanceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-        /// </summary>
         [Input("hostedZoneId", required: true)]
         public Input<string> HostedZoneId { get; set; } = null!;
 
-        /// <summary>
-        /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-        /// </summary>
         [Input("trafficPolicyId", required: true)]
         public Input<string> TrafficPolicyId { get; set; } = null!;
 
-        /// <summary>
-        /// Version of the traffic policy
-        /// </summary>
         [Input("trafficPolicyVersion", required: true)]
         public Input<int> TrafficPolicyVersion { get; set; } = null!;
 
-        /// <summary>
-        /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-        /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
@@ -157,33 +96,18 @@ namespace Pulumi.Aws.Route53
 
     public sealed class TrafficPolicyInstanceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
-        /// </summary>
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 
-        /// <summary>
-        /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
-        /// </summary>
         [Input("trafficPolicyId")]
         public Input<string>? TrafficPolicyId { get; set; }
 
-        /// <summary>
-        /// Version of the traffic policy
-        /// </summary>
         [Input("trafficPolicyVersion")]
         public Input<int>? TrafficPolicyVersion { get; set; }
 
-        /// <summary>
-        /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
-        /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }
 

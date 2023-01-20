@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class TriggerEventBatchingConditionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
-        /// </summary>
         [Input("batchSize", required: true)]
         public Input<int> BatchSize { get; set; } = null!;
 
-        /// <summary>
-        /// Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
-        /// </summary>
         [Input("batchWindow")]
         public Input<int>? BatchWindow { get; set; }
 

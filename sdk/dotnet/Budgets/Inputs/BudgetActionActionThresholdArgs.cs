@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Budgets.Inputs
 
     public sealed class BudgetActionActionThresholdArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
-        /// </summary>
         [Input("actionThresholdType", required: true)]
         public Input<string> ActionThresholdType { get; set; } = null!;
 
-        /// <summary>
-        /// The threshold of a notification.
-        /// </summary>
         [Input("actionThresholdValue", required: true)]
         public Input<double> ActionThresholdValue { get; set; } = null!;
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchConfigurationEphemeralBlockDeviceResult
     {
-        /// <summary>
-        /// Name of the device.
-        /// </summary>
         public readonly string DeviceName;
-        /// <summary>
-        /// Virtual Name of the device.
-        /// </summary>
         public readonly string VirtualName;
 
         [OutputConstructor]

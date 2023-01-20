@@ -12,9 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-        /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 

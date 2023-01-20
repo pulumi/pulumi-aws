@@ -9,628 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kinesis
 {
-    /// <summary>
-    /// Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
-    /// 
-    /// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-    /// 
-    /// ## Example Usage
-    /// ### Extended S3 Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
-    /// 
-    ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""firehose.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var lambdaIam = new Aws.Iam.Role("lambdaIam", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""lambda.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var lambdaProcessor = new Aws.Lambda.Function("lambdaProcessor", new()
-    ///     {
-    ///         Code = new FileArchive("lambda.zip"),
-    ///         Role = lambdaIam.Arn,
-    ///         Handler = "exports.handler",
-    ///         Runtime = "nodejs16.x",
-    ///     });
-    /// 
-    ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new()
-    ///     {
-    ///         Destination = "extended_s3",
-    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             BucketArn = bucket.Arn,
-    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Processors = new[]
-    ///                 {
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
-    ///                     {
-    ///                         Type = "Lambda",
-    ///                         Parameters = new[]
-    ///                         {
-    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
-    ///                             {
-    ///                                 ParameterName = "LambdaArn",
-    ///                                 ParameterValue = lambdaProcessor.Arn.Apply(arn =&gt; $"{arn}:$LATEST"),
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
-    ///     {
-    ///         Bucket = bucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Extended S3 Destination with dynamic partitioning
-    /// These examples use built-in Firehose functionality, rather than requiring a lambda.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new()
-    ///     {
-    ///         Destination = "extended_s3",
-    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             Prefix = "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-    ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-    ///             BufferSize = 64,
-    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Processors = new[]
-    ///                 {
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
-    ///                     {
-    ///                         Type = "RecordDeAggregation",
-    ///                         Parameters = new[]
-    ///                         {
-    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
-    ///                             {
-    ///                                 ParameterName = "SubRecordType",
-    ///                                 ParameterValue = "JSON",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
-    ///                     {
-    ///                         Type = "AppendDelimiterToRecord",
-    ///                     },
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
-    ///                     {
-    ///                         Type = "MetadataExtraction",
-    ///                         Parameters = new[]
-    ///                         {
-    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
-    ///                             {
-    ///                                 ParameterName = "JsonParsingEngine",
-    ///                                 ParameterValue = "JQ-1.6",
-    ///                             },
-    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
-    ///                             {
-    ///                                 ParameterName = "MetadataExtractionQuery",
-    ///                                 ParameterValue = "{customer_id:.customer_id}",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### S3 Destination (deprecated)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
-    /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
-    ///     {
-    ///         Bucket = bucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""firehose.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
-    ///     {
-    ///         Destination = "s3",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             BucketArn = bucket.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Redshift Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCluster = new Aws.RedShift.Cluster("testCluster", new()
-    ///     {
-    ///         ClusterIdentifier = "tf-redshift-cluster",
-    ///         DatabaseName = "test",
-    ///         MasterUsername = "testuser",
-    ///         MasterPassword = "T3stPass",
-    ///         NodeType = "dc1.large",
-    ///         ClusterType = "single-node",
-    ///     });
-    /// 
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
-    ///     {
-    ///         Destination = "redshift",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
-    ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             ClusterJdbcurl = Output.Tuple(testCluster.Endpoint, testCluster.DatabaseName).Apply(values =&gt;
-    ///             {
-    ///                 var endpoint = values.Item1;
-    ///                 var databaseName = values.Item2;
-    ///                 return $"jdbc:redshift://{endpoint}/{databaseName}";
-    ///             }),
-    ///             Username = "testuser",
-    ///             Password = "T3stPass",
-    ///             DataTableName = "test-table",
-    ///             CopyOptions = "delimiter '|'",
-    ///             DataTableColumns = "test-col",
-    ///             S3BackupMode = "Enabled",
-    ///             S3BackupConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs
-    ///             {
-    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///                 BufferSize = 15,
-    ///                 BufferInterval = 300,
-    ///                 CompressionFormat = "GZIP",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Elasticsearch Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCluster = new Aws.ElasticSearch.Domain("testCluster");
-    /// 
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
-    ///     {
-    ///         Destination = "elasticsearch",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
-    ///         ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
-    ///         {
-    ///             DomainArn = testCluster.Arn,
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             IndexName = "test",
-    ///             TypeName = "test",
-    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Processors = new[]
-    ///                 {
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs
-    ///                     {
-    ///                         Type = "Lambda",
-    ///                         Parameters = new[]
-    ///                         {
-    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs
-    ///                             {
-    ///                                 ParameterName = "LambdaArn",
-    ///                                 ParameterValue = $"{aws_lambda_function.Lambda_processor.Arn}:$LATEST",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Elasticsearch Destination With VPC
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCluster = new Aws.ElasticSearch.Domain("testCluster", new()
-    ///     {
-    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
-    ///         {
-    ///             InstanceCount = 2,
-    ///             ZoneAwarenessEnabled = true,
-    ///             InstanceType = "t2.small.elasticsearch",
-    ///         },
-    ///         EbsOptions = new Aws.ElasticSearch.Inputs.DomainEbsOptionsArgs
-    ///         {
-    ///             EbsEnabled = true,
-    ///             VolumeSize = 10,
-    ///         },
-    ///         VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
-    ///         {
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 aws_security_group.First.Id,
-    ///             },
-    ///             SubnetIds = new[]
-    ///             {
-    ///                 aws_subnet.First.Id,
-    ///                 aws_subnet.Second.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var firehose_elasticsearch = new Aws.Iam.RolePolicy("firehose-elasticsearch", new()
-    ///     {
-    ///         Role = aws_iam_role.Firehose.Id,
-    ///         Policy = Output.Tuple(testCluster.Arn, testCluster.Arn).Apply(values =&gt;
-    ///         {
-    ///             var testClusterArn = values.Item1;
-    ///             var testClusterArn1 = values.Item2;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""es:*""
-    ///       ],
-    ///       ""Resource"": [
-    ///         ""{testClusterArn}"",
-    ///         ""{testClusterArn1}/*""
-    ///       ]
-    ///         }},
-    ///         {{
-    ///           ""Effect"": ""Allow"",
-    ///           ""Action"": [
-    ///             ""ec2:DescribeVpcs"",
-    ///             ""ec2:DescribeVpcAttribute"",
-    ///             ""ec2:DescribeSubnets"",
-    ///             ""ec2:DescribeSecurityGroups"",
-    ///             ""ec2:DescribeNetworkInterfaces"",
-    ///             ""ec2:CreateNetworkInterface"",
-    ///             ""ec2:CreateNetworkInterfacePermission"",
-    ///             ""ec2:DeleteNetworkInterface""
-    ///           ],
-    ///           ""Resource"": [
-    ///             ""*""
-    ///           ]
-    ///         }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
-    ///     });
-    /// 
-    ///     var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new()
-    ///     {
-    ///         Destination = "elasticsearch",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///         },
-    ///         ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
-    ///         {
-    ///             DomainArn = testCluster.Arn,
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             IndexName = "test",
-    ///             TypeName = "test",
-    ///             VpcConfig = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
-    ///             {
-    ///                 SubnetIds = new[]
-    ///                 {
-    ///                     aws_subnet.First.Id,
-    ///                     aws_subnet.Second.Id,
-    ///                 },
-    ///                 SecurityGroupIds = new[]
-    ///                 {
-    ///                     aws_security_group.First.Id,
-    ///                 },
-    ///                 RoleArn = aws_iam_role.Firehose.Arn,
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             firehose_elasticsearch,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Splunk Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
-    ///     {
-    ///         Destination = "splunk",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
-    ///         SplunkConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs
-    ///         {
-    ///             HecEndpoint = "https://http-inputs-mydomain.splunkcloud.com:443",
-    ///             HecToken = "51D4DA16-C61B-4F5F-8EC7-ED4301342A4A",
-    ///             HecAcknowledgmentTimeout = 600,
-    ///             HecEndpointType = "Event",
-    ///             S3BackupMode = "FailedEventsOnly",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### HTTP Endpoint (e.g., New Relic) Destination
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
-    ///     {
-    ///         Destination = "http_endpoint",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
-    ///         HttpEndpointConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs
-    ///         {
-    ///             Url = "https://aws-api.newrelic.com/firehose/v1",
-    ///             Name = "New Relic",
-    ///             AccessKey = "my-key",
-    ///             BufferingSize = 15,
-    ///             BufferingInterval = 600,
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             S3BackupMode = "FailedDataOnly",
-    ///             RequestConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs
-    ///             {
-    ///                 ContentEncoding = "GZIP",
-    ///                 CommonAttributes = new[]
-    ///                 {
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs
-    ///                     {
-    ///                         Name = "testname",
-    ///                         Value = "testvalue",
-    ///                     },
-    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs
-    ///                     {
-    ///                         Name = "testname2",
-    ///                         Value = "testvalue2",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
-    /// ```
-    /// 
-    ///  NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
-    /// </summary>
     [AwsResourceType("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")]
     public partial class FirehoseDeliveryStream : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
-        /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
 
         [Output("destinationId")]
         public Output<string> DestinationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration options if elasticsearch is the destination. More details are given below.
-        /// </summary>
         [Output("elasticsearchConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamElasticsearchConfiguration?> ElasticsearchConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Enhanced configuration options for the s3 destination. More details are given below.
-        /// </summary>
         [Output("extendedS3Configuration")]
         public Output<Outputs.FirehoseDeliveryStreamExtendedS3Configuration?> ExtendedS3Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
-        /// </summary>
         [Output("httpEndpointConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration?> HttpEndpointConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        /// </summary>
         [Output("kinesisSourceConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration?> KinesisSourceConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// A name to identify the stream. This is unique to the
-        /// AWS account and region the Stream is created in.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration options if redshift is the destination.
-        /// Using `redshift_configuration` requires the user to also specify a
-        /// `s3_configuration` block. More details are given below.
-        /// </summary>
         [Output("redshiftConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamRedshiftConfiguration?> RedshiftConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-        /// is redshift). More details are given below.
-        /// </summary>
         [Output("s3Configuration")]
         public Output<Outputs.FirehoseDeliveryStreamS3Configuration?> S3Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// Encrypt at rest options.
-        /// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        /// </summary>
         [Output("serverSideEncryption")]
         public Output<Outputs.FirehoseDeliveryStreamServerSideEncryption?> ServerSideEncryption { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration options if splunk is the destination. More details are given below.
-        /// </summary>
         [Output("splunkConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamSplunkConfiguration?> SplunkConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
 
@@ -680,95 +103,50 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class FirehoseDeliveryStreamArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
         [Input("destinationId")]
         public Input<string>? DestinationId { get; set; }
 
-        /// <summary>
-        /// Configuration options if elasticsearch is the destination. More details are given below.
-        /// </summary>
         [Input("elasticsearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs>? ElasticsearchConfiguration { get; set; }
 
-        /// <summary>
-        /// Enhanced configuration options for the s3 destination. More details are given below.
-        /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs>? ExtendedS3Configuration { get; set; }
 
-        /// <summary>
-        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
-        /// </summary>
         [Input("httpEndpointConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs>? HttpEndpointConfiguration { get; set; }
 
-        /// <summary>
-        /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        /// </summary>
         [Input("kinesisSourceConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs>? KinesisSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// A name to identify the stream. This is unique to the
-        /// AWS account and region the Stream is created in.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configuration options if redshift is the destination.
-        /// Using `redshift_configuration` requires the user to also specify a
-        /// `s3_configuration` block. More details are given below.
-        /// </summary>
         [Input("redshiftConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs>? RedshiftConfiguration { get; set; }
 
-        /// <summary>
-        /// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-        /// is redshift). More details are given below.
-        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamS3ConfigurationArgs>? S3Configuration { get; set; }
 
-        /// <summary>
-        /// Encrypt at rest options.
-        /// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs>? ServerSideEncryption { get; set; }
 
-        /// <summary>
-        /// Configuration options if splunk is the destination. More details are given below.
-        /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs>? SplunkConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 
@@ -780,86 +158,44 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class FirehoseDeliveryStreamState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
-        /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         [Input("destinationId")]
         public Input<string>? DestinationId { get; set; }
 
-        /// <summary>
-        /// Configuration options if elasticsearch is the destination. More details are given below.
-        /// </summary>
         [Input("elasticsearchConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationGetArgs>? ElasticsearchConfiguration { get; set; }
 
-        /// <summary>
-        /// Enhanced configuration options for the s3 destination. More details are given below.
-        /// </summary>
         [Input("extendedS3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs>? ExtendedS3Configuration { get; set; }
 
-        /// <summary>
-        /// Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
-        /// </summary>
         [Input("httpEndpointConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationGetArgs>? HttpEndpointConfiguration { get; set; }
 
-        /// <summary>
-        /// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
-        /// </summary>
         [Input("kinesisSourceConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs>? KinesisSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// A name to identify the stream. This is unique to the
-        /// AWS account and region the Stream is created in.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configuration options if redshift is the destination.
-        /// Using `redshift_configuration` requires the user to also specify a
-        /// `s3_configuration` block. More details are given below.
-        /// </summary>
         [Input("redshiftConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationGetArgs>? RedshiftConfiguration { get; set; }
 
-        /// <summary>
-        /// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-        /// is redshift). More details are given below.
-        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.FirehoseDeliveryStreamS3ConfigurationGetArgs>? S3Configuration { get; set; }
 
-        /// <summary>
-        /// Encrypt at rest options.
-        /// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.FirehoseDeliveryStreamServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }
 
-        /// <summary>
-        /// Configuration options if splunk is the destination. More details are given below.
-        /// </summary>
         [Input("splunkConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationGetArgs>? SplunkConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -868,19 +204,12 @@ namespace Pulumi.Aws.Kinesis
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
-        /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 

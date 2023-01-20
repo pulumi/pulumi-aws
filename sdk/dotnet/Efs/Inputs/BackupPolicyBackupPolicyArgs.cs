@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Efs.Inputs
 
     public sealed class BackupPolicyBackupPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 

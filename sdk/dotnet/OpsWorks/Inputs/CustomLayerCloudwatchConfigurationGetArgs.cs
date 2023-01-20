@@ -17,10 +17,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
 
         [Input("logStreams")]
         private InputList<Inputs.CustomLayerCloudwatchConfigurationLogStreamGetArgs>? _logStreams;
-
-        /// <summary>
-        /// A block the specifies how an opsworks logs look like. See Log Streams.
-        /// </summary>
         public InputList<Inputs.CustomLayerCloudwatchConfigurationLogStreamGetArgs> LogStreams
         {
             get => _logStreams ?? (_logStreams = new InputList<Inputs.CustomLayerCloudwatchConfigurationLogStreamGetArgs>());

@@ -11,57 +11,9 @@ namespace Pulumi.Aws.MemoryDb
 {
     public static class GetParameterGroup
     {
-        /// <summary>
-        /// Provides information about a MemoryDB Parameter Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetParameterGroup.Invoke(new()
-        ///     {
-        ///         Name = "my-parameter-group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a MemoryDB Parameter Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetParameterGroup.Invoke(new()
-        ///     {
-        ///         Name = "my-parameter-group",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws:memorydb/getParameterGroup:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
@@ -69,18 +21,11 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetParameterGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the parameter group.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the parameter group.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -95,18 +40,11 @@ namespace Pulumi.Aws.MemoryDb
 
     public sealed class GetParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the parameter group.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the parameter group.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,33 +61,15 @@ namespace Pulumi.Aws.MemoryDb
     [OutputType]
     public sealed class GetParameterGroupResult
     {
-        /// <summary>
-        /// ARN of the parameter group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the parameter group.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Engine version that the parameter group can be used with.
-        /// </summary>
         public readonly string Family;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the parameter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Set of user-defined MemoryDB parameters applied by the parameter group.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetParameterGroupParameterResult> Parameters;
-        /// <summary>
-        /// Map of tags assigned to the parameter group.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

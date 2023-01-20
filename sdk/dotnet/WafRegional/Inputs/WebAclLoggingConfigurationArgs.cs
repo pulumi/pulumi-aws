@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
     public sealed class WebAclLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-        /// </summary>
         [Input("logDestination", required: true)]
         public Input<string> LogDestination { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
-        /// </summary>
         [Input("redactedFields")]
         public Input<Inputs.WebAclLoggingConfigurationRedactedFieldsArgs>? RedactedFields { get; set; }
 

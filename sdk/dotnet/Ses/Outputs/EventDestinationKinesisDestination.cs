@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ses.Outputs
     [OutputType]
     public sealed class EventDestinationKinesisDestination
     {
-        /// <summary>
-        /// The ARN of the role that has permissions to access the Kinesis Stream
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The ARN of the Kinesis Stream
-        /// </summary>
         public readonly string StreamArn;
 
         [OutputConstructor]

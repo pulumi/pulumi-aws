@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class OntapFileSystemEndpoint
     {
-        /// <summary>
-        /// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OntapFileSystemEndpointIntercluster> Interclusters;
-        /// <summary>
-        /// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-        /// </summary>
         public readonly ImmutableArray<Outputs.OntapFileSystemEndpointManagement> Managements;
 
         [OutputConstructor]

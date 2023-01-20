@@ -9,124 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to manage EC2 Fleets.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Fleet("example", new()
-    ///     {
-    ///         LaunchTemplateConfig = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
-    ///         {
-    ///             LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
-    ///             {
-    ///                 LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                 Version = aws_launch_template.Example.Latest_version,
-    ///             },
-    ///         },
-    ///         TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
-    ///         {
-    ///             DefaultTargetCapacityType = "spot",
-    ///             TotalTargetCapacity = 5,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/fleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the fleet
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [Output("context")]
         public Output<string?> Context { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-        /// </summary>
         [Output("excessCapacityTerminationPolicy")]
         public Output<string?> ExcessCapacityTerminationPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested argument containing EC2 Launch Template configurations. Defined below.
-        /// </summary>
         [Output("launchTemplateConfig")]
         public Output<Outputs.FleetLaunchTemplateConfig> LaunchTemplateConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested argument containing On-Demand configurations. Defined below.
-        /// </summary>
         [Output("onDemandOptions")]
         public Output<Outputs.FleetOnDemandOptions?> OnDemandOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-        /// </summary>
         [Output("replaceUnhealthyInstances")]
         public Output<bool?> ReplaceUnhealthyInstances { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested argument containing Spot configurations. Defined below.
-        /// </summary>
         [Output("spotOptions")]
         public Output<Outputs.FleetSpotOptions?> SpotOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested argument containing target capacity configurations. Defined below.
-        /// </summary>
         [Output("targetCapacitySpecification")]
         public Output<Outputs.FleetTargetCapacitySpecification> TargetCapacitySpecification { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        /// </summary>
         [Output("terminateInstances")]
         public Output<bool?> TerminateInstances { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        /// </summary>
         [Output("terminateInstancesWithExpiration")]
         public Output<bool?> TerminateInstancesWithExpiration { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -176,75 +97,41 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
 
-        /// <summary>
-        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-        /// </summary>
         [Input("excessCapacityTerminationPolicy")]
         public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
 
-        /// <summary>
-        /// Nested argument containing EC2 Launch Template configurations. Defined below.
-        /// </summary>
         [Input("launchTemplateConfig", required: true)]
         public Input<Inputs.FleetLaunchTemplateConfigArgs> LaunchTemplateConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Nested argument containing On-Demand configurations. Defined below.
-        /// </summary>
         [Input("onDemandOptions")]
         public Input<Inputs.FleetOnDemandOptionsArgs>? OnDemandOptions { get; set; }
 
-        /// <summary>
-        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-        /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
-        /// <summary>
-        /// Nested argument containing Spot configurations. Defined below.
-        /// </summary>
         [Input("spotOptions")]
         public Input<Inputs.FleetSpotOptionsArgs>? SpotOptions { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Nested argument containing target capacity configurations. Defined below.
-        /// </summary>
         [Input("targetCapacitySpecification", required: true)]
         public Input<Inputs.FleetTargetCapacitySpecificationArgs> TargetCapacitySpecification { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        /// </summary>
         [Input("terminateInstances")]
         public Input<bool>? TerminateInstances { get; set; }
 
-        /// <summary>
-        /// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        /// </summary>
         [Input("terminateInstancesWithExpiration")]
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
-        /// <summary>
-        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -256,54 +143,29 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class FleetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the fleet
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
 
-        /// <summary>
-        /// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
-        /// </summary>
         [Input("excessCapacityTerminationPolicy")]
         public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
 
-        /// <summary>
-        /// Nested argument containing EC2 Launch Template configurations. Defined below.
-        /// </summary>
         [Input("launchTemplateConfig")]
         public Input<Inputs.FleetLaunchTemplateConfigGetArgs>? LaunchTemplateConfig { get; set; }
 
-        /// <summary>
-        /// Nested argument containing On-Demand configurations. Defined below.
-        /// </summary>
         [Input("onDemandOptions")]
         public Input<Inputs.FleetOnDemandOptionsGetArgs>? OnDemandOptions { get; set; }
 
-        /// <summary>
-        /// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
-        /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
-        /// <summary>
-        /// Nested argument containing Spot configurations. Defined below.
-        /// </summary>
         [Input("spotOptions")]
         public Input<Inputs.FleetSpotOptionsGetArgs>? SpotOptions { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -312,37 +174,21 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Nested argument containing target capacity configurations. Defined below.
-        /// </summary>
         [Input("targetCapacitySpecification")]
         public Input<Inputs.FleetTargetCapacitySpecificationGetArgs>? TargetCapacitySpecification { get; set; }
 
-        /// <summary>
-        /// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
-        /// </summary>
         [Input("terminateInstances")]
         public Input<bool>? TerminateInstances { get; set; }
 
-        /// <summary>
-        /// Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
-        /// </summary>
         [Input("terminateInstancesWithExpiration")]
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
-        /// <summary>
-        /// The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

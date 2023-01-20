@@ -9,104 +9,16 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticLoadBalancing
 {
-    /// <summary>
-    /// Attaches a load balancer policy to an ELB backend server.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var wu_tang = new Aws.Elb.LoadBalancer("wu-tang", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         Listeners = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///             {
-    ///                 InstancePort = 443,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 443,
-    ///                 LbProtocol = "https",
-    ///                 SslCertificateId = "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "wu-tang" },
-    ///         },
-    ///     });
-    /// 
-    ///     var wu_tang_ca_pubkey_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", new()
-    ///     {
-    ///         LoadBalancerName = wu_tang.Name,
-    ///         PolicyName = "wu-tang-ca-pubkey-policy",
-    ///         PolicyTypeName = "PublicKeyPolicyType",
-    ///         PolicyAttributes = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
-    ///             {
-    ///                 Name = "PublicKey",
-    ///                 Value = File.ReadAllText("wu-tang-pubkey"),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var wu_tang_root_ca_backend_auth_policy = new Aws.Elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", new()
-    ///     {
-    ///         LoadBalancerName = wu_tang.Name,
-    ///         PolicyName = "wu-tang-root-ca-backend-auth-policy",
-    ///         PolicyTypeName = "BackendServerAuthenticationPolicyType",
-    ///         PolicyAttributes = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerPolicyPolicyAttributeArgs
-    ///             {
-    ///                 Name = "PublicKeyPolicyName",
-    ///                 Value = aws_load_balancer_policy.Wu_tang_root_ca_pubkey_policy.Policy_name,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var wu_tang_backend_auth_policies_443 = new Aws.Elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", new()
-    ///     {
-    ///         LoadBalancerName = wu_tang.Name,
-    ///         InstancePort = 443,
-    ///         PolicyNames = new[]
-    ///         {
-    ///             wu_tang_root_ca_backend_auth_policy.PolicyName,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy")]
     [AwsResourceType("aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")]
     public partial class LoadBalancerBackendServerPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The instance port to apply the policy to.
-        /// </summary>
         [Output("instancePort")]
         public Output<int> InstancePort { get; private set; } = null!;
 
-        /// <summary>
-        /// The load balancer to attach the policy to.
-        /// </summary>
         [Output("loadBalancerName")]
         public Output<string> LoadBalancerName { get; private set; } = null!;
 
-        /// <summary>
-        /// List of Policy Names to apply to the backend server.
-        /// </summary>
         [Output("policyNames")]
         public Output<ImmutableArray<string>> PolicyNames { get; private set; } = null!;
 
@@ -156,24 +68,14 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 
     public sealed class LoadBalancerBackendServerPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The instance port to apply the policy to.
-        /// </summary>
         [Input("instancePort", required: true)]
         public Input<int> InstancePort { get; set; } = null!;
 
-        /// <summary>
-        /// The load balancer to attach the policy to.
-        /// </summary>
         [Input("loadBalancerName", required: true)]
         public Input<string> LoadBalancerName { get; set; } = null!;
 
         [Input("policyNames")]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// List of Policy Names to apply to the backend server.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());
@@ -188,24 +90,14 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 
     public sealed class LoadBalancerBackendServerPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The instance port to apply the policy to.
-        /// </summary>
         [Input("instancePort")]
         public Input<int>? InstancePort { get; set; }
 
-        /// <summary>
-        /// The load balancer to attach the policy to.
-        /// </summary>
         [Input("loadBalancerName")]
         public Input<string>? LoadBalancerName { get; set; }
 
         [Input("policyNames")]
         private InputList<string>? _policyNames;
-
-        /// <summary>
-        /// List of Policy Names to apply to the backend server.
-        /// </summary>
         public InputList<string> PolicyNames
         {
             get => _policyNames ?? (_policyNames = new InputList<string>());

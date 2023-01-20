@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult
     {
-        /// <summary>
-        /// An empty object that configures masking.
-        /// </summary>
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult MaskConfig;
 
         [OutputConstructor]

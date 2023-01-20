@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         [Input("all")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs>? All { get; set; }
 

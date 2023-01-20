@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Criteria for determining a SAN's match.
-        /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> Match { get; set; } = null!;
 

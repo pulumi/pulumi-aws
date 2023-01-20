@@ -13,17 +13,8 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria
     {
-        /// <summary>
-        /// The delimiter of the selection criteria being used.
-        /// </summary>
         public readonly string? Delimiter;
-        /// <summary>
-        /// The max depth of the selection criteria.
-        /// </summary>
         public readonly int? MaxDepth;
-        /// <summary>
-        /// The minimum number of storage bytes percentage whose metrics will be selected.
-        /// </summary>
         public readonly double? MinStorageBytesPercentage;
 
         [OutputConstructor]

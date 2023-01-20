@@ -11,15 +11,9 @@ namespace Pulumi.Aws.IdentityStore
 {
     public static class GetUser
     {
-        /// <summary>
-        /// Use this data source to get an Identity Store User.
-        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get an Identity Store User.
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -27,27 +21,15 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-        /// </summary>
         [Input("alternateIdentifier")]
         public Inputs.GetUserAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
-        /// <summary>
-        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
-        /// </summary>
         [Input("filter")]
         public Inputs.GetUserFilterArgs? Filter { get; set; }
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// The identifier for a user in the Identity Store.
-        /// </summary>
         [Input("userId")]
         public string? UserId { get; set; }
 
@@ -59,27 +41,15 @@ namespace Pulumi.Aws.IdentityStore
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-        /// </summary>
         [Input("alternateIdentifier")]
         public Input<Inputs.GetUserAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
 
-        /// <summary>
-        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
-        /// </summary>
         [Input("filter")]
         public Input<Inputs.GetUserFilterInputArgs>? Filter { get; set; }
 
-        /// <summary>
-        /// Identity Store ID associated with the Single Sign-On Instance.
-        /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
 
-        /// <summary>
-        /// The identifier for a user in the Identity Store.
-        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 
@@ -93,22 +63,10 @@ namespace Pulumi.Aws.IdentityStore
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// List of details about the user's address.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserAddressResult> Addresses;
         public readonly Outputs.GetUserAlternateIdentifierResult? AlternateIdentifier;
-        /// <summary>
-        /// The name that is typically displayed when the user is referenced.
-        /// </summary>
         public readonly string DisplayName;
-        /// <summary>
-        /// List of details about the user's email.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserEmailResult> Emails;
-        /// <summary>
-        /// List of identifiers issued to this resource by an external identity provider.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserExternalIdResult> ExternalIds;
         public readonly Outputs.GetUserFilterResult? Filter;
         /// <summary>
@@ -116,46 +74,16 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public readonly string Id;
         public readonly string IdentityStoreId;
-        /// <summary>
-        /// The user's geographical region or location.
-        /// </summary>
         public readonly string Locale;
-        /// <summary>
-        /// Details about the user's full name.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserNameResult> Names;
-        /// <summary>
-        /// An alternate name for the user.
-        /// </summary>
         public readonly string Nickname;
-        /// <summary>
-        /// List of details about the user's phone number.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserPhoneNumberResult> PhoneNumbers;
-        /// <summary>
-        /// The preferred language of the user.
-        /// </summary>
         public readonly string PreferredLanguage;
-        /// <summary>
-        /// An URL that may be associated with the user.
-        /// </summary>
         public readonly string ProfileUrl;
-        /// <summary>
-        /// The user's time zone.
-        /// </summary>
         public readonly string Timezone;
-        /// <summary>
-        /// The user's title.
-        /// </summary>
         public readonly string Title;
         public readonly string UserId;
-        /// <summary>
-        /// User's user name value.
-        /// </summary>
         public readonly string UserName;
-        /// <summary>
-        /// The user type.
-        /// </summary>
         public readonly string UserType;
 
         [OutputConstructor]

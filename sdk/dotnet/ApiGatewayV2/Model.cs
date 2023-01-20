@@ -9,75 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
-    /// <summary>
-    /// Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
-    /// 
-    /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.Model("example", new()
-    ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         ContentType = "application/json",
-    ///         Schema = @"{
-    ///   ""$schema"": ""http://json-schema.org/draft-04/schema#"",
-    ///   ""title"": ""ExampleModel"",
-    ///   ""type"": ""object"",
-    ///   ""properties"": {
-    ///     ""id"": { ""type"": ""string"" }
-    ///   }
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigatewayv2/model:Model")]
     public partial class Model : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
-        /// <summary>
-        /// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the model. Must be between 1 and 128 characters in length.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
@@ -127,33 +73,18 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
-        /// <summary>
-        /// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        /// <summary>
-        /// Description of the model. Must be between 1 and 128 characters in length.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
@@ -165,33 +96,18 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class ModelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// API identifier.
-        /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
-        /// <summary>
-        /// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
-        /// <summary>
-        /// Description of the model. Must be between 1 and 128 characters in length.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 

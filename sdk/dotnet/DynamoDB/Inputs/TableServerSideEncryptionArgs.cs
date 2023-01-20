@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableServerSideEncryptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether TTL is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CatalogTableStorageDescriptorSchemaReferenceSchemaId
     {
-        /// <summary>
-        /// Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
-        /// </summary>
         public readonly string? RegistryName;
-        /// <summary>
-        /// ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
-        /// </summary>
         public readonly string? SchemaArn;
-        /// <summary>
-        /// Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
-        /// </summary>
         public readonly string? SchemaName;
 
         [OutputConstructor]

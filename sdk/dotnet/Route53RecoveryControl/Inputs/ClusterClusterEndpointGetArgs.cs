@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Route53RecoveryControl.Inputs
 
     public sealed class ClusterClusterEndpointGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Cluster endpoint.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
-        /// <summary>
-        /// Region of the endpoint.
-        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.OpenSearch.Inputs
 
     public sealed class DomainAutoTuneOptionsMaintenanceScheduleDurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
-        /// </summary>
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
 
-        /// <summary>
-        /// An integer specifying the value of the duration of an Auto-Tune maintenance window.
-        /// </summary>
         [Input("value", required: true)]
         public Input<int> Value { get; set; } = null!;
 

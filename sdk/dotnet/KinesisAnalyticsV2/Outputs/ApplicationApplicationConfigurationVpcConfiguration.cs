@@ -13,13 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationVpcConfiguration
     {
-        /// <summary>
-        /// The Security Group IDs used by the VPC configuration.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The Subnet IDs used by the VPC configuration.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly string? VpcConfigurationId;
         public readonly string? VpcId;

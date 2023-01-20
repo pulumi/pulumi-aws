@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ses.Outputs
     [OutputType]
     public sealed class ReceiptRuleStopAction
     {
-        /// <summary>
-        /// The position of the action in the receipt rule
-        /// </summary>
         public readonly int Position;
-        /// <summary>
-        /// The scope to apply. The only acceptable value is `RuleSet`.
-        /// </summary>
         public readonly string Scope;
-        /// <summary>
-        /// The ARN of an SNS topic to notify
-        /// </summary>
         public readonly string? TopicArn;
 
         [OutputConstructor]

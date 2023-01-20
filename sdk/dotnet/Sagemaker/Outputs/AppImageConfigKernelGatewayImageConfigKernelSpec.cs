@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class AppImageConfigKernelGatewayImageConfigKernelSpec
     {
-        /// <summary>
-        /// The display name of the kernel.
-        /// </summary>
         public readonly string? DisplayName;
-        /// <summary>
-        /// The name of the kernel.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

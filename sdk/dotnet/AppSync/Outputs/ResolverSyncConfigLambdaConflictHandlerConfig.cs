@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class ResolverSyncConfigLambdaConflictHandlerConfig
     {
-        /// <summary>
-        /// ARN for the Lambda function to use as the Conflict Handler.
-        /// </summary>
         public readonly string? LambdaConflictHandlerArn;
 
         [OutputConstructor]

@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudFormation.Inputs
     {
         [Input("organizationalUnitIds")]
         private InputList<string>? _organizationalUnitIds;
-
-        /// <summary>
-        /// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        /// </summary>
         public InputList<string> OrganizationalUnitIds
         {
             get => _organizationalUnitIds ?? (_organizationalUnitIds = new InputList<string>());

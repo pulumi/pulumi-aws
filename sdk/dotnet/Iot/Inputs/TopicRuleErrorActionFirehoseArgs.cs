@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleErrorActionFirehoseArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The delivery stream name.
-        /// </summary>
         [Input("deliveryStreamName", required: true)]
         public Input<string> DeliveryStreamName { get; set; } = null!;
 
-        /// <summary>
-        /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-        /// </summary>
         [Input("separator")]
         public Input<string>? Separator { get; set; }
 

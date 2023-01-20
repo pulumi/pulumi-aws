@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class ExperienceConfigurationUserIdentityConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS SSO field name that contains the identifiers of your users, such as their emails.
-        /// </summary>
         [Input("identityAttributeName", required: true)]
         public Input<string> IdentityAttributeName { get; set; } = null!;
 

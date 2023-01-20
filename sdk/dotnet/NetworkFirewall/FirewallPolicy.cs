@@ -9,105 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall
 {
-    /// <summary>
-    /// Provides an AWS Network Firewall Firewall Policy Resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkFirewall.FirewallPolicy("example", new()
-    ///     {
-    ///         FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
-    ///         {
-    ///             StatelessDefaultActions = new[]
-    ///             {
-    ///                 "aws:pass",
-    ///             },
-    ///             StatelessFragmentDefaultActions = new[]
-    ///             {
-    ///                 "aws:drop",
-    ///             },
-    ///             StatelessRuleGroupReferences = new[]
-    ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs
-    ///                 {
-    ///                     Priority = 1,
-    ///                     ResourceArn = aws_networkfirewall_rule_group.Example.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Tag1", "Value1" },
-    ///             { "Tag2", "Value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Network Firewall Policies can be imported using their `ARN`.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkfirewall/firewallPolicy:FirewallPolicy")]
     public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall policy.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly description of the firewall policy.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// KMS encryption configuration settings. See Encryption Configuration below for details.
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.FirewallPolicyEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-        /// </summary>
         [Output("firewallPolicy")]
         public Output<Outputs.FirewallPolicyFirewallPolicy> FirewallPolicyConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly name of the firewall policy.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// A string token used when updating a firewall policy.
-        /// </summary>
         [Output("updateToken")]
         public Output<string> UpdateToken { get; private set; } = null!;
 
@@ -157,36 +82,20 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A friendly description of the firewall policy.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// KMS encryption configuration settings. See Encryption Configuration below for details.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.FirewallPolicyEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-        /// </summary>
         [Input("firewallPolicy", required: true)]
         public Input<Inputs.FirewallPolicyFirewallPolicyArgs> FirewallPolicyConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// A friendly name of the firewall policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -201,42 +110,23 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class FirewallPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall policy.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A friendly description of the firewall policy.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// KMS encryption configuration settings. See Encryption Configuration below for details.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.FirewallPolicyEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-        /// </summary>
         [Input("firewallPolicy")]
         public Input<Inputs.FirewallPolicyFirewallPolicyGetArgs>? FirewallPolicyConfiguration { get; set; }
 
-        /// <summary>
-        /// A friendly name of the firewall policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -245,19 +135,12 @@ namespace Pulumi.Aws.NetworkFirewall
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// A string token used when updating a firewall policy.
-        /// </summary>
         [Input("updateToken")]
         public Input<string>? UpdateToken { get; set; }
 

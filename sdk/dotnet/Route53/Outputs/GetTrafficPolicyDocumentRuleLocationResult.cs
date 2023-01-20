@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetTrafficPolicyDocumentRuleLocationResult
     {
-        /// <summary>
-        /// Value of a continent.
-        /// </summary>
         public readonly string? Continent;
-        /// <summary>
-        /// Value of a country.
-        /// </summary>
         public readonly string? Country;
-        /// <summary>
-        /// References to an endpoint.
-        /// </summary>
         public readonly string? EndpointReference;
-        /// <summary>
-        /// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-        /// </summary>
         public readonly bool? EvaluateTargetHealth;
-        /// <summary>
-        /// If you want to associate a health check with the endpoint or rule.
-        /// </summary>
         public readonly string? HealthCheck;
-        /// <summary>
-        /// Indicates whether this set of values represents the default location.
-        /// </summary>
         public readonly bool? IsDefault;
-        /// <summary>
-        /// References to a rule.
-        /// </summary>
         public readonly string? RuleReference;
-        /// <summary>
-        /// Value of a subdivision.
-        /// </summary>
         public readonly string? Subdivision;
 
         [OutputConstructor]

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Waf.Inputs
 
     public sealed class WebAclLoggingConfigurationRedactedFieldsFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
-        /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }
 
-        /// <summary>
-        /// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

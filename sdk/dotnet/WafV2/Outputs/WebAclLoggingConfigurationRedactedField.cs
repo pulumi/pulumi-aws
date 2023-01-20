@@ -13,33 +13,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclLoggingConfigurationRedactedField
     {
-        /// <summary>
-        /// Redact all query arguments.
-        /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldAllQueryArguments? AllQueryArguments;
-        /// <summary>
-        /// Redact the request body, which immediately follows the request headers.
-        /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldBody? Body;
-        /// <summary>
-        /// Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
-        /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldMethod? Method;
-        /// <summary>
-        /// Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
-        /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldQueryString? QueryString;
-        /// <summary>
-        /// Redact a single header. See Single Header below for details.
-        /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader? SingleHeader;
-        /// <summary>
-        /// Redact a single query argument. See Single Query Argument below for details.
-        /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldSingleQueryArgument? SingleQueryArgument;
-        /// <summary>
-        /// Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-        /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationRedactedFieldUriPath? UriPath;
 
         [OutputConstructor]

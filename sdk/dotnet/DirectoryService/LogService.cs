@@ -9,89 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectoryService
 {
-    /// <summary>
-    /// Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
-    ///     {
-    ///         RetentionInDays = 14,
-    ///     });
-    /// 
-    ///     var ad_log_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "ds.amazonaws.com",
-    ///                         },
-    ///                         Type = "Service",
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{exampleLogGroup.Arn}:*",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", new()
-    ///     {
-    ///         PolicyDocument = ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
-    ///         PolicyName = "ad-log-policy",
-    ///     });
-    /// 
-    ///     var exampleLogService = new Aws.DirectoryService.LogService("exampleLogService", new()
-    ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         LogGroupName = exampleLogGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Directory Service Log Subscriptions can be imported using the directory id, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:directoryservice/logService:LogService")]
     public partial class LogService : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ID of directory.
-        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-        /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
 
@@ -141,15 +64,9 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class LogServiceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of directory.
-        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-        /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
@@ -161,15 +78,9 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class LogServiceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of directory.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-        /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     [OutputType]
     public sealed class GetTagsTimePeriodResult
     {
-        /// <summary>
-        /// Beginning of the time period.
-        /// </summary>
         public readonly string End;
-        /// <summary>
-        /// End of the time period.
-        /// </summary>
         public readonly string Start;
 
         [OutputConstructor]

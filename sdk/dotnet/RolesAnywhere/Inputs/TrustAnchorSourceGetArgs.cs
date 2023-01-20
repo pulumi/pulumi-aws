@@ -12,15 +12,9 @@ namespace Pulumi.Aws.RolesAnywhere.Inputs
 
     public sealed class TrustAnchorSourceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The data denoting the source of trust, documented below
-        /// </summary>
         [Input("sourceData", required: true)]
         public Input<Inputs.TrustAnchorSourceSourceDataGetArgs> SourceData { get; set; } = null!;
 
-        /// <summary>
-        /// The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
 

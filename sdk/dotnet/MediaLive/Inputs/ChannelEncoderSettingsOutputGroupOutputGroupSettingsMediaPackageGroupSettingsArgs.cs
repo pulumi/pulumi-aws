@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> Destination { get; set; } = null!;
 

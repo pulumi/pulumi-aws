@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class GetDataLakeSettingsCreateTableDefaultPermissionResult
     {
-        /// <summary>
-        /// List of permissions granted to the principal.
-        /// </summary>
         public readonly ImmutableArray<string> Permissions;
-        /// <summary>
-        /// Principal who is granted permissions.
-        /// </summary>
         public readonly string Principal;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class ServerWorkflowDetails
     {
-        /// <summary>
-        /// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
-        /// </summary>
         public readonly Outputs.ServerWorkflowDetailsOnUpload? OnUpload;
 
         [OutputConstructor]

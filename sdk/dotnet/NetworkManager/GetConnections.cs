@@ -11,65 +11,9 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetConnections
     {
-        /// <summary>
-        /// Retrieve information about connections.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetConnections.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetConnectionsResult> InvokeAsync(GetConnectionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionsResult>("aws:networkmanager/getConnections:getConnections", args ?? new GetConnectionsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about connections.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.NetworkManager.GetConnections.Invoke(new()
-        ///     {
-        ///         GlobalNetworkId = @var.Global_network_id,
-        ///         Tags = 
-        ///         {
-        ///             { "Env", "test" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetConnectionsResult> Invoke(GetConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionsResult>("aws:networkmanager/getConnections:getConnections", args ?? new GetConnectionsInvokeArgs(), options.WithDefaults());
     }
@@ -77,24 +21,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetConnectionsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the device of the connections to retrieve.
-        /// </summary>
         [Input("deviceId")]
         public string? DeviceId { get; set; }
 
-        /// <summary>
-        /// ID of the Global Network of the connections to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the connections with these tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -109,24 +43,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetConnectionsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the device of the connections to retrieve.
-        /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
-        /// <summary>
-        /// ID of the Global Network of the connections to retrieve.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Restricts the list to the connections with these tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -149,9 +73,6 @@ namespace Pulumi.Aws.NetworkManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IDs of the connections.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string>? Tags;
 

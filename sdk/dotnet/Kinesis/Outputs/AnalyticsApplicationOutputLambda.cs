@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationOutputLambda
     {
-        /// <summary>
-        /// The ARN of the Lambda function.
-        /// </summary>
         public readonly string ResourceArn;
-        /// <summary>
-        /// The ARN of the IAM Role used to access the Lambda function.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

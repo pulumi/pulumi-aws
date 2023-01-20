@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// Security group IDs to assign to running builds.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -26,19 +22,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
         [Input("subnets", required: true)]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// Subnet IDs within which to run builds.
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());
             set => _subnets = value;
         }
 
-        /// <summary>
-        /// ID of the VPC within which to run builds.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

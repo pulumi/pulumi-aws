@@ -13,13 +13,7 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class ListenerRuleActionForwardTargetGroup
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The weight. The range is 0 to 999.
-        /// </summary>
         public readonly int? Weight;
 
         [OutputConstructor]

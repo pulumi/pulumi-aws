@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationInputsSchemaRecordColumnGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Mapping reference to the data element.
-        /// </summary>
         [Input("mapping")]
         public Input<string>? Mapping { get; set; }
 
-        /// <summary>
-        /// Name of the column.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The SQL Type of the column.
-        /// </summary>
         [Input("sqlType", required: true)]
         public Input<string> SqlType { get; set; } = null!;
 

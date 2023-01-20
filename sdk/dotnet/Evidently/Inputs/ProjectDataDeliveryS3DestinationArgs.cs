@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class ProjectDataDeliveryS3DestinationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket in which Evidently stores evaluation events.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// The bucket prefix in which Evidently stores evaluation events.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the video description.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

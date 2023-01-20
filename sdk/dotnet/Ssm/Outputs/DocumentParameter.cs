@@ -14,13 +14,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     public sealed class DocumentParameter
     {
         public readonly string? DefaultValue;
-        /// <summary>
-        /// The description of the document.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
         public readonly string? Name;
         public readonly string? Type;
 

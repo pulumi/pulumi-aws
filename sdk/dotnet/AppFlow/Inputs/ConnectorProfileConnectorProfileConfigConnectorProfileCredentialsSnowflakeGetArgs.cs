@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
     {
         [Input("password", required: true)]
         private Input<string>? _password;
-
-        /// <summary>
-        /// Password that corresponds to the user name.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -28,9 +24,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
             }
         }
 
-        /// <summary>
-        /// Name of the user.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

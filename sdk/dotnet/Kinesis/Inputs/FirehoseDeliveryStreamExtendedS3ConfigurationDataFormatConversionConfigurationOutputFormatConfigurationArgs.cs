@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
-        /// </summary>
         [Input("serializer", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs> Serializer { get; set; } = null!;
 

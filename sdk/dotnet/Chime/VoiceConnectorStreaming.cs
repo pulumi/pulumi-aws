@@ -9,70 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
-    /// It also sets the retention period, in hours, for the Amazon Kinesis data.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", new()
-    ///     {
-    ///         Disabled = false,
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
-    ///         DataRetention = 7,
-    ///         StreamingNotificationTargets = new[]
-    ///         {
-    ///             "SQS",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")]
     public partial class VoiceConnectorStreaming : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The retention period, in hours, for the Amazon Kinesis data.
-        /// </summary>
         [Output("dataRetention")]
         public Output<int> DataRetention { get; private set; } = null!;
 
-        /// <summary>
-        /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-        /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-        /// </summary>
         [Output("streamingNotificationTargets")]
         public Output<ImmutableArray<string>> StreamingNotificationTargets { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Output("voiceConnectorId")]
         public Output<string> VoiceConnectorId { get; private set; } = null!;
 
@@ -122,33 +70,20 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorStreamingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The retention period, in hours, for the Amazon Kinesis data.
-        /// </summary>
         [Input("dataRetention", required: true)]
         public Input<int> DataRetention { get; set; } = null!;
 
-        /// <summary>
-        /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         [Input("streamingNotificationTargets")]
         private InputList<string>? _streamingNotificationTargets;
-
-        /// <summary>
-        /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-        /// </summary>
         public InputList<string> StreamingNotificationTargets
         {
             get => _streamingNotificationTargets ?? (_streamingNotificationTargets = new InputList<string>());
             set => _streamingNotificationTargets = value;
         }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId", required: true)]
         public Input<string> VoiceConnectorId { get; set; } = null!;
 
@@ -160,33 +95,20 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorStreamingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The retention period, in hours, for the Amazon Kinesis data.
-        /// </summary>
         [Input("dataRetention")]
         public Input<int>? DataRetention { get; set; }
 
-        /// <summary>
-        /// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-        /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
         [Input("streamingNotificationTargets")]
         private InputList<string>? _streamingNotificationTargets;
-
-        /// <summary>
-        /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-        /// </summary>
         public InputList<string> StreamingNotificationTargets
         {
             get => _streamingNotificationTargets ?? (_streamingNotificationTargets = new InputList<string>());
             set => _streamingNotificationTargets = value;
         }
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId")]
         public Input<string>? VoiceConnectorId { get; set; }
 

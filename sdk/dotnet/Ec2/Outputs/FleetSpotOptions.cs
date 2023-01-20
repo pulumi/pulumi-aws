@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetSpotOptions
     {
-        /// <summary>
-        /// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-        /// </summary>
         public readonly string? AllocationStrategy;
-        /// <summary>
-        /// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
-        /// </summary>
         public readonly string? InstanceInterruptionBehavior;
-        /// <summary>
-        /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
-        /// </summary>
         public readonly int? InstancePoolsToUseCount;
-        /// <summary>
-        /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        /// </summary>
         public readonly Outputs.FleetSpotOptionsMaintenanceStrategies? MaintenanceStrategies;
 
         [OutputConstructor]

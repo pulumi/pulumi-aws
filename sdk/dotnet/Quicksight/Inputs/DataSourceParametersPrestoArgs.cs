@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceParametersPrestoArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The catalog to which to connect.
-        /// </summary>
         [Input("catalog", required: true)]
         public Input<string> Catalog { get; set; } = null!;
 
-        /// <summary>
-        /// The host to which to connect.
-        /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
-        /// <summary>
-        /// The port to which to connect.
-        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 

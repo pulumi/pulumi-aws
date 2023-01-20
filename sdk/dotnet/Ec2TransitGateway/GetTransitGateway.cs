@@ -11,115 +11,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetTransitGateway
     {
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetTransitGatewayFilterInputArgs
-        ///             {
-        ///                 Name = "options.amazon-side-asn",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "64512",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
-        ///     {
-        ///         Id = "tgw-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTransitGatewayResult> InvokeAsync(GetTransitGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayResult>("aws:ec2transitgateway/getTransitGateway:getTransitGateway", args ?? new GetTransitGatewayArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetTransitGatewayFilterInputArgs
-        ///             {
-        ///                 Name = "options.amazon-side-asn",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "64512",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
-        ///     {
-        ///         Id = "tgw-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTransitGatewayResult> Invoke(GetTransitGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayResult>("aws:ec2transitgateway/getTransitGateway:getTransitGateway", args ?? new GetTransitGatewayInvokeArgs(), options.WithDefaults());
     }
@@ -129,28 +23,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetTransitGatewayFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetTransitGatewayFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetTransitGatewayFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway.
-        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -167,28 +50,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetTransitGatewayFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetTransitGatewayFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetTransitGatewayFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -205,66 +77,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
     [OutputType]
     public sealed class GetTransitGatewayResult
     {
-        /// <summary>
-        /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session
-        /// </summary>
         public readonly int AmazonSideAsn;
-        /// <summary>
-        /// EC2 Transit Gateway ARN
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Identifier of the default association route table
-        /// </summary>
         public readonly string AssociationDefaultRouteTableId;
-        /// <summary>
-        /// Whether resource attachment requests are automatically accepted
-        /// </summary>
         public readonly string AutoAcceptSharedAttachments;
-        /// <summary>
-        /// Whether resource attachments are automatically associated with the default association route table
-        /// </summary>
         public readonly string DefaultRouteTableAssociation;
-        /// <summary>
-        /// Whether resource attachments automatically propagate routes to the default propagation route table
-        /// </summary>
         public readonly string DefaultRouteTablePropagation;
-        /// <summary>
-        /// Description of the EC2 Transit Gateway
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Whether DNS support is enabled
-        /// </summary>
         public readonly string DnsSupport;
         public readonly ImmutableArray<Outputs.GetTransitGatewayFilterResult> Filters;
-        /// <summary>
-        /// EC2 Transit Gateway identifier
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Whether Multicast support is enabled
-        /// </summary>
         public readonly string MulticastSupport;
-        /// <summary>
-        /// Identifier of the AWS account that owns the EC2 Transit Gateway
-        /// </summary>
         public readonly string OwnerId;
-        /// <summary>
-        /// Identifier of the default propagation route table
-        /// </summary>
         public readonly string PropagationDefaultRouteTableId;
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The list of associated CIDR blocks
-        /// </summary>
         public readonly ImmutableArray<string> TransitGatewayCidrBlocks;
-        /// <summary>
-        /// Whether VPN Equal Cost Multipath Protocol support is enabled
-        /// </summary>
         public readonly string VpnEcmpSupport;
 
         [OutputConstructor]

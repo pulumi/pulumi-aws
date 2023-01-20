@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class RecordWeightedRoutingPolicy
     {
-        /// <summary>
-        /// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

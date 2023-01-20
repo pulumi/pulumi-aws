@@ -9,68 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Control Bucket Policy.
-    /// 
-    /// &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `aws.s3.BucketPolicy` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Control.BucketPolicy("example", new()
-    ///     {
-    ///         Bucket = aws_s3control_bucket.Example.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Id"] = "testBucketPolicy",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "s3-outposts:PutBucketLifecycleConfiguration",
-    ///                     ["Effect"] = "Deny",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = "*",
-    ///                     },
-    ///                     ["Resource"] = aws_s3control_bucket.Example.Arn,
-    ///                     ["Sid"] = "statement1",
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2012-10-17",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/bucketPolicy:BucketPolicy")]
     public partial class BucketPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// JSON string of the resource policy.
-        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -120,15 +64,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class BucketPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// JSON string of the resource policy.
-        /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
 
@@ -140,15 +78,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class BucketPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// JSON string of the resource policy.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

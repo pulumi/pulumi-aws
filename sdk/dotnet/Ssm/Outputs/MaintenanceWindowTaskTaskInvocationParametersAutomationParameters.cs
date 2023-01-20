@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters
     {
-        /// <summary>
-        /// The version of an Automation document to use during task execution.
-        /// </summary>
         public readonly string? DocumentVersion;
-        /// <summary>
-        /// The parameters for the RUN_COMMAND task execution. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> Parameters;
 
         [OutputConstructor]

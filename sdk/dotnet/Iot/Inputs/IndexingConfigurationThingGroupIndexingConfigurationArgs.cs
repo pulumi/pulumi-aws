@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Iot.Inputs
     {
         [Input("customFields")]
         private InputList<Inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>? _customFields;
-
-        /// <summary>
-        /// A list of thing group fields to index. This list cannot contain any managed fields. See below.
-        /// </summary>
         public InputList<Inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs> CustomFields
         {
             get => _customFields ?? (_customFields = new InputList<Inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>());
@@ -26,19 +22,12 @@ namespace Pulumi.Aws.Iot.Inputs
 
         [Input("managedFields")]
         private InputList<Inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>? _managedFields;
-
-        /// <summary>
-        /// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-        /// </summary>
         public InputList<Inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs> ManagedFields
         {
             get => _managedFields ?? (_managedFields = new InputList<Inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>());
             set => _managedFields = value;
         }
 
-        /// <summary>
-        /// Thing group indexing mode. Valid values: `OFF`, `ON`.
-        /// </summary>
         [Input("thingGroupIndexingMode", required: true)]
         public Input<string> ThingGroupIndexingMode { get; set; } = null!;
 

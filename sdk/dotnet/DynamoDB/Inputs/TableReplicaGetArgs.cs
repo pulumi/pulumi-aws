@@ -12,27 +12,15 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TableReplicaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
 
-        /// <summary>
-        /// Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
-        /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
 
-        /// <summary>
-        /// Region name of the replica.
-        /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;
 

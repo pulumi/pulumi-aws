@@ -13,33 +13,12 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetClusterVpcConfigResult
     {
-        /// <summary>
-        /// The cluster security group that was created by Amazon EKS for the cluster.
-        /// </summary>
         public readonly string ClusterSecurityGroupId;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-        /// </summary>
         public readonly bool EndpointPrivateAccess;
-        /// <summary>
-        /// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-        /// </summary>
         public readonly bool EndpointPublicAccess;
-        /// <summary>
-        /// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> PublicAccessCidrs;
-        /// <summary>
-        /// List of security group IDs
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// List of subnet IDs
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The VPC associated with your cluster.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

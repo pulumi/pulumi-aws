@@ -11,63 +11,9 @@ namespace Pulumi.Aws.ServiceCatalog
 {
     public static class GetProduct
     {
-        /// <summary>
-        /// Provides information on a Service Catalog Product.
-        /// 
-        /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetProduct.Invoke(new()
-        ///     {
-        ///         Id = "prod-dnigbtea24ste",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information on a Service Catalog Product.
-        /// 
-        /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetProduct.Invoke(new()
-        ///     {
-        ///         Id = "prod-dnigbtea24ste",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
@@ -75,24 +21,14 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetProductArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Product ID.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the product.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -107,24 +43,14 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetProductInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Product ID.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the product.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -142,58 +68,19 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetProductResult
     {
         public readonly string? AcceptLanguage;
-        /// <summary>
-        /// ARN of the product.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Time when the product was created.
-        /// </summary>
         public readonly string CreatedTime;
-        /// <summary>
-        /// Description of the product.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Distributor (i.e., vendor) of the product.
-        /// </summary>
         public readonly string Distributor;
-        /// <summary>
-        /// Whether the product has a default path.
-        /// </summary>
         public readonly bool HasDefaultPath;
         public readonly string Id;
-        /// <summary>
-        /// Name of the product.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Owner of the product.
-        /// </summary>
         public readonly string Owner;
-        /// <summary>
-        /// Status of the product.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Support information about the product.
-        /// </summary>
         public readonly string SupportDescription;
-        /// <summary>
-        /// Contact email for product support.
-        /// </summary>
         public readonly string SupportEmail;
-        /// <summary>
-        /// Contact URL for product support.
-        /// </summary>
         public readonly string SupportUrl;
-        /// <summary>
-        /// Tags to apply to the product.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Type of product.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

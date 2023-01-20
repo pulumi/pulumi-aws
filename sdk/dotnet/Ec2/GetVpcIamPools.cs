@@ -11,101 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetVpcIamPools
     {
-        /// <summary>
-        /// `aws.ec2.getVpcIamPools` provides details about IPAM pools.
-        /// 
-        /// This resource can prove useful when IPAM pools are created in another root
-        /// module and you need the pool ids as input variables. For example, pools
-        /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetVpcIamPools.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "description",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "*test*",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "address-family",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ipv4",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVpcIamPoolsResult> InvokeAsync(GetVpcIamPoolsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ec2.getVpcIamPools` provides details about IPAM pools.
-        /// 
-        /// This resource can prove useful when IPAM pools are created in another root
-        /// module and you need the pool ids as input variables. For example, pools
-        /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetVpcIamPools.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "description",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "*test*",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcIamPoolsFilterInputArgs
-        ///             {
-        ///                 Name = "address-family",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "ipv4",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVpcIamPoolsResult> Invoke(GetVpcIamPoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsInvokeArgs(), options.WithDefaults());
     }
@@ -115,10 +23,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetVpcIamPoolsFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetVpcIamPoolsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcIamPoolsFilterArgs>());
@@ -135,10 +39,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcIamPoolsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetVpcIamPoolsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcIamPoolsFilterInputArgs>());
@@ -160,9 +60,6 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// List of IPAM pools and their attributes. See below for details
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIamPoolsIpamPoolResult> IpamPools;
 
         [OutputConstructor]

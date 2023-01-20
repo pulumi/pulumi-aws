@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SecretsManager.Outputs
     [OutputType]
     public sealed class SecretRotationRules
     {
-        /// <summary>
-        /// Specifies the number of days between automatic scheduled rotations of the secret.
-        /// </summary>
         public readonly int AutomaticallyAfterDays;
 
         [OutputConstructor]

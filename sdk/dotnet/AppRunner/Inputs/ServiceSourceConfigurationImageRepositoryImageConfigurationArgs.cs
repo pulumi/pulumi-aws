@@ -12,27 +12,17 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Port that your application listens to in the container. Defaults to `"8080"`.
-        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
         [Input("runtimeEnvironmentVariables")]
         private InputMap<string>? _runtimeEnvironmentVariables;
-
-        /// <summary>
-        /// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
-        /// </summary>
         public InputMap<string> RuntimeEnvironmentVariables
         {
             get => _runtimeEnvironmentVariables ?? (_runtimeEnvironmentVariables = new InputMap<string>());
             set => _runtimeEnvironmentVariables = value;
         }
 
-        /// <summary>
-        /// Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
-        /// </summary>
         [Input("startCommand")]
         public Input<string>? StartCommand { get; set; }
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An empty configuration block that is used for inspecting all headers.
-        /// </summary>
         [Input("all")]
         public Input<Inputs.RuleGroupRuleStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs>? All { get; set; }
 

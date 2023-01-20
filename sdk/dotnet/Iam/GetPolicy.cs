@@ -11,97 +11,9 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetPolicy
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM policy.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By ARN
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
-        ///     {
-        ///         Name = "test_policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("aws:iam/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM policy.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By ARN
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
-        ///     {
-        ///         Name = "test_policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws:iam/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -109,34 +21,17 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the IAM policy.
-        /// Conflicts with `name` and `path_prefix`.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the IAM policy.
-        /// Conflicts with `arn`.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// Prefix of the path to the IAM policy.
-        /// Defaults to a slash (`/`).
-        /// Conflicts with `arn`.
-        /// </summary>
         [Input("pathPrefix")]
         public string? PathPrefix { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags for the IAM Policy.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -151,34 +46,17 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the IAM policy.
-        /// Conflicts with `name` and `path_prefix`.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the IAM policy.
-        /// Conflicts with `arn`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Prefix of the path to the IAM policy.
-        /// Defaults to a slash (`/`).
-        /// Conflicts with `arn`.
-        /// </summary>
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags for the IAM Policy.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -195,35 +73,17 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetPolicyResult
     {
-        /// <summary>
-        /// ARN of the policy.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Description of the policy.
-        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// Path to the policy.
-        /// </summary>
         public readonly string Path;
         public readonly string? PathPrefix;
-        /// <summary>
-        /// Policy document of the policy.
-        /// </summary>
         public readonly string Policy;
-        /// <summary>
-        /// Policy's ID.
-        /// </summary>
         public readonly string PolicyId;
-        /// <summary>
-        /// Key-value mapping of tags for the IAM Policy.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class ContainerServicePrivateRegistryAccessEcrImagePullerRole
     {
-        /// <summary>
-        /// A Boolean value that indicates whether to activate the role. The default is `false`.
-        /// </summary>
         public readonly bool? IsActive;
         public readonly string? PrincipalArn;
 

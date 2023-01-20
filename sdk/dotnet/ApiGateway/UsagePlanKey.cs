@@ -9,83 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ApiGateway
 {
-    /// <summary>
-    /// Provides an API Gateway Usage Plan Key.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.ApiGateway.RestApi("test");
-    /// 
-    ///     // ...
-    ///     var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new()
-    ///     {
-    ///         ApiStages = new[]
-    ///         {
-    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
-    ///             {
-    ///                 ApiId = test.Id,
-    ///                 Stage = aws_api_gateway_deployment.Foo.Stage_name,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var mykey = new Aws.ApiGateway.ApiKey("mykey");
-    /// 
-    ///     var main = new Aws.ApiGateway.UsagePlanKey("main", new()
-    ///     {
-    ///         KeyId = mykey.Id,
-    ///         KeyType = "API_KEY",
-    ///         UsagePlanId = myusageplan.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]
     public partial class UsagePlanKey : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Identifier of the API key resource.
-        /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the API key resource. Currently, the valid key type is API_KEY.
-        /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of a usage plan key.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Id of the usage plan resource representing to associate the key to.
-        /// </summary>
         [Output("usagePlanId")]
         public Output<string> UsagePlanId { get; private set; } = null!;
 
-        /// <summary>
-        /// Value of a usage plan key.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -135,21 +73,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class UsagePlanKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the API key resource.
-        /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
-        /// <summary>
-        /// Type of the API key resource. Currently, the valid key type is API_KEY.
-        /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 
-        /// <summary>
-        /// Id of the usage plan resource representing to associate the key to.
-        /// </summary>
         [Input("usagePlanId", required: true)]
         public Input<string> UsagePlanId { get; set; } = null!;
 
@@ -161,33 +90,18 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class UsagePlanKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of the API key resource.
-        /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
-        /// <summary>
-        /// Type of the API key resource. Currently, the valid key type is API_KEY.
-        /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }
 
-        /// <summary>
-        /// Name of a usage plan key.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Id of the usage plan resource representing to associate the key to.
-        /// </summary>
         [Input("usagePlanId")]
         public Input<string>? UsagePlanId { get; set; }
 
-        /// <summary>
-        /// Value of a usage plan key.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

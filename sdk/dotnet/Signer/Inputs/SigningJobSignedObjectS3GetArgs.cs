@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Signer.Inputs
 
     public sealed class SigningJobSignedObjectS3GetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the S3 bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Key name of the object that contains your unsigned code.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 

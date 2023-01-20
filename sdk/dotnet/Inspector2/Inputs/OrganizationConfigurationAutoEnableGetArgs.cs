@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Inspector2.Inputs
 
     public sealed class OrganizationConfigurationAutoEnableGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         [Input("ec2", required: true)]
         public Input<bool> Ec2 { get; set; } = null!;
 
-        /// <summary>
-        /// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         [Input("ecr", required: true)]
         public Input<bool> Ecr { get; set; } = null!;
 

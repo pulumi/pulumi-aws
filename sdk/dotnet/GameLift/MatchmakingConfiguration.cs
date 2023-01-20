@@ -9,195 +9,63 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GameLift
 {
-    /// <summary>
-    /// Provides a GameLift Alias resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGameSessionQueue = new Aws.GameLift.GameSessionQueue("exampleGameSessionQueue", new()
-    ///     {
-    ///         Destinations = new[] {},
-    ///         PlayerLatencyPolicies = new[]
-    ///         {
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 3,
-    ///                 PolicyDurationSeconds = 7,
-    ///             },
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 10,
-    ///             },
-    ///         },
-    ///         TimeoutInSeconds = 25,
-    ///     });
-    /// 
-    ///     var exampleMatchmakingRuleSet = new Aws.GameLift.MatchmakingRuleSet("exampleMatchmakingRuleSet", new()
-    ///     {
-    ///         RuleSetBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["name"] = "test",
-    ///             ["ruleLanguageVersion"] = "1.0",
-    ///             ["teams"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["name"] = "alpha",
-    ///                     ["minPlayers"] = 1,
-    ///                     ["maxPlayers"] = 5,
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleMatchmakingConfiguration = new Aws.GameLift.MatchmakingConfiguration("exampleMatchmakingConfiguration", new()
-    ///     {
-    ///         AcceptanceRequired = false,
-    ///         CustomEventData = "pvp",
-    ///         GameSessionData = "game_session_data",
-    ///         BackfillMode = "MANUAL",
-    ///         RequestTimeoutSeconds = 30,
-    ///         RuleSetName = aws_gamelift_matchmaking_rule_set.Test.Name,
-    ///         GameSessionQueueArns = new[]
-    ///         {
-    ///             aws_gamelift_game_session_queue.Test.Arn,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "key1", "value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GameLift Matchmaking Configurations can be imported using the ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example &lt;matchmakingconfiguration-id&gt;
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration")]
     public partial class MatchmakingConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Specifies if the match that was created with this configuration must be accepted by matched players.
-        /// </summary>
         [Output("acceptanceRequired")]
         public Output<bool> AcceptanceRequired { get; private set; } = null!;
 
-        /// <summary>
-        /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
-        /// </summary>
         [Output("acceptanceTimeoutSeconds")]
         public Output<int?> AcceptanceTimeoutSeconds { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of player slots in a match to keep open for future players.
-        /// </summary>
         [Output("additionalPlayerCount")]
         public Output<int?> AdditionalPlayerCount { get; private set; } = null!;
 
-        /// <summary>
-        /// Matchmaking Configuration ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The method used to backfill game sessions that are created with this matchmaking configuration.
-        /// </summary>
         [Output("backfillMode")]
         public Output<string?> BackfillMode { get; private set; } = null!;
 
-        /// <summary>
-        /// The time when the Matchmaking Configuration was created.
-        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Information to be added to all events related to this matchmaking configuration.
-        /// </summary>
         [Output("customEventData")]
         public Output<string?> CustomEventData { get; private set; } = null!;
 
-        /// <summary>
-        /// A human-readable description of the matchmaking configuration.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-        /// </summary>
         [Output("flexMatchMode")]
         public Output<string> FlexMatchMode { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more custom game properties. See below.
-        /// </summary>
         [Output("gameProperties")]
         public Output<ImmutableArray<Outputs.MatchmakingConfigurationGameProperty>> GameProperties { get; private set; } = null!;
 
-        /// <summary>
-        /// A set of custom game session properties.
-        /// </summary>
         [Output("gameSessionData")]
         public Output<string> GameSessionData { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARNs of the GameLift game session queue resources.
-        /// </summary>
         [Output("gameSessionQueueArns")]
         public Output<ImmutableArray<string>> GameSessionQueueArns { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the matchmaking configuration
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// An SNS topic ARN that is set up to receive matchmaking notifications.
-        /// </summary>
         [Output("notificationTarget")]
         public Output<string?> NotificationTarget { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
-        /// </summary>
         [Output("requestTimeoutSeconds")]
         public Output<int> RequestTimeoutSeconds { get; private set; } = null!;
 
         [Output("ruleSetArn")]
         public Output<string> RuleSetArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A rule set names for the matchmaking rule set to use with this configuration.
-        /// </summary>
         [Output("ruleSetName")]
         public Output<string> RuleSetName { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -247,108 +115,60 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class MatchmakingConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies if the match that was created with this configuration must be accepted by matched players.
-        /// </summary>
         [Input("acceptanceRequired", required: true)]
         public Input<bool> AcceptanceRequired { get; set; } = null!;
 
-        /// <summary>
-        /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
-        /// </summary>
         [Input("acceptanceTimeoutSeconds")]
         public Input<int>? AcceptanceTimeoutSeconds { get; set; }
 
-        /// <summary>
-        /// The number of player slots in a match to keep open for future players.
-        /// </summary>
         [Input("additionalPlayerCount")]
         public Input<int>? AdditionalPlayerCount { get; set; }
 
-        /// <summary>
-        /// The method used to backfill game sessions that are created with this matchmaking configuration.
-        /// </summary>
         [Input("backfillMode")]
         public Input<string>? BackfillMode { get; set; }
 
-        /// <summary>
-        /// Information to be added to all events related to this matchmaking configuration.
-        /// </summary>
         [Input("customEventData")]
         public Input<string>? CustomEventData { get; set; }
 
-        /// <summary>
-        /// A human-readable description of the matchmaking configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-        /// </summary>
         [Input("flexMatchMode")]
         public Input<string>? FlexMatchMode { get; set; }
 
         [Input("gameProperties")]
         private InputList<Inputs.MatchmakingConfigurationGamePropertyArgs>? _gameProperties;
-
-        /// <summary>
-        /// One or more custom game properties. See below.
-        /// </summary>
         public InputList<Inputs.MatchmakingConfigurationGamePropertyArgs> GameProperties
         {
             get => _gameProperties ?? (_gameProperties = new InputList<Inputs.MatchmakingConfigurationGamePropertyArgs>());
             set => _gameProperties = value;
         }
 
-        /// <summary>
-        /// A set of custom game session properties.
-        /// </summary>
         [Input("gameSessionData", required: true)]
         public Input<string> GameSessionData { get; set; } = null!;
 
         [Input("gameSessionQueueArns")]
         private InputList<string>? _gameSessionQueueArns;
-
-        /// <summary>
-        /// The ARNs of the GameLift game session queue resources.
-        /// </summary>
         public InputList<string> GameSessionQueueArns
         {
             get => _gameSessionQueueArns ?? (_gameSessionQueueArns = new InputList<string>());
             set => _gameSessionQueueArns = value;
         }
 
-        /// <summary>
-        /// Name of the matchmaking configuration
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// An SNS topic ARN that is set up to receive matchmaking notifications.
-        /// </summary>
         [Input("notificationTarget")]
         public Input<string>? NotificationTarget { get; set; }
 
-        /// <summary>
-        /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
-        /// </summary>
         [Input("requestTimeoutSeconds", required: true)]
         public Input<int> RequestTimeoutSeconds { get; set; } = null!;
 
-        /// <summary>
-        /// A rule set names for the matchmaking rule set to use with this configuration.
-        /// </summary>
         [Input("ruleSetName", required: true)]
         public Input<string> RuleSetName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -363,123 +183,69 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class MatchmakingConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies if the match that was created with this configuration must be accepted by matched players.
-        /// </summary>
         [Input("acceptanceRequired")]
         public Input<bool>? AcceptanceRequired { get; set; }
 
-        /// <summary>
-        /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
-        /// </summary>
         [Input("acceptanceTimeoutSeconds")]
         public Input<int>? AcceptanceTimeoutSeconds { get; set; }
 
-        /// <summary>
-        /// The number of player slots in a match to keep open for future players.
-        /// </summary>
         [Input("additionalPlayerCount")]
         public Input<int>? AdditionalPlayerCount { get; set; }
 
-        /// <summary>
-        /// Matchmaking Configuration ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The method used to backfill game sessions that are created with this matchmaking configuration.
-        /// </summary>
         [Input("backfillMode")]
         public Input<string>? BackfillMode { get; set; }
 
-        /// <summary>
-        /// The time when the Matchmaking Configuration was created.
-        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
-        /// <summary>
-        /// Information to be added to all events related to this matchmaking configuration.
-        /// </summary>
         [Input("customEventData")]
         public Input<string>? CustomEventData { get; set; }
 
-        /// <summary>
-        /// A human-readable description of the matchmaking configuration.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-        /// </summary>
         [Input("flexMatchMode")]
         public Input<string>? FlexMatchMode { get; set; }
 
         [Input("gameProperties")]
         private InputList<Inputs.MatchmakingConfigurationGamePropertyGetArgs>? _gameProperties;
-
-        /// <summary>
-        /// One or more custom game properties. See below.
-        /// </summary>
         public InputList<Inputs.MatchmakingConfigurationGamePropertyGetArgs> GameProperties
         {
             get => _gameProperties ?? (_gameProperties = new InputList<Inputs.MatchmakingConfigurationGamePropertyGetArgs>());
             set => _gameProperties = value;
         }
 
-        /// <summary>
-        /// A set of custom game session properties.
-        /// </summary>
         [Input("gameSessionData")]
         public Input<string>? GameSessionData { get; set; }
 
         [Input("gameSessionQueueArns")]
         private InputList<string>? _gameSessionQueueArns;
-
-        /// <summary>
-        /// The ARNs of the GameLift game session queue resources.
-        /// </summary>
         public InputList<string> GameSessionQueueArns
         {
             get => _gameSessionQueueArns ?? (_gameSessionQueueArns = new InputList<string>());
             set => _gameSessionQueueArns = value;
         }
 
-        /// <summary>
-        /// Name of the matchmaking configuration
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// An SNS topic ARN that is set up to receive matchmaking notifications.
-        /// </summary>
         [Input("notificationTarget")]
         public Input<string>? NotificationTarget { get; set; }
 
-        /// <summary>
-        /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
-        /// </summary>
         [Input("requestTimeoutSeconds")]
         public Input<int>? RequestTimeoutSeconds { get; set; }
 
         [Input("ruleSetArn")]
         public Input<string>? RuleSetArn { get; set; }
 
-        /// <summary>
-        /// A rule set names for the matchmaking rule set to use with this configuration.
-        /// </summary>
         [Input("ruleSetName")]
         public Input<string>? RuleSetName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -488,10 +254,6 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

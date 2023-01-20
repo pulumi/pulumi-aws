@@ -11,77 +11,9 @@ namespace Pulumi.Aws.DynamoDB
 {
     public static class GetTableItem
     {
-        /// <summary>
-        /// Data source for retrieving a value from an AWS DynamoDB table.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
-        ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
-        ///         ExpressionAttributeNames = 
-        ///         {
-        ///             { "#P", "Percentile" },
-        ///         },
-        ///         ProjectionExpression = "#P",
-        ///         Key = @"{
-        /// 	""hashKey"": {""S"": ""example""}
-        /// }
-        /// ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetTableItemResult> InvokeAsync(GetTableItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source for retrieving a value from an AWS DynamoDB table.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
-        ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
-        ///         ExpressionAttributeNames = 
-        ///         {
-        ///             { "#P", "Percentile" },
-        ///         },
-        ///         ProjectionExpression = "#P",
-        ///         Key = @"{
-        /// 	""hashKey"": {""S"": ""example""}
-        /// }
-        /// ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetTableItemResult> Invoke(GetTableItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemInvokeArgs(), options.WithDefaults());
     }
@@ -97,23 +29,12 @@ namespace Pulumi.Aws.DynamoDB
             set => _expressionAttributeNames = value;
         }
 
-        /// <summary>
-        /// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-        /// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
-        /// <summary>
-        /// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-        /// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-        /// </summary>
         [Input("projectionExpression")]
         public string? ProjectionExpression { get; set; }
 
-        /// <summary>
-        /// The name of the table containing the requested item.
-        /// </summary>
         [Input("tableName", required: true)]
         public string TableName { get; set; } = null!;
 
@@ -133,23 +54,12 @@ namespace Pulumi.Aws.DynamoDB
             set => _expressionAttributeNames = value;
         }
 
-        /// <summary>
-        /// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-        /// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-        /// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-        /// </summary>
         [Input("projectionExpression")]
         public Input<string>? ProjectionExpression { get; set; }
 
-        /// <summary>
-        /// The name of the table containing the requested item.
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 
@@ -168,9 +78,6 @@ namespace Pulumi.Aws.DynamoDB
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
-        /// </summary>
         public readonly string Item;
         public readonly string Key;
         public readonly string? ProjectionExpression;

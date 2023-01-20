@@ -9,85 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.StorageGateway
 {
-    /// <summary>
-    /// Manages an AWS Storage Gateway upload buffer.
-    /// 
-    /// &gt; **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
-    /// 
-    /// ## Example Usage
-    /// ### Cached and VTL Gateway Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testLocalDisk = Aws.StorageGateway.GetLocalDisk.Invoke(new()
-    ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    ///     var testUploadBuffer = new Aws.StorageGateway.UploadBuffer("testUploadBuffer", new()
-    ///     {
-    ///         DiskPath = testLocalDisk.Apply(getLocalDiskResult =&gt; getLocalDiskResult.DiskPath),
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Stored Gateway Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = Aws.StorageGateway.GetLocalDisk.Invoke(new()
-    ///     {
-    ///         DiskNode = aws_volume_attachment.Test.Device_name,
-    ///         GatewayArn = aws_storagegateway_gateway.Test.Arn,
-    ///     });
-    /// 
-    ///     var example = new Aws.StorageGateway.UploadBuffer("example", new()
-    ///     {
-    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_storagegateway_upload_buffer` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:storagegateway/uploadBuffer:UploadBuffer")]
     public partial class UploadBuffer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        /// </summary>
         [Output("diskId")]
         public Output<string> DiskId { get; private set; } = null!;
 
-        /// <summary>
-        /// Local disk path. For example, `/dev/nvme1n1`.
-        /// </summary>
         [Output("diskPath")]
         public Output<string> DiskPath { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
-        /// </summary>
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
@@ -137,21 +67,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class UploadBufferArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        /// </summary>
         [Input("diskId")]
         public Input<string>? DiskId { get; set; }
 
-        /// <summary>
-        /// Local disk path. For example, `/dev/nvme1n1`.
-        /// </summary>
         [Input("diskPath")]
         public Input<string>? DiskPath { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
-        /// </summary>
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
 
@@ -163,21 +84,12 @@ namespace Pulumi.Aws.StorageGateway
 
     public sealed class UploadBufferState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        /// </summary>
         [Input("diskId")]
         public Input<string>? DiskId { get; set; }
 
-        /// <summary>
-        /// Local disk path. For example, `/dev/nvme1n1`.
-        /// </summary>
         [Input("diskPath")]
         public Input<string>? DiskPath { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
-        /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
 

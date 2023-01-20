@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Macie2.Inputs
 
     public sealed class ClassificationJobS3JobDefinitionScopingGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
-        /// </summary>
         [Input("excludes")]
         public Input<Inputs.ClassificationJobS3JobDefinitionScopingExcludesGetArgs>? Excludes { get; set; }
 
-        /// <summary>
-        /// The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
-        /// </summary>
         [Input("includes")]
         public Input<Inputs.ClassificationJobS3JobDefinitionScopingIncludesGetArgs>? Includes { get; set; }
 

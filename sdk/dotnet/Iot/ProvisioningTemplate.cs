@@ -9,189 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var iotAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "iot.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var iotFleetProvisioning = new Aws.Iam.Role("iotFleetProvisioning", new()
-    ///     {
-    ///         Path = "/service-role/",
-    ///         AssumeRolePolicy = iotAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var iotFleetProvisioningRegistration = new Aws.Iam.RolePolicyAttachment("iotFleetProvisioningRegistration", new()
-    ///     {
-    ///         Role = iotFleetProvisioning.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
-    ///     });
-    /// 
-    ///     var devicePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "iot:Subscribe",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var devicePolicyPolicy = new Aws.Iot.Policy("devicePolicyPolicy", new()
-    ///     {
-    ///         PolicyDocument = devicePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var fleet = new Aws.Iot.ProvisioningTemplate("fleet", new()
-    ///     {
-    ///         Description = "My provisioning template",
-    ///         ProvisioningRoleArn = iotFleetProvisioning.Arn,
-    ///         TemplateBody = devicePolicyPolicy.Name.Apply(name =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["SerialNumber"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Type"] = "String",
-    ///                 },
-    ///             },
-    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["certificate"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["CertificateId"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Ref"] = "AWS::IoT::Certificate::Id",
-    ///                         },
-    ///                         ["Status"] = "Active",
-    ///                     },
-    ///                     ["Type"] = "AWS::IoT::Certificate",
-    ///                 },
-    ///                 ["policy"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["PolicyName"] = name,
-    ///                     },
-    ///                     ["Type"] = "AWS::IoT::Policy",
-    ///                 },
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IoT fleet provisioning templates can be imported using the `name`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/provisioningTemplate:ProvisioningTemplate")]
     public partial class ProvisioningTemplate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN that identifies the provisioning template.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The default version of the fleet provisioning template.
-        /// </summary>
         [Output("defaultVersionId")]
         public Output<int> DefaultVersionId { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the fleet provisioning template.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// True to enable the fleet provisioning template, otherwise false.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the fleet provisioning template.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a pre-provisioning hook template. Details below.
-        /// </summary>
         [Output("preProvisioningHook")]
         public Output<Outputs.ProvisioningTemplatePreProvisioningHook?> PreProvisioningHook { get; private set; } = null!;
 
-        /// <summary>
-        /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        /// </summary>
         [Output("provisioningRoleArn")]
         public Output<string> ProvisioningRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The JSON formatted contents of the fleet provisioning template.
-        /// </summary>
         [Output("templateBody")]
         public Output<string> TemplateBody { get; private set; } = null!;
 
@@ -241,51 +88,29 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ProvisioningTemplateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the fleet provisioning template.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// True to enable the fleet provisioning template, otherwise false.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The name of the fleet provisioning template.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a pre-provisioning hook template. Details below.
-        /// </summary>
         [Input("preProvisioningHook")]
         public Input<Inputs.ProvisioningTemplatePreProvisioningHookArgs>? PreProvisioningHook { get; set; }
 
-        /// <summary>
-        /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        /// </summary>
         [Input("provisioningRoleArn", required: true)]
         public Input<string> ProvisioningRoleArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The JSON formatted contents of the fleet provisioning template.
-        /// </summary>
         [Input("templateBody", required: true)]
         public Input<string> TemplateBody { get; set; } = null!;
 
@@ -297,54 +122,29 @@ namespace Pulumi.Aws.Iot
 
     public sealed class ProvisioningTemplateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN that identifies the provisioning template.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The default version of the fleet provisioning template.
-        /// </summary>
         [Input("defaultVersionId")]
         public Input<int>? DefaultVersionId { get; set; }
 
-        /// <summary>
-        /// The description of the fleet provisioning template.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// True to enable the fleet provisioning template, otherwise false.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The name of the fleet provisioning template.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a pre-provisioning hook template. Details below.
-        /// </summary>
         [Input("preProvisioningHook")]
         public Input<Inputs.ProvisioningTemplatePreProvisioningHookGetArgs>? PreProvisioningHook { get; set; }
 
-        /// <summary>
-        /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        /// </summary>
         [Input("provisioningRoleArn")]
         public Input<string>? ProvisioningRoleArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -353,19 +153,12 @@ namespace Pulumi.Aws.Iot
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The JSON formatted contents of the fleet provisioning template.
-        /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 

@@ -13,37 +13,13 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
     [OutputType]
     public sealed class ListenerDefaultActionAuthenticateCognito
     {
-        /// <summary>
-        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
-        /// <summary>
-        /// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
-        /// </summary>
         public readonly string? OnUnauthenticatedRequest;
-        /// <summary>
-        /// Set of user claims to be requested from the IdP.
-        /// </summary>
         public readonly string? Scope;
-        /// <summary>
-        /// Name of the cookie used to maintain session information.
-        /// </summary>
         public readonly string? SessionCookieName;
-        /// <summary>
-        /// Maximum duration of the authentication session, in seconds.
-        /// </summary>
         public readonly int? SessionTimeout;
-        /// <summary>
-        /// ARN of the Cognito user pool.
-        /// </summary>
         public readonly string UserPoolArn;
-        /// <summary>
-        /// ID of the Cognito user pool client.
-        /// </summary>
         public readonly string UserPoolClientId;
-        /// <summary>
-        /// Domain prefix or fully-qualified domain name of the Cognito user pool.
-        /// </summary>
         public readonly string UserPoolDomain;
 
         [OutputConstructor]

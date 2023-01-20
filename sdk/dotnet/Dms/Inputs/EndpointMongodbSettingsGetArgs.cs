@@ -12,39 +12,21 @@ namespace Pulumi.Aws.Dms.Inputs
 
     public sealed class EndpointMongodbSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
-        /// </summary>
         [Input("authMechanism")]
         public Input<string>? AuthMechanism { get; set; }
 
-        /// <summary>
-        /// Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
-        /// </summary>
         [Input("authSource")]
         public Input<string>? AuthSource { get; set; }
 
-        /// <summary>
-        /// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
-        /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
-        /// <summary>
-        /// Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
-        /// </summary>
         [Input("docsToInvestigate")]
         public Input<string>? DocsToInvestigate { get; set; }
 
-        /// <summary>
-        /// Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
-        /// </summary>
         [Input("extractDocId")]
         public Input<string>? ExtractDocId { get; set; }
 
-        /// <summary>
-        /// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
-        /// </summary>
         [Input("nestingLevel")]
         public Input<string>? NestingLevel { get; set; }
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The event action. Valid values are `BLOCK` or `NO_ACTION`.
-        /// </summary>
         [Input("eventAction", required: true)]
         public Input<string> EventAction { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to send a notification.
-        /// </summary>
         [Input("notify", required: true)]
         public Input<bool> Notify { get; set; } = null!;
 

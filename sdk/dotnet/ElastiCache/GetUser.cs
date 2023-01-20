@@ -11,57 +11,9 @@ namespace Pulumi.Aws.ElastiCache
 {
     public static class GetUser
     {
-        /// <summary>
-        /// Use this data source to get information about an ElastiCache User.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.ElastiCache.GetUser.Invoke(new()
-        ///     {
-        ///         UserId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:elasticache/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an ElastiCache User.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var bar = Aws.ElastiCache.GetUser.Invoke(new()
-        ///     {
-        ///         UserId = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:elasticache/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -69,9 +21,6 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-        /// </summary>
         [Input("accessString")]
         public string? AccessString { get; set; }
 
@@ -89,15 +38,9 @@ namespace Pulumi.Aws.ElastiCache
             set => _passwords = value;
         }
 
-        /// <summary>
-        /// Identifier for the user.
-        /// </summary>
         [Input("userId", required: true)]
         public string UserId { get; set; } = null!;
 
-        /// <summary>
-        /// User name of the user.
-        /// </summary>
         [Input("userName")]
         public string? UserName { get; set; }
 
@@ -109,9 +52,6 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-        /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
 
@@ -133,15 +73,9 @@ namespace Pulumi.Aws.ElastiCache
             }
         }
 
-        /// <summary>
-        /// Identifier for the user.
-        /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
-        /// <summary>
-        /// User name of the user.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
@@ -155,9 +89,6 @@ namespace Pulumi.Aws.ElastiCache
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// String for what access a user possesses within the associated ElastiCache replication groups or clusters.
-        /// </summary>
         public readonly string? AccessString;
         public readonly string? Engine;
         /// <summary>
@@ -166,13 +97,7 @@ namespace Pulumi.Aws.ElastiCache
         public readonly string Id;
         public readonly bool? NoPasswordRequired;
         public readonly ImmutableArray<string> Passwords;
-        /// <summary>
-        /// Identifier for the user.
-        /// </summary>
         public readonly string UserId;
-        /// <summary>
-        /// User name of the user.
-        /// </summary>
         public readonly string? UserName;
 
         [OutputConstructor]

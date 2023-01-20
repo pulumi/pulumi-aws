@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOriginOriginShieldGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A flag that specifies whether Origin Shield is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
-        /// </summary>
         [Input("originShieldRegion", required: true)]
         public Input<string> OriginShieldRegion { get; set; } = null!;
 

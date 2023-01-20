@@ -9,98 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kendra
 {
-    /// <summary>
-    /// Resource for managing an AWS Kendra Thesaurus.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kendra.Thesaurus("example", new()
-    ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         SourceS3Path = new Aws.Kendra.Inputs.ThesaurusSourceS3PathArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Kendra Thesaurus" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:kendra/thesaurus:Thesaurus")]
     public partial class Thesaurus : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the thesaurus.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description for a thesaurus.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the index for a thesaurus.
-        /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for the thesaurus.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The S3 path where your thesaurus file sits in S3. Detailed below.
-        /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.ThesaurusSourceS3Path> SourceS3Path { get; private set; } = null!;
 
-        /// <summary>
-        /// The current status of the thesaurus.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -153,42 +88,23 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class ThesaurusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description for a thesaurus.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The identifier of the index for a thesaurus.
-        /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
-        /// <summary>
-        /// The name for the thesaurus.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The S3 path where your thesaurus file sits in S3. Detailed below.
-        /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.ThesaurusSourceS3PathArgs> SourceS3Path { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -203,54 +119,29 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class ThesaurusState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the thesaurus.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The description for a thesaurus.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The identifier of the index for a thesaurus.
-        /// </summary>
         [Input("indexId")]
         public Input<string>? IndexId { get; set; }
 
-        /// <summary>
-        /// The name for the thesaurus.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// The S3 path where your thesaurus file sits in S3. Detailed below.
-        /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.ThesaurusSourceS3PathGetArgs>? SourceS3Path { get; set; }
 
-        /// <summary>
-        /// The current status of the thesaurus.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -259,10 +150,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

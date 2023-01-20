@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class MLTransformParameters
     {
-        /// <summary>
-        /// The parameters for the find matches algorithm. see Find Matches Parameters.
-        /// </summary>
         public readonly Outputs.MLTransformParametersFindMatchesParameters FindMatchesParameters;
-        /// <summary>
-        /// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
-        /// </summary>
         public readonly string TransformType;
 
         [OutputConstructor]

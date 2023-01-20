@@ -9,83 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Dms
 {
-    /// <summary>
-    /// Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new replication subnet group
-    ///     var test = new Aws.Dms.ReplicationSubnetGroup("test", new()
-    ///     {
-    ///         ReplicationSubnetGroupDescription = "Test replication subnet group",
-    ///         ReplicationSubnetGroupId = "test-dms-replication-subnet-group-tf",
-    ///         SubnetIds = new[]
-    ///         {
-    ///             "subnet-12345678",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup")]
     public partial class ReplicationSubnetGroup : global::Pulumi.CustomResource
     {
         [Output("replicationSubnetGroupArn")]
         public Output<string> ReplicationSubnetGroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description for the subnet group.
-        /// </summary>
         [Output("replicationSubnetGroupDescription")]
         public Output<string> ReplicationSubnetGroupDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for the replication subnet group. This value is stored as a lowercase string.
-        /// </summary>
         [Output("replicationSubnetGroupId")]
         public Output<string> ReplicationSubnetGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of the EC2 subnet IDs for the subnet group.
-        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC the subnet group is in.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -135,24 +79,14 @@ namespace Pulumi.Aws.Dms
 
     public sealed class ReplicationSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description for the subnet group.
-        /// </summary>
         [Input("replicationSubnetGroupDescription", required: true)]
         public Input<string> ReplicationSubnetGroupDescription { get; set; } = null!;
 
-        /// <summary>
-        /// The name for the replication subnet group. This value is stored as a lowercase string.
-        /// </summary>
         [Input("replicationSubnetGroupId", required: true)]
         public Input<string> ReplicationSubnetGroupId { get; set; } = null!;
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of the EC2 subnet IDs for the subnet group.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -161,10 +95,6 @@ namespace Pulumi.Aws.Dms
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -182,24 +112,14 @@ namespace Pulumi.Aws.Dms
         [Input("replicationSubnetGroupArn")]
         public Input<string>? ReplicationSubnetGroupArn { get; set; }
 
-        /// <summary>
-        /// The description for the subnet group.
-        /// </summary>
         [Input("replicationSubnetGroupDescription")]
         public Input<string>? ReplicationSubnetGroupDescription { get; set; }
 
-        /// <summary>
-        /// The name for the replication subnet group. This value is stored as a lowercase string.
-        /// </summary>
         [Input("replicationSubnetGroupId")]
         public Input<string>? ReplicationSubnetGroupId { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// A list of the EC2 subnet IDs for the subnet group.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -208,10 +128,6 @@ namespace Pulumi.Aws.Dms
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -220,19 +136,12 @@ namespace Pulumi.Aws.Dms
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The ID of the VPC the subnet group is in.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

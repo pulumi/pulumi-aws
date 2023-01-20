@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetTrafficPolicyDocumentRuleResult
     {
-        /// <summary>
-        /// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult> GeoProximityLocations;
-        /// <summary>
-        /// ID of a rule you want to assign.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficPolicyDocumentRuleItemResult> Items;
-        /// <summary>
-        /// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficPolicyDocumentRuleLocationResult> Locations;
-        /// <summary>
-        /// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        /// </summary>
         public readonly Outputs.GetTrafficPolicyDocumentRulePrimaryResult? Primary;
-        /// <summary>
-        /// Region code for the AWS Region that you created the resource in.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficPolicyDocumentRuleRegionResult> Regions;
-        /// <summary>
-        /// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
-        /// </summary>
         public readonly Outputs.GetTrafficPolicyDocumentRuleSecondaryResult? Secondary;
-        /// <summary>
-        /// Type of the rule.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

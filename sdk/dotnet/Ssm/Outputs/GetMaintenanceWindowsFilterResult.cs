@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class GetMaintenanceWindowsFilterResult
     {
-        /// <summary>
-        /// Name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

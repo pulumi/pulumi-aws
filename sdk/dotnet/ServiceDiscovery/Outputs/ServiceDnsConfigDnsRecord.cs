@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
     [OutputType]
     public sealed class ServiceDnsConfigDnsRecord
     {
-        /// <summary>
-        /// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-        /// </summary>
         public readonly int Ttl;
-        /// <summary>
-        /// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

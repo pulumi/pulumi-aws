@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-        /// </summary>
         [Input("storageMetrics", required: true)]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsGetArgs> StorageMetrics { get; set; } = null!;
 

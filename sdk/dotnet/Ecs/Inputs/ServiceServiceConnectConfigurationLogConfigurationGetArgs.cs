@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationLogConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The log driver to use for the container.
-        /// </summary>
         [Input("logDriver")]
         public Input<string>? LogDriver { get; set; }
 
         [Input("options")]
         private InputMap<string>? _options;
-
-        /// <summary>
-        /// The configuration options to send to the log driver.
-        /// </summary>
         public InputMap<string> Options
         {
             get => _options ?? (_options = new InputMap<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         [Input("secretOptions")]
         private InputList<Inputs.ServiceServiceConnectConfigurationLogConfigurationSecretOptionGetArgs>? _secretOptions;
-
-        /// <summary>
-        /// The secrets to pass to the log configuration. See below.
-        /// </summary>
         public InputList<Inputs.ServiceServiceConnectConfigurationLogConfigurationSecretOptionGetArgs> SecretOptions
         {
             get => _secretOptions ?? (_secretOptions = new InputList<Inputs.ServiceServiceConnectConfigurationLogConfigurationSecretOptionGetArgs>());

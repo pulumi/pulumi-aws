@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Xray.Inputs
 
     public sealed class GroupInsightsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies whether insights are enabled.
-        /// </summary>
         [Input("insightsEnabled", required: true)]
         public Input<bool> InsightsEnabled { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether insight notifications are enabled.
-        /// </summary>
         [Input("notificationsEnabled")]
         public Input<bool>? NotificationsEnabled { get; set; }
 

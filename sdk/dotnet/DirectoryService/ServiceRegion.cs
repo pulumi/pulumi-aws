@@ -9,54 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectoryService
 {
-    /// <summary>
-    /// Manages a replicated Region and directory for Multi-Region replication.
-    /// Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
-    /// 
-    /// ## Import
-    /// 
-    /// Replicated Regions can be imported using directory ID,Region name e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:directoryservice/serviceRegion:ServiceRegion")]
     public partial class ServiceRegion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        /// </summary>
         [Output("desiredNumberOfDomainControllers")]
         public Output<int> DesiredNumberOfDomainControllers { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the directory to which you want to add Region replication.
-        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Region where you want to add domain controllers for replication.
-        /// </summary>
         [Output("regionName")]
         public Output<string> RegionName { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// VPC information in the replicated Region. Detailed below.
-        /// </summary>
         [Output("vpcSettings")]
         public Output<Outputs.ServiceRegionVpcSettings> VpcSettings { get; private set; } = null!;
 
@@ -106,39 +76,23 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class ServiceRegionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        /// </summary>
         [Input("desiredNumberOfDomainControllers")]
         public Input<int>? DesiredNumberOfDomainControllers { get; set; }
 
-        /// <summary>
-        /// The identifier of the directory to which you want to add Region replication.
-        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Region where you want to add domain controllers for replication.
-        /// </summary>
         [Input("regionName", required: true)]
         public Input<string> RegionName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// VPC information in the replicated Region. Detailed below.
-        /// </summary>
         [Input("vpcSettings", required: true)]
         public Input<Inputs.ServiceRegionVpcSettingsArgs> VpcSettings { get; set; } = null!;
 
@@ -150,30 +104,17 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class ServiceRegionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-        /// </summary>
         [Input("desiredNumberOfDomainControllers")]
         public Input<int>? DesiredNumberOfDomainControllers { get; set; }
 
-        /// <summary>
-        /// The identifier of the directory to which you want to add Region replication.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// The name of the Region where you want to add domain controllers for replication.
-        /// </summary>
         [Input("regionName")]
         public Input<string>? RegionName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -182,19 +123,12 @@ namespace Pulumi.Aws.DirectoryService
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// VPC information in the replicated Region. Detailed below.
-        /// </summary>
         [Input("vpcSettings")]
         public Input<Inputs.ServiceRegionVpcSettingsGetArgs>? VpcSettings { get; set; }
 

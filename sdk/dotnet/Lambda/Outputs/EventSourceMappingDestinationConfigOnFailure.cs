@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingDestinationConfigOnFailure
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the destination resource.
-        /// </summary>
         public readonly string DestinationArn;
 
         [OutputConstructor]

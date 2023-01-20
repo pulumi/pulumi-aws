@@ -13,21 +13,9 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration
     {
-        /// <summary>
-        /// Bucket name of the customer S3 bucket.
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-        /// </summary>
         public readonly string? EncryptionOption;
-        /// <summary>
-        /// KMS key arn for the customer s3 location when encrypting with a KMS managed key.
-        /// </summary>
         public readonly string? KmsKeyId;
-        /// <summary>
-        /// Object key prefix for the customer S3 location.
-        /// </summary>
         public readonly string? ObjectKeyPrefix;
 
         [OutputConstructor]

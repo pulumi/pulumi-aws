@@ -13,17 +13,8 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class ScheduledActionTargetAction
     {
-        /// <summary>
-        /// An action that runs a `PauseCluster` API operation. Documented below.
-        /// </summary>
         public readonly Outputs.ScheduledActionTargetActionPauseCluster? PauseCluster;
-        /// <summary>
-        /// An action that runs a `ResizeCluster` API operation. Documented below.
-        /// </summary>
         public readonly Outputs.ScheduledActionTargetActionResizeCluster? ResizeCluster;
-        /// <summary>
-        /// An action that runs a `ResumeCluster` API operation. Documented below.
-        /// </summary>
         public readonly Outputs.ScheduledActionTargetActionResumeCluster? ResumeCluster;
 
         [OutputConstructor]

@@ -9,128 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transfer
 {
-    /// <summary>
-    /// Provides a AWS Transfer Workflow resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic single step example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Workflow("example", new()
-    ///     {
-    ///         Steps = new[]
-    ///         {
-    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
-    ///             {
-    ///                 DeleteStepDetails = new Aws.Transfer.Inputs.WorkflowStepDeleteStepDetailsArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                     SourceFileLocation = "${original.file}",
-    ///                 },
-    ///                 Type = "DELETE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Multistep example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Workflow("example", new()
-    ///     {
-    ///         Steps = new[]
-    ///         {
-    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
-    ///             {
-    ///                 CustomStepDetails = new Aws.Transfer.Inputs.WorkflowStepCustomStepDetailsArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                     SourceFileLocation = "${original.file}",
-    ///                     Target = aws_lambda_function.Example.Arn,
-    ///                     TimeoutSeconds = 60,
-    ///                 },
-    ///                 Type = "CUSTOM",
-    ///             },
-    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
-    ///             {
-    ///                 TagStepDetails = new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                     SourceFileLocation = "${original.file}",
-    ///                     Tags = new[]
-    ///                     {
-    ///                         new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsTagArgs
-    ///                         {
-    ///                             Key = "Name",
-    ///                             Value = "Hello World",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Type = "TAG",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Transfer Workflows can be imported using the `worflow_id`.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:transfer/workflow:Workflow example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:transfer/workflow:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Workflow ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A textual description for the workflow.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-        /// </summary>
         [Output("onExceptionSteps")]
         public Output<ImmutableArray<Outputs.WorkflowOnExceptionStep>> OnExceptionSteps { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-        /// </summary>
         [Output("steps")]
         public Output<ImmutableArray<Outputs.WorkflowStep>> Steps { get; private set; } = null!;
 
-        /// <summary>
-        /// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -180,18 +76,11 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A textual description for the workflow.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("onExceptionSteps")]
         private InputList<Inputs.WorkflowOnExceptionStepArgs>? _onExceptionSteps;
-
-        /// <summary>
-        /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-        /// </summary>
         public InputList<Inputs.WorkflowOnExceptionStepArgs> OnExceptionSteps
         {
             get => _onExceptionSteps ?? (_onExceptionSteps = new InputList<Inputs.WorkflowOnExceptionStepArgs>());
@@ -200,10 +89,6 @@ namespace Pulumi.Aws.Transfer
 
         [Input("steps", required: true)]
         private InputList<Inputs.WorkflowStepArgs>? _steps;
-
-        /// <summary>
-        /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-        /// </summary>
         public InputList<Inputs.WorkflowStepArgs> Steps
         {
             get => _steps ?? (_steps = new InputList<Inputs.WorkflowStepArgs>());
@@ -212,10 +97,6 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -230,24 +111,14 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Workflow ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A textual description for the workflow.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("onExceptionSteps")]
         private InputList<Inputs.WorkflowOnExceptionStepGetArgs>? _onExceptionSteps;
-
-        /// <summary>
-        /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-        /// </summary>
         public InputList<Inputs.WorkflowOnExceptionStepGetArgs> OnExceptionSteps
         {
             get => _onExceptionSteps ?? (_onExceptionSteps = new InputList<Inputs.WorkflowOnExceptionStepGetArgs>());
@@ -256,10 +127,6 @@ namespace Pulumi.Aws.Transfer
 
         [Input("steps")]
         private InputList<Inputs.WorkflowStepGetArgs>? _steps;
-
-        /// <summary>
-        /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-        /// </summary>
         public InputList<Inputs.WorkflowStepGetArgs> Steps
         {
             get => _steps ?? (_steps = new InputList<Inputs.WorkflowStepGetArgs>());
@@ -268,10 +135,6 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -280,10 +143,6 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

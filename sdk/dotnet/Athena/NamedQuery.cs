@@ -9,95 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Athena
 {
-    /// <summary>
-    /// Provides an Athena Named Query resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2");
-    /// 
-    ///     var testKey = new Aws.Kms.Key("testKey", new()
-    ///     {
-    ///         DeletionWindowInDays = 7,
-    ///         Description = "Athena KMS Key",
-    ///     });
-    /// 
-    ///     var testWorkgroup = new Aws.Athena.Workgroup("testWorkgroup", new()
-    ///     {
-    ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
-    ///         {
-    ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
-    ///             {
-    ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
-    ///                 {
-    ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = testKey.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new()
-    ///     {
-    ///         Name = "users",
-    ///         Bucket = hogeBucketV2.Id,
-    ///     });
-    /// 
-    ///     var foo = new Aws.Athena.NamedQuery("foo", new()
-    ///     {
-    ///         Workgroup = testWorkgroup.Id,
-    ///         Database = hogeDatabase.Name,
-    ///         Query = hogeDatabase.Name.Apply(name =&gt; $"SELECT * FROM {name} limit 10;"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Athena Named Query can be imported using the query ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:athena/namedQuery:NamedQuery")]
     public partial class NamedQuery : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Database to which the query belongs.
-        /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
-        /// <summary>
-        /// Brief explanation of the query. Maximum length of 1024.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Plain language name for the query. Maximum length of 128.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
-        /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
 
-        /// <summary>
-        /// Workgroup to which the query belongs. Defaults to `primary`
-        /// </summary>
         [Output("workgroup")]
         public Output<string?> Workgroup { get; private set; } = null!;
 
@@ -147,33 +73,18 @@ namespace Pulumi.Aws.Athena
 
     public sealed class NamedQueryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Database to which the query belongs.
-        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
-        /// <summary>
-        /// Brief explanation of the query. Maximum length of 1024.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Plain language name for the query. Maximum length of 128.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
-        /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
-        /// <summary>
-        /// Workgroup to which the query belongs. Defaults to `primary`
-        /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
 
@@ -185,33 +96,18 @@ namespace Pulumi.Aws.Athena
 
     public sealed class NamedQueryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Database to which the query belongs.
-        /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
-        /// <summary>
-        /// Brief explanation of the query. Maximum length of 1024.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Plain language name for the query. Maximum length of 128.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
-        /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
 
-        /// <summary>
-        /// Workgroup to which the query belongs. Defaults to `primary`
-        /// </summary>
         [Input("workgroup")]
         public Input<string>? Workgroup { get; set; }
 

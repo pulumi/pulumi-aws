@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class NodeGroupResource
     {
-        /// <summary>
-        /// List of objects containing information about AutoScaling Groups.
-        /// </summary>
         public readonly ImmutableArray<Outputs.NodeGroupResourceAutoscalingGroup> AutoscalingGroups;
-        /// <summary>
-        /// Identifier of the remote access EC2 Security Group.
-        /// </summary>
         public readonly string? RemoteAccessSecurityGroupId;
 
         [OutputConstructor]

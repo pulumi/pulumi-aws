@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupStatefulRuleOptions
     {
-        /// <summary>
-        /// Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-        /// </summary>
         public readonly string RuleOrder;
 
         [OutputConstructor]

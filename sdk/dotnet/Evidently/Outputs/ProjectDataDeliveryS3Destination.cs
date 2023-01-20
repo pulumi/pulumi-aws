@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Evidently.Outputs
     [OutputType]
     public sealed class ProjectDataDeliveryS3Destination
     {
-        /// <summary>
-        /// The name of the bucket in which Evidently stores evaluation events.
-        /// </summary>
         public readonly string? Bucket;
-        /// <summary>
-        /// The bucket prefix in which Evidently stores evaluation events.
-        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

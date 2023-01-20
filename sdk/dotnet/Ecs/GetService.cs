@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Ecs
 {
     public static class GetService
     {
-        /// <summary>
-        /// The ECS Service data source allows access to details of a specific
-        /// Service within a AWS ECS Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetService.Invoke(new()
-        ///     {
-        ///         ServiceName = "example",
-        ///         ClusterArn = data.Aws_ecs_cluster.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECS Service data source allows access to details of a specific
-        /// Service within a AWS ECS Cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ecs.GetService.Invoke(new()
-        ///     {
-        ///         ServiceName = "example",
-        ///         ClusterArn = data.Aws_ecs_cluster.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
@@ -73,24 +21,14 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the ECS Cluster
-        /// </summary>
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the ECS Service
-        /// </summary>
         [Input("serviceName", required: true)]
         public string ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -105,24 +43,14 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the ECS Cluster
-        /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the ECS Service
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -139,35 +67,17 @@ namespace Pulumi.Aws.Ecs
     [OutputType]
     public sealed class GetServiceResult
     {
-        /// <summary>
-        /// ARN of the ECS Service
-        /// </summary>
         public readonly string Arn;
         public readonly string ClusterArn;
-        /// <summary>
-        /// Number of tasks for the ECS Service
-        /// </summary>
         public readonly int DesiredCount;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Launch type for the ECS Service
-        /// </summary>
         public readonly string LaunchType;
-        /// <summary>
-        /// Scheduling strategy for the ECS Service
-        /// </summary>
         public readonly string SchedulingStrategy;
         public readonly string ServiceName;
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Family for the latest ACTIVE revision
-        /// </summary>
         public readonly string TaskDefinition;
 
         [OutputConstructor]

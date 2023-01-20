@@ -13,22 +13,9 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketWebsite
     {
-        /// <summary>
-        /// An absolute path to the document to return in case of a 4XX error.
-        /// </summary>
         public readonly string? ErrorDocument;
-        /// <summary>
-        /// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-        /// </summary>
         public readonly string? IndexDocument;
-        /// <summary>
-        /// A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-        /// </summary>
         public readonly string? RedirectAllRequestsTo;
-        /// <summary>
-        /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-        /// describing redirect behavior and when redirects are applied.
-        /// </summary>
         public readonly Union<string, ImmutableArray<string>>? RoutingRules;
 
         [OutputConstructor]

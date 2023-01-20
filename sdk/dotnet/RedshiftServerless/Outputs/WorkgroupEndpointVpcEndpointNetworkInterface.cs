@@ -13,21 +13,9 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
     [OutputType]
     public sealed class WorkgroupEndpointVpcEndpointNetworkInterface
     {
-        /// <summary>
-        /// The availability Zone.
-        /// </summary>
         public readonly string? AvailabilityZone;
-        /// <summary>
-        /// The unique identifier of the network interface.
-        /// </summary>
         public readonly string? NetworkInterfaceId;
-        /// <summary>
-        /// The IPv4 address of the network interface within the subnet.
-        /// </summary>
         public readonly string? PrivateIpAddress;
-        /// <summary>
-        /// The unique identifier of the subnet.
-        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class FleetLaunchTemplateConfig
     {
-        /// <summary>
-        /// Nested argument containing EC2 Launch Template to use. Defined below.
-        /// </summary>
         public readonly Outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification LaunchTemplateSpecification;
-        /// <summary>
-        /// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FleetLaunchTemplateConfigOverride> Overrides;
 
         [OutputConstructor]

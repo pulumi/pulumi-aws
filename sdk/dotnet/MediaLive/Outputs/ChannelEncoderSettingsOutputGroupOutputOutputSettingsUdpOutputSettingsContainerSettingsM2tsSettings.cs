@@ -21,9 +21,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly int? AudioFramesPerPes;
         public readonly string? AudioPids;
         public readonly string? AudioStreamType;
-        /// <summary>
-        /// Average bitrate in bits/second.
-        /// </summary>
         public readonly int? Bitrate;
         public readonly string? BufferModel;
         public readonly string? CcDescriptor;
@@ -55,9 +52,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? RateMode;
         public readonly string? Scte27Pids;
         public readonly string? Scte35Control;
-        /// <summary>
-        /// PID from which to read SCTE-35 messages.
-        /// </summary>
         public readonly string? Scte35Pid;
         public readonly string? SegmentationMarkers;
         public readonly string? SegmentationStyle;

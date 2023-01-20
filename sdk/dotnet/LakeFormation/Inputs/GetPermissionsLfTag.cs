@@ -12,24 +12,14 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class GetPermissionsLfTagArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         [Input("catalogId", required: true)]
         public string CatalogId { get; set; } = null!;
 
-        /// <summary>
-        /// Key-name of an LF-Tag.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// List of possible values of an LF-Tag.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

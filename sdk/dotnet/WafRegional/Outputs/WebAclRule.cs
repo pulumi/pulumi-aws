@@ -13,26 +13,10 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class WebAclRule
     {
-        /// <summary>
-        /// Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-        /// </summary>
         public readonly Outputs.WebAclRuleAction? Action;
-        /// <summary>
-        /// Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-        /// </summary>
         public readonly Outputs.WebAclRuleOverrideAction? OverrideAction;
-        /// <summary>
-        /// Specifies the order in which the rules in a WebACL are evaluated.
-        /// Rules with a lower value are evaluated before rules with a higher value.
-        /// </summary>
         public readonly int Priority;
-        /// <summary>
-        /// ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-        /// </summary>
         public readonly string RuleId;
-        /// <summary>
-        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

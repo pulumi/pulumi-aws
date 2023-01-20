@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpsWorks.Outputs
     [OutputType]
     public sealed class ApplicationEnvironment
     {
-        /// <summary>
-        /// Variable name.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// Set visibility of the variable value to `true` or `false`.
-        /// </summary>
         public readonly bool? Secure;
-        /// <summary>
-        /// Variable value.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

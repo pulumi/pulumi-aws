@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelDestinationMediaPackageSettingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ID of the channel in MediaPackage that is the destination for this output group.
-        /// </summary>
         [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
 

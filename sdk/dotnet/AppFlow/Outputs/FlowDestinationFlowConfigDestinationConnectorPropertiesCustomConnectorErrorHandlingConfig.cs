@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig
     {
-        /// <summary>
-        /// Amazon S3 bucket name where the source files are stored.
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// Object key for the Amazon S3 bucket in which the source files are stored.
-        /// </summary>
         public readonly string? BucketPrefix;
-        /// <summary>
-        /// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        /// </summary>
         public readonly bool? FailOnFirstDestinationError;
 
         [OutputConstructor]

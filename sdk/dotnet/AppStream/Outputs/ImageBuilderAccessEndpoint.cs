@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppStream.Outputs
     [OutputType]
     public sealed class ImageBuilderAccessEndpoint
     {
-        /// <summary>
-        /// Type of interface endpoint.
-        /// </summary>
         public readonly string EndpointType;
-        /// <summary>
-        /// Identifier (ID) of the VPC in which the interface endpoint is used.
-        /// </summary>
         public readonly string? VpceId;
 
         [OutputConstructor]

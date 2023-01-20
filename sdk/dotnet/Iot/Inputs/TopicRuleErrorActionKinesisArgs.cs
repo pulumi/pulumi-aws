@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleErrorActionKinesisArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The partition key.
-        /// </summary>
         [Input("partitionKey")]
         public Input<string>? PartitionKey { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the Amazon Kinesis stream.
-        /// </summary>
         [Input("streamName", required: true)]
         public Input<string> StreamName { get; set; } = null!;
 

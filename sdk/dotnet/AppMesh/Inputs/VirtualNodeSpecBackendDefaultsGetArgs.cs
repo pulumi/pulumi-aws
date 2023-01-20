@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecBackendDefaultsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Default client policy for virtual service backends. See above for details.
-        /// </summary>
         [Input("clientPolicy")]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsClientPolicyGetArgs>? ClientPolicy { get; set; }
 

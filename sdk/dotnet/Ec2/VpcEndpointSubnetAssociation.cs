@@ -9,55 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to create an association between a VPC endpoint and a subnet.
-    /// 
-    /// &gt; **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
-    /// both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
-    /// and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
-    /// attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
-    /// Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("snEc2", new()
-    ///     {
-    ///         VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
-    ///         SubnetId = aws_subnet.Sn.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]
     public partial class VpcEndpointSubnetAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
-        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
-        /// </summary>
         [Output("vpcEndpointId")]
         public Output<string> VpcEndpointId { get; private set; } = null!;
 
@@ -107,15 +64,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointSubnetAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
@@ -127,15 +78,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointSubnetAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the subnet to be associated with the VPC endpoint.
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC endpoint with which the subnet will be associated.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 

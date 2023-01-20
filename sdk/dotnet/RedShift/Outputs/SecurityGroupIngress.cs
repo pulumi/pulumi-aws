@@ -13,18 +13,8 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class SecurityGroupIngress
     {
-        /// <summary>
-        /// The CIDR block to accept
-        /// </summary>
         public readonly string? Cidr;
-        /// <summary>
-        /// The name of the security group to authorize
-        /// </summary>
         public readonly string? SecurityGroupName;
-        /// <summary>
-        /// The owner Id of the security group provided
-        /// by `security_group_name`.
-        /// </summary>
         public readonly string? SecurityGroupOwnerId;
 
         [OutputConstructor]

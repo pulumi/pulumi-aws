@@ -9,119 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
-    /// 
-    /// ## Example Usage
-    /// ### All Regions Usage
-    /// 
-    /// The following example will enable the aggregator for every region.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
-    ///     {
-    ///         LinkingMode = "ALL_REGIONS",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### All Regions Except Specified Regions Usage
-    /// 
-    /// The following example will enable the aggregator for every region except those specified in `specified_regions`.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
-    ///     {
-    ///         LinkingMode = "ALL_REGIONS_EXCEPT_SPECIFIED",
-    ///         SpecifiedRegions = new[]
-    ///         {
-    ///             "eu-west-1",
-    ///             "eu-west-2",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Specified Regions Usage
-    /// 
-    /// The following example will enable the aggregator for every region specified in `specified_regions`.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("exampleFindingAggregator", new()
-    ///     {
-    ///         LinkingMode = "SPECIFIED_REGIONS",
-    ///         SpecifiedRegions = new[]
-    ///         {
-    ///             "eu-west-1",
-    ///             "eu-west-2",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing Security Hub finding aggregator can be imported using the `arn`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/findingAggregator:FindingAggregator")]
     public partial class FindingAggregator : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        /// </summary>
         [Output("linkingMode")]
         public Output<string> LinkingMode { get; private set; } = null!;
 
-        /// <summary>
-        /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-        /// </summary>
         [Output("specifiedRegions")]
         public Output<ImmutableArray<string>> SpecifiedRegions { get; private set; } = null!;
 
@@ -171,18 +64,11 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class FindingAggregatorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        /// </summary>
         [Input("linkingMode", required: true)]
         public Input<string> LinkingMode { get; set; } = null!;
 
         [Input("specifiedRegions")]
         private InputList<string>? _specifiedRegions;
-
-        /// <summary>
-        /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-        /// </summary>
         public InputList<string> SpecifiedRegions
         {
             get => _specifiedRegions ?? (_specifiedRegions = new InputList<string>());
@@ -197,18 +83,11 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class FindingAggregatorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        /// </summary>
         [Input("linkingMode")]
         public Input<string>? LinkingMode { get; set; }
 
         [Input("specifiedRegions")]
         private InputList<string>? _specifiedRegions;
-
-        /// <summary>
-        /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-        /// </summary>
         public InputList<string> SpecifiedRegions
         {
             get => _specifiedRegions ?? (_specifiedRegions = new InputList<string>());

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Synthetics.Outputs
     [OutputType]
     public sealed class CanaryTimeline
     {
-        /// <summary>
-        /// Date and time the canary was created.
-        /// </summary>
         public readonly string? Created;
-        /// <summary>
-        /// Date and time the canary was most recently modified.
-        /// </summary>
         public readonly string? LastModified;
-        /// <summary>
-        /// Date and time that the canary's most recent run started.
-        /// </summary>
         public readonly string? LastStarted;
-        /// <summary>
-        /// Date and time that the canary's most recent run ended.
-        /// </summary>
         public readonly string? LastStopped;
 
         [OutputConstructor]

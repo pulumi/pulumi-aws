@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsScheduleShareRule
     {
-        /// <summary>
-        /// The IDs of the AWS accounts with which to share the snapshots.
-        /// </summary>
         public readonly ImmutableArray<string> TargetAccounts;
         public readonly int? UnshareInterval;
         public readonly string? UnshareIntervalUnit;

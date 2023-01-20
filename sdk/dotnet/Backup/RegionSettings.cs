@@ -9,64 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
-    /// <summary>
-    /// Provides an AWS Backup Region Settings resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Backup.RegionSettings("test", new()
-    ///     {
-    ///         ResourceTypeManagementPreference = 
-    ///         {
-    ///             { "DynamoDB", true },
-    ///             { "EFS", true },
-    ///         },
-    ///         ResourceTypeOptInPreference = 
-    ///         {
-    ///             { "Aurora", true },
-    ///             { "DocumentDB", true },
-    ///             { "DynamoDB", true },
-    ///             { "EBS", true },
-    ///             { "EC2", true },
-    ///             { "EFS", true },
-    ///             { "FSx", true },
-    ///             { "Neptune", true },
-    ///             { "RDS", true },
-    ///             { "Storage Gateway", true },
-    ///             { "VirtualMachine", true },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Backup Region Settings can be imported using the `region`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:backup/regionSettings:RegionSettings")]
     public partial class RegionSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A map of services along with the management preferences for the Region.
-        /// </summary>
         [Output("resourceTypeManagementPreference")]
         public Output<ImmutableDictionary<string, bool>> ResourceTypeManagementPreference { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of services along with the opt-in preferences for the Region.
-        /// </summary>
         [Output("resourceTypeOptInPreference")]
         public Output<ImmutableDictionary<string, bool>> ResourceTypeOptInPreference { get; private set; } = null!;
 
@@ -118,10 +66,6 @@ namespace Pulumi.Aws.Backup
     {
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
-
-        /// <summary>
-        /// A map of services along with the management preferences for the Region.
-        /// </summary>
         public InputMap<bool> ResourceTypeManagementPreference
         {
             get => _resourceTypeManagementPreference ?? (_resourceTypeManagementPreference = new InputMap<bool>());
@@ -130,10 +74,6 @@ namespace Pulumi.Aws.Backup
 
         [Input("resourceTypeOptInPreference", required: true)]
         private InputMap<bool>? _resourceTypeOptInPreference;
-
-        /// <summary>
-        /// A map of services along with the opt-in preferences for the Region.
-        /// </summary>
         public InputMap<bool> ResourceTypeOptInPreference
         {
             get => _resourceTypeOptInPreference ?? (_resourceTypeOptInPreference = new InputMap<bool>());
@@ -150,10 +90,6 @@ namespace Pulumi.Aws.Backup
     {
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
-
-        /// <summary>
-        /// A map of services along with the management preferences for the Region.
-        /// </summary>
         public InputMap<bool> ResourceTypeManagementPreference
         {
             get => _resourceTypeManagementPreference ?? (_resourceTypeManagementPreference = new InputMap<bool>());
@@ -162,10 +98,6 @@ namespace Pulumi.Aws.Backup
 
         [Input("resourceTypeOptInPreference")]
         private InputMap<bool>? _resourceTypeOptInPreference;
-
-        /// <summary>
-        /// A map of services along with the opt-in preferences for the Region.
-        /// </summary>
         public InputMap<bool> ResourceTypeOptInPreference
         {
             get => _resourceTypeOptInPreference ?? (_resourceTypeOptInPreference = new InputMap<bool>());

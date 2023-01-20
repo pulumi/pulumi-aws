@@ -11,59 +11,9 @@ namespace Pulumi.Aws.ServiceCatalog
 {
     public static class GetLaunchPaths
     {
-        /// <summary>
-        /// Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetLaunchPaths.Invoke(new()
-        ///     {
-        ///         ProductId = "prod-yakog5pdriver",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetLaunchPathsResult> InvokeAsync(GetLaunchPathsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetLaunchPaths.Invoke(new()
-        ///     {
-        ///         ProductId = "prod-yakog5pdriver",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetLaunchPathsResult> Invoke(GetLaunchPathsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsInvokeArgs(), options.WithDefaults());
     }
@@ -71,15 +21,9 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetLaunchPathsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Product identifier.
-        /// </summary>
         [Input("productId", required: true)]
         public string ProductId { get; set; } = null!;
 
@@ -91,15 +35,9 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetLaunchPathsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Product identifier.
-        /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
@@ -119,9 +57,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public readonly string Id;
         public readonly string ProductId;
-        /// <summary>
-        /// Block with information about the launch path. See details below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLaunchPathsSummaryResult> Summaries;
 
         [OutputConstructor]

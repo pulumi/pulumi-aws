@@ -13,13 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TableServerSideEncryption
     {
-        /// <summary>
-        /// Whether TTL is enabled.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

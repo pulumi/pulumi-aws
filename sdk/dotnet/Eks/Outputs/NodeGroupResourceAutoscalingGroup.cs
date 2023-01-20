@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class NodeGroupResourceAutoscalingGroup
     {
-        /// <summary>
-        /// Name of the EC2 Launch Template. Conflicts with `id`.
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

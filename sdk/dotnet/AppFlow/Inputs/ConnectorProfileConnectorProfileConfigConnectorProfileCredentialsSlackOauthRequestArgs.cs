@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The code provided by the connector when it has been authenticated via the connected app.
-        /// </summary>
         [Input("authCode")]
         public Input<string>? AuthCode { get; set; }
 
-        /// <summary>
-        /// The URL to which the authentication server redirects the browser after authorization has been granted.
-        /// </summary>
         [Input("redirectUri")]
         public Input<string>? RedirectUri { get; set; }
 

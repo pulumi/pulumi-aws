@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class FunctionEphemeralStorage
     {
-        /// <summary>
-        /// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
-        /// </summary>
         public readonly int? Size;
 
         [OutputConstructor]

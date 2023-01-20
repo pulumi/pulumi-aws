@@ -9,84 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Provides an IAM Signing Certificate resource to upload Signing Certificates.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// **Using certs on file:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCert = new Aws.Iam.SigningCertificate("testCert", new()
-    ///     {
-    ///         Username = "some_test_cert",
-    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// **Example with cert in-line:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCertAlt = new Aws.Iam.SigningCertificate("testCertAlt", new()
-    ///     {
-    ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
-    /// [......] # cert contents
-    /// -----END CERTIFICATE-----
-    /// 
-    /// ",
-    ///         Username = "some_test_cert",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IAM Signing Certificates can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/signingCertificate:SigningCertificate")]
     public partial class SigningCertificate : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The contents of the signing certificate in PEM-encoded format.
-        /// </summary>
         [Output("certificateBody")]
         public Output<string> CertificateBody { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID for the signing certificate.
-        /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
 
-        /// <summary>
-        /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the user the signing certificate is for.
-        /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
 
@@ -136,21 +70,12 @@ namespace Pulumi.Aws.Iam
 
     public sealed class SigningCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The contents of the signing certificate in PEM-encoded format.
-        /// </summary>
         [Input("certificateBody", required: true)]
         public Input<string> CertificateBody { get; set; } = null!;
 
-        /// <summary>
-        /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the user the signing certificate is for.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -162,27 +87,15 @@ namespace Pulumi.Aws.Iam
 
     public sealed class SigningCertificateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The contents of the signing certificate in PEM-encoded format.
-        /// </summary>
         [Input("certificateBody")]
         public Input<string>? CertificateBody { get; set; }
 
-        /// <summary>
-        /// The ID for the signing certificate.
-        /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 
-        /// <summary>
-        /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the user the signing certificate is for.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

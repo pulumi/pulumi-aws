@@ -13,37 +13,13 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamSplunkConfiguration
     {
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. More details are given below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
-        /// <summary>
-        /// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
-        /// </summary>
         public readonly int? HecAcknowledgmentTimeout;
-        /// <summary>
-        /// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
-        /// </summary>
         public readonly string HecEndpoint;
-        /// <summary>
-        /// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
-        /// </summary>
         public readonly string? HecEndpointType;
-        /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        /// </summary>
         public readonly string HecToken;
-        /// <summary>
-        /// The data processing configuration.  More details are given below.
-        /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration? ProcessingConfiguration;
-        /// <summary>
-        /// After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-        /// </summary>
         public readonly int? RetryDuration;
-        /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// </summary>
         public readonly string? S3BackupMode;
 
         [OutputConstructor]

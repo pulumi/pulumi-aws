@@ -9,94 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MskConnect
 {
-    /// <summary>
-    /// Provides an Amazon MSK Connect Custom Plugin Resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Key = "debezium.zip",
-    ///         Source = new FileAsset("debezium.zip"),
-    ///     });
-    /// 
-    ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("exampleCustomPlugin", new()
-    ///     {
-    ///         ContentType = "ZIP",
-    ///         Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
-    ///         {
-    ///             S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
-    ///             {
-    ///                 BucketArn = exampleBucketV2.Arn,
-    ///                 FileKey = exampleBucketObjectv2.Key,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// MSK Connect Custom Plugin can be imported using the plugin's `arn`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:mskconnect/customPlugin:CustomPlugin")]
     public partial class CustomPlugin : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// the Amazon Resource Name (ARN) of the custom plugin.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
 
-        /// <summary>
-        /// A summary description of the custom plugin.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// an ID of the latest successfully created revision of the custom plugin.
-        /// </summary>
         [Output("latestRevision")]
         public Output<int> LatestRevision { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the location of a custom plugin. See below.
-        /// </summary>
         [Output("location")]
         public Output<Outputs.CustomPluginLocation> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the custom plugin..
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// the state of the custom plugin.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -146,27 +79,15 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class CustomPluginArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        /// <summary>
-        /// A summary description of the custom plugin.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Information about the location of a custom plugin. See below.
-        /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.CustomPluginLocationArgs> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the custom plugin..
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -178,45 +99,24 @@ namespace Pulumi.Aws.MskConnect
 
     public sealed class CustomPluginState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// the Amazon Resource Name (ARN) of the custom plugin.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
-        /// <summary>
-        /// A summary description of the custom plugin.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// an ID of the latest successfully created revision of the custom plugin.
-        /// </summary>
         [Input("latestRevision")]
         public Input<int>? LatestRevision { get; set; }
 
-        /// <summary>
-        /// Information about the location of a custom plugin. See below.
-        /// </summary>
         [Input("location")]
         public Input<Inputs.CustomPluginLocationGetArgs>? Location { get; set; }
 
-        /// <summary>
-        /// The name of the custom plugin..
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// the state of the custom plugin.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

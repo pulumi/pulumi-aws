@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Outputs
     [OutputType]
     public sealed class GetResourcesResourceTagMappingListResult
     {
-        /// <summary>
-        /// List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetResourcesResourceTagMappingListComplianceDetailResult> ComplianceDetails;
-        /// <summary>
-        /// ARN of the resource.
-        /// </summary>
         public readonly string ResourceArn;
-        /// <summary>
-        /// Map of tags assigned to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption
     {
-        /// <summary>
-        /// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
-        /// </summary>
         public readonly string? JobBookmarksEncryptionMode;
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        /// </summary>
         public readonly string? KmsKeyArn;
 
         [OutputConstructor]

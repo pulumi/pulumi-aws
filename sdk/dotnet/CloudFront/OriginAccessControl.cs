@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront
 {
-    /// <summary>
-    /// Manages an AWS CloudFront Origin Access Control, which is used by CloudFront Distributions with an Amazon S3 bucket as the origin.
-    /// 
-    /// Read more about Origin Access Control in the [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.OriginAccessControl("example", new()
-    ///     {
-    ///         Description = "Example Policy",
-    ///         OriginAccessControlOriginType = "s3",
-    ///         SigningBehavior = "always",
-    ///         SigningProtocol = "sigv4",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CloudFront Origin Access Control can be imported using the `id`. For example
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudfront/originAccessControl:OriginAccessControl")]
     public partial class OriginAccessControl : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The description of the Origin Access Control. It may be empty.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The current version of this Origin Access Control.
-        /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
-        /// <summary>
-        /// A name that identifies the Origin Access Control.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
-        /// </summary>
         [Output("originAccessControlOriginType")]
         public Output<string> OriginAccessControlOriginType { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
-        /// </summary>
         [Output("signingBehavior")]
         public Output<string> SigningBehavior { get; private set; } = null!;
 
-        /// <summary>
-        /// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
-        /// </summary>
         [Output("signingProtocol")]
         public Output<string> SigningProtocol { get; private set; } = null!;
 
@@ -128,33 +76,18 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class OriginAccessControlArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the Origin Access Control. It may be empty.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A name that identifies the Origin Access Control.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
-        /// </summary>
         [Input("originAccessControlOriginType", required: true)]
         public Input<string> OriginAccessControlOriginType { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
-        /// </summary>
         [Input("signingBehavior", required: true)]
         public Input<string> SigningBehavior { get; set; } = null!;
 
-        /// <summary>
-        /// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
-        /// </summary>
         [Input("signingProtocol", required: true)]
         public Input<string> SigningProtocol { get; set; } = null!;
 
@@ -166,39 +99,21 @@ namespace Pulumi.Aws.CloudFront
 
     public sealed class OriginAccessControlState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the Origin Access Control. It may be empty.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The current version of this Origin Access Control.
-        /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
-        /// <summary>
-        /// A name that identifies the Origin Access Control.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The type of origin that this Origin Access Control is for. The only valid value is `s3`.
-        /// </summary>
         [Input("originAccessControlOriginType")]
         public Input<string>? OriginAccessControlOriginType { get; set; }
 
-        /// <summary>
-        /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, `no-override`.
-        /// </summary>
         [Input("signingBehavior")]
         public Input<string>? SigningBehavior { get; set; }
 
-        /// <summary>
-        /// Determines how CloudFront signs (authenticates) requests. Valid values: `sigv4`.
-        /// </summary>
         [Input("signingProtocol")]
         public Input<string>? SigningProtocol { get; set; }
 

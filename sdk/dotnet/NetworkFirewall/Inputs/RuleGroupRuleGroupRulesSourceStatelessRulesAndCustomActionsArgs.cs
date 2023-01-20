@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("customActions")]
         private InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs>? _customActions;
-
-        /// <summary>
-        /// Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs> CustomActions
         {
             get => _customActions ?? (_customActions = new InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
         [Input("statelessRules", required: true)]
         private InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs>? _statelessRules;
-
-        /// <summary>
-        /// Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs> StatelessRules
         {
             get => _statelessRules ?? (_statelessRules = new InputList<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs>());

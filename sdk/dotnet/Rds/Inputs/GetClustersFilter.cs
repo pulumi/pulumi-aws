@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Rds.Inputs
 
     public sealed class GetClustersFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

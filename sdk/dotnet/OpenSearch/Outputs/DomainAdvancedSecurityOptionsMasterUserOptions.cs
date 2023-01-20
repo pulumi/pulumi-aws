@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainAdvancedSecurityOptionsMasterUserOptions
     {
-        /// <summary>
-        /// ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
-        /// </summary>
         public readonly string? MasterUserArn;
-        /// <summary>
-        /// Main user's username, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
-        /// </summary>
         public readonly string? MasterUserName;
-        /// <summary>
-        /// Main user's password, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
-        /// </summary>
         public readonly string? MasterUserPassword;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class ConfigurationTemplateSetting
     {
-        /// <summary>
-        /// A unique name for this Template.
-        /// </summary>
         public readonly string Name;
         public readonly string Namespace;
         public readonly string? Resource;

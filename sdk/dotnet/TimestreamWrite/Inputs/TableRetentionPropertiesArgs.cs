@@ -12,15 +12,9 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
 
     public sealed class TableRetentionPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-        /// </summary>
         [Input("magneticStoreRetentionPeriodInDays", required: true)]
         public Input<int> MagneticStoreRetentionPeriodInDays { get; set; } = null!;
 
-        /// <summary>
-        /// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
-        /// </summary>
         [Input("memoryStoreRetentionPeriodInHours", required: true)]
         public Input<int> MemoryStoreRetentionPeriodInHours { get; set; } = null!;
 

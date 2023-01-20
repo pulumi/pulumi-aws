@@ -9,82 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
-    /// <summary>
-    /// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
-    /// 
-    /// ## Example Usage
-    /// ### Organization Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var account = new Aws.Organizations.PolicyAttachment("account", new()
-    ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = "123456789012",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Root
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var root = new Aws.Organizations.PolicyAttachment("root", new()
-    ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = aws_organizations_organization.Example.Roots[0].Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Unit
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var unit = new Aws.Organizations.PolicyAttachment("unit", new()
-    ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = aws_organizations_organizational_unit.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_organizations_policy_attachment` can be imported by using the target ID and policy ID, e.g., with an account target
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:organizations/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want to attach to the target.
-        /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-        /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
@@ -134,15 +64,9 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class PolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want to attach to the target.
-        /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
-        /// <summary>
-        /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-        /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
@@ -154,15 +78,9 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class PolicyAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The unique identifier (ID) of the policy that you want to attach to the target.
-        /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
-        /// <summary>
-        /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
-        /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
 

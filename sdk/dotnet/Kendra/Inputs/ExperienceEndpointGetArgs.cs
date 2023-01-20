@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class ExperienceEndpointGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The endpoint of your Amazon Kendra experience.
-        /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
-        /// <summary>
-        /// The type of endpoint for your Amazon Kendra experience.
-        /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
 

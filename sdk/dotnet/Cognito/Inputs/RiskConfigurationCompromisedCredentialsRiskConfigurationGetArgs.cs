@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class RiskConfigurationCompromisedCredentialsRiskConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The compromised credentials risk configuration actions. See details below.
-        /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActionsGetArgs> Actions { get; set; } = null!;
 
         [Input("eventFilters")]
         private InputList<string>? _eventFilters;
-
-        /// <summary>
-        /// Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-        /// </summary>
         public InputList<string> EventFilters
         {
             get => _eventFilters ?? (_eventFilters = new InputList<string>());

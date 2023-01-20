@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatement
     {
-        /// <summary>
-        /// Statement to negate. You can use any statement that can be nested. See Statement above for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatement> Statements;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationExclude
     {
-        /// <summary>
-        /// List of S3 bucket ARNs.
-        /// </summary>
         public readonly ImmutableArray<string> Buckets;
-        /// <summary>
-        /// List of AWS Regions.
-        /// </summary>
         public readonly ImmutableArray<string> Regions;
 
         [OutputConstructor]

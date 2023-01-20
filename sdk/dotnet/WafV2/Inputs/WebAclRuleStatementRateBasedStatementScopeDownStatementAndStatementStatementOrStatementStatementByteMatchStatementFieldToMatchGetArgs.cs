@@ -12,69 +12,38 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Inspect all query arguments.
-        /// </summary>
         [Input("allQueryArguments")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsGetArgs>? AllQueryArguments { get; set; }
 
-        /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
-        /// </summary>
         [Input("body")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBodyGetArgs>? Body { get; set; }
 
-        /// <summary>
-        /// Inspect the cookies in the web request. See Cookies below for details.
-        /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesGetArgs>? Cookies { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderGetArgs>? _headers;
-
-        /// <summary>
-        /// Inspect the request headers. See Headers below for details.
-        /// </summary>
         public InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderGetArgs>());
             set => _headers = value;
         }
 
-        /// <summary>
-        /// Inspect the request body as JSON. See JSON Body for details.
-        /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyGetArgs>? JsonBody { get; set; }
 
-        /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        /// </summary>
         [Input("method")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethodGetArgs>? Method { get; set; }
 
-        /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringGetArgs>? QueryString { get; set; }
 
-        /// <summary>
-        /// Inspect a single header. See Single Header below for details.
-        /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderGetArgs>? SingleHeader { get; set; }
 
-        /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
-        /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentGetArgs>? SingleQueryArgument { get; set; }
 
-        /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-        /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathGetArgs>? UriPath { get; set; }
 

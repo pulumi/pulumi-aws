@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     [OutputType]
     public sealed class TablePointInTimeRecovery
     {
-        /// <summary>
-        /// Whether TTL is enabled.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

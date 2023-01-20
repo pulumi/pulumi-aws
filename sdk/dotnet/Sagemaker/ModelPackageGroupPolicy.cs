@@ -9,25 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker Model Package Group Policy resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ## Import
-    /// 
-    /// SageMaker Model Package Groups can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")]
     public partial class ModelPackageGroupPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the model package group.
-        /// </summary>
         [Output("modelPackageGroupName")]
         public Output<string> ModelPackageGroupName { get; private set; } = null!;
 
@@ -80,9 +64,6 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPackageGroupPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the model package group.
-        /// </summary>
         [Input("modelPackageGroupName", required: true)]
         public Input<string> ModelPackageGroupName { get; set; } = null!;
 
@@ -97,9 +78,6 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ModelPackageGroupPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the model package group.
-        /// </summary>
         [Input("modelPackageGroupName")]
         public Input<string>? ModelPackageGroupName { get; set; }
 

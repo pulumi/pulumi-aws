@@ -9,72 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides an IPAM resource.
-    /// 
-    /// ## Import
-    /// 
-    /// IPAMs can be imported using the `ipam id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcIpam:VpcIpam")]
     public partial class VpcIpam : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
-        /// </summary>
         [Output("cascade")]
         public Output<bool?> Cascade { get; private set; } = null!;
 
-        /// <summary>
-        /// A description for the IPAM.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
-        /// </summary>
         [Output("operatingRegions")]
         public Output<ImmutableArray<Outputs.VpcIpamOperatingRegion>> OperatingRegions { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
-        /// </summary>
         [Output("privateDefaultScopeId")]
         public Output<string> PrivateDefaultScopeId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-        /// IP space. The public scope is intended for all internet-routable IP space.
-        /// </summary>
         [Output("publicDefaultScopeId")]
         public Output<string> PublicDefaultScopeId { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of scopes in the IPAM.
-        /// </summary>
         [Output("scopeCount")]
         public Output<int> ScopeCount { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -124,24 +85,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
-        /// </summary>
         [Input("cascade")]
         public Input<bool>? Cascade { get; set; }
 
-        /// <summary>
-        /// A description for the IPAM.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("operatingRegions", required: true)]
         private InputList<Inputs.VpcIpamOperatingRegionArgs>? _operatingRegions;
-
-        /// <summary>
-        /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
-        /// </summary>
         public InputList<Inputs.VpcIpamOperatingRegionArgs> OperatingRegions
         {
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.VpcIpamOperatingRegionArgs>());
@@ -150,10 +101,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -168,61 +115,34 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
-        /// </summary>
         [Input("cascade")]
         public Input<bool>? Cascade { get; set; }
 
-        /// <summary>
-        /// A description for the IPAM.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("operatingRegions")]
         private InputList<Inputs.VpcIpamOperatingRegionGetArgs>? _operatingRegions;
-
-        /// <summary>
-        /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
-        /// </summary>
         public InputList<Inputs.VpcIpamOperatingRegionGetArgs> OperatingRegions
         {
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.VpcIpamOperatingRegionGetArgs>());
             set => _operatingRegions = value;
         }
 
-        /// <summary>
-        /// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
-        /// </summary>
         [Input("privateDefaultScopeId")]
         public Input<string>? PrivateDefaultScopeId { get; set; }
 
-        /// <summary>
-        /// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
-        /// IP space. The public scope is intended for all internet-routable IP space.
-        /// </summary>
         [Input("publicDefaultScopeId")]
         public Input<string>? PublicDefaultScopeId { get; set; }
 
-        /// <summary>
-        /// The number of scopes in the IPAM.
-        /// </summary>
         [Input("scopeCount")]
         public Input<int>? ScopeCount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -231,10 +151,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

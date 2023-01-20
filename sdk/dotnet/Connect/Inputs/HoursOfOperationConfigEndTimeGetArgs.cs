@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class HoursOfOperationConfigEndTimeGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the hour of closing.
-        /// </summary>
         [Input("hours", required: true)]
         public Input<int> Hours { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the minute of closing.
-        /// </summary>
         [Input("minutes", required: true)]
         public Input<int> Minutes { get; set; } = null!;
 

@@ -12,10 +12,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
 
     public sealed class DetectorDatasourcesKubernetesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        /// See Kubernetes Audit Logs below for more details.
-        /// </summary>
         [Input("auditLogs", required: true)]
         public Input<Inputs.DetectorDatasourcesKubernetesAuditLogsArgs> AuditLogs { get; set; } = null!;
 

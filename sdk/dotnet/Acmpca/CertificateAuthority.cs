@@ -9,248 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acmpca
 {
-    /// <summary>
-    /// Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
-    /// 
-    /// &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
-    /// 
-    /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
-    ///     {
-    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
-    ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
-    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///             {
-    ///                 CommonName = "example.com",
-    ///             },
-    ///         },
-    ///         PermanentDeletionTimeInDays = 7,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Short-lived certificate
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Acmpca.CertificateAuthority("example", new()
-    ///     {
-    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
-    ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
-    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///             {
-    ///                 CommonName = "example.com",
-    ///             },
-    ///         },
-    ///         UsageMode = "SHORT_LIVED_CERTIFICATE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Enable Certificate Revocation List
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var acmpcaBucketAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "s3:GetBucketAcl",
-    ///                     "s3:GetBucketLocation",
-    ///                     "s3:PutObject",
-    ///                     "s3:PutObjectAcl",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleBucketV2.Arn,
-    ///                     $"{exampleBucketV2.Arn}/*",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "acm-pca.amazonaws.com",
-    ///                         },
-    ///                         Type = "Service",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("exampleBucketPolicy", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Policy = acmpcaBucketAccess.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
-    ///     {
-    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
-    ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
-    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///             {
-    ///                 CommonName = "example.com",
-    ///             },
-    ///         },
-    ///         RevocationConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationArgs
-    ///         {
-    ///             CrlConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs
-    ///             {
-    ///                 CustomCname = "crl.example.com",
-    ///                 Enabled = true,
-    ///                 ExpirationInDays = 7,
-    ///                 S3BucketName = exampleBucketV2.Id,
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleBucketPolicy,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
     public partial class CertificateAuthority : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the certificate authority.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested argument containing algorithms and certificate subject information. Defined below.
-        /// </summary>
         [Output("certificateAuthorityConfiguration")]
         public Output<Outputs.CertificateAuthorityCertificateAuthorityConfiguration> CertificateAuthorityConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Output("certificateChain")]
         public Output<string> CertificateChain { get; private set; } = null!;
 
-        /// <summary>
-        /// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        /// </summary>
         [Output("certificateSigningRequest")]
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Output("notAfter")]
         public Output<string> NotAfter { get; private set; } = null!;
 
-        /// <summary>
-        /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Output("notBefore")]
         public Output<string> NotBefore { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        /// </summary>
         [Output("permanentDeletionTimeInDays")]
         public Output<int?> PermanentDeletionTimeInDays { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested argument containing revocation configuration. Defined below.
-        /// </summary>
         [Output("revocationConfiguration")]
         public Output<Outputs.CertificateAuthorityRevocationConfiguration?> RevocationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Output("serial")]
         public Output<string> Serial { get; private set; } = null!;
 
-        /// <summary>
-        /// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-        /// </summary>
         [Output("usageMode")]
         public Output<string> UsageMode { get; private set; } = null!;
 
@@ -300,51 +106,29 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class CertificateAuthorityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Nested argument containing algorithms and certificate subject information. Defined below.
-        /// </summary>
         [Input("certificateAuthorityConfiguration", required: true)]
         public Input<Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs> CertificateAuthorityConfiguration { get; set; } = null!;
 
-        /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        /// </summary>
         [Input("permanentDeletionTimeInDays")]
         public Input<int>? PermanentDeletionTimeInDays { get; set; }
 
-        /// <summary>
-        /// Nested argument containing revocation configuration. Defined below.
-        /// </summary>
         [Input("revocationConfiguration")]
         public Input<Inputs.CertificateAuthorityRevocationConfigurationArgs>? RevocationConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-        /// </summary>
         [Input("usageMode")]
         public Input<string>? UsageMode { get; set; }
 
@@ -356,84 +140,44 @@ namespace Pulumi.Aws.Acmpca
 
     public sealed class CertificateAuthorityState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate authority.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
-        /// <summary>
-        /// Nested argument containing algorithms and certificate subject information. Defined below.
-        /// </summary>
         [Input("certificateAuthorityConfiguration")]
         public Input<Inputs.CertificateAuthorityCertificateAuthorityConfigurationGetArgs>? CertificateAuthorityConfiguration { get; set; }
 
-        /// <summary>
-        /// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
-        /// <summary>
-        /// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        /// </summary>
         [Input("certificateSigningRequest")]
         public Input<string>? CertificateSigningRequest { get; set; }
 
-        /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Input("notAfter")]
         public Input<string>? NotAfter { get; set; }
 
-        /// <summary>
-        /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Input("notBefore")]
         public Input<string>? NotBefore { get; set; }
 
-        /// <summary>
-        /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        /// </summary>
         [Input("permanentDeletionTimeInDays")]
         public Input<int>? PermanentDeletionTimeInDays { get; set; }
 
-        /// <summary>
-        /// Nested argument containing revocation configuration. Defined below.
-        /// </summary>
         [Input("revocationConfiguration")]
         public Input<Inputs.CertificateAuthorityRevocationConfigurationGetArgs>? RevocationConfiguration { get; set; }
 
-        /// <summary>
-        /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-        /// </summary>
         [Input("serial")]
         public Input<string>? Serial { get; set; }
 
-        /// <summary>
-        /// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -442,25 +186,15 @@ namespace Pulumi.Aws.Acmpca
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-        /// </summary>
         [Input("usageMode")]
         public Input<string>? UsageMode { get; set; }
 

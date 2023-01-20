@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Archive S3 Settings. See Archive S3 Settings for more details.
-        /// </summary>
         [Input("archiveS3Settings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsGetArgs>? ArchiveS3Settings { get; set; }
 

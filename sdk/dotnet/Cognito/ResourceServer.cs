@@ -9,89 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Provides a Cognito Resource Server.
-    /// 
-    /// ## Example Usage
-    /// ### Create a basic resource server
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
-    /// 
-    ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
-    ///     {
-    ///         Identifier = "https://example.com",
-    ///         UserPoolId = pool.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create a resource server with sample-scope
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
-    /// 
-    ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
-    ///     {
-    ///         Identifier = "https://example.com",
-    ///         Scopes = new[]
-    ///         {
-    ///             new Aws.Cognito.Inputs.ResourceServerScopeArgs
-    ///             {
-    ///                 ScopeName = "sample-scope",
-    ///                 ScopeDescription = "a Sample Scope Description",
-    ///             },
-    ///         },
-    ///         UserPoolId = pool.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/resourceServer:ResourceServer")]
     public partial class ResourceServer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An identifier for the resource server.
-        /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
-        /// <summary>
-        /// A name for the resource server.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of all scopes configured for this resource server in the format identifier/scope_name.
-        /// </summary>
         [Output("scopeIdentifiers")]
         public Output<ImmutableArray<string>> ScopeIdentifiers { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of Authorization Scope.
-        /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.ResourceServerScope>> Scopes { get; private set; } = null!;
 
@@ -144,24 +73,14 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class ResourceServerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An identifier for the resource server.
-        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// A name for the resource server.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.ResourceServerScopeArgs>? _scopes;
-
-        /// <summary>
-        /// A list of Authorization Scope.
-        /// </summary>
         public InputList<Inputs.ResourceServerScopeArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.ResourceServerScopeArgs>());
@@ -179,24 +98,14 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class ResourceServerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An identifier for the resource server.
-        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
-        /// <summary>
-        /// A name for the resource server.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("scopeIdentifiers")]
         private InputList<string>? _scopeIdentifiers;
-
-        /// <summary>
-        /// A list of all scopes configured for this resource server in the format identifier/scope_name.
-        /// </summary>
         public InputList<string> ScopeIdentifiers
         {
             get => _scopeIdentifiers ?? (_scopeIdentifiers = new InputList<string>());
@@ -205,10 +114,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("scopes")]
         private InputList<Inputs.ResourceServerScopeGetArgs>? _scopes;
-
-        /// <summary>
-        /// A list of Authorization Scope.
-        /// </summary>
         public InputList<Inputs.ResourceServerScopeGetArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.ResourceServerScopeGetArgs>());

@@ -9,109 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
-    /// 
-    /// ## Example Usage
-    /// ### Multiple AWS Buckets in Different Regions
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primaryRegion = new Aws.Provider("primaryRegion", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var secondaryRegion = new Aws.Provider("secondaryRegion", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var fooBucket = new Aws.S3.BucketV2("fooBucket", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary_region,
-    ///     });
-    /// 
-    ///     var barBucket = new Aws.S3.BucketV2("barBucket", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary_region,
-    ///     });
-    /// 
-    ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()
-    ///     {
-    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
-    ///         {
-    ///             Name = "example",
-    ///             Regions = new[]
-    ///             {
-    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
-    ///                 {
-    ///                     Bucket = fooBucket.Id,
-    ///                 },
-    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
-    ///                 {
-    ///                     Bucket = barBucket.Id,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Multi-Region Access Points can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint")]
     public partial class MultiRegionAccessPoint : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The alias for the Multi-Region Access Point.
-        /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Multi-Region Access Point.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-        /// </summary>
         [Output("details")]
         public Output<Outputs.MultiRegionAccessPointDetails> Details { get; private set; } = null!;
 
-        /// <summary>
-        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        /// <summary>
-        /// The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -161,15 +76,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class MultiRegionAccessPointArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-        /// </summary>
         [Input("details", required: true)]
         public Input<Inputs.MultiRegionAccessPointDetailsArgs> Details { get; set; } = null!;
 
@@ -181,39 +90,21 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class MultiRegionAccessPointState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
-        /// <summary>
-        /// The alias for the Multi-Region Access Point.
-        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Multi-Region Access Point.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-        /// </summary>
         [Input("details")]
         public Input<Inputs.MultiRegionAccessPointDetailsGetArgs>? Details { get; set; }
 
-        /// <summary>
-        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        /// <summary>
-        /// The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

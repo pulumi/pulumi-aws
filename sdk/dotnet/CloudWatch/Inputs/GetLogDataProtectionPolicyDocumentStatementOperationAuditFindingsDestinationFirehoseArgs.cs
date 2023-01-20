@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Kinesis Firehose Delivery Stream to send findings to.
-        /// </summary>
         [Input("deliveryStream", required: true)]
         public Input<string> DeliveryStream { get; set; } = null!;
 

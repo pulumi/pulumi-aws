@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ClusterConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The details of the execute command configuration. Detailed below.
-        /// </summary>
         [Input("executeCommandConfiguration")]
         public Input<Inputs.ClusterConfigurationExecuteCommandConfigurationGetArgs>? ExecuteCommandConfiguration { get; set; }
 

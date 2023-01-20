@@ -13,29 +13,11 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes
     {
-        /// <summary>
-        /// Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort> DestinationPorts;
-        /// <summary>
-        /// Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination> Destinations;
-        /// <summary>
-        /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
-        /// </summary>
         public readonly ImmutableArray<int> Protocols;
-        /// <summary>
-        /// Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort> SourcePorts;
-        /// <summary>
-        /// Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource> Sources;
-        /// <summary>
-        /// Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag> TcpFlags;
 
         [OutputConstructor]

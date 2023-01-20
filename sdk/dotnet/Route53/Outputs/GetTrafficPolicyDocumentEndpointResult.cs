@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class GetTrafficPolicyDocumentEndpointResult
     {
-        /// <summary>
-        /// ID of a rule you want to assign.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Region code for the AWS Region that you created the resource in.
-        /// </summary>
         public readonly string? Region;
-        /// <summary>
-        /// Type of the rule.
-        /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// Value of the `type`.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

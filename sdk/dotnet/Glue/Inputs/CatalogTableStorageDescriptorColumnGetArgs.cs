@@ -12,33 +12,20 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableStorageDescriptorColumnGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Free-form text comment.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Name of the target table.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
-
-        /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
-        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Datatype of data in the Column.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

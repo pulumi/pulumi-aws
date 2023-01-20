@@ -13,9 +13,6 @@ namespace Pulumi.Aws.LightSail.Outputs
     [OutputType]
     public sealed class CertificateDomainValidationOption
     {
-        /// <summary>
-        /// A domain name for which the certificate should be issued.
-        /// </summary>
         public readonly string? DomainName;
         public readonly string? ResourceRecordName;
         public readonly string? ResourceRecordType;

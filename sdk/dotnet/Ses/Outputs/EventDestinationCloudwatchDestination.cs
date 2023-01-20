@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ses.Outputs
     [OutputType]
     public sealed class EventDestinationCloudwatchDestination
     {
-        /// <summary>
-        /// The default value for the event
-        /// </summary>
         public readonly string DefaultValue;
-        /// <summary>
-        /// The name for the dimension
-        /// </summary>
         public readonly string DimensionName;
-        /// <summary>
-        /// The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
-        /// </summary>
         public readonly string ValueSource;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceParametersRds
     {
-        /// <summary>
-        /// The database to which to connect.
-        /// </summary>
         public readonly string Database;
-        /// <summary>
-        /// The instance ID to which to connect.
-        /// </summary>
         public readonly string InstanceId;
 
         [OutputConstructor]

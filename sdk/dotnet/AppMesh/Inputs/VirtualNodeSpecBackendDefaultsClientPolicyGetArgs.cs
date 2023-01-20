@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Transport Layer Security (TLS) client policy.
-        /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsGetArgs>? Tls { get; set; }
 

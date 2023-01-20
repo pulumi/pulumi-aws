@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
-        /// </summary>
         [Input("cloudwatchLogGroupName")]
         public Input<string>? CloudwatchLogGroupName { get; set; }
 
-        /// <summary>
-        /// Enables Systems Manager to send command output to CloudWatch Logs.
-        /// </summary>
         [Input("cloudwatchOutputEnabled")]
         public Input<bool>? CloudwatchOutputEnabled { get; set; }
 

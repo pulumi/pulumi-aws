@@ -9,252 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodePipeline
 {
-    /// <summary>
-    /// Provides a CodePipeline.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeStarConnections.Connection("example", new()
-    ///     {
-    ///         ProviderType = "GitHub",
-    ///     });
-    /// 
-    ///     var codepipelineBucket = new Aws.S3.BucketV2("codepipelineBucket");
-    /// 
-    ///     var codepipelineRole = new Aws.Iam.Role("codepipelineRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""codepipeline.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var s3kmskey = Aws.Kms.GetAlias.Invoke(new()
-    ///     {
-    ///         Name = "alias/myKmsKey",
-    ///     });
-    /// 
-    ///     var codepipeline = new Aws.CodePipeline.Pipeline("codepipeline", new()
-    ///     {
-    ///         RoleArn = codepipelineRole.Arn,
-    ///         ArtifactStores = new[]
-    ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
-    ///             {
-    ///                 Location = codepipelineBucket.Bucket,
-    ///                 Type = "S3",
-    ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
-    ///                 {
-    ///                     Id = s3kmskey.Apply(getAliasResult =&gt; getAliasResult.Arn),
-    ///                     Type = "KMS",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Stages = new[]
-    ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Source",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
-    ///                     {
-    ///                         Name = "Source",
-    ///                         Category = "Source",
-    ///                         Owner = "AWS",
-    ///                         Provider = "CodeStarSourceConnection",
-    ///                         Version = "1",
-    ///                         OutputArtifacts = new[]
-    ///                         {
-    ///                             "source_output",
-    ///                         },
-    ///                         Configuration = 
-    ///                         {
-    ///                             { "ConnectionArn", example.Arn },
-    ///                             { "FullRepositoryId", "my-organization/example" },
-    ///                             { "BranchName", "main" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Build",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
-    ///                     {
-    ///                         Name = "Build",
-    ///                         Category = "Build",
-    ///                         Owner = "AWS",
-    ///                         Provider = "CodeBuild",
-    ///                         InputArtifacts = new[]
-    ///                         {
-    ///                             "source_output",
-    ///                         },
-    ///                         OutputArtifacts = new[]
-    ///                         {
-    ///                             "build_output",
-    ///                         },
-    ///                         Version = "1",
-    ///                         Configuration = 
-    ///                         {
-    ///                             { "ProjectName", "test" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Deploy",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
-    ///                     {
-    ///                         Name = "Deploy",
-    ///                         Category = "Deploy",
-    ///                         Owner = "AWS",
-    ///                         Provider = "CloudFormation",
-    ///                         InputArtifacts = new[]
-    ///                         {
-    ///                             "build_output",
-    ///                         },
-    ///                         Version = "1",
-    ///                         Configuration = 
-    ///                         {
-    ///                             { "ActionMode", "REPLACE_ON_FAILURE" },
-    ///                             { "Capabilities", "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM" },
-    ///                             { "OutputFileName", "CreateStackOutput.json" },
-    ///                             { "StackName", "MyStack" },
-    ///                             { "TemplatePath", "build_output::sam-templated.yaml" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var codepipelineBucketAcl = new Aws.S3.BucketAclV2("codepipelineBucketAcl", new()
-    ///     {
-    ///         Bucket = codepipelineBucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var codepipelinePolicy = new Aws.Iam.RolePolicy("codepipelinePolicy", new()
-    ///     {
-    ///         Role = codepipelineRole.Id,
-    ///         Policy = Output.Tuple(codepipelineBucket.Arn, codepipelineBucket.Arn, example.Arn).Apply(values =&gt;
-    ///         {
-    ///             var codepipelineBucketArn = values.Item1;
-    ///             var codepipelineBucketArn1 = values.Item2;
-    ///             var exampleArn = values.Item3;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Effect"":""Allow"",
-    ///       ""Action"": [
-    ///         ""s3:GetObject"",
-    ///         ""s3:GetObjectVersion"",
-    ///         ""s3:GetBucketVersioning"",
-    ///         ""s3:PutObjectAcl"",
-    ///         ""s3:PutObject""
-    ///       ],
-    ///       ""Resource"": [
-    ///         ""{codepipelineBucketArn}"",
-    ///         ""{codepipelineBucketArn1}/*""
-    ///       ]
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""codestar-connections:UseConnection""
-    ///       ],
-    ///       ""Resource"": ""{exampleArn}""
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""codebuild:BatchGetBuilds"",
-    ///         ""codebuild:StartBuild""
-    ///       ],
-    ///       ""Resource"": ""*""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CodePipelines can be imported using the name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codepipeline/pipeline:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The codepipeline ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more artifact_store blocks. Artifact stores are documented below.
-        /// </summary>
         [Output("artifactStores")]
         public Output<ImmutableArray<Outputs.PipelineArtifactStore>> ArtifactStores { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the pipeline.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A stage block. Stages are documented below.
-        /// </summary>
         [Output("stages")]
         public Output<ImmutableArray<Outputs.PipelineStage>> Stages { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -306,34 +81,20 @@ namespace Pulumi.Aws.CodePipeline
     {
         [Input("artifactStores", required: true)]
         private InputList<Inputs.PipelineArtifactStoreArgs>? _artifactStores;
-
-        /// <summary>
-        /// One or more artifact_store blocks. Artifact stores are documented below.
-        /// </summary>
         public InputList<Inputs.PipelineArtifactStoreArgs> ArtifactStores
         {
             get => _artifactStores ?? (_artifactStores = new InputList<Inputs.PipelineArtifactStoreArgs>());
             set => _artifactStores = value;
         }
 
-        /// <summary>
-        /// The name of the pipeline.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("stages", required: true)]
         private InputList<Inputs.PipelineStageArgs>? _stages;
-
-        /// <summary>
-        /// A stage block. Stages are documented below.
-        /// </summary>
         public InputList<Inputs.PipelineStageArgs> Stages
         {
             get => _stages ?? (_stages = new InputList<Inputs.PipelineStageArgs>());
@@ -342,10 +103,6 @@ namespace Pulumi.Aws.CodePipeline
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -360,42 +117,25 @@ namespace Pulumi.Aws.CodePipeline
 
     public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The codepipeline ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("artifactStores")]
         private InputList<Inputs.PipelineArtifactStoreGetArgs>? _artifactStores;
-
-        /// <summary>
-        /// One or more artifact_store blocks. Artifact stores are documented below.
-        /// </summary>
         public InputList<Inputs.PipelineArtifactStoreGetArgs> ArtifactStores
         {
             get => _artifactStores ?? (_artifactStores = new InputList<Inputs.PipelineArtifactStoreGetArgs>());
             set => _artifactStores = value;
         }
 
-        /// <summary>
-        /// The name of the pipeline.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("stages")]
         private InputList<Inputs.PipelineStageGetArgs>? _stages;
-
-        /// <summary>
-        /// A stage block. Stages are documented below.
-        /// </summary>
         public InputList<Inputs.PipelineStageGetArgs> Stages
         {
             get => _stages ?? (_stages = new InputList<Inputs.PipelineStageGetArgs>());
@@ -404,10 +144,6 @@ namespace Pulumi.Aws.CodePipeline
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -416,10 +152,6 @@ namespace Pulumi.Aws.CodePipeline
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

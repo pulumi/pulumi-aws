@@ -12,36 +12,20 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CrawlerCatalogTargetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the connection to use to connect to the Delta table target.
-        /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
-        /// <summary>
-        /// The name of the Glue database to be synchronized.
-        /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// A valid Amazon SQS ARN.
-        /// </summary>
         [Input("dlqEventQueueArn")]
         public Input<string>? DlqEventQueueArn { get; set; }
 
-        /// <summary>
-        /// A valid Amazon SQS ARN.
-        /// </summary>
         [Input("eventQueueArn")]
         public Input<string>? EventQueueArn { get; set; }
 
         [Input("tables", required: true)]
         private InputList<string>? _tables;
-
-        /// <summary>
-        /// A list of catalog tables to be synchronized.
-        /// </summary>
         public InputList<string> Tables
         {
             get => _tables ?? (_tables = new InputList<string>());

@@ -9,149 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Provides a core network resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.CoreNetwork("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With description
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.CoreNetwork("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         Description = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With policy document
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.CoreNetwork("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         PolicyDocument = data.Aws_networkmanager_core_network_policy_document.Example.Json,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With tags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.CoreNetwork("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "hello", "world" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_networkmanager_core_network` can be imported using the core network ID, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/coreNetwork:CoreNetwork")]
     public partial class CoreNetwork : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Core Network Amazon Resource Name (ARN).
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Timestamp when a core network was created.
-        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of the Core Network.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more blocks detailing the edges within a core network. Detailed below.
-        /// </summary>
         [Output("edges")]
         public Output<ImmutableArray<Outputs.CoreNetworkEdge>> Edges { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the global network that a core network will be a part of.
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        /// </summary>
         [Output("policyDocument")]
         public Output<string?> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more blocks detailing the segments within a core network. Detailed below.
-        /// </summary>
         [Output("segments")]
         public Output<ImmutableArray<Outputs.CoreNetworkSegment>> Segments { get; private set; } = null!;
 
-        /// <summary>
-        /// Current state of a core network.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -201,30 +88,17 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class CoreNetworkArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Description of the Core Network.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the global network that a core network will be a part of.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -239,72 +113,42 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class CoreNetworkState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Core Network Amazon Resource Name (ARN).
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Timestamp when a core network was created.
-        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// Description of the Core Network.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("edges")]
         private InputList<Inputs.CoreNetworkEdgeGetArgs>? _edges;
-
-        /// <summary>
-        /// One or more blocks detailing the edges within a core network. Detailed below.
-        /// </summary>
         public InputList<Inputs.CoreNetworkEdgeGetArgs> Edges
         {
             get => _edges ?? (_edges = new InputList<Inputs.CoreNetworkEdgeGetArgs>());
             set => _edges = value;
         }
 
-        /// <summary>
-        /// The ID of the global network that a core network will be a part of.
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
         [Input("segments")]
         private InputList<Inputs.CoreNetworkSegmentGetArgs>? _segments;
-
-        /// <summary>
-        /// One or more blocks detailing the segments within a core network. Detailed below.
-        /// </summary>
         public InputList<Inputs.CoreNetworkSegmentGetArgs> Segments
         {
             get => _segments ?? (_segments = new InputList<Inputs.CoreNetworkSegmentGetArgs>());
             set => _segments = value;
         }
 
-        /// <summary>
-        /// Current state of a core network.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -313,10 +157,6 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -13,25 +13,10 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketNotificationLambdaFunction
     {
-        /// <summary>
-        /// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
-        /// </summary>
         public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// Object key name prefix.
-        /// </summary>
         public readonly string? FilterPrefix;
-        /// <summary>
-        /// Object key name suffix.
-        /// </summary>
         public readonly string? FilterSuffix;
-        /// <summary>
-        /// Unique identifier for each of the notification configurations.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Lambda function ARN.
-        /// </summary>
         public readonly string? LambdaFunctionArn;
 
         [OutputConstructor]

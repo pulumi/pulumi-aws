@@ -9,72 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by including VoiceConnectorItems in the request.
-    /// 
-    /// You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vc1 = new Aws.Chime.VoiceConnector("vc1", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///         AwsRegion = "us-east-1",
-    ///     });
-    /// 
-    ///     var vc2 = new Aws.Chime.VoiceConnector("vc2", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///         AwsRegion = "us-west-2",
-    ///     });
-    /// 
-    ///     var @group = new Aws.Chime.VoiceConnectorGroup("group", new()
-    ///     {
-    ///         Connectors = new[]
-    ///         {
-    ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
-    ///             {
-    ///                 VoiceConnectorId = vc1.Id,
-    ///                 Priority = 1,
-    ///             },
-    ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
-    ///             {
-    ///                 VoiceConnectorId = vc2.Id,
-    ///                 Priority = 3,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Configuration Recorder can be imported using the name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorGroup:VoiceConnectorGroup")]
     public partial class VoiceConnectorGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Chime Voice Connectors to route inbound calls to.
-        /// </summary>
         [Output("connectors")]
         public Output<ImmutableArray<Outputs.VoiceConnectorGroupConnector>> Connectors { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Amazon Chime Voice Connector group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -126,19 +66,12 @@ namespace Pulumi.Aws.Chime
     {
         [Input("connectors")]
         private InputList<Inputs.VoiceConnectorGroupConnectorArgs>? _connectors;
-
-        /// <summary>
-        /// The Amazon Chime Voice Connectors to route inbound calls to.
-        /// </summary>
         public InputList<Inputs.VoiceConnectorGroupConnectorArgs> Connectors
         {
             get => _connectors ?? (_connectors = new InputList<Inputs.VoiceConnectorGroupConnectorArgs>());
             set => _connectors = value;
         }
 
-        /// <summary>
-        /// The name of the Amazon Chime Voice Connector group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -152,19 +85,12 @@ namespace Pulumi.Aws.Chime
     {
         [Input("connectors")]
         private InputList<Inputs.VoiceConnectorGroupConnectorGetArgs>? _connectors;
-
-        /// <summary>
-        /// The Amazon Chime Voice Connectors to route inbound calls to.
-        /// </summary>
         public InputList<Inputs.VoiceConnectorGroupConnectorGetArgs> Connectors
         {
             get => _connectors ?? (_connectors = new InputList<Inputs.VoiceConnectorGroupConnectorGetArgs>());
             set => _connectors = value;
         }
 
-        /// <summary>
-        /// The name of the Amazon Chime Voice Connector group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

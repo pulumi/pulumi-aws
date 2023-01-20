@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FeatureGroupFeatureDefinitionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
-        /// </summary>
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }
 
-        /// <summary>
-        /// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
-        /// </summary>
         [Input("featureType")]
         public Input<string>? FeatureType { get; set; }
 

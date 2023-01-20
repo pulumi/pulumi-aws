@@ -13,57 +13,18 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetCatalogTableStorageDescriptorResult
     {
-        /// <summary>
-        /// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-        /// </summary>
         public readonly ImmutableArray<string> BucketColumns;
-        /// <summary>
-        /// Configuration block for columns in the table. See `columns` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorColumnResult> Columns;
-        /// <summary>
-        /// Whether the data in the table is compressed.
-        /// </summary>
         public readonly bool Compressed;
-        /// <summary>
-        /// Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
-        /// </summary>
         public readonly string InputFormat;
-        /// <summary>
-        /// Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
-        /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// Is if the table contains any dimension columns.
-        /// </summary>
         public readonly int NumberOfBuckets;
-        /// <summary>
-        /// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-        /// </summary>
         public readonly string OutputFormat;
-        /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Parameters;
-        /// <summary>
-        /// Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult> SchemaReferences;
-        /// <summary>
-        /// Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSerDeInfoResult> SerDeInfos;
-        /// <summary>
-        /// Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSkewedInfoResult> SkewedInfos;
-        /// <summary>
-        /// Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogTableStorageDescriptorSortColumnResult> SortColumns;
-        /// <summary>
-        /// Whether the table data is stored in subdirectories.
-        /// </summary>
         public readonly bool StoredAsSubDirectories;
 
         [OutputConstructor]

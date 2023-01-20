@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolAdminCreateUserConfig
     {
-        /// <summary>
-        /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        /// </summary>
         public readonly bool? AllowAdminCreateUserOnly;
-        /// <summary>
-        /// Invite message template structure. Detailed below.
-        /// </summary>
         public readonly Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? InviteMessageTemplate;
 
         [OutputConstructor]

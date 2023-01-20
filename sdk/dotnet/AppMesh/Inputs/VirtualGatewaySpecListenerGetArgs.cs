@@ -12,27 +12,15 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualGatewaySpecListenerGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Connection pool information for the listener.
-        /// </summary>
         [Input("connectionPool")]
         public Input<Inputs.VirtualGatewaySpecListenerConnectionPoolGetArgs>? ConnectionPool { get; set; }
 
-        /// <summary>
-        /// Health check information for the listener.
-        /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.VirtualGatewaySpecListenerHealthCheckGetArgs>? HealthCheck { get; set; }
 
-        /// <summary>
-        /// Port mapping information for the listener.
-        /// </summary>
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualGatewaySpecListenerPortMappingGetArgs> PortMapping { get; set; } = null!;
 
-        /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener
-        /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsGetArgs>? Tls { get; set; }
 

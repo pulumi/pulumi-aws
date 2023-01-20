@@ -13,45 +13,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch
     {
-        /// <summary>
-        /// Inspect all query arguments.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments? AllQueryArguments;
-        /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody? Body;
-        /// <summary>
-        /// Inspect the cookies in the web request. See Cookies below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookies? Cookies;
-        /// <summary>
-        /// Inspect the request headers. See Headers below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeader> Headers;
-        /// <summary>
-        /// Inspect the request body as JSON. See JSON Body for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBody? JsonBody;
-        /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod? Method;
-        /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString? QueryString;
-        /// <summary>
-        /// Inspect a single header. See Single Header below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader? SingleHeader;
-        /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument? SingleQueryArgument;
-        /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-        /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath? UriPath;
 
         [OutputConstructor]

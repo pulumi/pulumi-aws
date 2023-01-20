@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppRunner.Outputs
     [OutputType]
     public sealed class ServiceSourceConfigurationCodeRepository
     {
-        /// <summary>
-        /// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
-        /// </summary>
         public readonly Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration? CodeConfiguration;
-        /// <summary>
-        /// Location of the repository that contains the source code.
-        /// </summary>
         public readonly string RepositoryUrl;
-        /// <summary>
-        /// Version that should be used within the source code repository. See Source Code Version below for more details.
-        /// </summary>
         public readonly Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion SourceCodeVersion;
 
         [OutputConstructor]

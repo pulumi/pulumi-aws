@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class GetLogDataProtectionPolicyDocumentStatementResult
     {
-        /// <summary>
-        /// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        /// </summary>
         public readonly ImmutableArray<string> DataIdentifiers;
-        /// <summary>
-        /// Configures the data protection operation applied by this statement.
-        /// </summary>
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult Operation;
-        /// <summary>
-        /// Name of this statement.
-        /// </summary>
         public readonly string? Sid;
 
         [OutputConstructor]

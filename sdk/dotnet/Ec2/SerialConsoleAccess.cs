@@ -9,42 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
-    /// 
-    /// &gt; **NOTE:** Removing this resource disables serial console access.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.SerialConsoleAccess("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Serial console access state can be imported, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/serialConsoleAccess:SerialConsoleAccess")]
     public partial class SerialConsoleAccess : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -94,9 +61,6 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SerialConsoleAccessArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -108,9 +72,6 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class SerialConsoleAccessState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

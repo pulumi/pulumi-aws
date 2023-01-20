@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppConfig.Outputs
     [OutputType]
     public sealed class EventIntegrationEventFilter
     {
-        /// <summary>
-        /// Source of the events.
-        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]

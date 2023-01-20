@@ -9,89 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Xray
 {
-    /// <summary>
-    /// Creates and manages an AWS XRay Encryption Config.
-    /// 
-    /// &gt; **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Xray.EncryptionConfig("example", new()
-    ///     {
-    ///         Type = "NONE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With KMS Key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
-    ///     {
-    ///         Description = "Some Key",
-    ///         DeletionWindowInDays = 7,
-    ///         Policy = @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Id"": ""kms-tf-1"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Sid"": ""Enable IAM User Permissions"",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {{
-    ///         ""AWS"": ""arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""
-    ///       }},
-    ///       ""Action"": ""kms:*"",
-    ///       ""Resource"": ""*""
-    ///     }}
-    ///   ]
-    /// }}
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new()
-    ///     {
-    ///         Type = "KMS",
-    ///         KeyId = exampleKey.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// XRay Encryption Config can be imported using the region name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:xray/encryptionConfig:EncryptionConfig")]
     public partial class EncryptionConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An AWS KMS customer master key (CMK) ARN.
-        /// </summary>
         [Output("keyId")]
         public Output<string?> KeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -141,15 +64,9 @@ namespace Pulumi.Aws.Xray
 
     public sealed class EncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An AWS KMS customer master key (CMK) ARN.
-        /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
-        /// <summary>
-        /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -161,15 +78,9 @@ namespace Pulumi.Aws.Xray
 
     public sealed class EncryptionConfigState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An AWS KMS customer master key (CMK) ARN.
-        /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
-        /// <summary>
-        /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

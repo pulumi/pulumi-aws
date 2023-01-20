@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class InputVpc
     {
-        /// <summary>
-        /// A list of up to 5 EC2 VPC security group IDs to attach to the Input.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of 2 VPC subnet IDs from the same VPC.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

@@ -9,146 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fsx
 {
-    /// <summary>
-    /// Manages a FSx Storage Virtual Machine.
-    /// See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) for more information.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
-    ///     {
-    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using a Self-Managed Microsoft Active Directory
-    /// 
-    /// Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
-    ///     {
-    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
-    ///         ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
-    ///         {
-    ///             NetbiosName = "mysvm",
-    ///             SelfManagedActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
-    ///             {
-    ///                 DnsIps = new[]
-    ///                 {
-    ///                     "10.0.0.111",
-    ///                     "10.0.0.222",
-    ///                 },
-    ///                 DomainName = "corp.example.com",
-    ///                 Password = "avoid-plaintext-passwords",
-    ///                 Username = "Admin",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// FSx Storage Virtual Machine can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
-    /// ```
-    /// 
-    ///  Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
-    /// 
-    /// # ... other configuration ...
-    /// 
-    ///  svm_admin_password = "avoid-plaintext-passwords"
-    /// 
-    /// # There is no FSx API for reading svm_admin_password
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = [svm_admin_password]
-    /// 
-    ///  } }
-    /// </summary>
     [AwsResourceType("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")]
     public partial class OntapStorageVirtualMachine : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
-        /// </summary>
         [Output("activeDirectoryConfiguration")]
         public Output<Outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration?> ActiveDirectoryConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Resource Name of the storage virtual machine.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
-        /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.OntapStorageVirtualMachineEndpoint>> Endpoints { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        /// </summary>
         [Output("rootVolumeSecurityStyle")]
         public Output<string?> RootVolumeSecurityStyle { get; private set; } = null!;
 
-        /// <summary>
-        /// Describes the SVM's subtype, e.g. `DEFAULT`
-        /// </summary>
         [Output("subtype")]
         public Output<string> Subtype { get; private set; } = null!;
 
         [Output("svmAdminPassword")]
         public Output<string?> SvmAdminPassword { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The SVM's UUID (universally unique identifier).
-        /// </summary>
         [Output("uuid")]
         public Output<string> Uuid { get; private set; } = null!;
 
@@ -202,27 +95,15 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class OntapStorageVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
-        /// </summary>
         [Input("activeDirectoryConfiguration")]
         public Input<Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs>? ActiveDirectoryConfiguration { get; set; }
 
-        /// <summary>
-        /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        /// </summary>
         [Input("rootVolumeSecurityStyle")]
         public Input<string>? RootVolumeSecurityStyle { get; set; }
 
@@ -240,10 +121,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -258,51 +135,29 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class OntapStorageVirtualMachineState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
-        /// </summary>
         [Input("activeDirectoryConfiguration")]
         public Input<Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs>? ActiveDirectoryConfiguration { get; set; }
 
-        /// <summary>
-        /// Amazon Resource Name of the storage virtual machine.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("endpoints")]
         private InputList<Inputs.OntapStorageVirtualMachineEndpointGetArgs>? _endpoints;
-
-        /// <summary>
-        /// The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
-        /// </summary>
         public InputList<Inputs.OntapStorageVirtualMachineEndpointGetArgs> Endpoints
         {
             get => _endpoints ?? (_endpoints = new InputList<Inputs.OntapStorageVirtualMachineEndpointGetArgs>());
             set => _endpoints = value;
         }
 
-        /// <summary>
-        /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
-        /// <summary>
-        /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        /// </summary>
         [Input("rootVolumeSecurityStyle")]
         public Input<string>? RootVolumeSecurityStyle { get; set; }
 
-        /// <summary>
-        /// Describes the SVM's subtype, e.g. `DEFAULT`
-        /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
 
@@ -320,10 +175,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -332,19 +183,12 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The SVM's UUID (universally unique identifier).
-        /// </summary>
         [Input("uuid")]
         public Input<string>? Uuid { get; set; }
 

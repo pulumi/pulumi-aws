@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class CostCategorySplitChargeRuleParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Parameter type.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// Parameter values.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

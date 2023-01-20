@@ -11,99 +11,9 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetHoursOfOperation
     {
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Hours of Operation.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `hours_of_operation_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetHoursOfOperationResult> InvokeAsync(GetHoursOfOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHoursOfOperationResult>("aws:connect/getHoursOfOperation:getHoursOfOperation", args ?? new GetHoursOfOperationArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Hours of Operation.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// By `name`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         Name = "Test",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// By `hours_of_operation_id`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
-        ///     {
-        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetHoursOfOperationResult> Invoke(GetHoursOfOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHoursOfOperationResult>("aws:connect/getHoursOfOperation:getHoursOfOperation", args ?? new GetHoursOfOperationInvokeArgs(), options.WithDefaults());
     }
@@ -111,30 +21,17 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetHoursOfOperationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Returns information on a specific Hours of Operation by hours of operation id
-        /// </summary>
         [Input("hoursOfOperationId")]
         public string? HoursOfOperationId { get; set; }
 
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Returns information on a specific Hours of Operation by name
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the Hours of Operation.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -149,30 +46,17 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetHoursOfOperationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Returns information on a specific Hours of Operation by hours of operation id
-        /// </summary>
         [Input("hoursOfOperationId")]
         public Input<string>? HoursOfOperationId { get; set; }
 
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// Returns information on a specific Hours of Operation by name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the Hours of Operation.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -189,45 +73,18 @@ namespace Pulumi.Aws.Connect
     [OutputType]
     public sealed class GetHoursOfOperationResult
     {
-        /// <summary>
-        /// ARN of the Hours of Operation.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetHoursOfOperationConfigResult> Configs;
-        /// <summary>
-        /// Description of the Hours of Operation.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// (**Deprecated**) ARN of the Hours of Operation.
-        /// </summary>
         public readonly string HoursOfOperationArn;
-        /// <summary>
-        /// The identifier for the hours of operation.
-        /// </summary>
         public readonly string HoursOfOperationId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         public readonly string InstanceId;
-        /// <summary>
-        /// Name of the Hours of Operation.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Map of tags to assign to the Hours of Operation.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Time zone of the Hours of Operation.
-        /// </summary>
         public readonly string TimeZone;
 
         [OutputConstructor]

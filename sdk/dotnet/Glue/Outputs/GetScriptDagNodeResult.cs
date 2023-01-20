@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetScriptDagNodeResult
     {
-        /// <summary>
-        /// Nested configuration an argument or property of a node. Defined below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetScriptDagNodeArgResult> Args;
-        /// <summary>
-        /// Node identifier that is unique within the node's graph.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Line number of the node.
-        /// </summary>
         public readonly int? LineNumber;
-        /// <summary>
-        /// Type of node this is.
-        /// </summary>
         public readonly string NodeType;
 
         [OutputConstructor]

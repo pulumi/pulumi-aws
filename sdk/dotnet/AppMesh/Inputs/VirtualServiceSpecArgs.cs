@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualServiceSpecArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
-        /// </summary>
         [Input("provider")]
         public Input<Inputs.VirtualServiceSpecProviderArgs>? Provider { get; set; }
 

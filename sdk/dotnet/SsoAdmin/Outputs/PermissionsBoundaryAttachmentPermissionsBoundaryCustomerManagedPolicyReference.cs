@@ -13,13 +13,7 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference
     {
-        /// <summary>
-        /// Name of the customer managed IAM Policy to be attached.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        /// </summary>
         public readonly string? Path;
 
         [OutputConstructor]

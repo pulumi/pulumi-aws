@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainAdvancedSecurityOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-        /// </summary>
         [Input("internalUserDatabaseEnabled")]
         public Input<bool>? InternalUserDatabaseEnabled { get; set; }
 
-        /// <summary>
-        /// Configuration block for the main user. Detailed below.
-        /// </summary>
         [Input("masterUserOptions")]
         public Input<Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs>? MasterUserOptions { get; set; }
 

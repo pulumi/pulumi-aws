@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class InputSecurityGroupWhitelistRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The IPv4 CIDR that's whitelisted.
-        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 

@@ -18,9 +18,6 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("jobBookmarksEncryption", required: true)]
         public Input<Inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionGetArgs> JobBookmarksEncryption { get; set; } = null!;
 
-        /// <summary>
-        /// A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
-        /// </summary>
         [Input("s3Encryption", required: true)]
         public Input<Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs> S3Encryption { get; set; } = null!;
 

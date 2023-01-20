@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
     [OutputType]
     public sealed class GetClusterClusterEndpointResult
     {
-        /// <summary>
-        /// DNS hostname of the node.
-        /// </summary>
         public readonly string Address;
-        /// <summary>
-        /// Port number that this node is listening on.
-        /// </summary>
         public readonly int Port;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.EmrContainers.Outputs
     [OutputType]
     public sealed class GetVirtualClusterContainerProviderInfoResult
     {
-        /// <summary>
-        /// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualClusterContainerProviderInfoEksInfoResult> EksInfos;
 
         [OutputConstructor]

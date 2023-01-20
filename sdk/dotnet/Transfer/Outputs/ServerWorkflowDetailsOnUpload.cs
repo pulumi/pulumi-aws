@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class ServerWorkflowDetailsOnUpload
     {
-        /// <summary>
-        /// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
-        /// </summary>
         public readonly string ExecutionRole;
-        /// <summary>
-        /// A unique identifier for the workflow.
-        /// </summary>
         public readonly string WorkflowId;
 
         [OutputConstructor]

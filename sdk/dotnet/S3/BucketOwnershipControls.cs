@@ -9,52 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
-    ///         {
-    ///             ObjectOwnership = "BucketOwnerPreferred",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
     public partial class BucketOwnershipControls : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) with Ownership Controls rules. Detailed below.
-        /// </summary>
         [Output("rule")]
         public Output<Outputs.BucketOwnershipControlsRule> Rule { get; private set; } = null!;
 
@@ -104,15 +64,9 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketOwnershipControlsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) with Ownership Controls rules. Detailed below.
-        /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.BucketOwnershipControlsRuleArgs> Rule { get; set; } = null!;
 
@@ -124,15 +78,9 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketOwnershipControlsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket that you want to associate this access point with.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Configuration block(s) with Ownership Controls rules. Detailed below.
-        /// </summary>
         [Input("rule")]
         public Input<Inputs.BucketOwnershipControlsRuleGetArgs>? Rule { get; set; }
 

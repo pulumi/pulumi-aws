@@ -9,409 +9,87 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeBuild
 {
-    /// <summary>
-    /// Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""codebuild.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("exampleRolePolicy", new()
-    ///     {
-    ///         Role = exampleRole.Name,
-    ///         Policy = Output.Tuple(exampleBucketV2.Arn, exampleBucketV2.Arn).Apply(values =&gt;
-    ///         {
-    ///             var exampleBucketV2Arn = values.Item1;
-    ///             var exampleBucketV2Arn1 = values.Item2;
-    ///             return @$"{{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": [
-    ///         ""*""
-    ///       ],
-    ///       ""Action"": [
-    ///         ""logs:CreateLogGroup"",
-    ///         ""logs:CreateLogStream"",
-    ///         ""logs:PutLogEvents""
-    ///       ]
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""ec2:CreateNetworkInterface"",
-    ///         ""ec2:DescribeDhcpOptions"",
-    ///         ""ec2:DescribeNetworkInterfaces"",
-    ///         ""ec2:DeleteNetworkInterface"",
-    ///         ""ec2:DescribeSubnets"",
-    ///         ""ec2:DescribeSecurityGroups"",
-    ///         ""ec2:DescribeVpcs""
-    ///       ],
-    ///       ""Resource"": ""*""
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""ec2:CreateNetworkInterfacePermission""
-    ///       ],
-    ///       ""Resource"": [
-    ///         ""arn:aws:ec2:us-east-1:123456789012:network-interface/*""
-    ///       ],
-    ///       ""Condition"": {{
-    ///         ""StringEquals"": {{
-    ///           ""ec2:Subnet"": [
-    ///             ""{aws_subnet.Example1.Arn}"",
-    ///             ""{aws_subnet.Example2.Arn}""
-    ///           ],
-    ///           ""ec2:AuthorizedService"": ""codebuild.amazonaws.com""
-    ///         }}
-    ///       }}
-    ///     }},
-    ///     {{
-    ///       ""Effect"": ""Allow"",
-    ///       ""Action"": [
-    ///         ""s3:*""
-    ///       ],
-    ///       ""Resource"": [
-    ///         ""{exampleBucketV2Arn}"",
-    ///         ""{exampleBucketV2Arn1}/*""
-    ///       ]
-    ///     }}
-    ///   ]
-    /// }}
-    /// ";
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleProject = new Aws.CodeBuild.Project("exampleProject", new()
-    ///     {
-    ///         Description = "test_codebuild_project",
-    ///         BuildTimeout = 5,
-    ///         ServiceRole = exampleRole.Arn,
-    ///         Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
-    ///         {
-    ///             Type = "NO_ARTIFACTS",
-    ///         },
-    ///         Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
-    ///         {
-    ///             Type = "S3",
-    ///             Location = exampleBucketV2.Bucket,
-    ///         },
-    ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
-    ///         {
-    ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/standard:1.0",
-    ///             Type = "LINUX_CONTAINER",
-    ///             ImagePullCredentialsType = "CODEBUILD",
-    ///             EnvironmentVariables = new[]
-    ///             {
-    ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
-    ///                 {
-    ///                     Name = "SOME_KEY1",
-    ///                     Value = "SOME_VALUE1",
-    ///                 },
-    ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
-    ///                 {
-    ///                     Name = "SOME_KEY2",
-    ///                     Value = "SOME_VALUE2",
-    ///                     Type = "PARAMETER_STORE",
-    ///                 },
-    ///             },
-    ///         },
-    ///         LogsConfig = new Aws.CodeBuild.Inputs.ProjectLogsConfigArgs
-    ///         {
-    ///             CloudwatchLogs = new Aws.CodeBuild.Inputs.ProjectLogsConfigCloudwatchLogsArgs
-    ///             {
-    ///                 GroupName = "log-group",
-    ///                 StreamName = "log-stream",
-    ///             },
-    ///             S3Logs = new Aws.CodeBuild.Inputs.ProjectLogsConfigS3LogsArgs
-    ///             {
-    ///                 Status = "ENABLED",
-    ///                 Location = exampleBucketV2.Id.Apply(id =&gt; $"{id}/build-log"),
-    ///             },
-    ///         },
-    ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
-    ///         {
-    ///             Type = "GITHUB",
-    ///             Location = "https://github.com/mitchellh/packer.git",
-    ///             GitCloneDepth = 1,
-    ///             GitSubmodulesConfig = new Aws.CodeBuild.Inputs.ProjectSourceGitSubmodulesConfigArgs
-    ///             {
-    ///                 FetchSubmodules = true,
-    ///             },
-    ///         },
-    ///         SourceVersion = "master",
-    ///         VpcConfig = new Aws.CodeBuild.Inputs.ProjectVpcConfigArgs
-    ///         {
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             Subnets = new[]
-    ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
-    ///             },
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 aws_security_group.Example1.Id,
-    ///                 aws_security_group.Example2.Id,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var project_with_cache = new Aws.CodeBuild.Project("project-with-cache", new()
-    ///     {
-    ///         Description = "test_codebuild_project_cache",
-    ///         BuildTimeout = 5,
-    ///         QueuedTimeout = 5,
-    ///         ServiceRole = exampleRole.Arn,
-    ///         Artifacts = new Aws.CodeBuild.Inputs.ProjectArtifactsArgs
-    ///         {
-    ///             Type = "NO_ARTIFACTS",
-    ///         },
-    ///         Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
-    ///         {
-    ///             Type = "LOCAL",
-    ///             Modes = new[]
-    ///             {
-    ///                 "LOCAL_DOCKER_LAYER_CACHE",
-    ///                 "LOCAL_SOURCE_CACHE",
-    ///             },
-    ///         },
-    ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
-    ///         {
-    ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/standard:1.0",
-    ///             Type = "LINUX_CONTAINER",
-    ///             ImagePullCredentialsType = "CODEBUILD",
-    ///             EnvironmentVariables = new[]
-    ///             {
-    ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs
-    ///                 {
-    ///                     Name = "SOME_KEY1",
-    ///                     Value = "SOME_VALUE1",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
-    ///         {
-    ///             Type = "GITHUB",
-    ///             Location = "https://github.com/mitchellh/packer.git",
-    ///             GitCloneDepth = 1,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CodeBuild Project can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:codebuild/project:Project name project-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codebuild/project:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the CodeBuild project.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("artifacts")]
         public Output<Outputs.ProjectArtifacts> Artifacts { get; private set; } = null!;
 
-        /// <summary>
-        /// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        /// </summary>
         [Output("badgeEnabled")]
         public Output<bool?> BadgeEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// URL of the build badge when `badge_enabled` is enabled.
-        /// </summary>
         [Output("badgeUrl")]
         public Output<string> BadgeUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// Defines the batch build options for the project.
-        /// </summary>
         [Output("buildBatchConfig")]
         public Output<Outputs.ProjectBuildBatchConfig?> BuildBatchConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        /// </summary>
         [Output("buildTimeout")]
         public Output<int?> BuildTimeout { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("cache")]
         public Output<Outputs.ProjectCache?> Cache { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        /// </summary>
         [Output("concurrentBuildLimit")]
         public Output<int?> ConcurrentBuildLimit { get; private set; } = null!;
 
-        /// <summary>
-        /// Short description of the project.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        /// </summary>
         [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("environment")]
         public Output<Outputs.ProjectEnvironment> Environment { get; private set; } = null!;
 
-        /// <summary>
-        /// A set of file system locations to mount inside the build. File system locations are documented below.
-        /// </summary>
         [Output("fileSystemLocations")]
         public Output<ImmutableArray<Outputs.ProjectFileSystemLocation>> FileSystemLocations { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("logsConfig")]
         public Output<Outputs.ProjectLogsConfig?> LogsConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        /// </summary>
         [Output("projectVisibility")]
         public Output<string?> ProjectVisibility { get; private set; } = null!;
 
-        /// <summary>
-        /// The project identifier used with the public build APIs.
-        /// </summary>
         [Output("publicProjectAlias")]
         public Output<string> PublicProjectAlias { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        /// </summary>
         [Output("queuedTimeout")]
         public Output<int?> QueuedTimeout { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        /// </summary>
         [Output("resourceAccessRole")]
         public Output<string?> ResourceAccessRole { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("secondaryArtifacts")]
         public Output<ImmutableArray<Outputs.ProjectSecondaryArtifact>> SecondaryArtifacts { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("secondarySourceVersions")]
         public Output<ImmutableArray<Outputs.ProjectSecondarySourceVersion>> SecondarySourceVersions { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("secondarySources")]
         public Output<ImmutableArray<Outputs.ProjectSecondarySource>> SecondarySources { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the service role ARN for the batch build project.
-        /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("source")]
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
 
-        /// <summary>
-        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        /// </summary>
         [Output("sourceVersion")]
         public Output<string?> SourceVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.ProjectVpcConfig?> VpcConfig { get; private set; } = null!;
 
@@ -461,108 +139,58 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("artifacts", required: true)]
         public Input<Inputs.ProjectArtifactsArgs> Artifacts { get; set; } = null!;
 
-        /// <summary>
-        /// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        /// </summary>
         [Input("badgeEnabled")]
         public Input<bool>? BadgeEnabled { get; set; }
 
-        /// <summary>
-        /// Defines the batch build options for the project.
-        /// </summary>
         [Input("buildBatchConfig")]
         public Input<Inputs.ProjectBuildBatchConfigArgs>? BuildBatchConfig { get; set; }
 
-        /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("cache")]
         public Input<Inputs.ProjectCacheArgs>? Cache { get; set; }
 
-        /// <summary>
-        /// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        /// </summary>
         [Input("concurrentBuildLimit")]
         public Input<int>? ConcurrentBuildLimit { get; set; }
 
-        /// <summary>
-        /// Short description of the project.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("environment", required: true)]
         public Input<Inputs.ProjectEnvironmentArgs> Environment { get; set; } = null!;
 
         [Input("fileSystemLocations")]
         private InputList<Inputs.ProjectFileSystemLocationArgs>? _fileSystemLocations;
-
-        /// <summary>
-        /// A set of file system locations to mount inside the build. File system locations are documented below.
-        /// </summary>
         public InputList<Inputs.ProjectFileSystemLocationArgs> FileSystemLocations
         {
             get => _fileSystemLocations ?? (_fileSystemLocations = new InputList<Inputs.ProjectFileSystemLocationArgs>());
             set => _fileSystemLocations = value;
         }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.ProjectLogsConfigArgs>? LogsConfig { get; set; }
 
-        /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        /// </summary>
         [Input("projectVisibility")]
         public Input<string>? ProjectVisibility { get; set; }
 
-        /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }
 
         [Input("secondaryArtifacts")]
         private InputList<Inputs.ProjectSecondaryArtifactArgs>? _secondaryArtifacts;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.ProjectSecondaryArtifactArgs> SecondaryArtifacts
         {
             get => _secondaryArtifacts ?? (_secondaryArtifacts = new InputList<Inputs.ProjectSecondaryArtifactArgs>());
@@ -571,10 +199,6 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("secondarySourceVersions")]
         private InputList<Inputs.ProjectSecondarySourceVersionArgs>? _secondarySourceVersions;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.ProjectSecondarySourceVersionArgs> SecondarySourceVersions
         {
             get => _secondarySourceVersions ?? (_secondarySourceVersions = new InputList<Inputs.ProjectSecondarySourceVersionArgs>());
@@ -583,49 +207,29 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("secondarySources")]
         private InputList<Inputs.ProjectSecondarySourceArgs>? _secondarySources;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.ProjectSecondarySourceArgs> SecondarySources
         {
             get => _secondarySources ?? (_secondarySources = new InputList<Inputs.ProjectSecondarySourceArgs>());
             set => _secondarySources = value;
         }
 
-        /// <summary>
-        /// Specifies the service role ARN for the batch build project.
-        /// </summary>
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
 
-        /// <summary>
-        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.ProjectVpcConfigArgs>? VpcConfig { get; set; }
 
@@ -637,126 +241,67 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the CodeBuild project.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("artifacts")]
         public Input<Inputs.ProjectArtifactsGetArgs>? Artifacts { get; set; }
 
-        /// <summary>
-        /// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        /// </summary>
         [Input("badgeEnabled")]
         public Input<bool>? BadgeEnabled { get; set; }
 
-        /// <summary>
-        /// URL of the build badge when `badge_enabled` is enabled.
-        /// </summary>
         [Input("badgeUrl")]
         public Input<string>? BadgeUrl { get; set; }
 
-        /// <summary>
-        /// Defines the batch build options for the project.
-        /// </summary>
         [Input("buildBatchConfig")]
         public Input<Inputs.ProjectBuildBatchConfigGetArgs>? BuildBatchConfig { get; set; }
 
-        /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("cache")]
         public Input<Inputs.ProjectCacheGetArgs>? Cache { get; set; }
 
-        /// <summary>
-        /// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        /// </summary>
         [Input("concurrentBuildLimit")]
         public Input<int>? ConcurrentBuildLimit { get; set; }
 
-        /// <summary>
-        /// Short description of the project.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("environment")]
         public Input<Inputs.ProjectEnvironmentGetArgs>? Environment { get; set; }
 
         [Input("fileSystemLocations")]
         private InputList<Inputs.ProjectFileSystemLocationGetArgs>? _fileSystemLocations;
-
-        /// <summary>
-        /// A set of file system locations to mount inside the build. File system locations are documented below.
-        /// </summary>
         public InputList<Inputs.ProjectFileSystemLocationGetArgs> FileSystemLocations
         {
             get => _fileSystemLocations ?? (_fileSystemLocations = new InputList<Inputs.ProjectFileSystemLocationGetArgs>());
             set => _fileSystemLocations = value;
         }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("logsConfig")]
         public Input<Inputs.ProjectLogsConfigGetArgs>? LogsConfig { get; set; }
 
-        /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        /// </summary>
         [Input("projectVisibility")]
         public Input<string>? ProjectVisibility { get; set; }
 
-        /// <summary>
-        /// The project identifier used with the public build APIs.
-        /// </summary>
         [Input("publicProjectAlias")]
         public Input<string>? PublicProjectAlias { get; set; }
 
-        /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        /// </summary>
         [Input("queuedTimeout")]
         public Input<int>? QueuedTimeout { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        /// </summary>
         [Input("resourceAccessRole")]
         public Input<string>? ResourceAccessRole { get; set; }
 
         [Input("secondaryArtifacts")]
         private InputList<Inputs.ProjectSecondaryArtifactGetArgs>? _secondaryArtifacts;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.ProjectSecondaryArtifactGetArgs> SecondaryArtifacts
         {
             get => _secondaryArtifacts ?? (_secondaryArtifacts = new InputList<Inputs.ProjectSecondaryArtifactGetArgs>());
@@ -765,10 +310,6 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("secondarySourceVersions")]
         private InputList<Inputs.ProjectSecondarySourceVersionGetArgs>? _secondarySourceVersions;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.ProjectSecondarySourceVersionGetArgs> SecondarySourceVersions
         {
             get => _secondarySourceVersions ?? (_secondarySourceVersions = new InputList<Inputs.ProjectSecondarySourceVersionGetArgs>());
@@ -777,40 +318,23 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("secondarySources")]
         private InputList<Inputs.ProjectSecondarySourceGetArgs>? _secondarySources;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.ProjectSecondarySourceGetArgs> SecondarySources
         {
             get => _secondarySources ?? (_secondarySources = new InputList<Inputs.ProjectSecondarySourceGetArgs>());
             set => _secondarySources = value;
         }
 
-        /// <summary>
-        /// Specifies the service role ARN for the batch build project.
-        /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("source")]
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }
 
-        /// <summary>
-        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -819,19 +343,12 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.ProjectVpcConfigGetArgs>? VpcConfig { get; set; }
 

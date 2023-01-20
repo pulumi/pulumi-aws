@@ -9,87 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeArtifact
 {
-    /// <summary>
-    /// Provides a CodeArtifact Domains Permissions Policy Resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
-    ///     {
-    ///         Description = "domain key",
-    ///     });
-    /// 
-    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
-    ///     {
-    ///         DomainName = "example",
-    ///         EncryptionKey = exampleKey.Arn,
-    ///     });
-    /// 
-    ///     var test = new Aws.CodeArtifact.DomainPermissions("test", new()
-    ///     {
-    ///         Domain = exampleDomain.DomainName,
-    ///         PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    ///         {{
-    ///             ""Action"": ""codeartifact:CreateRepository"",
-    ///             ""Effect"": ""Allow"",
-    ///             ""Principal"": ""*"",
-    ///             ""Resource"": ""{arn}""
-    ///         }}
-    ///     ]
-    /// }}
-    /// "),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codeartifact/domainPermissions:DomainPermissions")]
     public partial class DomainPermissions : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the domain on which to set the resource policy.
-        /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
-        /// <summary>
-        /// The account number of the AWS account that owns the domain.
-        /// </summary>
         [Output("domainOwner")]
         public Output<string> DomainOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// A JSON policy string to be set as the access control resource policy on the provided domain.
-        /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        /// </summary>
         [Output("policyRevision")]
         public Output<string> PolicyRevision { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the resource associated with the resource policy.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -139,27 +73,15 @@ namespace Pulumi.Aws.CodeArtifact
 
     public sealed class DomainPermissionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the domain on which to set the resource policy.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// The account number of the AWS account that owns the domain.
-        /// </summary>
         [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
 
-        /// <summary>
-        /// A JSON policy string to be set as the access control resource policy on the provided domain.
-        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        /// </summary>
         [Input("policyRevision")]
         public Input<string>? PolicyRevision { get; set; }
 
@@ -171,33 +93,18 @@ namespace Pulumi.Aws.CodeArtifact
 
     public sealed class DomainPermissionsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the domain on which to set the resource policy.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// The account number of the AWS account that owns the domain.
-        /// </summary>
         [Input("domainOwner")]
         public Input<string>? DomainOwner { get; set; }
 
-        /// <summary>
-        /// A JSON policy string to be set as the access control resource policy on the provided domain.
-        /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
 
-        /// <summary>
-        /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-        /// </summary>
         [Input("policyRevision")]
         public Input<string>? PolicyRevision { get; set; }
 
-        /// <summary>
-        /// The ARN of the resource associated with the resource policy.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 

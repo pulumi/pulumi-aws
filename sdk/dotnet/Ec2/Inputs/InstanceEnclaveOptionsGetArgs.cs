@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class InstanceEnclaveOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

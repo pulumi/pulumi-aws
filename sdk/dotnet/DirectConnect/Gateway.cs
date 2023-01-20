@@ -9,52 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectConnect
 {
-    /// <summary>
-    /// Provides a Direct Connect Gateway.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectConnect.Gateway("example", new()
-    ///     {
-    ///         AmazonSideAsn = "64512",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Direct Connect Gateways can be imported using the `gateway id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:directconnect/gateway:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-        /// </summary>
         [Output("amazonSideAsn")]
         public Output<string> AmazonSideAsn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the connection.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS Account ID of the gateway.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
@@ -104,15 +67,9 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class GatewayArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-        /// </summary>
         [Input("amazonSideAsn", required: true)]
         public Input<string> AmazonSideAsn { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the connection.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -124,21 +81,12 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class GatewayState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-        /// </summary>
         [Input("amazonSideAsn")]
         public Input<string>? AmazonSideAsn { get; set; }
 
-        /// <summary>
-        /// The name of the connection.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// AWS Account ID of the gateway.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 

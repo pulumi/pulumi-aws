@@ -12,15 +12,9 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class LinkBandwidthArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Download speed in Mbps.
-        /// </summary>
         [Input("downloadSpeed")]
         public Input<int>? DownloadSpeed { get; set; }
 
-        /// <summary>
-        /// Upload speed in Mbps.
-        /// </summary>
         [Input("uploadSpeed")]
         public Input<int>? UploadSpeed { get; set; }
 

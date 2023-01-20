@@ -9,163 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.EmrServerless
 {
-    /// <summary>
-    /// Manages an EMR Serverless Application.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.EmrServerless.Application("example", new()
-    ///     {
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Initial Capacity Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.EmrServerless.Application("example", new()
-    ///     {
-    ///         InitialCapacities = new[]
-    ///         {
-    ///             new Aws.EmrServerless.Inputs.ApplicationInitialCapacityArgs
-    ///             {
-    ///                 InitialCapacityConfig = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs
-    ///                 {
-    ///                     WorkerConfiguration = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs
-    ///                     {
-    ///                         Cpu = "2 vCPU",
-    ///                         Memory = "10 GB",
-    ///                     },
-    ///                     WorkerCount = 1,
-    ///                 },
-    ///                 InitialCapacityType = "HiveDriver",
-    ///             },
-    ///         },
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Maximum Capacity Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.EmrServerless.Application("example", new()
-    ///     {
-    ///         MaximumCapacity = new Aws.EmrServerless.Inputs.ApplicationMaximumCapacityArgs
-    ///         {
-    ///             Cpu = "2 vCPU",
-    ///             Memory = "10 GB",
-    ///         },
-    ///         ReleaseLabel = "emr-6.6.0",
-    ///         Type = "hive",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// EMR Severless applications can be imported using the `id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:emrserverless/application:Application example id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:emrserverless/application:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        /// </summary>
         [Output("architecture")]
         public Output<string?> Architecture { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the cluster.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration for an application to automatically start on job submission.
-        /// </summary>
         [Output("autoStartConfiguration")]
         public Output<Outputs.ApplicationAutoStartConfiguration> AutoStartConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The configuration for an application to automatically stop after a certain amount of time being idle.
-        /// </summary>
         [Output("autoStopConfiguration")]
         public Output<Outputs.ApplicationAutoStopConfiguration> AutoStopConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The capacity to initialize when the application is created.
-        /// </summary>
         [Output("initialCapacities")]
         public Output<ImmutableArray<Outputs.ApplicationInitialCapacity>> InitialCapacities { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        /// </summary>
         [Output("maximumCapacity")]
         public Output<Outputs.ApplicationMaximumCapacity> MaximumCapacity { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The network configuration for customer VPC connectivity.
-        /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.ApplicationNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The EMR release version associated with the application.
-        /// </summary>
         [Output("releaseLabel")]
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of application you want to start, such as `spark` or `hive`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -215,75 +94,43 @@ namespace Pulumi.Aws.EmrServerless
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
 
-        /// <summary>
-        /// The configuration for an application to automatically start on job submission.
-        /// </summary>
         [Input("autoStartConfiguration")]
         public Input<Inputs.ApplicationAutoStartConfigurationArgs>? AutoStartConfiguration { get; set; }
 
-        /// <summary>
-        /// The configuration for an application to automatically stop after a certain amount of time being idle.
-        /// </summary>
         [Input("autoStopConfiguration")]
         public Input<Inputs.ApplicationAutoStopConfigurationArgs>? AutoStopConfiguration { get; set; }
 
         [Input("initialCapacities")]
         private InputList<Inputs.ApplicationInitialCapacityArgs>? _initialCapacities;
-
-        /// <summary>
-        /// The capacity to initialize when the application is created.
-        /// </summary>
         public InputList<Inputs.ApplicationInitialCapacityArgs> InitialCapacities
         {
             get => _initialCapacities ?? (_initialCapacities = new InputList<Inputs.ApplicationInitialCapacityArgs>());
             set => _initialCapacities = value;
         }
 
-        /// <summary>
-        /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        /// </summary>
         [Input("maximumCapacity")]
         public Input<Inputs.ApplicationMaximumCapacityArgs>? MaximumCapacity { get; set; }
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The network configuration for customer VPC connectivity.
-        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ApplicationNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
-        /// <summary>
-        /// The EMR release version associated with the application.
-        /// </summary>
         [Input("releaseLabel", required: true)]
         public Input<string> ReleaseLabel { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The type of application you want to start, such as `spark` or `hive`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -295,72 +142,40 @@ namespace Pulumi.Aws.EmrServerless
 
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
 
-        /// <summary>
-        /// ARN of the cluster.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The configuration for an application to automatically start on job submission.
-        /// </summary>
         [Input("autoStartConfiguration")]
         public Input<Inputs.ApplicationAutoStartConfigurationGetArgs>? AutoStartConfiguration { get; set; }
 
-        /// <summary>
-        /// The configuration for an application to automatically stop after a certain amount of time being idle.
-        /// </summary>
         [Input("autoStopConfiguration")]
         public Input<Inputs.ApplicationAutoStopConfigurationGetArgs>? AutoStopConfiguration { get; set; }
 
         [Input("initialCapacities")]
         private InputList<Inputs.ApplicationInitialCapacityGetArgs>? _initialCapacities;
-
-        /// <summary>
-        /// The capacity to initialize when the application is created.
-        /// </summary>
         public InputList<Inputs.ApplicationInitialCapacityGetArgs> InitialCapacities
         {
             get => _initialCapacities ?? (_initialCapacities = new InputList<Inputs.ApplicationInitialCapacityGetArgs>());
             set => _initialCapacities = value;
         }
 
-        /// <summary>
-        /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        /// </summary>
         [Input("maximumCapacity")]
         public Input<Inputs.ApplicationMaximumCapacityGetArgs>? MaximumCapacity { get; set; }
 
-        /// <summary>
-        /// The name of the application.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The network configuration for customer VPC connectivity.
-        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ApplicationNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
-        /// <summary>
-        /// The EMR release version associated with the application.
-        /// </summary>
         [Input("releaseLabel")]
         public Input<string>? ReleaseLabel { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -369,19 +184,12 @@ namespace Pulumi.Aws.EmrServerless
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The type of application you want to start, such as `spark` or `hive`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

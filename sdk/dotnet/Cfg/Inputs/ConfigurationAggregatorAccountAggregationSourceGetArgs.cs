@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Cfg.Inputs
     {
         [Input("accountIds", required: true)]
         private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// List of 12-digit account IDs of the account(s) being aggregated.
-        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
             set => _accountIds = value;
         }
 
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
         [Input("allRegions")]
         public Input<bool>? AllRegions { get; set; }
 
         [Input("regions")]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());

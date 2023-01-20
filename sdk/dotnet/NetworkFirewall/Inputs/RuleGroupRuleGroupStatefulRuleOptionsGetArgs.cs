@@ -12,9 +12,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class RuleGroupRuleGroupStatefulRuleOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-        /// </summary>
         [Input("ruleOrder", required: true)]
         public Input<string> RuleOrder { get; set; } = null!;
 

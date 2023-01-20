@@ -13,17 +13,8 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class GetClusterClusterNodeResult
     {
-        /// <summary>
-        /// Whether the node is a leader node or a compute node
-        /// </summary>
         public readonly string NodeRole;
-        /// <summary>
-        /// Private IP address of a node within a cluster
-        /// </summary>
         public readonly string PrivateIpAddress;
-        /// <summary>
-        /// Public IP address of a node within a cluster
-        /// </summary>
         public readonly string PublicIpAddress;
 
         [OutputConstructor]

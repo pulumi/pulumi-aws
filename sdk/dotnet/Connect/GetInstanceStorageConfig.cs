@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Connect
 {
     public static class GetInstanceStorageConfig
     {
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Instance Storage Config.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetInstanceStorageConfig.Invoke(new()
-        ///     {
-        ///         AssociationId = "1234567890123456789012345678901234567890123456789012345678901234",
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         ResourceType = "CONTACT_TRACE_RECORDS",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetInstanceStorageConfigResult> InvokeAsync(GetInstanceStorageConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific Amazon Connect Instance Storage Config.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Connect.GetInstanceStorageConfig.Invoke(new()
-        ///     {
-        ///         AssociationId = "1234567890123456789012345678901234567890123456789012345678901234",
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         ResourceType = "CONTACT_TRACE_RECORDS",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetInstanceStorageConfigResult> Invoke(GetInstanceStorageConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigInvokeArgs(), options.WithDefaults());
     }
@@ -73,21 +21,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetInstanceStorageConfigArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-        /// </summary>
         [Input("associationId", required: true)]
         public string AssociationId { get; set; } = null!;
 
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-        /// </summary>
         [Input("resourceType", required: true)]
         public string ResourceType { get; set; } = null!;
 
@@ -99,21 +38,12 @@ namespace Pulumi.Aws.Connect
 
     public sealed class GetInstanceStorageConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-        /// </summary>
         [Input("associationId", required: true)]
         public Input<string> AssociationId { get; set; } = null!;
 
-        /// <summary>
-        /// Reference to the hosting Amazon Connect Instance
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
@@ -134,9 +64,6 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         public readonly string ResourceType;
-        /// <summary>
-        /// Specifies the storage configuration options for the Connect Instance. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigResult> StorageConfigs;
 
         [OutputConstructor]

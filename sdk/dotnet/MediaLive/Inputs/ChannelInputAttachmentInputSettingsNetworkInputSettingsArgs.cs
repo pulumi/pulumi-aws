@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
-        /// </summary>
         [Input("hlsInputSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs>? HlsInputSettings { get; set; }
 
-        /// <summary>
-        /// Check HTTPS server certificates.
-        /// </summary>
         [Input("serverValidation")]
         public Input<string>? ServerValidation { get; set; }
 

@@ -9,198 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Backup
 {
-    /// <summary>
-    /// Provides an AWS Backup Framework resource.
-    /// 
-    /// &gt; **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Backup.Framework("example", new()
-    ///     {
-    ///         Controls = new[]
-    ///         {
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 InputParameters = new[]
-    ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "requiredRetentionDays",
-    ///                         Value = "35",
-    ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-    ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 InputParameters = new[]
-    ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "requiredFrequencyUnit",
-    ///                         Value = "hours",
-    ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "requiredRetentionDays",
-    ///                         Value = "35",
-    ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "requiredFrequencyValue",
-    ///                         Value = "1",
-    ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-    ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 Name = "BACKUP_RECOVERY_POINT_ENCRYPTED",
-    ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
-    ///                 {
-    ///                     ComplianceResourceTypes = new[]
-    ///                     {
-    ///                         "EBS",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 Name = "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
-    ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 InputParameters = new[]
-    ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "maxRetentionDays",
-    ///                         Value = "100",
-    ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "minRetentionDays",
-    ///                         Value = "1",
-    ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
-    ///                 {
-    ///                     ComplianceResourceTypes = new[]
-    ///                     {
-    ///                         "EBS",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 InputParameters = new[]
-    ///                 {
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "recoveryPointAgeUnit",
-    ///                         Value = "days",
-    ///                     },
-    ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
-    ///                     {
-    ///                         Name = "recoveryPointAgeValue",
-    ///                         Value = "1",
-    ///                     },
-    ///                 },
-    ///                 Name = "BACKUP_LAST_RECOVERY_POINT_CREATED",
-    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
-    ///                 {
-    ///                     ComplianceResourceTypes = new[]
-    ///                     {
-    ///                         "EBS",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Description = "this is an example framework",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Framework" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Backup Framework can be imported using the `id` which corresponds to the name of the Backup Framework, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:backup/framework:Framework")]
     public partial class Framework : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the backup framework.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        /// </summary>
         [Output("controls")]
         public Output<ImmutableArray<Outputs.FrameworkControl>> Controls { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-        /// </summary>
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the framework with a maximum of 1,024 characters
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -252,34 +87,20 @@ namespace Pulumi.Aws.Backup
     {
         [Input("controls", required: true)]
         private InputList<Inputs.FrameworkControlArgs>? _controls;
-
-        /// <summary>
-        /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        /// </summary>
         public InputList<Inputs.FrameworkControlArgs> Controls
         {
             get => _controls ?? (_controls = new InputList<Inputs.FrameworkControlArgs>());
             set => _controls = value;
         }
 
-        /// <summary>
-        /// The description of the framework with a maximum of 1,024 characters
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -294,60 +115,34 @@ namespace Pulumi.Aws.Backup
 
     public sealed class FrameworkState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the backup framework.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("controls")]
         private InputList<Inputs.FrameworkControlGetArgs>? _controls;
-
-        /// <summary>
-        /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        /// </summary>
         public InputList<Inputs.FrameworkControlGetArgs> Controls
         {
             get => _controls ?? (_controls = new InputList<Inputs.FrameworkControlGetArgs>());
             set => _controls = value;
         }
 
-        /// <summary>
-        /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
-        /// <summary>
-        /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-        /// </summary>
         [Input("deploymentStatus")]
         public Input<string>? DeploymentStatus { get; set; }
 
-        /// <summary>
-        /// The description of the framework with a maximum of 1,024 characters
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -356,10 +151,6 @@ namespace Pulumi.Aws.Backup
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

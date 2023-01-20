@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ImageRecipeComponentParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the component parameter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The value for the named component parameter.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Budgets.Outputs
     [OutputType]
     public sealed class BudgetActionDefinitionIamActionDefinition
     {
-        /// <summary>
-        /// A list of groups to be attached. There must be at least one group.
-        /// </summary>
         public readonly ImmutableArray<string> Groups;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the policy to be attached.
-        /// </summary>
         public readonly string PolicyArn;
-        /// <summary>
-        /// A list of roles to be attached. There must be at least one role.
-        /// </summary>
         public readonly ImmutableArray<string> Roles;
-        /// <summary>
-        /// A list of users to be attached. There must be at least one user.
-        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]

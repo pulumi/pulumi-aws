@@ -13,13 +13,7 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class GameSessionQueuePlayerLatencyPolicy
     {
-        /// <summary>
-        /// Maximum latency value that is allowed for any player.
-        /// </summary>
         public readonly int MaximumIndividualPlayerLatencyMilliseconds;
-        /// <summary>
-        /// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
-        /// </summary>
         public readonly int? PolicyDurationSeconds;
 
         [OutputConstructor]

@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class DomainCognitoOptions
     {
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// ID of the Cognito Identity Pool to use.
-        /// </summary>
         public readonly string IdentityPoolId;
-        /// <summary>
-        /// ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// ID of the Cognito User Pool to use.
-        /// </summary>
         public readonly string UserPoolId;
 
         [OutputConstructor]

@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Budgets.Inputs
 
     public sealed class BudgetActionDefinitionSsmActionDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
-        /// </summary>
         [Input("actionSubType", required: true)]
         public Input<string> ActionSubType { get; set; } = null!;
 
         [Input("instanceIds", required: true)]
         private InputList<string>? _instanceIds;
-
-        /// <summary>
-        /// The EC2 and RDS instance IDs.
-        /// </summary>
         public InputList<string> InstanceIds
         {
             get => _instanceIds ?? (_instanceIds = new InputList<string>());
             set => _instanceIds = value;
         }
 
-        /// <summary>
-        /// The Region to run the SSM document.
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 

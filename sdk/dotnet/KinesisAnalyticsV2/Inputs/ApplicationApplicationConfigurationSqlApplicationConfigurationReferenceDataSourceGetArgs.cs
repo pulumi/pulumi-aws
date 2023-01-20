@@ -15,21 +15,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         [Input("referenceId")]
         public Input<string>? ReferenceId { get; set; }
 
-        /// <summary>
-        /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-        /// </summary>
         [Input("referenceSchema", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaGetArgs> ReferenceSchema { get; set; } = null!;
 
-        /// <summary>
-        /// Identifies the S3 bucket and object that contains the reference data.
-        /// </summary>
         [Input("s3ReferenceDataSource", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceGetArgs> S3ReferenceDataSource { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the in-application table to create.
-        /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

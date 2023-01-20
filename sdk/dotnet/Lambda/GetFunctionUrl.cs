@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Lambda
 {
     public static class GetFunctionUrl
     {
-        /// <summary>
-        /// Provides information about a Lambda function URL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
-        ///     {
-        ///         FunctionName = functionName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetFunctionUrlResult> InvokeAsync(GetFunctionUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a Lambda function URL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
-        ///     {
-        ///         FunctionName = functionName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetFunctionUrlResult> Invoke(GetFunctionUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionUrlResult>("aws:lambda/getFunctionUrl:getFunctionUrl", args ?? new GetFunctionUrlInvokeArgs(), options.WithDefaults());
     }
@@ -73,15 +21,9 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetFunctionUrlArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// he name (or ARN) of the Lambda function.
-        /// </summary>
         [Input("functionName", required: true)]
         public string FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// Alias name or `"$LATEST"`.
-        /// </summary>
         [Input("qualifier")]
         public string? Qualifier { get; set; }
 
@@ -93,15 +35,9 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class GetFunctionUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// he name (or ARN) of the Lambda function.
-        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
-        /// <summary>
-        /// Alias name or `"$LATEST"`.
-        /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
@@ -115,39 +51,18 @@ namespace Pulumi.Aws.Lambda
     [OutputType]
     public sealed class GetFunctionUrlResult
     {
-        /// <summary>
-        /// Type of authentication that the function URL uses.
-        /// </summary>
         public readonly string AuthorizationType;
-        /// <summary>
-        /// The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionUrlCorResult> Cors;
-        /// <summary>
-        /// When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-        /// </summary>
         public readonly string CreationTime;
-        /// <summary>
-        /// ARN of the function.
-        /// </summary>
         public readonly string FunctionArn;
         public readonly string FunctionName;
-        /// <summary>
-        /// HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-        /// </summary>
         public readonly string FunctionUrl;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-        /// </summary>
         public readonly string LastModifiedTime;
         public readonly string? Qualifier;
-        /// <summary>
-        /// Generated ID for the endpoint.
-        /// </summary>
         public readonly string UrlId;
 
         [OutputConstructor]

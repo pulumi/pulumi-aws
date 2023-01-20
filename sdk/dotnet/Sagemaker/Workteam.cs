@@ -9,134 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker Workteam resource.
-    /// 
-    /// ## Example Usage
-    /// ### Cognito Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Workteam("example", new()
-    ///     {
-    ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
-    ///         Description = "example",
-    ///         MemberDefinitions = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
-    ///             {
-    ///                 CognitoMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs
-    ///                 {
-    ///                     ClientId = aws_cognito_user_pool_client.Example.Id,
-    ///                     UserPool = aws_cognito_user_pool_domain.Example.User_pool_id,
-    ///                     UserGroup = aws_cognito_user_group.Example.Id,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Oidc Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Workteam("example", new()
-    ///     {
-    ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
-    ///         Description = "example",
-    ///         MemberDefinitions = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
-    ///             {
-    ///                 OidcMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs
-    ///                 {
-    ///                     Groups = new[]
-    ///                     {
-    ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// SageMaker Workteams can be imported using the `workteam_name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/workteam:Workteam example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/workteam:Workteam")]
     public partial class Workteam : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the work team.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        /// </summary>
         [Output("memberDefinitions")]
         public Output<ImmutableArray<Outputs.WorkteamMemberDefinition>> MemberDefinitions { get; private set; } = null!;
 
-        /// <summary>
-        /// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-        /// </summary>
         [Output("notificationConfiguration")]
         public Output<Outputs.WorkteamNotificationConfiguration?> NotificationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The subdomain for your OIDC Identity Provider.
-        /// </summary>
         [Output("subdomain")]
         public Output<string> Subdomain { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Workteam (must be unique).
-        /// </summary>
         [Output("workforceName")]
         public Output<string> WorkforceName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the workforce.
-        /// </summary>
         [Output("workteamName")]
         public Output<string> WorkteamName { get; private set; } = null!;
 
@@ -186,51 +85,31 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class WorkteamArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description of the work team.
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         [Input("memberDefinitions", required: true)]
         private InputList<Inputs.WorkteamMemberDefinitionArgs>? _memberDefinitions;
-
-        /// <summary>
-        /// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        /// </summary>
         public InputList<Inputs.WorkteamMemberDefinitionArgs> MemberDefinitions
         {
             get => _memberDefinitions ?? (_memberDefinitions = new InputList<Inputs.WorkteamMemberDefinitionArgs>());
             set => _memberDefinitions = value;
         }
 
-        /// <summary>
-        /// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-        /// </summary>
         [Input("notificationConfiguration")]
         public Input<Inputs.WorkteamNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The name of the Workteam (must be unique).
-        /// </summary>
         [Input("workforceName", required: true)]
         public Input<string> WorkforceName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the workforce.
-        /// </summary>
         [Input("workteamName", required: true)]
         public Input<string> WorkteamName { get; set; } = null!;
 
@@ -242,48 +121,28 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class WorkteamState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A description of the work team.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("memberDefinitions")]
         private InputList<Inputs.WorkteamMemberDefinitionGetArgs>? _memberDefinitions;
-
-        /// <summary>
-        /// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        /// </summary>
         public InputList<Inputs.WorkteamMemberDefinitionGetArgs> MemberDefinitions
         {
             get => _memberDefinitions ?? (_memberDefinitions = new InputList<Inputs.WorkteamMemberDefinitionGetArgs>());
             set => _memberDefinitions = value;
         }
 
-        /// <summary>
-        /// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
-        /// </summary>
         [Input("notificationConfiguration")]
         public Input<Inputs.WorkteamNotificationConfigurationGetArgs>? NotificationConfiguration { get; set; }
 
-        /// <summary>
-        /// The subdomain for your OIDC Identity Provider.
-        /// </summary>
         [Input("subdomain")]
         public Input<string>? Subdomain { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -292,25 +151,15 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The name of the Workteam (must be unique).
-        /// </summary>
         [Input("workforceName")]
         public Input<string>? WorkforceName { get; set; }
 
-        /// <summary>
-        /// The name of the workforce.
-        /// </summary>
         [Input("workteamName")]
         public Input<string>? WorkteamName { get; set; }
 

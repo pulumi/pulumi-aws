@@ -11,57 +11,9 @@ namespace Pulumi.Aws.Backup
 {
     public static class GetVault
     {
-        /// <summary>
-        /// Use this data source to get information on an existing backup vault.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetVault.Invoke(new()
-        ///     {
-        ///         Name = "example_backup_vault",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("aws:backup/getVault:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an existing backup vault.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Backup.GetVault.Invoke(new()
-        ///     {
-        ///         Name = "example_backup_vault",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("aws:backup/getVault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
@@ -69,18 +21,11 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetVaultArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the backup vault.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -95,18 +40,11 @@ namespace Pulumi.Aws.Backup
 
     public sealed class GetVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the backup vault.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -123,26 +61,14 @@ namespace Pulumi.Aws.Backup
     [OutputType]
     public sealed class GetVaultResult
     {
-        /// <summary>
-        /// ARN of the vault.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Server-side encryption key that is used to protect your backups.
-        /// </summary>
         public readonly string KmsKeyArn;
         public readonly string Name;
-        /// <summary>
-        /// Number of recovery points that are stored in a backup vault.
-        /// </summary>
         public readonly int RecoveryPoints;
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Inspector2.Outputs
     [OutputType]
     public sealed class OrganizationConfigurationAutoEnable
     {
-        /// <summary>
-        /// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         public readonly bool Ec2;
-        /// <summary>
-        /// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        /// </summary>
         public readonly bool Ecr;
 
         [OutputConstructor]

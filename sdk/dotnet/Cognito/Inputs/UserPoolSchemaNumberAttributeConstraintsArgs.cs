@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolSchemaNumberAttributeConstraintsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum value of an attribute that is of the number data type.
-        /// </summary>
         [Input("maxValue")]
         public Input<string>? MaxValue { get; set; }
 
-        /// <summary>
-        /// Minimum value of an attribute that is of the number data type.
-        /// </summary>
         [Input("minValue")]
         public Input<string>? MinValue { get; set; }
 

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
-        /// </summary>
         [Input("acceleratorCount")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs>? AcceleratorCount { get; set; }
 
         [Input("acceleratorManufacturers")]
         private InputList<string>? _acceleratorManufacturers;
-
-        /// <summary>
-        /// List of accelerator manufacturer names. Default is any manufacturer.
-        /// </summary>
         public InputList<string> AcceleratorManufacturers
         {
             get => _acceleratorManufacturers ?? (_acceleratorManufacturers = new InputList<string>());
@@ -32,58 +25,34 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
         [Input("acceleratorNames")]
         private InputList<string>? _acceleratorNames;
-
-        /// <summary>
-        /// List of accelerator names. Default is any acclerator.
-        /// </summary>
         public InputList<string> AcceleratorNames
         {
             get => _acceleratorNames ?? (_acceleratorNames = new InputList<string>());
             set => _acceleratorNames = value;
         }
 
-        /// <summary>
-        /// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
-        /// </summary>
         [Input("acceleratorTotalMemoryMib")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs>? AcceleratorTotalMemoryMib { get; set; }
 
         [Input("acceleratorTypes")]
         private InputList<string>? _acceleratorTypes;
-
-        /// <summary>
-        /// List of accelerator types. Default is any accelerator type.
-        /// </summary>
         public InputList<string> AcceleratorTypes
         {
             get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
             set => _acceleratorTypes = value;
         }
 
-        /// <summary>
-        /// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        /// </summary>
         [Input("bareMetal")]
         public Input<string>? BareMetal { get; set; }
 
-        /// <summary>
-        /// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
-        /// </summary>
         [Input("baselineEbsBandwidthMbps")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs>? BaselineEbsBandwidthMbps { get; set; }
 
-        /// <summary>
-        /// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        /// </summary>
         [Input("burstablePerformance")]
         public Input<string>? BurstablePerformance { get; set; }
 
         [Input("cpuManufacturers")]
         private InputList<string>? _cpuManufacturers;
-
-        /// <summary>
-        /// List of CPU manufacturer names. Default is any manufacturer.
-        /// </summary>
         public InputList<string> CpuManufacturers
         {
             get => _cpuManufacturers ?? (_cpuManufacturers = new InputList<string>());
@@ -92,10 +61,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
         [Input("excludedInstanceTypes")]
         private InputList<string>? _excludedInstanceTypes;
-
-        /// <summary>
-        /// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-        /// </summary>
         public InputList<string> ExcludedInstanceTypes
         {
             get => _excludedInstanceTypes ?? (_excludedInstanceTypes = new InputList<string>());
@@ -104,79 +69,44 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
         [Input("instanceGenerations")]
         private InputList<string>? _instanceGenerations;
-
-        /// <summary>
-        /// List of instance generation names. Default is any generation.
-        /// </summary>
         public InputList<string> InstanceGenerations
         {
             get => _instanceGenerations ?? (_instanceGenerations = new InputList<string>());
             set => _instanceGenerations = value;
         }
 
-        /// <summary>
-        /// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
-        /// </summary>
         [Input("localStorage")]
         public Input<string>? LocalStorage { get; set; }
 
         [Input("localStorageTypes")]
         private InputList<string>? _localStorageTypes;
-
-        /// <summary>
-        /// List of local storage type names. Default any storage type.
-        /// </summary>
         public InputList<string> LocalStorageTypes
         {
             get => _localStorageTypes ?? (_localStorageTypes = new InputList<string>());
             set => _localStorageTypes = value;
         }
 
-        /// <summary>
-        /// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        /// </summary>
         [Input("memoryGibPerVcpu")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs>? MemoryGibPerVcpu { get; set; }
 
-        /// <summary>
-        /// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        /// </summary>
         [Input("memoryMib")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs>? MemoryMib { get; set; }
 
-        /// <summary>
-        /// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
-        /// </summary>
         [Input("networkInterfaceCount")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs>? NetworkInterfaceCount { get; set; }
 
-        /// <summary>
-        /// Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-        /// </summary>
         [Input("onDemandMaxPricePercentageOverLowestPrice")]
         public Input<int>? OnDemandMaxPricePercentageOverLowestPrice { get; set; }
 
-        /// <summary>
-        /// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-        /// </summary>
         [Input("requireHibernateSupport")]
         public Input<bool>? RequireHibernateSupport { get; set; }
 
-        /// <summary>
-        /// Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
-        /// </summary>
         [Input("spotMaxPricePercentageOverLowestPrice")]
         public Input<int>? SpotMaxPricePercentageOverLowestPrice { get; set; }
 
-        /// <summary>
-        /// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-        /// </summary>
         [Input("totalLocalStorageGb")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs>? TotalLocalStorageGb { get; set; }
 
-        /// <summary>
-        /// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        /// </summary>
         [Input("vcpuCount")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs>? VcpuCount { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketVersioning
     {
-        /// <summary>
-        /// Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
-        /// </summary>
         public readonly bool? MfaDelete;
 
         [OutputConstructor]

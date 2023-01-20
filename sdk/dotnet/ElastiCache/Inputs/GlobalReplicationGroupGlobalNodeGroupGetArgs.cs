@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ElastiCache.Inputs
 
     public sealed class GlobalReplicationGroupGlobalNodeGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the global node group.
-        /// </summary>
         [Input("globalNodeGroupId")]
         public Input<string>? GlobalNodeGroupId { get; set; }
 
-        /// <summary>
-        /// The keyspace for this node group.
-        /// </summary>
         [Input("slots")]
         public Input<string>? Slots { get; set; }
 

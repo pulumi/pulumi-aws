@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketLifecycleRuleNoncurrentVersionTransitionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the number of days noncurrent object versions transition.
-        /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }
 
-        /// <summary>
-        /// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
-        /// </summary>
         [Input("storageClass", required: true)]
         public Input<string> StorageClass { get; set; } = null!;
 

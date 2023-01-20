@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The email HTML body.
-        /// </summary>
         [Input("htmlBody", required: true)]
         public Input<string> HtmlBody { get; set; } = null!;
 
-        /// <summary>
-        /// The email subject.
-        /// </summary>
         [Input("subject", required: true)]
         public Input<string> Subject { get; set; } = null!;
 
-        /// <summary>
-        /// The email text body.
-        /// </summary>
         [Input("textBody", required: true)]
         public Input<string> TextBody { get; set; } = null!;
 

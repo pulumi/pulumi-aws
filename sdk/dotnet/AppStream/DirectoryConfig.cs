@@ -9,67 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppStream
 {
-    /// <summary>
-    /// Provides an AppStream Directory Config.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppStream.DirectoryConfig("example", new()
-    ///     {
-    ///         DirectoryName = "NAME OF DIRECTORY",
-    ///         OrganizationalUnitDistinguishedNames = new[]
-    ///         {
-    ///             "DISTINGUISHED NAME",
-    ///         },
-    ///         ServiceAccountCredentials = new Aws.AppStream.Inputs.DirectoryConfigServiceAccountCredentialsArgs
-    ///         {
-    ///             AccountName = "NAME OF ACCOUNT",
-    ///             AccountPassword = "PASSWORD OF ACCOUNT",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_appstream_directory_config` can be imported using the id, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appstream/directoryConfig:DirectoryConfig")]
     public partial class DirectoryConfig : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Fully qualified name of the directory.
-        /// </summary>
         [Output("directoryName")]
         public Output<string> DirectoryName { get; private set; } = null!;
 
-        /// <summary>
-        /// Distinguished names of the organizational units for computer accounts.
-        /// </summary>
         [Output("organizationalUnitDistinguishedNames")]
         public Output<ImmutableArray<string>> OrganizationalUnitDistinguishedNames { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
-        /// </summary>
         [Output("serviceAccountCredentials")]
         public Output<Outputs.DirectoryConfigServiceAccountCredentials> ServiceAccountCredentials { get; private set; } = null!;
 
@@ -119,27 +70,17 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class DirectoryConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Fully qualified name of the directory.
-        /// </summary>
         [Input("directoryName", required: true)]
         public Input<string> DirectoryName { get; set; } = null!;
 
         [Input("organizationalUnitDistinguishedNames", required: true)]
         private InputList<string>? _organizationalUnitDistinguishedNames;
-
-        /// <summary>
-        /// Distinguished names of the organizational units for computer accounts.
-        /// </summary>
         public InputList<string> OrganizationalUnitDistinguishedNames
         {
             get => _organizationalUnitDistinguishedNames ?? (_organizationalUnitDistinguishedNames = new InputList<string>());
             set => _organizationalUnitDistinguishedNames = value;
         }
 
-        /// <summary>
-        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
-        /// </summary>
         [Input("serviceAccountCredentials", required: true)]
         public Input<Inputs.DirectoryConfigServiceAccountCredentialsArgs> ServiceAccountCredentials { get; set; } = null!;
 
@@ -151,33 +92,20 @@ namespace Pulumi.Aws.AppStream
 
     public sealed class DirectoryConfigState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-        /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
-        /// <summary>
-        /// Fully qualified name of the directory.
-        /// </summary>
         [Input("directoryName")]
         public Input<string>? DirectoryName { get; set; }
 
         [Input("organizationalUnitDistinguishedNames")]
         private InputList<string>? _organizationalUnitDistinguishedNames;
-
-        /// <summary>
-        /// Distinguished names of the organizational units for computer accounts.
-        /// </summary>
         public InputList<string> OrganizationalUnitDistinguishedNames
         {
             get => _organizationalUnitDistinguishedNames ?? (_organizationalUnitDistinguishedNames = new InputList<string>());
             set => _organizationalUnitDistinguishedNames = value;
         }
 
-        /// <summary>
-        /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
-        /// </summary>
         [Input("serviceAccountCredentials")]
         public Input<Inputs.DirectoryConfigServiceAccountCredentialsGetArgs>? ServiceAccountCredentials { get; set; }
 

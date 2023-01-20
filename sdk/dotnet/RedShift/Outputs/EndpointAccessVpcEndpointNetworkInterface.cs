@@ -13,21 +13,9 @@ namespace Pulumi.Aws.RedShift.Outputs
     [OutputType]
     public sealed class EndpointAccessVpcEndpointNetworkInterface
     {
-        /// <summary>
-        /// The Availability Zone.
-        /// </summary>
         public readonly string? AvailabilityZone;
-        /// <summary>
-        /// The network interface identifier.
-        /// </summary>
         public readonly string? NetworkInterfaceId;
-        /// <summary>
-        /// The IPv4 address of the network interface within the subnet.
-        /// </summary>
         public readonly string? PrivateIpAddress;
-        /// <summary>
-        /// The subnet identifier.
-        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

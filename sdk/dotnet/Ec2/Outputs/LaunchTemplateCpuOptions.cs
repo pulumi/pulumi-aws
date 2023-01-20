@@ -13,14 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateCpuOptions
     {
-        /// <summary>
-        /// The number of CPU cores for the instance.
-        /// </summary>
         public readonly int? CoreCount;
-        /// <summary>
-        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-        /// Otherwise, specify the default value of 2.
-        /// </summary>
         public readonly int? ThreadsPerCore;
 
         [OutputConstructor]

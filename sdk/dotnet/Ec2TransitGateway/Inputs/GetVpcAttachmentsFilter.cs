@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 
     public sealed class GetVpcAttachmentsFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

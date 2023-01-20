@@ -11,19 +11,9 @@ namespace Pulumi.Aws.Ebs
 {
     public static class GetEbsVolumes
     {
-        /// <summary>
-        /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
-        /// 
-        /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-        /// </summary>
         public static Task<GetEbsVolumesResult> InvokeAsync(GetEbsVolumesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
-        /// 
-        /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-        /// </summary>
         public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());
     }
@@ -33,10 +23,6 @@ namespace Pulumi.Aws.Ebs
     {
         [Input("filters")]
         private List<Inputs.GetEbsVolumesFilterArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public List<Inputs.GetEbsVolumesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetEbsVolumesFilterArgs>());
@@ -45,11 +31,6 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired volumes.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -66,10 +47,6 @@ namespace Pulumi.Aws.Ebs
     {
         [Input("filters")]
         private InputList<Inputs.GetEbsVolumesFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Custom filter block as described below.
-        /// </summary>
         public InputList<Inputs.GetEbsVolumesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetEbsVolumesFilterInputArgs>());
@@ -78,11 +55,6 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired volumes.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -104,10 +76,6 @@ namespace Pulumi.Aws.Ebs
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of all the EBS Volume IDs found. This data source will fail if
-        /// no volumes match the provided criteria.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableDictionary<string, string>? Tags;
 

@@ -14,19 +14,12 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
     {
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
             set => _ipAddresses = value;
         }
 
-        /// <summary>
-        /// The type of IP addresses included in this IP set.
-        /// </summary>
         [Input("ipFamily")]
         public Input<string>? IpFamily { get; set; }
 

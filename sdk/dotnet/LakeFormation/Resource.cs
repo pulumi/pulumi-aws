@@ -9,51 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LakeFormation
 {
-    /// <summary>
-    /// Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
-    /// 
-    /// Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucket = Aws.S3.GetBucket.Invoke(new()
-    ///     {
-    ///         Bucket = "an-example-bucket",
-    ///     });
-    /// 
-    ///     var exampleResource = new Aws.LakeFormation.Resource("exampleResource", new()
-    ///     {
-    ///         Arn = exampleBucket.Apply(getBucketResult =&gt; getBucketResult.Arn),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lakeformation/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
-        /// <summary>
-        /// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -103,15 +67,9 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
@@ -123,21 +81,12 @@ namespace Pulumi.Aws.LakeFormation
 
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the resource, an S3 path.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
-        /// <summary>
-        /// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

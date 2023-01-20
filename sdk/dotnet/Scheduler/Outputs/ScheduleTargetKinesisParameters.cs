@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetKinesisParameters
     {
-        /// <summary>
-        /// Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
-        /// </summary>
         public readonly string PartitionKey;
 
         [OutputConstructor]

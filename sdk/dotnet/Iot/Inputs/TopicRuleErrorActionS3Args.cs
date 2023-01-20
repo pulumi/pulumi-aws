@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleErrorActionS3Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket name.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-        /// </summary>
         [Input("cannedAcl")]
         public Input<string>? CannedAcl { get; set; }
 
-        /// <summary>
-        /// The name of the HTTP header.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

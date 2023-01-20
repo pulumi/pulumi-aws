@@ -12,10 +12,6 @@ namespace Pulumi.Aws.Comprehend.Inputs
 
     public sealed class EntityRecognizerInputDataConfigEntityTypeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An entity type to be matched by the Entity Recognizer.
-        /// Cannot contain a newline (`\n`), carriage return (`\r`), or tab (`\t`).
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Athena.Inputs
 
     public sealed class DatabaseEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-        /// </summary>
         [Input("encryptionOption", required: true)]
         public Input<string> EncryptionOption { get; set; } = null!;
 
-        /// <summary>
-        /// KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-        /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 

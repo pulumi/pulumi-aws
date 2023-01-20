@@ -12,30 +12,17 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainSamlOptionsSamlOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether SAML authentication is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Information from your identity provider.
-        /// </summary>
         [Input("idp")]
         public Input<Inputs.DomainSamlOptionsSamlOptionsIdpGetArgs>? Idp { get; set; }
 
-        /// <summary>
-        /// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-        /// </summary>
         [Input("masterBackendRole")]
         public Input<string>? MasterBackendRole { get; set; }
 
         [Input("masterUserName")]
         private Input<string>? _masterUserName;
-
-        /// <summary>
-        /// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-        /// </summary>
         public Input<string>? MasterUserName
         {
             get => _masterUserName;
@@ -46,21 +33,12 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
             }
         }
 
-        /// <summary>
-        /// Element of the SAML assertion to use for backend roles. Default is roles.
-        /// </summary>
         [Input("rolesKey")]
         public Input<string>? RolesKey { get; set; }
 
-        /// <summary>
-        /// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-        /// </summary>
         [Input("sessionTimeoutMinutes")]
         public Input<int>? SessionTimeoutMinutes { get; set; }
 
-        /// <summary>
-        /// Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
-        /// </summary>
         [Input("subjectKey")]
         public Input<string>? SubjectKey { get; set; }
 

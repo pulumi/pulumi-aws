@@ -13,21 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainAdvancedSecurityOptions
     {
-        /// <summary>
-        /// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
-        /// </summary>
         public readonly bool? AnonymousAuthEnabled;
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Whether the internal user database is enabled. Default is `false`.
-        /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
-        /// <summary>
-        /// Configuration block for the main user. Detailed below.
-        /// </summary>
         public readonly Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? MasterUserOptions;
 
         [OutputConstructor]

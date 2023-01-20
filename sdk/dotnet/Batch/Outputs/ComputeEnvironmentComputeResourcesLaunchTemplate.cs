@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class ComputeEnvironmentComputeResourcesLaunchTemplate
     {
-        /// <summary>
-        /// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-        /// </summary>
         public readonly string? LaunchTemplateId;
-        /// <summary>
-        /// Name of the launch template.
-        /// </summary>
         public readonly string? LaunchTemplateName;
-        /// <summary>
-        /// The version number of the launch template. Default: The default version of the launch template.
-        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class InstanceAccessControlAttributesAttributeValue
     {
-        /// <summary>
-        /// The identity source to use when mapping a specified attribute to AWS SSO.
-        /// </summary>
         public readonly ImmutableArray<string> Sources;
 
         [OutputConstructor]

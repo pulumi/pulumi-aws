@@ -9,63 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Kms
 {
-    /// <summary>
-    /// Resource for managing an AWS KMS (Key Management) Custom Key Store.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Kms.CustomKeyStore("test", new()
-    ///     {
-    ///         CloudHsmClusterId = @var.Cloud_hsm_cluster_id,
-    ///         CustomKeyStoreName = "kms-custom-key-store-test",
-    ///         KeyStorePassword = "noplaintextpasswords1",
-    ///         TrustAnchorCertificate = File.ReadAllText("anchor-certificate.crt"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:kms/customKeyStore:CustomKeyStore")]
     public partial class CustomKeyStore : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Cluster ID of CloudHSM.
-        /// </summary>
         [Output("cloudHsmClusterId")]
         public Output<string> CloudHsmClusterId { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name for Custom Key Store.
-        /// </summary>
         [Output("customKeyStoreName")]
         public Output<string> CustomKeyStoreName { get; private set; } = null!;
 
-        /// <summary>
-        /// Password for `kmsuser` on CloudHSM.
-        /// </summary>
         [Output("keyStorePassword")]
         public Output<string> KeyStorePassword { get; private set; } = null!;
 
-        /// <summary>
-        /// Customer certificate used for signing on CloudHSM.
-        /// </summary>
         [Output("trustAnchorCertificate")]
         public Output<string> TrustAnchorCertificate { get; private set; } = null!;
 
@@ -115,27 +70,15 @@ namespace Pulumi.Aws.Kms
 
     public sealed class CustomKeyStoreArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Cluster ID of CloudHSM.
-        /// </summary>
         [Input("cloudHsmClusterId", required: true)]
         public Input<string> CloudHsmClusterId { get; set; } = null!;
 
-        /// <summary>
-        /// Unique name for Custom Key Store.
-        /// </summary>
         [Input("customKeyStoreName", required: true)]
         public Input<string> CustomKeyStoreName { get; set; } = null!;
 
-        /// <summary>
-        /// Password for `kmsuser` on CloudHSM.
-        /// </summary>
         [Input("keyStorePassword", required: true)]
         public Input<string> KeyStorePassword { get; set; } = null!;
 
-        /// <summary>
-        /// Customer certificate used for signing on CloudHSM.
-        /// </summary>
         [Input("trustAnchorCertificate", required: true)]
         public Input<string> TrustAnchorCertificate { get; set; } = null!;
 
@@ -147,27 +90,15 @@ namespace Pulumi.Aws.Kms
 
     public sealed class CustomKeyStoreState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Cluster ID of CloudHSM.
-        /// </summary>
         [Input("cloudHsmClusterId")]
         public Input<string>? CloudHsmClusterId { get; set; }
 
-        /// <summary>
-        /// Unique name for Custom Key Store.
-        /// </summary>
         [Input("customKeyStoreName")]
         public Input<string>? CustomKeyStoreName { get; set; }
 
-        /// <summary>
-        /// Password for `kmsuser` on CloudHSM.
-        /// </summary>
         [Input("keyStorePassword")]
         public Input<string>? KeyStorePassword { get; set; }
 
-        /// <summary>
-        /// Customer certificate used for signing on CloudHSM.
-        /// </summary>
         [Input("trustAnchorCertificate")]
         public Input<string>? TrustAnchorCertificate { get; set; }
 

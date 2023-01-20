@@ -11,57 +11,9 @@ namespace Pulumi.Aws.Batch
 {
     public static class GetSchedulingPolicy
     {
-        /// <summary>
-        /// The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Batch.GetSchedulingPolicy.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetSchedulingPolicyResult> InvokeAsync(GetSchedulingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Batch.GetSchedulingPolicy.Invoke(new()
-        ///     {
-        ///         Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -69,18 +21,11 @@ namespace Pulumi.Aws.Batch
 
     public sealed class GetSchedulingPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the scheduling policy.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -95,18 +40,11 @@ namespace Pulumi.Aws.Batch
 
     public sealed class GetSchedulingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the scheduling policy.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -129,13 +67,7 @@ namespace Pulumi.Aws.Batch
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Name of the scheduling policy.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Key-value map of resource tags
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

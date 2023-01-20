@@ -13,18 +13,8 @@ namespace Pulumi.Aws.Efs.Outputs
     [OutputType]
     public sealed class GetAccessPointPosixUserResult
     {
-        /// <summary>
-        /// Group ID
-        /// </summary>
         public readonly int Gid;
-        /// <summary>
-        /// Secondary group IDs
-        /// </summary>
         public readonly ImmutableArray<int> SecondaryGids;
-        /// <summary>
-        /// User Id
-        /// * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
-        /// </summary>
         public readonly int Uid;
 
         [OutputConstructor]

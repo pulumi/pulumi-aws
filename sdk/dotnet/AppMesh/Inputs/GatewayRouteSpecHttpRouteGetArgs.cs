@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttpRouteGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action to take if a match is determined.
-        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.GatewayRouteSpecHttpRouteActionGetArgs> Action { get; set; } = null!;
 
-        /// <summary>
-        /// Criteria for determining a request match.
-        /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.GatewayRouteSpecHttpRouteMatchGetArgs> Match { get; set; } = null!;
 

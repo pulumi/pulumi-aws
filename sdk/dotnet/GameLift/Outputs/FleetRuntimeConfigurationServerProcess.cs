@@ -13,17 +13,8 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class FleetRuntimeConfigurationServerProcess
     {
-        /// <summary>
-        /// Number of server processes using this configuration to run concurrently on an instance.
-        /// </summary>
         public readonly int ConcurrentExecutions;
-        /// <summary>
-        /// Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
-        /// </summary>
         public readonly string LaunchPath;
-        /// <summary>
-        /// Optional list of parameters to pass to the server executable on launch.
-        /// </summary>
         public readonly string? Parameters;
 
         [OutputConstructor]

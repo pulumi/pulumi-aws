@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
-        /// </summary>
         [Input("s3InputFileType")]
         public Input<string>? S3InputFileType { get; set; }
 

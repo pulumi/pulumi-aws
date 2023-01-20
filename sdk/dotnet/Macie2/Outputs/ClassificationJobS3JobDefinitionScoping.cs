@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Macie2.Outputs
     [OutputType]
     public sealed class ClassificationJobS3JobDefinitionScoping
     {
-        /// <summary>
-        /// The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
-        /// </summary>
         public readonly Outputs.ClassificationJobS3JobDefinitionScopingExcludes? Excludes;
-        /// <summary>
-        /// The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
-        /// </summary>
         public readonly Outputs.ClassificationJobS3JobDefinitionScopingIncludes? Includes;
 
         [OutputConstructor]

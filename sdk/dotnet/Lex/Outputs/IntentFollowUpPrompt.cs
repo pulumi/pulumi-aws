@@ -13,15 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class IntentFollowUpPrompt
     {
-        /// <summary>
-        /// Prompts for information from the user. Attributes are documented under prompt.
-        /// </summary>
         public readonly Outputs.IntentFollowUpPromptPrompt Prompt;
-        /// <summary>
-        /// If the user answers "no" to the question defined in the prompt field,
-        /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-        /// documented below under statement.
-        /// </summary>
         public readonly Outputs.IntentFollowUpPromptRejectionStatement RejectionStatement;
 
         [OutputConstructor]

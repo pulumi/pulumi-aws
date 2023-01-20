@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ModelContainerImageConfig
     {
-        /// <summary>
-        /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-        /// </summary>
         public readonly string RepositoryAccessMode;
-        /// <summary>
-        /// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
-        /// </summary>
         public readonly Outputs.ModelContainerImageConfigRepositoryAuthConfig? RepositoryAuthConfig;
 
         [OutputConstructor]

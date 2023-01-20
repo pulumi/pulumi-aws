@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateInstanceMarketOptions
     {
-        /// <summary>
-        /// The market type. Can be `spot`.
-        /// </summary>
         public readonly string? MarketType;
-        /// <summary>
-        /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        /// </summary>
         public readonly Outputs.LaunchTemplateInstanceMarketOptionsSpotOptions? SpotOptions;
 
         [OutputConstructor]

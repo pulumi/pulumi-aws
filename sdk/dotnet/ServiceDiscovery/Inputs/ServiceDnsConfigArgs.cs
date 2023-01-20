@@ -14,25 +14,15 @@ namespace Pulumi.Aws.ServiceDiscovery.Inputs
     {
         [Input("dnsRecords", required: true)]
         private InputList<Inputs.ServiceDnsConfigDnsRecordArgs>? _dnsRecords;
-
-        /// <summary>
-        /// An array that contains one DnsRecord object for each resource record set.
-        /// </summary>
         public InputList<Inputs.ServiceDnsConfigDnsRecordArgs> DnsRecords
         {
             get => _dnsRecords ?? (_dnsRecords = new InputList<Inputs.ServiceDnsConfigDnsRecordArgs>());
             set => _dnsRecords = value;
         }
 
-        /// <summary>
-        /// The ID of the namespace to use for DNS configuration.
-        /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
-        /// <summary>
-        /// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-        /// </summary>
         [Input("routingPolicy")]
         public Input<string>? RoutingPolicy { get; set; }
 

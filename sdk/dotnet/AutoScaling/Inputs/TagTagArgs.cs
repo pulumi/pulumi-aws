@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class TagTagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Tag name.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to propagate the tags to instances launched by the ASG.
-        /// </summary>
         [Input("propagateAtLaunch", required: true)]
         public Input<bool> PropagateAtLaunch { get; set; } = null!;
 
-        /// <summary>
-        /// Tag value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

@@ -9,47 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeCommit
 {
-    /// <summary>
-    /// Associates a CodeCommit Approval Rule Template with a Repository.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplateAssociation("example", new()
-    ///     {
-    ///         ApprovalRuleTemplateName = aws_codecommit_approval_rule_template.Example.Name,
-    ///         RepositoryName = aws_codecommit_repository.Example.Repository_name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")]
     public partial class ApprovalRuleTemplateAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name for the approval rule template.
-        /// </summary>
         [Output("approvalRuleTemplateName")]
         public Output<string> ApprovalRuleTemplateName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the repository that you want to associate with the template.
-        /// </summary>
         [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
@@ -99,15 +64,9 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class ApprovalRuleTemplateAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name for the approval rule template.
-        /// </summary>
         [Input("approvalRuleTemplateName", required: true)]
         public Input<string> ApprovalRuleTemplateName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the repository that you want to associate with the template.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
@@ -119,15 +78,9 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class ApprovalRuleTemplateAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name for the approval rule template.
-        /// </summary>
         [Input("approvalRuleTemplateName")]
         public Input<string>? ApprovalRuleTemplateName { get; set; }
 
-        /// <summary>
-        /// The name of the repository that you want to associate with the template.
-        /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class BotAssociationLexBot
     {
-        /// <summary>
-        /// The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-        /// </summary>
         public readonly string? LexRegion;
-        /// <summary>
-        /// The name of the Amazon Lex (V1) bot.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

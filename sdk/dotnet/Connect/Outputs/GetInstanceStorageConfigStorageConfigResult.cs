@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class GetInstanceStorageConfigStorageConfigResult
     {
-        /// <summary>
-        /// A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult> KinesisFirehoseConfigs;
-        /// <summary>
-        /// A block that specifies the configuration of the Kinesis data stream. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult> KinesisStreamConfigs;
-        /// <summary>
-        /// A block that specifies the configuration of the Kinesis video stream. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult> KinesisVideoStreamConfigs;
-        /// <summary>
-        /// A block that specifies the configuration of S3 Bucket. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigS3ConfigResult> S3Configs;
-        /// <summary>
-        /// A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        /// </summary>
         public readonly string StorageType;
 
         [OutputConstructor]

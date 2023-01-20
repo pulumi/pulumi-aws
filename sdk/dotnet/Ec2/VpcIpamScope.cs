@@ -9,92 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Creates a scope for AWS IPAM.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
-    ///     {
-    ///         OperatingRegions = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVpcIpamScope = new Aws.Ec2.VpcIpamScope("exampleVpcIpamScope", new()
-    ///     {
-    ///         IpamId = exampleVpcIpam.Id,
-    ///         Description = "Another Scope",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IPAMs can be imported using the `scope_id`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
     public partial class VpcIpamScope : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A description for the scope you're creating.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IPAM for which you're creating this scope.
-        /// </summary>
         [Output("ipamArn")]
         public Output<string> IpamArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the IPAM for which you're creating this scope.
-        /// </summary>
         [Output("ipamId")]
         public Output<string> IpamId { get; private set; } = null!;
 
         [Output("ipamScopeType")]
         public Output<string> IpamScopeType { get; private set; } = null!;
 
-        /// <summary>
-        /// Defines if the scope is the default scope or not.
-        /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
-        /// <summary>
-        /// Count of pools under this scope
-        /// </summary>
         [Output("poolCount")]
         public Output<int> PoolCount { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -147,24 +85,14 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamScopeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A description for the scope you're creating.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the IPAM for which you're creating this scope.
-        /// </summary>
         [Input("ipamId", required: true)]
         public Input<string> IpamId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -182,45 +110,26 @@ namespace Pulumi.Aws.Ec2
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A description for the scope you're creating.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ARN of the IPAM for which you're creating this scope.
-        /// </summary>
         [Input("ipamArn")]
         public Input<string>? IpamArn { get; set; }
 
-        /// <summary>
-        /// The ID of the IPAM for which you're creating this scope.
-        /// </summary>
         [Input("ipamId")]
         public Input<string>? IpamId { get; set; }
 
         [Input("ipamScopeType")]
         public Input<string>? IpamScopeType { get; set; }
 
-        /// <summary>
-        /// Defines if the scope is the default scope or not.
-        /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
-        /// <summary>
-        /// Count of pools under this scope
-        /// </summary>
         [Input("poolCount")]
         public Input<int>? PoolCount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

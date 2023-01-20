@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class FsxOpenZfsFileSystemProtocolNfs
     {
-        /// <summary>
-        /// Represents the mount options that are available for DataSync to access an NFS location. See below.
-        /// </summary>
         public readonly Outputs.FsxOpenZfsFileSystemProtocolNfsMountOptions MountOptions;
 
         [OutputConstructor]

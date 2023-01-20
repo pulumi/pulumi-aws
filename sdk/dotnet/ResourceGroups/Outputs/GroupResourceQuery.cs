@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ResourceGroups.Outputs
     [OutputType]
     public sealed class GroupResourceQuery
     {
-        /// <summary>
-        /// The resource query as a JSON string.
-        /// </summary>
         public readonly string Query;
-        /// <summary>
-        /// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

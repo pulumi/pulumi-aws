@@ -13,33 +13,12 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class CustomActionTypeConfigurationProperty
     {
-        /// <summary>
-        /// The description of the action configuration property.
-        /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Whether the configuration property is a key.
-        /// </summary>
         public readonly bool Key;
-        /// <summary>
-        /// The name of the action configuration property.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Indicates that the property will be used in conjunction with PollForJobs.
-        /// </summary>
         public readonly bool? Queryable;
-        /// <summary>
-        /// Whether the configuration property is a required value.
-        /// </summary>
         public readonly bool Required;
-        /// <summary>
-        /// Whether the configuration property is secret.
-        /// </summary>
         public readonly bool Secret;
-        /// <summary>
-        /// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

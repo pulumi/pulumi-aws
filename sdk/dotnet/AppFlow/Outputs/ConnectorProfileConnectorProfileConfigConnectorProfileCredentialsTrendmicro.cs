@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro
     {
-        /// <summary>
-        /// The Secret Access Key portion of the credentials.
-        /// </summary>
         public readonly string ApiSecretKey;
 
         [OutputConstructor]

@@ -9,74 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Provides an IoT role alias.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var role = new Aws.Iam.Role("role", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {""Service"": ""credentials.iot.amazonaws.com"",
-    ///       ""Action"": ""sts:AssumeRole""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var @alias = new Aws.Iot.RoleAlias("alias", new()
-    ///     {
-    ///         Alias = "Thermostat-dynamodb-access-role-alias",
-    ///         RoleArn = role.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IOT Role Alias can be imported via the alias, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/roleAlias:RoleAlias")]
     public partial class RoleAlias : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the role alias.
-        /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN assigned by AWS to this role alias.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        /// </summary>
         [Output("credentialDuration")]
         public Output<int?> CredentialDuration { get; private set; } = null!;
 
-        /// <summary>
-        /// The identity of the role to which the alias refers.
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -126,21 +70,12 @@ namespace Pulumi.Aws.Iot
 
     public sealed class RoleAliasArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the role alias.
-        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
-        /// <summary>
-        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        /// </summary>
         [Input("credentialDuration")]
         public Input<int>? CredentialDuration { get; set; }
 
-        /// <summary>
-        /// The identity of the role to which the alias refers.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -152,27 +87,15 @@ namespace Pulumi.Aws.Iot
 
     public sealed class RoleAliasState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the role alias.
-        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
-        /// <summary>
-        /// The ARN assigned by AWS to this role alias.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-        /// </summary>
         [Input("credentialDuration")]
         public Input<int>? CredentialDuration { get; set; }
 
-        /// <summary>
-        /// The identity of the role to which the alias refers.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

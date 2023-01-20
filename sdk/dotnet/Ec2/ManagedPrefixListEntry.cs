@@ -9,78 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a managed prefix list entry resource.
-    /// 
-    /// &gt; **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
-    /// currently provides both a standalone Managed Prefix List Entry resource (a single entry),
-    /// and a Managed Prefix List resource with entries defined
-    /// in-line. At this time you cannot use a Managed Prefix List with in-line rules in
-    /// conjunction with any Managed Prefix List Entry resources. Doing so will cause a conflict
-    /// of entries and will overwrite entries.
-    /// 
-    /// &gt; **NOTE on Managed Prefix Lists with many entries:**  To improved execution times on larger
-    /// updates, if you plan to create a prefix list with more than 100 entries, it is **recommended**
-    /// that you use the inline `entry` block as part of the Managed Prefix List resource
-    /// resource instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
-    ///     {
-    ///         AddressFamily = "IPv4",
-    ///         MaxEntries = 5,
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "live" },
-    ///         },
-    ///     });
-    /// 
-    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry1", new()
-    ///     {
-    ///         Cidr = aws_vpc.Example.Cidr_block,
-    ///         Description = "Primary",
-    ///         PrefixListId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")]
     public partial class ManagedPrefixListEntry : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
 
-        /// <summary>
-        /// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Output("prefixListId")]
         public Output<string> PrefixListId { get; private set; } = null!;
 
@@ -130,21 +67,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class ManagedPrefixListEntryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
-        /// <summary>
-        /// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Input("prefixListId", required: true)]
         public Input<string> PrefixListId { get; set; } = null!;
 
@@ -156,21 +84,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class ManagedPrefixListEntryState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 
-        /// <summary>
-        /// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
 

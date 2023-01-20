@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTablePartitionKeyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Free-form text comment.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Name of the target table.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Datatype of data in the Column.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

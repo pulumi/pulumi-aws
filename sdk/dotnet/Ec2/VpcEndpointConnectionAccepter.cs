@@ -9,78 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
-    /// 
-    /// ## Example Usage
-    /// ### Accept cross-account request
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
-    ///     {
-    ///         AcceptanceRequired = false,
-    ///         NetworkLoadBalancerArns = new[]
-    ///         {
-    ///             aws_lb.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
-    ///     {
-    ///         VpcId = aws_vpc.Test_alternate.Id,
-    ///         ServiceName = aws_vpc_endpoint_service.Test.Service_name,
-    ///         VpcEndpointType = "Interface",
-    ///         PrivateDnsEnabled = false,
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             aws_security_group.Test.Id,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "aws.alternate",
-    ///     });
-    /// 
-    ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()
-    ///     {
-    ///         VpcEndpointServiceId = exampleVpcEndpointService.Id,
-    ///         VpcEndpointId = exampleVpcEndpoint.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")]
     public partial class VpcEndpointConnectionAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// AWS VPC Endpoint ID.
-        /// </summary>
         [Output("vpcEndpointId")]
         public Output<string> VpcEndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS VPC Endpoint Service ID.
-        /// </summary>
         [Output("vpcEndpointServiceId")]
         public Output<string> VpcEndpointServiceId { get; private set; } = null!;
 
-        /// <summary>
-        /// State of the VPC Endpoint.
-        /// </summary>
         [Output("vpcEndpointState")]
         public Output<string> VpcEndpointState { get; private set; } = null!;
 
@@ -130,15 +67,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointConnectionAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS VPC Endpoint ID.
-        /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
 
-        /// <summary>
-        /// AWS VPC Endpoint Service ID.
-        /// </summary>
         [Input("vpcEndpointServiceId", required: true)]
         public Input<string> VpcEndpointServiceId { get; set; } = null!;
 
@@ -150,21 +81,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcEndpointConnectionAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// AWS VPC Endpoint ID.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
-        /// <summary>
-        /// AWS VPC Endpoint Service ID.
-        /// </summary>
         [Input("vpcEndpointServiceId")]
         public Input<string>? VpcEndpointServiceId { get; set; }
 
-        /// <summary>
-        /// State of the VPC Endpoint.
-        /// </summary>
         [Input("vpcEndpointState")]
         public Input<string>? VpcEndpointState { get; set; }
 

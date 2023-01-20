@@ -9,87 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iam
 {
-    /// <summary>
-    /// Attaches a Managed IAM Policy to an IAM role
-    /// 
-    /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-    /// 
-    /// &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var role = new Aws.Iam.Role("role", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""ec2.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var policy = new Aws.Iam.Policy("policy", new()
-    ///     {
-    ///         Description = "A test policy",
-    ///         PolicyDocument = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": [
-    ///         ""ec2:Describe*""
-    ///       ],
-    ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""*""
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var test_attach = new Aws.Iam.RolePolicyAttachment("test-attach", new()
-    ///     {
-    ///         Role = role.Name,
-    ///         PolicyArn = policy.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]
     public partial class RolePolicyAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the policy you want to apply
-        /// </summary>
         [Output("policyArn")]
         public Output<string> PolicyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the IAM role to which the policy should be applied
-        /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
@@ -139,15 +64,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class RolePolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the policy you want to apply
-        /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the IAM role to which the policy should be applied
-        /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 
@@ -159,15 +78,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class RolePolicyAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the policy you want to apply
-        /// </summary>
         [Input("policyArn")]
         public Input<string>? PolicyArn { get; set; }
 
-        /// <summary>
-        /// The name of the IAM role to which the policy should be applied
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 

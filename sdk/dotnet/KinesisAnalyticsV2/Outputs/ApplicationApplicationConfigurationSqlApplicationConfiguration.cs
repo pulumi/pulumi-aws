@@ -13,17 +13,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfiguration
     {
-        /// <summary>
-        /// The input stream used by the application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInput? Input;
-        /// <summary>
-        /// The destination streams used by the application.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutput> Outputs;
-        /// <summary>
-        /// The reference data source used by the application.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource? ReferenceDataSource;
 
         [OutputConstructor]

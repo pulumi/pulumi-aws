@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class ThingGroupProperties
     {
-        /// <summary>
-        /// The Thing Group attributes. Defined below.
-        /// </summary>
         public readonly Outputs.ThingGroupPropertiesAttributePayload? AttributePayload;
-        /// <summary>
-        /// A description of the Thing Group.
-        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

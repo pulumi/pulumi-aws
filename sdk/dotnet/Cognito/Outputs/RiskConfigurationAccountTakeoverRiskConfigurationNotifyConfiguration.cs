@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration
     {
-        /// <summary>
-        /// Email template used when a detected risk event is blocked. See notify email type below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail? BlockEmail;
-        /// <summary>
-        /// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        /// </summary>
         public readonly string? From;
-        /// <summary>
-        /// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail? MfaEmail;
-        /// <summary>
-        /// The email template used when a detected risk event is allowed. See notify email type below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail? NoActionEmail;
-        /// <summary>
-        /// The destination to which the receiver of an email should reply to.
-        /// </summary>
         public readonly string? ReplyTo;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-        /// </summary>
         public readonly string SourceArn;
 
         [OutputConstructor]

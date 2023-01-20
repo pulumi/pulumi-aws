@@ -11,67 +11,9 @@ namespace Pulumi.Aws.RedShift
 {
     public static class GetOrderableCluster
     {
-        /// <summary>
-        /// Information about Redshift Orderable Clusters and valid parameter combinations.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.RedShift.GetOrderableCluster.Invoke(new()
-        ///     {
-        ///         ClusterType = "multi-node",
-        ///         PreferredNodeTypes = new[]
-        ///         {
-        ///             "dc2.large",
-        ///             "ds2.xlarge",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetOrderableClusterResult> InvokeAsync(GetOrderableClusterArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableClusterResult>("aws:redshift/getOrderableCluster:getOrderableCluster", args ?? new GetOrderableClusterArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Information about Redshift Orderable Clusters and valid parameter combinations.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.RedShift.GetOrderableCluster.Invoke(new()
-        ///     {
-        ///         ClusterType = "multi-node",
-        ///         PreferredNodeTypes = new[]
-        ///         {
-        ///             "dc2.large",
-        ///             "ds2.xlarge",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetOrderableClusterResult> Invoke(GetOrderableClusterInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableClusterResult>("aws:redshift/getOrderableCluster:getOrderableCluster", args ?? new GetOrderableClusterInvokeArgs(), options.WithDefaults());
     }
@@ -79,30 +21,17 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetOrderableClusterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reshift Cluster typeE.g., `multi-node` or `single-node`
-        /// </summary>
         [Input("clusterType")]
         public string? ClusterType { get; set; }
 
-        /// <summary>
-        /// Redshift Cluster versionE.g., `1.0`
-        /// </summary>
         [Input("clusterVersion")]
         public string? ClusterVersion { get; set; }
 
-        /// <summary>
-        /// Redshift Cluster node typeE.g., `dc2.8xlarge`
-        /// </summary>
         [Input("nodeType")]
         public string? NodeType { get; set; }
 
         [Input("preferredNodeTypes")]
         private List<string>? _preferredNodeTypes;
-
-        /// <summary>
-        /// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-        /// </summary>
         public List<string> PreferredNodeTypes
         {
             get => _preferredNodeTypes ?? (_preferredNodeTypes = new List<string>());
@@ -117,30 +46,17 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class GetOrderableClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Reshift Cluster typeE.g., `multi-node` or `single-node`
-        /// </summary>
         [Input("clusterType")]
         public Input<string>? ClusterType { get; set; }
 
-        /// <summary>
-        /// Redshift Cluster versionE.g., `1.0`
-        /// </summary>
         [Input("clusterVersion")]
         public Input<string>? ClusterVersion { get; set; }
 
-        /// <summary>
-        /// Redshift Cluster node typeE.g., `dc2.8xlarge`
-        /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }
 
         [Input("preferredNodeTypes")]
         private InputList<string>? _preferredNodeTypes;
-
-        /// <summary>
-        /// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-        /// </summary>
         public InputList<string> PreferredNodeTypes
         {
             get => _preferredNodeTypes ?? (_preferredNodeTypes = new InputList<string>());
@@ -157,9 +73,6 @@ namespace Pulumi.Aws.RedShift
     [OutputType]
     public sealed class GetOrderableClusterResult
     {
-        /// <summary>
-        /// List of Availability Zone names where the Redshit Cluster is available.
-        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string ClusterType;
         public readonly string ClusterVersion;

@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Route53.Outputs
     [OutputType]
     public sealed class RecordGeolocationRoutingPolicy
     {
-        /// <summary>
-        /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
-        /// </summary>
         public readonly string? Continent;
-        /// <summary>
-        /// A two-character country code or `*` to indicate a default resource record set.
-        /// </summary>
         public readonly string? Country;
-        /// <summary>
-        /// A subdivision code for a country.
-        /// </summary>
         public readonly string? Subdivision;
 
         [OutputConstructor]

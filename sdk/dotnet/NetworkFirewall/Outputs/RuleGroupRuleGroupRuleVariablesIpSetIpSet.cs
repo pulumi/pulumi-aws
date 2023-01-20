@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRuleVariablesIpSetIpSet
     {
-        /// <summary>
-        /// Set of IP addresses and address ranges, in CIDR notation.
-        /// </summary>
         public readonly ImmutableArray<string> Definitions;
 
         [OutputConstructor]

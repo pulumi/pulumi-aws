@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class OntapStorageVirtualMachineEndpointSmb
     {
-        /// <summary>
-        /// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
-        /// </summary>
         public readonly string? DnsName;
-        /// <summary>
-        /// IP addresses of the storage virtual machine endpoint.
-        /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
 
         [OutputConstructor]

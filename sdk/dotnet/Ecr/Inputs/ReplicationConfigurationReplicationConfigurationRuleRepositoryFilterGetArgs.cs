@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecr.Inputs
 
     public sealed class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The repository filter details.
-        /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
 
-        /// <summary>
-        /// The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-        /// </summary>
         [Input("filterType", required: true)]
         public Input<string> FilterType { get; set; } = null!;
 

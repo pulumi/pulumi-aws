@@ -9,131 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall
 {
-    /// <summary>
-    /// Provides an AWS Network Firewall Firewall Resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkFirewall.Firewall("example", new()
-    ///     {
-    ///         FirewallPolicyArn = aws_networkfirewall_firewall_policy.Example.Arn,
-    ///         VpcId = aws_vpc.Example.Id,
-    ///         SubnetMappings = new[]
-    ///         {
-    ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Example.Id,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Tag1", "Value1" },
-    ///             { "Tag2", "Value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Network Firewall Firewalls can be imported using their `ARN`.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkfirewall/firewall:Firewall")]
     public partial class Firewall : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-        /// </summary>
         [Output("deleteProtection")]
         public Output<bool?> DeleteProtection { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly description of the firewall.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// KMS encryption configuration settings. See Encryption Configuration below for details.
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.FirewallEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        /// </summary>
         [Output("firewallPolicyArn")]
         public Output<string> FirewallPolicyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-        /// </summary>
         [Output("firewallPolicyChangeProtection")]
         public Output<bool?> FirewallPolicyChangeProtection { get; private set; } = null!;
 
-        /// <summary>
-        /// Nested list of information about the current status of the firewall.
-        /// </summary>
         [Output("firewallStatuses")]
         public Output<ImmutableArray<Outputs.FirewallFirewallStatus>> FirewallStatuses { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly name of the firewall.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-        /// </summary>
         [Output("subnetChangeProtection")]
         public Output<bool?> SubnetChangeProtection { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        /// </summary>
         [Output("subnetMappings")]
         public Output<ImmutableArray<Outputs.FirewallSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// A string token used when updating a firewall.
-        /// </summary>
         [Output("updateToken")]
         public Output<string> UpdateToken { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -183,54 +100,29 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-        /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
-        /// <summary>
-        /// A friendly description of the firewall.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// KMS encryption configuration settings. See Encryption Configuration below for details.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.FirewallEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        /// </summary>
         [Input("firewallPolicyArn", required: true)]
         public Input<string> FirewallPolicyArn { get; set; } = null!;
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-        /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
 
-        /// <summary>
-        /// A friendly name of the firewall.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-        /// </summary>
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
 
         [Input("subnetMappings", required: true)]
         private InputList<Inputs.FirewallSubnetMappingArgs>? _subnetMappings;
-
-        /// <summary>
-        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        /// </summary>
         public InputList<Inputs.FirewallSubnetMappingArgs> SubnetMappings
         {
             get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.FirewallSubnetMappingArgs>());
@@ -239,19 +131,12 @@ namespace Pulumi.Aws.NetworkFirewall
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -263,72 +148,40 @@ namespace Pulumi.Aws.NetworkFirewall
 
     public sealed class FirewallState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-        /// </summary>
         [Input("deleteProtection")]
         public Input<bool>? DeleteProtection { get; set; }
 
-        /// <summary>
-        /// A friendly description of the firewall.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// KMS encryption configuration settings. See Encryption Configuration below for details.
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.FirewallEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC Firewall policy.
-        /// </summary>
         [Input("firewallPolicyArn")]
         public Input<string>? FirewallPolicyArn { get; set; }
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-        /// </summary>
         [Input("firewallPolicyChangeProtection")]
         public Input<bool>? FirewallPolicyChangeProtection { get; set; }
 
         [Input("firewallStatuses")]
         private InputList<Inputs.FirewallFirewallStatusGetArgs>? _firewallStatuses;
-
-        /// <summary>
-        /// Nested list of information about the current status of the firewall.
-        /// </summary>
         public InputList<Inputs.FirewallFirewallStatusGetArgs> FirewallStatuses
         {
             get => _firewallStatuses ?? (_firewallStatuses = new InputList<Inputs.FirewallFirewallStatusGetArgs>());
             set => _firewallStatuses = value;
         }
 
-        /// <summary>
-        /// A friendly name of the firewall.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-        /// </summary>
         [Input("subnetChangeProtection")]
         public Input<bool>? SubnetChangeProtection { get; set; }
 
         [Input("subnetMappings")]
         private InputList<Inputs.FirewallSubnetMappingGetArgs>? _subnetMappings;
-
-        /// <summary>
-        /// Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-        /// </summary>
         public InputList<Inputs.FirewallSubnetMappingGetArgs> SubnetMappings
         {
             get => _subnetMappings ?? (_subnetMappings = new InputList<Inputs.FirewallSubnetMappingGetArgs>());
@@ -337,10 +190,6 @@ namespace Pulumi.Aws.NetworkFirewall
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -349,25 +198,15 @@ namespace Pulumi.Aws.NetworkFirewall
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// A string token used when updating a firewall.
-        /// </summary>
         [Input("updateToken")]
         public Input<string>? UpdateToken { get; set; }
 
-        /// <summary>
-        /// The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

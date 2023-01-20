@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack
     {
-        /// <summary>
-        /// The credentials used to access protected Zendesk resources.
-        /// </summary>
         public readonly string? AccessToken;
-        /// <summary>
-        /// The identifier for the desired client.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// The client secret used by the OAuth client to authenticate to the authorization server.
-        /// </summary>
         public readonly string ClientSecret;
-        /// <summary>
-        /// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest? OauthRequest;
 
         [OutputConstructor]

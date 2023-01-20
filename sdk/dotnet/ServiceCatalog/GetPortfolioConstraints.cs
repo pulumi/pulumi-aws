@@ -11,59 +11,9 @@ namespace Pulumi.Aws.ServiceCatalog
 {
     public static class GetPortfolioConstraints
     {
-        /// <summary>
-        /// Provides information on Service Catalog Portfolio Constraints.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetPortfolioConstraints.Invoke(new()
-        ///     {
-        ///         PortfolioId = "port-3lli3b3an",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetPortfolioConstraintsResult> InvokeAsync(GetPortfolioConstraintsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information on Service Catalog Portfolio Constraints.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.ServiceCatalog.GetPortfolioConstraints.Invoke(new()
-        ///     {
-        ///         PortfolioId = "port-3lli3b3an",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetPortfolioConstraintsResult> Invoke(GetPortfolioConstraintsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsInvokeArgs(), options.WithDefaults());
     }
@@ -71,21 +21,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetPortfolioConstraintsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public string? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId", required: true)]
         public string PortfolioId { get; set; } = null!;
 
-        /// <summary>
-        /// Product identifier.
-        /// </summary>
         [Input("productId")]
         public string? ProductId { get; set; }
 
@@ -97,21 +38,12 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class GetPortfolioConstraintsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId", required: true)]
         public Input<string> PortfolioId { get; set; } = null!;
 
-        /// <summary>
-        /// Product identifier.
-        /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
@@ -126,21 +58,12 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetPortfolioConstraintsResult
     {
         public readonly string? AcceptLanguage;
-        /// <summary>
-        /// List of information about the constraints. See details below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPortfolioConstraintsDetailResult> Details;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-        /// </summary>
         public readonly string PortfolioId;
-        /// <summary>
-        /// Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
-        /// </summary>
         public readonly string? ProductId;
 
         [OutputConstructor]

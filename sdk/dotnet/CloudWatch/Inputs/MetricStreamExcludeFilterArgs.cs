@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class MetricStreamExcludeFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The namespace of the metric.
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

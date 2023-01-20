@@ -9,48 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticLoadBalancing
 {
-    /// <summary>
-    /// Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `aws.lb.TargetGroupAttachment` resource.
-    /// 
-    /// &gt; **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
-    /// both a standalone ELB Attachment resource (describing an instance attached to
-    /// an ELB), and an Elastic Load Balancer resource with
-    /// `instances` defined in-line. At this time you cannot use an ELB with in-line
-    /// instances in conjunction with an ELB Attachment resource. Doing so will cause a
-    /// conflict and will overwrite attachments.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new load balancer attachment
-    ///     var baz = new Aws.Elb.Attachment("baz", new()
-    ///     {
-    ///         Elb = aws_elb.Bar.Id,
-    ///         Instance = aws_instance.Foo.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")]
     [AwsResourceType("aws:elasticloadbalancing/attachment:Attachment")]
     public partial class Attachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the ELB.
-        /// </summary>
         [Output("elb")]
         public Output<string> Elb { get; private set; } = null!;
 
-        /// <summary>
-        /// Instance ID to place in the ELB pool.
-        /// </summary>
         [Output("instance")]
         public Output<string> Instance { get; private set; } = null!;
 
@@ -100,15 +65,9 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 
     public sealed class AttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the ELB.
-        /// </summary>
         [Input("elb", required: true)]
         public Input<string> Elb { get; set; } = null!;
 
-        /// <summary>
-        /// Instance ID to place in the ELB pool.
-        /// </summary>
         [Input("instance", required: true)]
         public Input<string> Instance { get; set; } = null!;
 
@@ -120,15 +79,9 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 
     public sealed class AttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the ELB.
-        /// </summary>
         [Input("elb")]
         public Input<string>? Elb { get; set; }
 
-        /// <summary>
-        /// Instance ID to place in the ELB pool.
-        /// </summary>
         [Input("instance")]
         public Input<string>? Instance { get; set; }
 

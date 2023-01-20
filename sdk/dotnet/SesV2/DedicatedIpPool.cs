@@ -9,76 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SesV2
 {
-    /// <summary>
-    /// Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.DedicatedIpPool("example", new()
-    ///     {
-    ///         PoolName = "my-pool",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Managed Pool
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.DedicatedIpPool("example", new()
-    ///     {
-    ///         PoolName = "my-managed-pool",
-    ///         ScalingMode = "MANAGED",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// SESv2 (Simple Email V2) Dedicated IP Pool can be imported using the `pool_name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sesv2/dedicatedIpPool:DedicatedIpPool")]
     public partial class DedicatedIpPool : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the Dedicated IP Pool.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the dedicated IP pool.
-        /// </summary>
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
 
-        /// <summary>
-        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-        /// </summary>
         [Output("scalingMode")]
         public Output<string> ScalingMode { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -131,24 +73,14 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class DedicatedIpPoolArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the dedicated IP pool.
-        /// </summary>
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
 
-        /// <summary>
-        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-        /// </summary>
         [Input("scalingMode")]
         public Input<string>? ScalingMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -163,30 +95,17 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class DedicatedIpPoolState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Dedicated IP Pool.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the dedicated IP pool.
-        /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
 
-        /// <summary>
-        /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
-        /// </summary>
         [Input("scalingMode")]
         public Input<string>? ScalingMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

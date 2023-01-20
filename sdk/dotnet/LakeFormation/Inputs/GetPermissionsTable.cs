@@ -12,27 +12,15 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class GetPermissionsTableArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         [Input("catalogId", required: true)]
         public string CatalogId { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the database for the table with columns resource. Unique to the Data Catalog.
-        /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the table resource.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        /// </summary>
         [Input("wildcard")]
         public bool? Wildcard { get; set; }
 

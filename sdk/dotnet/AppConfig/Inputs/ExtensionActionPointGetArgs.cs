@@ -14,19 +14,12 @@ namespace Pulumi.Aws.AppConfig.Inputs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.ExtensionActionPointActionGetArgs>? _actions;
-
-        /// <summary>
-        /// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-        /// </summary>
         public InputList<Inputs.ExtensionActionPointActionGetArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.ExtensionActionPointActionGetArgs>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-        /// </summary>
         [Input("point", required: true)]
         public Input<string> Point { get; set; } = null!;
 

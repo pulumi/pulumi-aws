@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateTagSpecification
     {
-        /// <summary>
-        /// The type of resource to tag.
-        /// </summary>
         public readonly string? ResourceType;
-        /// <summary>
-        /// A map of tags to assign to the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

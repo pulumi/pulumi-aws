@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
 
     public sealed class EndpointClientConnectOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether connection logging is enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-        /// </summary>
         [Input("lambdaFunctionArn")]
         public Input<string>? LambdaFunctionArn { get; set; }
 

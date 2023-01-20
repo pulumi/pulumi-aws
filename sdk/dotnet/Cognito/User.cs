@@ -9,176 +9,57 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Provides a Cognito User Resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
-    /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
-    ///     {
-    ///         UserPoolId = exampleUserPool.Id,
-    ///         Username = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Setting user attributes
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
-    ///     {
-    ///         Schemas = new[]
-    ///         {
-    ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
-    ///             {
-    ///                 Name = "example",
-    ///                 AttributeDataType = "Boolean",
-    ///                 Mutable = false,
-    ///                 Required = false,
-    ///                 DeveloperOnlyAttribute = false,
-    ///             },
-    ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
-    ///             {
-    ///                 Name = "foo",
-    ///                 AttributeDataType = "String",
-    ///                 Mutable = false,
-    ///                 Required = false,
-    ///                 DeveloperOnlyAttribute = false,
-    ///                 StringAttributeConstraints = null,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
-    ///     {
-    ///         UserPoolId = exampleUserPool.Id,
-    ///         Username = "example",
-    ///         Attributes = 
-    ///         {
-    ///             { "example", "true" },
-    ///             { "foo", "bar" },
-    ///             { "email", "no-reply@domain.example" },
-    ///             { "email_verified", "true" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Cognito User can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/user:User")]
     public partial class User : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A map that contains user attributes and attribute values to be set for the user.
-        /// </summary>
         [Output("attributes")]
         public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
-        /// </summary>
         [Output("clientMetadata")]
         public Output<ImmutableDictionary<string, string>?> ClientMetadata { get; private set; } = null!;
 
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
-        /// </summary>
         [Output("desiredDeliveryMediums")]
         public Output<ImmutableArray<string>> DesiredDeliveryMediums { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
-        /// </summary>
         [Output("forceAliasCreation")]
         public Output<bool?> ForceAliasCreation { get; private set; } = null!;
 
         [Output("lastModifiedDate")]
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
-        /// </summary>
         [Output("messageAction")]
         public Output<string?> MessageAction { get; private set; } = null!;
 
         [Output("mfaSettingLists")]
         public Output<ImmutableArray<string>> MfaSettingLists { get; private set; } = null!;
 
-        /// <summary>
-        /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
-        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
         [Output("preferredMfaSetting")]
         public Output<string> PreferredMfaSetting { get; private set; } = null!;
 
-        /// <summary>
-        /// current user status.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// unique user id that is never reassignable to another user.
-        /// </summary>
         [Output("sub")]
         public Output<string> Sub { get; private set; } = null!;
 
-        /// <summary>
-        /// The user's temporary password. Conflicts with `password`.
-        /// </summary>
         [Output("temporaryPassword")]
         public Output<string?> TemporaryPassword { get; private set; } = null!;
 
-        /// <summary>
-        /// The user pool ID for the user pool where the user will be created.
-        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
-        /// <summary>
-        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
-        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
-        /// <summary>
-        /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
-        /// </summary>
         [Output("validationData")]
         public Output<ImmutableDictionary<string, string>?> ValidationData { get; private set; } = null!;
 
@@ -235,10 +116,6 @@ namespace Pulumi.Aws.Cognito
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
-
-        /// <summary>
-        /// A map that contains user attributes and attribute values to be set for the user.
-        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
@@ -247,10 +124,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("clientMetadata")]
         private InputMap<string>? _clientMetadata;
-
-        /// <summary>
-        /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
-        /// </summary>
         public InputMap<string> ClientMetadata
         {
             get => _clientMetadata ?? (_clientMetadata = new InputMap<string>());
@@ -259,40 +132,23 @@ namespace Pulumi.Aws.Cognito
 
         [Input("desiredDeliveryMediums")]
         private InputList<string>? _desiredDeliveryMediums;
-
-        /// <summary>
-        /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
-        /// </summary>
         public InputList<string> DesiredDeliveryMediums
         {
             get => _desiredDeliveryMediums ?? (_desiredDeliveryMediums = new InputList<string>());
             set => _desiredDeliveryMediums = value;
         }
 
-        /// <summary>
-        /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
-        /// </summary>
         [Input("forceAliasCreation")]
         public Input<bool>? ForceAliasCreation { get; set; }
 
-        /// <summary>
-        /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
-        /// </summary>
         [Input("messageAction")]
         public Input<string>? MessageAction { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -305,10 +161,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("temporaryPassword")]
         private Input<string>? _temporaryPassword;
-
-        /// <summary>
-        /// The user's temporary password. Conflicts with `password`.
-        /// </summary>
         public Input<string>? TemporaryPassword
         {
             get => _temporaryPassword;
@@ -319,24 +171,14 @@ namespace Pulumi.Aws.Cognito
             }
         }
 
-        /// <summary>
-        /// The user pool ID for the user pool where the user will be created.
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
-        /// <summary>
-        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 
         [Input("validationData")]
         private InputMap<string>? _validationData;
-
-        /// <summary>
-        /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
-        /// </summary>
         public InputMap<string> ValidationData
         {
             get => _validationData ?? (_validationData = new InputMap<string>());
@@ -353,10 +195,6 @@ namespace Pulumi.Aws.Cognito
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
-
-        /// <summary>
-        /// A map that contains user attributes and attribute values to be set for the user.
-        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
@@ -365,10 +203,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("clientMetadata")]
         private InputMap<string>? _clientMetadata;
-
-        /// <summary>
-        /// A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
-        /// </summary>
         public InputMap<string> ClientMetadata
         {
             get => _clientMetadata ?? (_clientMetadata = new InputMap<string>());
@@ -380,34 +214,21 @@ namespace Pulumi.Aws.Cognito
 
         [Input("desiredDeliveryMediums")]
         private InputList<string>? _desiredDeliveryMediums;
-
-        /// <summary>
-        /// A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it's provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `["SMS"]`.
-        /// </summary>
         public InputList<string> DesiredDeliveryMediums
         {
             get => _desiredDeliveryMediums ?? (_desiredDeliveryMediums = new InputList<string>());
             set => _desiredDeliveryMediums = value;
         }
 
-        /// <summary>
-        /// Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
-        /// </summary>
         [Input("forceAliasCreation")]
         public Input<bool>? ForceAliasCreation { get; set; }
 
         [Input("lastModifiedDate")]
         public Input<string>? LastModifiedDate { get; set; }
 
-        /// <summary>
-        /// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
-        /// </summary>
         [Input("messageAction")]
         public Input<string>? MessageAction { get; set; }
 
@@ -421,10 +242,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("password")]
         private Input<string>? _password;
-
-        /// <summary>
-        /// The user's permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -438,24 +255,14 @@ namespace Pulumi.Aws.Cognito
         [Input("preferredMfaSetting")]
         public Input<string>? PreferredMfaSetting { get; set; }
 
-        /// <summary>
-        /// current user status.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// unique user id that is never reassignable to another user.
-        /// </summary>
         [Input("sub")]
         public Input<string>? Sub { get; set; }
 
         [Input("temporaryPassword")]
         private Input<string>? _temporaryPassword;
-
-        /// <summary>
-        /// The user's temporary password. Conflicts with `password`.
-        /// </summary>
         public Input<string>? TemporaryPassword
         {
             get => _temporaryPassword;
@@ -466,24 +273,14 @@ namespace Pulumi.Aws.Cognito
             }
         }
 
-        /// <summary>
-        /// The user pool ID for the user pool where the user will be created.
-        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 
-        /// <summary>
-        /// The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 
         [Input("validationData")]
         private InputMap<string>? _validationData;
-
-        /// <summary>
-        /// The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
-        /// </summary>
         public InputMap<string> ValidationData
         {
             get => _validationData ?? (_validationData = new InputMap<string>());

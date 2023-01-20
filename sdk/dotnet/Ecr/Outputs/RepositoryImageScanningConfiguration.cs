@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ecr.Outputs
     [OutputType]
     public sealed class RepositoryImageScanningConfiguration
     {
-        /// <summary>
-        /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        /// </summary>
         public readonly bool ScanOnPush;
 
         [OutputConstructor]

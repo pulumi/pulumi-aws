@@ -15,15 +15,9 @@ namespace Pulumi.Aws.Ssm.Inputs
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// The description of the document.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the document.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

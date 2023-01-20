@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class IndexUserGroupResolutionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
-        /// </summary>
         [Input("userGroupResolutionMode", required: true)]
         public Input<string> UserGroupResolutionMode { get; set; } = null!;
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class RecordWeightedRoutingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
-        /// </summary>
         [Input("weight", required: true)]
         public Input<int> Weight { get; set; } = null!;
 

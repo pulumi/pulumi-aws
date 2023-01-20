@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Neptune.Outputs
     [OutputType]
     public sealed class ClusterParameterGroupParameter
     {
-        /// <summary>
-        /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        /// </summary>
         public readonly string? ApplyMethod;
-        /// <summary>
-        /// The name of the neptune parameter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value of the neptune parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectEnvironmentEnvironmentVariableGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// Environment variable's value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

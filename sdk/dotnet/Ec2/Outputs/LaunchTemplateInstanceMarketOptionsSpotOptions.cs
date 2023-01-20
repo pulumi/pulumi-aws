@@ -13,26 +13,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateInstanceMarketOptionsSpotOptions
     {
-        /// <summary>
-        /// The required duration in minutes. This value must be a multiple of 60.
-        /// </summary>
         public readonly int? BlockDurationMinutes;
-        /// <summary>
-        /// The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-        /// `stop`, or `terminate`. (Default: `terminate`).
-        /// </summary>
         public readonly string? InstanceInterruptionBehavior;
-        /// <summary>
-        /// The maximum hourly price you're willing to pay for the Spot Instances.
-        /// </summary>
         public readonly string? MaxPrice;
-        /// <summary>
-        /// The Spot Instance request type. Can be `one-time`, or `persistent`.
-        /// </summary>
         public readonly string? SpotInstanceType;
-        /// <summary>
-        /// The end date of the request.
-        /// </summary>
         public readonly string? ValidUntil;
 
         [OutputConstructor]

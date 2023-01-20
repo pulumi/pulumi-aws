@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ses.Inputs
 
     public sealed class EventDestinationKinesisDestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the role that has permissions to access the Kinesis Stream
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the Kinesis Stream
-        /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 

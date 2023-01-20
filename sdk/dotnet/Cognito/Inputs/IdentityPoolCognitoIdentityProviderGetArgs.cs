@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class IdentityPoolCognitoIdentityProviderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The client ID for the Amazon Cognito Identity User Pool.
-        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        /// <summary>
-        /// The provider name for an Amazon Cognito Identity User Pool.
-        /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
-        /// <summary>
-        /// Whether server-side token validation is enabled for the identity provider’s token or not.
-        /// </summary>
         [Input("serverSideTokenCheck")]
         public Input<bool>? ServerSideTokenCheck { get; set; }
 

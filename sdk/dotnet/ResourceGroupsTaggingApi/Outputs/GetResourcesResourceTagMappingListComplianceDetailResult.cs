@@ -13,11 +13,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Outputs
     [OutputType]
     public sealed class GetResourcesResourceTagMappingListComplianceDetailResult
     {
-        /// <summary>
-        /// Whether the resource is compliant.
-        /// * `keys_with_noncompliant_values ` - Set of tag keys with non-compliant tag values.
-        /// * `non_compliant_keys ` - Set of non-compliant tag keys.
-        /// </summary>
         public readonly bool ComplianceStatus;
         public readonly ImmutableArray<string> KeysWithNoncompliantValues;
         public readonly ImmutableArray<string> NonCompliantKeys;

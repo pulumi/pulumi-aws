@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetUser
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM user. By using this data source, you can reference IAM user
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetUser.Invoke(new()
-        ///     {
-        ///         UserName = "an_example_user_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:iam/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM user. By using this data source, you can reference IAM user
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetUser.Invoke(new()
-        ///     {
-        ///         UserName = "an_example_user_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:iam/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -75,19 +23,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of key-value pairs associated with the user.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Friendly IAM user name to match.
-        /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
 
@@ -101,19 +42,12 @@ namespace Pulumi.Aws.Iam
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of key-value pairs associated with the user.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Friendly IAM user name to match.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -127,33 +61,15 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// ARN assigned by AWS for this user.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Path in which this user was created.
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// The ARN of the policy that is used to set the permissions boundary for the user.
-        /// </summary>
         public readonly string PermissionsBoundary;
-        /// <summary>
-        /// Map of key-value pairs associated with the user.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Unique ID assigned by AWS for this user.
-        /// </summary>
         public readonly string UserId;
-        /// <summary>
-        /// Name associated to this User
-        /// </summary>
         public readonly string UserName;
 
         [OutputConstructor]

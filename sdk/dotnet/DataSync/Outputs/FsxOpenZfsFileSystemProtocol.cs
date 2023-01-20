@@ -13,9 +13,6 @@ namespace Pulumi.Aws.DataSync.Outputs
     [OutputType]
     public sealed class FsxOpenZfsFileSystemProtocol
     {
-        /// <summary>
-        /// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
-        /// </summary>
         public readonly Outputs.FsxOpenZfsFileSystemProtocolNfs Nfs;
 
         [OutputConstructor]

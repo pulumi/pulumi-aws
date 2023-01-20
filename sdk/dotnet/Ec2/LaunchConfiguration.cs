@@ -9,364 +9,69 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource to create a new launch configuration, used for autoscaling groups.
-    /// 
-    /// &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-    ///                 },
-    ///             },
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "virtualization-type",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "hvm",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Owners = new[]
-    ///         {
-    ///             "099720109477",
-    ///         },
-    ///     });
-    /// 
-    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
-    ///     {
-    ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## Using with AutoScaling Groups
-    /// 
-    /// Launch Configurations cannot be updated after creation with the Amazon
-    /// Web Service API. In order to update a Launch Configuration, this provider will
-    /// destroy the existing resource and create a replacement. In order to effectively
-    /// use a Launch Configuration resource with an AutoScaling Group resource,
-    /// it's recommended to specify `create_before_destroy` in a lifecycle block.
-    /// Either omit the Launch Configuration `name` attribute, or specify a partial name
-    /// with `name_prefix`.  Example:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-    ///                 },
-    ///             },
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "virtualization-type",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "hvm",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Owners = new[]
-    ///         {
-    ///             "099720109477",
-    ///         },
-    ///     });
-    /// 
-    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
-    ///     {
-    ///         NamePrefix = "lc-example-",
-    ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
-    ///     });
-    /// 
-    ///     var bar = new Aws.AutoScaling.Group("bar", new()
-    ///     {
-    ///         LaunchConfiguration = asConf.Name,
-    ///         MinSize = 1,
-    ///         MaxSize = 2,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// With this setup this provider generates a unique name for your Launch
-    /// Configuration and can then update the AutoScaling Group without conflict before
-    /// destroying the previous Launch Configuration.
-    /// 
-    /// ## Using with Spot Instances
-    /// 
-    /// Launch configurations can set the spot instance pricing to be used for the
-    /// Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
-    /// parameter will set the price on the Launch Configuration which will attempt to
-    /// reserve your instances at this price.  See the [AWS Spot Instance
-    /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-    /// for more information or how to launch [Spot Instances][3] with this provider.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-    ///                 },
-    ///             },
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "virtualization-type",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "hvm",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Owners = new[]
-    ///         {
-    ///             "099720109477",
-    ///         },
-    ///     });
-    /// 
-    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
-    ///     {
-    ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "m4.large",
-    ///         SpotPrice = "0.001",
-    ///     });
-    /// 
-    ///     var bar = new Aws.AutoScaling.Group("bar", new()
-    ///     {
-    ///         LaunchConfiguration = asConf.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Block devices
-    /// 
-    /// Each of the `*_block_device` attributes controls a portion of the AWS
-    /// Launch Configuration's "Block Device Mapping". It's a good idea to familiarize yourself with [AWS's Block Device
-    /// Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
-    /// to understand the implications of using these attributes.
-    /// 
-    /// Each AWS Instance type has a different set of Instance Store block devices
-    /// available for attachment. AWS [publishes a
-    /// list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
-    /// of which ephemeral devices are available on each type. The devices are always
-    /// identified by the `virtual_name` in the format `ephemeral{0..N}`.
-    /// 
-    /// &gt; **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
-    /// cannot currently be detected by this provider. After updating to block device
-    /// configuration, resource recreation can be manually triggered by using the
-    /// [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
-    /// 
-    /// ### ebs_block_device
-    /// 
-    /// Modifying any of the `ebs_block_device` settings requires resource replacement.
-    /// 
-    /// * `device_name` - (Required) The name of the device to mount.
-    /// * `snapshot_id` - (Optional) The Snapshot ID to mount.
-    /// * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
-    /// * `volume_size` - (Optional) The size of the volume in gigabytes.
-    /// * `iops` - (Optional) The amount of provisioned
-    ///   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
-    ///   This must be set with a `volume_type` of `"io1"`.
-    /// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-    /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed
-    ///   on instance termination (Default: `true`).
-    /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
-    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-    /// 
-    /// ### ephemeral_block_device
-    /// 
-    /// * `device_name` - (Required) The name of the block device to mount on the instance.
-    /// * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
-    /// * `virtual_name` - (Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
-    /// 
-    /// ### root_block_device
-    /// 
-    /// &gt; Modifying any of the `root_block_device` settings requires resource replacement.
-    /// 
-    /// * `delete_on_termination` - (Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.
-    /// * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
-    /// * `iops` - (Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
-    /// * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
-    /// * `volume_size` - (Optional) The size of the volume in gigabytes.
-    /// * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
-    /// 
-    /// ## Import
-    /// 
-    /// Launch configurations can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]
     public partial class LaunchConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name of the launch configuration.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Associate a public ip address with an instance in a VPC.
-        /// </summary>
         [Output("associatePublicIpAddress")]
         public Output<bool?> AssociatePublicIpAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
-        /// </summary>
         [Output("ebsBlockDevices")]
         public Output<ImmutableArray<Outputs.LaunchConfigurationEbsBlockDevice>> EbsBlockDevices { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, the launched EC2 instance will be EBS-optimized.
-        /// </summary>
         [Output("ebsOptimized")]
         public Output<bool> EbsOptimized { get; private set; } = null!;
 
-        /// <summary>
-        /// Enables/disables detailed monitoring. This is enabled by default.
-        /// </summary>
         [Output("enableMonitoring")]
         public Output<bool?> EnableMonitoring { get; private set; } = null!;
 
-        /// <summary>
-        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
-        /// </summary>
         [Output("ephemeralBlockDevices")]
         public Output<ImmutableArray<Outputs.LaunchConfigurationEphemeralBlockDevice>> EphemeralBlockDevices { get; private set; } = null!;
 
-        /// <summary>
-        /// The name attribute of the IAM instance profile to associate with launched instances.
-        /// </summary>
         [Output("iamInstanceProfile")]
         public Output<string?> IamInstanceProfile { get; private set; } = null!;
 
-        /// <summary>
-        /// The EC2 image ID to launch.
-        /// </summary>
         [Output("imageId")]
         public Output<string> ImageId { get; private set; } = null!;
 
-        /// <summary>
-        /// The size of instance to launch.
-        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
-        /// <summary>
-        /// The key name that should be used for the instance.
-        /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
 
-        /// <summary>
-        /// The metadata options for the instance.
-        /// </summary>
         [Output("metadataOptions")]
         public Output<Outputs.LaunchConfigurationMetadataOptions> MetadataOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
-        /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-        /// </summary>
         [Output("placementTenancy")]
         public Output<string?> PlacementTenancy { get; private set; } = null!;
 
-        /// <summary>
-        /// Customize details about the root block device of the instance. See Block Devices below for details.
-        /// </summary>
         [Output("rootBlockDevice")]
         public Output<Outputs.LaunchConfigurationRootBlockDevice> RootBlockDevice { get; private set; } = null!;
 
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum price to use for reserving spot instances.
-        /// </summary>
         [Output("spotPrice")]
         public Output<string?> SpotPrice { get; private set; } = null!;
 
-        /// <summary>
-        /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
-        /// </summary>
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
 
-        /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        /// </summary>
         [Output("userDataBase64")]
         public Output<string?> UserDataBase64 { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
         [Output("vpcClassicLinkId")]
         public Output<string?> VpcClassicLinkId { get; private set; } = null!;
 
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
         [Output("vpcClassicLinkSecurityGroups")]
         public Output<ImmutableArray<string>> VpcClassicLinkSecurityGroups { get; private set; } = null!;
 
@@ -416,99 +121,55 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Associate a public ip address with an instance in a VPC.
-        /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
         [Input("ebsBlockDevices")]
         private InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs>? _ebsBlockDevices;
-
-        /// <summary>
-        /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
-        /// </summary>
         public InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs> EbsBlockDevices
         {
             get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.LaunchConfigurationEbsBlockDeviceArgs>());
             set => _ebsBlockDevices = value;
         }
 
-        /// <summary>
-        /// If true, the launched EC2 instance will be EBS-optimized.
-        /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
-        /// <summary>
-        /// Enables/disables detailed monitoring. This is enabled by default.
-        /// </summary>
         [Input("enableMonitoring")]
         public Input<bool>? EnableMonitoring { get; set; }
 
         [Input("ephemeralBlockDevices")]
         private InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>? _ephemeralBlockDevices;
-
-        /// <summary>
-        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
-        /// </summary>
         public InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs> EphemeralBlockDevices
         {
             get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
-        /// <summary>
-        /// The name attribute of the IAM instance profile to associate with launched instances.
-        /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
 
-        /// <summary>
-        /// The EC2 image ID to launch.
-        /// </summary>
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
 
-        /// <summary>
-        /// The size of instance to launch.
-        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 
-        /// <summary>
-        /// The key name that should be used for the instance.
-        /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
-        /// <summary>
-        /// The metadata options for the instance.
-        /// </summary>
         [Input("metadataOptions")]
         public Input<Inputs.LaunchConfigurationMetadataOptionsArgs>? MetadataOptions { get; set; }
 
-        /// <summary>
-        /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-        /// </summary>
         [Input("placementTenancy")]
         public Input<string>? PlacementTenancy { get; set; }
 
-        /// <summary>
-        /// Customize details about the root block device of the instance. See Block Devices below for details.
-        /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.LaunchConfigurationRootBlockDeviceArgs>? RootBlockDevice { get; set; }
 
@@ -520,36 +181,20 @@ namespace Pulumi.Aws.Ec2
             set => _securityGroups = value;
         }
 
-        /// <summary>
-        /// The maximum price to use for reserving spot instances.
-        /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 
-        /// <summary>
-        /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
-        /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
-        /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
 
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
         [Input("vpcClassicLinkId")]
         public Input<string>? VpcClassicLinkId { get; set; }
 
         [Input("vpcClassicLinkSecurityGroups")]
         private InputList<string>? _vpcClassicLinkSecurityGroups;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
         [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> VpcClassicLinkSecurityGroups
         {
@@ -565,105 +210,58 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LaunchConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name of the launch configuration.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Associate a public ip address with an instance in a VPC.
-        /// </summary>
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
         [Input("ebsBlockDevices")]
         private InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs>? _ebsBlockDevices;
-
-        /// <summary>
-        /// Additional EBS block devices to attach to the instance. See Block Devices below for details.
-        /// </summary>
         public InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs> EbsBlockDevices
         {
             get => _ebsBlockDevices ?? (_ebsBlockDevices = new InputList<Inputs.LaunchConfigurationEbsBlockDeviceGetArgs>());
             set => _ebsBlockDevices = value;
         }
 
-        /// <summary>
-        /// If true, the launched EC2 instance will be EBS-optimized.
-        /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
 
-        /// <summary>
-        /// Enables/disables detailed monitoring. This is enabled by default.
-        /// </summary>
         [Input("enableMonitoring")]
         public Input<bool>? EnableMonitoring { get; set; }
 
         [Input("ephemeralBlockDevices")]
         private InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs>? _ephemeralBlockDevices;
-
-        /// <summary>
-        /// Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
-        /// </summary>
         public InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs> EphemeralBlockDevices
         {
             get => _ephemeralBlockDevices ?? (_ephemeralBlockDevices = new InputList<Inputs.LaunchConfigurationEphemeralBlockDeviceGetArgs>());
             set => _ephemeralBlockDevices = value;
         }
 
-        /// <summary>
-        /// The name attribute of the IAM instance profile to associate with launched instances.
-        /// </summary>
         [Input("iamInstanceProfile")]
         public Input<string>? IamInstanceProfile { get; set; }
 
-        /// <summary>
-        /// The EC2 image ID to launch.
-        /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
-        /// <summary>
-        /// The size of instance to launch.
-        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        /// <summary>
-        /// The key name that should be used for the instance.
-        /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
-        /// <summary>
-        /// The metadata options for the instance.
-        /// </summary>
         [Input("metadataOptions")]
         public Input<Inputs.LaunchConfigurationMetadataOptionsGetArgs>? MetadataOptions { get; set; }
 
-        /// <summary>
-        /// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
-        /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
-        /// <summary>
-        /// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-        /// </summary>
         [Input("placementTenancy")]
         public Input<string>? PlacementTenancy { get; set; }
 
-        /// <summary>
-        /// Customize details about the root block device of the instance. See Block Devices below for details.
-        /// </summary>
         [Input("rootBlockDevice")]
         public Input<Inputs.LaunchConfigurationRootBlockDeviceGetArgs>? RootBlockDevice { get; set; }
 
@@ -675,36 +273,20 @@ namespace Pulumi.Aws.Ec2
             set => _securityGroups = value;
         }
 
-        /// <summary>
-        /// The maximum price to use for reserving spot instances.
-        /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 
-        /// <summary>
-        /// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
-        /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
-        /// <summary>
-        /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-        /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
 
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
         [Input("vpcClassicLinkId")]
         public Input<string>? VpcClassicLinkId { get; set; }
 
         [Input("vpcClassicLinkSecurityGroups")]
         private InputList<string>? _vpcClassicLinkSecurityGroups;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
         [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
         public InputList<string> VpcClassicLinkSecurityGroups
         {

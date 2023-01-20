@@ -9,58 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.LightSail
 {
-    /// <summary>
-    /// Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
-    /// 
-    /// &gt; See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
-    /// 
-    /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
-    ///     {
-    ///         AvailabilityZone = data.Aws_availability_zones.Available.Names[0],
-    ///         BlueprintId = "amazon_linux",
-    ///         BundleId = "nano_1_0",
-    ///     });
-    /// 
-    ///     var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("testInstancePublicPorts", new()
-    ///     {
-    ///         InstanceName = testInstance.Name,
-    ///         PortInfos = new[]
-    ///         {
-    ///             new Aws.LightSail.Inputs.InstancePublicPortsPortInfoArgs
-    ///             {
-    ///                 Protocol = "tcp",
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:lightsail/instancePublicPorts:InstancePublicPorts")]
     public partial class InstancePublicPorts : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Name of the Lightsail Instance.
-        /// </summary>
         [Output("instanceName")]
         public Output<string> InstanceName { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
-        /// </summary>
         [Output("portInfos")]
         public Output<ImmutableArray<Outputs.InstancePublicPortsPortInfo>> PortInfos { get; private set; } = null!;
 
@@ -110,18 +64,11 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class InstancePublicPortsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Lightsail Instance.
-        /// </summary>
         [Input("instanceName", required: true)]
         public Input<string> InstanceName { get; set; } = null!;
 
         [Input("portInfos", required: true)]
         private InputList<Inputs.InstancePublicPortsPortInfoArgs>? _portInfos;
-
-        /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
-        /// </summary>
         public InputList<Inputs.InstancePublicPortsPortInfoArgs> PortInfos
         {
             get => _portInfos ?? (_portInfos = new InputList<Inputs.InstancePublicPortsPortInfoArgs>());
@@ -136,18 +83,11 @@ namespace Pulumi.Aws.LightSail
 
     public sealed class InstancePublicPortsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the Lightsail Instance.
-        /// </summary>
         [Input("instanceName")]
         public Input<string>? InstanceName { get; set; }
 
         [Input("portInfos")]
         private InputList<Inputs.InstancePublicPortsPortInfoGetArgs>? _portInfos;
-
-        /// <summary>
-        /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
-        /// </summary>
         public InputList<Inputs.InstancePublicPortsPortInfoGetArgs> PortInfos
         {
             get => _portInfos ?? (_portInfos = new InputList<Inputs.InstancePublicPortsPortInfoGetArgs>());

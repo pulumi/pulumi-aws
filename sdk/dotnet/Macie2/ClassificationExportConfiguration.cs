@@ -9,53 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Macie2
 {
-    /// <summary>
-    /// Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
-    /// 
-    ///     var exampleClassificationExportConfiguration = new Aws.Macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", new()
-    ///     {
-    ///         S3Destination = new Aws.Macie2.Inputs.ClassificationExportConfigurationS3DestinationArgs
-    ///         {
-    ///             BucketName = aws_s3_bucket.Example.Bucket,
-    ///             KeyPrefix = "exampleprefix/",
-    ///             KmsKeyArn = aws_kms_key.Example.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")]
     public partial class ClassificationExportConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Configuration block for a S3 Destination. Defined below
-        /// </summary>
         [Output("s3Destination")]
         public Output<Outputs.ClassificationExportConfigurationS3Destination?> S3Destination { get; private set; } = null!;
 
@@ -105,9 +61,6 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class ClassificationExportConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for a S3 Destination. Defined below
-        /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.ClassificationExportConfigurationS3DestinationArgs>? S3Destination { get; set; }
 
@@ -119,9 +72,6 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class ClassificationExportConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for a S3 Destination. Defined below
-        /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.ClassificationExportConfigurationS3DestinationGetArgs>? S3Destination { get; set; }
 

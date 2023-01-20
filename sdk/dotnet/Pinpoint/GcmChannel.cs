@@ -9,55 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Provides a Pinpoint GCM Channel resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var gcm = new Aws.Pinpoint.GcmChannel("gcm", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         ApiKey = "api_key",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
     public partial class GcmChannel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Platform credential API key from Google.
-        /// </summary>
         [Output("apiKey")]
         public Output<string> ApiKey { get; private set; } = null!;
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -113,10 +73,6 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey", required: true)]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// Platform credential API key from Google.
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -127,15 +83,9 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -149,10 +99,6 @@ namespace Pulumi.Aws.Pinpoint
     {
         [Input("apiKey")]
         private Input<string>? _apiKey;
-
-        /// <summary>
-        /// Platform credential API key from Google.
-        /// </summary>
         public Input<string>? ApiKey
         {
             get => _apiKey;
@@ -163,15 +109,9 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

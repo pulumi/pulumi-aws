@@ -12,15 +12,9 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
 
     public sealed class TableMagneticStoreWritePropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A flag to enable magnetic store writes.
-        /// </summary>
         [Input("enableMagneticStoreWrites")]
         public Input<bool>? EnableMagneticStoreWrites { get; set; }
 
-        /// <summary>
-        /// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
-        /// </summary>
         [Input("magneticStoreRejectedDataLocation")]
         public Input<Inputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs>? MagneticStoreRejectedDataLocation { get; set; }
 

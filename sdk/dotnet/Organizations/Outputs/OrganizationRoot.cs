@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Organizations.Outputs
     [OutputType]
     public sealed class OrganizationRoot
     {
-        /// <summary>
-        /// ARN of the root
-        /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// Identifier of the root
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The name of the policy type
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// List of policy types enabled for this root. All elements have these attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.OrganizationRootPolicyType> PolicyTypes;
 
         [OutputConstructor]

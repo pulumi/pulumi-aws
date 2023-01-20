@@ -13,17 +13,8 @@ namespace Pulumi.Aws.DataPipeline.Outputs
     [OutputType]
     public sealed class GetPipelineDefinitionPipelineObjectResult
     {
-        /// <summary>
-        /// Key-value pairs that define the properties of the object. See below
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetPipelineDefinitionPipelineObjectFieldResult> Fields;
-        /// <summary>
-        /// ID of the object.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// ARN of the storage connector.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

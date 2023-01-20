@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
 
     public sealed class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
-        /// </summary>
         [Input("predefinedLoadMetricType", required: true)]
         public Input<string> PredefinedLoadMetricType { get; set; } = null!;
 
-        /// <summary>
-        /// Identifies the resource associated with the metric type.
-        /// </summary>
         [Input("resourceLabel")]
         public Input<string>? ResourceLabel { get; set; }
 

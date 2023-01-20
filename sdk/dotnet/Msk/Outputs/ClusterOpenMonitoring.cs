@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterOpenMonitoring
     {
-        /// <summary>
-        /// Configuration block for Prometheus settings for open monitoring. See below.
-        /// </summary>
         public readonly Outputs.ClusterOpenMonitoringPrometheus Prometheus;
 
         [OutputConstructor]

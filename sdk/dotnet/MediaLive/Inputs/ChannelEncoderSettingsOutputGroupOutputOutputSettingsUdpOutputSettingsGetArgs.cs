@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// UDP output buffering in milliseconds.
-        /// </summary>
         [Input("bufferMsec")]
         public Input<int>? BufferMsec { get; set; }
 
-        /// <summary>
-        /// UDP container settings. See Container Settings for more details.
-        /// </summary>
         [Input("containerSettings", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsGetArgs> ContainerSettings { get; set; } = null!;
 
-        /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationGetArgs> Destination { get; set; } = null!;
 

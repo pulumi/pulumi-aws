@@ -12,69 +12,38 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Inspect all query arguments.
-        /// </summary>
         [Input("allQueryArguments")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsGetArgs>? AllQueryArguments { get; set; }
 
-        /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
-        /// </summary>
         [Input("body")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyGetArgs>? Body { get; set; }
 
-        /// <summary>
-        /// Inspect the cookies in the web request. See Cookies below for details.
-        /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesGetArgs>? Cookies { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderGetArgs>? _headers;
-
-        /// <summary>
-        /// Inspect the request headers. See Headers below for details.
-        /// </summary>
         public InputList<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderGetArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderGetArgs>());
             set => _headers = value;
         }
 
-        /// <summary>
-        /// Inspect the request body as JSON. See JSON Body for details.
-        /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyGetArgs>? JsonBody { get; set; }
 
-        /// <summary>
-        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        /// </summary>
         [Input("method")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethodGetArgs>? Method { get; set; }
 
-        /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        /// </summary>
         [Input("queryString")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringGetArgs>? QueryString { get; set; }
 
-        /// <summary>
-        /// Inspect a single header. See Single Header below for details.
-        /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderGetArgs>? SingleHeader { get; set; }
 
-        /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
-        /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentGetArgs>? SingleQueryArgument { get; set; }
 
-        /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-        /// </summary>
         [Input("uriPath")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPathGetArgs>? UriPath { get; set; }
 

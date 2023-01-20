@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class NodeGroupScalingConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Desired number of worker nodes.
-        /// </summary>
         [Input("desiredSize", required: true)]
         public Input<int> DesiredSize { get; set; } = null!;
 
-        /// <summary>
-        /// Maximum number of worker nodes.
-        /// </summary>
         [Input("maxSize", required: true)]
         public Input<int> MaxSize { get; set; } = null!;
 
-        /// <summary>
-        /// Minimum number of worker nodes.
-        /// </summary>
         [Input("minSize", required: true)]
         public Input<int> MinSize { get; set; } = null!;
 

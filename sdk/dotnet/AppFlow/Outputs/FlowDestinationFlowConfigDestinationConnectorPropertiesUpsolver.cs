@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver
     {
-        /// <summary>
-        /// Amazon S3 bucket name where the source files are stored.
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// Object key for the Amazon S3 bucket in which the source files are stored.
-        /// </summary>
         public readonly string? BucketPrefix;
-        /// <summary>
-        /// Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig S3OutputFormatConfig;
 
         [OutputConstructor]

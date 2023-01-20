@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon S3 bucket name where the source files are stored.
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// Object key for the Amazon S3 bucket in which the source files are stored.
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        /// </summary>
         [Input("failOnFirstDestinationError")]
         public Input<bool>? FailOnFirstDestinationError { get; set; }
 

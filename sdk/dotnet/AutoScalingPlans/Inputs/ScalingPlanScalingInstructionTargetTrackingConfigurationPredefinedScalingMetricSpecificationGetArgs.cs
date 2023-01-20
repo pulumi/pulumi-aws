@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
 
     public sealed class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
-        /// </summary>
         [Input("predefinedScalingMetricType", required: true)]
         public Input<string> PredefinedScalingMetricType { get; set; } = null!;
 
-        /// <summary>
-        /// Identifies the resource associated with the metric type.
-        /// </summary>
         [Input("resourceLabel")]
         public Input<string>? ResourceLabel { get; set; }
 

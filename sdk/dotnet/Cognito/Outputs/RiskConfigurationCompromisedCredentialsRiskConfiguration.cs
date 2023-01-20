@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     [OutputType]
     public sealed class RiskConfigurationCompromisedCredentialsRiskConfiguration
     {
-        /// <summary>
-        /// The compromised credentials risk configuration actions. See details below.
-        /// </summary>
         public readonly Outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions Actions;
-        /// <summary>
-        /// Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
-        /// </summary>
         public readonly ImmutableArray<string> EventFilters;
 
         [OutputConstructor]

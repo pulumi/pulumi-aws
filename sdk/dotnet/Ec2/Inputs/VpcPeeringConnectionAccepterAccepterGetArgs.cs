@@ -12,24 +12,12 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class VpcPeeringConnectionAccepterAccepterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether a local ClassicLink connection can communicate
-        /// with the peer VPC over the VPC Peering Connection.
-        /// </summary>
         [Input("allowClassicLinkToRemoteVpc")]
         public Input<bool>? AllowClassicLinkToRemoteVpc { get; set; }
 
-        /// <summary>
-        /// Indicates whether a local VPC can resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in a peer VPC.
-        /// </summary>
         [Input("allowRemoteVpcDnsResolution")]
         public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }
 
-        /// <summary>
-        /// Indicates whether a local VPC can communicate with a ClassicLink
-        /// connection in the peer VPC over the VPC Peering Connection.
-        /// </summary>
         [Input("allowVpcToRemoteClassicLink")]
         public Input<bool>? AllowVpcToRemoteClassicLink { get; set; }
 

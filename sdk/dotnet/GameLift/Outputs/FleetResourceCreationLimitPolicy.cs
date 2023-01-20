@@ -13,13 +13,7 @@ namespace Pulumi.Aws.GameLift.Outputs
     [OutputType]
     public sealed class FleetResourceCreationLimitPolicy
     {
-        /// <summary>
-        /// Maximum number of game sessions that an individual can create during the policy period.
-        /// </summary>
         public readonly int? NewGameSessionsPerCreator;
-        /// <summary>
-        /// Time span used in evaluating the resource creation limit policy.
-        /// </summary>
         public readonly int? PolicyPeriodInMinutes;
 
         [OutputConstructor]

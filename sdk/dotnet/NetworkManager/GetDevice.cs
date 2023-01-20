@@ -11,15 +11,9 @@ namespace Pulumi.Aws.NetworkManager
 {
     public static class GetDevice
     {
-        /// <summary>
-        /// Retrieve information about a device.
-        /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("aws:networkmanager/getDevice:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieve information about a device.
-        /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws:networkmanager/getDevice:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
@@ -27,24 +21,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetDeviceArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Input("deviceId", required: true)]
         public string DeviceId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public string GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the device.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -59,24 +43,14 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class GetDeviceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of the device.
-        /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
-        /// <summary>
-        /// ID of the global network.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the device.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -93,17 +67,8 @@ namespace Pulumi.Aws.NetworkManager
     [OutputType]
     public sealed class GetDeviceResult
     {
-        /// <summary>
-        /// ARN of the device.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// AWS location of the device. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDeviceAwsLocationResult> AwsLocations;
-        /// <summary>
-        /// Description of the device.
-        /// </summary>
         public readonly string Description;
         public readonly string DeviceId;
         public readonly string GlobalNetworkId;
@@ -111,33 +76,12 @@ namespace Pulumi.Aws.NetworkManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Location of the device. Documented below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDeviceLocationResult> Locations;
-        /// <summary>
-        /// Model of device.
-        /// </summary>
         public readonly string Model;
-        /// <summary>
-        /// Serial number of the device.
-        /// </summary>
         public readonly string SerialNumber;
-        /// <summary>
-        /// ID of the site.
-        /// </summary>
         public readonly string SiteId;
-        /// <summary>
-        /// Key-value tags for the device.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Type of device.
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Vendor of the device.
-        /// </summary>
         public readonly string Vendor;
 
         [OutputConstructor]

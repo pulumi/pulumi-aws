@@ -15,21 +15,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("certficateMode")]
         public Input<string>? CertficateMode { get; set; }
 
-        /// <summary>
-        /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        /// </summary>
         [Input("connectionRetryInterval")]
         public Input<int>? ConnectionRetryInterval { get; set; }
 
-        /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationGetArgs> Destination { get; set; } = null!;
 
-        /// <summary>
-        /// Number of retry attempts.
-        /// </summary>
         [Input("numRetries")]
         public Input<int>? NumRetries { get; set; }
 

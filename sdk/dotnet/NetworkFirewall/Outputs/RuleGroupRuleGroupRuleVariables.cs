@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupRuleVariables
     {
-        /// <summary>
-        /// Set of configuration blocks that define IP address information. See IP Sets below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRuleVariablesIpSet> IpSets;
-        /// <summary>
-        /// Set of configuration blocks that define port range information. See Port Sets below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupRuleVariablesPortSet> PortSets;
 
         [OutputConstructor]

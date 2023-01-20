@@ -13,9 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallSubnetMappingResult
     {
-        /// <summary>
-        /// The unique identifier for the subnet.
-        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

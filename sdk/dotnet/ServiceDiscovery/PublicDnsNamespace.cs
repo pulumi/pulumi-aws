@@ -9,70 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceDiscovery
 {
-    /// <summary>
-    /// Provides a Service Discovery Public DNS Namespace resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceDiscovery.PublicDnsNamespace("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace")]
     public partial class PublicDnsNamespace : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description that you specify for the namespace when you create it.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-        /// </summary>
         [Output("hostedZone")]
         public Output<string> HostedZone { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the namespace.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -122,24 +76,14 @@ namespace Pulumi.Aws.ServiceDiscovery
 
     public sealed class PublicDnsNamespaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description that you specify for the namespace when you create it.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the namespace.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -154,36 +98,20 @@ namespace Pulumi.Aws.ServiceDiscovery
 
     public sealed class PublicDnsNamespaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN that Amazon Route 53 assigns to the namespace when you create it.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The description that you specify for the namespace when you create it.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
-        /// </summary>
         [Input("hostedZone")]
         public Input<string>? HostedZone { get; set; }
 
-        /// <summary>
-        /// The name of the namespace.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -192,10 +120,6 @@ namespace Pulumi.Aws.ServiceDiscovery
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

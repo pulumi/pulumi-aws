@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
     [OutputType]
     public sealed class ServiceDnsConfig
     {
-        /// <summary>
-        /// An array that contains one DnsRecord object for each resource record set.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDnsConfigDnsRecord> DnsRecords;
-        /// <summary>
-        /// The ID of the namespace to use for DNS configuration.
-        /// </summary>
         public readonly string NamespaceId;
-        /// <summary>
-        /// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-        /// </summary>
         public readonly string? RoutingPolicy;
 
         [OutputConstructor]

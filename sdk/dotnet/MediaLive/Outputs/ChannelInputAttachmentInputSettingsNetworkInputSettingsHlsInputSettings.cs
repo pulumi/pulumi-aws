@@ -13,21 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings
     {
-        /// <summary>
-        /// The bitrate is specified in bits per second, as in an HLS manifest.
-        /// </summary>
         public readonly int? Bandwidth;
-        /// <summary>
-        /// Buffer segments.
-        /// </summary>
         public readonly int? BufferSegments;
-        /// <summary>
-        /// The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-        /// </summary>
         public readonly int? Retries;
-        /// <summary>
-        /// The number of seconds between retries when an attempt to read a manifest or segment fails.
-        /// </summary>
         public readonly int? RetryInterval;
         public readonly string? Scte35Source;
 

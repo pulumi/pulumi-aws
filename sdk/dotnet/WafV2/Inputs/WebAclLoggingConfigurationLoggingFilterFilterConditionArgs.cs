@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A single action condition. See Action Condition below for more details.
-        /// </summary>
         [Input("actionCondition")]
         public Input<Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs>? ActionCondition { get; set; }
 
-        /// <summary>
-        /// A single label name condition. See Label Name Condition below for more details.
-        /// </summary>
         [Input("labelNameCondition")]
         public Input<Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs>? LabelNameCondition { get; set; }
 

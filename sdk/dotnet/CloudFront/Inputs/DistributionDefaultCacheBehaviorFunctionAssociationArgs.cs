@@ -12,16 +12,9 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionDefaultCacheBehaviorFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The specific event to trigger this function.
-        /// Valid values: `viewer-request` or `viewer-response`
-        /// </summary>
         [Input("eventType", required: true)]
         public Input<string> EventType { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the Cloudfront function.
-        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 

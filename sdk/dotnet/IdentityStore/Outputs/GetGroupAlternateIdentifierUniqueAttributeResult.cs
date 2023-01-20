@@ -13,13 +13,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     [OutputType]
     public sealed class GetGroupAlternateIdentifierUniqueAttributeResult
     {
-        /// <summary>
-        /// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        /// </summary>
         public readonly string AttributePath;
-        /// <summary>
-        /// Value for an attribute.
-        /// </summary>
         public readonly string AttributeValue;
 
         [OutputConstructor]

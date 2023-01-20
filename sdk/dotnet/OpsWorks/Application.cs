@@ -9,175 +9,57 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpsWorks
 {
-    /// <summary>
-    /// Provides an OpsWorks application resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo_app = new Aws.OpsWorks.Application("foo-app", new()
-    ///     {
-    ///         ShortName = "foobar",
-    ///         StackId = aws_opsworks_stack.Main.Id,
-    ///         Type = "rails",
-    ///         Description = "This is a Rails application",
-    ///         Domains = new[]
-    ///         {
-    ///             "example.com",
-    ///             "sub.example.com",
-    ///         },
-    ///         Environments = new[]
-    ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationEnvironmentArgs
-    ///             {
-    ///                 Key = "key",
-    ///                 Value = "value",
-    ///                 Secure = false,
-    ///             },
-    ///         },
-    ///         AppSources = new[]
-    ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationAppSourceArgs
-    ///             {
-    ///                 Type = "git",
-    ///                 Revision = "master",
-    ///                 Url = "https://github.com/example.git",
-    ///             },
-    ///         },
-    ///         EnableSsl = true,
-    ///         SslConfigurations = new[]
-    ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationSslConfigurationArgs
-    ///             {
-    ///                 PrivateKey = File.ReadAllText("./foobar.key"),
-    ///                 Certificate = File.ReadAllText("./foobar.crt"),
-    ///             },
-    ///         },
-    ///         DocumentRoot = "public",
-    ///         AutoBundleOnDeploy = "true",
-    ///         RailsEnv = "staging",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Opsworks Application can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opsworks/application:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// SCM configuration of the app as described below.
-        /// </summary>
         [Output("appSources")]
         public Output<ImmutableArray<Outputs.ApplicationAppSource>> AppSources { get; private set; } = null!;
 
-        /// <summary>
-        /// Run bundle install when deploying for application of type `rails`.
-        /// </summary>
         [Output("autoBundleOnDeploy")]
         public Output<string?> AutoBundleOnDeploy { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify activity and workflow workers for your app using the aws-flow gem.
-        /// </summary>
         [Output("awsFlowRubySettings")]
         public Output<string?> AwsFlowRubySettings { get; private set; } = null!;
 
-        /// <summary>
-        /// The data source's ARN.
-        /// </summary>
         [Output("dataSourceArn")]
         public Output<string?> DataSourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The database name.
-        /// </summary>
         [Output("dataSourceDatabaseName")]
         public Output<string?> DataSourceDatabaseName { get; private set; } = null!;
 
-        /// <summary>
-        /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-        /// </summary>
         [Output("dataSourceType")]
         public Output<string?> DataSourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the app.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Subfolder for the document root for application of type `rails`.
-        /// </summary>
         [Output("documentRoot")]
         public Output<string?> DocumentRoot { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of virtual host alias.
-        /// </summary>
         [Output("domains")]
         public Output<ImmutableArray<string>> Domains { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        /// </summary>
         [Output("enableSsl")]
         public Output<bool?> EnableSsl { get; private set; } = null!;
 
-        /// <summary>
-        /// Object to define environment variables.  Object is described below.
-        /// </summary>
         [Output("environments")]
         public Output<ImmutableArray<Outputs.ApplicationEnvironment>> Environments { get; private set; } = null!;
 
-        /// <summary>
-        /// A human-readable name for the application.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the Rails environment for application of type `rails`.
-        /// </summary>
         [Output("railsEnv")]
         public Output<string?> RailsEnv { get; private set; } = null!;
 
-        /// <summary>
-        /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        /// </summary>
         [Output("shortName")]
         public Output<string> ShortName { get; private set; } = null!;
 
-        /// <summary>
-        /// The SSL configuration of the app. Object is described below.
-        /// </summary>
         [Output("sslConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationSslConfiguration>> SslConfigurations { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the stack the application will belong to.
-        /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
 
-        /// <summary>
-        /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -229,127 +111,72 @@ namespace Pulumi.Aws.OpsWorks
     {
         [Input("appSources")]
         private InputList<Inputs.ApplicationAppSourceArgs>? _appSources;
-
-        /// <summary>
-        /// SCM configuration of the app as described below.
-        /// </summary>
         public InputList<Inputs.ApplicationAppSourceArgs> AppSources
         {
             get => _appSources ?? (_appSources = new InputList<Inputs.ApplicationAppSourceArgs>());
             set => _appSources = value;
         }
 
-        /// <summary>
-        /// Run bundle install when deploying for application of type `rails`.
-        /// </summary>
         [Input("autoBundleOnDeploy")]
         public Input<string>? AutoBundleOnDeploy { get; set; }
 
-        /// <summary>
-        /// Specify activity and workflow workers for your app using the aws-flow gem.
-        /// </summary>
         [Input("awsFlowRubySettings")]
         public Input<string>? AwsFlowRubySettings { get; set; }
 
-        /// <summary>
-        /// The data source's ARN.
-        /// </summary>
         [Input("dataSourceArn")]
         public Input<string>? DataSourceArn { get; set; }
 
-        /// <summary>
-        /// The database name.
-        /// </summary>
         [Input("dataSourceDatabaseName")]
         public Input<string>? DataSourceDatabaseName { get; set; }
 
-        /// <summary>
-        /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-        /// </summary>
         [Input("dataSourceType")]
         public Input<string>? DataSourceType { get; set; }
 
-        /// <summary>
-        /// A description of the app.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Subfolder for the document root for application of type `rails`.
-        /// </summary>
         [Input("documentRoot")]
         public Input<string>? DocumentRoot { get; set; }
 
         [Input("domains")]
         private InputList<string>? _domains;
-
-        /// <summary>
-        /// A list of virtual host alias.
-        /// </summary>
         public InputList<string> Domains
         {
             get => _domains ?? (_domains = new InputList<string>());
             set => _domains = value;
         }
 
-        /// <summary>
-        /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        /// </summary>
         [Input("enableSsl")]
         public Input<bool>? EnableSsl { get; set; }
 
         [Input("environments")]
         private InputList<Inputs.ApplicationEnvironmentArgs>? _environments;
-
-        /// <summary>
-        /// Object to define environment variables.  Object is described below.
-        /// </summary>
         public InputList<Inputs.ApplicationEnvironmentArgs> Environments
         {
             get => _environments ?? (_environments = new InputList<Inputs.ApplicationEnvironmentArgs>());
             set => _environments = value;
         }
 
-        /// <summary>
-        /// A human-readable name for the application.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the Rails environment for application of type `rails`.
-        /// </summary>
         [Input("railsEnv")]
         public Input<string>? RailsEnv { get; set; }
 
-        /// <summary>
-        /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        /// </summary>
         [Input("shortName")]
         public Input<string>? ShortName { get; set; }
 
         [Input("sslConfigurations")]
         private InputList<Inputs.ApplicationSslConfigurationArgs>? _sslConfigurations;
-
-        /// <summary>
-        /// The SSL configuration of the app. Object is described below.
-        /// </summary>
         public InputList<Inputs.ApplicationSslConfigurationArgs> SslConfigurations
         {
             get => _sslConfigurations ?? (_sslConfigurations = new InputList<Inputs.ApplicationSslConfigurationArgs>());
             set => _sslConfigurations = value;
         }
 
-        /// <summary>
-        /// ID of the stack the application will belong to.
-        /// </summary>
         [Input("stackId", required: true)]
         public Input<string> StackId { get; set; } = null!;
 
-        /// <summary>
-        /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -363,127 +190,72 @@ namespace Pulumi.Aws.OpsWorks
     {
         [Input("appSources")]
         private InputList<Inputs.ApplicationAppSourceGetArgs>? _appSources;
-
-        /// <summary>
-        /// SCM configuration of the app as described below.
-        /// </summary>
         public InputList<Inputs.ApplicationAppSourceGetArgs> AppSources
         {
             get => _appSources ?? (_appSources = new InputList<Inputs.ApplicationAppSourceGetArgs>());
             set => _appSources = value;
         }
 
-        /// <summary>
-        /// Run bundle install when deploying for application of type `rails`.
-        /// </summary>
         [Input("autoBundleOnDeploy")]
         public Input<string>? AutoBundleOnDeploy { get; set; }
 
-        /// <summary>
-        /// Specify activity and workflow workers for your app using the aws-flow gem.
-        /// </summary>
         [Input("awsFlowRubySettings")]
         public Input<string>? AwsFlowRubySettings { get; set; }
 
-        /// <summary>
-        /// The data source's ARN.
-        /// </summary>
         [Input("dataSourceArn")]
         public Input<string>? DataSourceArn { get; set; }
 
-        /// <summary>
-        /// The database name.
-        /// </summary>
         [Input("dataSourceDatabaseName")]
         public Input<string>? DataSourceDatabaseName { get; set; }
 
-        /// <summary>
-        /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
-        /// </summary>
         [Input("dataSourceType")]
         public Input<string>? DataSourceType { get; set; }
 
-        /// <summary>
-        /// A description of the app.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Subfolder for the document root for application of type `rails`.
-        /// </summary>
         [Input("documentRoot")]
         public Input<string>? DocumentRoot { get; set; }
 
         [Input("domains")]
         private InputList<string>? _domains;
-
-        /// <summary>
-        /// A list of virtual host alias.
-        /// </summary>
         public InputList<string> Domains
         {
             get => _domains ?? (_domains = new InputList<string>());
             set => _domains = value;
         }
 
-        /// <summary>
-        /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        /// </summary>
         [Input("enableSsl")]
         public Input<bool>? EnableSsl { get; set; }
 
         [Input("environments")]
         private InputList<Inputs.ApplicationEnvironmentGetArgs>? _environments;
-
-        /// <summary>
-        /// Object to define environment variables.  Object is described below.
-        /// </summary>
         public InputList<Inputs.ApplicationEnvironmentGetArgs> Environments
         {
             get => _environments ?? (_environments = new InputList<Inputs.ApplicationEnvironmentGetArgs>());
             set => _environments = value;
         }
 
-        /// <summary>
-        /// A human-readable name for the application.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the Rails environment for application of type `rails`.
-        /// </summary>
         [Input("railsEnv")]
         public Input<string>? RailsEnv { get; set; }
 
-        /// <summary>
-        /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        /// </summary>
         [Input("shortName")]
         public Input<string>? ShortName { get; set; }
 
         [Input("sslConfigurations")]
         private InputList<Inputs.ApplicationSslConfigurationGetArgs>? _sslConfigurations;
-
-        /// <summary>
-        /// The SSL configuration of the app. Object is described below.
-        /// </summary>
         public InputList<Inputs.ApplicationSslConfigurationGetArgs> SslConfigurations
         {
             get => _sslConfigurations ?? (_sslConfigurations = new InputList<Inputs.ApplicationSslConfigurationGetArgs>());
             set => _sslConfigurations = value;
         }
 
-        /// <summary>
-        /// ID of the stack the application will belong to.
-        /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }
 
-        /// <summary>
-        /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

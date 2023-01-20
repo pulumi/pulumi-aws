@@ -9,95 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Provides a Cognito User Group resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mainUserPool = new Aws.Cognito.UserPool("mainUserPool");
-    /// 
-    ///     var groupRole = new Aws.Iam.Role("groupRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Sid"": """",
-    ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""Federated"": ""cognito-identity.amazonaws.com""
-    ///       },
-    ///       ""Action"": ""sts:AssumeRoleWithWebIdentity"",
-    ///       ""Condition"": {
-    ///         ""StringEquals"": {
-    ///           ""cognito-identity.amazonaws.com:aud"": ""us-east-1:12345678-dead-beef-cafe-123456790ab""
-    ///         },
-    ///         ""ForAnyValue:StringLike"": {
-    ///           ""cognito-identity.amazonaws.com:amr"": ""authenticated""
-    ///         }
-    ///       }
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var mainUserGroup = new Aws.Cognito.UserGroup("mainUserGroup", new()
-    ///     {
-    ///         UserPoolId = mainUserPool.Id,
-    ///         Description = "Managed by Pulumi",
-    ///         Precedence = 42,
-    ///         RoleArn = groupRole.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/userGroup:UserGroup")]
     public partial class UserGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The description of the user group.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the user group.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The precedence of the user group.
-        /// </summary>
         [Output("precedence")]
         public Output<int?> Precedence { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the IAM role to be associated with the user group.
-        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -147,33 +73,18 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the user group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the user group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The precedence of the user group.
-        /// </summary>
         [Input("precedence")]
         public Input<int>? Precedence { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role to be associated with the user group.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -185,33 +96,18 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class UserGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the user group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The name of the user group.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The precedence of the user group.
-        /// </summary>
         [Input("precedence")]
         public Input<int>? Precedence { get; set; }
 
-        /// <summary>
-        /// The ARN of the IAM role to be associated with the user group.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// The user pool ID.
-        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 

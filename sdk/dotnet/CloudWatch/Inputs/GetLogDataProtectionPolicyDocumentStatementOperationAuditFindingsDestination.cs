@@ -12,21 +12,12 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Configures CloudWatch Logs as a findings destination.
-        /// </summary>
         [Input("cloudwatchLogs")]
         public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs? CloudwatchLogs { get; set; }
 
-        /// <summary>
-        /// Configures Kinesis Firehose as a findings destination.
-        /// </summary>
         [Input("firehose")]
         public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs? Firehose { get; set; }
 
-        /// <summary>
-        /// Configures S3 as a findings destination.
-        /// </summary>
         [Input("s3")]
         public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args? S3 { get; set; }
 

@@ -9,62 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Quicksight
 {
-    /// <summary>
-    /// Resource for managing QuickSight Group Membership
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.GroupMembership("example", new()
-    ///     {
-    ///         GroupName = "all-access-users",
-    ///         MemberName = "john_smith",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:quicksight/groupMembership:GroupMembership")]
     public partial class GroupMembership : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the group in which the member will be added.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the member to add to the group.
-        /// </summary>
         [Output("memberName")]
         public Output<string> MemberName { get; private set; } = null!;
 
-        /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
-        /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
 
@@ -114,27 +73,15 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GroupMembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The name of the group in which the member will be added.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the member to add to the group.
-        /// </summary>
         [Input("memberName", required: true)]
         public Input<string> MemberName { get; set; } = null!;
 
-        /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
@@ -149,27 +96,15 @@ namespace Pulumi.Aws.Quicksight
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// The name of the group in which the member will be added.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// The name of the member to add to the group.
-        /// </summary>
         [Input("memberName")]
         public Input<string>? MemberName { get; set; }
 
-        /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 

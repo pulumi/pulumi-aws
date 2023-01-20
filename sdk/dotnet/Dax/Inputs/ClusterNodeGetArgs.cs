@@ -21,9 +21,6 @@ namespace Pulumi.Aws.Dax.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The port used by the configuration endpoint
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

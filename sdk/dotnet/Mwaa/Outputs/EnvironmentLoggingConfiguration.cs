@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Mwaa.Outputs
     [OutputType]
     public sealed class EnvironmentLoggingConfiguration
     {
-        /// <summary>
-        /// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         public readonly Outputs.EnvironmentLoggingConfigurationDagProcessingLogs? DagProcessingLogs;
-        /// <summary>
-        /// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         public readonly Outputs.EnvironmentLoggingConfigurationSchedulerLogs? SchedulerLogs;
-        /// <summary>
-        /// Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-        /// </summary>
         public readonly Outputs.EnvironmentLoggingConfigurationTaskLogs? TaskLogs;
-        /// <summary>
-        /// Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         public readonly Outputs.EnvironmentLoggingConfigurationWebserverLogs? WebserverLogs;
-        /// <summary>
-        /// Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-        /// </summary>
         public readonly Outputs.EnvironmentLoggingConfigurationWorkerLogs? WorkerLogs;
 
         [OutputConstructor]

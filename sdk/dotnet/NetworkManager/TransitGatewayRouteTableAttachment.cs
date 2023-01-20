@@ -9,119 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Creates a transit gateway route table attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.TransitGatewayRouteTableAttachment("example", new()
-    ///     {
-    ///         PeeringId = aws_networkmanager_transit_gateway_peering.Example.Id,
-    ///         TransitGatewayRouteTableArn = aws_ec2_transit_gateway_route_table.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_networkmanager_transit_gateway_route_table_attachment` can be imported using the attachment ID, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment")]
     public partial class TransitGatewayRouteTableAttachment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Attachment Amazon Resource Name (ARN).
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The policy rule number associated with the attachment.
-        /// </summary>
         [Output("attachmentPolicyRuleNumber")]
         public Output<int> AttachmentPolicyRuleNumber { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of attachment.
-        /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the core network.
-        /// </summary>
         [Output("coreNetworkArn")]
         public Output<string> CoreNetworkArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the core network.
-        /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// The edge location for the peer.
-        /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the attachment account owner.
-        /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the peer for the attachment.
-        /// </summary>
         [Output("peeringId")]
         public Output<string> PeeringId { get; private set; } = null!;
 
-        /// <summary>
-        /// The attachment resource ARN.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the segment attachment.
-        /// </summary>
         [Output("segmentName")]
         public Output<string> SegmentName { get; private set; } = null!;
 
-        /// <summary>
-        /// The state of the attachment.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the transit gateway route table for the attachment.
-        /// </summary>
         [Output("transitGatewayRouteTableArn")]
         public Output<string> TransitGatewayRouteTableArn { get; private set; } = null!;
 
@@ -171,27 +100,17 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayRouteTableAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the peer for the attachment.
-        /// </summary>
         [Input("peeringId", required: true)]
         public Input<string> PeeringId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The ARN of the transit gateway route table for the attachment.
-        /// </summary>
         [Input("transitGatewayRouteTableArn", required: true)]
         public Input<string> TransitGatewayRouteTableArn { get; set; } = null!;
 
@@ -203,78 +122,41 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class TransitGatewayRouteTableAttachmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Attachment Amazon Resource Name (ARN).
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The policy rule number associated with the attachment.
-        /// </summary>
         [Input("attachmentPolicyRuleNumber")]
         public Input<int>? AttachmentPolicyRuleNumber { get; set; }
 
-        /// <summary>
-        /// The type of attachment.
-        /// </summary>
         [Input("attachmentType")]
         public Input<string>? AttachmentType { get; set; }
 
-        /// <summary>
-        /// The ARN of the core network.
-        /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
-        /// <summary>
-        /// The ID of the core network.
-        /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }
 
-        /// <summary>
-        /// The edge location for the peer.
-        /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
 
-        /// <summary>
-        /// The ID of the attachment account owner.
-        /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
-        /// <summary>
-        /// The ID of the peer for the attachment.
-        /// </summary>
         [Input("peeringId")]
         public Input<string>? PeeringId { get; set; }
 
-        /// <summary>
-        /// The attachment resource ARN.
-        /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
-        /// <summary>
-        /// The name of the segment attachment.
-        /// </summary>
         [Input("segmentName")]
         public Input<string>? SegmentName { get; set; }
 
-        /// <summary>
-        /// The state of the attachment.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -283,19 +165,12 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The ARN of the transit gateway route table for the attachment.
-        /// </summary>
         [Input("transitGatewayRouteTableArn")]
         public Input<string>? TransitGatewayRouteTableArn { get; set; }
 

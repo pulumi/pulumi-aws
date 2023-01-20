@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class IndexingConfigurationThingGroupIndexingConfiguration
     {
-        /// <summary>
-        /// A list of thing group fields to index. This list cannot contain any managed fields. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.IndexingConfigurationThingGroupIndexingConfigurationCustomField> CustomFields;
-        /// <summary>
-        /// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.IndexingConfigurationThingGroupIndexingConfigurationManagedField> ManagedFields;
-        /// <summary>
-        /// Thing group indexing mode. Valid values: `OFF`, `ON`.
-        /// </summary>
         public readonly string ThingGroupIndexingMode;
 
         [OutputConstructor]

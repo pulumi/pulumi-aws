@@ -9,80 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GlobalAccelerator
 {
-    /// <summary>
-    /// Provides a Global Accelerator listener.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccelerator = new Aws.GlobalAccelerator.Accelerator("exampleAccelerator", new()
-    ///     {
-    ///         IpAddressType = "IPV4",
-    ///         Enabled = true,
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
-    ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleListener = new Aws.GlobalAccelerator.Listener("exampleListener", new()
-    ///     {
-    ///         AcceleratorArn = exampleAccelerator.Id,
-    ///         ClientAffinity = "SOURCE_IP",
-    ///         Protocol = "TCP",
-    ///         PortRanges = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.ListenerPortRangeArgs
-    ///             {
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Global Accelerator listeners can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:globalaccelerator/listener:Listener")]
     public partial class Listener : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of your accelerator.
-        /// </summary>
         [Output("acceleratorArn")]
         public Output<string> AcceleratorArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        /// </summary>
         [Output("clientAffinity")]
         public Output<string?> ClientAffinity { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
 
-        /// <summary>
-        /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-        /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
@@ -132,33 +70,20 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class ListenerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of your accelerator.
-        /// </summary>
         [Input("acceleratorArn", required: true)]
         public Input<string> AcceleratorArn { get; set; } = null!;
 
-        /// <summary>
-        /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        /// </summary>
         [Input("clientAffinity")]
         public Input<string>? ClientAffinity { get; set; }
 
         [Input("portRanges", required: true)]
         private InputList<Inputs.ListenerPortRangeArgs>? _portRanges;
-
-        /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// </summary>
         public InputList<Inputs.ListenerPortRangeArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangeArgs>());
             set => _portRanges = value;
         }
 
-        /// <summary>
-        /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
@@ -170,33 +95,20 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class ListenerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of your accelerator.
-        /// </summary>
         [Input("acceleratorArn")]
         public Input<string>? AcceleratorArn { get; set; }
 
-        /// <summary>
-        /// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
-        /// </summary>
         [Input("clientAffinity")]
         public Input<string>? ClientAffinity { get; set; }
 
         [Input("portRanges")]
         private InputList<Inputs.ListenerPortRangeGetArgs>? _portRanges;
-
-        /// <summary>
-        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// </summary>
         public InputList<Inputs.ListenerPortRangeGetArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.ListenerPortRangeGetArgs>());
             set => _portRanges = value;
         }
 
-        /// <summary>
-        /// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
-        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 

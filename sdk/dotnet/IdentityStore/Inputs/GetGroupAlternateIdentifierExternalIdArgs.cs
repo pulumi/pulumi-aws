@@ -12,15 +12,9 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
     public sealed class GetGroupAlternateIdentifierExternalIdInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The identifier issued to this resource by an external identity provider.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// The issuer for an external identifier.
-        /// </summary>
         [Input("issuer", required: true)]
         public Input<string> Issuer { get; set; } = null!;
 

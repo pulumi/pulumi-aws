@@ -9,77 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3
 {
-    /// <summary>
-    /// Provides a S3 bucket server-side encryption configuration resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mykey = new Aws.Kms.Key("mykey", new()
-    ///     {
-    ///         Description = "This key is used to encrypt bucket objects",
-    ///         DeletionWindowInDays = 10,
-    ///     });
-    /// 
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket");
-    /// 
-    ///     var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2("example", new()
-    ///     {
-    ///         Bucket = mybucket.Bucket,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs
-    ///             {
-    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs
-    ///                 {
-    ///                     KmsMasterKeyId = mykey.Arn,
-    ///                     SseAlgorithm = "aws:kms",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
-    /// ```
-    /// 
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")]
     public partial class BucketServerSideEncryptionConfigurationV2 : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketServerSideEncryptionConfigurationV2Rule>> Rules { get; private set; } = null!;
 
@@ -129,24 +67,14 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketServerSideEncryptionConfigurationV2Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs>? _rules;
-
-        /// <summary>
-        /// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-        /// </summary>
         public InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs>());
@@ -161,24 +89,14 @@ namespace Pulumi.Aws.S3
 
     public sealed class BucketServerSideEncryptionConfigurationV2State : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// The account ID of the expected bucket owner.
-        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleGetArgs>? _rules;
-
-        /// <summary>
-        /// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-        /// </summary>
         public InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleGetArgs>());

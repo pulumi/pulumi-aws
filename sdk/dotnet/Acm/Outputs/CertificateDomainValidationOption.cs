@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Acm.Outputs
     [OutputType]
     public sealed class CertificateDomainValidationOption
     {
-        /// <summary>
-        /// Fully qualified domain name (FQDN) in the certificate.
-        /// </summary>
         public readonly string? DomainName;
-        /// <summary>
-        /// The name of the DNS record to create to validate the certificate
-        /// </summary>
         public readonly string? ResourceRecordName;
-        /// <summary>
-        /// The type of DNS record to create
-        /// </summary>
         public readonly string? ResourceRecordType;
-        /// <summary>
-        /// The value the DNS record needs to have
-        /// </summary>
         public readonly string? ResourceRecordValue;
 
         [OutputConstructor]

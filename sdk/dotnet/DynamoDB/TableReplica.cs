@@ -9,118 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DynamoDB
 {
-    /// <summary>
-    /// Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
-    /// 
-    /// &gt; **Note:** Use `lifecycle` `ignore_changes` for `replica` in the associated aws.dynamodb.Table configuration.
-    /// 
-    /// &gt; **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Provider("main", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var alt = new Aws.Provider("alt", new()
-    ///     {
-    ///         Region = "us-east-2",
-    ///     });
-    /// 
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
-    ///         HashKey = "BrodoBaggins",
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "BrodoBaggins",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "aws.main",
-    ///     });
-    /// 
-    ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("exampleTableReplica", new()
-    ///     {
-    ///         GlobalTableArn = exampleTable.Arn,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "IZPAWS" },
-    ///             { "Pozo", "Amargo" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "aws.alt",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:dynamodb/tableReplica:TableReplica")]
     public partial class TableReplica : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the table replica.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the _main_ or global table which this resource will replicate.
-        /// </summary>
         [Output("globalTableArn")]
         public Output<string> GlobalTableArn { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption.
-        /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        /// </summary>
         [Output("pointInTimeRecovery")]
         public Output<bool?> PointInTimeRecovery { get; private set; } = null!;
 
-        /// <summary>
-        /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-        /// </summary>
         [Output("tableClassOverride")]
         public Output<string?> TableClassOverride { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -170,36 +79,20 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class TableReplicaArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the _main_ or global table which this resource will replicate.
-        /// </summary>
         [Input("globalTableArn", required: true)]
         public Input<string> GlobalTableArn { get; set; } = null!;
 
-        /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
 
-        /// <summary>
-        /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-        /// </summary>
         [Input("tableClassOverride")]
         public Input<string>? TableClassOverride { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -214,42 +107,23 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class TableReplicaState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the table replica.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of the _main_ or global table which this resource will replicate.
-        /// </summary>
         [Input("globalTableArn")]
         public Input<string>? GlobalTableArn { get; set; }
 
-        /// <summary>
-        /// ARN of the CMK that should be used for the AWS KMS encryption.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
 
-        /// <summary>
-        /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-        /// </summary>
         [Input("tableClassOverride")]
         public Input<string>? TableClassOverride { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -258,10 +132,6 @@ namespace Pulumi.Aws.DynamoDB
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

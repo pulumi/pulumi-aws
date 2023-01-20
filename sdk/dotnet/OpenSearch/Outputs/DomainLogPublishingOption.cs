@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class DomainLogPublishingOption
     {
-        /// <summary>
-        /// ARN of the Cloudwatch log group to which log needs to be published.
-        /// </summary>
         public readonly string CloudwatchLogGroupArn;
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-        /// </summary>
         public readonly string LogType;
 
         [OutputConstructor]

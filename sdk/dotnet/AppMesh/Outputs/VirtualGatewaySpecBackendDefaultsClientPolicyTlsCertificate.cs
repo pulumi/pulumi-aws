@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate
     {
-        /// <summary>
-        /// Local file certificate.
-        /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile? File;
-        /// <summary>
-        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds? Sds;
 
         [OutputConstructor]

@@ -13,29 +13,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class GetPermissionsTableWithColumnsResult
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         public readonly string CatalogId;
-        /// <summary>
-        /// Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
-        /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
-        /// <summary>
-        /// Name of the database for the table with columns resource. Unique to the Data Catalog.
-        /// </summary>
         public readonly string DatabaseName;
-        /// <summary>
-        /// Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
-        /// <summary>
-        /// Name of the table resource.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        /// </summary>
         public readonly bool? Wildcard;
 
         [OutputConstructor]

@@ -12,16 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateCpuOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The number of CPU cores for the instance.
-        /// </summary>
         [Input("coreCount")]
         public Input<int>? CoreCount { get; set; }
 
-        /// <summary>
-        /// The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-        /// Otherwise, specify the default value of 2.
-        /// </summary>
         [Input("threadsPerCore")]
         public Input<int>? ThreadsPerCore { get; set; }
 

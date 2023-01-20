@@ -9,78 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker Space resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Space("example", new()
-    ///     {
-    ///         DomainId = aws_sagemaker_domain.Test.Id,
-    ///         SpaceName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// SageMaker Spaces can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/space:Space")]
     public partial class Space : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The space's Amazon Resource Name (ARN).
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the associated Domain.
-        /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the space's profile in the Amazon Elastic File System volume.
-        /// </summary>
         [Output("homeEfsFileSystemUid")]
         public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Output("spaceName")]
         public Output<string> SpaceName { get; private set; } = null!;
 
-        /// <summary>
-        /// A collection of space settings. See Space Settings below.
-        /// </summary>
         [Output("spaceSettings")]
         public Output<Outputs.SpaceSpaceSettings?> SpaceSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -130,30 +79,17 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class SpaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the associated Domain.
-        /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName", required: true)]
         public Input<string> SpaceName { get; set; } = null!;
 
-        /// <summary>
-        /// A collection of space settings. See Space Settings below.
-        /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsArgs>? SpaceSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -168,42 +104,23 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class SpaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The space's Amazon Resource Name (ARN).
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID of the associated Domain.
-        /// </summary>
         [Input("domainId")]
         public Input<string>? DomainId { get; set; }
 
-        /// <summary>
-        /// The ID of the space's profile in the Amazon Elastic File System volume.
-        /// </summary>
         [Input("homeEfsFileSystemUid")]
         public Input<string>? HomeEfsFileSystemUid { get; set; }
 
-        /// <summary>
-        /// The name of the space.
-        /// </summary>
         [Input("spaceName")]
         public Input<string>? SpaceName { get; set; }
 
-        /// <summary>
-        /// A collection of space settings. See Space Settings below.
-        /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsGetArgs>? SpaceSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -212,10 +129,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

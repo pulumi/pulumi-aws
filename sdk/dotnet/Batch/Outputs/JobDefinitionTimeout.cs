@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionTimeout
     {
-        /// <summary>
-        /// The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
-        /// </summary>
         public readonly int? AttemptDurationSeconds;
 
         [OutputConstructor]

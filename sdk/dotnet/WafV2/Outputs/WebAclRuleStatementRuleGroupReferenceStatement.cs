@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementRuleGroupReferenceStatement
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRule> ExcludedRules;
 
         [OutputConstructor]

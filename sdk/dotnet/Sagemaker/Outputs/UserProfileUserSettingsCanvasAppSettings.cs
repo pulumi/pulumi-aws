@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettingsCanvasAppSettings
     {
-        /// <summary>
-        /// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
-        /// </summary>
         public readonly Outputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? TimeSeriesForecastingSettings;
 
         [OutputConstructor]

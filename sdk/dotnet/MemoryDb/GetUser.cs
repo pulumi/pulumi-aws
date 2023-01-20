@@ -11,57 +11,9 @@ namespace Pulumi.Aws.MemoryDb
 {
     public static class GetUser
     {
-        /// <summary>
-        /// Provides information about a MemoryDB User.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetUser.Invoke(new()
-        ///     {
-        ///         UserName = "my-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:memorydb/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides information about a MemoryDB User.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetUser.Invoke(new()
-        ///     {
-        ///         UserName = "my-user",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:memorydb/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -71,19 +23,12 @@ namespace Pulumi.Aws.MemoryDb
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the subnet group.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the user.
-        /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
 
@@ -97,19 +42,12 @@ namespace Pulumi.Aws.MemoryDb
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags assigned to the subnet group.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Name of the user.
-        /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
 
@@ -123,29 +61,14 @@ namespace Pulumi.Aws.MemoryDb
     [OutputType]
     public sealed class GetUserResult
     {
-        /// <summary>
-        /// Access permissions string used for this user.
-        /// </summary>
         public readonly string AccessString;
-        /// <summary>
-        /// ARN of the user.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Denotes the user's authentication properties.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetUserAuthenticationModeResult> AuthenticationModes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The minimum engine version supported for the user.
-        /// </summary>
         public readonly string MinimumEngineVersion;
-        /// <summary>
-        /// Map of tags assigned to the subnet group.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string UserName;
 

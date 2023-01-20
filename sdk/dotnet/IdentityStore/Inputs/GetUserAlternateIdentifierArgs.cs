@@ -12,15 +12,9 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
     public sealed class GetUserAlternateIdentifierInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        /// </summary>
         [Input("externalId")]
         public Input<Inputs.GetUserAlternateIdentifierExternalIdInputArgs>? ExternalId { get; set; }
 
-        /// <summary>
-        /// An entity attribute that's unique to a specific entity. Detailed below.
-        /// </summary>
         [Input("uniqueAttribute")]
         public Input<Inputs.GetUserAlternateIdentifierUniqueAttributeInputArgs>? UniqueAttribute { get; set; }
 

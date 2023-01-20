@@ -9,76 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Macie2
 {
-    /// <summary>
-    /// Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primaryAccount = new Aws.Macie2.Account("primaryAccount", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///     });
-    /// 
-    ///     var memberAccount = new Aws.Macie2.Account("memberAccount");
-    /// 
-    ///     var primaryMember = new Aws.Macie2.Member("primaryMember", new()
-    ///     {
-    ///         AccountId = "ACCOUNT ID",
-    ///         Email = "EMAIL",
-    ///         Invite = true,
-    ///         InvitationMessage = "Message of the invite",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryAccount,
-    ///         },
-    ///     });
-    /// 
-    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("memberInvitationAccepter", new()
-    ///     {
-    ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryMember,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:macie2/invitationAccepter:InvitationAccepter")]
     public partial class InvitationAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
-        /// </summary>
         [Output("administratorAccountId")]
         public Output<string> AdministratorAccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique identifier for the invitation.
-        /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
@@ -128,9 +64,6 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class InvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
-        /// </summary>
         [Input("administratorAccountId", required: true)]
         public Input<string> AdministratorAccountId { get; set; } = null!;
 
@@ -142,15 +75,9 @@ namespace Pulumi.Aws.Macie2
 
     public sealed class InvitationAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The AWS account ID for the account that sent the invitation.
-        /// </summary>
         [Input("administratorAccountId")]
         public Input<string>? AdministratorAccountId { get; set; }
 
-        /// <summary>
-        /// The unique identifier for the invitation.
-        /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 

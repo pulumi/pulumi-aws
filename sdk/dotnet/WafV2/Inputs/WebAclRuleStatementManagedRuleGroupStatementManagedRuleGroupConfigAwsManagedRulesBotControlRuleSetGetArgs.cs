@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The inspection level to use for the Bot Control rule group.
-        /// </summary>
         [Input("inspectionLevel", required: true)]
         public Input<string> InspectionLevel { get; set; } = null!;
 

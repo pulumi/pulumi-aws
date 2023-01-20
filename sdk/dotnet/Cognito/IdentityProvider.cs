@@ -9,91 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cognito
 {
-    /// <summary>
-    /// Provides a Cognito User Identity Provider resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cognito.UserPool("example", new()
-    ///     {
-    ///         AutoVerifiedAttributes = new[]
-    ///         {
-    ///             "email",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new()
-    ///     {
-    ///         UserPoolId = example.Id,
-    ///         ProviderName = "Google",
-    ///         ProviderType = "Google",
-    ///         ProviderDetails = 
-    ///         {
-    ///             { "authorize_scopes", "email" },
-    ///             { "client_id", "your client_id" },
-    ///             { "client_secret", "your client_secret" },
-    ///         },
-    ///         AttributeMapping = 
-    ///         {
-    ///             { "email", "email" },
-    ///             { "username", "sub" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cognito/identityProvider:IdentityProvider")]
     public partial class IdentityProvider : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-        /// </summary>
         [Output("attributeMapping")]
         public Output<ImmutableDictionary<string, string>> AttributeMapping { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of identity providers.
-        /// </summary>
         [Output("idpIdentifiers")]
         public Output<ImmutableArray<string>> IdpIdentifiers { get; private set; } = null!;
 
-        /// <summary>
-        /// The map of identity details, such as access token
-        /// </summary>
         [Output("providerDetails")]
         public Output<ImmutableDictionary<string, string>> ProviderDetails { get; private set; } = null!;
 
-        /// <summary>
-        /// The provider name
-        /// </summary>
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
-        /// <summary>
-        /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-        /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
 
-        /// <summary>
-        /// The user pool id
-        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -145,10 +78,6 @@ namespace Pulumi.Aws.Cognito
     {
         [Input("attributeMapping")]
         private InputMap<string>? _attributeMapping;
-
-        /// <summary>
-        /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-        /// </summary>
         public InputMap<string> AttributeMapping
         {
             get => _attributeMapping ?? (_attributeMapping = new InputMap<string>());
@@ -157,10 +86,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("idpIdentifiers")]
         private InputList<string>? _idpIdentifiers;
-
-        /// <summary>
-        /// The list of identity providers.
-        /// </summary>
         public InputList<string> IdpIdentifiers
         {
             get => _idpIdentifiers ?? (_idpIdentifiers = new InputList<string>());
@@ -169,31 +94,18 @@ namespace Pulumi.Aws.Cognito
 
         [Input("providerDetails", required: true)]
         private InputMap<string>? _providerDetails;
-
-        /// <summary>
-        /// The map of identity details, such as access token
-        /// </summary>
         public InputMap<string> ProviderDetails
         {
             get => _providerDetails ?? (_providerDetails = new InputMap<string>());
             set => _providerDetails = value;
         }
 
-        /// <summary>
-        /// The provider name
-        /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
 
-        /// <summary>
-        /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-        /// </summary>
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
 
-        /// <summary>
-        /// The user pool id
-        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -207,10 +119,6 @@ namespace Pulumi.Aws.Cognito
     {
         [Input("attributeMapping")]
         private InputMap<string>? _attributeMapping;
-
-        /// <summary>
-        /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-        /// </summary>
         public InputMap<string> AttributeMapping
         {
             get => _attributeMapping ?? (_attributeMapping = new InputMap<string>());
@@ -219,10 +127,6 @@ namespace Pulumi.Aws.Cognito
 
         [Input("idpIdentifiers")]
         private InputList<string>? _idpIdentifiers;
-
-        /// <summary>
-        /// The list of identity providers.
-        /// </summary>
         public InputList<string> IdpIdentifiers
         {
             get => _idpIdentifiers ?? (_idpIdentifiers = new InputList<string>());
@@ -231,31 +135,18 @@ namespace Pulumi.Aws.Cognito
 
         [Input("providerDetails")]
         private InputMap<string>? _providerDetails;
-
-        /// <summary>
-        /// The map of identity details, such as access token
-        /// </summary>
         public InputMap<string> ProviderDetails
         {
             get => _providerDetails ?? (_providerDetails = new InputMap<string>());
             set => _providerDetails = value;
         }
 
-        /// <summary>
-        /// The provider name
-        /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
-        /// <summary>
-        /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-        /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 
-        /// <summary>
-        /// The user pool id
-        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 

@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class GetVpcEndpointServiceFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

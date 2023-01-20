@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppConfig.Inputs
 
     public sealed class ExtensionParameterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Information about the parameter.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The parameter name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Determines if a parameter value must be specified in the extension association.
-        /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 

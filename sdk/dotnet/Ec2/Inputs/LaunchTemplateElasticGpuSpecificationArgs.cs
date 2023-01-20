@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateElasticGpuSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

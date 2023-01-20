@@ -9,100 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Acm
 {
-    /// <summary>
-    /// This resource represents a successful validation of an ACM certificate in concert
-    /// with other resources.
-    /// 
-    /// Most commonly, this resource is used together with `aws.route53.Record` and
-    /// `aws.acm.Certificate` to request a DNS validated certificate,
-    /// deploy the required validation records and wait for validation to complete.
-    /// 
-    /// &gt; **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-    /// 
-    /// ## Example Usage
-    /// ### DNS Validation with Route 53
-    /// ```csharp
-    /// using Pulumi;
-    /// using Pulumi.Aws.Acm;
-    /// using Pulumi.Aws.Route53;
-    /// using System.Collections.Generic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt;
-    /// {
-    ///    var exampleCertificate = new Certificate("exampleCertificate", new CertificateArgs
-    ///    {
-    ///       DomainName = "example.com",
-    ///       ValidationMethod = "DNS"
-    ///    });
-    /// 
-    ///    var exampleZone = GetZone.Invoke(new GetZoneInvokeArgs
-    ///    {
-    ///       Name = "example.com",
-    ///       PrivateZone = false,
-    ///    });
-    /// 
-    ///    var certValidation = new Record("certValidation", new RecordArgs
-    ///    {
-    ///       Name = exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordName!),
-    ///       Records =
-    ///       {
-    ///          exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordValue!),
-    ///       },
-    ///       Ttl = 60,
-    ///       Type = exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordType!),
-    ///       ZoneId = exampleZone.Apply(zone =&gt; zone.Id),
-    ///    });
-    /// 
-    ///    var certCertificateValidation = new CertificateValidation("cert", new CertificateValidationArgs
-    ///    {
-    ///       CertificateArn = exampleCertificate.Arn,
-    ///       ValidationRecordFqdns =
-    ///       {
-    ///          certValidation.Fqdn,
-    ///       },
-    ///    });
-    ///    
-    ///    return new Dictionary&lt;string, object?&gt;
-    ///    {
-    ///       ["certificateArn"] = certCertificateValidation.CertificateArn,
-    ///    };
-    /// });
-    /// ```
-    /// ### Email Validation
-    /// ```csharp
-    /// using Pulumi;
-    /// using Pulumi.Aws.Acm;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt;
-    /// {
-    ///    var exampleCertificate = new Certificate("exampleCertificate", new CertificateArgs
-    ///    {
-    ///       DomainName = "example.com",
-    ///       ValidationMethod = "EMAIL"
-    ///    });
-    /// 
-    ///    var certCertificateValidation = new CertificateValidation("cert", new CertificateValidationArgs
-    ///    {
-    ///       CertificateArn = exampleCertificate.Arn,
-    ///    });
-    /// });
-    /// 
-    /// ```
-    /// 
-    /// {{% //examples %}}
-    /// </summary>
     [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
     public partial class CertificateValidation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the certificate that is being validated.
-        /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
 
-        /// <summary>
-        /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        /// </summary>
         [Output("validationRecordFqdns")]
         public Output<ImmutableArray<string>> ValidationRecordFqdns { get; private set; } = null!;
 
@@ -152,18 +64,11 @@ namespace Pulumi.Aws.Acm
 
     public sealed class CertificateValidationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate that is being validated.
-        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
         [Input("validationRecordFqdns")]
         private InputList<string>? _validationRecordFqdns;
-
-        /// <summary>
-        /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        /// </summary>
         public InputList<string> ValidationRecordFqdns
         {
             get => _validationRecordFqdns ?? (_validationRecordFqdns = new InputList<string>());
@@ -178,18 +83,11 @@ namespace Pulumi.Aws.Acm
 
     public sealed class CertificateValidationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the certificate that is being validated.
-        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
         [Input("validationRecordFqdns")]
         private InputList<string>? _validationRecordFqdns;
-
-        /// <summary>
-        /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
-        /// </summary>
         public InputList<string> ValidationRecordFqdns
         {
             get => _validationRecordFqdns ?? (_validationRecordFqdns = new InputList<string>());

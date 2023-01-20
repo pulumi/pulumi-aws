@@ -9,131 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.AppConfig
 {
-    /// <summary>
-    /// Provides an AppConfig Extension resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testTopic = new Aws.Sns.Topic("testTopic");
-    /// 
-    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "appconfig.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
-    ///     {
-    ///         AssumeRolePolicy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testExtension = new Aws.AppConfig.Extension("testExtension", new()
-    ///     {
-    ///         Description = "test description",
-    ///         ActionPoints = new[]
-    ///         {
-    ///             new Aws.AppConfig.Inputs.ExtensionActionPointArgs
-    ///             {
-    ///                 Point = "ON_DEPLOYMENT_COMPLETE",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.AppConfig.Inputs.ExtensionActionPointActionArgs
-    ///                     {
-    ///                         Name = "test",
-    ///                         RoleArn = testRole.Arn,
-    ///                         Uri = testTopic.Arn,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Extension" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AppConfig Extensions can be imported using their extension ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:appconfig/extension:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The action points defined in the extension. Detailed below.
-        /// </summary>
         [Output("actionPoints")]
         public Output<ImmutableArray<Outputs.ExtensionActionPoint>> ActionPoints { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the AppConfig Extension.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about the extension.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-        /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ExtensionParameter>> Parameters { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The version number for the extension.
-        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -185,34 +84,20 @@ namespace Pulumi.Aws.AppConfig
     {
         [Input("actionPoints", required: true)]
         private InputList<Inputs.ExtensionActionPointArgs>? _actionPoints;
-
-        /// <summary>
-        /// The action points defined in the extension. Detailed below.
-        /// </summary>
         public InputList<Inputs.ExtensionActionPointArgs> ActionPoints
         {
             get => _actionPoints ?? (_actionPoints = new InputList<Inputs.ExtensionActionPointArgs>());
             set => _actionPoints = value;
         }
 
-        /// <summary>
-        /// Information about the extension.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ExtensionParameterArgs>? _parameters;
-
-        /// <summary>
-        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-        /// </summary>
         public InputList<Inputs.ExtensionParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ExtensionParameterArgs>());
@@ -221,10 +106,6 @@ namespace Pulumi.Aws.AppConfig
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -241,40 +122,23 @@ namespace Pulumi.Aws.AppConfig
     {
         [Input("actionPoints")]
         private InputList<Inputs.ExtensionActionPointGetArgs>? _actionPoints;
-
-        /// <summary>
-        /// The action points defined in the extension. Detailed below.
-        /// </summary>
         public InputList<Inputs.ExtensionActionPointGetArgs> ActionPoints
         {
             get => _actionPoints ?? (_actionPoints = new InputList<Inputs.ExtensionActionPointGetArgs>());
             set => _actionPoints = value;
         }
 
-        /// <summary>
-        /// ARN of the AppConfig Extension.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Information about the extension.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.ExtensionParameterGetArgs>? _parameters;
-
-        /// <summary>
-        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-        /// </summary>
         public InputList<Inputs.ExtensionParameterGetArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ExtensionParameterGetArgs>());
@@ -283,10 +147,6 @@ namespace Pulumi.Aws.AppConfig
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -301,9 +161,6 @@ namespace Pulumi.Aws.AppConfig
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The version number for the extension.
-        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

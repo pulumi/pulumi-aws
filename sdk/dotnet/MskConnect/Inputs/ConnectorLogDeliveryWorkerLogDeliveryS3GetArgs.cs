@@ -12,21 +12,12 @@ namespace Pulumi.Aws.MskConnect.Inputs
 
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryS3GetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the S3 bucket that is the destination for log delivery.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// The S3 prefix that is the destination for log delivery.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

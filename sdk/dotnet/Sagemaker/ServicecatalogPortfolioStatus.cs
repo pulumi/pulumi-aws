@@ -9,42 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.ServicecatalogPortfolioStatus("example", new()
-    ///     {
-    ///         Status = "Enabled",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Models can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus")]
     public partial class ServicecatalogPortfolioStatus : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -94,9 +61,6 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ServicecatalogPortfolioStatusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-        /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
@@ -108,9 +72,6 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ServicecatalogPortfolioStatusState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

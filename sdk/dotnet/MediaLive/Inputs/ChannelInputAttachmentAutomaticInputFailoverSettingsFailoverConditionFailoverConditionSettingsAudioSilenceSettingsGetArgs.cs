@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the audio selector used as the source for this AudioDescription.
-        /// </summary>
         [Input("audioSelectorName", required: true)]
         public Input<string> AudioSelectorName { get; set; } = null!;
 

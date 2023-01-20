@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsScheduleRetainRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How many snapshots to keep. Must be an integer between `1` and `1000`.
-        /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
-        /// <summary>
-        /// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
-        /// <summary>
-        /// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
-        /// </summary>
         [Input("intervalUnit")]
         public Input<string>? IntervalUnit { get; set; }
 

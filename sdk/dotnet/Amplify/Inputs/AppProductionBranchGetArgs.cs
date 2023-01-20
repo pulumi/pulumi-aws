@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Amplify.Inputs
 
     public sealed class AppProductionBranchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Branch name for the production branch.
-        /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
 
-        /// <summary>
-        /// Last deploy time of the production branch.
-        /// </summary>
         [Input("lastDeployTime")]
         public Input<string>? LastDeployTime { get; set; }
 
-        /// <summary>
-        /// Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// Thumbnail URL for the production branch.
-        /// </summary>
         [Input("thumbnailUrl")]
         public Input<string>? ThumbnailUrl { get; set; }
 

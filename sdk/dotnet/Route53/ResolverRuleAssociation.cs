@@ -9,53 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53
 {
-    /// <summary>
-    /// Provides a Route53 Resolver rule association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.ResolverRuleAssociation("example", new()
-    ///     {
-    ///         ResolverRuleId = aws_route53_resolver_rule.Sys.Id,
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Route53 Resolver rule associations can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]
     public partial class ResolverRuleAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A name for the association that you're creating between a resolver rule and a VPC.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the resolver rule that you want to associate with the VPC.
-        /// </summary>
         [Output("resolverRuleId")]
         public Output<string> ResolverRuleId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC that you want to associate the resolver rule with.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -105,21 +67,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverRuleAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A name for the association that you're creating between a resolver rule and a VPC.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the resolver rule that you want to associate with the VPC.
-        /// </summary>
         [Input("resolverRuleId", required: true)]
         public Input<string> ResolverRuleId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the VPC that you want to associate the resolver rule with.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -131,21 +84,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverRuleAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A name for the association that you're creating between a resolver rule and a VPC.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The ID of the resolver rule that you want to associate with the VPC.
-        /// </summary>
         [Input("resolverRuleId")]
         public Input<string>? ResolverRuleId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC that you want to associate the resolver rule with.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

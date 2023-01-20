@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Outputs
     [OutputType]
     public sealed class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
     {
-        /// <summary>
-        /// Domain name that is targeted.
-        /// </summary>
         public readonly string? DomainName;
-        /// <summary>
-        /// Resource record set ID that is targeted.
-        /// </summary>
         public readonly string? RecordSetId;
 
         [OutputConstructor]

@@ -13,16 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetInputTransformer
     {
-        /// <summary>
-        /// Key value pairs specified in the form of JSONPath (for example, time = $.time)
-        /// * You can have as many as 100 key-value pairs.
-        /// * You must use JSON dot notation, not bracket notation.
-        /// * The keys can't start with "AWS".
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? InputPaths;
-        /// <summary>
-        /// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-        /// </summary>
         public readonly string InputTemplate;
 
         [OutputConstructor]

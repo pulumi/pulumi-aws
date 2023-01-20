@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ServerlessClusterClientAuthenticationSasl
     {
-        /// <summary>
-        /// Details for client authentication using IAM. See below.
-        /// </summary>
         public readonly Outputs.ServerlessClusterClientAuthenticationSaslIam Iam;
 
         [OutputConstructor]

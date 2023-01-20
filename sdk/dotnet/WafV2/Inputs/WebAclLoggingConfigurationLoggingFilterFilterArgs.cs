@@ -12,27 +12,17 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclLoggingConfigurationLoggingFilterFilterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// How to handle logs that satisfy the filter's conditions and requirement. Valid values: `KEEP` or `DROP`.
-        /// </summary>
         [Input("behavior", required: true)]
         public Input<string> Behavior { get; set; } = null!;
 
         [Input("conditions", required: true)]
         private InputList<Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs>? _conditions;
-
-        /// <summary>
-        /// Match condition(s) for the filter. See Condition below for more details.
-        /// </summary>
         public InputList<Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs>());
             set => _conditions = value;
         }
 
-        /// <summary>
-        /// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
-        /// </summary>
         [Input("requirement", required: true)]
         public Input<string> Requirement { get; set; } = null!;
 

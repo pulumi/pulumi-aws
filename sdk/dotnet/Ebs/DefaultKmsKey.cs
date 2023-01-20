@@ -9,47 +9,9 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ebs
 {
-    /// <summary>
-    /// Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
-    /// 
-    /// Your AWS account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume.
-    /// By using the `aws.ebs.DefaultKmsKey` resource, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.
-    /// 
-    /// &gt; **NOTE:** Creating an `aws.ebs.DefaultKmsKey` resource does not enable default EBS encryption. Use the `aws.ebs.EncryptionByDefault` to enable default EBS encryption.
-    /// 
-    /// &gt; **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.DefaultKmsKey("example", new()
-    ///     {
-    ///         KeyArn = aws_kms_key.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ebs/defaultKmsKey:DefaultKmsKey")]
     public partial class DefaultKmsKey : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-        /// </summary>
         [Output("keyArn")]
         public Output<string> KeyArn { get; private set; } = null!;
 
@@ -99,9 +61,6 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class DefaultKmsKeyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-        /// </summary>
         [Input("keyArn", required: true)]
         public Input<string> KeyArn { get; set; } = null!;
 
@@ -113,9 +72,6 @@ namespace Pulumi.Aws.Ebs
 
     public sealed class DefaultKmsKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-        /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainSnapshotOptionsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Hour during which the service takes an automated daily snapshot of the indices in the domain.
-        /// </summary>
         [Input("automatedSnapshotStartHour", required: true)]
         public Input<int> AutomatedSnapshotStartHour { get; set; } = null!;
 

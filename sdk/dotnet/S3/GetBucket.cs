@@ -11,165 +11,9 @@ namespace Pulumi.Aws.S3
 {
     public static class GetBucket
     {
-        /// <summary>
-        /// Provides details about a specific S3 bucket.
-        /// 
-        /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
-        /// Distribution.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Route53 Record
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.S3.GetBucket.Invoke(new()
-        ///     {
-        ///         Bucket = "bucket.test.com",
-        ///     });
-        /// 
-        ///     var testZone = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///     });
-        /// 
-        ///     var example = new Aws.Route53.Record("example", new()
-        ///     {
-        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
-        ///         Name = "bucket",
-        ///         Type = "A",
-        ///         Aliases = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.RecordAliasArgs
-        ///             {
-        ///                 Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
-        ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### CloudFront Origin
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.S3.GetBucket.Invoke(new()
-        ///     {
-        ///         Bucket = "a-test-bucket",
-        ///     });
-        /// 
-        ///     var test = new Aws.CloudFront.Distribution("test", new()
-        ///     {
-        ///         Origins = new[]
-        ///         {
-        ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
-        ///             {
-        ///                 DomainName = selected.Apply(getBucketResult =&gt; getBucketResult.BucketDomainName),
-        ///                 OriginId = "s3-selected-bucket",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? new GetBucketArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a specific S3 bucket.
-        /// 
-        /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
-        /// Distribution.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Route53 Record
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.S3.GetBucket.Invoke(new()
-        ///     {
-        ///         Bucket = "bucket.test.com",
-        ///     });
-        /// 
-        ///     var testZone = Aws.Route53.GetZone.Invoke(new()
-        ///     {
-        ///         Name = "test.com.",
-        ///     });
-        /// 
-        ///     var example = new Aws.Route53.Record("example", new()
-        ///     {
-        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
-        ///         Name = "bucket",
-        ///         Type = "A",
-        ///         Aliases = new[]
-        ///         {
-        ///             new Aws.Route53.Inputs.RecordAliasArgs
-        ///             {
-        ///                 Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
-        ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### CloudFront Origin
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var selected = Aws.S3.GetBucket.Invoke(new()
-        ///     {
-        ///         Bucket = "a-test-bucket",
-        ///     });
-        /// 
-        ///     var test = new Aws.CloudFront.Distribution("test", new()
-        ///     {
-        ///         Origins = new[]
-        ///         {
-        ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
-        ///             {
-        ///                 DomainName = selected.Apply(getBucketResult =&gt; getBucketResult.BucketDomainName),
-        ///                 OriginId = "s3-selected-bucket",
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
     }
@@ -177,9 +21,6 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetBucketArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the bucket
-        /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
 
@@ -191,9 +32,6 @@ namespace Pulumi.Aws.S3
 
     public sealed class GetBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the bucket
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
@@ -207,38 +45,17 @@ namespace Pulumi.Aws.S3
     [OutputType]
     public sealed class GetBucketResult
     {
-        /// <summary>
-        /// ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
-        /// </summary>
         public readonly string Arn;
         public readonly string Bucket;
-        /// <summary>
-        /// Bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
-        /// </summary>
         public readonly string BucketDomainName;
-        /// <summary>
-        /// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
-        /// </summary>
         public readonly string BucketRegionalDomainName;
-        /// <summary>
-        /// The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
-        /// </summary>
         public readonly string HostedZoneId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// AWS region this bucket resides in.
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
-        /// </summary>
         public readonly string WebsiteDomain;
-        /// <summary>
-        /// Website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
-        /// </summary>
         public readonly string WebsiteEndpoint;
 
         [OutputConstructor]

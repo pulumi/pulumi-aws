@@ -12,15 +12,9 @@ namespace Pulumi.Aws.GameLift.Inputs
 
     public sealed class FleetResourceCreationLimitPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum number of game sessions that an individual can create during the policy period.
-        /// </summary>
         [Input("newGameSessionsPerCreator")]
         public Input<int>? NewGameSessionsPerCreator { get; set; }
 
-        /// <summary>
-        /// Time span used in evaluating the resource creation limit policy.
-        /// </summary>
         [Input("policyPeriodInMinutes")]
         public Input<int>? PolicyPeriodInMinutes { get; set; }
 

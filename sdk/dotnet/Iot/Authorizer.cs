@@ -9,90 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Iot
 {
-    /// <summary>
-    /// Creates and manages an AWS IoT Authorizer.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.Authorizer("example", new()
-    ///     {
-    ///         AuthorizerFunctionArn = aws_lambda_function.Example.Arn,
-    ///         SigningDisabled = false,
-    ///         Status = "ACTIVE",
-    ///         TokenKeyName = "Token-Header",
-    ///         TokenSigningPublicKeys = 
-    ///         {
-    ///             { "Key1", File.ReadAllText("test-fixtures/iot-authorizer-signing-key.pem") },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// IOT Authorizers can be imported using the name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/authorizer:Authorizer example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:iot/authorizer:Authorizer")]
     public partial class Authorizer : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the authorizer.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the authorizer's Lambda function.
-        /// </summary>
         [Output("authorizerFunctionArn")]
         public Output<string> AuthorizerFunctionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        /// </summary>
         [Output("enableCachingForHttp")]
         public Output<bool?> EnableCachingForHttp { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the authorizer.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        /// </summary>
         [Output("signingDisabled")]
         public Output<bool?> SigningDisabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        /// </summary>
         [Output("tokenKeyName")]
         public Output<string?> TokenKeyName { get; private set; } = null!;
 
-        /// <summary>
-        /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-        /// </summary>
         [Output("tokenSigningPublicKeys")]
         public Output<ImmutableDictionary<string, string>?> TokenSigningPublicKeys { get; private set; } = null!;
 
@@ -146,48 +86,26 @@ namespace Pulumi.Aws.Iot
 
     public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the authorizer's Lambda function.
-        /// </summary>
         [Input("authorizerFunctionArn", required: true)]
         public Input<string> AuthorizerFunctionArn { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        /// </summary>
         [Input("enableCachingForHttp")]
         public Input<bool>? EnableCachingForHttp { get; set; }
 
-        /// <summary>
-        /// The name of the authorizer.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        /// </summary>
         [Input("signingDisabled")]
         public Input<bool>? SigningDisabled { get; set; }
 
-        /// <summary>
-        /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        /// </summary>
         [Input("tokenKeyName")]
         public Input<string>? TokenKeyName { get; set; }
 
         [Input("tokenSigningPublicKeys")]
         private InputMap<string>? _tokenSigningPublicKeys;
-
-        /// <summary>
-        /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-        /// </summary>
         public InputMap<string> TokenSigningPublicKeys
         {
             get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());
@@ -206,54 +124,29 @@ namespace Pulumi.Aws.Iot
 
     public sealed class AuthorizerState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the authorizer.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ARN of the authorizer's Lambda function.
-        /// </summary>
         [Input("authorizerFunctionArn")]
         public Input<string>? AuthorizerFunctionArn { get; set; }
 
-        /// <summary>
-        /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        /// </summary>
         [Input("enableCachingForHttp")]
         public Input<bool>? EnableCachingForHttp { get; set; }
 
-        /// <summary>
-        /// The name of the authorizer.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        /// </summary>
         [Input("signingDisabled")]
         public Input<bool>? SigningDisabled { get; set; }
 
-        /// <summary>
-        /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        /// </summary>
         [Input("tokenKeyName")]
         public Input<string>? TokenKeyName { get; set; }
 
         [Input("tokenSigningPublicKeys")]
         private InputMap<string>? _tokenSigningPublicKeys;
-
-        /// <summary>
-        /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-        /// </summary>
         public InputMap<string> TokenSigningPublicKeys
         {
             get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());

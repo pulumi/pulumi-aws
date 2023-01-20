@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// When specified this field indicates the three letter language code of the caption track to extract from the source.
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
-        /// <summary>
-        /// The name of the video description.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

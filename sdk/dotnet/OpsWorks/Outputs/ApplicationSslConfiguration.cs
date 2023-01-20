@@ -13,17 +13,8 @@ namespace Pulumi.Aws.OpsWorks.Outputs
     [OutputType]
     public sealed class ApplicationSslConfiguration
     {
-        /// <summary>
-        /// The contents of the certificate's domain.crt file.
-        /// </summary>
         public readonly string Certificate;
-        /// <summary>
-        /// Can be used to specify an intermediate certificate authority key or client authentication.
-        /// </summary>
         public readonly string? Chain;
-        /// <summary>
-        /// The private key; the contents of the certificate's domain.key file.
-        /// </summary>
         public readonly string PrivateKey;
 
         [OutputConstructor]

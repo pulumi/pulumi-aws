@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionElasticsearch
     {
-        /// <summary>
-        /// The endpoint of your Elasticsearch domain.
-        /// </summary>
         public readonly string Endpoint;
-        /// <summary>
-        /// The unique identifier for the document you are storing.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The Elasticsearch index where you want to store your data.
-        /// </summary>
         public readonly string Index;
-        /// <summary>
-        /// The IAM role ARN that has access to Elasticsearch.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The type of document you are storing.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials
     {
-        /// <summary>
-        /// Password that corresponds to the user name.
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// Name of the user.
-        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

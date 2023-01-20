@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionDynamodbv2PutItem
     {
-        /// <summary>
-        /// The name of the DynamoDB table.
-        /// </summary>
         public readonly string TableName;
 
         [OutputConstructor]

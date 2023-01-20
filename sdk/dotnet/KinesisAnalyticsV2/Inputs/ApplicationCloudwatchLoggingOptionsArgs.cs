@@ -15,9 +15,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         [Input("cloudwatchLoggingOptionId")]
         public Input<string>? CloudwatchLoggingOptionId { get; set; }
 
-        /// <summary>
-        /// The ARN of the CloudWatch log stream to receive application messages.
-        /// </summary>
         [Input("logStreamArn", required: true)]
         public Input<string> LogStreamArn { get; set; } = null!;
 

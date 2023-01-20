@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventTargetRunCommandTargetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Can be either `tag:tag-key` or `InstanceIds`.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

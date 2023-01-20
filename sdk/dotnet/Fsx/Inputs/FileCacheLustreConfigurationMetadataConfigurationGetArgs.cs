@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class FileCacheLustreConfigurationMetadataConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        /// </summary>
         [Input("storageCapacity", required: true)]
         public Input<int> StorageCapacity { get; set; } = null!;
 

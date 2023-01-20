@@ -9,78 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryReadiness
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Readiness Resource Set.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.ResourceSet("example", new()
-    ///     {
-    ///         ResourceSetName = my_cw_alarm_set,
-    ///         ResourceSetType = "AWS::CloudWatch::Alarm",
-    ///         Resources = new[]
-    ///         {
-    ///             new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
-    ///             {
-    ///                 ResourceArn = aws_cloudwatch_metric_alarm.Example.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/resourceSet:ResourceSet")]
     public partial class ResourceSet : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// NLB resource ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name describing the resource set.
-        /// </summary>
         [Output("resourceSetName")]
         public Output<string> ResourceSetName { get; private set; } = null!;
 
-        /// <summary>
-        /// Type of the resources in the resource set.
-        /// </summary>
         [Output("resourceSetType")]
         public Output<string> ResourceSetType { get; private set; } = null!;
 
-        /// <summary>
-        /// List of resources to add to this resource set. See below.
-        /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.ResourceSetResource>> Resources { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -130,24 +76,14 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
     public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name describing the resource set.
-        /// </summary>
         [Input("resourceSetName", required: true)]
         public Input<string> ResourceSetName { get; set; } = null!;
 
-        /// <summary>
-        /// Type of the resources in the resource set.
-        /// </summary>
         [Input("resourceSetType", required: true)]
         public Input<string> ResourceSetType { get; set; } = null!;
 
         [Input("resources", required: true)]
         private InputList<Inputs.ResourceSetResourceArgs>? _resources;
-
-        /// <summary>
-        /// List of resources to add to this resource set. See below.
-        /// </summary>
         public InputList<Inputs.ResourceSetResourceArgs> Resources
         {
             get => _resources ?? (_resources = new InputList<Inputs.ResourceSetResourceArgs>());
@@ -156,10 +92,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -174,30 +106,17 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
     public sealed class ResourceSetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// NLB resource ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Unique name describing the resource set.
-        /// </summary>
         [Input("resourceSetName")]
         public Input<string>? ResourceSetName { get; set; }
 
-        /// <summary>
-        /// Type of the resources in the resource set.
-        /// </summary>
         [Input("resourceSetType")]
         public Input<string>? ResourceSetType { get; set; }
 
         [Input("resources")]
         private InputList<Inputs.ResourceSetResourceGetArgs>? _resources;
-
-        /// <summary>
-        /// List of resources to add to this resource set. See below.
-        /// </summary>
         public InputList<Inputs.ResourceSetResourceGetArgs> Resources
         {
             get => _resources ?? (_resources = new InputList<Inputs.ResourceSetResourceGetArgs>());
@@ -206,10 +125,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -218,10 +133,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

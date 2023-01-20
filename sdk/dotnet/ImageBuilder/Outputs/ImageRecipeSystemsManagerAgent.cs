@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class ImageRecipeSystemsManagerAgent
     {
-        /// <summary>
-        /// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
-        /// </summary>
         public readonly bool UninstallAfterBuild;
 
         [OutputConstructor]

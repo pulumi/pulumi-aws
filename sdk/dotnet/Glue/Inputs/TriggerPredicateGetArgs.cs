@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Glue.Inputs
     {
         [Input("conditions", required: true)]
         private InputList<Inputs.TriggerPredicateConditionGetArgs>? _conditions;
-
-        /// <summary>
-        /// A list of the conditions that determine when the trigger will fire. See Conditions.
-        /// </summary>
         public InputList<Inputs.TriggerPredicateConditionGetArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.TriggerPredicateConditionGetArgs>());
             set => _conditions = value;
         }
 
-        /// <summary>
-        /// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
-        /// </summary>
         [Input("logical")]
         public Input<string>? Logical { get; set; }
 

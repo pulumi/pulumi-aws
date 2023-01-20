@@ -9,105 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GlobalAccelerator
 {
-    /// <summary>
-    /// Creates a Global Accelerator accelerator.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GlobalAccelerator.Accelerator("example", new()
-    ///     {
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
-    ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
-    ///         },
-    ///         Enabled = true,
-    ///         IpAddressType = "IPV4",
-    ///         IpAddresses = new[]
-    ///         {
-    ///             "1.2.3.4",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Global Accelerator accelerators can be imported using the `arn`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:globalaccelerator/accelerator:Accelerator")]
     public partial class Accelerator : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The attributes of the accelerator. Fields documented below.
-        /// </summary>
         [Output("attributes")]
         public Output<Outputs.AcceleratorAttributes?> Attributes { get; private set; } = null!;
 
-        /// <summary>
-        /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-        /// * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-        /// route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-        /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-        /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
 
-        /// <summary>
-        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-        /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
 
-        /// <summary>
-        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        /// </summary>
         [Output("ipAddresses")]
         public Output<ImmutableArray<string>> IpAddresses { get; private set; } = null!;
 
-        /// <summary>
-        /// IP address set associated with the accelerator.
-        /// </summary>
         [Output("ipSets")]
         public Output<ImmutableArray<Outputs.AcceleratorIpSet>> IpSets { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the accelerator.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -157,48 +88,28 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class AcceleratorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The attributes of the accelerator. Fields documented below.
-        /// </summary>
         [Input("attributes")]
         public Input<Inputs.AcceleratorAttributesArgs>? Attributes { get; set; }
 
-        /// <summary>
-        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
             set => _ipAddresses = value;
         }
 
-        /// <summary>
-        /// The name of the accelerator.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -213,42 +124,23 @@ namespace Pulumi.Aws.GlobalAccelerator
 
     public sealed class AcceleratorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The attributes of the accelerator. Fields documented below.
-        /// </summary>
         [Input("attributes")]
         public Input<Inputs.AcceleratorAttributesGetArgs>? Attributes { get; set; }
 
-        /// <summary>
-        /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-        /// * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-        /// route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-        /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-        /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
-        /// <summary>
-        /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 
-        /// <summary>
-        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
-        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;
-
-        /// <summary>
-        /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        /// </summary>
         public InputList<string> IpAddresses
         {
             get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
@@ -257,28 +149,17 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("ipSets")]
         private InputList<Inputs.AcceleratorIpSetGetArgs>? _ipSets;
-
-        /// <summary>
-        /// IP address set associated with the accelerator.
-        /// </summary>
         public InputList<Inputs.AcceleratorIpSetGetArgs> IpSets
         {
             get => _ipSets ?? (_ipSets = new InputList<Inputs.AcceleratorIpSetGetArgs>());
             set => _ipSets = value;
         }
 
-        /// <summary>
-        /// The name of the accelerator.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -287,10 +168,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

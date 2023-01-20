@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesS3Args : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon S3 bucket name where the source files are stored.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Object key for the Amazon S3 bucket in which the source files are stored.
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
-        /// </summary>
         [Input("s3InputFormatConfig")]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs>? S3InputFormatConfig { get; set; }
 

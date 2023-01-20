@@ -12,9 +12,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the destination Kinesis data stream to write to.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

@@ -12,10 +12,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
 
     public sealed class OrganizationConfigurationDatasourcesKubernetesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        /// See Kubernetes Audit Logs below for more details.
-        /// </summary>
         [Input("auditLogs", required: true)]
         public Input<Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> AuditLogs { get; set; } = null!;
 

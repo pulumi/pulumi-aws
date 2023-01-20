@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     [OutputType]
     public sealed class IndexUserTokenConfigurationsJsonTokenTypeConfiguration
     {
-        /// <summary>
-        /// The group attribute field. Minimum length of 1. Maximum length of 2048.
-        /// </summary>
         public readonly string GroupAttributeField;
-        /// <summary>
-        /// The user name attribute field. Minimum length of 1. Maximum length of 2048.
-        /// </summary>
         public readonly string UserNameAttributeField;
 
         [OutputConstructor]

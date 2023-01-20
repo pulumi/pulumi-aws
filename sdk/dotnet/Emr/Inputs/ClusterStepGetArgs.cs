@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class ClusterStepGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-        /// </summary>
         [Input("actionOnFailure", required: true)]
         public Input<string> ActionOnFailure { get; set; } = null!;
 
-        /// <summary>
-        /// JAR file used for the step. See below.
-        /// </summary>
         [Input("hadoopJarStep", required: true)]
         public Input<Inputs.ClusterStepHadoopJarStepGetArgs> HadoopJarStep { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the step.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

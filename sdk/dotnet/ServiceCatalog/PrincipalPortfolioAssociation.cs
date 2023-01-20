@@ -9,60 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
-    /// <summary>
-    /// Manages a Service Catalog Principal Portfolio Association.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.PrincipalPortfolioAssociation("example", new()
-    ///     {
-    ///         PortfolioId = "port-68656c6c6f",
-    ///         PrincipalArn = "arn:aws:iam::123456789012:user/Eleanor",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_servicecatalog_principal_portfolio_association` can be imported using the accept language, principal ARN, and portfolio ID, separated by a comma, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")]
     public partial class PrincipalPortfolioAssociation : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Output("portfolioId")]
         public Output<string> PortfolioId { get; private set; } = null!;
 
-        /// <summary>
-        /// Principal ARN.
-        /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
-        /// </summary>
         [Output("principalType")]
         public Output<string?> PrincipalType { get; private set; } = null!;
 
@@ -112,27 +70,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class PrincipalPortfolioAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId", required: true)]
         public Input<string> PortfolioId { get; set; } = null!;
 
-        /// <summary>
-        /// Principal ARN.
-        /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
 
-        /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
-        /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
@@ -144,27 +90,15 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class PrincipalPortfolioAssociationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
 
-        /// <summary>
-        /// Portfolio identifier.
-        /// </summary>
         [Input("portfolioId")]
         public Input<string>? PortfolioId { get; set; }
 
-        /// <summary>
-        /// Principal ARN.
-        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 
-        /// <summary>
-        /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
-        /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 

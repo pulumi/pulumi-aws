@@ -9,94 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Connect
 {
-    /// <summary>
-    /// Provides an Amazon Connect User Hierarchy Structure resource. For more information see
-    /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-    /// 
-    /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
-    ///     {
-    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
-    ///         {
-    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
-    ///             {
-    ///                 Name = "levelone",
-    ///             },
-    ///         },
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Five Levels
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
-    ///     {
-    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
-    ///         {
-    ///             LevelFive = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs
-    ///             {
-    ///                 Name = "levelfive",
-    ///             },
-    ///             LevelFour = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs
-    ///             {
-    ///                 Name = "levelfour",
-    ///             },
-    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
-    ///             {
-    ///                 Name = "levelone",
-    ///             },
-    ///             LevelThree = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs
-    ///             {
-    ///                 Name = "levelthree",
-    ///             },
-    ///             LevelTwo = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs
-    ///             {
-    ///                 Name = "leveltwo",
-    ///             },
-    ///         },
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Amazon Connect User Hierarchy Structures can be imported using the `instance_id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:connect/userHierarchyStructure:UserHierarchyStructure")]
     public partial class UserHierarchyStructure : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
-        /// </summary>
         [Output("hierarchyStructure")]
         public Output<Outputs.UserHierarchyStructureHierarchyStructure> HierarchyStructure { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
@@ -146,15 +64,9 @@ namespace Pulumi.Aws.Connect
 
     public sealed class UserHierarchyStructureArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
-        /// </summary>
         [Input("hierarchyStructure", required: true)]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureArgs> HierarchyStructure { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
@@ -166,15 +78,9 @@ namespace Pulumi.Aws.Connect
 
     public sealed class UserHierarchyStructureState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
-        /// </summary>
         [Input("hierarchyStructure")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureGetArgs>? HierarchyStructure { get; set; }
 
-        /// <summary>
-        /// Specifies the identifier of the hosting Amazon Connect Instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 

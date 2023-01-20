@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum.
-        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
-        /// <summary>
-        /// Minimum.
-        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

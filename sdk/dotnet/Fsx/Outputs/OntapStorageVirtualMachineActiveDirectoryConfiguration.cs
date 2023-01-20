@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class OntapStorageVirtualMachineActiveDirectoryConfiguration
     {
-        /// <summary>
-        /// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
-        /// </summary>
         public readonly string? NetbiosName;
         public readonly Outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration? SelfManagedActiveDirectoryConfiguration;
 

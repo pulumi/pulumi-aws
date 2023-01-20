@@ -12,27 +12,15 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
 
     public sealed class PipelineNotificationsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-        /// </summary>
         [Input("completed")]
         public Input<string>? Completed { get; set; }
 
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-        /// </summary>
         [Input("error")]
         public Input<string>? Error { get; set; }
 
-        /// <summary>
-        /// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-        /// </summary>
         [Input("progressing")]
         public Input<string>? Progressing { get; set; }
 
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-        /// </summary>
         [Input("warning")]
         public Input<string>? Warning { get; set; }
 

@@ -9,76 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Xray
 {
-    /// <summary>
-    /// Creates and manages an AWS XRay Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Xray.Group("example", new()
-    ///     {
-    ///         FilterExpression = "responsetime &gt; 5",
-    ///         GroupName = "example",
-    ///         InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
-    ///         {
-    ///             InsightsEnabled = true,
-    ///             NotificationsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// XRay Groups can be imported using the ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:xray/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the Group.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        /// </summary>
         [Output("filterExpression")]
         public Output<string> FilterExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the group.
-        /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration options for enabling insights.
-        /// </summary>
         [Output("insightsConfiguration")]
         public Output<Outputs.GroupInsightsConfiguration> InsightsConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -128,30 +76,17 @@ namespace Pulumi.Aws.Xray
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        /// </summary>
         [Input("filterExpression", required: true)]
         public Input<string> FilterExpression { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the group.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration options for enabling insights.
-        /// </summary>
         [Input("insightsConfiguration")]
         public Input<Inputs.GroupInsightsConfigurationArgs>? InsightsConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -166,36 +101,20 @@ namespace Pulumi.Aws.Xray
 
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        /// </summary>
         [Input("filterExpression")]
         public Input<string>? FilterExpression { get; set; }
 
-        /// <summary>
-        /// The name of the group.
-        /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// Configuration options for enabling insights.
-        /// </summary>
         [Input("insightsConfiguration")]
         public Input<Inputs.GroupInsightsConfigurationGetArgs>? InsightsConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -204,10 +123,6 @@ namespace Pulumi.Aws.Xray
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

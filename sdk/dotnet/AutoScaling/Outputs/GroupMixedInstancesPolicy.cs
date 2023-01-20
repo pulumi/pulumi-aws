@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupMixedInstancesPolicy
     {
-        /// <summary>
-        /// Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
-        /// </summary>
         public readonly Outputs.GroupMixedInstancesPolicyInstancesDistribution? InstancesDistribution;
-        /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-        /// </summary>
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplate LaunchTemplate;
 
         [OutputConstructor]

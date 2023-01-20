@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum.
-        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
-        /// <summary>
-        /// Minimum.
-        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

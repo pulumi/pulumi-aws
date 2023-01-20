@@ -12,22 +12,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class GroupTagGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Key
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Enables propagation of the tag to
-        /// Amazon EC2 instances launched via this ASG
-        /// </summary>
         [Input("propagateAtLaunch", required: true)]
         public Input<bool> PropagateAtLaunch { get; set; } = null!;
 
-        /// <summary>
-        /// Value
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

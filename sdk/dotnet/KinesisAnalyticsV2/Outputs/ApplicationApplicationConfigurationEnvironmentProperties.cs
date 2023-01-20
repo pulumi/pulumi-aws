@@ -13,9 +13,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationEnvironmentProperties
     {
-        /// <summary>
-        /// Describes the execution property groups.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> PropertyGroups;
 
         [OutputConstructor]

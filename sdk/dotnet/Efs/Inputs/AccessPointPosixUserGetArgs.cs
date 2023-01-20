@@ -12,27 +12,17 @@ namespace Pulumi.Aws.Efs.Inputs
 
     public sealed class AccessPointPosixUserGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// POSIX group ID used for all file system operations using this access point.
-        /// </summary>
         [Input("gid", required: true)]
         public Input<int> Gid { get; set; } = null!;
 
         [Input("secondaryGids")]
         private InputList<int>? _secondaryGids;
-
-        /// <summary>
-        /// Secondary POSIX group IDs used for all file system operations using this access point.
-        /// </summary>
         public InputList<int> SecondaryGids
         {
             get => _secondaryGids ?? (_secondaryGids = new InputList<int>());
             set => _secondaryGids = value;
         }
 
-        /// <summary>
-        /// POSIX user ID used for all file system operations using this access point.
-        /// </summary>
         [Input("uid", required: true)]
         public Input<int> Uid { get; set; } = null!;
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class ManagedPrefixListEntry
     {
-        /// <summary>
-        /// CIDR block of this entry.
-        /// </summary>
         public readonly string Cidr;
-        /// <summary>
-        /// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
-        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

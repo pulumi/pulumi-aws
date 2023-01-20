@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolAdminCreateUserConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        /// </summary>
         [Input("allowAdminCreateUserOnly")]
         public Input<bool>? AllowAdminCreateUserOnly { get; set; }
 
-        /// <summary>
-        /// Invite message template structure. Detailed below.
-        /// </summary>
         [Input("inviteMessageTemplate")]
         public Input<Inputs.UserPoolAdminCreateUserConfigInviteMessageTemplateArgs>? InviteMessageTemplate { get; set; }
 

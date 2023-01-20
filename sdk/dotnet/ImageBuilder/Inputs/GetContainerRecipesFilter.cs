@@ -12,18 +12,11 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class GetContainerRecipesFilterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private List<string>? _values;
-
-        /// <summary>
-        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Evidently.Inputs
 
     public sealed class FeatureVariationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the variation. Minimum length of `1`. Maximum length of `127`.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// A block that specifies the value assigned to this variation. Detailed below
-        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.FeatureVariationValueArgs> Value { get; set; } = null!;
 

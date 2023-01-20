@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Acm.Outputs
     [OutputType]
     public sealed class CertificateRenewalSummary
     {
-        /// <summary>
-        /// The status of ACM's managed renewal of the certificate
-        /// </summary>
         public readonly string? RenewalStatus;
-        /// <summary>
-        /// The reason that a renewal request was unsuccessful or is pending
-        /// </summary>
         public readonly string? RenewalStatusReason;
         public readonly string? UpdatedAt;
 

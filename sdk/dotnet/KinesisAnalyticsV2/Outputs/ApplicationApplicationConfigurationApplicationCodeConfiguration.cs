@@ -13,13 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationApplicationCodeConfiguration
     {
-        /// <summary>
-        /// The location and type of the application code.
-        /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent? CodeContent;
-        /// <summary>
-        /// Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-        /// </summary>
         public readonly string CodeContentType;
 
         [OutputConstructor]

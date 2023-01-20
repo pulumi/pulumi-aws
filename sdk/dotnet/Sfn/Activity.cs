@@ -9,55 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sfn
 {
-    /// <summary>
-    /// Provides a Step Function Activity resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sfnActivity = new Aws.Sfn.Activity("sfnActivity");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Activities can be imported using the `arn`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sfn/activity:Activity")]
     public partial class Activity : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The date the activity was created.
-        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the activity to create.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -107,18 +70,11 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class ActivityArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the activity to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -133,24 +89,14 @@ namespace Pulumi.Aws.Sfn
 
     public sealed class ActivityState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The date the activity was created.
-        /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
-        /// <summary>
-        /// The name of the activity to create.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -159,10 +105,6 @@ namespace Pulumi.Aws.Sfn
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

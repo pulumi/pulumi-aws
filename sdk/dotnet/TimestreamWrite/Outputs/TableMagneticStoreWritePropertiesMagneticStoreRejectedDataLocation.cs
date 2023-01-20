@@ -13,9 +13,6 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation
     {
-        /// <summary>
-        /// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
-        /// </summary>
         public readonly Outputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration? S3Configuration;
 
         [OutputConstructor]

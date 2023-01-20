@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
 
     public sealed class PipelineContentConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
-        /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }
 

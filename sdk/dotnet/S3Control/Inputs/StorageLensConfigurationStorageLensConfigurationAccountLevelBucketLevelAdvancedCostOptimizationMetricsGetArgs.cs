@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether advanced cost-optimization metrics are enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

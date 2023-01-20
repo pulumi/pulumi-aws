@@ -9,175 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Fsx
 {
-    /// <summary>
-    /// Provides a FSx Backup resource.
-    /// 
-    /// ## Lustre Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new()
-    ///     {
-    ///         StorageCapacity = 1200,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
-    ///         DeploymentType = "PERSISTENT_1",
-    ///         PerUnitStorageThroughput = 50,
-    ///     });
-    /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
-    ///     {
-    ///         FileSystemId = exampleLustreFileSystem.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Windows Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("exampleWindowsFileSystem", new()
-    ///     {
-    ///         ActiveDirectoryId = aws_directory_service_directory.Eample.Id,
-    ///         SkipFinalBackup = true,
-    ///         StorageCapacity = 32,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example1.Id,
-    ///         },
-    ///         ThroughputCapacity = 8,
-    ///     });
-    /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
-    ///     {
-    ///         FileSystemId = exampleWindowsFileSystem.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## ONTAP Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleOntapVolume = new Aws.Fsx.OntapVolume("exampleOntapVolume", new()
-    ///     {
-    ///         JunctionPath = "/example",
-    ///         SizeInMegabytes = 1024,
-    ///         StorageEfficiencyEnabled = true,
-    ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
-    ///     });
-    /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
-    ///     {
-    ///         VolumeId = exampleOntapVolume.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## OpenZFS Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new()
-    ///     {
-    ///         StorageCapacity = 64,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
-    ///         DeploymentType = "SINGLE_AZ_1",
-    ///         ThroughputCapacity = 64,
-    ///     });
-    /// 
-    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
-    ///     {
-    ///         FileSystemId = exampleOpenZfsFileSystem.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// FSx Backups can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:fsx/backup:Backup")]
     public partial class Backup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name of the backup.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        /// </summary>
         [Output("fileSystemId")]
         public Output<string?> FileSystemId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// AWS account identifier that created the file system.
-        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of the file system backup.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-        /// </summary>
         [Output("volumeId")]
         public Output<string?> VolumeId { get; private set; } = null!;
 
@@ -227,27 +82,17 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-        /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }
 
@@ -259,36 +104,20 @@ namespace Pulumi.Aws.Fsx
 
     public sealed class BackupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name of the backup.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
-        /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
-        /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// AWS account identifier that created the file system.
-        /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -297,25 +126,15 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The type of the file system backup.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-        /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }
 

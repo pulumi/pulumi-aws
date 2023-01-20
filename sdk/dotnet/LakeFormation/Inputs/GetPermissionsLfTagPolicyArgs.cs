@@ -12,27 +12,17 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class GetPermissionsLfTagPolicyInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
 
         [Input("expressions", required: true)]
         private InputList<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs>? _expressions;
-
-        /// <summary>
-        /// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-        /// </summary>
         public InputList<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs> Expressions
         {
             get => _expressions ?? (_expressions = new InputList<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs>());
             set => _expressions = value;
         }
 
-        /// <summary>
-        /// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 

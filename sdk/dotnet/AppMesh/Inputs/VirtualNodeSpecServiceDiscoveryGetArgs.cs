@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecServiceDiscoveryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Any AWS Cloud Map information for the virtual node.
-        /// </summary>
         [Input("awsCloudMap")]
         public Input<Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapGetArgs>? AwsCloudMap { get; set; }
 
-        /// <summary>
-        /// DNS service name for the virtual node.
-        /// </summary>
         [Input("dns")]
         public Input<Inputs.VirtualNodeSpecServiceDiscoveryDnsGetArgs>? Dns { get; set; }
 

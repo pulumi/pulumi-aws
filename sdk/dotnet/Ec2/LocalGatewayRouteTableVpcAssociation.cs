@@ -9,72 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLocalGatewayRouteTable = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
-    ///     {
-    ///         OutpostArn = "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
-    ///     });
-    /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleLocalGatewayRouteTableVpcAssociation = new Aws.Ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", new()
-    ///     {
-    ///         LocalGatewayRouteTableId = exampleLocalGatewayRouteTable.Apply(getLocalGatewayRouteTableResult =&gt; getLocalGatewayRouteTableResult.Id),
-    ///         VpcId = exampleVpc.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_ec2_local_gateway_route_table_vpc_association` can be imported by using the Local Gateway Route Table VPC Association identifier, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")]
     public partial class LocalGatewayRouteTableVpcAssociation : global::Pulumi.CustomResource
     {
         [Output("localGatewayId")]
         public Output<string> LocalGatewayId { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Route Table.
-        /// </summary>
         [Output("localGatewayRouteTableId")]
         public Output<string> LocalGatewayRouteTableId { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of EC2 VPC.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -124,27 +73,17 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class LocalGatewayRouteTableVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Route Table.
-        /// </summary>
         [Input("localGatewayRouteTableId", required: true)]
         public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier of EC2 VPC.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -159,18 +98,11 @@ namespace Pulumi.Aws.Ec2
         [Input("localGatewayId")]
         public Input<string>? LocalGatewayId { get; set; }
 
-        /// <summary>
-        /// Identifier of EC2 Local Gateway Route Table.
-        /// </summary>
         [Input("localGatewayRouteTableId")]
         public Input<string>? LocalGatewayRouteTableId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -179,19 +111,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Identifier of EC2 VPC.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

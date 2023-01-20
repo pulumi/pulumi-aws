@@ -13,21 +13,9 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
     [OutputType]
     public sealed class PipelineNotifications
     {
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
-        /// </summary>
         public readonly string? Completed;
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
-        /// </summary>
         public readonly string? Error;
-        /// <summary>
-        /// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
-        /// </summary>
         public readonly string? Progressing;
-        /// <summary>
-        /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
-        /// </summary>
         public readonly string? Warning;
 
         [OutputConstructor]

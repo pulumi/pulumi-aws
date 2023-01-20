@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
     [OutputType]
     public sealed class ListenerRuleConditionQueryString
     {
-        /// <summary>
-        /// Query string key pattern to match.
-        /// </summary>
         public readonly string? Key;
-        /// <summary>
-        /// Query string value pattern to match.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

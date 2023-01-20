@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class WebhookFilter
     {
-        /// <summary>
-        /// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-        /// </summary>
         public readonly string JsonPath;
-        /// <summary>
-        /// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
-        /// </summary>
         public readonly string MatchEquals;
 
         [OutputConstructor]

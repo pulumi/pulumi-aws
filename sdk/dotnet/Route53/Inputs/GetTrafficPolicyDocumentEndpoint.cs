@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class GetTrafficPolicyDocumentEndpointArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ID of a rule you want to assign.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Region code for the AWS Region that you created the resource in.
-        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
-        /// <summary>
-        /// Type of the rule.
-        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
-        /// <summary>
-        /// Value of the `type`.
-        /// </summary>
         [Input("value")]
         public string? Value { get; set; }
 

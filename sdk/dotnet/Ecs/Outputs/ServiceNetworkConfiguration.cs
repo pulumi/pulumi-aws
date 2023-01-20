@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceNetworkConfiguration
     {
-        /// <summary>
-        /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-        /// </summary>
         public readonly bool? AssignPublicIp;
-        /// <summary>
-        /// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
-        /// <summary>
-        /// Subnets associated with the task or service.
-        /// </summary>
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]

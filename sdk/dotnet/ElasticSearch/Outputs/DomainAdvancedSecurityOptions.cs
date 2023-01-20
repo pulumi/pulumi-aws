@@ -13,17 +13,8 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class DomainAdvancedSecurityOptions
     {
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-        /// </summary>
         public readonly bool? InternalUserDatabaseEnabled;
-        /// <summary>
-        /// Configuration block for the main user. Detailed below.
-        /// </summary>
         public readonly Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? MasterUserOptions;
 
         [OutputConstructor]

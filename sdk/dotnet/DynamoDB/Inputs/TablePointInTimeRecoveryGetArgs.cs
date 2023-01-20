@@ -12,9 +12,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
 
     public sealed class TablePointInTimeRecoveryGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether TTL is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

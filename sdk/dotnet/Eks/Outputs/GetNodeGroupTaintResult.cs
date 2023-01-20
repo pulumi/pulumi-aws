@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Eks.Outputs
     [OutputType]
     public sealed class GetNodeGroupTaintResult
     {
-        /// <summary>
-        /// The effect of the taint.
-        /// </summary>
         public readonly string Effect;
-        /// <summary>
-        /// The key of the taint.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The value of the taint.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

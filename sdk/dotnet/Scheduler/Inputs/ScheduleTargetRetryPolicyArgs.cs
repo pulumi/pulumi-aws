@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleTargetRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-        /// </summary>
         [Input("maximumEventAgeInSeconds")]
         public Input<int>? MaximumEventAgeInSeconds { get; set; }
 
-        /// <summary>
-        /// Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-        /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecServiceDiscoveryDns
     {
-        /// <summary>
-        /// DNS host name for your virtual node.
-        /// </summary>
         public readonly string Hostname;
 
         [OutputConstructor]

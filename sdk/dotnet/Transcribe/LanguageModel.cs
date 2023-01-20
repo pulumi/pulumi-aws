@@ -9,152 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Transcribe
 {
-    /// <summary>
-    /// Resource for managing an AWS Transcribe LanguageModel.
-    /// 
-    /// &gt; This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "transcribe.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testPolicy = new Aws.Iam.RolePolicy("testPolicy", new()
-    ///     {
-    ///         Role = exampleRole.Id,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "s3:GetObject",
-    ///                         "s3:ListBucket",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = new[]
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
-    ///     {
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Key = "transcribe/test1.txt",
-    ///         Source = new FileAsset("test1.txt"),
-    ///     });
-    /// 
-    ///     var exampleLanguageModel = new Aws.Transcribe.LanguageModel("exampleLanguageModel", new()
-    ///     {
-    ///         ModelName = "example",
-    ///         BaseModelName = "NarrowBand",
-    ///         InputDataConfig = new Aws.Transcribe.Inputs.LanguageModelInputDataConfigArgs
-    ///         {
-    ///             DataAccessRoleArn = exampleRole.Arn,
-    ///             S3Uri = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}/transcribe/"),
-    ///         },
-    ///         LanguageCode = "en-US",
-    ///         Tags = 
-    ///         {
-    ///             { "ENVIRONMENT", "development" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Transcribe LanguageModel can be imported using the `model_name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:transcribe/languageModel:LanguageModel")]
     public partial class LanguageModel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the LanguageModel.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of reference base model.
-        /// </summary>
         [Output("baseModelName")]
         public Output<string> BaseModelName { get; private set; } = null!;
 
-        /// <summary>
-        /// The input data config for the LanguageModel. See Input Data Config for more details.
-        /// </summary>
         [Output("inputDataConfig")]
         public Output<Outputs.LanguageModelInputDataConfig> InputDataConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
-        /// <summary>
-        /// The model name.
-        /// </summary>
         [Output("modelName")]
         public Output<string> ModelName { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -207,36 +79,20 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class LanguageModelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of reference base model.
-        /// </summary>
         [Input("baseModelName", required: true)]
         public Input<string> BaseModelName { get; set; } = null!;
 
-        /// <summary>
-        /// The input data config for the LanguageModel. See Input Data Config for more details.
-        /// </summary>
         [Input("inputDataConfig", required: true)]
         public Input<Inputs.LanguageModelInputDataConfigArgs> InputDataConfig { get; set; } = null!;
 
-        /// <summary>
-        /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
 
-        /// <summary>
-        /// The model name.
-        /// </summary>
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -251,42 +107,23 @@ namespace Pulumi.Aws.Transcribe
 
     public sealed class LanguageModelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the LanguageModel.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of reference base model.
-        /// </summary>
         [Input("baseModelName")]
         public Input<string>? BaseModelName { get; set; }
 
-        /// <summary>
-        /// The input data config for the LanguageModel. See Input Data Config for more details.
-        /// </summary>
         [Input("inputDataConfig")]
         public Input<Inputs.LanguageModelInputDataConfigGetArgs>? InputDataConfig { get; set; }
 
-        /// <summary>
-        /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
-        /// <summary>
-        /// The model name.
-        /// </summary>
         [Input("modelName")]
         public Input<string>? ModelName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

@@ -9,79 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.S3Control
 {
-    /// <summary>
-    /// Provides a resource to manage an S3 Control Bucket.
-    /// 
-    /// &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Buckets in an AWS Partition, see the `aws.s3.BucketV2` resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Control.Bucket("example", new()
-    ///     {
-    ///         BucketName = "example",
-    ///         OutpostId = data.Aws_outposts_outpost.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// S3 Control Buckets can be imported using Amazon Resource Name (ARN), e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:s3control/bucket:Bucket")]
     public partial class Bucket : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Output("bucket")]
         public Output<string> BucketName { get; private set; } = null!;
 
-        /// <summary>
-        /// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of the Outpost to contain this bucket.
-        /// </summary>
         [Output("outpostId")]
         public Output<string> OutpostId { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether Public Access Block is enabled.
-        /// </summary>
         [Output("publicAccessBlockEnabled")]
         public Output<bool> PublicAccessBlockEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -131,24 +79,14 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier of the Outpost to contain this bucket.
-        /// </summary>
         [Input("outpostId", required: true)]
         public Input<string> OutpostId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -163,42 +101,23 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class BucketState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the bucket.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        /// </summary>
         [Input("creationDate")]
         public Input<string>? CreationDate { get; set; }
 
-        /// <summary>
-        /// Identifier of the Outpost to contain this bucket.
-        /// </summary>
         [Input("outpostId")]
         public Input<string>? OutpostId { get; set; }
 
-        /// <summary>
-        /// Boolean whether Public Access Block is enabled.
-        /// </summary>
         [Input("publicAccessBlockEnabled")]
         public Input<bool>? PublicAccessBlockEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -207,10 +126,6 @@ namespace Pulumi.Aws.S3Control
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
 
     public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
-        /// </summary>
         [Input("predefinedMetricType", required: true)]
         public Input<string> PredefinedMetricType { get; set; } = null!;
 
-        /// <summary>
-        /// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
-        /// </summary>
         [Input("resourceLabel", required: true)]
         public Input<string> ResourceLabel { get; set; } = null!;
 

@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Dms.Inputs
 
     public sealed class EndpointRedshiftSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 object prefix.
-        /// </summary>
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }
 
-        /// <summary>
-        /// S3 bucket name.
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
-        /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
 
-        /// <summary>
-        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
-        /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-        /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }
 

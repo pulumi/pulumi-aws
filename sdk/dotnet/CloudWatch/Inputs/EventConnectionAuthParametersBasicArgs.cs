@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("password", required: true)]
         private Input<string>? _password;
-
-        /// <summary>
-        /// A password for the authorization. Created and stored in AWS Secrets Manager.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -28,9 +24,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
             }
         }
 
-        /// <summary>
-        /// A username for the authorization.
-        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

@@ -13,45 +13,15 @@ namespace Pulumi.Aws.ElasticTranscoder.Outputs
     [OutputType]
     public sealed class PresetVideoWatermark
     {
-        /// <summary>
-        /// The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
-        /// </summary>
         public readonly string? HorizontalAlign;
-        /// <summary>
-        /// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
-        /// </summary>
         public readonly string? HorizontalOffset;
-        /// <summary>
-        /// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The maximum height of the watermark.
-        /// </summary>
         public readonly string? MaxHeight;
-        /// <summary>
-        /// The maximum width of the watermark.
-        /// </summary>
         public readonly string? MaxWidth;
-        /// <summary>
-        /// A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
-        /// </summary>
         public readonly string? Opacity;
-        /// <summary>
-        /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
-        /// </summary>
         public readonly string? SizingPolicy;
-        /// <summary>
-        /// A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
-        /// </summary>
         public readonly string? Target;
-        /// <summary>
-        /// The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
-        /// </summary>
         public readonly string? VerticalAlign;
-        /// <summary>
-        /// The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
-        /// </summary>
         public readonly string? VerticalOffset;
 
         [OutputConstructor]

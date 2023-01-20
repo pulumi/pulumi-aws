@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An empty object that configures masking.
-        /// </summary>
         [Input("maskConfig", required: true)]
         public Input<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInputArgs> MaskConfig { get; set; } = null!;
 

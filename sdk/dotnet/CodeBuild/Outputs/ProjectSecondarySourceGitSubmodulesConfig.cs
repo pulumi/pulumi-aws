@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     [OutputType]
     public sealed class ProjectSecondarySourceGitSubmodulesConfig
     {
-        /// <summary>
-        /// Whether to fetch Git submodules for the AWS CodeBuild build project.
-        /// </summary>
         public readonly bool FetchSubmodules;
 
         [OutputConstructor]

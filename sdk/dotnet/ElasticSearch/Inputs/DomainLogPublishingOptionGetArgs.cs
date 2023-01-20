@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
 
     public sealed class DomainLogPublishingOptionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the Cloudwatch log group to which log needs to be published.
-        /// </summary>
         [Input("cloudwatchLogGroupArn", required: true)]
         public Input<string> CloudwatchLogGroupArn { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-        /// </summary>
         [Input("logType", required: true)]
         public Input<string> LogType { get; set; } = null!;
 

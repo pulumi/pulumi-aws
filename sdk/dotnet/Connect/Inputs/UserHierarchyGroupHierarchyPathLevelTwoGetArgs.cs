@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Connect.Inputs
 
     public sealed class UserHierarchyGroupHierarchyPathLevelTwoGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy group.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The identifier of the hierarchy group.
-        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The name of the user hierarchy group. Must not be more than 100 characters.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

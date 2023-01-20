@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 
     public sealed class ListenerDefaultActionFixedResponseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-        /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
 
-        /// <summary>
-        /// Message body.
-        /// </summary>
         [Input("messageBody")]
         public Input<string>? MessageBody { get; set; }
 
-        /// <summary>
-        /// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-        /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
 

@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class VpcIngressConnectionIngressVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the VPC endpoint that your App Runner service connects to.
-        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 
-        /// <summary>
-        /// The ID of the VPC that is used for the VPC endpoint.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

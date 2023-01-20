@@ -13,17 +13,8 @@ namespace Pulumi.Aws.WorkLink.Outputs
     [OutputType]
     public sealed class FleetNetwork
     {
-        /// <summary>
-        /// A list of security group IDs associated with access to the provided subnets.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The VPC ID with connectivity to associated websites.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

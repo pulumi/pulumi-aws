@@ -9,65 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// [IPv6 only] Creates an egress-only Internet gateway for your VPC.
-    /// An egress-only Internet gateway is used to enable outbound communication
-    /// over IPv6 from instances in your VPC to the Internet, and prevents hosts
-    /// outside of your VPC from initiating an IPv6 connection with your instance.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///         AssignGeneratedIpv6CidrBlock = true,
-    ///     });
-    /// 
-    ///     var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", new()
-    ///     {
-    ///         VpcId = exampleVpc.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "main" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Egress-only Internet gateways can be imported using the `id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway")]
     public partial class EgressOnlyInternetGateway : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The VPC ID to create in.
-        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
@@ -119,19 +69,12 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The VPC ID to create in.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
@@ -145,10 +88,6 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -157,19 +96,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The VPC ID to create in.
-        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Organizations.Outputs
     [OutputType]
     public sealed class GetOrganizationRootPolicyTypeResult
     {
-        /// <summary>
-        /// The status of the policy type as it relates to the associated root
-        /// </summary>
         public readonly string Status;
         public readonly string Type;
 

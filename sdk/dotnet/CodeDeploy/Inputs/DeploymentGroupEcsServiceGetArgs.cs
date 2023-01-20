@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
     public sealed class DeploymentGroupEcsServiceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the ECS cluster.
-        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the ECS service.
-        /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
 

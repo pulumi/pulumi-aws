@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Iam
 {
     public static class GetGroup
     {
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM group. By using this data source, you can reference IAM group
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetGroup.Invoke(new()
-        ///     {
-        ///         GroupName = "an_example_group_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:iam/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// IAM group. By using this data source, you can reference IAM group
-        /// properties without having to hard code ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Iam.GetGroup.Invoke(new()
-        ///     {
-        ///         GroupName = "an_example_group_name",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws:iam/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -73,9 +21,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly IAM group name to match.
-        /// </summary>
         [Input("groupName", required: true)]
         public string GroupName { get; set; } = null!;
 
@@ -87,9 +32,6 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Friendly IAM group name to match.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
@@ -103,26 +45,14 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetGroupResult
     {
-        /// <summary>
-        /// User ARN.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Stable and unique string identifying the group.
-        /// </summary>
         public readonly string GroupId;
         public readonly string GroupName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Path to the IAM user.
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// List of objects containing group member information. See below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupUserResult> Users;
 
         [OutputConstructor]

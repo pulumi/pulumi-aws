@@ -14,25 +14,15 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("dataIdentifiers", required: true)]
         private InputList<string>? _dataIdentifiers;
-
-        /// <summary>
-        /// Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        /// </summary>
         public InputList<string> DataIdentifiers
         {
             get => _dataIdentifiers ?? (_dataIdentifiers = new InputList<string>());
             set => _dataIdentifiers = value;
         }
 
-        /// <summary>
-        /// Configures the data protection operation applied by this statement.
-        /// </summary>
         [Input("operation", required: true)]
         public Input<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs> Operation { get; set; } = null!;
 
-        /// <summary>
-        /// Name of this statement.
-        /// </summary>
         [Input("sid")]
         public Input<string>? Sid { get; set; }
 

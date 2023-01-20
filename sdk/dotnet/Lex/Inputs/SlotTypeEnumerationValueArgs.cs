@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         [Input("synonyms")]
         private InputList<string>? _synonyms;
-
-        /// <summary>
-        /// Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
-        /// </summary>
         public InputList<string> Synonyms
         {
             get => _synonyms ?? (_synonyms = new InputList<string>());
             set => _synonyms = value;
         }
 
-        /// <summary>
-        /// The value of the slot type. Must be less than or equal to 140 characters in length.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

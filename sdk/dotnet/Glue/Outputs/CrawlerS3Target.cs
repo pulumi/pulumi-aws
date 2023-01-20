@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerS3Target
     {
-        /// <summary>
-        /// The name of the connection to use to connect to the Delta table target.
-        /// </summary>
         public readonly string? ConnectionName;
-        /// <summary>
-        /// A valid Amazon SQS ARN.
-        /// </summary>
         public readonly string? DlqEventQueueArn;
-        /// <summary>
-        /// A valid Amazon SQS ARN.
-        /// </summary>
         public readonly string? EventQueueArn;
-        /// <summary>
-        /// A list of glob patterns used to exclude from the crawl.
-        /// </summary>
         public readonly ImmutableArray<string> Exclusions;
-        /// <summary>
-        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-        /// </summary>
         public readonly int? SampleSize;
 
         [OutputConstructor]

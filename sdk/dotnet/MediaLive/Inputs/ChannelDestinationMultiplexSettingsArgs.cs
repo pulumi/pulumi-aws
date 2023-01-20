@@ -12,15 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelDestinationMultiplexSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the Multiplex that the encoder is providing output to.
-        /// </summary>
         [Input("multiplexId", required: true)]
         public Input<string> MultiplexId { get; set; } = null!;
 
-        /// <summary>
-        /// The program name of the Multiplex program that the encoder is providing output to.
-        /// </summary>
         [Input("programName", required: true)]
         public Input<string> ProgramName { get; set; } = null!;
 

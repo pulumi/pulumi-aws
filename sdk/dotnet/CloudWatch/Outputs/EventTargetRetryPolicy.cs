@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventTargetRetryPolicy
     {
-        /// <summary>
-        /// The age in seconds to continue to make retry attempts.
-        /// </summary>
         public readonly int? MaximumEventAgeInSeconds;
-        /// <summary>
-        /// maximum number of retry attempts to make before the request fails
-        /// </summary>
         public readonly int? MaximumRetryAttempts;
 
         [OutputConstructor]

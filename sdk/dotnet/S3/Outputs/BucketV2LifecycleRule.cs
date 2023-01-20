@@ -13,41 +13,14 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketV2LifecycleRule
     {
-        /// <summary>
-        /// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
-        /// </summary>
         public readonly int? AbortIncompleteMultipartUploadDays;
-        /// <summary>
-        /// Specifies lifecycle rule status.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Specifies a period in the object's expire. See Expiration below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2LifecycleRuleExpiration> Expirations;
-        /// <summary>
-        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2LifecycleRuleNoncurrentVersionExpiration> NoncurrentVersionExpirations;
-        /// <summary>
-        /// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2LifecycleRuleNoncurrentVersionTransition> NoncurrentVersionTransitions;
-        /// <summary>
-        /// Object key prefix identifying one or more objects to which the rule applies.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Specifies object tags key and value.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Specifies a period in the object's transitions. See Transition below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2LifecycleRuleTransition> Transitions;
 
         [OutputConstructor]

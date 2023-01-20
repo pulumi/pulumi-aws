@@ -13,9 +13,6 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsAudioSelector
     {
-        /// <summary>
-        /// The name of the video description.
-        /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings? SelectorSettings;
 

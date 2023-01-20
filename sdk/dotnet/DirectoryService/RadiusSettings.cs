@@ -9,97 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.DirectoryService
 {
-    /// <summary>
-    /// Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectoryService.RadiusSettings("example", new()
-    ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         AuthenticationProtocol = "PAP",
-    ///         DisplayLabel = "example",
-    ///         RadiusPort = 1812,
-    ///         RadiusRetries = 4,
-    ///         RadiusServers = new[]
-    ///         {
-    ///             "10.0.1.5",
-    ///         },
-    ///         RadiusTimeout = 1,
-    ///         SharedSecret = "12345678",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// RADIUS settings can be imported using the directory ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:directoryservice/radiusSettings:RadiusSettings")]
     public partial class RadiusSettings : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        /// </summary>
         [Output("authenticationProtocol")]
         public Output<string> AuthenticationProtocol { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier of the directory for which you want to manager RADIUS settings.
-        /// </summary>
         [Output("directoryId")]
         public Output<string> DirectoryId { get; private set; } = null!;
 
-        /// <summary>
-        /// Display label.
-        /// </summary>
         [Output("displayLabel")]
         public Output<string> DisplayLabel { get; private set; } = null!;
 
-        /// <summary>
-        /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        /// </summary>
         [Output("radiusPort")]
         public Output<int> RadiusPort { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        /// </summary>
         [Output("radiusRetries")]
         public Output<int> RadiusRetries { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        /// </summary>
         [Output("radiusServers")]
         public Output<ImmutableArray<string>> RadiusServers { get; private set; } = null!;
 
-        /// <summary>
-        /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        /// </summary>
         [Output("radiusTimeout")]
         public Output<int> RadiusTimeout { get; private set; } = null!;
 
-        /// <summary>
-        /// Required for enabling RADIUS on the directory.
-        /// </summary>
         [Output("sharedSecret")]
         public Output<string> SharedSecret { get; private set; } = null!;
 
-        /// <summary>
-        /// Not currently used.
-        /// </summary>
         [Output("useSameUsername")]
         public Output<bool?> UseSameUsername { get; private set; } = null!;
 
@@ -153,60 +89,34 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class RadiusSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        /// </summary>
         [Input("authenticationProtocol", required: true)]
         public Input<string> AuthenticationProtocol { get; set; } = null!;
 
-        /// <summary>
-        /// The identifier of the directory for which you want to manager RADIUS settings.
-        /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
 
-        /// <summary>
-        /// Display label.
-        /// </summary>
         [Input("displayLabel", required: true)]
         public Input<string> DisplayLabel { get; set; } = null!;
 
-        /// <summary>
-        /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        /// </summary>
         [Input("radiusPort", required: true)]
         public Input<int> RadiusPort { get; set; } = null!;
 
-        /// <summary>
-        /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        /// </summary>
         [Input("radiusRetries", required: true)]
         public Input<int> RadiusRetries { get; set; } = null!;
 
         [Input("radiusServers", required: true)]
         private InputList<string>? _radiusServers;
-
-        /// <summary>
-        /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        /// </summary>
         public InputList<string> RadiusServers
         {
             get => _radiusServers ?? (_radiusServers = new InputList<string>());
             set => _radiusServers = value;
         }
 
-        /// <summary>
-        /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        /// </summary>
         [Input("radiusTimeout", required: true)]
         public Input<int> RadiusTimeout { get; set; } = null!;
 
         [Input("sharedSecret", required: true)]
         private Input<string>? _sharedSecret;
-
-        /// <summary>
-        /// Required for enabling RADIUS on the directory.
-        /// </summary>
         public Input<string>? SharedSecret
         {
             get => _sharedSecret;
@@ -217,9 +127,6 @@ namespace Pulumi.Aws.DirectoryService
             }
         }
 
-        /// <summary>
-        /// Not currently used.
-        /// </summary>
         [Input("useSameUsername")]
         public Input<bool>? UseSameUsername { get; set; }
 
@@ -231,60 +138,34 @@ namespace Pulumi.Aws.DirectoryService
 
     public sealed class RadiusSettingsState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-        /// </summary>
         [Input("authenticationProtocol")]
         public Input<string>? AuthenticationProtocol { get; set; }
 
-        /// <summary>
-        /// The identifier of the directory for which you want to manager RADIUS settings.
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// Display label.
-        /// </summary>
         [Input("displayLabel")]
         public Input<string>? DisplayLabel { get; set; }
 
-        /// <summary>
-        /// The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-        /// </summary>
         [Input("radiusPort")]
         public Input<int>? RadiusPort { get; set; }
 
-        /// <summary>
-        /// The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-        /// </summary>
         [Input("radiusRetries")]
         public Input<int>? RadiusRetries { get; set; }
 
         [Input("radiusServers")]
         private InputList<string>? _radiusServers;
-
-        /// <summary>
-        /// An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-        /// </summary>
         public InputList<string> RadiusServers
         {
             get => _radiusServers ?? (_radiusServers = new InputList<string>());
             set => _radiusServers = value;
         }
 
-        /// <summary>
-        /// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-        /// </summary>
         [Input("radiusTimeout")]
         public Input<int>? RadiusTimeout { get; set; }
 
         [Input("sharedSecret")]
         private Input<string>? _sharedSecret;
-
-        /// <summary>
-        /// Required for enabling RADIUS on the directory.
-        /// </summary>
         public Input<string>? SharedSecret
         {
             get => _sharedSecret;
@@ -295,9 +176,6 @@ namespace Pulumi.Aws.DirectoryService
             }
         }
 
-        /// <summary>
-        /// Not currently used.
-        /// </summary>
         [Input("useSameUsername")]
         public Input<bool>? UseSameUsername { get; set; }
 

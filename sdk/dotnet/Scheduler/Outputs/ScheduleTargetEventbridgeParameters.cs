@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
     [OutputType]
     public sealed class ScheduleTargetEventbridgeParameters
     {
-        /// <summary>
-        /// Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-        /// </summary>
         public readonly string DetailType;
-        /// <summary>
-        /// Source of the event.
-        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]

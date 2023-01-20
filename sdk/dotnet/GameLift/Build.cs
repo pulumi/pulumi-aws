@@ -9,82 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GameLift
 {
-    /// <summary>
-    /// Provides an GameLift Build resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.GameLift.Build("test", new()
-    ///     {
-    ///         OperatingSystem = "WINDOWS_2012",
-    ///         StorageLocation = new Aws.GameLift.Inputs.BuildStorageLocationArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Test.Bucket,
-    ///             Key = aws_s3_object.Test.Key,
-    ///             RoleArn = aws_iam_role.Test.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// GameLift Builds can be imported using the ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:gamelift/build:Build")]
     public partial class Build : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// GameLift Build ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Name of the build
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-        /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
 
-        /// <summary>
-        /// Information indicating where your game build files are stored. See below.
-        /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.BuildStorageLocation> StorageLocation { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Version that is associated with this build.
-        /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
@@ -134,39 +79,23 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class BuildArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the build
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-        /// </summary>
         [Input("operatingSystem", required: true)]
         public Input<string> OperatingSystem { get; set; } = null!;
 
-        /// <summary>
-        /// Information indicating where your game build files are stored. See below.
-        /// </summary>
         [Input("storageLocation", required: true)]
         public Input<Inputs.BuildStorageLocationArgs> StorageLocation { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Version that is associated with this build.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
@@ -178,36 +107,20 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class BuildState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// GameLift Build ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the build
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-        /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
 
-        /// <summary>
-        /// Information indicating where your game build files are stored. See below.
-        /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.BuildStorageLocationGetArgs>? StorageLocation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -216,19 +129,12 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Version that is associated with this build.
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

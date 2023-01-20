@@ -11,57 +11,9 @@ namespace Pulumi.Aws.AutoScaling
 {
     public static class GetGroup
     {
-        /// <summary>
-        /// Use this data source to get information on an existing autoscaling group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.AutoScaling.GetGroup.Invoke(new()
-        ///     {
-        ///         Name = "foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws:autoscaling/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information on an existing autoscaling group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.AutoScaling.GetGroup.Invoke(new()
-        ///     {
-        ///         Name = "foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws:autoscaling/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -69,9 +21,6 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specify the exact name of the desired autoscaling group.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -83,9 +32,6 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Specify the exact name of the desired autoscaling group.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -99,84 +45,30 @@ namespace Pulumi.Aws.AutoScaling
     [OutputType]
     public sealed class GetGroupResult
     {
-        /// <summary>
-        /// ARN of the Auto Scaling group.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// One or more Availability Zones for the group.
-        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly int DefaultCooldown;
-        /// <summary>
-        /// Desired size of the group.
-        /// </summary>
         public readonly int DesiredCapacity;
-        /// <summary>
-        /// The unit of measurement for the value returned for `desired_capacity`.
-        /// </summary>
         public readonly string DesiredCapacityType;
-        /// <summary>
-        /// List of metrics enabled for collection.
-        /// </summary>
         public readonly ImmutableArray<string> EnabledMetrics;
-        /// <summary>
-        /// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
-        /// </summary>
         public readonly int HealthCheckGracePeriod;
-        /// <summary>
-        /// Service to use for the health checks. The valid values are EC2 and ELB.
-        /// </summary>
         public readonly string HealthCheckType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The name of the associated launch configuration.
-        /// </summary>
         public readonly string LaunchConfiguration;
         public readonly ImmutableArray<Outputs.GetGroupLaunchTemplateResult> LaunchTemplates;
-        /// <summary>
-        /// One or more load balancers associated with the group.
-        /// </summary>
         public readonly ImmutableArray<string> LoadBalancers;
-        /// <summary>
-        /// Maximum size of the group.
-        /// </summary>
         public readonly int MaxSize;
-        /// <summary>
-        /// Minimum size of the group.
-        /// </summary>
         public readonly int MinSize;
-        /// <summary>
-        /// Name of the Auto Scaling Group.
-        /// </summary>
         public readonly string Name;
         public readonly bool NewInstancesProtectedFromScaleIn;
-        /// <summary>
-        /// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
-        /// </summary>
         public readonly string PlacementGroup;
-        /// <summary>
-        /// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
-        /// </summary>
         public readonly string ServiceLinkedRoleArn;
-        /// <summary>
-        /// Current state of the group when DeleteAutoScalingGroup is in progress.
-        /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// ARNs of the target groups for your load balancer.
-        /// </summary>
         public readonly ImmutableArray<string> TargetGroupArns;
-        /// <summary>
-        /// The termination policies for the group.
-        /// </summary>
         public readonly ImmutableArray<string> TerminationPolicies;
-        /// <summary>
-        /// VPC ID for the group.
-        /// </summary>
         public readonly string VpcZoneIdentifier;
 
         [OutputConstructor]

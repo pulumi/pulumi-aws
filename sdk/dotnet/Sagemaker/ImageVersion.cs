@@ -9,64 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Sagemaker
 {
-    /// <summary>
-    /// Provides a SageMaker Image Version resource.
-    /// 
-    /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Sagemaker.ImageVersion("test", new()
-    ///     {
-    ///         ImageName = aws_sagemaker_image.Test.Id,
-    ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// SageMaker Image Versions can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:sagemaker/imageVersion:ImageVersion")]
     public partial class ImageVersion : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        /// * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry path of the container image on which this image version is based.
-        /// </summary>
         [Output("baseImage")]
         public Output<string> BaseImage { get; private set; } = null!;
 
-        /// <summary>
-        /// The registry path of the container image that contains this image version.
-        /// </summary>
         [Output("containerImage")]
         public Output<string> ContainerImage { get; private set; } = null!;
 
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the image. Must be unique to your account.
-        /// </summary>
         [Output("imageName")]
         public Output<string> ImageName { get; private set; } = null!;
 
@@ -119,15 +76,9 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ImageVersionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The registry path of the container image on which this image version is based.
-        /// </summary>
         [Input("baseImage", required: true)]
         public Input<string> BaseImage { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the image. Must be unique to your account.
-        /// </summary>
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;
 
@@ -139,31 +90,18 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ImageVersionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        /// * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The registry path of the container image on which this image version is based.
-        /// </summary>
         [Input("baseImage")]
         public Input<string>? BaseImage { get; set; }
 
-        /// <summary>
-        /// The registry path of the container image that contains this image version.
-        /// </summary>
         [Input("containerImage")]
         public Input<string>? ContainerImage { get; set; }
 
         [Input("imageArn")]
         public Input<string>? ImageArn { get; set; }
 
-        /// <summary>
-        /// The name of the image. Must be unique to your account.
-        /// </summary>
         [Input("imageName")]
         public Input<string>? ImageName { get; set; }
 

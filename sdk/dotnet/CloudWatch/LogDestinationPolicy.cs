@@ -9,89 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides a CloudWatch Logs destination policy resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
-    ///         TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
-    ///     });
-    /// 
-    ///     var testDestinationPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:PutSubscriptionFilter",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     testDestination.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testDestinationPolicyLogDestinationPolicy = new Aws.CloudWatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", new()
-    ///     {
-    ///         DestinationName = testDestination.Name,
-    ///         AccessPolicy = testDestinationPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")]
     public partial class LogDestinationPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Output("accessPolicy")]
         public Output<string> AccessPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// A name for the subscription filter
-        /// </summary>
         [Output("destinationName")]
         public Output<string> DestinationName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        /// </summary>
         [Output("forceUpdate")]
         public Output<bool?> ForceUpdate { get; private set; } = null!;
 
@@ -141,21 +67,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDestinationPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("accessPolicy", required: true)]
         public Input<string> AccessPolicy { get; set; } = null!;
 
-        /// <summary>
-        /// A name for the subscription filter
-        /// </summary>
         [Input("destinationName", required: true)]
         public Input<string> DestinationName { get; set; } = null!;
 
-        /// <summary>
-        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        /// </summary>
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 
@@ -167,21 +84,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class LogDestinationPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The policy document. This is a JSON formatted string.
-        /// </summary>
         [Input("accessPolicy")]
         public Input<string>? AccessPolicy { get; set; }
 
-        /// <summary>
-        /// A name for the subscription filter
-        /// </summary>
         [Input("destinationName")]
         public Input<string>? DestinationName { get; set; }
 
-        /// <summary>
-        /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        /// </summary>
         [Input("forceUpdate")]
         public Input<bool>? ForceUpdate { get; set; }
 

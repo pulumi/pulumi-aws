@@ -12,27 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceLoadBalancerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the container to associate with the load balancer (as it appears in a container definition).
-        /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
-        /// <summary>
-        /// Port on the container to associate with the load balancer.
-        /// </summary>
         [Input("containerPort", required: true)]
         public Input<int> ContainerPort { get; set; } = null!;
 
-        /// <summary>
-        /// Name of the ELB (Classic) to associate with the service.
-        /// </summary>
         [Input("elbName")]
         public Input<string>? ElbName { get; set; }
 
-        /// <summary>
-        /// ARN of the Load Balancer target group to associate with the service.
-        /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 

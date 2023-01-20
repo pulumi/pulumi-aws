@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the S3 bucket for the customer input file.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// The name assigned to the tag that you create.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 

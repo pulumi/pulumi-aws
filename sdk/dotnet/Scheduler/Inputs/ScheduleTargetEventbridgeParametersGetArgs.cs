@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
     public sealed class ScheduleTargetEventbridgeParametersGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
-        /// </summary>
         [Input("detailType", required: true)]
         public Input<string> DetailType { get; set; } = null!;
 
-        /// <summary>
-        /// Source of the event.
-        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Budgets.Inputs
 
     public sealed class BudgetCostFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of a budget. Unique within accounts.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

@@ -11,57 +11,9 @@ namespace Pulumi.Aws.Organizations
 {
     public static class GetDelegatedServices
     {
-        /// <summary>
-        /// Get a list the AWS services for which the specified account is a delegated administrator
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetDelegatedServices.Invoke(new()
-        ///     {
-        ///         AccountId = "AWS ACCOUNT ID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetDelegatedServicesResult> InvokeAsync(GetDelegatedServicesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get a list the AWS services for which the specified account is a delegated administrator
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Organizations.GetDelegatedServices.Invoke(new()
-        ///     {
-        ///         AccountId = "AWS ACCOUNT ID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetDelegatedServicesResult> Invoke(GetDelegatedServicesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesInvokeArgs(), options.WithDefaults());
     }
@@ -69,9 +21,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetDelegatedServicesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Account ID number of a delegated administrator account in the organization.
-        /// </summary>
         [Input("accountId", required: true)]
         public string AccountId { get; set; } = null!;
 
@@ -83,9 +32,6 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class GetDelegatedServicesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Account ID number of a delegated administrator account in the organization.
-        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
@@ -100,9 +46,6 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetDelegatedServicesResult
     {
         public readonly string AccountId;
-        /// <summary>
-        /// Services for which the account is a delegated administrator, which have the following attributes:
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDelegatedServicesDelegatedServiceResult> DelegatedServices;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class ModelInferenceExecutionConfig
     {
-        /// <summary>
-        /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        /// </summary>
         public readonly string Mode;
 
         [OutputConstructor]

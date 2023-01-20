@@ -9,74 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Elb
 {
-    /// <summary>
-    /// Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         Listeners = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 80,
-    ///                 LbProtocol = "http",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var foo = new Aws.Elb.LoadBalancerCookieStickinessPolicy("foo", new()
-    ///     {
-    ///         LoadBalancer = lb.Id,
-    ///         LbPort = 80,
-    ///         CookieExpirationPeriod = 600,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")]
     public partial class LoadBalancerCookieStickinessPolicy : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The time period after which
-        /// the session cookie should be considered stale, expressed in seconds.
-        /// </summary>
         [Output("cookieExpirationPeriod")]
         public Output<int?> CookieExpirationPeriod { get; private set; } = null!;
 
-        /// <summary>
-        /// The load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
-        /// </summary>
         [Output("lbPort")]
         public Output<int> LbPort { get; private set; } = null!;
 
-        /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
-        /// </summary>
         [Output("loadBalancer")]
         public Output<string> LoadBalancer { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the stickiness policy.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -130,31 +74,15 @@ namespace Pulumi.Aws.Elb
 
     public sealed class LoadBalancerCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The time period after which
-        /// the session cookie should be considered stale, expressed in seconds.
-        /// </summary>
         [Input("cookieExpirationPeriod")]
         public Input<int>? CookieExpirationPeriod { get; set; }
 
-        /// <summary>
-        /// The load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
-        /// </summary>
         [Input("lbPort", required: true)]
         public Input<int> LbPort { get; set; } = null!;
 
-        /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
-        /// </summary>
         [Input("loadBalancer", required: true)]
         public Input<string> LoadBalancer { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the stickiness policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -166,31 +94,15 @@ namespace Pulumi.Aws.Elb
 
     public sealed class LoadBalancerCookieStickinessPolicyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The time period after which
-        /// the session cookie should be considered stale, expressed in seconds.
-        /// </summary>
         [Input("cookieExpirationPeriod")]
         public Input<int>? CookieExpirationPeriod { get; set; }
 
-        /// <summary>
-        /// The load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
-        /// </summary>
         [Input("lbPort")]
         public Input<int>? LbPort { get; set; }
 
-        /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
-        /// </summary>
         [Input("loadBalancer")]
         public Input<string>? LoadBalancer { get; set; }
 
-        /// <summary>
-        /// The name of the stickiness policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

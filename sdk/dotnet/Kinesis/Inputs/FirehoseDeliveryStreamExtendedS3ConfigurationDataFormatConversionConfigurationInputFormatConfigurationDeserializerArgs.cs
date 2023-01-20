@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
-        /// </summary>
         [Input("hiveJsonSerDe")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs>? HiveJsonSerDe { get; set; }
 
-        /// <summary>
-        /// Nested argument that specifies the OpenX SerDe. More details below.
-        /// </summary>
         [Input("openXJsonSerDe")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs>? OpenXJsonSerDe { get; set; }
 

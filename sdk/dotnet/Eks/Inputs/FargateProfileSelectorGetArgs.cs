@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Eks.Inputs
     {
         [Input("labels")]
         private InputMap<string>? _labels;
-
-        /// <summary>
-        /// Key-value map of Kubernetes labels for selection.
-        /// </summary>
         public InputMap<string> Labels
         {
             get => _labels ?? (_labels = new InputMap<string>());
             set => _labels = value;
         }
 
-        /// <summary>
-        /// Kubernetes namespace for selection.
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

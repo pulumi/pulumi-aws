@@ -9,83 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Chime
 {
-    /// <summary>
-    /// Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
-    /// 
-    /// &gt; **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", new()
-    ///     {
-    ///         Disabled = true,
-    ///         CpsLimit = 1,
-    ///         CidrAllowLists = new[]
-    ///         {
-    ///             "50.35.78.96/31",
-    ///         },
-    ///         CallingRegions = new[]
-    ///         {
-    ///             "US",
-    ///             "CA",
-    ///         },
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorTerminationCredentials = new Aws.Chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", new()
-    ///     {
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
-    ///         Credentials = new[]
-    ///         {
-    ///             new Aws.Chime.Inputs.VoiceConnectorTerminationCredentialsCredentialArgs
-    ///             {
-    ///                 Username = "test",
-    ///                 Password = "test!",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             defaultVoiceConnectorTermination,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")]
     public partial class VoiceConnectorTerminationCredentials : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// List of termination SIP credentials.
-        /// </summary>
         [Output("credentials")]
         public Output<ImmutableArray<Outputs.VoiceConnectorTerminationCredentialsCredential>> Credentials { get; private set; } = null!;
 
-        /// <summary>
-        /// Amazon Chime Voice Connector ID.
-        /// </summary>
         [Output("voiceConnectorId")]
         public Output<string> VoiceConnectorId { get; private set; } = null!;
 
@@ -137,19 +66,12 @@ namespace Pulumi.Aws.Chime
     {
         [Input("credentials", required: true)]
         private InputList<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>? _credentials;
-
-        /// <summary>
-        /// List of termination SIP credentials.
-        /// </summary>
         public InputList<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs> Credentials
         {
             get => _credentials ?? (_credentials = new InputList<Inputs.VoiceConnectorTerminationCredentialsCredentialArgs>());
             set => _credentials = value;
         }
 
-        /// <summary>
-        /// Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId", required: true)]
         public Input<string> VoiceConnectorId { get; set; } = null!;
 
@@ -163,19 +85,12 @@ namespace Pulumi.Aws.Chime
     {
         [Input("credentials")]
         private InputList<Inputs.VoiceConnectorTerminationCredentialsCredentialGetArgs>? _credentials;
-
-        /// <summary>
-        /// List of termination SIP credentials.
-        /// </summary>
         public InputList<Inputs.VoiceConnectorTerminationCredentialsCredentialGetArgs> Credentials
         {
             get => _credentials ?? (_credentials = new InputList<Inputs.VoiceConnectorTerminationCredentialsCredentialGetArgs>());
             set => _credentials = value;
         }
 
-        /// <summary>
-        /// Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId")]
         public Input<string>? VoiceConnectorId { get; set; }
 

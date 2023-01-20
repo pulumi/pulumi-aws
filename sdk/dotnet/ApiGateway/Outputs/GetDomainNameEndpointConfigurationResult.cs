@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class GetDomainNameEndpointConfigurationResult
     {
-        /// <summary>
-        /// List of endpoint types.
-        /// </summary>
         public readonly ImmutableArray<string> Types;
 
         [OutputConstructor]

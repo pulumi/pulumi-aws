@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ClusterConfigurationExecuteCommandConfigurationLogConfiguration
     {
-        /// <summary>
-        /// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
-        /// </summary>
         public readonly bool? CloudWatchEncryptionEnabled;
-        /// <summary>
-        /// The name of the CloudWatch log group to send logs to.
-        /// </summary>
         public readonly string? CloudWatchLogGroupName;
-        /// <summary>
-        /// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
-        /// </summary>
         public readonly bool? S3BucketEncryptionEnabled;
-        /// <summary>
-        /// The name of the S3 bucket to send logs to.
-        /// </summary>
         public readonly string? S3BucketName;
-        /// <summary>
-        /// An optional folder in the S3 bucket to place logs in.
-        /// </summary>
         public readonly string? S3KeyPrefix;
 
         [OutputConstructor]

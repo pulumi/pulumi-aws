@@ -12,9 +12,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
 
     public sealed class OrganizationConfigurationDatasourcesS3LogsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-        /// </summary>
         [Input("autoEnable", required: true)]
         public Input<bool> AutoEnable { get; set; } = null!;
 

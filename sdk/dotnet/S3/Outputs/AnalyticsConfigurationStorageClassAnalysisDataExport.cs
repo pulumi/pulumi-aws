@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class AnalyticsConfigurationStorageClassAnalysisDataExport
     {
-        /// <summary>
-        /// Specifies the destination for the exported analytics data (documented below).
-        /// </summary>
         public readonly Outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination Destination;
-        /// <summary>
-        /// The schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
-        /// </summary>
         public readonly string? OutputSchemaVersion;
 
         [OutputConstructor]

@@ -13,23 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateBlockDeviceMapping
     {
-        /// <summary>
-        /// The name of the device to mount.
-        /// </summary>
         public readonly string? DeviceName;
-        /// <summary>
-        /// Configure EBS volume properties.
-        /// </summary>
         public readonly Outputs.LaunchTemplateBlockDeviceMappingEbs? Ebs;
-        /// <summary>
-        /// Suppresses the specified device included in the AMI's block device mapping.
-        /// </summary>
         public readonly string? NoDevice;
-        /// <summary>
-        /// The [Instance Store Device
-        /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g., `"ephemeral0"`).
-        /// </summary>
         public readonly string? VirtualName;
 
         [OutputConstructor]

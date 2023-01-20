@@ -12,33 +12,18 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectFileSystemLocationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
-        /// <summary>
-        /// Location of the source code from git or s3.
-        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The mount options for a file system created by AWS EFS.
-        /// </summary>
         [Input("mountOptions")]
         public Input<string>? MountOptions { get; set; }
 
-        /// <summary>
-        /// The location in the container where you mount the file system.
-        /// </summary>
         [Input("mountPoint")]
         public Input<string>? MountPoint { get; set; }
 
-        /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

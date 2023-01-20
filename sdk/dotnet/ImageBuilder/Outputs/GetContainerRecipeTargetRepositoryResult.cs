@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetContainerRecipeTargetRepositoryResult
     {
-        /// <summary>
-        /// Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
-        /// </summary>
         public readonly string RepositoryName;
-        /// <summary>
-        /// Service in which this image is registered.
-        /// </summary>
         public readonly string Service;
 
         [OutputConstructor]

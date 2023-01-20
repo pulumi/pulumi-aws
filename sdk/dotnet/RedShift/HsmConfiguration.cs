@@ -9,93 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.RedShift
 {
-    /// <summary>
-    /// Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.HsmConfiguration("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         HsmConfigurationIdentifier = "example",
-    ///         HsmIpAddress = "10.0.0.1",
-    ///         HsmPartitionName = "aws",
-    ///         HsmPartitionPassword = "example",
-    ///         HsmServerPublicCertificate = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:redshift/hsmConfiguration:HsmConfiguration")]
     public partial class HsmConfiguration : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A text description of the HSM configuration to be created.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        /// </summary>
         [Output("hsmConfigurationIdentifier")]
         public Output<string> HsmConfigurationIdentifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The IP address that the Amazon Redshift cluster must use to access the HSM.
-        /// </summary>
         [Output("hsmIpAddress")]
         public Output<string> HsmIpAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        /// </summary>
         [Output("hsmPartitionName")]
         public Output<string> HsmPartitionName { get; private set; } = null!;
 
-        /// <summary>
-        /// The password required to access the HSM partition.
-        /// </summary>
         [Output("hsmPartitionPassword")]
         public Output<string> HsmPartitionPassword { get; private set; } = null!;
 
-        /// <summary>
-        /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        /// </summary>
         [Output("hsmServerPublicCertificate")]
         public Output<string> HsmServerPublicCertificate { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -149,36 +89,20 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class HsmConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A text description of the HSM configuration to be created.
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        /// <summary>
-        /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        /// </summary>
         [Input("hsmConfigurationIdentifier", required: true)]
         public Input<string> HsmConfigurationIdentifier { get; set; } = null!;
 
-        /// <summary>
-        /// The IP address that the Amazon Redshift cluster must use to access the HSM.
-        /// </summary>
         [Input("hsmIpAddress", required: true)]
         public Input<string> HsmIpAddress { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        /// </summary>
         [Input("hsmPartitionName", required: true)]
         public Input<string> HsmPartitionName { get; set; } = null!;
 
         [Input("hsmPartitionPassword", required: true)]
         private Input<string>? _hsmPartitionPassword;
-
-        /// <summary>
-        /// The password required to access the HSM partition.
-        /// </summary>
         public Input<string>? HsmPartitionPassword
         {
             get => _hsmPartitionPassword;
@@ -189,18 +113,11 @@ namespace Pulumi.Aws.RedShift
             }
         }
 
-        /// <summary>
-        /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        /// </summary>
         [Input("hsmServerPublicCertificate", required: true)]
         public Input<string> HsmServerPublicCertificate { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -215,42 +132,23 @@ namespace Pulumi.Aws.RedShift
 
     public sealed class HsmConfigurationState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A text description of the HSM configuration to be created.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        /// </summary>
         [Input("hsmConfigurationIdentifier")]
         public Input<string>? HsmConfigurationIdentifier { get; set; }
 
-        /// <summary>
-        /// The IP address that the Amazon Redshift cluster must use to access the HSM.
-        /// </summary>
         [Input("hsmIpAddress")]
         public Input<string>? HsmIpAddress { get; set; }
 
-        /// <summary>
-        /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        /// </summary>
         [Input("hsmPartitionName")]
         public Input<string>? HsmPartitionName { get; set; }
 
         [Input("hsmPartitionPassword")]
         private Input<string>? _hsmPartitionPassword;
-
-        /// <summary>
-        /// The password required to access the HSM partition.
-        /// </summary>
         public Input<string>? HsmPartitionPassword
         {
             get => _hsmPartitionPassword;
@@ -261,18 +159,11 @@ namespace Pulumi.Aws.RedShift
             }
         }
 
-        /// <summary>
-        /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        /// </summary>
         [Input("hsmServerPublicCertificate")]
         public Input<string>? HsmServerPublicCertificate { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -281,10 +172,6 @@ namespace Pulumi.Aws.RedShift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

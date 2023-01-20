@@ -9,93 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
-    /// <summary>
-    /// Provides an EC2 instance state resource. This allows managing an instance power state.
-    /// 
-    /// &gt; **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
-    ///                 },
-    ///             },
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "virtualization-type",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "hvm",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Owners = new[]
-    ///         {
-    ///             "099720109477",
-    ///         },
-    ///     });
-    /// 
-    ///     var testInstance = new Aws.Ec2.Instance("testInstance", new()
-    ///     {
-    ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t3.micro",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testInstanceState = new Aws.Ec2TransitGateway.InstanceState("testInstanceState", new()
-    ///     {
-    ///         InstanceId = testInstance.Id,
-    ///         State = "stopped",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2transitgateway/instanceState:InstanceState")]
     public partial class InstanceState : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-        /// </summary>
         [Output("force")]
         public Output<bool?> Force { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the instance.
-        /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// - State of the instance. Valid values are `stopped`, `running`.
-        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
@@ -145,21 +67,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class InstanceStateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-        /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
 
-        /// <summary>
-        /// ID of the instance.
-        /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
 
-        /// <summary>
-        /// - State of the instance. Valid values are `stopped`, `running`.
-        /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
 
@@ -171,21 +84,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class InstanceStateState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
-        /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
 
-        /// <summary>
-        /// ID of the instance.
-        /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// - State of the instance. Valid values are `stopped`, `running`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

@@ -12,33 +12,18 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-        /// </summary>
         [Input("activityMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsGetArgs>? ActivityMetrics { get; set; }
 
-        /// <summary>
-        /// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-        /// </summary>
         [Input("advancedCostOptimizationMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsGetArgs>? AdvancedCostOptimizationMetrics { get; set; }
 
-        /// <summary>
-        /// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-        /// </summary>
         [Input("advancedDataProtectionMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsGetArgs>? AdvancedDataProtectionMetrics { get; set; }
 
-        /// <summary>
-        /// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-        /// </summary>
         [Input("bucketLevel", required: true)]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelGetArgs> BucketLevel { get; set; } = null!;
 
-        /// <summary>
-        /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-        /// </summary>
         [Input("detailedStatusCodeMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsGetArgs>? DetailedStatusCodeMetrics { get; set; }
 

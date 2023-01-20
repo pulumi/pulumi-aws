@@ -11,63 +11,9 @@ namespace Pulumi.Aws.Kinesis
 {
     public static class GetStreamConsumer
     {
-        /// <summary>
-        /// Provides details about a Kinesis Stream Consumer.
-        /// 
-        /// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
-        ///     {
-        ///         Name = "example-consumer",
-        ///         StreamArn = aws_kinesis_stream.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetStreamConsumerResult> InvokeAsync(GetStreamConsumerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamConsumerResult>("aws:kinesis/getStreamConsumer:getStreamConsumer", args ?? new GetStreamConsumerArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides details about a Kinesis Stream Consumer.
-        /// 
-        /// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
-        ///     {
-        ///         Name = "example-consumer",
-        ///         StreamArn = aws_kinesis_stream.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetStreamConsumerResult> Invoke(GetStreamConsumerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamConsumerResult>("aws:kinesis/getStreamConsumer:getStreamConsumer", args ?? new GetStreamConsumerInvokeArgs(), options.WithDefaults());
     }
@@ -75,21 +21,12 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class GetStreamConsumerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the stream consumer.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the stream consumer.
-        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
-        /// <summary>
-        /// ARN of the data stream the consumer is registered with.
-        /// </summary>
         [Input("streamArn", required: true)]
         public string StreamArn { get; set; } = null!;
 
@@ -101,21 +38,12 @@ namespace Pulumi.Aws.Kinesis
 
     public sealed class GetStreamConsumerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the stream consumer.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Name of the stream consumer.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ARN of the data stream the consumer is registered with.
-        /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
 
@@ -130,18 +58,12 @@ namespace Pulumi.Aws.Kinesis
     public sealed class GetStreamConsumerResult
     {
         public readonly string Arn;
-        /// <summary>
-        /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-        /// </summary>
         public readonly string CreationTimestamp;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// Current status of the stream consumer.
-        /// </summary>
         public readonly string Status;
         public readonly string StreamArn;
 

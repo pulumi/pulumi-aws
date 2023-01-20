@@ -11,59 +11,9 @@ namespace Pulumi.Aws.Ecr
 {
     public static class GetImage
     {
-        /// <summary>
-        /// The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
-        ///     {
-        ///         ImageTag = "latest",
-        ///         RepositoryName = "my/service",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:ecr/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
-        ///     {
-        ///         ImageTag = "latest",
-        ///         RepositoryName = "my/service",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:ecr/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
@@ -71,27 +21,15 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-        /// </summary>
         [Input("imageDigest")]
         public string? ImageDigest { get; set; }
 
-        /// <summary>
-        /// Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
-        /// </summary>
         [Input("imageTag")]
         public string? ImageTag { get; set; }
 
-        /// <summary>
-        /// ID of the Registry where the repository resides.
-        /// </summary>
         [Input("registryId")]
         public string? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the ECR Repository.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public string RepositoryName { get; set; } = null!;
 
@@ -103,27 +41,15 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-        /// </summary>
         [Input("imageDigest")]
         public Input<string>? ImageDigest { get; set; }
 
-        /// <summary>
-        /// Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
-        /// </summary>
         [Input("imageTag")]
         public Input<string>? ImageTag { get; set; }
 
-        /// <summary>
-        /// ID of the Registry where the repository resides.
-        /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
-        /// <summary>
-        /// Name of the ECR Repository.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
@@ -142,18 +68,9 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string Id;
         public readonly string ImageDigest;
-        /// <summary>
-        /// Date and time, expressed as a unix timestamp, at which the current image was pushed to the repository.
-        /// </summary>
         public readonly int ImagePushedAt;
-        /// <summary>
-        /// Size, in bytes, of the image in the repository.
-        /// </summary>
         public readonly int ImageSizeInBytes;
         public readonly string? ImageTag;
-        /// <summary>
-        /// List of tags associated with this image.
-        /// </summary>
         public readonly ImmutableArray<string> ImageTags;
         public readonly string RegistryId;
         public readonly string RepositoryName;

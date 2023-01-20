@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class FrameworkControlInputParameter
     {
-        /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
-        /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// The value of parameter, for example, hourly.
-        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

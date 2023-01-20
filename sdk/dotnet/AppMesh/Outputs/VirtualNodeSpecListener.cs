@@ -13,29 +13,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecListener
     {
-        /// <summary>
-        /// Connection pool information for the listener.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerConnectionPool? ConnectionPool;
-        /// <summary>
-        /// Health check information for the listener.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerHealthCheck? HealthCheck;
-        /// <summary>
-        /// Outlier detection information for the listener.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerOutlierDetection? OutlierDetection;
-        /// <summary>
-        /// Port mapping information for the listener.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerPortMapping PortMapping;
-        /// <summary>
-        /// Timeouts for different protocols.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeout? Timeout;
-        /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTls? Tls;
 
         [OutputConstructor]

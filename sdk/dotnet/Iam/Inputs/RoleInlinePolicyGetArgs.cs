@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Iam.Inputs
 
     public sealed class RoleInlinePolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the role policy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Policy document as a JSON formatted string.
-        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

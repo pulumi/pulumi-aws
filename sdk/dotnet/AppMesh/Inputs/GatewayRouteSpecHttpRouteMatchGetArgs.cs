@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class GatewayRouteSpecHttpRouteMatchGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Host name to rewrite.
-        /// </summary>
         [Input("hostname")]
         public Input<Inputs.GatewayRouteSpecHttpRouteMatchHostnameGetArgs>? Hostname { get; set; }
 
-        /// <summary>
-        /// Specified beginning characters to rewrite.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

@@ -9,89 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Previews a CIDR from an IPAM address pool. Only works for private IPv4.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
-    ///     {
-    ///         OperatingRegions = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
-    ///     {
-    ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///     });
-    /// 
-    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
-    ///     {
-    ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         Cidr = "172.2.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleVpcIpamPreviewNextCidr = new Aws.Ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", new()
-    ///     {
-    ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         NetmaskLength = 28,
-    ///         DisallowedCidrs = new[]
-    ///         {
-    ///             "172.2.0.0/32",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVpcIpamPoolCidr,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")]
     public partial class VpcIpamPreviewNextCidr : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The previewed CIDR from the pool.
-        /// </summary>
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
 
-        /// <summary>
-        /// Exclude a particular CIDR range from being returned by the pool.
-        /// </summary>
         [Output("disallowedCidrs")]
         public Output<ImmutableArray<string>> DisallowedCidrs { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
-        /// </summary>
         [Output("ipamPoolId")]
         public Output<string> IpamPoolId { get; private set; } = null!;
 
-        /// <summary>
-        /// The netmask length of the CIDR you would like to preview from the IPAM pool.
-        /// </summary>
         [Output("netmaskLength")]
         public Output<int?> NetmaskLength { get; private set; } = null!;
 
@@ -143,25 +72,15 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("disallowedCidrs")]
         private InputList<string>? _disallowedCidrs;
-
-        /// <summary>
-        /// Exclude a particular CIDR range from being returned by the pool.
-        /// </summary>
         public InputList<string> DisallowedCidrs
         {
             get => _disallowedCidrs ?? (_disallowedCidrs = new InputList<string>());
             set => _disallowedCidrs = value;
         }
 
-        /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
-        /// </summary>
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
-        /// <summary>
-        /// The netmask length of the CIDR you would like to preview from the IPAM pool.
-        /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
 
@@ -173,33 +92,20 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpamPreviewNextCidrState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The previewed CIDR from the pool.
-        /// </summary>
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 
         [Input("disallowedCidrs")]
         private InputList<string>? _disallowedCidrs;
-
-        /// <summary>
-        /// Exclude a particular CIDR range from being returned by the pool.
-        /// </summary>
         public InputList<string> DisallowedCidrs
         {
             get => _disallowedCidrs ?? (_disallowedCidrs = new InputList<string>());
             set => _disallowedCidrs = value;
         }
 
-        /// <summary>
-        /// The ID of the pool to which you want to assign a CIDR.
-        /// </summary>
         [Input("ipamPoolId")]
         public Input<string>? IpamPoolId { get; set; }
 
-        /// <summary>
-        /// The netmask length of the CIDR you would like to preview from the IPAM pool.
-        /// </summary>
         [Input("netmaskLength")]
         public Input<int>? NetmaskLength { get; set; }
 

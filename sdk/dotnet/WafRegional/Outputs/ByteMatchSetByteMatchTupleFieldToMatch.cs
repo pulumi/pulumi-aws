@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class ByteMatchSetByteMatchTupleFieldToMatch
     {
-        /// <summary>
-        /// When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
-        /// </summary>
         public readonly string? Data;
-        /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

@@ -9,53 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.OpsWorks
 {
-    /// <summary>
-    /// Provides an OpsWorks RDS DB Instance resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myInstance = new Aws.OpsWorks.RdsDbInstance("myInstance", new()
-    ///     {
-    ///         StackId = aws_opsworks_stack.My_stack.Id,
-    ///         RdsDbInstanceArn = aws_db_instance.My_instance.Arn,
-    ///         DbUser = "someUser",
-    ///         DbPassword = "somePass",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:opsworks/rdsDbInstance:RdsDbInstance")]
     public partial class RdsDbInstance : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// A db password
-        /// </summary>
         [Output("dbPassword")]
         public Output<string> DbPassword { get; private set; } = null!;
 
-        /// <summary>
-        /// A db username
-        /// </summary>
         [Output("dbUser")]
         public Output<string> DbUser { get; private set; } = null!;
 
-        /// <summary>
-        /// The db instance to register for this stack. Changing this will force a new resource.
-        /// </summary>
         [Output("rdsDbInstanceArn")]
         public Output<string> RdsDbInstanceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The stack to register a db instance for. Changing this will force a new resource.
-        /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
 
@@ -111,10 +76,6 @@ namespace Pulumi.Aws.OpsWorks
     {
         [Input("dbPassword", required: true)]
         private Input<string>? _dbPassword;
-
-        /// <summary>
-        /// A db password
-        /// </summary>
         public Input<string>? DbPassword
         {
             get => _dbPassword;
@@ -125,21 +86,12 @@ namespace Pulumi.Aws.OpsWorks
             }
         }
 
-        /// <summary>
-        /// A db username
-        /// </summary>
         [Input("dbUser", required: true)]
         public Input<string> DbUser { get; set; } = null!;
 
-        /// <summary>
-        /// The db instance to register for this stack. Changing this will force a new resource.
-        /// </summary>
         [Input("rdsDbInstanceArn", required: true)]
         public Input<string> RdsDbInstanceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The stack to register a db instance for. Changing this will force a new resource.
-        /// </summary>
         [Input("stackId", required: true)]
         public Input<string> StackId { get; set; } = null!;
 
@@ -153,10 +105,6 @@ namespace Pulumi.Aws.OpsWorks
     {
         [Input("dbPassword")]
         private Input<string>? _dbPassword;
-
-        /// <summary>
-        /// A db password
-        /// </summary>
         public Input<string>? DbPassword
         {
             get => _dbPassword;
@@ -167,21 +115,12 @@ namespace Pulumi.Aws.OpsWorks
             }
         }
 
-        /// <summary>
-        /// A db username
-        /// </summary>
         [Input("dbUser")]
         public Input<string>? DbUser { get; set; }
 
-        /// <summary>
-        /// The db instance to register for this stack. Changing this will force a new resource.
-        /// </summary>
         [Input("rdsDbInstanceArn")]
         public Input<string>? RdsDbInstanceArn { get; set; }
 
-        /// <summary>
-        /// The stack to register a db instance for. Changing this will force a new resource.
-        /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }
 

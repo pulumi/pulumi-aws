@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ServiceDeploymentCircuitBreaker
     {
-        /// <summary>
-        /// Whether to enable the deployment circuit breaker logic for the service.
-        /// </summary>
         public readonly bool Enable;
-        /// <summary>
-        /// Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-        /// </summary>
         public readonly bool Rollback;
 
         [OutputConstructor]

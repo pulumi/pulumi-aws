@@ -12,9 +12,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

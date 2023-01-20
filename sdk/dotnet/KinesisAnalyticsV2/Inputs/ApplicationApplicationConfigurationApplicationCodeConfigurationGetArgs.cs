@@ -12,15 +12,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The location and type of the application code.
-        /// </summary>
         [Input("codeContent")]
         public Input<Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentGetArgs>? CodeContent { get; set; }
 
-        /// <summary>
-        /// Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-        /// </summary>
         [Input("codeContentType", required: true)]
         public Input<string> CodeContentType { get; set; } = null!;
 

@@ -9,71 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// &gt; **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
-    /// 
-    /// Accepts a Security Hub invitation.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var exampleMember = new Aws.SecurityHub.Member("exampleMember", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///         Email = "example@example.com",
-    ///         Invite = true,
-    ///     });
-    /// 
-    ///     var inviteeAccount = new Aws.SecurityHub.Account("inviteeAccount", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "aws.invitee",
-    ///     });
-    /// 
-    ///     var inviteeInviteAccepter = new Aws.SecurityHub.InviteAccepter("inviteeInviteAccepter", new()
-    ///     {
-    ///         MasterId = exampleMember.MasterId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "aws.invitee",
-    ///         DependsOn = new[]
-    ///         {
-    ///             inviteeAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Security Hub invite acceptance can be imported using the account ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/inviteAccepter:InviteAccepter")]
     public partial class InviteAccepter : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the invitation.
-        /// </summary>
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The account ID of the master Security Hub account whose invitation you're accepting.
-        /// </summary>
         [Output("masterId")]
         public Output<string> MasterId { get; private set; } = null!;
 
@@ -123,9 +64,6 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class InviteAccepterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The account ID of the master Security Hub account whose invitation you're accepting.
-        /// </summary>
         [Input("masterId", required: true)]
         public Input<string> MasterId { get; set; } = null!;
 
@@ -137,15 +75,9 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class InviteAccepterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the invitation.
-        /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
-        /// <summary>
-        /// The account ID of the master Security Hub account whose invitation you're accepting.
-        /// </summary>
         [Input("masterId")]
         public Input<string>? MasterId { get; set; }
 

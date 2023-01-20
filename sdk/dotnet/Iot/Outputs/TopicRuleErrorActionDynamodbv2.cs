@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class TopicRuleErrorActionDynamodbv2
     {
-        /// <summary>
-        /// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-        /// </summary>
         public readonly Outputs.TopicRuleErrorActionDynamodbv2PutItem? PutItem;
-        /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

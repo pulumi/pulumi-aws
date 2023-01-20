@@ -13,25 +13,10 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class ClusterS3Import
     {
-        /// <summary>
-        /// The bucket name where your backup is stored
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// Can be blank, but is the path to your backup
-        /// </summary>
         public readonly string? BucketPrefix;
-        /// <summary>
-        /// Role applied to load the data.
-        /// </summary>
         public readonly string IngestionRole;
-        /// <summary>
-        /// Source engine for the backup
-        /// </summary>
         public readonly string SourceEngine;
-        /// <summary>
-        /// Version of the source engine used to make the backup
-        /// </summary>
         public readonly string SourceEngineVersion;
 
         [OutputConstructor]

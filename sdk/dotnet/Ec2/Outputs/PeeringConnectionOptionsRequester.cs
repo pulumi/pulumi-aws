@@ -13,22 +13,8 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class PeeringConnectionOptionsRequester
     {
-        /// <summary>
-        /// Allow a local linked EC2-Classic instance to communicate
-        /// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        /// to the remote VPC. This option is not supported for inter-region VPC peering.
-        /// </summary>
         public readonly bool? AllowClassicLinkToRemoteVpc;
-        /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC.
-        /// </summary>
         public readonly bool? AllowRemoteVpcDnsResolution;
-        /// <summary>
-        /// Allow a local VPC to communicate with a linked EC2-Classic
-        /// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        /// connection. This option is not supported for inter-region VPC peering.
-        /// </summary>
         public readonly bool? AllowVpcToRemoteClassicLink;
 
         [OutputConstructor]

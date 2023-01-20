@@ -12,15 +12,9 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for the S3 bucket containing the application code.
-        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
-        /// <summary>
-        /// The file key for the object containing the application code.
-        /// </summary>
         [Input("fileKey", required: true)]
         public Input<string> FileKey { get; set; } = null!;
 

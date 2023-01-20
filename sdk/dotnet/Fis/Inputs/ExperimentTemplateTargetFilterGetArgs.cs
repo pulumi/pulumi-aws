@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Fis.Inputs
 
     public sealed class ExperimentTemplateTargetFilterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Attribute path for the filter.
-        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// Set of attribute values for the filter.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

@@ -13,77 +13,23 @@ namespace Pulumi.Aws.Dms.Outputs
     [OutputType]
     public sealed class EndpointKafkaSettings
     {
-        /// <summary>
-        /// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-        /// </summary>
         public readonly string Broker;
-        /// <summary>
-        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
-        /// </summary>
         public readonly bool? IncludeControlDetails;
-        /// <summary>
-        /// Include NULL and empty columns in the target. Default is `false`.
-        /// </summary>
         public readonly bool? IncludeNullAndEmpty;
-        /// <summary>
-        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
-        /// </summary>
         public readonly bool? IncludePartitionValue;
-        /// <summary>
-        /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
-        /// </summary>
         public readonly bool? IncludeTableAlterOperations;
-        /// <summary>
-        /// Provides detailed transaction information from the source database. Default is `false`.
-        /// </summary>
         public readonly bool? IncludeTransactionDetails;
-        /// <summary>
-        /// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
-        /// </summary>
         public readonly string? MessageFormat;
-        /// <summary>
-        /// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
-        /// </summary>
         public readonly int? MessageMaxBytes;
-        /// <summary>
-        /// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-        /// </summary>
         public readonly bool? NoHexPrefix;
-        /// <summary>
-        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
-        /// </summary>
         public readonly bool? PartitionIncludeSchemaTable;
-        /// <summary>
-        /// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        /// </summary>
         public readonly string? SaslPassword;
-        /// <summary>
-        /// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        /// </summary>
         public readonly string? SaslUsername;
-        /// <summary>
-        /// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
-        /// </summary>
         public readonly string? SecurityProtocol;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        /// </summary>
         public readonly string? SslCaCertificateArn;
-        /// <summary>
-        /// ARN of the client certificate used to securely connect to a Kafka target endpoint.
-        /// </summary>
         public readonly string? SslClientCertificateArn;
-        /// <summary>
-        /// ARN for the client private key used to securely connect to a Kafka target endpoint.
-        /// </summary>
         public readonly string? SslClientKeyArn;
-        /// <summary>
-        /// Password for the client private key used to securely connect to a Kafka target endpoint.
-        /// </summary>
         public readonly string? SslClientKeyPassword;
-        /// <summary>
-        /// Kafka topic for migration. Default is `kafka-default-topic`.
-        /// </summary>
         public readonly string? Topic;
 
         [OutputConstructor]

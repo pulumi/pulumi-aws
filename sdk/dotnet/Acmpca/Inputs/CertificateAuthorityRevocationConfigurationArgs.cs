@@ -12,16 +12,9 @@ namespace Pulumi.Aws.Acmpca.Inputs
 
     public sealed class CertificateAuthorityRevocationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        /// </summary>
         [Input("crlConfiguration")]
         public Input<Inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs>? CrlConfiguration { get; set; }
 
-        /// <summary>
-        /// Nested argument containing configuration of
-        /// the custom OCSP responder endpoint. Defined below.
-        /// </summary>
         [Input("ocspConfiguration")]
         public Input<Inputs.CertificateAuthorityRevocationConfigurationOcspConfigurationArgs>? OcspConfiguration { get; set; }
 

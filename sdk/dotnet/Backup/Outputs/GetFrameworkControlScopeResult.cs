@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class GetFrameworkControlScopeResult
     {
-        /// <summary>
-        /// The ID of the only AWS resource that you want your control scope to contain.
-        /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceIds;
-        /// <summary>
-        /// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-        /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceTypes;
-        /// <summary>
-        /// Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

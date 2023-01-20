@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ResourceGroups.Outputs
     [OutputType]
     public sealed class GroupConfiguration
     {
-        /// <summary>
-        /// A collection of parameters for this group configuration item. See below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GroupConfigurationParameter> Parameters;
-        /// <summary>
-        /// Specifies the type of group configuration item.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

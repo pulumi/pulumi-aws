@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Quicksight.Outputs
     [OutputType]
     public sealed class DataSourceParametersAthena
     {
-        /// <summary>
-        /// The work-group to which to connect.
-        /// </summary>
         public readonly string? WorkGroup;
 
         [OutputConstructor]

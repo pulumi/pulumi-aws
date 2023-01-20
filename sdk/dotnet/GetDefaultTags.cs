@@ -11,57 +11,9 @@ namespace Pulumi.Aws
 {
     public static class GetDefaultTags
     {
-        /// <summary>
-        /// Use this data source to get the default tags configured on the provider.
-        /// 
-        /// With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GetDefaultTags.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetDefaultTagsResult> InvokeAsync(GetDefaultTagsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultTagsResult>("aws:index/getDefaultTags:getDefaultTags", args ?? new GetDefaultTagsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the default tags configured on the provider.
-        /// 
-        /// With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.GetDefaultTags.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetDefaultTagsResult> Invoke(GetDefaultTagsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultTagsResult>("aws:index/getDefaultTags:getDefaultTags", args ?? new GetDefaultTagsInvokeArgs(), options.WithDefaults());
     }
@@ -71,10 +23,6 @@ namespace Pulumi.Aws
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Blocks of default tags set on the provider. See details below.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -91,10 +39,6 @@ namespace Pulumi.Aws
     {
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Blocks of default tags set on the provider. See details below.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -115,9 +59,6 @@ namespace Pulumi.Aws
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Blocks of default tags set on the provider. See details below.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

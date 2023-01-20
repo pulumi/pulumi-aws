@@ -13,21 +13,9 @@ namespace Pulumi.Aws.Pinpoint.Outputs
     [OutputType]
     public sealed class AppLimits
     {
-        /// <summary>
-        /// The maximum number of messages that the campaign can send daily.
-        /// </summary>
         public readonly int? Daily;
-        /// <summary>
-        /// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        /// </summary>
         public readonly int? MaximumDuration;
-        /// <summary>
-        /// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        /// </summary>
         public readonly int? MessagesPerSecond;
-        /// <summary>
-        /// The maximum total number of messages that the campaign can send.
-        /// </summary>
         public readonly int? Total;
 
         [OutputConstructor]

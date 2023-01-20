@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceParametersAthenaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The work-group to which to connect.
-        /// </summary>
         [Input("workGroup")]
         public Input<string>? WorkGroup { get; set; }
 

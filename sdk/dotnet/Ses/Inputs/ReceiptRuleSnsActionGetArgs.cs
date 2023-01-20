@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Ses.Inputs
 
     public sealed class ReceiptRuleSnsActionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
-        /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
-        /// <summary>
-        /// The position of the action in the receipt rule
-        /// </summary>
         [Input("position", required: true)]
         public Input<int> Position { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of an SNS topic to notify
-        /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
 

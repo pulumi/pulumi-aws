@@ -14,43 +14,26 @@ namespace Pulumi.Aws.CodeCommit.Inputs
     {
         [Input("branches")]
         private InputList<string>? _branches;
-
-        /// <summary>
-        /// The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
-        /// </summary>
         public InputList<string> Branches
         {
             get => _branches ?? (_branches = new InputList<string>());
             set => _branches = value;
         }
 
-        /// <summary>
-        /// Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
-        /// </summary>
         [Input("customData")]
         public Input<string>? CustomData { get; set; }
 
-        /// <summary>
-        /// The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
-        /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 
         [Input("events", required: true)]
         private InputList<string>? _events;
-
-        /// <summary>
-        /// The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
-        /// </summary>
         public InputList<string> Events
         {
             get => _events ?? (_events = new InputList<string>());
             set => _events = value;
         }
 
-        /// <summary>
-        /// The name of the trigger.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

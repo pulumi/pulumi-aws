@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolAdminCreateUserConfigInviteMessageTemplateGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        /// </summary>
         [Input("emailMessage")]
         public Input<string>? EmailMessage { get; set; }
 
-        /// <summary>
-        /// Subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        /// </summary>
         [Input("emailSubject")]
         public Input<string>? EmailSubject { get; set; }
 
-        /// <summary>
-        /// SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-        /// </summary>
         [Input("smsMessage")]
         public Input<string>? SmsMessage { get; set; }
 

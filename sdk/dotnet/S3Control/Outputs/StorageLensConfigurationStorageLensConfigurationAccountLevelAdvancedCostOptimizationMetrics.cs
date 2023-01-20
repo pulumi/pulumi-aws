@@ -13,9 +13,6 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics
     {
-        /// <summary>
-        /// Whether advanced cost-optimization metrics are enabled.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

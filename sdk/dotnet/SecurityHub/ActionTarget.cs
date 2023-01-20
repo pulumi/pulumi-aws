@@ -9,67 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Creates Security Hub custom action.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var exampleActionTarget = new Aws.SecurityHub.ActionTarget("exampleActionTarget", new()
-    ///     {
-    ///         Identifier = "SendToChat",
-    ///         Description = "This is custom action sends selected findings to chat",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Security Hub custom action can be imported using the action target ARN e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/actionTarget:ActionTarget")]
     public partial class ActionTarget : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Security Hub custom action target.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the custom action target.
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID for the custom action target.
-        /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
-        /// <summary>
-        /// The description for the custom action target.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -119,21 +70,12 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class ActionTargetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the custom action target.
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        /// <summary>
-        /// The ID for the custom action target.
-        /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;
 
-        /// <summary>
-        /// The description for the custom action target.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -145,27 +87,15 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class ActionTargetState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the Security Hub custom action target.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the custom action target.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID for the custom action target.
-        /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
-        /// <summary>
-        /// The description for the custom action target.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

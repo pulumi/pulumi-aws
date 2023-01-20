@@ -9,455 +9,69 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ecs
 {
-    /// <summary>
-    /// Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
-    /// 
-    /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
-    ///     {
-    ///         Family = "service",
-    ///         ContainerDefinitions = JsonSerializer.Serialize(new[]
-    ///         {
-    ///             new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["name"] = "first",
-    ///                 ["image"] = "service-first",
-    ///                 ["cpu"] = 10,
-    ///                 ["memory"] = 512,
-    ///                 ["essential"] = true,
-    ///                 ["portMappings"] = new[]
-    ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["containerPort"] = 80,
-    ///                         ["hostPort"] = 80,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["name"] = "second",
-    ///                 ["image"] = "service-second",
-    ///                 ["cpu"] = 10,
-    ///                 ["memory"] = 256,
-    ///                 ["essential"] = true,
-    ///                 ["portMappings"] = new[]
-    ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["containerPort"] = 443,
-    ///                         ["hostPort"] = 443,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///         Volumes = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
-    ///             {
-    ///                 Name = "service-storage",
-    ///                 HostPath = "/ecs/service-storage",
-    ///             },
-    ///         },
-    ///         PlacementConstraints = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionPlacementConstraintArgs
-    ///             {
-    ///                 Type = "memberOf",
-    ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With AppMesh Proxy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
-    ///     {
-    ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///         ProxyConfiguration = new Aws.Ecs.Inputs.TaskDefinitionProxyConfigurationArgs
-    ///         {
-    ///             Type = "APPMESH",
-    ///             ContainerName = "applicationContainerName",
-    ///             Properties = 
-    ///             {
-    ///                 { "AppPorts", "8080" },
-    ///                 { "EgressIgnoredIPs", "169.254.170.2,169.254.169.254" },
-    ///                 { "IgnoredUID", "1337" },
-    ///                 { "ProxyEgressPort", "15001" },
-    ///                 { "ProxyIngressPort", "15000" },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example Using `docker_volume_configuration`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
-    ///     {
-    ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///         Volumes = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
-    ///             {
-    ///                 Name = "service-storage",
-    ///                 DockerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs
-    ///                 {
-    ///                     Scope = "shared",
-    ///                     Autoprovision = true,
-    ///                     Driver = "local",
-    ///                     DriverOpts = 
-    ///                     {
-    ///                         { "type", "nfs" },
-    ///                         { "device", $"{aws_efs_file_system.Fs.Dns_name}:/" },
-    ///                         { "o", $"addr={aws_efs_file_system.Fs.Dns_name},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport" },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example Using `efs_volume_configuration`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
-    ///     {
-    ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///         Volumes = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
-    ///             {
-    ///                 Name = "service-storage",
-    ///                 EfsVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs
-    ///                 {
-    ///                     FileSystemId = aws_efs_file_system.Fs.Id,
-    ///                     RootDirectory = "/opt/data",
-    ///                     TransitEncryption = "ENABLED",
-    ///                     TransitEncryptionPort = 2999,
-    ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs
-    ///                     {
-    ///                         AccessPointId = aws_efs_access_point.Test.Id,
-    ///                         Iam = "ENABLED",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example Using `fsx_windows_file_server_volume_configuration`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.SecretsManager.SecretVersion("test", new()
-    ///     {
-    ///         SecretId = aws_secretsmanager_secret.Test.Id,
-    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["username"] = "admin",
-    ///             ["password"] = aws_directory_service_directory.Test.Password,
-    ///         }),
-    ///     });
-    /// 
-    ///     var service = new Aws.Ecs.TaskDefinition("service", new()
-    ///     {
-    ///         Family = "service",
-    ///         ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
-    ///         Volumes = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
-    ///             {
-    ///                 Name = "service-storage",
-    ///                 FsxWindowsFileServerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
-    ///                 {
-    ///                     FileSystemId = aws_fsx_windows_file_system.Test.Id,
-    ///                     RootDirectory = "\\data",
-    ///                     AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
-    ///                     {
-    ///                         CredentialsParameter = test.Arn,
-    ///                         Domain = aws_directory_service_directory.Test.Name,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example Using `container_definitions` and `inference_accelerator`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ecs.TaskDefinition("test", new()
-    ///     {
-    ///         ContainerDefinitions = @"[
-    ///   {
-    ///     ""cpu"": 10,
-    ///     ""command"": [""sleep"", ""10""],
-    ///     ""entryPoint"": [""/""],
-    ///     ""environment"": [
-    ///       {""name"": ""VARNAME"", ""value"": ""VARVAL""}
-    ///     ],
-    ///     ""essential"": true,
-    ///     ""image"": ""jenkins"",
-    ///     ""memory"": 128,
-    ///     ""name"": ""jenkins"",
-    ///     ""portMappings"": [
-    ///       {
-    ///         ""containerPort"": 80,
-    ///         ""hostPort"": 8080
-    ///       }
-    ///     ],
-    ///         ""resourceRequirements"":[
-    ///             {
-    ///                 ""type"":""InferenceAccelerator"",
-    ///                 ""value"":""device_1""
-    ///             }
-    ///         ]
-    ///   }
-    /// ]
-    /// 
-    /// ",
-    ///         Family = "test",
-    ///         InferenceAccelerators = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskDefinitionInferenceAcceleratorArgs
-    ///             {
-    ///                 DeviceName = "device_1",
-    ///                 DeviceType = "eia1.medium",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example Using `runtime_platform` and `fargate`
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ecs.TaskDefinition("test", new()
-    ///     {
-    ///         ContainerDefinitions = @"[
-    ///   {
-    ///     ""name"": ""iis"",
-    ///     ""image"": ""mcr.microsoft.com/windows/servercore/iis"",
-    ///     ""cpu"": 1024,
-    ///     ""memory"": 2048,
-    ///     ""essential"": true
-    ///   }
-    /// ]
-    /// 
-    /// ",
-    ///         Cpu = "1024",
-    ///         Family = "test",
-    ///         Memory = "2048",
-    ///         NetworkMode = "awsvpc",
-    ///         RequiresCompatibilities = new[]
-    ///         {
-    ///             "FARGATE",
-    ///         },
-    ///         RuntimePlatform = new Aws.Ecs.Inputs.TaskDefinitionRuntimePlatformArgs
-    ///         {
-    ///             CpuArchitecture = "X86_64",
-    ///             OperatingSystemFamily = "WINDOWS_SERVER_2019_CORE",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ecs/taskDefinition:TaskDefinition")]
     public partial class TaskDefinition : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Full ARN of the Task Definition (including both `family` and `revision`).
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-        /// </summary>
         [Output("containerDefinitions")]
         public Output<string> ContainerDefinitions { get; private set; } = null!;
 
-        /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        /// </summary>
         [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
 
-        /// <summary>
-        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-        /// </summary>
         [Output("ephemeralStorage")]
         public Output<Outputs.TaskDefinitionEphemeralStorage?> EphemeralStorage { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-        /// </summary>
         [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// A unique name for your task definition.
-        /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
         [Output("inferenceAccelerators")]
         public Output<ImmutableArray<Outputs.TaskDefinitionInferenceAccelerator>> InferenceAccelerators { get; private set; } = null!;
 
-        /// <summary>
-        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-        /// </summary>
         [Output("ipcMode")]
         public Output<string?> IpcMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        /// </summary>
         [Output("memory")]
         public Output<string?> Memory { get; private set; } = null!;
 
-        /// <summary>
-        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        /// </summary>
         [Output("networkMode")]
         public Output<string> NetworkMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-        /// </summary>
         [Output("pidMode")]
         public Output<string?> PidMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
-        /// </summary>
         [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.TaskDefinitionPlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for the App Mesh proxy. Detailed below.
-        /// </summary>
         [Output("proxyConfiguration")]
         public Output<Outputs.TaskDefinitionProxyConfiguration?> ProxyConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-        /// </summary>
         [Output("requiresCompatibilities")]
         public Output<ImmutableArray<string>> RequiresCompatibilities { get; private set; } = null!;
 
-        /// <summary>
-        /// Revision of the task in a particular family.
-        /// </summary>
         [Output("revision")]
         public Output<int> Revision { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
-        /// </summary>
         [Output("runtimePlatform")]
         public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        /// </summary>
         [Output("taskRoleArn")]
         public Output<string?> TaskRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for volumes that containers in your task may use. Detailed below.
-        /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.TaskDefinitionVolume>> Volumes { get; private set; } = null!;
 
@@ -507,138 +121,79 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class TaskDefinitionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-        /// </summary>
         [Input("containerDefinitions", required: true)]
         public Input<string> ContainerDefinitions { get; set; } = null!;
 
-        /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
 
-        /// <summary>
-        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-        /// </summary>
         [Input("ephemeralStorage")]
         public Input<Inputs.TaskDefinitionEphemeralStorageArgs>? EphemeralStorage { get; set; }
 
-        /// <summary>
-        /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// A unique name for your task definition.
-        /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
         [Input("inferenceAccelerators")]
         private InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>? _inferenceAccelerators;
-
-        /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
         public InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs> InferenceAccelerators
         {
             get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorArgs>());
             set => _inferenceAccelerators = value;
         }
 
-        /// <summary>
-        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-        /// </summary>
         [Input("ipcMode")]
         public Input<string>? IpcMode { get; set; }
 
-        /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
 
-        /// <summary>
-        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        /// </summary>
         [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }
 
-        /// <summary>
-        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-        /// </summary>
         [Input("pidMode")]
         public Input<string>? PidMode { get; set; }
 
         [Input("placementConstraints")]
         private InputList<Inputs.TaskDefinitionPlacementConstraintArgs>? _placementConstraints;
-
-        /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
-        /// </summary>
         public InputList<Inputs.TaskDefinitionPlacementConstraintArgs> PlacementConstraints
         {
             get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionPlacementConstraintArgs>());
             set => _placementConstraints = value;
         }
 
-        /// <summary>
-        /// Configuration block for the App Mesh proxy. Detailed below.
-        /// </summary>
         [Input("proxyConfiguration")]
         public Input<Inputs.TaskDefinitionProxyConfigurationArgs>? ProxyConfiguration { get; set; }
 
         [Input("requiresCompatibilities")]
         private InputList<string>? _requiresCompatibilities;
-
-        /// <summary>
-        /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-        /// </summary>
         public InputList<string> RequiresCompatibilities
         {
             get => _requiresCompatibilities ?? (_requiresCompatibilities = new InputList<string>());
             set => _requiresCompatibilities = value;
         }
 
-        /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
-        /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
 
-        /// <summary>
-        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        /// </summary>
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.TaskDefinitionVolumeArgs>? _volumes;
-
-        /// <summary>
-        /// Configuration block for volumes that containers in your task may use. Detailed below.
-        /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.TaskDefinitionVolumeArgs>());
@@ -653,132 +208,74 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class TaskDefinitionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Full ARN of the Task Definition (including both `family` and `revision`).
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-        /// </summary>
         [Input("containerDefinitions")]
         public Input<string>? ContainerDefinitions { get; set; }
 
-        /// <summary>
-        /// Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
 
-        /// <summary>
-        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-        /// </summary>
         [Input("ephemeralStorage")]
         public Input<Inputs.TaskDefinitionEphemeralStorageGetArgs>? EphemeralStorage { get; set; }
 
-        /// <summary>
-        /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-        /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
-        /// <summary>
-        /// A unique name for your task definition.
-        /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
         [Input("inferenceAccelerators")]
         private InputList<Inputs.TaskDefinitionInferenceAcceleratorGetArgs>? _inferenceAccelerators;
-
-        /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
         public InputList<Inputs.TaskDefinitionInferenceAcceleratorGetArgs> InferenceAccelerators
         {
             get => _inferenceAccelerators ?? (_inferenceAccelerators = new InputList<Inputs.TaskDefinitionInferenceAcceleratorGetArgs>());
             set => _inferenceAccelerators = value;
         }
 
-        /// <summary>
-        /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-        /// </summary>
         [Input("ipcMode")]
         public Input<string>? IpcMode { get; set; }
 
-        /// <summary>
-        /// Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
-        /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
 
-        /// <summary>
-        /// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-        /// </summary>
         [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }
 
-        /// <summary>
-        /// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-        /// </summary>
         [Input("pidMode")]
         public Input<string>? PidMode { get; set; }
 
         [Input("placementConstraints")]
         private InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs>? _placementConstraints;
-
-        /// <summary>
-        /// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
-        /// </summary>
         public InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs> PlacementConstraints
         {
             get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.TaskDefinitionPlacementConstraintGetArgs>());
             set => _placementConstraints = value;
         }
 
-        /// <summary>
-        /// Configuration block for the App Mesh proxy. Detailed below.
-        /// </summary>
         [Input("proxyConfiguration")]
         public Input<Inputs.TaskDefinitionProxyConfigurationGetArgs>? ProxyConfiguration { get; set; }
 
         [Input("requiresCompatibilities")]
         private InputList<string>? _requiresCompatibilities;
-
-        /// <summary>
-        /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-        /// </summary>
         public InputList<string> RequiresCompatibilities
         {
             get => _requiresCompatibilities ?? (_requiresCompatibilities = new InputList<string>());
             set => _requiresCompatibilities = value;
         }
 
-        /// <summary>
-        /// Revision of the task in a particular family.
-        /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
 
-        /// <summary>
-        /// Configuration block for runtime_platform that containers in your task may use.
-        /// </summary>
         [Input("runtimePlatform")]
         public Input<Inputs.TaskDefinitionRuntimePlatformGetArgs>? RuntimePlatform { get; set; }
 
-        /// <summary>
-        /// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -787,28 +284,17 @@ namespace Pulumi.Aws.Ecs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        /// </summary>
         [Input("taskRoleArn")]
         public Input<string>? TaskRoleArn { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.TaskDefinitionVolumeGetArgs>? _volumes;
-
-        /// <summary>
-        /// Configuration block for volumes that containers in your task may use. Detailed below.
-        /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeGetArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.TaskDefinitionVolumeGetArgs>());

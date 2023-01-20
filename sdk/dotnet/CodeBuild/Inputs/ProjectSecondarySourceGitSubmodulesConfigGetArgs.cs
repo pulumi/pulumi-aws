@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
 
     public sealed class ProjectSecondarySourceGitSubmodulesConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to fetch Git submodules for the AWS CodeBuild build project.
-        /// </summary>
         [Input("fetchSubmodules", required: true)]
         public Input<bool> FetchSubmodules { get; set; } = null!;
 

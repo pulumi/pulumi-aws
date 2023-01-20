@@ -12,15 +12,9 @@ namespace Pulumi.Aws.DataSync.Inputs
 
     public sealed class LocationHdfsQopConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-        /// </summary>
         [Input("dataTransferProtection")]
         public Input<string>? DataTransferProtection { get; set; }
 
-        /// <summary>
-        /// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
-        /// </summary>
         [Input("rpcProtection")]
         public Input<string>? RpcProtection { get; set; }
 

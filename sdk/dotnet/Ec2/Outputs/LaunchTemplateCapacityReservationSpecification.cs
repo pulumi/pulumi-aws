@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateCapacityReservationSpecification
     {
-        /// <summary>
-        /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
-        /// </summary>
         public readonly string? CapacityReservationPreference;
-        /// <summary>
-        /// Used to target a specific Capacity Reservation:
-        /// </summary>
         public readonly Outputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget? CapacityReservationTarget;
 
         [OutputConstructor]

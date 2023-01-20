@@ -9,131 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeStarConnections
 {
-    /// <summary>
-    /// Provides a CodeStar Connection.
-    /// 
-    /// &gt; **NOTE:** The `aws.codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleConnection = new Aws.CodeStarConnections.Connection("exampleConnection", new()
-    ///     {
-    ///         ProviderType = "Bitbucket",
-    ///     });
-    /// 
-    ///     var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Codepipeline_role.Arn,
-    ///         ArtifactStores = new[]
-    ///         {
-    ///             null,
-    ///         },
-    ///         Stages = new[]
-    ///         {
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Source",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
-    ///                     {
-    ///                         Name = "Source",
-    ///                         Category = "Source",
-    ///                         Owner = "AWS",
-    ///                         Provider = "CodeStarSourceConnection",
-    ///                         Version = "1",
-    ///                         OutputArtifacts = new[]
-    ///                         {
-    ///                             "source_output",
-    ///                         },
-    ///                         Configuration = 
-    ///                         {
-    ///                             { "ConnectionArn", exampleConnection.Arn },
-    ///                             { "FullRepositoryId", "my-organization/test" },
-    ///                             { "BranchName", "main" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Build",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     null,
-    ///                 },
-    ///             },
-    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///             {
-    ///                 Name = "Deploy",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     null,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CodeStar connections can be imported using the ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codestarconnections/connection:Connection")]
     public partial class Connection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The codestar connection ARN.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        /// </summary>
         [Output("connectionStatus")]
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        /// </summary>
         [Output("hostArn")]
         public Output<string?> HostArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -183,30 +79,17 @@ namespace Pulumi.Aws.CodeStarConnections
 
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
 
-        /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -221,42 +104,23 @@ namespace Pulumi.Aws.CodeStarConnections
 
     public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The codestar connection ARN.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        /// </summary>
         [Input("connectionStatus")]
         public Input<string>? ConnectionStatus { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
 
-        /// <summary>
-        /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        /// </summary>
         [Input("providerType")]
         public Input<string>? ProviderType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -265,10 +129,6 @@ namespace Pulumi.Aws.CodeStarConnections
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

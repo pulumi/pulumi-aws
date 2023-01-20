@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Emr.Inputs
     {
         [Input("onDemandSpecifications")]
         private InputList<Inputs.InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs>? _onDemandSpecifications;
-
-        /// <summary>
-        /// Configuration block for on demand instances launch specifications
-        /// </summary>
         public InputList<Inputs.InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs> OnDemandSpecifications
         {
             get => _onDemandSpecifications ?? (_onDemandSpecifications = new InputList<Inputs.InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Emr.Inputs
 
         [Input("spotSpecifications")]
         private InputList<Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationGetArgs>? _spotSpecifications;
-
-        /// <summary>
-        /// Configuration block for spot instances launch specifications
-        /// </summary>
         public InputList<Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationGetArgs> SpotSpecifications
         {
             get => _spotSpecifications ?? (_spotSpecifications = new InputList<Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationGetArgs>());

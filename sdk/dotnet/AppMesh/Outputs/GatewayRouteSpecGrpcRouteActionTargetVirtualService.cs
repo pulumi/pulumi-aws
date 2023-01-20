@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecGrpcRouteActionTargetVirtualService
     {
-        /// <summary>
-        /// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
-        /// </summary>
         public readonly string VirtualServiceName;
 
         [OutputConstructor]

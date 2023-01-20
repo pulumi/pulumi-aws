@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glacier.Outputs
     [OutputType]
     public sealed class VaultNotification
     {
-        /// <summary>
-        /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        /// </summary>
         public readonly ImmutableArray<string> Events;
-        /// <summary>
-        /// The SNS Topic ARN.
-        /// </summary>
         public readonly string SnsTopic;
 
         [OutputConstructor]

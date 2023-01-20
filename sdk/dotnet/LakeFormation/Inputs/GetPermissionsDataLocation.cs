@@ -12,15 +12,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class GetPermissionsDataLocationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN that uniquely identifies the data location resource.
-        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        /// </summary>
         [Input("catalogId", required: true)]
         public string CatalogId { get; set; } = null!;
 

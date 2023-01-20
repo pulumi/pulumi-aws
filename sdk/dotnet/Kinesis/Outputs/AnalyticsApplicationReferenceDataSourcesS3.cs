@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class AnalyticsApplicationReferenceDataSourcesS3
     {
-        /// <summary>
-        /// The S3 Bucket ARN.
-        /// </summary>
         public readonly string BucketArn;
-        /// <summary>
-        /// The File Key name containing reference data.
-        /// </summary>
         public readonly string FileKey;
-        /// <summary>
-        /// The ARN of the IAM Role used to send application messages.
-        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

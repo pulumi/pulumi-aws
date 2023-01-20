@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RegexPatternSetRegularExpression
     {
-        /// <summary>
-        /// The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
-        /// </summary>
         public readonly string RegexString;
 
         [OutputConstructor]

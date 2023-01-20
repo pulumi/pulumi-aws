@@ -12,39 +12,23 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defaults for backends.
-        /// </summary>
         [Input("backendDefaults")]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsArgs>? BackendDefaults { get; set; }
 
         [Input("backends")]
         private InputList<Inputs.VirtualNodeSpecBackendArgs>? _backends;
-
-        /// <summary>
-        /// Backends to which the virtual node is expected to send outbound traffic.
-        /// </summary>
         public InputList<Inputs.VirtualNodeSpecBackendArgs> Backends
         {
             get => _backends ?? (_backends = new InputList<Inputs.VirtualNodeSpecBackendArgs>());
             set => _backends = value;
         }
 
-        /// <summary>
-        /// Listeners from which the virtual node is expected to receive inbound traffic.
-        /// </summary>
         [Input("listener")]
         public Input<Inputs.VirtualNodeSpecListenerArgs>? Listener { get; set; }
 
-        /// <summary>
-        /// Inbound and outbound access logging information for the virtual node.
-        /// </summary>
         [Input("logging")]
         public Input<Inputs.VirtualNodeSpecLoggingArgs>? Logging { get; set; }
 
-        /// <summary>
-        /// Service discovery information for the virtual node.
-        /// </summary>
         [Input("serviceDiscovery")]
         public Input<Inputs.VirtualNodeSpecServiceDiscoveryArgs>? ServiceDiscovery { get; set; }
 

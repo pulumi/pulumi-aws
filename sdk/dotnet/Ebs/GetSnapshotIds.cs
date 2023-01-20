@@ -11,103 +11,9 @@ namespace Pulumi.Aws.Ebs
 {
     public static class GetSnapshotIds
     {
-        /// <summary>
-        /// Use this data source to get a list of EBS Snapshot IDs matching the specified
-        /// criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
-        ///             {
-        ///                 Name = "volume-size",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "40",
-        ///                 },
-        ///             },
-        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Example",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetSnapshotIdsResult> InvokeAsync(GetSnapshotIdsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get a list of EBS Snapshot IDs matching the specified
-        /// criteria.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
-        ///             {
-        ///                 Name = "volume-size",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "40",
-        ///                 },
-        ///             },
-        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
-        ///             {
-        ///                 Name = "tag:Name",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "Example",
-        ///                 },
-        ///             },
-        ///         },
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetSnapshotIdsResult> Invoke(GetSnapshotIdsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsInvokeArgs(), options.WithDefaults());
     }
@@ -117,12 +23,6 @@ namespace Pulumi.Aws.Ebs
     {
         [Input("filters")]
         private List<Inputs.GetSnapshotIdsFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-volumes in the AWS CLI reference][1].
-        /// </summary>
         public List<Inputs.GetSnapshotIdsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetSnapshotIdsFilterArgs>());
@@ -131,10 +31,6 @@ namespace Pulumi.Aws.Ebs
 
         [Input("owners")]
         private List<string>? _owners;
-
-        /// <summary>
-        /// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-        /// </summary>
         public List<string> Owners
         {
             get => _owners ?? (_owners = new List<string>());
@@ -143,10 +39,6 @@ namespace Pulumi.Aws.Ebs
 
         [Input("restorableByUserIds")]
         private List<string>? _restorableByUserIds;
-
-        /// <summary>
-        /// One or more AWS accounts IDs that can create volumes from the snapshot.
-        /// </summary>
         public List<string> RestorableByUserIds
         {
             get => _restorableByUserIds ?? (_restorableByUserIds = new List<string>());
@@ -163,12 +55,6 @@ namespace Pulumi.Aws.Ebs
     {
         [Input("filters")]
         private InputList<Inputs.GetSnapshotIdsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-volumes in the AWS CLI reference][1].
-        /// </summary>
         public InputList<Inputs.GetSnapshotIdsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetSnapshotIdsFilterInputArgs>());
@@ -177,10 +63,6 @@ namespace Pulumi.Aws.Ebs
 
         [Input("owners")]
         private InputList<string>? _owners;
-
-        /// <summary>
-        /// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-        /// </summary>
         public InputList<string> Owners
         {
             get => _owners ?? (_owners = new InputList<string>());
@@ -189,10 +71,6 @@ namespace Pulumi.Aws.Ebs
 
         [Input("restorableByUserIds")]
         private InputList<string>? _restorableByUserIds;
-
-        /// <summary>
-        /// One or more AWS accounts IDs that can create volumes from the snapshot.
-        /// </summary>
         public InputList<string> RestorableByUserIds
         {
             get => _restorableByUserIds ?? (_restorableByUserIds = new InputList<string>());
@@ -214,9 +92,6 @@ namespace Pulumi.Aws.Ebs
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Set of EBS snapshot IDs, sorted by creation time in descending order.
-        /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableArray<string> Owners;
         public readonly ImmutableArray<string> RestorableByUserIds;

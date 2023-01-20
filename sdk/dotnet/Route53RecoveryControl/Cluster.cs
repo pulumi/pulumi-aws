@@ -9,55 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryControl
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Control Config Cluster.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.Cluster("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the cluster
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-        /// </summary>
         [Output("clusterEndpoints")]
         public Output<ImmutableArray<Outputs.ClusterClusterEndpoint>> ClusterEndpoints { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique name describing the cluster.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -107,9 +70,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name describing the cluster.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -121,33 +81,20 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the cluster
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("clusterEndpoints")]
         private InputList<Inputs.ClusterClusterEndpointGetArgs>? _clusterEndpoints;
-
-        /// <summary>
-        /// List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-        /// </summary>
         public InputList<Inputs.ClusterClusterEndpointGetArgs> ClusterEndpoints
         {
             get => _clusterEndpoints ?? (_clusterEndpoints = new InputList<Inputs.ClusterClusterEndpointGetArgs>());
             set => _clusterEndpoints = value;
         }
 
-        /// <summary>
-        /// Unique name describing the cluster.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

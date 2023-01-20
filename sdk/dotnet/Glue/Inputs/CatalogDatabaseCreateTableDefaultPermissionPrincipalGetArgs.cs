@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogDatabaseCreateTableDefaultPermissionPrincipalGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An identifier for the Lake Formation principal.
-        /// </summary>
         [Input("dataLakePrincipalIdentifier")]
         public Input<string>? DataLakePrincipalIdentifier { get; set; }
 

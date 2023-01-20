@@ -11,91 +11,9 @@ namespace Pulumi.Aws.LB
 {
     public static class GetListener
     {
-        /// <summary>
-        /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
-        /// 
-        /// Provides information about a Load Balancer Listener.
-        /// 
-        /// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var listenerArn = config.Require("listenerArn");
-        ///     var listener = Aws.LB.GetListener.Invoke(new()
-        ///     {
-        ///         Arn = listenerArn,
-        ///     });
-        /// 
-        ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
-        ///     {
-        ///         Name = "default-public",
-        ///     });
-        /// 
-        ///     var selected443 = Aws.LB.GetListener.Invoke(new()
-        ///     {
-        ///         LoadBalancerArn = selected.Apply(getLoadBalancerResult =&gt; getLoadBalancerResult.Arn),
-        ///         Port = 443,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws:lb/getListener:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
-        /// 
-        /// Provides information about a Load Balancer Listener.
-        /// 
-        /// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var listenerArn = config.Require("listenerArn");
-        ///     var listener = Aws.LB.GetListener.Invoke(new()
-        ///     {
-        ///         Arn = listenerArn,
-        ///     });
-        /// 
-        ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
-        ///     {
-        ///         Name = "default-public",
-        ///     });
-        /// 
-        ///     var selected443 = Aws.LB.GetListener.Invoke(new()
-        ///     {
-        ///         LoadBalancerArn = selected.Apply(getLoadBalancerResult =&gt; getLoadBalancerResult.Arn),
-        ///         Port = 443,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:lb/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
@@ -103,21 +21,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetListenerArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
-        /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of the load balancer. Required if `arn` is not set.
-        /// </summary>
         [Input("loadBalancerArn")]
         public string? LoadBalancerArn { get; set; }
 
-        /// <summary>
-        /// Port of the listener. Required if `arn` is not set.
-        /// </summary>
         [Input("port")]
         public int? Port { get; set; }
 
@@ -137,21 +46,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetListenerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// ARN of the load balancer. Required if `arn` is not set.
-        /// </summary>
         [Input("loadBalancerArn")]
         public Input<string>? LoadBalancerArn { get; set; }
 
-        /// <summary>
-        /// Port of the listener. Required if `arn` is not set.
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

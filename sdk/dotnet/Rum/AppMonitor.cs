@@ -9,88 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Rum
 {
-    /// <summary>
-    /// Provides a CloudWatch RUM App Monitor resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rum.AppMonitor("example", new()
-    ///     {
-    ///         Domain = "localhost",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Cloudwatch RUM App Monitor can be imported using the `name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:rum/appMonitor:AppMonitor example example
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:rum/appMonitor:AppMonitor")]
     public partial class AppMonitor : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
-        /// </summary>
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorAppMonitorConfiguration> AppMonitorConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The unique ID of the app monitor. Useful for JS templates.
-        /// </summary>
         [Output("appMonitorId")]
         public Output<string> AppMonitorId { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the app monitor.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        /// </summary>
         [Output("cwLogEnabled")]
         public Output<bool?> CwLogEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the log group where the copies are stored.
-        /// </summary>
         [Output("cwLogGroup")]
         public Output<string> CwLogGroup { get; private set; } = null!;
 
-        /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
-        /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the log stream.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -140,36 +85,20 @@ namespace Pulumi.Aws.Rum
 
     public sealed class AppMonitorArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
-        /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
 
-        /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        /// </summary>
         [Input("cwLogEnabled")]
         public Input<bool>? CwLogEnabled { get; set; }
 
-        /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
-        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the log stream.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -184,54 +113,29 @@ namespace Pulumi.Aws.Rum
 
     public sealed class AppMonitorState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// configuration data for the app monitor. See app_monitor_configuration below.
-        /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationGetArgs>? AppMonitorConfiguration { get; set; }
 
-        /// <summary>
-        /// The unique ID of the app monitor. Useful for JS templates.
-        /// </summary>
         [Input("appMonitorId")]
         public Input<string>? AppMonitorId { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the app monitor.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-        /// </summary>
         [Input("cwLogEnabled")]
         public Input<bool>? CwLogEnabled { get; set; }
 
-        /// <summary>
-        /// The name of the log group where the copies are stored.
-        /// </summary>
         [Input("cwLogGroup")]
         public Input<string>? CwLogGroup { get; set; }
 
-        /// <summary>
-        /// The top-level internet domain name for which your application has administrative authority.
-        /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// The name of the log stream.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -240,10 +144,6 @@ namespace Pulumi.Aws.Rum
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

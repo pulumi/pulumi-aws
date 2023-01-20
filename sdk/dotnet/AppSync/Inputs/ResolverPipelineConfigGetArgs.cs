@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppSync.Inputs
     {
         [Input("functions")]
         private InputList<string>? _functions;
-
-        /// <summary>
-        /// A list of Function objects.
-        /// </summary>
         public InputList<string> Functions
         {
             get => _functions ?? (_functions = new InputList<string>());

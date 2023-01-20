@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class PartitionStorageDescriptorSkewedInfo
     {
-        /// <summary>
-        /// A list of names of columns that contain skewed values.
-        /// </summary>
         public readonly ImmutableArray<string> SkewedColumnNames;
-        /// <summary>
-        /// A list of values that appear so frequently as to be considered skewed.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? SkewedColumnValueLocationMaps;
-        /// <summary>
-        /// A map of skewed values to the columns that contain them.
-        /// </summary>
         public readonly ImmutableArray<string> SkewedColumnValues;
 
         [OutputConstructor]

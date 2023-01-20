@@ -13,13 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     [OutputType]
     public sealed class GetImageRecipeComponentParameterResult
     {
-        /// <summary>
-        /// Name of the image recipe.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Value of the component parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

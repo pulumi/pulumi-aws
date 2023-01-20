@@ -9,57 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Keyspaces
 {
-    /// <summary>
-    /// Provides a Keyspaces Keyspace.
-    /// 
-    /// More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Keyspaces.Keyspace("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Use the `name` to import a keyspace. For example
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:keyspaces/keyspace:Keyspace")]
     public partial class Keyspace : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of the keyspace.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the keyspace to be created.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -109,18 +70,11 @@ namespace Pulumi.Aws.Keyspaces
 
     public sealed class KeyspaceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the keyspace to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -135,24 +89,14 @@ namespace Pulumi.Aws.Keyspaces
 
     public sealed class KeyspaceState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the keyspace.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name of the keyspace to be created.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -161,10 +105,6 @@ namespace Pulumi.Aws.Keyspaces
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

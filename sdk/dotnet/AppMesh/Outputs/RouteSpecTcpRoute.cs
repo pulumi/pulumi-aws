@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecTcpRoute
     {
-        /// <summary>
-        /// Action to take if a match is determined.
-        /// </summary>
         public readonly Outputs.RouteSpecTcpRouteAction Action;
-        /// <summary>
-        /// Types of timeouts.
-        /// </summary>
         public readonly Outputs.RouteSpecTcpRouteTimeout? Timeout;
 
         [OutputConstructor]

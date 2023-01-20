@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2TransitGateway.Outputs
     [OutputType]
     public sealed class GetVpcAttachmentFilterResult
     {
-        /// <summary>
-        /// Name of the filter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// List of one or more values for the filter.
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

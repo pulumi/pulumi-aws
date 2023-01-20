@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Column Delimiter.
-        /// </summary>
         [Input("recordColumnDelimiter", required: true)]
         public Input<string> RecordColumnDelimiter { get; set; } = null!;
 
-        /// <summary>
-        /// The Row Delimiter.
-        /// </summary>
         [Input("recordRowDelimiter", required: true)]
         public Input<string> RecordRowDelimiter { get; set; } = null!;
 

@@ -9,126 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Creates an entry (a rule) in a network ACL with the specified rule number.
-    /// 
-    /// &gt; **NOTE on Network ACLs and Network ACL Rules:** This provider currently
-    /// provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-    /// defined in-line. At this time you cannot use a Network ACL with in-line rules
-    /// in conjunction with any Network ACL Rule resources. Doing so will cause
-    /// a conflict of rule settings and will overwrite rules.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var barNetworkAcl = new Aws.Ec2.NetworkAcl("barNetworkAcl", new()
-    ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///     });
-    /// 
-    ///     var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("barNetworkAclRule", new()
-    ///     {
-    ///         NetworkAclId = barNetworkAcl.Id,
-    ///         RuleNumber = 200,
-    ///         Egress = false,
-    ///         Protocol = "tcp",
-    ///         RuleAction = "allow",
-    ///         CidrBlock = aws_vpc.Foo.Cidr_block,
-    ///         FromPort = 22,
-    ///         ToPort = 22,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
-    /// 
-    /// ## Import
-    /// 
-    /// Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
-    /// ```
-    /// 
-    ///  Or by the procotol's decimal valueconsole
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2/networkAclRule:NetworkAclRule")]
     public partial class NetworkAclRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        /// </summary>
         [Output("cidrBlock")]
         public Output<string?> CidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        /// </summary>
         [Output("egress")]
         public Output<bool?> Egress { get; private set; } = null!;
 
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
         [Output("fromPort")]
         public Output<int?> FromPort { get; private set; } = null!;
 
-        /// <summary>
-        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        /// </summary>
         [Output("icmpCode")]
         public Output<int?> IcmpCode { get; private set; } = null!;
 
-        /// <summary>
-        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        /// </summary>
         [Output("icmpType")]
         public Output<int?> IcmpType { get; private set; } = null!;
 
-        /// <summary>
-        /// The IPv6 CIDR block to allow or deny.
-        /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the network ACL.
-        /// </summary>
         [Output("networkAclId")]
         public Output<string> NetworkAclId { get; private set; } = null!;
 
-        /// <summary>
-        /// The protocol. A value of -1 means all protocols.
-        /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        /// </summary>
         [Output("ruleAction")]
         public Output<string> RuleAction { get; private set; } = null!;
 
-        /// <summary>
-        /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        /// </summary>
         [Output("ruleNumber")]
         public Output<int> RuleNumber { get; private set; } = null!;
 
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
         [Output("toPort")]
         public Output<int?> ToPort { get; private set; } = null!;
 
@@ -178,69 +91,36 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkAclRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
-        /// <summary>
-        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        /// </summary>
         [Input("egress")]
         public Input<bool>? Egress { get; set; }
 
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
-        /// <summary>
-        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        /// </summary>
         [Input("icmpCode")]
         public Input<int>? IcmpCode { get; set; }
 
-        /// <summary>
-        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        /// </summary>
         [Input("icmpType")]
         public Input<int>? IcmpType { get; set; }
 
-        /// <summary>
-        /// The IPv6 CIDR block to allow or deny.
-        /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
-        /// <summary>
-        /// The ID of the network ACL.
-        /// </summary>
         [Input("networkAclId", required: true)]
         public Input<string> NetworkAclId { get; set; } = null!;
 
-        /// <summary>
-        /// The protocol. A value of -1 means all protocols.
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;
 
-        /// <summary>
-        /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        /// </summary>
         [Input("ruleNumber", required: true)]
         public Input<int> RuleNumber { get; set; } = null!;
 
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 
@@ -252,69 +132,36 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkAclRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
-        /// <summary>
-        /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        /// </summary>
         [Input("egress")]
         public Input<bool>? Egress { get; set; }
 
-        /// <summary>
-        /// The from port to match.
-        /// </summary>
         [Input("fromPort")]
         public Input<int>? FromPort { get; set; }
 
-        /// <summary>
-        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        /// </summary>
         [Input("icmpCode")]
         public Input<int>? IcmpCode { get; set; }
 
-        /// <summary>
-        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        /// </summary>
         [Input("icmpType")]
         public Input<int>? IcmpType { get; set; }
 
-        /// <summary>
-        /// The IPv6 CIDR block to allow or deny.
-        /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
-        /// <summary>
-        /// The ID of the network ACL.
-        /// </summary>
         [Input("networkAclId")]
         public Input<string>? NetworkAclId { get; set; }
 
-        /// <summary>
-        /// The protocol. A value of -1 means all protocols.
-        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        /// <summary>
-        /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        /// </summary>
         [Input("ruleAction")]
         public Input<string>? RuleAction { get; set; }
 
-        /// <summary>
-        /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        /// </summary>
         [Input("ruleNumber")]
         public Input<int>? RuleNumber { get; set; }
 
-        /// <summary>
-        /// The to port to match.
-        /// </summary>
         [Input("toPort")]
         public Input<int>? ToPort { get; set; }
 

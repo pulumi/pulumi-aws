@@ -9,122 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Pinpoint
 {
-    /// <summary>
-    /// Provides a Pinpoint Email Channel resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var role = new Aws.Iam.Role("role", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": [
-    ///     {
-    ///       ""Action"": ""sts:AssumeRole"",
-    ///       ""Principal"": {
-    ///         ""Service"": ""pinpoint.amazonaws.com""
-    ///       },
-    ///       ""Effect"": ""Allow"",
-    ///       ""Sid"": """"
-    ///     }
-    ///   ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var email = new Aws.Pinpoint.EmailChannel("email", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         FromAddress = "user@example.com",
-    ///         RoleArn = role.Arn,
-    ///     });
-    /// 
-    ///     var identity = new Aws.Ses.DomainIdentity("identity", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///     });
-    /// 
-    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
-    ///     {
-    ///         Role = role.Id,
-    ///         Policy = @"{
-    ///   ""Version"": ""2012-10-17"",
-    ///   ""Statement"": {
-    ///     ""Action"": [
-    ///       ""mobileanalytics:PutEvents"",
-    ///       ""mobileanalytics:PutItems""
-    ///     ],
-    ///     ""Effect"": ""Allow"",
-    ///     ""Resource"": [
-    ///       ""*""
-    ///     ]
-    ///   }
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Pinpoint Email Channel can be imported using the `application-id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:pinpoint/emailChannel:EmailChannel")]
     public partial class EmailChannel : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        /// </summary>
         [Output("configurationSet")]
         public Output<string?> ConfigurationSet { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
-        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        /// <summary>
-        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        /// </summary>
         [Output("fromAddress")]
         public Output<string> FromAddress { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of an identity verified with SES.
-        /// </summary>
         [Output("identity")]
         public Output<string> Identity { get; private set; } = null!;
 
-        /// <summary>
-        /// Messages per second that can be sent.
-        /// </summary>
         [Output("messagesPerSecond")]
         public Output<int> MessagesPerSecond { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
@@ -174,39 +79,21 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class EmailChannelArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        /// </summary>
         [Input("configurationSet")]
         public Input<string>? ConfigurationSet { get; set; }
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        /// </summary>
         [Input("fromAddress", required: true)]
         public Input<string> FromAddress { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of an identity verified with SES.
-        /// </summary>
         [Input("identity", required: true)]
         public Input<string> Identity { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
@@ -218,45 +105,24 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class EmailChannelState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The application ID.
-        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
-        /// <summary>
-        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        /// </summary>
         [Input("configurationSet")]
         public Input<string>? ConfigurationSet { get; set; }
 
-        /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        /// </summary>
         [Input("fromAddress")]
         public Input<string>? FromAddress { get; set; }
 
-        /// <summary>
-        /// The ARN of an identity verified with SES.
-        /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }
 
-        /// <summary>
-        /// Messages per second that can be sent.
-        /// </summary>
         [Input("messagesPerSecond")]
         public Input<int>? MessagesPerSecond { get; set; }
 
-        /// <summary>
-        /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 

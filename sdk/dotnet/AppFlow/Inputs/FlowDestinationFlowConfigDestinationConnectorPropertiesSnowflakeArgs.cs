@@ -12,27 +12,15 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Object key for the Amazon S3 bucket in which the source files are stored.
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
-        /// <summary>
-        /// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-        /// </summary>
         [Input("intermediateBucketName", required: true)]
         public Input<string> IntermediateBucketName { get; set; } = null!;
 
-        /// <summary>
-        /// Object specified in the Veeva flow source.
-        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

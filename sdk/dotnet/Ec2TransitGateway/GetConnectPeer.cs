@@ -11,115 +11,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetConnectPeer
     {
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway Connect Peer.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectPeerFilterInputArgs
-        ///             {
-        ///                 Name = "transit-gateway-attachment-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "tgw-attach-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
-        ///     {
-        ///         TransitGatewayConnectPeerId = "tgw-connect-peer-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetConnectPeerResult> InvokeAsync(GetConnectPeerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on an EC2 Transit Gateway Connect Peer.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectPeerFilterInputArgs
-        ///             {
-        ///                 Name = "transit-gateway-attachment-id",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "tgw-attach-12345678",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Identifier
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
-        ///     {
-        ///         TransitGatewayConnectPeerId = "tgw-connect-peer-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetConnectPeerResult> Invoke(GetConnectPeerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());
     }
@@ -129,10 +23,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetConnectPeerFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetConnectPeerFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetConnectPeerFilterArgs>());
@@ -141,19 +31,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect Peer
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway Connect Peer.
-        /// </summary>
         [Input("transitGatewayConnectPeerId")]
         public string? TransitGatewayConnectPeerId { get; set; }
 
@@ -167,10 +50,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetConnectPeerFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetConnectPeerFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetConnectPeerFilterInputArgs>());
@@ -179,19 +58,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect Peer
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Identifier of the EC2 Transit Gateway Connect Peer.
-        /// </summary>
         [Input("transitGatewayConnectPeerId")]
         public Input<string>? TransitGatewayConnectPeerId { get; set; }
 
@@ -205,38 +77,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
     [OutputType]
     public sealed class GetConnectPeerResult
     {
-        /// <summary>
-        /// EC2 Transit Gateway Connect Peer ARN
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// BGP ASN number assigned customer device
-        /// </summary>
         public readonly string BgpAsn;
         public readonly ImmutableArray<Outputs.GetConnectPeerFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// CIDR blocks that will be used for addressing within the tunnel.
-        /// </summary>
         public readonly ImmutableArray<string> InsideCidrBlocks;
-        /// <summary>
-        /// IP addressed assigned to customer device, which is used as tunnel endpoint
-        /// </summary>
         public readonly string PeerAddress;
-        /// <summary>
-        /// Key-value tags for the EC2 Transit Gateway Connect Peer
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-        /// </summary>
         public readonly string TransitGatewayAddress;
-        /// <summary>
-        /// The Transit Gateway Connect
-        /// </summary>
         public readonly string TransitGatewayAttachmentId;
         public readonly string TransitGatewayConnectPeerId;
 

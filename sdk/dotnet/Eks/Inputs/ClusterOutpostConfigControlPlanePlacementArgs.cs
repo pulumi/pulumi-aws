@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Eks.Inputs
 
     public sealed class ClusterOutpostConfigControlPlanePlacementArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
-        /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 

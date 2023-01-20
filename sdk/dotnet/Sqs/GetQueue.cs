@@ -11,61 +11,9 @@ namespace Pulumi.Aws.Sqs
 {
     public static class GetQueue
     {
-        /// <summary>
-        /// Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
-        /// By using this data source, you can reference SQS queues without having to hardcode
-        /// the ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sqs.GetQueue.Invoke(new()
-        ///     {
-        ///         Name = "queue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
-        /// By using this data source, you can reference SQS queues without having to hardcode
-        /// the ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Sqs.GetQueue.Invoke(new()
-        ///     {
-        ///         Name = "queue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
@@ -73,18 +21,11 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class GetQueueArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the queue to match.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -99,18 +40,11 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class GetQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the queue to match.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -127,22 +61,13 @@ namespace Pulumi.Aws.Sqs
     [OutputType]
     public sealed class GetQueueResult
     {
-        /// <summary>
-        /// ARN of the queue.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        /// <summary>
-        /// Map of tags for the resource.
-        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// URL of the queue.
-        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

@@ -13,19 +13,8 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class ClusterParameterGroupParameter
     {
-        /// <summary>
-        /// "immediate" (default), or "pending-reboot". Some
-        /// engines can't apply some parameters without a reboot, and you will need to
-        /// specify "pending-reboot" here.
-        /// </summary>
         public readonly string? ApplyMethod;
-        /// <summary>
-        /// The name of the DB parameter.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value of the DB parameter.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

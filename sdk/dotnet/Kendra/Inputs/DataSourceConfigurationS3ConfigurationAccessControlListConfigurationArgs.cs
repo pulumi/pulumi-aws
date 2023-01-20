@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Kendra.Inputs
 
     public sealed class DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Path to the AWS S3 bucket that contains the ACL files.
-        /// </summary>
         [Input("keyPath")]
         public Input<string>? KeyPath { get; set; }
 

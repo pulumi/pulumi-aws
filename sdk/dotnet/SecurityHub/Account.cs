@@ -9,33 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.SecurityHub
 {
-    /// <summary>
-    /// Enables Security Hub for this AWS account.
-    /// 
-    /// &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/account:Account example 123456789012
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:securityhub/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {

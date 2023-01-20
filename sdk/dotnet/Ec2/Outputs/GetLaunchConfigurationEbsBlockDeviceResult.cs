@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchConfigurationEbsBlockDeviceResult
     {
-        /// <summary>
-        /// Whether the EBS Volume will be deleted on instance termination.
-        /// </summary>
         public readonly bool DeleteOnTermination;
-        /// <summary>
-        /// Name of the device.
-        /// </summary>
         public readonly string DeviceName;
-        /// <summary>
-        /// Whether the volume is Encrypted.
-        /// </summary>
         public readonly bool Encrypted;
-        /// <summary>
-        /// Provisioned IOPs of the volume.
-        /// </summary>
         public readonly int Iops;
-        /// <summary>
-        /// Whether the device in the block device mapping of the AMI is suppressed.
-        /// </summary>
         public readonly bool NoDevice;
-        /// <summary>
-        /// Snapshot ID of the mount.
-        /// </summary>
         public readonly string SnapshotId;
-        /// <summary>
-        /// Throughput of the volume.
-        /// </summary>
         public readonly int Throughput;
-        /// <summary>
-        /// Size of the volume.
-        /// </summary>
         public readonly int VolumeSize;
-        /// <summary>
-        /// Type of the volume.
-        /// </summary>
         public readonly string VolumeType;
 
         [OutputConstructor]

@@ -13,14 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetCatalogTablePartitionIndexResult
     {
-        /// <summary>
-        /// Name of the partition index.
-        /// </summary>
         public readonly string IndexName;
         public readonly string IndexStatus;
-        /// <summary>
-        /// Keys for the partition index.
-        /// </summary>
         public readonly ImmutableArray<string> Keys;
 
         [OutputConstructor]

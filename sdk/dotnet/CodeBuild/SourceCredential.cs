@@ -9,88 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CodeBuild
 {
-    /// <summary>
-    /// Provides a CodeBuild Source Credentials Resource.
-    /// 
-    /// &gt; **NOTE:**
-    /// [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `aws.codebuild.SourceCredential`, `aws.codebuild.Project` resource defined in the same module will use it.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
-    ///     {
-    ///         AuthType = "PERSONAL_ACCESS_TOKEN",
-    ///         ServerType = "GITHUB",
-    ///         Token = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Bitbucket Server Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
-    ///     {
-    ///         AuthType = "BASIC_AUTH",
-    ///         ServerType = "BITBUCKET",
-    ///         Token = "example",
-    ///         UserName = "test-user",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:codebuild/sourceCredential:SourceCredential")]
     public partial class SourceCredential : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN of Source Credential.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
-        /// </summary>
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
 
-        /// <summary>
-        /// The source provider used for this project.
-        /// </summary>
         [Output("serverType")]
         public Output<string> ServerType { get; private set; } = null!;
 
-        /// <summary>
-        /// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
-        /// </summary>
         [Output("token")]
         public Output<string> Token { get; private set; } = null!;
 
-        /// <summary>
-        /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
-        /// </summary>
         [Output("userName")]
         public Output<string?> UserName { get; private set; } = null!;
 
@@ -144,24 +77,14 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class SourceCredentialArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
-        /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
 
-        /// <summary>
-        /// The source provider used for this project.
-        /// </summary>
         [Input("serverType", required: true)]
         public Input<string> ServerType { get; set; } = null!;
 
         [Input("token", required: true)]
         private Input<string>? _token;
-
-        /// <summary>
-        /// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
-        /// </summary>
         public Input<string>? Token
         {
             get => _token;
@@ -172,9 +95,6 @@ namespace Pulumi.Aws.CodeBuild
             }
         }
 
-        /// <summary>
-        /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 
@@ -186,30 +106,17 @@ namespace Pulumi.Aws.CodeBuild
 
     public sealed class SourceCredentialState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of Source Credential.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
-        /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
-        /// <summary>
-        /// The source provider used for this project.
-        /// </summary>
         [Input("serverType")]
         public Input<string>? ServerType { get; set; }
 
         [Input("token")]
         private Input<string>? _token;
-
-        /// <summary>
-        /// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
-        /// </summary>
         public Input<string>? Token
         {
             get => _token;
@@ -220,9 +127,6 @@ namespace Pulumi.Aws.CodeBuild
             }
         }
 
-        /// <summary>
-        /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
-        /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
 

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class TopicRuleErrorActionLambdaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Lambda function.
-        /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
 

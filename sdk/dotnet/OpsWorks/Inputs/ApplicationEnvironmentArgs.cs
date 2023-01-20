@@ -12,21 +12,12 @@ namespace Pulumi.Aws.OpsWorks.Inputs
 
     public sealed class ApplicationEnvironmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Variable name.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// Set visibility of the variable value to `true` or `false`.
-        /// </summary>
         [Input("secure")]
         public Input<bool>? Secure { get; set; }
 
-        /// <summary>
-        /// Variable value.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

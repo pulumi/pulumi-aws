@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class JobNotificationPropertyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
-        /// </summary>
         [Input("notifyDelayAfter")]
         public Input<int>? NotifyDelayAfter { get; set; }
 

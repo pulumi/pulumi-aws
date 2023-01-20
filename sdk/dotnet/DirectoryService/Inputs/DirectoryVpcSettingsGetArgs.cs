@@ -22,19 +22,12 @@ namespace Pulumi.Aws.DirectoryService.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
 
-        /// <summary>
-        /// The identifier of the VPC that the directory is in.
-        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 

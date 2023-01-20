@@ -9,94 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations
 {
-    /// <summary>
-    /// Provides a resource to create a member account in the current organization.
-    /// 
-    /// &gt; **Note:** Account management must be done from the organization's root account.
-    /// 
-    /// &gt; **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `close_on_deletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `close_on_deletion` argument, which can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var account = new Aws.Organizations.Account("account", new()
-    ///     {
-    ///         Email = "john@doe.org",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// The AWS member account can be imported by using the `account_id`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:organizations/account:Account my_account 111111111111
-    /// ```
-    /// 
-    ///  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
-    /// 
-    ///  name
-    /// 
-    /// = "my_new_account"
-    /// 
-    ///  email
-    /// 
-    ///  = "john@doe.org"
-    /// 
-    ///  role_name = "myOrganizationRole"
-    /// 
-    /// # There is no AWS Organizations API for reading role_name
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = [role_name]
-    /// 
-    ///  } }
-    /// </summary>
     [AwsResourceType("aws:organizations/account:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ARN for this account.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        /// </summary>
         [Output("closeOnDeletion")]
         public Output<bool?> CloseOnDeletion { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        /// </summary>
         [Output("createGovcloud")]
         public Output<bool?> CreateGovcloud { get; private set; } = null!;
 
-        /// <summary>
-        /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
-        /// <summary>
-        /// ID for a GovCloud account created with the account.
-        /// </summary>
         [Output("govcloudId")]
         public Output<string> GovcloudId { get; private set; } = null!;
 
-        /// <summary>
-        /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        /// </summary>
         [Output("iamUserAccessToBilling")]
         public Output<string?> IamUserAccessToBilling { get; private set; } = null!;
 
@@ -106,36 +36,21 @@ namespace Pulumi.Aws.Organizations
         [Output("joinedTimestamp")]
         public Output<string> JoinedTimestamp { get; private set; } = null!;
 
-        /// <summary>
-        /// Friendly name for the member account.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        /// </summary>
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        /// </summary>
         [Output("roleName")]
         public Output<string?> RoleName { get; private set; } = null!;
 
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -185,54 +100,29 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        /// </summary>
         [Input("closeOnDeletion")]
         public Input<bool>? CloseOnDeletion { get; set; }
 
-        /// <summary>
-        /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        /// </summary>
         [Input("createGovcloud")]
         public Input<bool>? CreateGovcloud { get; set; }
 
-        /// <summary>
-        /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
-        /// <summary>
-        /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        /// </summary>
         [Input("iamUserAccessToBilling")]
         public Input<string>? IamUserAccessToBilling { get; set; }
 
-        /// <summary>
-        /// Friendly name for the member account.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        /// </summary>
         [Input("parentId")]
         public Input<string>? ParentId { get; set; }
 
-        /// <summary>
-        /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -247,39 +137,21 @@ namespace Pulumi.Aws.Organizations
 
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN for this account.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        /// </summary>
         [Input("closeOnDeletion")]
         public Input<bool>? CloseOnDeletion { get; set; }
 
-        /// <summary>
-        /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        /// </summary>
         [Input("createGovcloud")]
         public Input<bool>? CreateGovcloud { get; set; }
 
-        /// <summary>
-        /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
-        /// <summary>
-        /// ID for a GovCloud account created with the account.
-        /// </summary>
         [Input("govcloudId")]
         public Input<string>? GovcloudId { get; set; }
 
-        /// <summary>
-        /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        /// </summary>
         [Input("iamUserAccessToBilling")]
         public Input<string>? IamUserAccessToBilling { get; set; }
 
@@ -289,21 +161,12 @@ namespace Pulumi.Aws.Organizations
         [Input("joinedTimestamp")]
         public Input<string>? JoinedTimestamp { get; set; }
 
-        /// <summary>
-        /// Friendly name for the member account.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        /// </summary>
         [Input("parentId")]
         public Input<string>? ParentId { get; set; }
 
-        /// <summary>
-        /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
@@ -312,10 +175,6 @@ namespace Pulumi.Aws.Organizations
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -324,10 +183,6 @@ namespace Pulumi.Aws.Organizations
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

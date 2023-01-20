@@ -13,21 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainVpcOptionResult
     {
-        /// <summary>
-        /// Availability zones used by the domain.
-        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
-        /// <summary>
-        /// Security groups used by the domain.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// Subnets used by the domain.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// VPC used by the domain.
-        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

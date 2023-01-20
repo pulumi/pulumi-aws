@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Connect.Outputs
     [OutputType]
     public sealed class GetRoutingProfileQueueConfigResult
     {
-        /// <summary>
-        /// Channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        /// </summary>
         public readonly string Channel;
-        /// <summary>
-        /// Delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        /// </summary>
         public readonly int Delay;
-        /// <summary>
-        /// Order in which contacts are to be handled for the queue.
-        /// </summary>
         public readonly int Priority;
-        /// <summary>
-        /// ARN for the queue.
-        /// </summary>
         public readonly string QueueArn;
-        /// <summary>
-        /// Identifier for the queue.
-        /// </summary>
         public readonly string QueueId;
-        /// <summary>
-        /// Name for the queue.
-        /// </summary>
         public readonly string QueueName;
 
         [OutputConstructor]

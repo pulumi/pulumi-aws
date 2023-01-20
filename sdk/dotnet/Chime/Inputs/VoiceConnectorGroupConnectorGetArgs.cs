@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Chime.Inputs
 
     public sealed class VoiceConnectorGroupConnectorGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Chime Voice Connector ID.
-        /// </summary>
         [Input("voiceConnectorId", required: true)]
         public Input<string> VoiceConnectorId { get; set; } = null!;
 

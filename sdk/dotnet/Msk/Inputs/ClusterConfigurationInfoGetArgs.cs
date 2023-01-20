@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterConfigurationInfoGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        /// <summary>
-        /// Revision of the MSK Configuration to use in the cluster.
-        /// </summary>
         [Input("revision", required: true)]
         public Input<int> Revision { get; set; } = null!;
 

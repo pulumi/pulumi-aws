@@ -14,10 +14,6 @@ namespace Pulumi.Aws.Mwaa.Inputs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
-
-        /// <summary>
-        /// Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-        /// </summary>
         public InputList<string> SecurityGroupIds
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.Mwaa.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
-
-        /// <summary>
-        /// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

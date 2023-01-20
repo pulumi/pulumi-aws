@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Ecr.Inputs
 
     public sealed class ReplicationConfigurationReplicationConfigurationRuleDestinationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A Region to replicate to.
-        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
-        /// <summary>
-        /// The account ID of the destination registry to replicate to.
-        /// </summary>
         [Input("registryId", required: true)]
         public Input<string> RegistryId { get; set; } = null!;
 

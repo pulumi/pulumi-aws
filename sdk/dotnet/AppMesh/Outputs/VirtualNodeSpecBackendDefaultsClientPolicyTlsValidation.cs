@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation
     {
-        /// <summary>
-        /// SANs for a TLS validation context.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames? SubjectAlternativeNames;
-        /// <summary>
-        /// TLS validation context trust.
-        /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust Trust;
 
         [OutputConstructor]

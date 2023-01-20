@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class EventConnectionAuthParametersBasic
     {
-        /// <summary>
-        /// A password for the authorization. Created and stored in AWS Secrets Manager.
-        /// </summary>
         public readonly string Password;
-        /// <summary>
-        /// A username for the authorization.
-        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

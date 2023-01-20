@@ -12,21 +12,12 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
 
     public sealed class ProvisionedProductOutputGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the output.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Parameter key.
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// Parameter value.
-        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

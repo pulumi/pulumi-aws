@@ -12,9 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleActionBlockArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Defines a custom response for the web request. See Custom Response below for details.
-        /// </summary>
         [Input("customResponse")]
         public Input<Inputs.RuleGroupRuleActionBlockCustomResponseArgs>? CustomResponse { get; set; }
 

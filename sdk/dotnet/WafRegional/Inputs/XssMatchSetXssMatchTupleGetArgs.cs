@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
     public sealed class XssMatchSetXssMatchTupleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies where in a web request to look for cross-site scripting attacks.
-        /// </summary>
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.XssMatchSetXssMatchTupleFieldToMatchGetArgs> FieldToMatch { get; set; } = null!;
 
-        /// <summary>
-        /// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
-        /// </summary>
         [Input("textTransformation", required: true)]
         public Input<string> TextTransformation { get; set; } = null!;
 

@@ -14,13 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class NetworkInterfaceAttachment
     {
         public readonly string? AttachmentId;
-        /// <summary>
-        /// Integer to define the devices index.
-        /// </summary>
         public readonly int DeviceIndex;
-        /// <summary>
-        /// ID of the instance to attach to.
-        /// </summary>
         public readonly string Instance;
 
         [OutputConstructor]

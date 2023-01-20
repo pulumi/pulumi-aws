@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualNodeSpecListenerTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An AWS Certificate Manager (ACM) certificate.
-        /// </summary>
         [Input("acm")]
         public Input<Inputs.VirtualNodeSpecListenerTlsCertificateAcmArgs>? Acm { get; set; }
 
-        /// <summary>
-        /// Local file certificate.
-        /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualNodeSpecListenerTlsCertificateFileArgs>? File { get; set; }
 
-        /// <summary>
-        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        /// </summary>
         [Input("sds")]
         public Input<Inputs.VirtualNodeSpecListenerTlsCertificateSdsArgs>? Sds { get; set; }
 

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class SchedulingPolicyFairSharePolicyShareDistribution
     {
-        /// <summary>
-        /// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        /// </summary>
         public readonly string ShareIdentifier;
-        /// <summary>
-        /// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        /// </summary>
         public readonly double? WeightFactor;
 
         [OutputConstructor]

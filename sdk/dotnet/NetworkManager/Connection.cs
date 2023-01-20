@@ -9,91 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkManager
 {
-    /// <summary>
-    /// Creates a connection between two devices.
-    /// The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.Connection("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         DeviceId = aws_networkmanager_device.Example1.Id,
-    ///         ConnectedDeviceId = aws_networkmanager_device.Example2.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// `aws_networkmanager_connection` can be imported using the connection ARN, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:networkmanager/connection:Connection")]
     public partial class Connection : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the second device in the connection.
-        /// </summary>
         [Output("connectedDeviceId")]
         public Output<string> ConnectedDeviceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the link for the second device.
-        /// </summary>
         [Output("connectedLinkId")]
         public Output<string?> ConnectedLinkId { get; private set; } = null!;
 
-        /// <summary>
-        /// A description of the connection.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the first device in the connection.
-        /// </summary>
         [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the global network.
-        /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the link for the first device.
-        /// </summary>
         [Output("linkId")]
         public Output<string?> LinkId { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -143,48 +85,26 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the second device in the connection.
-        /// </summary>
         [Input("connectedDeviceId", required: true)]
         public Input<string> ConnectedDeviceId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the link for the second device.
-        /// </summary>
         [Input("connectedLinkId")]
         public Input<string>? ConnectedLinkId { get; set; }
 
-        /// <summary>
-        /// A description of the connection.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the first device in the connection.
-        /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the global network.
-        /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
-        /// <summary>
-        /// The ID of the link for the first device.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -199,54 +119,29 @@ namespace Pulumi.Aws.NetworkManager
 
     public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The ID of the second device in the connection.
-        /// </summary>
         [Input("connectedDeviceId")]
         public Input<string>? ConnectedDeviceId { get; set; }
 
-        /// <summary>
-        /// The ID of the link for the second device.
-        /// </summary>
         [Input("connectedLinkId")]
         public Input<string>? ConnectedLinkId { get; set; }
 
-        /// <summary>
-        /// A description of the connection.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The ID of the first device in the connection.
-        /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
-        /// <summary>
-        /// The ID of the global network.
-        /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
-        /// <summary>
-        /// The ID of the link for the first device.
-        /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -255,10 +150,6 @@ namespace Pulumi.Aws.NetworkManager
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -11,57 +11,9 @@ namespace Pulumi.Aws.Ssm
 {
     public static class GetParameter
     {
-        /// <summary>
-        /// Provides an SSM Parameter data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
-        ///     {
-        ///         Name = "foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetParameterResult> InvokeAsync(GetParameterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides an SSM Parameter data source.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParameter.Invoke(new()
-        ///     {
-        ///         Name = "foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterInvokeArgs(), options.WithDefaults());
     }
@@ -69,15 +21,9 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class GetParameterArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the parameter.
-        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
-        /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
 
@@ -89,15 +35,9 @@ namespace Pulumi.Aws.Ssm
 
     public sealed class GetParameterInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Name of the parameter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
-        /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }
 

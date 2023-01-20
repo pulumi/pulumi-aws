@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class ConnectionPhysicalConnectionRequirements
     {
-        /// <summary>
-        /// The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
-        /// </summary>
         public readonly string? AvailabilityZone;
-        /// <summary>
-        /// The security group ID list used by the connection.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIdLists;
-        /// <summary>
-        /// The subnet ID used by the connection.
-        /// </summary>
         public readonly string? SubnetId;
 
         [OutputConstructor]

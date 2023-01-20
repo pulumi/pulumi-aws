@@ -11,79 +11,9 @@ namespace Pulumi.Aws.Ec2
 {
     public static class GetDedicatedHost
     {
-        /// <summary>
-        /// Use this data source to get information about an EC2 Dedicated Host.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Filter Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetDedicatedHostFilterInputArgs
-        ///             {
-        ///                 Name = "instance-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "c5.18xlarge",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("aws:ec2/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Use this data source to get information about an EC2 Dedicated Host.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Filter Example
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetDedicatedHostFilterInputArgs
-        ///             {
-        ///                 Name = "instance-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "c5.18xlarge",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("aws:ec2/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
     }
@@ -93,19 +23,12 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private List<Inputs.GetDedicatedHostFilterArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public List<Inputs.GetDedicatedHostFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetDedicatedHostFilterArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the Dedicated Host.
-        /// </summary>
         [Input("hostId")]
         public string? HostId { get; set; }
 
@@ -127,19 +50,12 @@ namespace Pulumi.Aws.Ec2
     {
         [Input("filters")]
         private InputList<Inputs.GetDedicatedHostFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// Configuration block. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetDedicatedHostFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetDedicatedHostFilterInputArgs>());
             set => _filters = value;
         }
 
-        /// <summary>
-        /// ID of the Dedicated Host.
-        /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
 
@@ -161,56 +77,23 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetDedicatedHostResult
     {
-        /// <summary>
-        /// ARN of the Dedicated Host.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Whether auto-placement is on or off.
-        /// </summary>
         public readonly string AutoPlacement;
-        /// <summary>
-        /// Availability Zone of the Dedicated Host.
-        /// </summary>
         public readonly string AvailabilityZone;
-        /// <summary>
-        /// Number of cores on the Dedicated Host.
-        /// </summary>
         public readonly int Cores;
         public readonly ImmutableArray<Outputs.GetDedicatedHostFilterResult> Filters;
         public readonly string HostId;
-        /// <summary>
-        /// Whether host recovery is enabled or disabled for the Dedicated Host.
-        /// </summary>
         public readonly string HostRecovery;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Instance family supported by the Dedicated Host. For example, "m5".
-        /// </summary>
         public readonly string InstanceFamily;
-        /// <summary>
-        /// Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// ARN of the AWS Outpost on which the Dedicated Host is allocated.
-        /// </summary>
         public readonly string OutpostArn;
-        /// <summary>
-        /// ID of the AWS account that owns the Dedicated Host.
-        /// </summary>
         public readonly string OwnerId;
-        /// <summary>
-        /// Number of sockets on the Dedicated Host.
-        /// </summary>
         public readonly int Sockets;
         public readonly ImmutableDictionary<string, string> Tags;
-        /// <summary>
-        /// Total number of vCPUs on the Dedicated Host.
-        /// </summary>
         public readonly int TotalVcpus;
 
         [OutputConstructor]

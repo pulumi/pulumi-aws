@@ -9,440 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.WafV2
 {
-    /// <summary>
-    /// Creates a WAFv2 Rule Group resource.
-    /// 
-    /// ## Example Usage
-    /// ### Simple
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WafV2.RuleGroup("example", new()
-    ///     {
-    ///         Capacity = 2,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Allow = null,
-    ///                 },
-    ///                 Name = "rule-1",
-    ///                 Priority = 1,
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
-    ///                     {
-    ///                         CountryCodes = new[]
-    ///                         {
-    ///                             "US",
-    ///                             "NL",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = false,
-    ///                     MetricName = "friendly-rule-metric-name",
-    ///                     SampledRequestsEnabled = false,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Scope = "REGIONAL",
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Complex
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testIpSet = new Aws.WafV2.IpSet("testIpSet", new()
-    ///     {
-    ///         Scope = "REGIONAL",
-    ///         IpAddressVersion = "IPV4",
-    ///         Addresses = new[]
-    ///         {
-    ///             "1.1.1.1/32",
-    ///             "2.2.2.2/32",
-    ///         },
-    ///     });
-    /// 
-    ///     var testRegexPatternSet = new Aws.WafV2.RegexPatternSet("testRegexPatternSet", new()
-    ///     {
-    ///         Scope = "REGIONAL",
-    ///         RegularExpressions = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
-    ///             {
-    ///                 RegexString = "one",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.WafV2.RuleGroup("example", new()
-    ///     {
-    ///         Description = "An rule group containing all statements",
-    ///         Scope = "REGIONAL",
-    ///         Capacity = 500,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "rule-1",
-    ///                 Priority = 1,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Block = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     NotStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementArgs
-    ///                     {
-    ///                         Statements = new[]
-    ///                         {
-    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementArgs
-    ///                             {
-    ///                                 AndStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementArgs
-    ///                                 {
-    ///                                     Statements = new[]
-    ///                                     {
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs
-    ///                                         {
-    ///                                             GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementArgs
-    ///                                             {
-    ///                                                 CountryCodes = new[]
-    ///                                                 {
-    ///                                                     "US",
-    ///                                                 },
-    ///                                             },
-    ///                                         },
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs
-    ///                                         {
-    ///                                             ByteMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementArgs
-    ///                                             {
-    ///                                                 PositionalConstraint = "CONTAINS",
-    ///                                                 SearchString = "word",
-    ///                                                 FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchArgs
-    ///                                                 {
-    ///                                                     AllQueryArguments = null,
-    ///                                                 },
-    ///                                                 TextTransformations = new[]
-    ///                                                 {
-    ///                                                     new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs
-    ///                                                     {
-    ///                                                         Priority = 5,
-    ///                                                         Type = "CMD_LINE",
-    ///                                                     },
-    ///                                                     new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs
-    ///                                                     {
-    ///                                                         Priority = 2,
-    ///                                                         Type = "LOWERCASE",
-    ///                                                     },
-    ///                                                 },
-    ///                                             },
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = false,
-    ///                     MetricName = "rule-1",
-    ///                     SampledRequestsEnabled = false,
-    ///                 },
-    ///             },
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "rule-2",
-    ///                 Priority = 2,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Count = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     OrStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementArgs
-    ///                     {
-    ///                         Statements = new[]
-    ///                         {
-    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
-    ///                             {
-    ///                                 RegexMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementArgs
-    ///                                 {
-    ///                                     RegexString = "a-z?",
-    ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchArgs
-    ///                                     {
-    ///                                         SingleHeader = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementFieldToMatchSingleHeaderArgs
-    ///                                         {
-    ///                                             Name = "user-agent",
-    ///                                         },
-    ///                                     },
-    ///                                     TextTransformations = new[]
-    ///                                     {
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexMatchStatementTextTransformationArgs
-    ///                                         {
-    ///                                             Priority = 6,
-    ///                                             Type = "NONE",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
-    ///                             {
-    ///                                 SqliMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs
-    ///                                 {
-    ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs
-    ///                                     {
-    ///                                         Body = null,
-    ///                                     },
-    ///                                     TextTransformations = new[]
-    ///                                     {
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs
-    ///                                         {
-    ///                                             Priority = 5,
-    ///                                             Type = "URL_DECODE",
-    ///                                         },
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs
-    ///                                         {
-    ///                                             Priority = 4,
-    ///                                             Type = "HTML_ENTITY_DECODE",
-    ///                                         },
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs
-    ///                                         {
-    ///                                             Priority = 3,
-    ///                                             Type = "COMPRESS_WHITE_SPACE",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
-    ///                             {
-    ///                                 XssMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementXssMatchStatementArgs
-    ///                                 {
-    ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchArgs
-    ///                                     {
-    ///                                         Method = null,
-    ///                                     },
-    ///                                     TextTransformations = new[]
-    ///                                     {
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArgs
-    ///                                         {
-    ///                                             Priority = 2,
-    ///                                             Type = "NONE",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = false,
-    ///                     MetricName = "rule-2",
-    ///                     SampledRequestsEnabled = false,
-    ///                 },
-    ///             },
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "rule-3",
-    ///                 Priority = 3,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Block = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     SizeConstraintStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementArgs
-    ///                     {
-    ///                         ComparisonOperator = "GT",
-    ///                         Size = 100,
-    ///                         FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs
-    ///                         {
-    ///                             SingleQueryArgument = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs
-    ///                             {
-    ///                                 Name = "username",
-    ///                             },
-    ///                         },
-    ///                         TextTransformations = new[]
-    ///                         {
-    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs
-    ///                             {
-    ///                                 Priority = 5,
-    ///                                 Type = "NONE",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = false,
-    ///                     MetricName = "rule-3",
-    ///                     SampledRequestsEnabled = false,
-    ///                 },
-    ///             },
-    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///             {
-    ///                 Name = "rule-4",
-    ///                 Priority = 4,
-    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                 {
-    ///                     Block = null,
-    ///                 },
-    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                 {
-    ///                     OrStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementArgs
-    ///                     {
-    ///                         Statements = new[]
-    ///                         {
-    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
-    ///                             {
-    ///                                 IpSetReferenceStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementArgs
-    ///                                 {
-    ///                                     Arn = testIpSet.Arn,
-    ///                                 },
-    ///                             },
-    ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
-    ///                             {
-    ///                                 RegexPatternSetReferenceStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementArgs
-    ///                                 {
-    ///                                     Arn = testRegexPatternSet.Arn,
-    ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs
-    ///                                     {
-    ///                                         SingleHeader = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs
-    ///                                         {
-    ///                                             Name = "referer",
-    ///                                         },
-    ///                                     },
-    ///                                     TextTransformations = new[]
-    ///                                     {
-    ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs
-    ///                                         {
-    ///                                             Priority = 2,
-    ///                                             Type = "NONE",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                 {
-    ///                     CloudwatchMetricsEnabled = false,
-    ///                     MetricName = "rule-4",
-    ///                     SampledRequestsEnabled = false,
-    ///                 },
-    ///             },
-    ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-and-statement" },
-    ///             { "Code", "123456" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:wafv2/ruleGroup:RuleGroup")]
     public partial class RuleGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
-        /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
-        /// </summary>
         [Output("customResponseBodies")]
         public Output<ImmutableArray<Outputs.RuleGroupCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
-        /// <summary>
-        /// A friendly description of the rule group.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("lockToken")]
         public Output<string> LockToken { get; private set; } = null!;
 
-        /// <summary>
-        /// The label string.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RuleGroupRule>> Rules { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-        /// </summary>
         [Output("visibilityConfig")]
         public Output<Outputs.RuleGroupVisibilityConfig> VisibilityConfig { get; private set; } = null!;
 
@@ -492,69 +91,42 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         [Input("customResponseBodies")]
         private InputList<Inputs.RuleGroupCustomResponseBodyArgs>? _customResponseBodies;
-
-        /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupCustomResponseBodyArgs> CustomResponseBodies
         {
             get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.RuleGroupCustomResponseBodyArgs>());
             set => _customResponseBodies = value;
         }
 
-        /// <summary>
-        /// A friendly description of the rule group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The label string.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleArgs>? _rules;
-
-        /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.RuleGroupRuleArgs>());
             set => _rules = value;
         }
 
-        /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.RuleGroupVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 
@@ -566,69 +138,42 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class RuleGroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
         [Input("customResponseBodies")]
         private InputList<Inputs.RuleGroupCustomResponseBodyGetArgs>? _customResponseBodies;
-
-        /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupCustomResponseBodyGetArgs> CustomResponseBodies
         {
             get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.RuleGroupCustomResponseBodyGetArgs>());
             set => _customResponseBodies = value;
         }
 
-        /// <summary>
-        /// A friendly description of the rule group.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("lockToken")]
         public Input<string>? LockToken { get; set; }
 
-        /// <summary>
-        /// The label string.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleGetArgs>? _rules;
-
-        /// <summary>
-        /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.RuleGroupRuleGetArgs>());
             set => _rules = value;
         }
 
-        /// <summary>
-        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -637,19 +182,12 @@ namespace Pulumi.Aws.WafV2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-        /// </summary>
         [Input("visibilityConfig")]
         public Input<Inputs.RuleGroupVisibilityConfigGetArgs>? VisibilityConfig { get; set; }
 

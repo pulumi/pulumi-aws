@@ -9,98 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudWatch
 {
-    /// <summary>
-    /// Provides an EventBridge event archive resource.
-    /// 
-    /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
-    /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
-    ///     {
-    ///         EventSourceArn = orderEventBus.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## Example all optional arguments
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
-    /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
-    ///     {
-    ///         Description = "Archived events from order service",
-    ///         EventSourceArn = orderEventBus.Arn,
-    ///         RetentionDays = 7,
-    ///         EventPattern = @"{
-    ///   ""source"": [""company.team.order""]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Event Archive can be imported using their name, for example console
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloudwatch/eventArchive:EventArchive")]
     public partial class EventArchive : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the event archive.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description of the new event archive.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
-        /// </summary>
         [Output("eventPattern")]
         public Output<string?> EventPattern { get; private set; } = null!;
 
-        /// <summary>
-        /// Event bus source ARN from where these events should be archived.
-        /// </summary>
         [Output("eventSourceArn")]
         public Output<string> EventSourceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name of the new event archive. The archive name cannot exceed 48 characters.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-        /// </summary>
         [Output("retentionDays")]
         public Output<int?> RetentionDays { get; private set; } = null!;
 
@@ -150,33 +76,18 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventArchiveArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description of the new event archive.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
-        /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
 
-        /// <summary>
-        /// Event bus source ARN from where these events should be archived.
-        /// </summary>
         [Input("eventSourceArn", required: true)]
         public Input<string> EventSourceArn { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the new event archive. The archive name cannot exceed 48 characters.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-        /// </summary>
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
 
@@ -188,39 +99,21 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class EventArchiveState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the event archive.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The description of the new event archive.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
-        /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
 
-        /// <summary>
-        /// Event bus source ARN from where these events should be archived.
-        /// </summary>
         [Input("eventSourceArn")]
         public Input<string>? EventSourceArn { get; set; }
 
-        /// <summary>
-        /// The name of the new event archive. The archive name cannot exceed 48 characters.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-        /// </summary>
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
 

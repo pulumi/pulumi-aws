@@ -13,17 +13,8 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation
     {
-        /// <summary>
-        /// The ARN for the S3 bucket containing the application code.
-        /// </summary>
         public readonly string BucketArn;
-        /// <summary>
-        /// The file key for the object containing the application code.
-        /// </summary>
         public readonly string FileKey;
-        /// <summary>
-        /// The version of the object containing the application code.
-        /// </summary>
         public readonly string? ObjectVersion;
 
         [OutputConstructor]

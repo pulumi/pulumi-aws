@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest
     {
-        /// <summary>
-        /// The code provided by the connector when it has been authenticated via the connected app.
-        /// </summary>
         public readonly string? AuthCode;
-        /// <summary>
-        /// The URL to which the authentication server redirects the browser after authorization has been granted.
-        /// </summary>
         public readonly string? RedirectUri;
 
         [OutputConstructor]

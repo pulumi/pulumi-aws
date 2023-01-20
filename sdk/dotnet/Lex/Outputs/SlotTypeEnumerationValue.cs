@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class SlotTypeEnumerationValue
     {
-        /// <summary>
-        /// Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
-        /// </summary>
         public readonly ImmutableArray<string> Synonyms;
-        /// <summary>
-        /// The value of the slot type. Must be less than or equal to 140 characters in length.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

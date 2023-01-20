@@ -13,13 +13,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class XssMatchSetXssMatchTuple
     {
-        /// <summary>
-        /// Specifies where in a web request to look for cross-site scripting attacks.
-        /// </summary>
         public readonly Outputs.XssMatchSetXssMatchTupleFieldToMatch FieldToMatch;
-        /// <summary>
-        /// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
-        /// </summary>
         public readonly string TextTransformation;
 
         [OutputConstructor]

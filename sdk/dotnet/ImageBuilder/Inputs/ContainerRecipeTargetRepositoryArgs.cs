@@ -12,15 +12,9 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class ContainerRecipeTargetRepositoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-        /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
-        /// <summary>
-        /// The service in which this image is registered. Valid values: `ECR`.
-        /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 

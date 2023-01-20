@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetInstanceEnclaveOptionResult
     {
-        /// <summary>
-        /// Whether Nitro Enclaves are enabled.
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

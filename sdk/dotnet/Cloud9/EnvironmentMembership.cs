@@ -9,67 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Cloud9
 {
-    /// <summary>
-    /// Provides an environment member to an AWS Cloud9 development environment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testEnvironmentEC2 = new Aws.Cloud9.EnvironmentEC2("testEnvironmentEC2", new()
-    ///     {
-    ///         InstanceType = "t2.micro",
-    ///     });
-    /// 
-    ///     var testUser = new Aws.Iam.User("testUser");
-    /// 
-    ///     var testEnvironmentMembership = new Aws.Cloud9.EnvironmentMembership("testEnvironmentMembership", new()
-    ///     {
-    ///         EnvironmentId = testEnvironmentEC2.Id,
-    ///         Permissions = "read-only",
-    ///         UserArn = testUser.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:cloud9/environmentMembership:EnvironmentMembership")]
     public partial class EnvironmentMembership : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the environment that contains the environment member you want to add.
-        /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        /// </summary>
         [Output("permissions")]
         public Output<string> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the environment member you want to add.
-        /// </summary>
         [Output("userArn")]
         public Output<string> UserArn { get; private set; } = null!;
 
-        /// <summary>
-        /// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-        /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
@@ -119,21 +70,12 @@ namespace Pulumi.Aws.Cloud9
 
     public sealed class EnvironmentMembershipArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the environment that contains the environment member you want to add.
-        /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
-        /// <summary>
-        /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the environment member you want to add.
-        /// </summary>
         [Input("userArn", required: true)]
         public Input<string> UserArn { get; set; } = null!;
 
@@ -145,27 +87,15 @@ namespace Pulumi.Aws.Cloud9
 
     public sealed class EnvironmentMembershipState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the environment that contains the environment member you want to add.
-        /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
-        /// <summary>
-        /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the environment member you want to add.
-        /// </summary>
         [Input("userArn")]
         public Input<string>? UserArn { get; set; }
 
-        /// <summary>
-        /// he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-        /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
 

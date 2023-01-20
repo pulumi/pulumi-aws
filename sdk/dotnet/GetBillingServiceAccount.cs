@@ -11,76 +11,6 @@ namespace Pulumi.Aws
 {
     public static class GetBillingServiceAccount
     {
-        /// <summary>
-        /// Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var main = Aws.GetBillingServiceAccount.Invoke();
-        /// 
-        ///     var billingLogs = new Aws.S3.BucketV2("billingLogs");
-        /// 
-        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new()
-        ///     {
-        ///         Bucket = billingLogs.Id,
-        ///         Acl = "private",
-        ///     });
-        /// 
-        ///     var allowBillingLogging = new Aws.S3.BucketPolicy("allowBillingLogging", new()
-        ///     {
-        ///         Bucket = billingLogs.Id,
-        ///         Policy = Output.Tuple(main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult), main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult)).Apply(values =&gt;
-        ///         {
-        ///             var main = values.Item1;
-        ///             var main1 = values.Item2;
-        ///             return @$"{{
-        ///   ""Id"": ""Policy"",
-        ///   ""Version"": ""2012-10-17"",
-        ///   ""Statement"": [
-        ///     {{
-        ///       ""Action"": [
-        ///         ""s3:GetBucketAcl"", ""s3:GetBucketPolicy""
-        ///       ],
-        ///       ""Effect"": ""Allow"",
-        ///       ""Resource"": ""arn:aws:s3:::my-billing-tf-test-bucket"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": [
-        ///           ""{main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult.Arn)}""
-        ///         ]
-        ///       }}
-        ///     }},
-        ///     {{
-        ///       ""Action"": [
-        ///         ""s3:PutObject""
-        ///       ],
-        ///       ""Effect"": ""Allow"",
-        ///       ""Resource"": ""arn:aws:s3:::my-billing-tf-test-bucket/*"",
-        ///       ""Principal"": {{
-        ///         ""AWS"": [
-        ///           ""{main1.Arn}""
-        ///         ]
-        ///       }}
-        ///     }}
-        ///   ]
-        /// }}
-        /// ";
-        ///         }),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetBillingServiceAccountResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingServiceAccountResult>("aws:index/getBillingServiceAccount:getBillingServiceAccount", InvokeArgs.Empty, options.WithDefaults());
     }
@@ -89,9 +19,6 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetBillingServiceAccountResult
     {
-        /// <summary>
-        /// ARN of the AWS billing service account.
-        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

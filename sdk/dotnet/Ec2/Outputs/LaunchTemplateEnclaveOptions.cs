@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateEnclaveOptions
     {
-        /// <summary>
-        /// If set to `true`, Nitro Enclaves will be enabled on the instance.
-        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

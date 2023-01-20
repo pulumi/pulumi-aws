@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Emr.Inputs
 
     public sealed class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Classification within a configuration.
-        /// </summary>
         [Input("classification")]
         public Input<string>? Classification { get; set; }
 
         [Input("properties")]
         private InputMap<object>? _properties;
-
-        /// <summary>
-        /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        /// </summary>
         public InputMap<object> Properties
         {
             get => _properties ?? (_properties = new InputMap<object>());

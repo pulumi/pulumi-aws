@@ -13,17 +13,8 @@ namespace Pulumi.Aws.RedshiftServerless.Outputs
     [OutputType]
     public sealed class EndpointAccessVpcEndpoint
     {
-        /// <summary>
-        /// The network interfaces of the endpoint.. See `Network Interface` below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointAccessVpcEndpointNetworkInterface> NetworkInterfaces;
-        /// <summary>
-        /// The DNS address of the VPC endpoint.
-        /// </summary>
         public readonly string? VpcEndpointId;
-        /// <summary>
-        /// The port that Amazon Redshift Serverless listens on.
-        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

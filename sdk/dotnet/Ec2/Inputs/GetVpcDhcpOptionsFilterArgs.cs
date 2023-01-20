@@ -12,18 +12,11 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class GetVpcDhcpOptionsFilterInputArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the field to filter.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
-
-        /// <summary>
-        /// Set of values for filtering.
-        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

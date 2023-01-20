@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class ClassifierXmlClassifier
     {
-        /// <summary>
-        /// An identifier of the data format that the classifier matches.
-        /// </summary>
         public readonly string Classification;
-        /// <summary>
-        /// The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a="A" item_b="B"&gt;&lt;/row&gt;` is okay, but `&lt;row item_a="A" item_b="B" /&gt;` is not).
-        /// </summary>
         public readonly string RowTag;
 
         [OutputConstructor]

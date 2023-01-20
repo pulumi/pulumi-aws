@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class CrawlerDynamodbTarget
     {
-        /// <summary>
-        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
-        /// </summary>
         public readonly string Path;
-        /// <summary>
-        /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
-        /// </summary>
         public readonly bool? ScanAll;
-        /// <summary>
-        /// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
-        /// </summary>
         public readonly double? ScanRate;
 
         [OutputConstructor]

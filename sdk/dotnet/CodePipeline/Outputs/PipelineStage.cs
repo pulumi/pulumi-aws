@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     [OutputType]
     public sealed class PipelineStage
     {
-        /// <summary>
-        /// The action(s) to include in the stage. Defined as an `action` block below
-        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineStageAction> Actions;
-        /// <summary>
-        /// The name of the stage.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationApplicationConfigurationApplicationSnapshotConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        /// </summary>
         [Input("snapshotsEnabled", required: true)]
         public Input<bool> SnapshotsEnabled { get; set; } = null!;
 

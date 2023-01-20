@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        /// </summary>
         [Input("connectionRetryInterval")]
         public Input<int>? ConnectionRetryInterval { get; set; }
 
@@ -24,15 +21,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("httpTransferMode")]
         public Input<string>? HttpTransferMode { get; set; }
 
-        /// <summary>
-        /// Number of retry attempts.
-        /// </summary>
         [Input("numRetries")]
         public Input<int>? NumRetries { get; set; }
 
-        /// <summary>
-        /// Number of seconds to wait until a restart is initiated.
-        /// </summary>
         [Input("restartDelay")]
         public Input<int>? RestartDelay { get; set; }
 

@@ -9,71 +9,21 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2ClientVpn
 {
-    /// <summary>
-    /// Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
-    /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2ClientVpn.AuthorizationRule("example", new()
-    ///     {
-    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///         TargetNetworkCidr = aws_subnet.Example.Cidr_block,
-    ///         AuthorizeAllGroups = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AWS Client VPN authorization rules can be imported using the endpoint ID and target network CIDR. If there is a specific group name that is included as well. All values are separated by a `,`.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
-    /// ```
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:ec2clientvpn/authorizationRule:AuthorizationRule")]
     public partial class AuthorizationRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
-        /// </summary>
         [Output("accessGroupId")]
         public Output<string?> AccessGroupId { get; private set; } = null!;
 
-        /// <summary>
-        /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
-        /// </summary>
         [Output("authorizeAllGroups")]
         public Output<bool?> AuthorizeAllGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Output("clientVpnEndpointId")]
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
 
-        /// <summary>
-        /// A brief description of the authorization rule.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
-        /// </summary>
         [Output("targetNetworkCidr")]
         public Output<string> TargetNetworkCidr { get; private set; } = null!;
 
@@ -123,33 +73,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
     public sealed class AuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
-        /// </summary>
         [Input("accessGroupId")]
         public Input<string>? AccessGroupId { get; set; }
 
-        /// <summary>
-        /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
-        /// </summary>
         [Input("authorizeAllGroups")]
         public Input<bool>? AuthorizeAllGroups { get; set; }
 
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Input("clientVpnEndpointId", required: true)]
         public Input<string> ClientVpnEndpointId { get; set; } = null!;
 
-        /// <summary>
-        /// A brief description of the authorization rule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
-        /// </summary>
         [Input("targetNetworkCidr", required: true)]
         public Input<string> TargetNetworkCidr { get; set; } = null!;
 
@@ -161,33 +96,18 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
     public sealed class AuthorizationRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
-        /// </summary>
         [Input("accessGroupId")]
         public Input<string>? AccessGroupId { get; set; }
 
-        /// <summary>
-        /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
-        /// </summary>
         [Input("authorizeAllGroups")]
         public Input<bool>? AuthorizeAllGroups { get; set; }
 
-        /// <summary>
-        /// The ID of the Client VPN endpoint.
-        /// </summary>
         [Input("clientVpnEndpointId")]
         public Input<string>? ClientVpnEndpointId { get; set; }
 
-        /// <summary>
-        /// A brief description of the authorization rule.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
-        /// </summary>
         [Input("targetNetworkCidr")]
         public Input<string>? TargetNetworkCidr { get; set; }
 

@@ -9,264 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Batch
 {
-    /// <summary>
-    /// Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
-    /// 
-    /// For information about AWS Batch, see [What is AWS Batch?](http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) .
-    /// For information about compute environment, see [Compute Environments](http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) .
-    /// 
-    /// &gt; **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `aws.iam.RolePolicyAttachment`;
-    /// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
-    /// 
-    /// ## Example Usage
-    /// ### EC2 Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ecsInstanceRoleRole = new Aws.Iam.Role("ecsInstanceRoleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    /// 	{
-    /// 	    ""Action"": ""sts:AssumeRole"",
-    /// 	    ""Effect"": ""Allow"",
-    /// 	    ""Principal"": {
-    /// 	        ""Service"": ""ec2.amazonaws.com""
-    /// 	    }
-    /// 	}
-    ///     ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", new()
-    ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
-    ///     });
-    /// 
-    ///     var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecsInstanceRoleInstanceProfile", new()
-    ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
-    ///     });
-    /// 
-    ///     var awsBatchServiceRoleRole = new Aws.Iam.Role("awsBatchServiceRoleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = @"{
-    ///     ""Version"": ""2012-10-17"",
-    ///     ""Statement"": [
-    /// 	{
-    /// 	    ""Action"": ""sts:AssumeRole"",
-    /// 	    ""Effect"": ""Allow"",
-    /// 	    ""Principal"": {
-    /// 		""Service"": ""batch.amazonaws.com""
-    /// 	    }
-    /// 	}
-    ///     ]
-    /// }
-    /// ",
-    ///     });
-    /// 
-    ///     var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", new()
-    ///     {
-    ///         Role = awsBatchServiceRoleRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
-    ///     });
-    /// 
-    ///     var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new()
-    ///     {
-    ///         Egress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
-    ///             {
-    ///                 FromPort = 0,
-    ///                 ToPort = 0,
-    ///                 Protocol = "-1",
-    ///                 CidrBlocks = new[]
-    ///                 {
-    ///                     "0.0.0.0/0",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new()
-    ///     {
-    ///         VpcId = sampleVpc.Id,
-    ///         CidrBlock = "10.1.1.0/24",
-    ///     });
-    /// 
-    ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new()
-    ///     {
-    ///         ComputeEnvironmentName = "sample",
-    ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
-    ///         {
-    ///             InstanceRole = ecsInstanceRoleInstanceProfile.Arn,
-    ///             InstanceTypes = new[]
-    ///             {
-    ///                 "c4.large",
-    ///             },
-    ///             MaxVcpus = 16,
-    ///             MinVcpus = 0,
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 sampleSecurityGroup.Id,
-    ///             },
-    ///             Subnets = new[]
-    ///             {
-    ///                 sampleSubnet.Id,
-    ///             },
-    ///             Type = "EC2",
-    ///         },
-    ///         ServiceRole = awsBatchServiceRoleRole.Arn,
-    ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             awsBatchServiceRoleRolePolicyAttachment,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Fargate Type
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
-    ///     {
-    ///         ComputeEnvironmentName = "sample",
-    ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
-    ///         {
-    ///             MaxVcpus = 16,
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 aws_security_group.Sample.Id,
-    ///             },
-    ///             Subnets = new[]
-    ///             {
-    ///                 aws_subnet.Sample.Id,
-    ///             },
-    ///             Type = "FARGATE",
-    ///         },
-    ///         ServiceRole = aws_iam_role.Aws_batch_service_role.Arn,
-    ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Aws_batch_service_role,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-    /// ```
-    /// 
-    ///  [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
-    /// </summary>
     [AwsResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
     public partial class ComputeEnvironment : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        /// </summary>
         [Output("computeEnvironmentName")]
         public Output<string> ComputeEnvironmentName { get; private set; } = null!;
 
-        /// <summary>
-        /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        /// </summary>
         [Output("computeEnvironmentNamePrefix")]
         public Output<string> ComputeEnvironmentNamePrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        /// </summary>
         [Output("computeResources")]
         public Output<Outputs.ComputeEnvironmentComputeResources?> ComputeResources { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        /// </summary>
         [Output("ecsClusterArn")]
         public Output<string> EcsClusterArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        /// </summary>
         [Output("eksConfiguration")]
         public Output<Outputs.ComputeEnvironmentEksConfiguration?> EksConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
 
-        /// <summary>
-        /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
 
-        /// <summary>
-        /// The current status of the compute environment (for example, CREATING or VALID).
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// A short, human-readable string to provide additional details about the current status of the compute environment.
-        /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -316,57 +97,32 @@ namespace Pulumi.Aws.Batch
 
     public sealed class ComputeEnvironmentArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        /// </summary>
         [Input("computeEnvironmentName")]
         public Input<string>? ComputeEnvironmentName { get; set; }
 
-        /// <summary>
-        /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        /// </summary>
         [Input("computeEnvironmentNamePrefix")]
         public Input<string>? ComputeEnvironmentNamePrefix { get; set; }
 
-        /// <summary>
-        /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        /// </summary>
         [Input("computeResources")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesArgs>? ComputeResources { get; set; }
 
-        /// <summary>
-        /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        /// </summary>
         [Input("eksConfiguration")]
         public Input<Inputs.ComputeEnvironmentEksConfigurationArgs>? EksConfiguration { get; set; }
 
-        /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
-        /// <summary>
-        /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
@@ -378,72 +134,38 @@ namespace Pulumi.Aws.Batch
 
     public sealed class ComputeEnvironmentState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        /// </summary>
         [Input("computeEnvironmentName")]
         public Input<string>? ComputeEnvironmentName { get; set; }
 
-        /// <summary>
-        /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        /// </summary>
         [Input("computeEnvironmentNamePrefix")]
         public Input<string>? ComputeEnvironmentNamePrefix { get; set; }
 
-        /// <summary>
-        /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        /// </summary>
         [Input("computeResources")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesGetArgs>? ComputeResources { get; set; }
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        /// </summary>
         [Input("ecsClusterArn")]
         public Input<string>? EcsClusterArn { get; set; }
 
-        /// <summary>
-        /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        /// </summary>
         [Input("eksConfiguration")]
         public Input<Inputs.ComputeEnvironmentEksConfigurationGetArgs>? EksConfiguration { get; set; }
 
-        /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
 
-        /// <summary>
-        /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// The current status of the compute environment (for example, CREATING or VALID).
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// A short, human-readable string to provide additional details about the current status of the compute environment.
-        /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -452,19 +174,12 @@ namespace Pulumi.Aws.Batch
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

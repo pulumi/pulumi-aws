@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Backup.Outputs
     [OutputType]
     public sealed class PlanRule
     {
-        /// <summary>
-        /// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-        /// </summary>
         public readonly int? CompletionWindow;
-        /// <summary>
-        /// Configuration block(s) with copy operation settings. Detailed below.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PlanRuleCopyAction> CopyActions;
-        /// <summary>
-        /// Enable continuous backups for supported resources.
-        /// </summary>
         public readonly bool? EnableContinuousBackup;
-        /// <summary>
-        /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-        /// </summary>
         public readonly Outputs.PlanRuleLifecycle? Lifecycle;
-        /// <summary>
-        /// Metadata that you can assign to help organize the resources that you create.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
-        /// <summary>
-        /// An display name for a backup rule.
-        /// </summary>
         public readonly string RuleName;
-        /// <summary>
-        /// A CRON expression specifying when AWS Backup initiates a backup job.
-        /// </summary>
         public readonly string? Schedule;
-        /// <summary>
-        /// The amount of time in minutes before beginning a backup.
-        /// </summary>
         public readonly int? StartWindow;
-        /// <summary>
-        /// The name of a logical container where backups are stored.
-        /// </summary>
         public readonly string TargetVaultName;
 
         [OutputConstructor]

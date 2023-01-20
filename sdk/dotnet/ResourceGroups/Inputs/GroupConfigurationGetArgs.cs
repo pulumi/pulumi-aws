@@ -14,19 +14,12 @@ namespace Pulumi.Aws.ResourceGroups.Inputs
     {
         [Input("parameters")]
         private InputList<Inputs.GroupConfigurationParameterGetArgs>? _parameters;
-
-        /// <summary>
-        /// A collection of parameters for this group configuration item. See below for details.
-        /// </summary>
         public InputList<Inputs.GroupConfigurationParameterGetArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.GroupConfigurationParameterGetArgs>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// Specifies the type of group configuration item.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

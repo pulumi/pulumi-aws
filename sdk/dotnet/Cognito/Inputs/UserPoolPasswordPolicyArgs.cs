@@ -12,39 +12,21 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolPasswordPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Minimum length of the password policy that you have set.
-        /// </summary>
         [Input("minimumLength")]
         public Input<int>? MinimumLength { get; set; }
 
-        /// <summary>
-        /// Whether you have required users to use at least one lowercase letter in their password.
-        /// </summary>
         [Input("requireLowercase")]
         public Input<bool>? RequireLowercase { get; set; }
 
-        /// <summary>
-        /// Whether you have required users to use at least one number in their password.
-        /// </summary>
         [Input("requireNumbers")]
         public Input<bool>? RequireNumbers { get; set; }
 
-        /// <summary>
-        /// Whether you have required users to use at least one symbol in their password.
-        /// </summary>
         [Input("requireSymbols")]
         public Input<bool>? RequireSymbols { get; set; }
 
-        /// <summary>
-        /// Whether you have required users to use at least one uppercase letter in their password.
-        /// </summary>
         [Input("requireUppercase")]
         public Input<bool>? RequireUppercase { get; set; }
 
-        /// <summary>
-        /// In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-        /// </summary>
         [Input("temporaryPasswordValidityDays")]
         public Input<int>? TemporaryPasswordValidityDays { get; set; }
 

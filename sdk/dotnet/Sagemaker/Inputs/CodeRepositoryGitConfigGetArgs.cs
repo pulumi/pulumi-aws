@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class CodeRepositoryGitConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The default branch for the Git repository.
-        /// </summary>
         [Input("branch")]
         public Input<string>? Branch { get; set; }
 
-        /// <summary>
-        /// The URL where the Git repository is located.
-        /// </summary>
         [Input("repositoryUrl", required: true)]
         public Input<string> RepositoryUrl { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
-        /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 

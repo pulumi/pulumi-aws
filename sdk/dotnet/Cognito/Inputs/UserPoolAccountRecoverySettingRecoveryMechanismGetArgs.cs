@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Cognito.Inputs
 
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanismGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the attribute.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Positive integer specifying priority of a method with 1 being the highest priority.
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 

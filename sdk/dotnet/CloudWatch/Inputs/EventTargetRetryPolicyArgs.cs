@@ -12,15 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class EventTargetRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The age in seconds to continue to make retry attempts.
-        /// </summary>
         [Input("maximumEventAgeInSeconds")]
         public Input<int>? MaximumEventAgeInSeconds { get; set; }
 
-        /// <summary>
-        /// maximum number of retry attempts to make before the request fails
-        /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 

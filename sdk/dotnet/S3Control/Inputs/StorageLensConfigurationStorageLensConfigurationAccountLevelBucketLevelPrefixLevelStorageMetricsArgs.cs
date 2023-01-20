@@ -12,15 +12,9 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether prefix-level storage metrics are enabled.
-        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Selection criteria. See Selection Criteria below for more details.
-        /// </summary>
         [Input("selectionCriteria")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs>? SelectionCriteria { get; set; }
 

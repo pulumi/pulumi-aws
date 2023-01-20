@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Keyspaces.Inputs
 
     public sealed class TableCapacitySpecificationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The throughput capacity specified for read operations defined in read capacity units (RCUs).
-        /// </summary>
         [Input("readCapacityUnits")]
         public Input<int>? ReadCapacityUnits { get; set; }
 
-        /// <summary>
-        /// The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-        /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }
 
-        /// <summary>
-        /// The throughput capacity specified for write operations defined in write capacity units (WCUs).
-        /// </summary>
         [Input("writeCapacityUnits")]
         public Input<int>? WriteCapacityUnits { get; set; }
 

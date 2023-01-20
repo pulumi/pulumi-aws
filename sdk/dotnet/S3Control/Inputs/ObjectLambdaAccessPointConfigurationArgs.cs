@@ -14,34 +14,20 @@ namespace Pulumi.Aws.S3Control.Inputs
     {
         [Input("allowedFeatures")]
         private InputList<string>? _allowedFeatures;
-
-        /// <summary>
-        /// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-        /// </summary>
         public InputList<string> AllowedFeatures
         {
             get => _allowedFeatures ?? (_allowedFeatures = new InputList<string>());
             set => _allowedFeatures = value;
         }
 
-        /// <summary>
-        /// Whether or not the CloudWatch metrics configuration is enabled.
-        /// </summary>
         [Input("cloudWatchMetricsEnabled")]
         public Input<bool>? CloudWatchMetricsEnabled { get; set; }
 
-        /// <summary>
-        /// Standard access point associated with the Object Lambda Access Point.
-        /// </summary>
         [Input("supportingAccessPoint", required: true)]
         public Input<string> SupportingAccessPoint { get; set; } = null!;
 
         [Input("transformationConfigurations", required: true)]
         private InputList<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>? _transformationConfigurations;
-
-        /// <summary>
-        /// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
-        /// </summary>
         public InputList<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs> TransformationConfigurations
         {
             get => _transformationConfigurations ?? (_transformationConfigurations = new InputList<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>());

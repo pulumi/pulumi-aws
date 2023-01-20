@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class AliasRoutingConfig
     {
-        /// <summary>
-        /// A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        /// </summary>
         public readonly ImmutableDictionary<string, double>? AdditionalVersionWeights;
 
         [OutputConstructor]

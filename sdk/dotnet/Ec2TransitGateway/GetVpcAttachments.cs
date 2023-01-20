@@ -11,23 +11,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
 {
     public static class GetVpcAttachments
     {
-        /// <summary>
-        /// Get information on EC2 Transit Gateway VPC Attachments.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVpcAttachmentsResult> InvokeAsync(GetVpcAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Get information on EC2 Transit Gateway VPC Attachments.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVpcAttachmentsResult> Invoke(GetVpcAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsInvokeArgs(), options.WithDefaults());
     }
@@ -37,10 +23,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private List<Inputs.GetVpcAttachmentsFilterArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public List<Inputs.GetVpcAttachmentsFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetVpcAttachmentsFilterArgs>());
@@ -57,10 +39,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcAttachmentsFilterInputArgs>? _filters;
-
-        /// <summary>
-        /// One or more configuration blocks containing name-values filters. Detailed below.
-        /// </summary>
         public InputList<Inputs.GetVpcAttachmentsFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcAttachmentsFilterInputArgs>());

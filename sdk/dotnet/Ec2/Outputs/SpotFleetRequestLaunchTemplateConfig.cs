@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetRequestLaunchTemplateConfig
     {
-        /// <summary>
-        /// Launch template specification. See Launch Template Specification below for more details.
-        /// </summary>
         public readonly Outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification LaunchTemplateSpecification;
-        /// <summary>
-        /// One or more override configurations. See Overrides below for more details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetRequestLaunchTemplateConfigOverride> Overrides;
 
         [OutputConstructor]

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTablePartitionIndexArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the partition index.
-        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
@@ -23,10 +20,6 @@ namespace Pulumi.Aws.Glue.Inputs
 
         [Input("keys", required: true)]
         private InputList<string>? _keys;
-
-        /// <summary>
-        /// Keys for the partition index.
-        /// </summary>
         public InputList<string> Keys
         {
             get => _keys ?? (_keys = new InputList<string>());

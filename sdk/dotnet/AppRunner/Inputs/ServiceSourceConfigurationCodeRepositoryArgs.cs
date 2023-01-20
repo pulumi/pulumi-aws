@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppRunner.Inputs
 
     public sealed class ServiceSourceConfigurationCodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
-        /// </summary>
         [Input("codeConfiguration")]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs>? CodeConfiguration { get; set; }
 
-        /// <summary>
-        /// Location of the repository that contains the source code.
-        /// </summary>
         [Input("repositoryUrl", required: true)]
         public Input<string> RepositoryUrl { get; set; } = null!;
 
-        /// <summary>
-        /// Version that should be used within the source code repository. See Source Code Version below for more details.
-        /// </summary>
         [Input("sourceCodeVersion", required: true)]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> SourceCodeVersion { get; set; } = null!;
 

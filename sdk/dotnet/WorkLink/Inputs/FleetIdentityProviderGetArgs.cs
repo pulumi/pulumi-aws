@@ -12,15 +12,9 @@ namespace Pulumi.Aws.WorkLink.Inputs
 
     public sealed class FleetIdentityProviderGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The SAML metadata document provided by the customer’s identity provider.
-        /// </summary>
         [Input("samlMetadata", required: true)]
         public Input<string> SamlMetadata { get; set; } = null!;
 
-        /// <summary>
-        /// The type of identity provider.
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

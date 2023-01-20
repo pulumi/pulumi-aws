@@ -14,10 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     {
         [Input("syncStates")]
         private InputList<Inputs.FirewallFirewallStatusSyncStateGetArgs>? _syncStates;
-
-        /// <summary>
-        /// Set of subnets configured for use by the firewall.
-        /// </summary>
         public InputList<Inputs.FirewallFirewallStatusSyncStateGetArgs> SyncStates
         {
             get => _syncStates ?? (_syncStates = new InputList<Inputs.FirewallFirewallStatusSyncStateGetArgs>());

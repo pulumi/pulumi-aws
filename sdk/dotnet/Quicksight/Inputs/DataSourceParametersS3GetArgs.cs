@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
 
     public sealed class DataSourceParametersS3GetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An object containing the S3 location of the S3 manifest file.
-        /// </summary>
         [Input("manifestFileLocation", required: true)]
         public Input<Inputs.DataSourceParametersS3ManifestFileLocationGetArgs> ManifestFileLocation { get; set; } = null!;
 

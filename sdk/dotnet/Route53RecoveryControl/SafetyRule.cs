@@ -9,129 +9,33 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Route53RecoveryControl
 {
-    /// <summary>
-    /// Provides an AWS Route 53 Recovery Control Config Safety Rule
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
-    ///     {
-    ///         AssertedControls = new[]
-    ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///         },
-    ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-    ///         WaitPeriodMs = 5000,
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
-    ///     {
-    ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-    ///         WaitPeriodMs = 5000,
-    ///         GatingControls = new[]
-    ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///         },
-    ///         TargetControls = new[]
-    ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///         },
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
-    /// ```
-    /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/safetyRule:SafetyRule")]
     public partial class SafetyRule : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// ARN of the safety rule.
-        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-        /// </summary>
         [Output("assertedControls")]
         public Output<ImmutableArray<string>> AssertedControls { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of the control panel in which this safety rule will reside.
-        /// </summary>
         [Output("controlPanelArn")]
         public Output<string> ControlPanelArn { get; private set; } = null!;
 
-        /// <summary>
-        /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-        /// </summary>
         [Output("gatingControls")]
         public Output<ImmutableArray<string>> GatingControls { get; private set; } = null!;
 
-        /// <summary>
-        /// Name describing the safety rule.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Configuration block for safety rule criteria. See below.
-        /// </summary>
         [Output("ruleConfig")]
         public Output<Outputs.SafetyRuleRuleConfig> RuleConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
-        /// </summary>
         [Output("targetControls")]
         public Output<ImmutableArray<string>> TargetControls { get; private set; } = null!;
 
-        /// <summary>
-        /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-        /// </summary>
         [Output("waitPeriodMs")]
         public Output<int> WaitPeriodMs { get; private set; } = null!;
 
@@ -183,61 +87,37 @@ namespace Pulumi.Aws.Route53RecoveryControl
     {
         [Input("assertedControls")]
         private InputList<string>? _assertedControls;
-
-        /// <summary>
-        /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-        /// </summary>
         public InputList<string> AssertedControls
         {
             get => _assertedControls ?? (_assertedControls = new InputList<string>());
             set => _assertedControls = value;
         }
 
-        /// <summary>
-        /// ARN of the control panel in which this safety rule will reside.
-        /// </summary>
         [Input("controlPanelArn", required: true)]
         public Input<string> ControlPanelArn { get; set; } = null!;
 
         [Input("gatingControls")]
         private InputList<string>? _gatingControls;
-
-        /// <summary>
-        /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-        /// </summary>
         public InputList<string> GatingControls
         {
             get => _gatingControls ?? (_gatingControls = new InputList<string>());
             set => _gatingControls = value;
         }
 
-        /// <summary>
-        /// Name describing the safety rule.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configuration block for safety rule criteria. See below.
-        /// </summary>
         [Input("ruleConfig", required: true)]
         public Input<Inputs.SafetyRuleRuleConfigArgs> RuleConfig { get; set; } = null!;
 
         [Input("targetControls")]
         private InputList<string>? _targetControls;
-
-        /// <summary>
-        /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
-        /// </summary>
         public InputList<string> TargetControls
         {
             get => _targetControls ?? (_targetControls = new InputList<string>());
             set => _targetControls = value;
         }
 
-        /// <summary>
-        /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-        /// </summary>
         [Input("waitPeriodMs", required: true)]
         public Input<int> WaitPeriodMs { get; set; } = null!;
 
@@ -249,75 +129,45 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
     public sealed class SafetyRuleState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// ARN of the safety rule.
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         [Input("assertedControls")]
         private InputList<string>? _assertedControls;
-
-        /// <summary>
-        /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-        /// </summary>
         public InputList<string> AssertedControls
         {
             get => _assertedControls ?? (_assertedControls = new InputList<string>());
             set => _assertedControls = value;
         }
 
-        /// <summary>
-        /// ARN of the control panel in which this safety rule will reside.
-        /// </summary>
         [Input("controlPanelArn")]
         public Input<string>? ControlPanelArn { get; set; }
 
         [Input("gatingControls")]
         private InputList<string>? _gatingControls;
-
-        /// <summary>
-        /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-        /// </summary>
         public InputList<string> GatingControls
         {
             get => _gatingControls ?? (_gatingControls = new InputList<string>());
             set => _gatingControls = value;
         }
 
-        /// <summary>
-        /// Name describing the safety rule.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Configuration block for safety rule criteria. See below.
-        /// </summary>
         [Input("ruleConfig")]
         public Input<Inputs.SafetyRuleRuleConfigGetArgs>? RuleConfig { get; set; }
 
-        /// <summary>
-        /// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("targetControls")]
         private InputList<string>? _targetControls;
-
-        /// <summary>
-        /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
-        /// </summary>
         public InputList<string> TargetControls
         {
             get => _targetControls ?? (_targetControls = new InputList<string>());
             set => _targetControls = value;
         }
 
-        /// <summary>
-        /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-        /// </summary>
         [Input("waitPeriodMs")]
         public Input<int>? WaitPeriodMs { get; set; }
 

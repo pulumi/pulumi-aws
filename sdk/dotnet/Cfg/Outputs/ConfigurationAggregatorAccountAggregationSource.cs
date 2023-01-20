@@ -13,17 +13,8 @@ namespace Pulumi.Aws.Cfg.Outputs
     [OutputType]
     public sealed class ConfigurationAggregatorAccountAggregationSource
     {
-        /// <summary>
-        /// List of 12-digit account IDs of the account(s) being aggregated.
-        /// </summary>
         public readonly ImmutableArray<string> AccountIds;
-        /// <summary>
-        /// If true, aggregate existing AWS Config regions and future regions.
-        /// </summary>
         public readonly bool? AllRegions;
-        /// <summary>
-        /// List of source regions being aggregated.
-        /// </summary>
         public readonly ImmutableArray<string> Regions;
 
         [OutputConstructor]

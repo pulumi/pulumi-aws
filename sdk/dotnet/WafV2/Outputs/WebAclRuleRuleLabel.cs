@@ -13,9 +13,6 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleRuleLabel
     {
-        /// <summary>
-        /// Label string.
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

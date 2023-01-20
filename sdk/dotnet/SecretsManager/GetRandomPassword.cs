@@ -11,59 +11,9 @@ namespace Pulumi.Aws.SecretsManager
 {
     public static class GetRandomPassword
     {
-        /// <summary>
-        /// Generate a random password.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
-        ///     {
-        ///         ExcludeNumbers = true,
-        ///         PasswordLength = 50,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRandomPasswordResult> InvokeAsync(GetRandomPasswordArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Generate a random password.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
-        ///     {
-        ///         ExcludeNumbers = true,
-        ///         PasswordLength = 50,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRandomPasswordResult> Invoke(GetRandomPasswordInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordInvokeArgs(), options.WithDefaults());
     }
@@ -71,57 +21,30 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetRandomPasswordArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// String of the characters that you don't want in the password.
-        /// </summary>
         [Input("excludeCharacters")]
         public string? ExcludeCharacters { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude lowercase letters from the password.
-        /// </summary>
         [Input("excludeLowercase")]
         public bool? ExcludeLowercase { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude numbers from the password.
-        /// </summary>
         [Input("excludeNumbers")]
         public bool? ExcludeNumbers { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
-        /// </summary>
         [Input("excludePunctuation")]
         public bool? ExcludePunctuation { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude uppercase letters from the password.
-        /// </summary>
         [Input("excludeUppercase")]
         public bool? ExcludeUppercase { get; set; }
 
-        /// <summary>
-        /// Specifies whether to include the space character.
-        /// </summary>
         [Input("includeSpace")]
         public bool? IncludeSpace { get; set; }
 
-        /// <summary>
-        /// Length of the password.
-        /// </summary>
         [Input("passwordLength")]
         public int? PasswordLength { get; set; }
 
-        /// <summary>
-        /// Random password.
-        /// </summary>
         [Input("randomPassword")]
         public string? RandomPassword { get; set; }
 
-        /// <summary>
-        /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
-        /// </summary>
         [Input("requireEachIncludedType")]
         public bool? RequireEachIncludedType { get; set; }
 
@@ -133,57 +56,30 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetRandomPasswordInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// String of the characters that you don't want in the password.
-        /// </summary>
         [Input("excludeCharacters")]
         public Input<string>? ExcludeCharacters { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude lowercase letters from the password.
-        /// </summary>
         [Input("excludeLowercase")]
         public Input<bool>? ExcludeLowercase { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude numbers from the password.
-        /// </summary>
         [Input("excludeNumbers")]
         public Input<bool>? ExcludeNumbers { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
-        /// </summary>
         [Input("excludePunctuation")]
         public Input<bool>? ExcludePunctuation { get; set; }
 
-        /// <summary>
-        /// Specifies whether to exclude uppercase letters from the password.
-        /// </summary>
         [Input("excludeUppercase")]
         public Input<bool>? ExcludeUppercase { get; set; }
 
-        /// <summary>
-        /// Specifies whether to include the space character.
-        /// </summary>
         [Input("includeSpace")]
         public Input<bool>? IncludeSpace { get; set; }
 
-        /// <summary>
-        /// Length of the password.
-        /// </summary>
         [Input("passwordLength")]
         public Input<int>? PasswordLength { get; set; }
 
-        /// <summary>
-        /// Random password.
-        /// </summary>
         [Input("randomPassword")]
         public Input<string>? RandomPassword { get; set; }
 
-        /// <summary>
-        /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
-        /// </summary>
         [Input("requireEachIncludedType")]
         public Input<bool>? RequireEachIncludedType { get; set; }
 
@@ -208,9 +104,6 @@ namespace Pulumi.Aws.SecretsManager
         public readonly string Id;
         public readonly bool? IncludeSpace;
         public readonly int? PasswordLength;
-        /// <summary>
-        /// Random password.
-        /// </summary>
         public readonly string RandomPassword;
         public readonly bool? RequireEachIncludedType;
 
