@@ -158,6 +158,11 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{matrix.nodeversion}}
+        registry-url: https://registry.npmjs.org
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@v2
     - if: github.event_name == 'pull_request'
