@@ -105,7 +105,7 @@ provider: tfgen install_plugins
 test: 
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
-tfgen: install_plugins
+tfgen: install_plugins patch_upstream
 	(cd provider && go build -p 1 -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
@@ -119,13 +119,15 @@ init_upstream:
 			(cd upstream && git submodule update --init && git remote add source git@github.com:hashicorp/terraform-provider-aws.git) ; \
 		fi; \
 
-patch_upstream:
-	cd upstream-tools && \
-		yarn install --frozen-lockfile --silent
-	cd upstream && git checkout . && cd - || exit
-	cd upstream-tools && \
-		yarn --silent run tf-patch apply --cwd ../upstream && \
-		yarn --silent run tf-patch check --cwd ../upstream
+patch_upstream: init_upstream
+	@# Ensure tool is installed
+	cd upstream-tools yarn install --frozen-lockfile --silent
+	@# Reset all changes in the submodule so we're starting from a clean slate
+	cd upstream && git checkout .
+	@# Apply all automated changed
+	cd upstream-tools && yarn --silent run apply
+	@# Check for any pending replacements
+	cd upstream-tools && yarn --silent run check
 
 update_upstream: init_upstream
 	@echo "\033[1;33mupdate_upstream is still under construction and will likely fail.\033[0m"
