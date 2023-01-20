@@ -3,5 +3,5 @@
 
 
 "tf-patch@https://github.com/pulumi/aws-tf-fork-patch":
-  version "1.1.0"
-  resolved "https://github.com/pulumi/aws-tf-fork-patch#e6ef05c7da02992550e341d6496ea5b7862b1f39"
+  version "1.2.2"
+  resolved "https://github.com/pulumi/aws-tf-fork-patch#eab9365eba19f1825f074870f5c4f6488411b287"

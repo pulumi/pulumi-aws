@@ -1804,10 +1804,6 @@
   ],
   "website/docs/r/dms_replication_subnet_group.html.markdown": [
     {
-      "old": "* `tags` - (Optional) A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
-      "new": "* `tags` - (Optional) A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level."
-    },
-    {
       "old": "* `tags_all` - A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block).",
       "new": "* `tags_all` - A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block."
     }
@@ -3590,8 +3586,8 @@
       "new": "for more information or how to launch [Spot Instances][3] with this provider."
     },
     {
-      "old": "  this blank, Terraform will auto-generate a unique name. Conflicts with `name_prefix`.",
-      "new": "  this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`."
+      "old": "blank, Terraform will auto-generate a unique name",
+      "new": "blank, this provider will auto-generate a unique name"
     },
     {
       "old": "cannot currently be detected by Terraform. After updating to block device",
@@ -3622,8 +3618,8 @@
       "new": "this provider will autogenerate a name beginning with `tf-lb`."
     },
     {
-      "old": "   the AWS API. This will prevent Terraform from deleting the load balancer. Defaults to `false`.",
-      "new": "   the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`."
+      "old": "This will prevent Terraform from deleting the load balancer.",
+      "new": "This will prevent this provider from deleting the load balancer."
     },
     {
       "old": "* `tags` - (Optional) A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",

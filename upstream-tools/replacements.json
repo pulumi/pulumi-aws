@@ -42,6 +42,12 @@
     }
   ],
   "website/docs/d/cloudfront_origin_access_identity.html.markdown": [],
+  "website/docs/d/db_instances.html.markdown": [
+    {
+      "old": "Terraform data source for listing RDS Database Instances.",
+      "new": "Data source for listing RDS Database Instances."
+    }
+  ],
   "website/docs/d/default_tags.markdown": [
     {
       "old": "With this data source, you can apply default tags to resources not _directly_ managed by a Terraform resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.",
@@ -120,6 +126,12 @@
       "new": "That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly."
     }
   ],
+  "website/docs/d/lambda_functions.html.markdown": [
+    {
+      "old": "Terraform data resource to get a list of Lambda Functions.",
+      "new": "Data resource to get a list of Lambda Functions."
+    }
+  ],
   "website/docs/d/lb_listener.html.markdown": [
     {
       "old": "\n## Timeouts\n\nConfiguration options:\n\n- `read` - (Default `20m`)"
@@ -174,6 +186,12 @@
     {
       "old": "~> **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect Terraform's performance.",
       "new": "~> **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance."
+    }
+  ],
+  "website/docs/d/s3control_multi_region_access_point.html.markdown": [
+    {
+      "old": "Defaults to automatically determined account ID of the Terraform AWS provider.",
+      "new": "Defaults to automatically determined account ID of the AWS provider."
     }
   ],
   "website/docs/d/secretsmanager_secret_version.html.markdown": [
@@ -361,6 +379,12 @@
       "new": "* `mesh_owner` - (Optional) AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to."
     }
   ],
+  "website/docs/r/appstream_stack.html.markdown": [
+    {
+      "old": "If provided, the terraform configuration should include a block for each configurable action.",
+      "new": "If provided, the configuration should include a block for each configurable action."
+    }
+  ],
   "website/docs/r/appsync_datasource.html.markdown": [
     {
       "old": "  name                = \"tf_appsync_example\"",
@@ -381,6 +405,36 @@
     {
       "old": "Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference, e.g.,",
       "new": "Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g.,"
+    }
+  ],
+  "website/docs/r/auditmanager_account_registration.html.markdown": [
+    {
+      "old": "Terraform resource for managing AWS Audit Manager Account Registration.",
+      "new": "Resource for managing AWS Audit Manager Account Registration."
+    }
+  ],
+  "website/docs/r/auditmanager_assessment.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS Audit Manager Assessment.",
+      "new": "Resource for managing an AWS Audit Manager Assessment."
+    }
+  ],
+  "website/docs/r/auditmanager_assessment_report.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS Audit Manager Assessment Report.",
+      "new": "Resource for managing an AWS Audit Manager Assessment Report."
+    }
+  ],
+  "website/docs/r/auditmanager_control.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS Audit Manager Control.",
+      "new": "Resource for managing an AWS Audit Manager Control."
+    }
+  ],
+  "website/docs/r/auditmanager_framework.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS Audit Manager Framework.",
+      "new": "Resource for managing an AWS Audit Manager Framework."
     }
   ],
   "website/docs/r/autoscaling_group.html.markdown": [
@@ -742,6 +796,12 @@
       "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g."
     }
   ],
+  "website/docs/r/dx_connection.html.markdown": [
+    {
+      "old": "instead just removed from the Terraform state.",
+      "new": "instead just removed from the state."
+    }
+  ],
   "website/docs/r/dx_gateway_association.html.markdown": [
     {
       "old": "A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `aws_dx_gateway_association_proposal` and `aws_dx_gateway_association` resources can be found in the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository.\n"
@@ -750,6 +810,12 @@
   "website/docs/r/dx_gateway_association_proposal.html.markdown": [
     {
       "old": "A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `aws_dx_gateway_association_proposal` and `aws_dx_gateway_association` resources can be found in the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository.\n"
+    }
+  ],
+  "website/docs/r/dx_macsec_key_association.html.markdown": [
+    {
+      "old": "import this resource into your Terraform state",
+      "new": "import this resource into your state"
     }
   ],
   "website/docs/r/dynamodb_tag.html.markdown": [
@@ -886,10 +952,6 @@
       "new": "* `capacity_type` - (Optional) Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided."
     },
     {
-      "old": "* `disk_size` - (Optional) Disk size in GiB for worker nodes. Defaults to `20`. Terraform will only perform drift detection if a configuration value is provided.",
-      "new": "* `disk_size` - (Optional) Disk size in GiB for worker nodes. Defaults to `20`. The provider will only perform drift detection if a configuration value is provided."
-    },
-    {
       "old": "* `instance_types` - (Optional) List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. Terraform will only perform drift detection if a configuration value is provided.",
       "new": "* `instance_types` - (Optional) List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided."
     },
@@ -904,6 +966,10 @@
     {
       "old": "* `version` – (Optional) Kubernetes version. Defaults to EKS Cluster Kubernetes version. Terraform will only perform drift detection if a configuration value is provided.",
       "new": "* `version` – (Optional) Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided."
+    },
+    {
+      "old": "Terraform will only perform drift detection if a configuration value is provided.",
+      "new": "The provider will only perform drift detection if a configuration value is provided."
     }
   ],
   "website/docs/r/elastic_beanstalk_application.html.markdown": [
@@ -1000,12 +1066,8 @@
   ],
   "website/docs/r/fsx_file_cache.html.markdown": [
     {
-      "old": "  Terraform resource for managing an AWS FSx File Cache.",
-      "new": "  Resource for managing an AWS FSx File Cache."
-    },
-    {
-      "old": "Terraform resource for managing an AWS FSx File Cache.",
-      "new": "Resource for managing an AWS FSx File Cache."
+      "old": "Terraform resource for managing",
+      "new": "Resource for managing"
     }
   ],
   "website/docs/r/fsx_ontap_file_system.html.markdown": [
@@ -1234,12 +1296,8 @@
   ],
   "website/docs/r/inspector2_enabler.html.markdown": [
     {
-      "old": "  Terraform resource for enabling AWS Inspector V2 resource scans.",
-      "new": "  Resource for enabling AWS Inspector V2 resource scans."
-    },
-    {
-      "old": "* `resource_types` - (Required) Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, Terraform will ignore the status of the other type.",
-      "new": "* `resource_types` - (Required) Type of resources to scan. Valid values are `EC2` and `ECR`. If you only use one type, the provider will ignore the status of the other type."
+      "old": ", Terraform will ignore the status of the other type.",
+      "new": ", the provider will ignore the status of the other type."
     },
     {
       "old": "Terraform resource for enabling AWS Inspector V2 resource scans.",
@@ -2021,9 +2079,6 @@
       "new": "* `cors_rule` - (Optional, **Deprecated**) A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See [CORS rule](#cors-rule) below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_cors_configuration` instead."
     },
     {
-      "old": "* `force_destroy` - (Optional, Default:`false`) A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable."
-    },
-    {
       "old": "* `grant` - (Optional, **Deprecated**) An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See [Grant](#grant) below for details. Conflicts with `acl`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_acl` instead.",
       "new": "* `grant` - (Optional, **Deprecated**) An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See [Grant](#grant) below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_acl` instead."
     },
@@ -2367,6 +2422,16 @@
     {
       "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.",
       "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set."
+    }
+  ],
+  "website/docs/r/sesv2_configuration_set_event_destination.html.markdown": [
+    {
+      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.",
+      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination."
+    },
+    {
+      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.",
+      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination."
     }
   ],
   "website/docs/r/sesv2_dedicated_ip_assignment.html.markdown": [

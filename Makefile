@@ -124,11 +124,14 @@ patch_upstream:
 		yarn install --frozen-lockfile --silent
 	cd upstream && git checkout . && cd - || exit
 	cd upstream-tools && \
-		yarn --silent run tf-patch apply --cwd ../upstream
+		yarn --silent run tf-patch apply --cwd ../upstream && \
+		yarn --silent run tf-patch check --cwd ../upstream
 
 update_upstream: init_upstream
+	@echo "\033[1;33mupdate_upstream is still under construction and will likely fail.\033[0m"
+	cd upstream && git fetch --all && cd -
 	# Find latest tag, create new branch, rebase on new tag, push
-	export TAG=$$(cd upstream && git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1) && \
+	export TAG=$$(cd upstream && git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short) && cd -' --count=1) && \
 		cd upstream && \
 		git checkout -b "patched-$$TAG" && \
 		git rebase "$$TAG" && \
