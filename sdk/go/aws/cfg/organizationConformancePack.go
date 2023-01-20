@@ -10,168 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Config Organization Conformance Pack. More information can be found in the [Managing Conformance Packs Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. Example conformance pack templates may be found in the [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
-//
-// > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excludedAccounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
-//
-// ## Example Usage
-// ### Using Template Body
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
-//				InputParameters: cfg.OrganizationConformancePackInputParameterArray{
-//					&cfg.OrganizationConformancePackInputParameterArgs{
-//						ParameterName:  pulumi.String("AccessKeysRotatedParameterMaxAccessKeyAge"),
-//						ParameterValue: pulumi.String("90"),
-//					},
-//				},
-//				TemplateBody: pulumi.String(fmt.Sprintf(`Parameters:
-//	  AccessKeysRotatedParameterMaxAccessKeyAge:
-//	    Type: String
-//
-// Resources:
-//
-//	IAMPasswordPolicy:
-//	  Properties:
-//	    ConfigRuleName: IAMPasswordPolicy
-//	    Source:
-//	      Owner: AWS
-//	      SourceIdentifier: IAM_PASSWORD_POLICY
-//	  Type: AWS::Config::ConfigRule
-//
-// `)),
-//
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Using Template S3 URI
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Key:    pulumi.String("example-key"),
-//				Content: pulumi.String(fmt.Sprintf(`Resources:
-//	  IAMPasswordPolicy:
-//	    Properties:
-//	      ConfigRuleName: IAMPasswordPolicy
-//	      Source:
-//	        Owner: AWS
-//	        SourceIdentifier: IAM_PASSWORD_POLICY
-//	    Type: AWS::Config::ConfigRule
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationConformancePack(ctx, "exampleOrganizationConformancePack", &cfg.OrganizationConformancePackArgs{
-//				TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					bucket := _args[0].(string)
-//					key := _args[1].(string)
-//					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
-//				}).(pulumi.StringOutput),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_config_configuration_recorder.Example,
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Config Organization Conformance Packs can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
-//
-// ```
 type OrganizationConformancePack struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the organization conformance pack.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
-	DeliveryS3Bucket pulumi.StringPtrOutput `pulumi:"deliveryS3Bucket"`
-	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
-	DeliveryS3KeyPrefix pulumi.StringPtrOutput `pulumi:"deliveryS3KeyPrefix"`
-	// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-	ExcludedAccounts pulumi.StringArrayOutput `pulumi:"excludedAccounts"`
-	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
-	InputParameters OrganizationConformancePackInputParameterArrayOutput `pulumi:"inputParameters"`
-	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
-	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-	TemplateS3Uri pulumi.StringPtrOutput `pulumi:"templateS3Uri"`
+	Arn                 pulumi.StringOutput                                  `pulumi:"arn"`
+	DeliveryS3Bucket    pulumi.StringPtrOutput                               `pulumi:"deliveryS3Bucket"`
+	DeliveryS3KeyPrefix pulumi.StringPtrOutput                               `pulumi:"deliveryS3KeyPrefix"`
+	ExcludedAccounts    pulumi.StringArrayOutput                             `pulumi:"excludedAccounts"`
+	InputParameters     OrganizationConformancePackInputParameterArrayOutput `pulumi:"inputParameters"`
+	Name                pulumi.StringOutput                                  `pulumi:"name"`
+	TemplateBody        pulumi.StringPtrOutput                               `pulumi:"templateBody"`
+	TemplateS3Uri       pulumi.StringPtrOutput                               `pulumi:"templateS3Uri"`
 }
 
 // NewOrganizationConformancePack registers a new resource with the given unique name, arguments, and options.
@@ -203,41 +52,25 @@ func GetOrganizationConformancePack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationConformancePack resources.
 type organizationConformancePackState struct {
-	// Amazon Resource Name (ARN) of the organization conformance pack.
-	Arn *string `pulumi:"arn"`
-	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
-	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
-	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
-	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
-	// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-	ExcludedAccounts []string `pulumi:"excludedAccounts"`
-	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
-	InputParameters []OrganizationConformancePackInputParameter `pulumi:"inputParameters"`
-	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
-	Name *string `pulumi:"name"`
-	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-	TemplateBody *string `pulumi:"templateBody"`
-	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-	TemplateS3Uri *string `pulumi:"templateS3Uri"`
+	Arn                 *string                                     `pulumi:"arn"`
+	DeliveryS3Bucket    *string                                     `pulumi:"deliveryS3Bucket"`
+	DeliveryS3KeyPrefix *string                                     `pulumi:"deliveryS3KeyPrefix"`
+	ExcludedAccounts    []string                                    `pulumi:"excludedAccounts"`
+	InputParameters     []OrganizationConformancePackInputParameter `pulumi:"inputParameters"`
+	Name                *string                                     `pulumi:"name"`
+	TemplateBody        *string                                     `pulumi:"templateBody"`
+	TemplateS3Uri       *string                                     `pulumi:"templateS3Uri"`
 }
 
 type OrganizationConformancePackState struct {
-	// Amazon Resource Name (ARN) of the organization conformance pack.
-	Arn pulumi.StringPtrInput
-	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
-	DeliveryS3Bucket pulumi.StringPtrInput
-	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
+	Arn                 pulumi.StringPtrInput
+	DeliveryS3Bucket    pulumi.StringPtrInput
 	DeliveryS3KeyPrefix pulumi.StringPtrInput
-	// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-	ExcludedAccounts pulumi.StringArrayInput
-	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
-	InputParameters OrganizationConformancePackInputParameterArrayInput
-	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
-	Name pulumi.StringPtrInput
-	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-	TemplateBody pulumi.StringPtrInput
-	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-	TemplateS3Uri pulumi.StringPtrInput
+	ExcludedAccounts    pulumi.StringArrayInput
+	InputParameters     OrganizationConformancePackInputParameterArrayInput
+	Name                pulumi.StringPtrInput
+	TemplateBody        pulumi.StringPtrInput
+	TemplateS3Uri       pulumi.StringPtrInput
 }
 
 func (OrganizationConformancePackState) ElementType() reflect.Type {
@@ -245,38 +78,24 @@ func (OrganizationConformancePackState) ElementType() reflect.Type {
 }
 
 type organizationConformancePackArgs struct {
-	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
-	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
-	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
-	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
-	// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-	ExcludedAccounts []string `pulumi:"excludedAccounts"`
-	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
-	InputParameters []OrganizationConformancePackInputParameter `pulumi:"inputParameters"`
-	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
-	Name *string `pulumi:"name"`
-	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-	TemplateBody *string `pulumi:"templateBody"`
-	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-	TemplateS3Uri *string `pulumi:"templateS3Uri"`
+	DeliveryS3Bucket    *string                                     `pulumi:"deliveryS3Bucket"`
+	DeliveryS3KeyPrefix *string                                     `pulumi:"deliveryS3KeyPrefix"`
+	ExcludedAccounts    []string                                    `pulumi:"excludedAccounts"`
+	InputParameters     []OrganizationConformancePackInputParameter `pulumi:"inputParameters"`
+	Name                *string                                     `pulumi:"name"`
+	TemplateBody        *string                                     `pulumi:"templateBody"`
+	TemplateS3Uri       *string                                     `pulumi:"templateS3Uri"`
 }
 
 // The set of arguments for constructing a OrganizationConformancePack resource.
 type OrganizationConformancePackArgs struct {
-	// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
-	DeliveryS3Bucket pulumi.StringPtrInput
-	// The prefix for the Amazon S3 bucket. Maximum length of 1024.
+	DeliveryS3Bucket    pulumi.StringPtrInput
 	DeliveryS3KeyPrefix pulumi.StringPtrInput
-	// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-	ExcludedAccounts pulumi.StringArrayInput
-	// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
-	InputParameters OrganizationConformancePackInputParameterArrayInput
-	// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
-	Name pulumi.StringPtrInput
-	// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-	TemplateBody pulumi.StringPtrInput
-	// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-	TemplateS3Uri pulumi.StringPtrInput
+	ExcludedAccounts    pulumi.StringArrayInput
+	InputParameters     OrganizationConformancePackInputParameterArrayInput
+	Name                pulumi.StringPtrInput
+	TemplateBody        pulumi.StringPtrInput
+	TemplateS3Uri       pulumi.StringPtrInput
 }
 
 func (OrganizationConformancePackArgs) ElementType() reflect.Type {
@@ -366,44 +185,36 @@ func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutputWi
 	return o
 }
 
-// Amazon Resource Name (ARN) of the organization conformance pack.
 func (o OrganizationConformancePackOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
 func (o OrganizationConformancePackOutput) DeliveryS3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The prefix for the Amazon S3 bucket. Maximum length of 1024.
 func (o OrganizationConformancePackOutput) DeliveryS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
 func (o OrganizationConformancePackOutput) ExcludedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringArrayOutput { return v.ExcludedAccounts }).(pulumi.StringArrayOutput)
 }
 
-// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `templateBody` or in the template stored in Amazon S3 if using `templateS3Uri`.
 func (o OrganizationConformancePackOutput) InputParameters() OrganizationConformancePackInputParameterArrayOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) OrganizationConformancePackInputParameterArrayOutput {
 		return v.InputParameters
 	}).(OrganizationConformancePackInputParameterArrayOutput)
 }
 
-// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
 func (o OrganizationConformancePackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
 func (o OrganizationConformancePackOutput) TemplateBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.TemplateBody }).(pulumi.StringPtrOutput)
 }
 
-// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
 func (o OrganizationConformancePackOutput) TemplateS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationConformancePack) pulumi.StringPtrOutput { return v.TemplateS3Uri }).(pulumi.StringPtrOutput)
 }

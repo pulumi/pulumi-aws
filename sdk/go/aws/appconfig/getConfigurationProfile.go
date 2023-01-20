@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides access to an AppConfig Configuration Profile.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.LookupConfigurationProfile(ctx, &appconfig.LookupConfigurationProfileArgs{
-//				ApplicationId:          "b5d5gpj",
-//				ConfigurationProfileId: "qrbb1c1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationProfileArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileResult, error) {
 	var rv LookupConfigurationProfileResult
 	err := ctx.Invoke("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args, &rv, opts...)
@@ -50,36 +21,25 @@ func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationPr
 
 // A collection of arguments for invoking getConfigurationProfile.
 type LookupConfigurationProfileArgs struct {
-	// ID of the AppConfig application to which this configuration profile belongs.
-	ApplicationId string `pulumi:"applicationId"`
-	// ID of the Configuration Profile.
-	ConfigurationProfileId string `pulumi:"configurationProfileId"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationId          string            `pulumi:"applicationId"`
+	ConfigurationProfileId string            `pulumi:"configurationProfileId"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConfigurationProfile.
 type LookupConfigurationProfileResult struct {
-	ApplicationId string `pulumi:"applicationId"`
-	// ARN of the Configuration Profile.
+	ApplicationId          string `pulumi:"applicationId"`
 	Arn                    string `pulumi:"arn"`
 	ConfigurationProfileId string `pulumi:"configurationProfileId"`
-	// Description of the Configuration Profile.
-	Description string `pulumi:"description"`
+	Description            string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Location URI of the Configuration Profile.
-	LocationUri string `pulumi:"locationUri"`
-	// Name of the Configuration Profile.
-	Name string `pulumi:"name"`
-	// ARN of an IAM role with permission to access the configuration at the specified location_uri.
-	RetrievalRoleArn string `pulumi:"retrievalRoleArn"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-	Type string `pulumi:"type"`
-	// Nested list of methods for validating the configuration.
-	Validators []GetConfigurationProfileValidator `pulumi:"validators"`
+	Id               string                             `pulumi:"id"`
+	LocationUri      string                             `pulumi:"locationUri"`
+	Name             string                             `pulumi:"name"`
+	RetrievalRoleArn string                             `pulumi:"retrievalRoleArn"`
+	Tags             map[string]string                  `pulumi:"tags"`
+	Type             string                             `pulumi:"type"`
+	Validators       []GetConfigurationProfileValidator `pulumi:"validators"`
 }
 
 func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurationProfileOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfileResultOutput {
@@ -97,12 +57,9 @@ func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurat
 
 // A collection of arguments for invoking getConfigurationProfile.
 type LookupConfigurationProfileOutputArgs struct {
-	// ID of the AppConfig application to which this configuration profile belongs.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// ID of the Configuration Profile.
-	ConfigurationProfileId pulumi.StringInput `pulumi:"configurationProfileId"`
-	// Map of tags for the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	ApplicationId          pulumi.StringInput    `pulumi:"applicationId"`
+	ConfigurationProfileId pulumi.StringInput    `pulumi:"configurationProfileId"`
+	Tags                   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupConfigurationProfileOutputArgs) ElementType() reflect.Type {
@@ -128,7 +85,6 @@ func (o LookupConfigurationProfileResultOutput) ApplicationId() pulumi.StringOut
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// ARN of the Configuration Profile.
 func (o LookupConfigurationProfileResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -137,7 +93,6 @@ func (o LookupConfigurationProfileResultOutput) ConfigurationProfileId() pulumi.
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.ConfigurationProfileId }).(pulumi.StringOutput)
 }
 
-// Description of the Configuration Profile.
 func (o LookupConfigurationProfileResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -147,32 +102,26 @@ func (o LookupConfigurationProfileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Location URI of the Configuration Profile.
 func (o LookupConfigurationProfileResultOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.LocationUri }).(pulumi.StringOutput)
 }
 
-// Name of the Configuration Profile.
 func (o LookupConfigurationProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// ARN of an IAM role with permission to access the configuration at the specified location_uri.
 func (o LookupConfigurationProfileResultOutput) RetrievalRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.RetrievalRoleArn }).(pulumi.StringOutput)
 }
 
-// Map of tags for the resource.
 func (o LookupConfigurationProfileResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
 func (o LookupConfigurationProfileResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Nested list of methods for validating the configuration.
 func (o LookupConfigurationProfileResultOutput) Validators() GetConfigurationProfileValidatorArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) []GetConfigurationProfileValidator { return v.Validators }).(GetConfigurationProfileValidatorArrayOutput)
 }

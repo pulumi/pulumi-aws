@@ -11,67 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS KMS (Key Management) Custom Key Store.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewCustomKeyStore(ctx, "test", &kms.CustomKeyStoreArgs{
-//				CloudHsmClusterId:      pulumi.Any(_var.Cloud_hsm_cluster_id),
-//				CustomKeyStoreName:     pulumi.String("kms-custom-key-store-test"),
-//				KeyStorePassword:       pulumi.String("noplaintextpasswords1"),
-//				TrustAnchorCertificate: readFileOrPanic("anchor-certificate.crt"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-//
-// ```
 type CustomKeyStore struct {
 	pulumi.CustomResourceState
 
-	// Cluster ID of CloudHSM.
-	CloudHsmClusterId pulumi.StringOutput `pulumi:"cloudHsmClusterId"`
-	// Unique name for Custom Key Store.
-	CustomKeyStoreName pulumi.StringOutput `pulumi:"customKeyStoreName"`
-	// Password for `kmsuser` on CloudHSM.
-	KeyStorePassword pulumi.StringOutput `pulumi:"keyStorePassword"`
-	// Customer certificate used for signing on CloudHSM.
+	CloudHsmClusterId      pulumi.StringOutput `pulumi:"cloudHsmClusterId"`
+	CustomKeyStoreName     pulumi.StringOutput `pulumi:"customKeyStoreName"`
+	KeyStorePassword       pulumi.StringOutput `pulumi:"keyStorePassword"`
 	TrustAnchorCertificate pulumi.StringOutput `pulumi:"trustAnchorCertificate"`
 }
 
@@ -116,24 +61,16 @@ func GetCustomKeyStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomKeyStore resources.
 type customKeyStoreState struct {
-	// Cluster ID of CloudHSM.
-	CloudHsmClusterId *string `pulumi:"cloudHsmClusterId"`
-	// Unique name for Custom Key Store.
-	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
-	// Password for `kmsuser` on CloudHSM.
-	KeyStorePassword *string `pulumi:"keyStorePassword"`
-	// Customer certificate used for signing on CloudHSM.
+	CloudHsmClusterId      *string `pulumi:"cloudHsmClusterId"`
+	CustomKeyStoreName     *string `pulumi:"customKeyStoreName"`
+	KeyStorePassword       *string `pulumi:"keyStorePassword"`
 	TrustAnchorCertificate *string `pulumi:"trustAnchorCertificate"`
 }
 
 type CustomKeyStoreState struct {
-	// Cluster ID of CloudHSM.
-	CloudHsmClusterId pulumi.StringPtrInput
-	// Unique name for Custom Key Store.
-	CustomKeyStoreName pulumi.StringPtrInput
-	// Password for `kmsuser` on CloudHSM.
-	KeyStorePassword pulumi.StringPtrInput
-	// Customer certificate used for signing on CloudHSM.
+	CloudHsmClusterId      pulumi.StringPtrInput
+	CustomKeyStoreName     pulumi.StringPtrInput
+	KeyStorePassword       pulumi.StringPtrInput
 	TrustAnchorCertificate pulumi.StringPtrInput
 }
 
@@ -142,25 +79,17 @@ func (CustomKeyStoreState) ElementType() reflect.Type {
 }
 
 type customKeyStoreArgs struct {
-	// Cluster ID of CloudHSM.
-	CloudHsmClusterId string `pulumi:"cloudHsmClusterId"`
-	// Unique name for Custom Key Store.
-	CustomKeyStoreName string `pulumi:"customKeyStoreName"`
-	// Password for `kmsuser` on CloudHSM.
-	KeyStorePassword string `pulumi:"keyStorePassword"`
-	// Customer certificate used for signing on CloudHSM.
+	CloudHsmClusterId      string `pulumi:"cloudHsmClusterId"`
+	CustomKeyStoreName     string `pulumi:"customKeyStoreName"`
+	KeyStorePassword       string `pulumi:"keyStorePassword"`
 	TrustAnchorCertificate string `pulumi:"trustAnchorCertificate"`
 }
 
 // The set of arguments for constructing a CustomKeyStore resource.
 type CustomKeyStoreArgs struct {
-	// Cluster ID of CloudHSM.
-	CloudHsmClusterId pulumi.StringInput
-	// Unique name for Custom Key Store.
-	CustomKeyStoreName pulumi.StringInput
-	// Password for `kmsuser` on CloudHSM.
-	KeyStorePassword pulumi.StringInput
-	// Customer certificate used for signing on CloudHSM.
+	CloudHsmClusterId      pulumi.StringInput
+	CustomKeyStoreName     pulumi.StringInput
+	KeyStorePassword       pulumi.StringInput
 	TrustAnchorCertificate pulumi.StringInput
 }
 
@@ -251,22 +180,18 @@ func (o CustomKeyStoreOutput) ToCustomKeyStoreOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Cluster ID of CloudHSM.
 func (o CustomKeyStoreOutput) CloudHsmClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.CloudHsmClusterId }).(pulumi.StringOutput)
 }
 
-// Unique name for Custom Key Store.
 func (o CustomKeyStoreOutput) CustomKeyStoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.CustomKeyStoreName }).(pulumi.StringOutput)
 }
 
-// Password for `kmsuser` on CloudHSM.
 func (o CustomKeyStoreOutput) KeyStorePassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.KeyStorePassword }).(pulumi.StringOutput)
 }
 
-// Customer certificate used for signing on CloudHSM.
 func (o CustomKeyStoreOutput) TrustAnchorCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomKeyStore) pulumi.StringOutput { return v.TrustAnchorCertificate }).(pulumi.StringOutput)
 }

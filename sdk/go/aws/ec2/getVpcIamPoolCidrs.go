@@ -10,9 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
-//
-// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 func GetVpcIamPoolCidrs(ctx *pulumi.Context, args *GetVpcIamPoolCidrsArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolCidrsResult, error) {
 	var rv GetVpcIamPoolCidrsResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args, &rv, opts...)
@@ -24,18 +21,15 @@ func GetVpcIamPoolCidrs(ctx *pulumi.Context, args *GetVpcIamPoolCidrsArgs, opts 
 
 // A collection of arguments for invoking getVpcIamPoolCidrs.
 type GetVpcIamPoolCidrsArgs struct {
-	// Custom filter block as described below.
-	Filters []GetVpcIamPoolCidrsFilter `pulumi:"filters"`
-	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId string `pulumi:"ipamPoolId"`
+	Filters    []GetVpcIamPoolCidrsFilter `pulumi:"filters"`
+	IpamPoolId string                     `pulumi:"ipamPoolId"`
 }
 
 // A collection of values returned by getVpcIamPoolCidrs.
 type GetVpcIamPoolCidrsResult struct {
 	Filters []GetVpcIamPoolCidrsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The CIDRs provisioned into the IPAM pool, described below.
+	Id            string                           `pulumi:"id"`
 	IpamPoolCidrs []GetVpcIamPoolCidrsIpamPoolCidr `pulumi:"ipamPoolCidrs"`
 	IpamPoolId    string                           `pulumi:"ipamPoolId"`
 }
@@ -55,10 +49,8 @@ func GetVpcIamPoolCidrsOutput(ctx *pulumi.Context, args GetVpcIamPoolCidrsOutput
 
 // A collection of arguments for invoking getVpcIamPoolCidrs.
 type GetVpcIamPoolCidrsOutputArgs struct {
-	// Custom filter block as described below.
-	Filters GetVpcIamPoolCidrsFilterArrayInput `pulumi:"filters"`
-	// ID of the IPAM pool you would like the list of provisioned CIDRs.
-	IpamPoolId pulumi.StringInput `pulumi:"ipamPoolId"`
+	Filters    GetVpcIamPoolCidrsFilterArrayInput `pulumi:"filters"`
+	IpamPoolId pulumi.StringInput                 `pulumi:"ipamPoolId"`
 }
 
 func (GetVpcIamPoolCidrsOutputArgs) ElementType() reflect.Type {
@@ -89,7 +81,6 @@ func (o GetVpcIamPoolCidrsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolCidrsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The CIDRs provisioned into the IPAM pool, described below.
 func (o GetVpcIamPoolCidrsResultOutput) IpamPoolCidrs() GetVpcIamPoolCidrsIpamPoolCidrArrayOutput {
 	return o.ApplyT(func(v GetVpcIamPoolCidrsResult) []GetVpcIamPoolCidrsIpamPoolCidr { return v.IpamPoolCidrs }).(GetVpcIamPoolCidrsIpamPoolCidrArrayOutput)
 }

@@ -11,54 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds permission to create volumes off of a given EBS Snapshot.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Size:             pulumi.Int(40),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSnapshot, err := ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
-//				VolumeId: example.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "examplePerm", &ec2.SnapshotCreateVolumePermissionArgs{
-//				SnapshotId: exampleSnapshot.ID(),
-//				AccountId:  pulumi.String("12345678"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SnapshotCreateVolumePermission struct {
 	pulumi.CustomResourceState
 
-	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// A snapshot ID
+	AccountId  pulumi.StringOutput `pulumi:"accountId"`
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
 }
 
@@ -97,16 +53,12 @@ func GetSnapshotCreateVolumePermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.
 type snapshotCreateVolumePermissionState struct {
-	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-	AccountId *string `pulumi:"accountId"`
-	// A snapshot ID
+	AccountId  *string `pulumi:"accountId"`
 	SnapshotId *string `pulumi:"snapshotId"`
 }
 
 type SnapshotCreateVolumePermissionState struct {
-	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-	AccountId pulumi.StringPtrInput
-	// A snapshot ID
+	AccountId  pulumi.StringPtrInput
 	SnapshotId pulumi.StringPtrInput
 }
 
@@ -115,17 +67,13 @@ func (SnapshotCreateVolumePermissionState) ElementType() reflect.Type {
 }
 
 type snapshotCreateVolumePermissionArgs struct {
-	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-	AccountId string `pulumi:"accountId"`
-	// A snapshot ID
+	AccountId  string `pulumi:"accountId"`
 	SnapshotId string `pulumi:"snapshotId"`
 }
 
 // The set of arguments for constructing a SnapshotCreateVolumePermission resource.
 type SnapshotCreateVolumePermissionArgs struct {
-	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-	AccountId pulumi.StringInput
-	// A snapshot ID
+	AccountId  pulumi.StringInput
 	SnapshotId pulumi.StringInput
 }
 
@@ -216,12 +164,10 @@ func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOu
 	return o
 }
 
-// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 func (o SnapshotCreateVolumePermissionOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCreateVolumePermission) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// A snapshot ID
 func (o SnapshotCreateVolumePermissionOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCreateVolumePermission) pulumi.StringOutput { return v.SnapshotId }).(pulumi.StringOutput)
 }

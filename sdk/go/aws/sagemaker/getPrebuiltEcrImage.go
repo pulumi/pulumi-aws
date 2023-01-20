@@ -10,38 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information about prebuilt Amazon SageMaker Docker images.
-//
-// > **NOTE:** The AWS provider creates a validly constructed `registryPath` but does not verify that the `registryPath` corresponds to an existing image. For example, using a `registryPath` containing an `imageTag` that does not correspond to a Docker image in the ECR repository, will result in an error.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
-//				ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
-//				RepositoryName: "sagemaker-scikit-learn",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opts ...pulumi.InvokeOption) (*GetPrebuiltEcrImageResult, error) {
 	var rv GetPrebuiltEcrImageResult
 	err := ctx.Invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args, &rv, opts...)
@@ -53,28 +21,22 @@ func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opt
 
 // A collection of arguments for invoking getPrebuiltEcrImage.
 type GetPrebuiltEcrImageArgs struct {
-	// DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-	ImageTag *string `pulumi:"imageTag"`
-	// Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
-	Region *string `pulumi:"region"`
-	// Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
-	RepositoryName string `pulumi:"repositoryName"`
+	DnsSuffix      *string `pulumi:"dnsSuffix"`
+	ImageTag       *string `pulumi:"imageTag"`
+	Region         *string `pulumi:"region"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 // A collection of values returned by getPrebuiltEcrImage.
 type GetPrebuiltEcrImageResult struct {
 	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string  `pulumi:"id"`
-	ImageTag *string `pulumi:"imageTag"`
-	Region   *string `pulumi:"region"`
-	// Account ID containing the image. For example, `469771592824`.
-	RegistryId string `pulumi:"registryId"`
-	// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
-	RegistryPath   string `pulumi:"registryPath"`
-	RepositoryName string `pulumi:"repositoryName"`
+	Id             string  `pulumi:"id"`
+	ImageTag       *string `pulumi:"imageTag"`
+	Region         *string `pulumi:"region"`
+	RegistryId     string  `pulumi:"registryId"`
+	RegistryPath   string  `pulumi:"registryPath"`
+	RepositoryName string  `pulumi:"repositoryName"`
 }
 
 func GetPrebuiltEcrImageOutput(ctx *pulumi.Context, args GetPrebuiltEcrImageOutputArgs, opts ...pulumi.InvokeOption) GetPrebuiltEcrImageResultOutput {
@@ -92,14 +54,10 @@ func GetPrebuiltEcrImageOutput(ctx *pulumi.Context, args GetPrebuiltEcrImageOutp
 
 // A collection of arguments for invoking getPrebuiltEcrImage.
 type GetPrebuiltEcrImageOutputArgs struct {
-	// DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-	DnsSuffix pulumi.StringPtrInput `pulumi:"dnsSuffix"`
-	// Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
-	// Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
-	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	DnsSuffix      pulumi.StringPtrInput `pulumi:"dnsSuffix"`
+	ImageTag       pulumi.StringPtrInput `pulumi:"imageTag"`
+	Region         pulumi.StringPtrInput `pulumi:"region"`
+	RepositoryName pulumi.StringInput    `pulumi:"repositoryName"`
 }
 
 func (GetPrebuiltEcrImageOutputArgs) ElementType() reflect.Type {
@@ -138,12 +96,10 @@ func (o GetPrebuiltEcrImageResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPrebuiltEcrImageResult) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Account ID containing the image. For example, `469771592824`.
 func (o GetPrebuiltEcrImageResultOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
 func (o GetPrebuiltEcrImageResultOutput) RegistryPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrebuiltEcrImageResult) string { return v.RegistryPath }).(pulumi.StringOutput)
 }

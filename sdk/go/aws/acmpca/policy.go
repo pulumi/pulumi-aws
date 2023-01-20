@@ -11,91 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a resource based policy to a private CA.
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acmpca.NewPolicy(ctx, "example", &acmpca.PolicyArgs{
-//				ResourceArn: pulumi.Any(aws_acmpca_certificate_authority.Example.Arn),
-//				Policy: pulumi.String(fmt.Sprintf(`{
-//	   "Version":"2012-10-17",
-//	   "Statement":[
-//	      {
-//	         "Sid":"1",
-//	         "Effect":"Allow",
-//	         "Principal":{
-//	            "AWS":"%v"
-//	         },
-//	         "Action":[
-//	            "acm-pca:DescribeCertificateAuthority",
-//	            "acm-pca:GetCertificate",
-//	            "acm-pca:GetCertificateAuthorityCertificate",
-//	            "acm-pca:ListPermissions",
-//	            "acm-pca:ListTags"
-//	         ],
-//	         "Resource":"%v"
-//	      },
-//	      {
-//	         "Sid":"1",
-//	         "Effect":"Allow",
-//	         "Principal":{
-//	            "AWS":"%v"
-//	         },
-//	         "Action":[
-//	            "acm-pca:IssueCertificate"
-//	         ],
-//	         "Resource":"%v",
-//	         "Condition":{
-//	            "StringEquals":{
-//	               "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
-//	            }
-//	         }
-//	      }
-//	   ]
-//	}
-//
-// `, data.Aws_caller_identity.Current.Account_id, aws_acmpca_certificate_authority.Example.Arn, data.Aws_caller_identity.Current.Account_id, aws_acmpca_certificate_authority.Example.Arn)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_acmpca_policy` can be imported using the `resource_arn` value.
-//
-// ```sh
-//
-//	$ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-//
-// ```
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// JSON-formatted IAM policy to attach to the specified private CA resource.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// ARN of the private CA to associate with the policy.
+	Policy      pulumi.StringOutput `pulumi:"policy"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
@@ -134,16 +53,12 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// JSON-formatted IAM policy to attach to the specified private CA resource.
-	Policy *string `pulumi:"policy"`
-	// ARN of the private CA to associate with the policy.
+	Policy      *string `pulumi:"policy"`
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
 type PolicyState struct {
-	// JSON-formatted IAM policy to attach to the specified private CA resource.
-	Policy pulumi.StringPtrInput
-	// ARN of the private CA to associate with the policy.
+	Policy      pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
 }
 
@@ -152,17 +67,13 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// JSON-formatted IAM policy to attach to the specified private CA resource.
-	Policy string `pulumi:"policy"`
-	// ARN of the private CA to associate with the policy.
+	Policy      string `pulumi:"policy"`
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// JSON-formatted IAM policy to attach to the specified private CA resource.
-	Policy pulumi.StringInput
-	// ARN of the private CA to associate with the policy.
+	Policy      pulumi.StringInput
 	ResourceArn pulumi.StringInput
 }
 
@@ -253,12 +164,10 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// JSON-formatted IAM policy to attach to the specified private CA resource.
 func (o PolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// ARN of the private CA to associate with the policy.
 func (o PolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

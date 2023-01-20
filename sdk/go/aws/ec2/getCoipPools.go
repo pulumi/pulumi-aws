@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
 func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolsResult, error) {
 	var rv GetCoipPoolsResult
 	err := ctx.Invoke("aws:ec2/getCoipPools:getCoipPools", args, &rv, opts...)
@@ -22,19 +21,15 @@ func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getCoipPools.
 type GetCoipPoolsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired aws_ec2_coip_pools.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string    `pulumi:"tags"`
 }
 
 // A collection of values returned by getCoipPools.
 type GetCoipPoolsResult struct {
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of COIP Pool Identifiers
+	Id      string            `pulumi:"id"`
 	PoolIds []string          `pulumi:"poolIds"`
 	Tags    map[string]string `pulumi:"tags"`
 }
@@ -54,11 +49,8 @@ func GetCoipPoolsOutput(ctx *pulumi.Context, args GetCoipPoolsOutputArgs, opts .
 
 // A collection of arguments for invoking getCoipPools.
 type GetCoipPoolsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetCoipPoolsFilterArrayInput `pulumi:"filters"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired aws_ec2_coip_pools.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags    pulumi.StringMapInput        `pulumi:"tags"`
 }
 
 func (GetCoipPoolsOutputArgs) ElementType() reflect.Type {
@@ -89,7 +81,6 @@ func (o GetCoipPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of COIP Pool Identifiers
 func (o GetCoipPoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
 }

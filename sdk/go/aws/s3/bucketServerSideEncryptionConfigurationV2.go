@@ -11,80 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a S3 bucket server-side encryption configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
-//				DeletionWindowInDays: pulumi.Int(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketServerSideEncryptionConfigurationV2(ctx, "example", &s3.BucketServerSideEncryptionConfigurationV2Args{
-//				Bucket: mybucket.Bucket,
-//				Rules: s3.BucketServerSideEncryptionConfigurationV2RuleArray{
-//					&s3.BucketServerSideEncryptionConfigurationV2RuleArgs{
-//						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{
-//							KmsMasterKeyId: mykey.Arn,
-//							SseAlgorithm:   pulumi.String("aws:kms"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
-//
-// ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
-//
-// ```
 type BucketServerSideEncryptionConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-	Rules BucketServerSideEncryptionConfigurationV2RuleArrayOutput `pulumi:"rules"`
+	Bucket              pulumi.StringOutput                                      `pulumi:"bucket"`
+	ExpectedBucketOwner pulumi.StringPtrOutput                                   `pulumi:"expectedBucketOwner"`
+	Rules               BucketServerSideEncryptionConfigurationV2RuleArrayOutput `pulumi:"rules"`
 }
 
 // NewBucketServerSideEncryptionConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -122,21 +54,15 @@ func GetBucketServerSideEncryptionConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketServerSideEncryptionConfigurationV2 resources.
 type bucketServerSideEncryptionConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-	Rules []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
+	Bucket              *string                                         `pulumi:"bucket"`
+	ExpectedBucketOwner *string                                         `pulumi:"expectedBucketOwner"`
+	Rules               []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
 }
 
 type BucketServerSideEncryptionConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
+	Bucket              pulumi.StringPtrInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-	Rules BucketServerSideEncryptionConfigurationV2RuleArrayInput
+	Rules               BucketServerSideEncryptionConfigurationV2RuleArrayInput
 }
 
 func (BucketServerSideEncryptionConfigurationV2State) ElementType() reflect.Type {
@@ -144,22 +70,16 @@ func (BucketServerSideEncryptionConfigurationV2State) ElementType() reflect.Type
 }
 
 type bucketServerSideEncryptionConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-	Rules []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
+	Bucket              string                                          `pulumi:"bucket"`
+	ExpectedBucketOwner *string                                         `pulumi:"expectedBucketOwner"`
+	Rules               []BucketServerSideEncryptionConfigurationV2Rule `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a BucketServerSideEncryptionConfigurationV2 resource.
 type BucketServerSideEncryptionConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
+	Bucket              pulumi.StringInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-	Rules BucketServerSideEncryptionConfigurationV2RuleArrayInput
+	Rules               BucketServerSideEncryptionConfigurationV2RuleArrayInput
 }
 
 func (BucketServerSideEncryptionConfigurationV2Args) ElementType() reflect.Type {
@@ -249,19 +169,16 @@ func (o BucketServerSideEncryptionConfigurationV2Output) ToBucketServerSideEncry
 	return o
 }
 
-// The name of the bucket.
 func (o BucketServerSideEncryptionConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
 func (o BucketServerSideEncryptionConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) pulumi.StringPtrOutput {
 		return v.ExpectedBucketOwner
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
 func (o BucketServerSideEncryptionConfigurationV2Output) Rules() BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) BucketServerSideEncryptionConfigurationV2RuleArrayOutput {
 		return v.Rules

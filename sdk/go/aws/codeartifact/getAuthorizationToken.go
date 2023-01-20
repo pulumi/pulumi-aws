@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeartifact.GetAuthorizationToken(ctx, &codeartifact.GetAuthorizationTokenArgs{
-//				Domain: aws_codeartifact_domain.Test.Domain,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs, opts ...pulumi.InvokeOption) (*GetAuthorizationTokenResult, error) {
 	var rv GetAuthorizationTokenResult
 	err := ctx.Invoke("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", args, &rv, opts...)
@@ -48,23 +21,18 @@ func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs,
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenArgs struct {
-	// Name of the domain that is in scope for the generated authorization token.
-	Domain string `pulumi:"domain"`
-	// Account number of the AWS account that owns the domain.
-	DomainOwner *string `pulumi:"domainOwner"`
-	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-	DurationSeconds *int `pulumi:"durationSeconds"`
+	Domain          string  `pulumi:"domain"`
+	DomainOwner     *string `pulumi:"domainOwner"`
+	DurationSeconds *int    `pulumi:"durationSeconds"`
 }
 
 // A collection of values returned by getAuthorizationToken.
 type GetAuthorizationTokenResult struct {
-	// Temporary authorization token.
 	AuthorizationToken string `pulumi:"authorizationToken"`
 	Domain             string `pulumi:"domain"`
 	DomainOwner        string `pulumi:"domainOwner"`
 	DurationSeconds    *int   `pulumi:"durationSeconds"`
-	// Time in UTC RFC3339 format when the authorization token expires.
-	Expiration string `pulumi:"expiration"`
+	Expiration         string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
@@ -84,12 +52,9 @@ func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationToken
 
 // A collection of arguments for invoking getAuthorizationToken.
 type GetAuthorizationTokenOutputArgs struct {
-	// Name of the domain that is in scope for the generated authorization token.
-	Domain pulumi.StringInput `pulumi:"domain"`
-	// Account number of the AWS account that owns the domain.
-	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
-	// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	Domain          pulumi.StringInput    `pulumi:"domain"`
+	DomainOwner     pulumi.StringPtrInput `pulumi:"domainOwner"`
+	DurationSeconds pulumi.IntPtrInput    `pulumi:"durationSeconds"`
 }
 
 func (GetAuthorizationTokenOutputArgs) ElementType() reflect.Type {
@@ -111,7 +76,6 @@ func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutputWi
 	return o
 }
 
-// Temporary authorization token.
 func (o GetAuthorizationTokenResultOutput) AuthorizationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
 }
@@ -128,7 +92,6 @@ func (o GetAuthorizationTokenResultOutput) DurationSeconds() pulumi.IntPtrOutput
 	return o.ApplyT(func(v GetAuthorizationTokenResult) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Time in UTC RFC3339 format when the authorization token expires.
 func (o GetAuthorizationTokenResultOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Expiration }).(pulumi.StringOutput)
 }

@@ -11,9 +11,7 @@ import (
 )
 
 type CustomerManagedPolicyAttachmentCustomerManagedPolicyReference struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name string `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name string  `pulumi:"name"`
 	Path *string `pulumi:"path"`
 }
 
@@ -29,9 +27,7 @@ type CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput interfac
 }
 
 type CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -112,12 +108,10 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) ToC
 	}).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -146,7 +140,6 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 	}).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -167,9 +159,7 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 }
 
 type InstanceAccessControlAttributesAttribute struct {
-	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-	Key string `pulumi:"key"`
-	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+	Key    string                                          `pulumi:"key"`
 	Values []InstanceAccessControlAttributesAttributeValue `pulumi:"values"`
 }
 
@@ -185,9 +175,7 @@ type InstanceAccessControlAttributesAttributeInput interface {
 }
 
 type InstanceAccessControlAttributesAttributeArgs struct {
-	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+	Key    pulumi.StringInput                                      `pulumi:"key"`
 	Values InstanceAccessControlAttributesAttributeValueArrayInput `pulumi:"values"`
 }
 
@@ -242,12 +230,10 @@ func (o InstanceAccessControlAttributesAttributeOutput) ToInstanceAccessControlA
 	return o
 }
 
-// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
 func (o InstanceAccessControlAttributesAttributeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
 func (o InstanceAccessControlAttributesAttributeOutput) Values() InstanceAccessControlAttributesAttributeValueArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttribute) []InstanceAccessControlAttributesAttributeValue {
 		return v.Values
@@ -275,7 +261,6 @@ func (o InstanceAccessControlAttributesAttributeArrayOutput) Index(i pulumi.IntI
 }
 
 type InstanceAccessControlAttributesAttributeValue struct {
-	// The identity source to use when mapping a specified attribute to AWS SSO.
 	Sources []string `pulumi:"sources"`
 }
 
@@ -291,7 +276,6 @@ type InstanceAccessControlAttributesAttributeValueInput interface {
 }
 
 type InstanceAccessControlAttributesAttributeValueArgs struct {
-	// The identity source to use when mapping a specified attribute to AWS SSO.
 	Sources pulumi.StringArrayInput `pulumi:"sources"`
 }
 
@@ -346,7 +330,6 @@ func (o InstanceAccessControlAttributesAttributeValueOutput) ToInstanceAccessCon
 	return o
 }
 
-// The identity source to use when mapping a specified attribute to AWS SSO.
 func (o InstanceAccessControlAttributesAttributeValueOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributesAttributeValue) []string { return v.Sources }).(pulumi.StringArrayOutput)
 }
@@ -372,10 +355,8 @@ func (o InstanceAccessControlAttributesAttributeValueArrayOutput) Index(i pulumi
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundary struct {
-	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReference"`
-	// AWS-managed IAM policy ARN to use as the permissions boundary.
-	ManagedPolicyArn *string `pulumi:"managedPolicyArn"`
+	ManagedPolicyArn               *string                                                                         `pulumi:"managedPolicyArn"`
 }
 
 // PermissionsBoundaryAttachmentPermissionsBoundaryInput is an input type that accepts PermissionsBoundaryAttachmentPermissionsBoundaryArgs and PermissionsBoundaryAttachmentPermissionsBoundaryOutput values.
@@ -390,10 +371,8 @@ type PermissionsBoundaryAttachmentPermissionsBoundaryInput interface {
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundaryArgs struct {
-	// Specifies the name and path of a customer managed policy. See below.
 	CustomerManagedPolicyReference PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput `pulumi:"customerManagedPolicyReference"`
-	// AWS-managed IAM policy ARN to use as the permissions boundary.
-	ManagedPolicyArn pulumi.StringPtrInput `pulumi:"managedPolicyArn"`
+	ManagedPolicyArn               pulumi.StringPtrInput                                                                  `pulumi:"managedPolicyArn"`
 }
 
 func (PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ElementType() reflect.Type {
@@ -473,14 +452,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToPermissionsBou
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput)
 }
 
-// Specifies the name and path of a customer managed policy. See below.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) CustomerManagedPolicyReference() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
 		return v.CustomerManagedPolicyReference
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
 }
 
-// AWS-managed IAM policy ARN to use as the permissions boundary.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundary) *string { return v.ManagedPolicyArn }).(pulumi.StringPtrOutput)
 }
@@ -509,7 +486,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) Elem() Permis
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
 }
 
-// Specifies the name and path of a customer managed policy. See below.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) CustomerManagedPolicyReference() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
 		if v == nil {
@@ -519,7 +495,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) CustomerManag
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
 }
 
-// AWS-managed IAM policy ARN to use as the permissions boundary.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ManagedPolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundary) *string {
 		if v == nil {
@@ -530,9 +505,7 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ManagedPolicy
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name string `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name string  `pulumi:"name"`
 	Path *string `pulumi:"path"`
 }
 
@@ -548,9 +521,7 @@ type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefere
 }
 
 type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs struct {
-	// Name of the customer managed IAM Policy to be attached.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -631,14 +602,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
 		return v.Path
@@ -669,7 +638,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput)
 }
 
-// Name of the customer managed IAM Policy to be attached.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
 		if v == nil {
@@ -679,7 +647,6 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *string {
 		if v == nil {

@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Step Functions Activity data source
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.LookupActivity(ctx, &sfn.LookupActivityArgs{
-//				Name: pulumi.StringRef("my-activity"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulumi.InvokeOption) (*LookupActivityResult, error) {
 	var rv LookupActivityResult
 	err := ctx.Invoke("aws:sfn/getActivity:getActivity", args, &rv, opts...)
@@ -48,16 +21,13 @@ func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulum
 
 // A collection of arguments for invoking getActivity.
 type LookupActivityArgs struct {
-	// ARN that identifies the activity.
-	Arn *string `pulumi:"arn"`
-	// Name that identifies the activity.
+	Arn  *string `pulumi:"arn"`
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getActivity.
 type LookupActivityResult struct {
-	Arn string `pulumi:"arn"`
-	// Date the activity was created.
+	Arn          string `pulumi:"arn"`
 	CreationDate string `pulumi:"creationDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -79,9 +49,7 @@ func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, op
 
 // A collection of arguments for invoking getActivity.
 type LookupActivityOutputArgs struct {
-	// ARN that identifies the activity.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Name that identifies the activity.
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -108,7 +76,6 @@ func (o LookupActivityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date the activity was created.
 func (o LookupActivityResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivityResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }

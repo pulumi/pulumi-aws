@@ -10,44 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a Global Accelerator accelerator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			acceleratorArn := ""
-//			if param := cfg.Get("acceleratorArn"); param != "" {
-//				acceleratorArn = param
-//			}
-//			acceleratorName := ""
-//			if param := cfg.Get("acceleratorName"); param != "" {
-//				acceleratorName = param
-//			}
-//			_, err := globalaccelerator.LookupAccelerator(ctx, &globalaccelerator.LookupAcceleratorArgs{
-//				Arn:  pulumi.StringRef(acceleratorArn),
-//				Name: pulumi.StringRef(acceleratorName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupAcceleratorResult, error) {
 	var rv LookupAcceleratorResult
 	err := ctx.Invoke("aws:globalaccelerator/getAccelerator:getAccelerator", args, &rv, opts...)
@@ -59,9 +21,7 @@ func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ..
 
 // A collection of arguments for invoking getAccelerator.
 type LookupAcceleratorArgs struct {
-	// Full ARN of the Global Accelerator.
-	Arn *string `pulumi:"arn"`
-	// Unique name of the Global Accelerator.
+	Arn  *string           `pulumi:"arn"`
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -96,9 +56,7 @@ func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputAr
 
 // A collection of arguments for invoking getAccelerator.
 type LookupAcceleratorOutputArgs struct {
-	// Full ARN of the Global Accelerator.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Unique name of the Global Accelerator.
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

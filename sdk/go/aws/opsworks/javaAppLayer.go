@@ -11,89 +11,39 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an OpsWorks Java application layer resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewJavaAppLayer(ctx, "app", &opsworks.JavaAppLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type JavaAppLayer struct {
 	pulumi.CustomResourceState
 
-	// Keyword for the application container to use. Defaults to "tomcat".
-	AppServer pulumi.StringPtrOutput `pulumi:"appServer"`
-	// Version of the selected application container to use. Defaults to "7".
-	AppServerVersion pulumi.StringPtrOutput `pulumi:"appServerVersion"`
-	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps pulumi.BoolPtrOutput `pulumi:"autoAssignPublicIps"`
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             pulumi.BoolPtrOutput                         `pulumi:"autoHealing"`
-	CloudwatchConfiguration JavaAppLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes  pulumi.StringArrayOutput                     `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes     pulumi.StringArrayOutput                     `pulumi:"customDeployRecipes"`
-	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
-	// Custom JSON attributes to apply to the layer.
-	CustomJson pulumi.StringPtrOutput `pulumi:"customJson"`
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes     pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes  pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes JavaAppLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput `pulumi:"instanceShutdownTimeout"`
-	// Options to set for the JVM.
-	JvmOptions pulumi.StringPtrOutput `pulumi:"jvmOptions"`
-	// Keyword for the type of JVM to use. Defaults to `openjdk`.
-	JvmType pulumi.StringPtrOutput `pulumi:"jvmType"`
-	// Version of JVM to use. Defaults to "7".
-	JvmVersion           pulumi.StringPtrOutput                 `pulumi:"jvmVersion"`
-	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
-	// A human-readable name for the layer.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ID of the stack the layer will belong to.
-	StackId pulumi.StringOutput `pulumi:"stackId"`
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
+	AppServer                pulumi.StringPtrOutput                       `pulumi:"appServer"`
+	AppServerVersion         pulumi.StringPtrOutput                       `pulumi:"appServerVersion"`
+	Arn                      pulumi.StringOutput                          `pulumi:"arn"`
+	AutoAssignElasticIps     pulumi.BoolPtrOutput                         `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      pulumi.BoolPtrOutput                         `pulumi:"autoAssignPublicIps"`
+	AutoHealing              pulumi.BoolPtrOutput                         `pulumi:"autoHealing"`
+	CloudwatchConfiguration  JavaAppLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes   pulumi.StringArrayOutput                     `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes      pulumi.StringArrayOutput                     `pulumi:"customDeployRecipes"`
+	CustomInstanceProfileArn pulumi.StringPtrOutput                       `pulumi:"customInstanceProfileArn"`
+	CustomJson               pulumi.StringPtrOutput                       `pulumi:"customJson"`
+	CustomSecurityGroupIds   pulumi.StringArrayOutput                     `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes       pulumi.StringArrayOutput                     `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes    pulumi.StringArrayOutput                     `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes    pulumi.StringArrayOutput                     `pulumi:"customUndeployRecipes"`
+	DrainElbOnShutdown       pulumi.BoolPtrOutput                         `pulumi:"drainElbOnShutdown"`
+	EbsVolumes               JavaAppLayerEbsVolumeArrayOutput             `pulumi:"ebsVolumes"`
+	ElasticLoadBalancer      pulumi.StringPtrOutput                       `pulumi:"elasticLoadBalancer"`
+	InstallUpdatesOnBoot     pulumi.BoolPtrOutput                         `pulumi:"installUpdatesOnBoot"`
+	InstanceShutdownTimeout  pulumi.IntPtrOutput                          `pulumi:"instanceShutdownTimeout"`
+	JvmOptions               pulumi.StringPtrOutput                       `pulumi:"jvmOptions"`
+	JvmType                  pulumi.StringPtrOutput                       `pulumi:"jvmType"`
+	JvmVersion               pulumi.StringPtrOutput                       `pulumi:"jvmVersion"`
+	LoadBasedAutoScaling     JavaAppLayerLoadBasedAutoScalingOutput       `pulumi:"loadBasedAutoScaling"`
+	Name                     pulumi.StringOutput                          `pulumi:"name"`
+	StackId                  pulumi.StringOutput                          `pulumi:"stackId"`
+	SystemPackages           pulumi.StringArrayOutput                     `pulumi:"systemPackages"`
+	Tags                     pulumi.StringMapOutput                       `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                       `pulumi:"tagsAll"`
+	UseEbsOptimizedInstances pulumi.BoolPtrOutput                         `pulumi:"useEbsOptimizedInstances"`
 }
 
 // NewJavaAppLayer registers a new resource with the given unique name, arguments, and options.
@@ -128,114 +78,68 @@ func GetJavaAppLayer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JavaAppLayer resources.
 type javaAppLayerState struct {
-	// Keyword for the application container to use. Defaults to "tomcat".
-	AppServer *string `pulumi:"appServer"`
-	// Version of the selected application container to use. Defaults to "7".
-	AppServerVersion *string `pulumi:"appServerVersion"`
-	// The Amazon Resource Name(ARN) of the layer.
-	Arn *string `pulumi:"arn"`
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             *bool                                `pulumi:"autoHealing"`
-	CloudwatchConfiguration *JavaAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes  []string                             `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes     []string                             `pulumi:"customDeployRecipes"`
-	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
-	// Custom JSON attributes to apply to the layer.
-	CustomJson *string `pulumi:"customJson"`
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes []JavaAppLayerEbsVolume `pulumi:"ebsVolumes"`
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
-	// Options to set for the JVM.
-	JvmOptions *string `pulumi:"jvmOptions"`
-	// Keyword for the type of JVM to use. Defaults to `openjdk`.
-	JvmType *string `pulumi:"jvmType"`
-	// Version of JVM to use. Defaults to "7".
-	JvmVersion           *string                           `pulumi:"jvmVersion"`
-	LoadBasedAutoScaling *JavaAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
-	// A human-readable name for the layer.
-	Name *string `pulumi:"name"`
-	// ID of the stack the layer will belong to.
-	StackId *string `pulumi:"stackId"`
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages []string `pulumi:"systemPackages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
+	AppServer                *string                              `pulumi:"appServer"`
+	AppServerVersion         *string                              `pulumi:"appServerVersion"`
+	Arn                      *string                              `pulumi:"arn"`
+	AutoAssignElasticIps     *bool                                `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      *bool                                `pulumi:"autoAssignPublicIps"`
+	AutoHealing              *bool                                `pulumi:"autoHealing"`
+	CloudwatchConfiguration  *JavaAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes   []string                             `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes      []string                             `pulumi:"customDeployRecipes"`
+	CustomInstanceProfileArn *string                              `pulumi:"customInstanceProfileArn"`
+	CustomJson               *string                              `pulumi:"customJson"`
+	CustomSecurityGroupIds   []string                             `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes       []string                             `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes    []string                             `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes    []string                             `pulumi:"customUndeployRecipes"`
+	DrainElbOnShutdown       *bool                                `pulumi:"drainElbOnShutdown"`
+	EbsVolumes               []JavaAppLayerEbsVolume              `pulumi:"ebsVolumes"`
+	ElasticLoadBalancer      *string                              `pulumi:"elasticLoadBalancer"`
+	InstallUpdatesOnBoot     *bool                                `pulumi:"installUpdatesOnBoot"`
+	InstanceShutdownTimeout  *int                                 `pulumi:"instanceShutdownTimeout"`
+	JvmOptions               *string                              `pulumi:"jvmOptions"`
+	JvmType                  *string                              `pulumi:"jvmType"`
+	JvmVersion               *string                              `pulumi:"jvmVersion"`
+	LoadBasedAutoScaling     *JavaAppLayerLoadBasedAutoScaling    `pulumi:"loadBasedAutoScaling"`
+	Name                     *string                              `pulumi:"name"`
+	StackId                  *string                              `pulumi:"stackId"`
+	SystemPackages           []string                             `pulumi:"systemPackages"`
+	Tags                     map[string]string                    `pulumi:"tags"`
+	TagsAll                  map[string]string                    `pulumi:"tagsAll"`
+	UseEbsOptimizedInstances *bool                                `pulumi:"useEbsOptimizedInstances"`
 }
 
 type JavaAppLayerState struct {
-	// Keyword for the application container to use. Defaults to "tomcat".
-	AppServer pulumi.StringPtrInput
-	// Version of the selected application container to use. Defaults to "7".
-	AppServerVersion pulumi.StringPtrInput
-	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringPtrInput
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps pulumi.BoolPtrInput
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps pulumi.BoolPtrInput
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             pulumi.BoolPtrInput
-	CloudwatchConfiguration JavaAppLayerCloudwatchConfigurationPtrInput
-	CustomConfigureRecipes  pulumi.StringArrayInput
-	CustomDeployRecipes     pulumi.StringArrayInput
-	// The ARN of an IAM profile that will be used for the layer's instances.
+	AppServer                pulumi.StringPtrInput
+	AppServerVersion         pulumi.StringPtrInput
+	Arn                      pulumi.StringPtrInput
+	AutoAssignElasticIps     pulumi.BoolPtrInput
+	AutoAssignPublicIps      pulumi.BoolPtrInput
+	AutoHealing              pulumi.BoolPtrInput
+	CloudwatchConfiguration  JavaAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes   pulumi.StringArrayInput
+	CustomDeployRecipes      pulumi.StringArrayInput
 	CustomInstanceProfileArn pulumi.StringPtrInput
-	// Custom JSON attributes to apply to the layer.
-	CustomJson pulumi.StringPtrInput
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes     pulumi.StringArrayInput
-	CustomShutdownRecipes  pulumi.StringArrayInput
-	CustomUndeployRecipes  pulumi.StringArrayInput
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes JavaAppLayerEbsVolumeArrayInput
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer pulumi.StringPtrInput
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot pulumi.BoolPtrInput
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrInput
-	// Options to set for the JVM.
-	JvmOptions pulumi.StringPtrInput
-	// Keyword for the type of JVM to use. Defaults to `openjdk`.
-	JvmType pulumi.StringPtrInput
-	// Version of JVM to use. Defaults to "7".
-	JvmVersion           pulumi.StringPtrInput
-	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingPtrInput
-	// A human-readable name for the layer.
-	Name pulumi.StringPtrInput
-	// ID of the stack the layer will belong to.
-	StackId pulumi.StringPtrInput
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Whether to use EBS-optimized instances.
+	CustomJson               pulumi.StringPtrInput
+	CustomSecurityGroupIds   pulumi.StringArrayInput
+	CustomSetupRecipes       pulumi.StringArrayInput
+	CustomShutdownRecipes    pulumi.StringArrayInput
+	CustomUndeployRecipes    pulumi.StringArrayInput
+	DrainElbOnShutdown       pulumi.BoolPtrInput
+	EbsVolumes               JavaAppLayerEbsVolumeArrayInput
+	ElasticLoadBalancer      pulumi.StringPtrInput
+	InstallUpdatesOnBoot     pulumi.BoolPtrInput
+	InstanceShutdownTimeout  pulumi.IntPtrInput
+	JvmOptions               pulumi.StringPtrInput
+	JvmType                  pulumi.StringPtrInput
+	JvmVersion               pulumi.StringPtrInput
+	LoadBasedAutoScaling     JavaAppLayerLoadBasedAutoScalingPtrInput
+	Name                     pulumi.StringPtrInput
+	StackId                  pulumi.StringPtrInput
+	SystemPackages           pulumi.StringArrayInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
 
@@ -244,107 +148,65 @@ func (JavaAppLayerState) ElementType() reflect.Type {
 }
 
 type javaAppLayerArgs struct {
-	// Keyword for the application container to use. Defaults to "tomcat".
-	AppServer *string `pulumi:"appServer"`
-	// Version of the selected application container to use. Defaults to "7".
-	AppServerVersion *string `pulumi:"appServerVersion"`
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             *bool                                `pulumi:"autoHealing"`
-	CloudwatchConfiguration *JavaAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes  []string                             `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes     []string                             `pulumi:"customDeployRecipes"`
-	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
-	// Custom JSON attributes to apply to the layer.
-	CustomJson *string `pulumi:"customJson"`
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes []JavaAppLayerEbsVolume `pulumi:"ebsVolumes"`
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int `pulumi:"instanceShutdownTimeout"`
-	// Options to set for the JVM.
-	JvmOptions *string `pulumi:"jvmOptions"`
-	// Keyword for the type of JVM to use. Defaults to `openjdk`.
-	JvmType *string `pulumi:"jvmType"`
-	// Version of JVM to use. Defaults to "7".
-	JvmVersion           *string                           `pulumi:"jvmVersion"`
-	LoadBasedAutoScaling *JavaAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
-	// A human-readable name for the layer.
-	Name *string `pulumi:"name"`
-	// ID of the stack the layer will belong to.
-	StackId string `pulumi:"stackId"`
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages []string `pulumi:"systemPackages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
+	AppServer                *string                              `pulumi:"appServer"`
+	AppServerVersion         *string                              `pulumi:"appServerVersion"`
+	AutoAssignElasticIps     *bool                                `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      *bool                                `pulumi:"autoAssignPublicIps"`
+	AutoHealing              *bool                                `pulumi:"autoHealing"`
+	CloudwatchConfiguration  *JavaAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes   []string                             `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes      []string                             `pulumi:"customDeployRecipes"`
+	CustomInstanceProfileArn *string                              `pulumi:"customInstanceProfileArn"`
+	CustomJson               *string                              `pulumi:"customJson"`
+	CustomSecurityGroupIds   []string                             `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes       []string                             `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes    []string                             `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes    []string                             `pulumi:"customUndeployRecipes"`
+	DrainElbOnShutdown       *bool                                `pulumi:"drainElbOnShutdown"`
+	EbsVolumes               []JavaAppLayerEbsVolume              `pulumi:"ebsVolumes"`
+	ElasticLoadBalancer      *string                              `pulumi:"elasticLoadBalancer"`
+	InstallUpdatesOnBoot     *bool                                `pulumi:"installUpdatesOnBoot"`
+	InstanceShutdownTimeout  *int                                 `pulumi:"instanceShutdownTimeout"`
+	JvmOptions               *string                              `pulumi:"jvmOptions"`
+	JvmType                  *string                              `pulumi:"jvmType"`
+	JvmVersion               *string                              `pulumi:"jvmVersion"`
+	LoadBasedAutoScaling     *JavaAppLayerLoadBasedAutoScaling    `pulumi:"loadBasedAutoScaling"`
+	Name                     *string                              `pulumi:"name"`
+	StackId                  string                               `pulumi:"stackId"`
+	SystemPackages           []string                             `pulumi:"systemPackages"`
+	Tags                     map[string]string                    `pulumi:"tags"`
+	UseEbsOptimizedInstances *bool                                `pulumi:"useEbsOptimizedInstances"`
 }
 
 // The set of arguments for constructing a JavaAppLayer resource.
 type JavaAppLayerArgs struct {
-	// Keyword for the application container to use. Defaults to "tomcat".
-	AppServer pulumi.StringPtrInput
-	// Version of the selected application container to use. Defaults to "7".
-	AppServerVersion pulumi.StringPtrInput
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps pulumi.BoolPtrInput
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps pulumi.BoolPtrInput
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             pulumi.BoolPtrInput
-	CloudwatchConfiguration JavaAppLayerCloudwatchConfigurationPtrInput
-	CustomConfigureRecipes  pulumi.StringArrayInput
-	CustomDeployRecipes     pulumi.StringArrayInput
-	// The ARN of an IAM profile that will be used for the layer's instances.
+	AppServer                pulumi.StringPtrInput
+	AppServerVersion         pulumi.StringPtrInput
+	AutoAssignElasticIps     pulumi.BoolPtrInput
+	AutoAssignPublicIps      pulumi.BoolPtrInput
+	AutoHealing              pulumi.BoolPtrInput
+	CloudwatchConfiguration  JavaAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes   pulumi.StringArrayInput
+	CustomDeployRecipes      pulumi.StringArrayInput
 	CustomInstanceProfileArn pulumi.StringPtrInput
-	// Custom JSON attributes to apply to the layer.
-	CustomJson pulumi.StringPtrInput
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes     pulumi.StringArrayInput
-	CustomShutdownRecipes  pulumi.StringArrayInput
-	CustomUndeployRecipes  pulumi.StringArrayInput
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes JavaAppLayerEbsVolumeArrayInput
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer pulumi.StringPtrInput
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot pulumi.BoolPtrInput
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrInput
-	// Options to set for the JVM.
-	JvmOptions pulumi.StringPtrInput
-	// Keyword for the type of JVM to use. Defaults to `openjdk`.
-	JvmType pulumi.StringPtrInput
-	// Version of JVM to use. Defaults to "7".
-	JvmVersion           pulumi.StringPtrInput
-	LoadBasedAutoScaling JavaAppLayerLoadBasedAutoScalingPtrInput
-	// A human-readable name for the layer.
-	Name pulumi.StringPtrInput
-	// ID of the stack the layer will belong to.
-	StackId pulumi.StringInput
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Whether to use EBS-optimized instances.
+	CustomJson               pulumi.StringPtrInput
+	CustomSecurityGroupIds   pulumi.StringArrayInput
+	CustomSetupRecipes       pulumi.StringArrayInput
+	CustomShutdownRecipes    pulumi.StringArrayInput
+	CustomUndeployRecipes    pulumi.StringArrayInput
+	DrainElbOnShutdown       pulumi.BoolPtrInput
+	EbsVolumes               JavaAppLayerEbsVolumeArrayInput
+	ElasticLoadBalancer      pulumi.StringPtrInput
+	InstallUpdatesOnBoot     pulumi.BoolPtrInput
+	InstanceShutdownTimeout  pulumi.IntPtrInput
+	JvmOptions               pulumi.StringPtrInput
+	JvmType                  pulumi.StringPtrInput
+	JvmVersion               pulumi.StringPtrInput
+	LoadBasedAutoScaling     JavaAppLayerLoadBasedAutoScalingPtrInput
+	Name                     pulumi.StringPtrInput
+	StackId                  pulumi.StringInput
+	SystemPackages           pulumi.StringArrayInput
+	Tags                     pulumi.StringMapInput
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
 
@@ -435,32 +297,26 @@ func (o JavaAppLayerOutput) ToJavaAppLayerOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Keyword for the application container to use. Defaults to "tomcat".
 func (o JavaAppLayerOutput) AppServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.AppServer }).(pulumi.StringPtrOutput)
 }
 
-// Version of the selected application container to use. Defaults to "7".
 func (o JavaAppLayerOutput) AppServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.AppServerVersion }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name(ARN) of the layer.
 func (o JavaAppLayerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether to automatically assign an elastic IP address to the layer's instances.
 func (o JavaAppLayerOutput) AutoAssignElasticIps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.BoolPtrOutput { return v.AutoAssignElasticIps }).(pulumi.BoolPtrOutput)
 }
 
-// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 func (o JavaAppLayerOutput) AutoAssignPublicIps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.BoolPtrOutput { return v.AutoAssignPublicIps }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable auto-healing for the layer.
 func (o JavaAppLayerOutput) AutoHealing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.BoolPtrOutput { return v.AutoHealing }).(pulumi.BoolPtrOutput)
 }
@@ -477,17 +333,14 @@ func (o JavaAppLayerOutput) CustomDeployRecipes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringArrayOutput { return v.CustomDeployRecipes }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of an IAM profile that will be used for the layer's instances.
 func (o JavaAppLayerOutput) CustomInstanceProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.CustomInstanceProfileArn }).(pulumi.StringPtrOutput)
 }
 
-// Custom JSON attributes to apply to the layer.
 func (o JavaAppLayerOutput) CustomJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.CustomJson }).(pulumi.StringPtrOutput)
 }
 
-// Ids for a set of security groups to apply to the layer's instances.
 func (o JavaAppLayerOutput) CustomSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringArrayOutput { return v.CustomSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -504,42 +357,34 @@ func (o JavaAppLayerOutput) CustomUndeployRecipes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringArrayOutput { return v.CustomUndeployRecipes }).(pulumi.StringArrayOutput)
 }
 
-// Whether to enable Elastic Load Balancing connection draining.
 func (o JavaAppLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o JavaAppLayerOutput) EbsVolumes() JavaAppLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *JavaAppLayer) JavaAppLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(JavaAppLayerEbsVolumeArrayOutput)
 }
 
-// Name of an Elastic Load Balancer to attach to this layer
 func (o JavaAppLayerOutput) ElasticLoadBalancer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.ElasticLoadBalancer }).(pulumi.StringPtrOutput)
 }
 
-// Whether to install OS and package updates on each instance when it boots.
 func (o JavaAppLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.BoolPtrOutput { return v.InstallUpdatesOnBoot }).(pulumi.BoolPtrOutput)
 }
 
-// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o JavaAppLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Options to set for the JVM.
 func (o JavaAppLayerOutput) JvmOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.JvmOptions }).(pulumi.StringPtrOutput)
 }
 
-// Keyword for the type of JVM to use. Defaults to `openjdk`.
 func (o JavaAppLayerOutput) JvmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.JvmType }).(pulumi.StringPtrOutput)
 }
 
-// Version of JVM to use. Defaults to "7".
 func (o JavaAppLayerOutput) JvmVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringPtrOutput { return v.JvmVersion }).(pulumi.StringPtrOutput)
 }
@@ -548,32 +393,26 @@ func (o JavaAppLayerOutput) LoadBasedAutoScaling() JavaAppLayerLoadBasedAutoScal
 	return o.ApplyT(func(v *JavaAppLayer) JavaAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(JavaAppLayerLoadBasedAutoScalingOutput)
 }
 
-// A human-readable name for the layer.
 func (o JavaAppLayerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// ID of the stack the layer will belong to.
 func (o JavaAppLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
 
-// Names of a set of system packages to install on the layer's instances.
 func (o JavaAppLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringArrayOutput { return v.SystemPackages }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o JavaAppLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o JavaAppLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Whether to use EBS-optimized instances.
 func (o JavaAppLayerOutput) UseEbsOptimizedInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JavaAppLayer) pulumi.BoolPtrOutput { return v.UseEbsOptimizedInstances }).(pulumi.BoolPtrOutput)
 }

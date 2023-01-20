@@ -11,61 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon API Gateway Version 2 deployment.
-// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-//
-// > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewDeployment(ctx, "example", &apigatewayv2.DeploymentArgs{
-//				ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				Description: pulumi.String("Example deployment"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_apigatewayv2_deployment` can be imported by using the API identifier and deployment identifier, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
-//
-// ```
-//
-//	The `triggers` argument cannot be imported.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// API identifier.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// Whether the deployment was automatically released.
-	AutoDeployed pulumi.BoolOutput `pulumi:"autoDeployed"`
-	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
+	ApiId        pulumi.StringOutput    `pulumi:"apiId"`
+	AutoDeployed pulumi.BoolOutput      `pulumi:"autoDeployed"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	Triggers     pulumi.StringMapOutput `pulumi:"triggers"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -100,25 +52,17 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// API identifier.
-	ApiId *string `pulumi:"apiId"`
-	// Whether the deployment was automatically released.
-	AutoDeployed *bool `pulumi:"autoDeployed"`
-	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-	Description *string `pulumi:"description"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers map[string]string `pulumi:"triggers"`
+	ApiId        *string           `pulumi:"apiId"`
+	AutoDeployed *bool             `pulumi:"autoDeployed"`
+	Description  *string           `pulumi:"description"`
+	Triggers     map[string]string `pulumi:"triggers"`
 }
 
 type DeploymentState struct {
-	// API identifier.
-	ApiId pulumi.StringPtrInput
-	// Whether the deployment was automatically released.
+	ApiId        pulumi.StringPtrInput
 	AutoDeployed pulumi.BoolPtrInput
-	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-	Description pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers pulumi.StringMapInput
+	Description  pulumi.StringPtrInput
+	Triggers     pulumi.StringMapInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {
@@ -126,22 +70,16 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// API identifier.
-	ApiId string `pulumi:"apiId"`
-	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-	Description *string `pulumi:"description"`
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers map[string]string `pulumi:"triggers"`
+	ApiId       string            `pulumi:"apiId"`
+	Description *string           `pulumi:"description"`
+	Triggers    map[string]string `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// API identifier.
-	ApiId pulumi.StringInput
-	// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+	ApiId       pulumi.StringInput
 	Description pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-	Triggers pulumi.StringMapInput
+	Triggers    pulumi.StringMapInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -231,22 +169,18 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// API identifier.
 func (o DeploymentOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// Whether the deployment was automatically released.
 func (o DeploymentOutput) AutoDeployed() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolOutput { return v.AutoDeployed }).(pulumi.BoolOutput)
 }
 
-// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 func (o DeploymentOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }

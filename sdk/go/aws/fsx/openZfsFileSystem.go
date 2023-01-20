@@ -11,112 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon FSx for OpenZFS file system.
-// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOpenZfsFileSystem(ctx, "test", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Test1.Id,
-//				},
-//				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(64),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// FSx File Systems can be imported using the `id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
-//
-// ```
-//
-//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_fsx_openzfs_file_system" "example" {
-//
-// # ... other configuration ...
-//
-//	security_group_ids = [aws_security_group.example.id]
-//
-// # There is no FSx API for reading security_group_ids
-//
-//	lifecycle {
-//
-//	ignore_changes = [security_group_ids]
-//
-//	} }
 type OpenZfsFileSystem struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the file system.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
-	// The ID of the source backup to create the filesystem from.
-	BackupId pulumi.StringPtrOutput `pulumi:"backupId"`
-	// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
-	CopyTagsToBackups pulumi.BoolPtrOutput `pulumi:"copyTagsToBackups"`
-	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-	CopyTagsToVolumes pulumi.BoolPtrOutput `pulumi:"copyTagsToVolumes"`
-	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
-	// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
-	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
-	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
-	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
-	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
-	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
-	// AWS account identifier that created the file system.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
-	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationOutput `pulumi:"rootVolumeConfiguration"`
-	// Identifier of the root volume, e.g., `fsvol-12345678`
-	RootVolumeId pulumi.StringOutput `pulumi:"rootVolumeId"`
-	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-	StorageCapacity pulumi.IntPtrOutput `pulumi:"storageCapacity"`
-	// The filesystem storage type. Only `SSD` is supported.
-	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
-	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
-	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
-	// Identifier of the Virtual Private Cloud for the file system.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
-	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime pulumi.StringOutput `pulumi:"weeklyMaintenanceStartTime"`
+	Arn                           pulumi.StringOutput                            `pulumi:"arn"`
+	AutomaticBackupRetentionDays  pulumi.IntPtrOutput                            `pulumi:"automaticBackupRetentionDays"`
+	BackupId                      pulumi.StringPtrOutput                         `pulumi:"backupId"`
+	CopyTagsToBackups             pulumi.BoolPtrOutput                           `pulumi:"copyTagsToBackups"`
+	CopyTagsToVolumes             pulumi.BoolPtrOutput                           `pulumi:"copyTagsToVolumes"`
+	DailyAutomaticBackupStartTime pulumi.StringOutput                            `pulumi:"dailyAutomaticBackupStartTime"`
+	DeploymentType                pulumi.StringOutput                            `pulumi:"deploymentType"`
+	DiskIopsConfiguration         OpenZfsFileSystemDiskIopsConfigurationOutput   `pulumi:"diskIopsConfiguration"`
+	DnsName                       pulumi.StringOutput                            `pulumi:"dnsName"`
+	KmsKeyId                      pulumi.StringOutput                            `pulumi:"kmsKeyId"`
+	NetworkInterfaceIds           pulumi.StringArrayOutput                       `pulumi:"networkInterfaceIds"`
+	OwnerId                       pulumi.StringOutput                            `pulumi:"ownerId"`
+	RootVolumeConfiguration       OpenZfsFileSystemRootVolumeConfigurationOutput `pulumi:"rootVolumeConfiguration"`
+	RootVolumeId                  pulumi.StringOutput                            `pulumi:"rootVolumeId"`
+	SecurityGroupIds              pulumi.StringArrayOutput                       `pulumi:"securityGroupIds"`
+	StorageCapacity               pulumi.IntPtrOutput                            `pulumi:"storageCapacity"`
+	StorageType                   pulumi.StringPtrOutput                         `pulumi:"storageType"`
+	SubnetIds                     pulumi.StringOutput                            `pulumi:"subnetIds"`
+	Tags                          pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll                       pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	ThroughputCapacity            pulumi.IntOutput                               `pulumi:"throughputCapacity"`
+	VpcId                         pulumi.StringOutput                            `pulumi:"vpcId"`
+	WeeklyMaintenanceStartTime    pulumi.StringOutput                            `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 // NewOpenZfsFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -157,101 +77,55 @@ func GetOpenZfsFileSystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenZfsFileSystem resources.
 type openZfsFileSystemState struct {
-	// Amazon Resource Name of the file system.
-	Arn *string `pulumi:"arn"`
-	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
-	// The ID of the source backup to create the filesystem from.
-	BackupId *string `pulumi:"backupId"`
-	// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
-	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
-	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-	CopyTagsToVolumes *bool `pulumi:"copyTagsToVolumes"`
-	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
-	DeploymentType *string `pulumi:"deploymentType"`
-	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
-	DiskIopsConfiguration *OpenZfsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
-	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
-	DnsName *string `pulumi:"dnsName"`
-	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
-	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
-	// AWS account identifier that created the file system.
-	OwnerId *string `pulumi:"ownerId"`
-	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
-	RootVolumeConfiguration *OpenZfsFileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
-	// Identifier of the root volume, e.g., `fsvol-12345678`
-	RootVolumeId *string `pulumi:"rootVolumeId"`
-	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-	StorageCapacity *int `pulumi:"storageCapacity"`
-	// The filesystem storage type. Only `SSD` is supported.
-	StorageType *string `pulumi:"storageType"`
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
-	SubnetIds *string `pulumi:"subnetIds"`
-	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
-	ThroughputCapacity *int `pulumi:"throughputCapacity"`
-	// Identifier of the Virtual Private Cloud for the file system.
-	VpcId *string `pulumi:"vpcId"`
-	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
+	Arn                           *string                                   `pulumi:"arn"`
+	AutomaticBackupRetentionDays  *int                                      `pulumi:"automaticBackupRetentionDays"`
+	BackupId                      *string                                   `pulumi:"backupId"`
+	CopyTagsToBackups             *bool                                     `pulumi:"copyTagsToBackups"`
+	CopyTagsToVolumes             *bool                                     `pulumi:"copyTagsToVolumes"`
+	DailyAutomaticBackupStartTime *string                                   `pulumi:"dailyAutomaticBackupStartTime"`
+	DeploymentType                *string                                   `pulumi:"deploymentType"`
+	DiskIopsConfiguration         *OpenZfsFileSystemDiskIopsConfiguration   `pulumi:"diskIopsConfiguration"`
+	DnsName                       *string                                   `pulumi:"dnsName"`
+	KmsKeyId                      *string                                   `pulumi:"kmsKeyId"`
+	NetworkInterfaceIds           []string                                  `pulumi:"networkInterfaceIds"`
+	OwnerId                       *string                                   `pulumi:"ownerId"`
+	RootVolumeConfiguration       *OpenZfsFileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
+	RootVolumeId                  *string                                   `pulumi:"rootVolumeId"`
+	SecurityGroupIds              []string                                  `pulumi:"securityGroupIds"`
+	StorageCapacity               *int                                      `pulumi:"storageCapacity"`
+	StorageType                   *string                                   `pulumi:"storageType"`
+	SubnetIds                     *string                                   `pulumi:"subnetIds"`
+	Tags                          map[string]string                         `pulumi:"tags"`
+	TagsAll                       map[string]string                         `pulumi:"tagsAll"`
+	ThroughputCapacity            *int                                      `pulumi:"throughputCapacity"`
+	VpcId                         *string                                   `pulumi:"vpcId"`
+	WeeklyMaintenanceStartTime    *string                                   `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 type OpenZfsFileSystemState struct {
-	// Amazon Resource Name of the file system.
-	Arn pulumi.StringPtrInput
-	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-	AutomaticBackupRetentionDays pulumi.IntPtrInput
-	// The ID of the source backup to create the filesystem from.
-	BackupId pulumi.StringPtrInput
-	// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
-	CopyTagsToBackups pulumi.BoolPtrInput
-	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-	CopyTagsToVolumes pulumi.BoolPtrInput
-	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+	Arn                           pulumi.StringPtrInput
+	AutomaticBackupRetentionDays  pulumi.IntPtrInput
+	BackupId                      pulumi.StringPtrInput
+	CopyTagsToBackups             pulumi.BoolPtrInput
+	CopyTagsToVolumes             pulumi.BoolPtrInput
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
-	DeploymentType pulumi.StringPtrInput
-	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
-	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationPtrInput
-	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
-	DnsName pulumi.StringPtrInput
-	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-	KmsKeyId pulumi.StringPtrInput
-	// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
-	NetworkInterfaceIds pulumi.StringArrayInput
-	// AWS account identifier that created the file system.
-	OwnerId pulumi.StringPtrInput
-	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
-	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationPtrInput
-	// Identifier of the root volume, e.g., `fsvol-12345678`
-	RootVolumeId pulumi.StringPtrInput
-	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-	SecurityGroupIds pulumi.StringArrayInput
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-	StorageCapacity pulumi.IntPtrInput
-	// The filesystem storage type. Only `SSD` is supported.
-	StorageType pulumi.StringPtrInput
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
-	SubnetIds pulumi.StringPtrInput
-	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
-	ThroughputCapacity pulumi.IntPtrInput
-	// Identifier of the Virtual Private Cloud for the file system.
-	VpcId pulumi.StringPtrInput
-	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime pulumi.StringPtrInput
+	DeploymentType                pulumi.StringPtrInput
+	DiskIopsConfiguration         OpenZfsFileSystemDiskIopsConfigurationPtrInput
+	DnsName                       pulumi.StringPtrInput
+	KmsKeyId                      pulumi.StringPtrInput
+	NetworkInterfaceIds           pulumi.StringArrayInput
+	OwnerId                       pulumi.StringPtrInput
+	RootVolumeConfiguration       OpenZfsFileSystemRootVolumeConfigurationPtrInput
+	RootVolumeId                  pulumi.StringPtrInput
+	SecurityGroupIds              pulumi.StringArrayInput
+	StorageCapacity               pulumi.IntPtrInput
+	StorageType                   pulumi.StringPtrInput
+	SubnetIds                     pulumi.StringPtrInput
+	Tags                          pulumi.StringMapInput
+	TagsAll                       pulumi.StringMapInput
+	ThroughputCapacity            pulumi.IntPtrInput
+	VpcId                         pulumi.StringPtrInput
+	WeeklyMaintenanceStartTime    pulumi.StringPtrInput
 }
 
 func (OpenZfsFileSystemState) ElementType() reflect.Type {
@@ -259,74 +133,42 @@ func (OpenZfsFileSystemState) ElementType() reflect.Type {
 }
 
 type openZfsFileSystemArgs struct {
-	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
-	// The ID of the source backup to create the filesystem from.
-	BackupId *string `pulumi:"backupId"`
-	// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
-	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
-	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-	CopyTagsToVolumes *bool `pulumi:"copyTagsToVolumes"`
-	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
-	DeploymentType string `pulumi:"deploymentType"`
-	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
-	DiskIopsConfiguration *OpenZfsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
-	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
-	RootVolumeConfiguration *OpenZfsFileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
-	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-	StorageCapacity *int `pulumi:"storageCapacity"`
-	// The filesystem storage type. Only `SSD` is supported.
-	StorageType *string `pulumi:"storageType"`
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
-	SubnetIds string `pulumi:"subnetIds"`
-	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
-	ThroughputCapacity int `pulumi:"throughputCapacity"`
-	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
+	AutomaticBackupRetentionDays  *int                                      `pulumi:"automaticBackupRetentionDays"`
+	BackupId                      *string                                   `pulumi:"backupId"`
+	CopyTagsToBackups             *bool                                     `pulumi:"copyTagsToBackups"`
+	CopyTagsToVolumes             *bool                                     `pulumi:"copyTagsToVolumes"`
+	DailyAutomaticBackupStartTime *string                                   `pulumi:"dailyAutomaticBackupStartTime"`
+	DeploymentType                string                                    `pulumi:"deploymentType"`
+	DiskIopsConfiguration         *OpenZfsFileSystemDiskIopsConfiguration   `pulumi:"diskIopsConfiguration"`
+	KmsKeyId                      *string                                   `pulumi:"kmsKeyId"`
+	RootVolumeConfiguration       *OpenZfsFileSystemRootVolumeConfiguration `pulumi:"rootVolumeConfiguration"`
+	SecurityGroupIds              []string                                  `pulumi:"securityGroupIds"`
+	StorageCapacity               *int                                      `pulumi:"storageCapacity"`
+	StorageType                   *string                                   `pulumi:"storageType"`
+	SubnetIds                     string                                    `pulumi:"subnetIds"`
+	Tags                          map[string]string                         `pulumi:"tags"`
+	ThroughputCapacity            int                                       `pulumi:"throughputCapacity"`
+	WeeklyMaintenanceStartTime    *string                                   `pulumi:"weeklyMaintenanceStartTime"`
 }
 
 // The set of arguments for constructing a OpenZfsFileSystem resource.
 type OpenZfsFileSystemArgs struct {
-	// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-	AutomaticBackupRetentionDays pulumi.IntPtrInput
-	// The ID of the source backup to create the filesystem from.
-	BackupId pulumi.StringPtrInput
-	// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
-	CopyTagsToBackups pulumi.BoolPtrInput
-	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-	CopyTagsToVolumes pulumi.BoolPtrInput
-	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+	AutomaticBackupRetentionDays  pulumi.IntPtrInput
+	BackupId                      pulumi.StringPtrInput
+	CopyTagsToBackups             pulumi.BoolPtrInput
+	CopyTagsToVolumes             pulumi.BoolPtrInput
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
-	DeploymentType pulumi.StringInput
-	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
-	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationPtrInput
-	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-	KmsKeyId pulumi.StringPtrInput
-	// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
-	RootVolumeConfiguration OpenZfsFileSystemRootVolumeConfigurationPtrInput
-	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-	SecurityGroupIds pulumi.StringArrayInput
-	// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
-	StorageCapacity pulumi.IntPtrInput
-	// The filesystem storage type. Only `SSD` is supported.
-	StorageType pulumi.StringPtrInput
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
-	SubnetIds pulumi.StringInput
-	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
-	ThroughputCapacity pulumi.IntInput
-	// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-	WeeklyMaintenanceStartTime pulumi.StringPtrInput
+	DeploymentType                pulumi.StringInput
+	DiskIopsConfiguration         OpenZfsFileSystemDiskIopsConfigurationPtrInput
+	KmsKeyId                      pulumi.StringPtrInput
+	RootVolumeConfiguration       OpenZfsFileSystemRootVolumeConfigurationPtrInput
+	SecurityGroupIds              pulumi.StringArrayInput
+	StorageCapacity               pulumi.IntPtrInput
+	StorageType                   pulumi.StringPtrInput
+	SubnetIds                     pulumi.StringInput
+	Tags                          pulumi.StringMapInput
+	ThroughputCapacity            pulumi.IntInput
+	WeeklyMaintenanceStartTime    pulumi.StringPtrInput
 }
 
 func (OpenZfsFileSystemArgs) ElementType() reflect.Type {
@@ -416,121 +258,98 @@ func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name of the file system.
 func (o OpenZfsFileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
 func (o OpenZfsFileSystemOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.IntPtrOutput { return v.AutomaticBackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the source backup to create the filesystem from.
 func (o OpenZfsFileSystemOutput) BackupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
-// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
 func (o OpenZfsFileSystemOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.BoolPtrOutput { return v.CopyTagsToBackups }).(pulumi.BoolPtrOutput)
 }
 
-// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 func (o OpenZfsFileSystemOutput) CopyTagsToVolumes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.BoolPtrOutput { return v.CopyTagsToVolumes }).(pulumi.BoolPtrOutput)
 }
 
-// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 func (o OpenZfsFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.DailyAutomaticBackupStartTime }).(pulumi.StringOutput)
 }
 
-// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
 func (o OpenZfsFileSystemOutput) DeploymentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
-// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
 func (o OpenZfsFileSystemOutput) DiskIopsConfiguration() OpenZfsFileSystemDiskIopsConfigurationOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystemDiskIopsConfigurationOutput {
 		return v.DiskIopsConfiguration
 	}).(OpenZfsFileSystemDiskIopsConfigurationOutput)
 }
 
-// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 func (o OpenZfsFileSystemOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
 func (o OpenZfsFileSystemOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
 func (o OpenZfsFileSystemOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-// AWS account identifier that created the file system.
 func (o OpenZfsFileSystemOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
 func (o OpenZfsFileSystemOutput) RootVolumeConfiguration() OpenZfsFileSystemRootVolumeConfigurationOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) OpenZfsFileSystemRootVolumeConfigurationOutput {
 		return v.RootVolumeConfiguration
 	}).(OpenZfsFileSystemRootVolumeConfigurationOutput)
 }
 
-// Identifier of the root volume, e.g., `fsvol-12345678`
 func (o OpenZfsFileSystemOutput) RootVolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.RootVolumeId }).(pulumi.StringOutput)
 }
 
-// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 func (o OpenZfsFileSystemOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
 func (o OpenZfsFileSystemOutput) StorageCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.IntPtrOutput { return v.StorageCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The filesystem storage type. Only `SSD` is supported.
 func (o OpenZfsFileSystemOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
-// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
 func (o OpenZfsFileSystemOutput) SubnetIds() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.SubnetIds }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OpenZfsFileSystemOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OpenZfsFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `64` and maximum of `4096`.
 func (o OpenZfsFileSystemOutput) ThroughputCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.IntOutput { return v.ThroughputCapacity }).(pulumi.IntOutput)
 }
 
-// Identifier of the Virtual Private Cloud for the file system.
 func (o OpenZfsFileSystemOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 func (o OpenZfsFileSystemOutput) WeeklyMaintenanceStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.WeeklyMaintenanceStartTime }).(pulumi.StringOutput)
 }

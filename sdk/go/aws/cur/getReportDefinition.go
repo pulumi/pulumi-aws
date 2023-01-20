@@ -10,37 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information on an AWS Cost and Usage Report Definition.
-//
-// > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-//
-// > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cur"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cur.LookupReportDefinition(ctx, &cur.LookupReportDefinitionArgs{
-//				ReportName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupReportDefinitionResult, error) {
 	var rv LookupReportDefinitionResult
 	err := ctx.Invoke("aws:cur/getReportDefinition:getReportDefinition", args, &rv, opts...)
@@ -52,35 +21,24 @@ func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArg
 
 // A collection of arguments for invoking getReportDefinition.
 type LookupReportDefinitionArgs struct {
-	// Name of the report definition to match.
 	ReportName string `pulumi:"reportName"`
 }
 
 // A collection of values returned by getReportDefinition.
 type LookupReportDefinitionResult struct {
-	// A list of additional artifacts.
-	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
-	// A list of schema elements.
+	AdditionalArtifacts      []string `pulumi:"additionalArtifacts"`
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
-	// Preferred format for report.
-	Compression string `pulumi:"compression"`
-	// Preferred compression format for report.
-	Format string `pulumi:"format"`
+	Compression              string   `pulumi:"compression"`
+	Format                   string   `pulumi:"format"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// If true reports are updated after they have been finalized.
+	Id                   string `pulumi:"id"`
 	RefreshClosedReports bool   `pulumi:"refreshClosedReports"`
 	ReportName           string `pulumi:"reportName"`
-	// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
-	ReportVersioning string `pulumi:"reportVersioning"`
-	// Name of customer S3 bucket.
-	S3Bucket string `pulumi:"s3Bucket"`
-	// Preferred report path prefix.
-	S3Prefix string `pulumi:"s3Prefix"`
-	// Region of customer S3 bucket.
-	S3Region string `pulumi:"s3Region"`
-	// Frequency on which report data are measured and displayed.
-	TimeUnit string `pulumi:"timeUnit"`
+	ReportVersioning     string `pulumi:"reportVersioning"`
+	S3Bucket             string `pulumi:"s3Bucket"`
+	S3Prefix             string `pulumi:"s3Prefix"`
+	S3Region             string `pulumi:"s3Region"`
+	TimeUnit             string `pulumi:"timeUnit"`
 }
 
 func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupReportDefinitionResultOutput {
@@ -98,7 +56,6 @@ func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefiniti
 
 // A collection of arguments for invoking getReportDefinition.
 type LookupReportDefinitionOutputArgs struct {
-	// Name of the report definition to match.
 	ReportName pulumi.StringInput `pulumi:"reportName"`
 }
 
@@ -121,22 +78,18 @@ func (o LookupReportDefinitionResultOutput) ToLookupReportDefinitionResultOutput
 	return o
 }
 
-// A list of additional artifacts.
 func (o LookupReportDefinitionResultOutput) AdditionalArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) []string { return v.AdditionalArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// A list of schema elements.
 func (o LookupReportDefinitionResultOutput) AdditionalSchemaElements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) []string { return v.AdditionalSchemaElements }).(pulumi.StringArrayOutput)
 }
 
-// Preferred format for report.
 func (o LookupReportDefinitionResultOutput) Compression() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Compression }).(pulumi.StringOutput)
 }
 
-// Preferred compression format for report.
 func (o LookupReportDefinitionResultOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Format }).(pulumi.StringOutput)
 }
@@ -146,7 +99,6 @@ func (o LookupReportDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// If true reports are updated after they have been finalized.
 func (o LookupReportDefinitionResultOutput) RefreshClosedReports() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) bool { return v.RefreshClosedReports }).(pulumi.BoolOutput)
 }
@@ -155,27 +107,22 @@ func (o LookupReportDefinitionResultOutput) ReportName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.ReportName }).(pulumi.StringOutput)
 }
 
-// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
 func (o LookupReportDefinitionResultOutput) ReportVersioning() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.ReportVersioning }).(pulumi.StringOutput)
 }
 
-// Name of customer S3 bucket.
 func (o LookupReportDefinitionResultOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// Preferred report path prefix.
 func (o LookupReportDefinitionResultOutput) S3Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Prefix }).(pulumi.StringOutput)
 }
 
-// Region of customer S3 bucket.
 func (o LookupReportDefinitionResultOutput) S3Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Region }).(pulumi.StringOutput)
 }
 
-// Frequency on which report data are measured and displayed.
 func (o LookupReportDefinitionResultOutput) TimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.TimeUnit }).(pulumi.StringOutput)
 }

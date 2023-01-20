@@ -11,12 +11,9 @@ import (
 )
 
 type TableCapacitySpecification struct {
-	// The throughput capacity specified for read operations defined in read capacity units (RCUs).
-	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
-	// The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-	ThroughputMode *string `pulumi:"throughputMode"`
-	// The throughput capacity specified for write operations defined in write capacity units (WCUs).
-	WriteCapacityUnits *int `pulumi:"writeCapacityUnits"`
+	ReadCapacityUnits  *int    `pulumi:"readCapacityUnits"`
+	ThroughputMode     *string `pulumi:"throughputMode"`
+	WriteCapacityUnits *int    `pulumi:"writeCapacityUnits"`
 }
 
 // TableCapacitySpecificationInput is an input type that accepts TableCapacitySpecificationArgs and TableCapacitySpecificationOutput values.
@@ -31,12 +28,9 @@ type TableCapacitySpecificationInput interface {
 }
 
 type TableCapacitySpecificationArgs struct {
-	// The throughput capacity specified for read operations defined in read capacity units (RCUs).
-	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
-	// The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-	ThroughputMode pulumi.StringPtrInput `pulumi:"throughputMode"`
-	// The throughput capacity specified for write operations defined in write capacity units (WCUs).
-	WriteCapacityUnits pulumi.IntPtrInput `pulumi:"writeCapacityUnits"`
+	ReadCapacityUnits  pulumi.IntPtrInput    `pulumi:"readCapacityUnits"`
+	ThroughputMode     pulumi.StringPtrInput `pulumi:"throughputMode"`
+	WriteCapacityUnits pulumi.IntPtrInput    `pulumi:"writeCapacityUnits"`
 }
 
 func (TableCapacitySpecificationArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o TableCapacitySpecificationOutput) ToTableCapacitySpecificationPtrOutputW
 	}).(TableCapacitySpecificationPtrOutput)
 }
 
-// The throughput capacity specified for read operations defined in read capacity units (RCUs).
 func (o TableCapacitySpecificationOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableCapacitySpecification) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
-// The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
 func (o TableCapacitySpecificationOutput) ThroughputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableCapacitySpecification) *string { return v.ThroughputMode }).(pulumi.StringPtrOutput)
 }
 
-// The throughput capacity specified for write operations defined in write capacity units (WCUs).
 func (o TableCapacitySpecificationOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableCapacitySpecification) *int { return v.WriteCapacityUnits }).(pulumi.IntPtrOutput)
 }
@@ -155,7 +146,6 @@ func (o TableCapacitySpecificationPtrOutput) Elem() TableCapacitySpecificationOu
 	}).(TableCapacitySpecificationOutput)
 }
 
-// The throughput capacity specified for read operations defined in read capacity units (RCUs).
 func (o TableCapacitySpecificationPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableCapacitySpecification) *int {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o TableCapacitySpecificationPtrOutput) ReadCapacityUnits() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
 func (o TableCapacitySpecificationPtrOutput) ThroughputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableCapacitySpecification) *string {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o TableCapacitySpecificationPtrOutput) ThroughputMode() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The throughput capacity specified for write operations defined in write capacity units (WCUs).
 func (o TableCapacitySpecificationPtrOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableCapacitySpecification) *int {
 		if v == nil {
@@ -186,7 +174,6 @@ func (o TableCapacitySpecificationPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 }
 
 type TableComment struct {
-	// A description of the table.
 	Message *string `pulumi:"message"`
 }
 
@@ -202,7 +189,6 @@ type TableCommentInput interface {
 }
 
 type TableCommentArgs struct {
-	// A description of the table.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -283,7 +269,6 @@ func (o TableCommentOutput) ToTableCommentPtrOutputWithContext(ctx context.Conte
 	}).(TableCommentPtrOutput)
 }
 
-// A description of the table.
 func (o TableCommentOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableComment) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -312,7 +297,6 @@ func (o TableCommentPtrOutput) Elem() TableCommentOutput {
 	}).(TableCommentOutput)
 }
 
-// A description of the table.
 func (o TableCommentPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableComment) *string {
 		if v == nil {
@@ -323,10 +307,8 @@ func (o TableCommentPtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type TableEncryptionSpecification struct {
-	// The Amazon Resource Name (ARN) of the customer managed KMS key.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-	Type *string `pulumi:"type"`
+	Type             *string `pulumi:"type"`
 }
 
 // TableEncryptionSpecificationInput is an input type that accepts TableEncryptionSpecificationArgs and TableEncryptionSpecificationOutput values.
@@ -341,10 +323,8 @@ type TableEncryptionSpecificationInput interface {
 }
 
 type TableEncryptionSpecificationArgs struct {
-	// The Amazon Resource Name (ARN) of the customer managed KMS key.
 	KmsKeyIdentifier pulumi.StringPtrInput `pulumi:"kmsKeyIdentifier"`
-	// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type             pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (TableEncryptionSpecificationArgs) ElementType() reflect.Type {
@@ -424,12 +404,10 @@ func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationPtrOut
 	}).(TableEncryptionSpecificationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the customer managed KMS key.
 func (o TableEncryptionSpecificationOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableEncryptionSpecification) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
 func (o TableEncryptionSpecificationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableEncryptionSpecification) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -458,7 +436,6 @@ func (o TableEncryptionSpecificationPtrOutput) Elem() TableEncryptionSpecificati
 	}).(TableEncryptionSpecificationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the customer managed KMS key.
 func (o TableEncryptionSpecificationPtrOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableEncryptionSpecification) *string {
 		if v == nil {
@@ -468,7 +445,6 @@ func (o TableEncryptionSpecificationPtrOutput) KmsKeyIdentifier() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
 func (o TableEncryptionSpecificationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableEncryptionSpecification) *string {
 		if v == nil {
@@ -479,7 +455,6 @@ func (o TableEncryptionSpecificationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type TablePointInTimeRecovery struct {
-	// Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
 	Status *string `pulumi:"status"`
 }
 
@@ -495,7 +470,6 @@ type TablePointInTimeRecoveryInput interface {
 }
 
 type TablePointInTimeRecoveryArgs struct {
-	// Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -576,7 +550,6 @@ func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutputWithC
 	}).(TablePointInTimeRecoveryPtrOutput)
 }
 
-// Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
 func (o TablePointInTimeRecoveryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -605,7 +578,6 @@ func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput
 	}).(TablePointInTimeRecoveryOutput)
 }
 
-// Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
 func (o TablePointInTimeRecoveryPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TablePointInTimeRecovery) *string {
 		if v == nil {
@@ -616,14 +588,10 @@ func (o TablePointInTimeRecoveryPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type TableSchemaDefinition struct {
-	// The columns that are part of the clustering key of the table.
 	ClusteringKeys []TableSchemaDefinitionClusteringKey `pulumi:"clusteringKeys"`
-	// The regular columns of the table.
-	Columns []TableSchemaDefinitionColumn `pulumi:"columns"`
-	// The columns that are part of the partition key of the table .
-	PartitionKeys []TableSchemaDefinitionPartitionKey `pulumi:"partitionKeys"`
-	// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-	StaticColumns []TableSchemaDefinitionStaticColumn `pulumi:"staticColumns"`
+	Columns        []TableSchemaDefinitionColumn        `pulumi:"columns"`
+	PartitionKeys  []TableSchemaDefinitionPartitionKey  `pulumi:"partitionKeys"`
+	StaticColumns  []TableSchemaDefinitionStaticColumn  `pulumi:"staticColumns"`
 }
 
 // TableSchemaDefinitionInput is an input type that accepts TableSchemaDefinitionArgs and TableSchemaDefinitionOutput values.
@@ -638,14 +606,10 @@ type TableSchemaDefinitionInput interface {
 }
 
 type TableSchemaDefinitionArgs struct {
-	// The columns that are part of the clustering key of the table.
 	ClusteringKeys TableSchemaDefinitionClusteringKeyArrayInput `pulumi:"clusteringKeys"`
-	// The regular columns of the table.
-	Columns TableSchemaDefinitionColumnArrayInput `pulumi:"columns"`
-	// The columns that are part of the partition key of the table .
-	PartitionKeys TableSchemaDefinitionPartitionKeyArrayInput `pulumi:"partitionKeys"`
-	// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
-	StaticColumns TableSchemaDefinitionStaticColumnArrayInput `pulumi:"staticColumns"`
+	Columns        TableSchemaDefinitionColumnArrayInput        `pulumi:"columns"`
+	PartitionKeys  TableSchemaDefinitionPartitionKeyArrayInput  `pulumi:"partitionKeys"`
+	StaticColumns  TableSchemaDefinitionStaticColumnArrayInput  `pulumi:"staticColumns"`
 }
 
 func (TableSchemaDefinitionArgs) ElementType() reflect.Type {
@@ -725,22 +689,18 @@ func (o TableSchemaDefinitionOutput) ToTableSchemaDefinitionPtrOutputWithContext
 	}).(TableSchemaDefinitionPtrOutput)
 }
 
-// The columns that are part of the clustering key of the table.
 func (o TableSchemaDefinitionOutput) ClusteringKeys() TableSchemaDefinitionClusteringKeyArrayOutput {
 	return o.ApplyT(func(v TableSchemaDefinition) []TableSchemaDefinitionClusteringKey { return v.ClusteringKeys }).(TableSchemaDefinitionClusteringKeyArrayOutput)
 }
 
-// The regular columns of the table.
 func (o TableSchemaDefinitionOutput) Columns() TableSchemaDefinitionColumnArrayOutput {
 	return o.ApplyT(func(v TableSchemaDefinition) []TableSchemaDefinitionColumn { return v.Columns }).(TableSchemaDefinitionColumnArrayOutput)
 }
 
-// The columns that are part of the partition key of the table .
 func (o TableSchemaDefinitionOutput) PartitionKeys() TableSchemaDefinitionPartitionKeyArrayOutput {
 	return o.ApplyT(func(v TableSchemaDefinition) []TableSchemaDefinitionPartitionKey { return v.PartitionKeys }).(TableSchemaDefinitionPartitionKeyArrayOutput)
 }
 
-// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
 func (o TableSchemaDefinitionOutput) StaticColumns() TableSchemaDefinitionStaticColumnArrayOutput {
 	return o.ApplyT(func(v TableSchemaDefinition) []TableSchemaDefinitionStaticColumn { return v.StaticColumns }).(TableSchemaDefinitionStaticColumnArrayOutput)
 }
@@ -769,7 +729,6 @@ func (o TableSchemaDefinitionPtrOutput) Elem() TableSchemaDefinitionOutput {
 	}).(TableSchemaDefinitionOutput)
 }
 
-// The columns that are part of the clustering key of the table.
 func (o TableSchemaDefinitionPtrOutput) ClusteringKeys() TableSchemaDefinitionClusteringKeyArrayOutput {
 	return o.ApplyT(func(v *TableSchemaDefinition) []TableSchemaDefinitionClusteringKey {
 		if v == nil {
@@ -779,7 +738,6 @@ func (o TableSchemaDefinitionPtrOutput) ClusteringKeys() TableSchemaDefinitionCl
 	}).(TableSchemaDefinitionClusteringKeyArrayOutput)
 }
 
-// The regular columns of the table.
 func (o TableSchemaDefinitionPtrOutput) Columns() TableSchemaDefinitionColumnArrayOutput {
 	return o.ApplyT(func(v *TableSchemaDefinition) []TableSchemaDefinitionColumn {
 		if v == nil {
@@ -789,7 +747,6 @@ func (o TableSchemaDefinitionPtrOutput) Columns() TableSchemaDefinitionColumnArr
 	}).(TableSchemaDefinitionColumnArrayOutput)
 }
 
-// The columns that are part of the partition key of the table .
 func (o TableSchemaDefinitionPtrOutput) PartitionKeys() TableSchemaDefinitionPartitionKeyArrayOutput {
 	return o.ApplyT(func(v *TableSchemaDefinition) []TableSchemaDefinitionPartitionKey {
 		if v == nil {
@@ -799,7 +756,6 @@ func (o TableSchemaDefinitionPtrOutput) PartitionKeys() TableSchemaDefinitionPar
 	}).(TableSchemaDefinitionPartitionKeyArrayOutput)
 }
 
-// The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
 func (o TableSchemaDefinitionPtrOutput) StaticColumns() TableSchemaDefinitionStaticColumnArrayOutput {
 	return o.ApplyT(func(v *TableSchemaDefinition) []TableSchemaDefinitionStaticColumn {
 		if v == nil {
@@ -810,9 +766,7 @@ func (o TableSchemaDefinitionPtrOutput) StaticColumns() TableSchemaDefinitionSta
 }
 
 type TableSchemaDefinitionClusteringKey struct {
-	// The name of the clustering key column.
-	Name string `pulumi:"name"`
-	// The order modifier. Valid values: `ASC`, `DESC`.
+	Name    string `pulumi:"name"`
 	OrderBy string `pulumi:"orderBy"`
 }
 
@@ -828,9 +782,7 @@ type TableSchemaDefinitionClusteringKeyInput interface {
 }
 
 type TableSchemaDefinitionClusteringKeyArgs struct {
-	// The name of the clustering key column.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The order modifier. Valid values: `ASC`, `DESC`.
+	Name    pulumi.StringInput `pulumi:"name"`
 	OrderBy pulumi.StringInput `pulumi:"orderBy"`
 }
 
@@ -885,12 +837,10 @@ func (o TableSchemaDefinitionClusteringKeyOutput) ToTableSchemaDefinitionCluster
 	return o
 }
 
-// The name of the clustering key column.
 func (o TableSchemaDefinitionClusteringKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSchemaDefinitionClusteringKey) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The order modifier. Valid values: `ASC`, `DESC`.
 func (o TableSchemaDefinitionClusteringKeyOutput) OrderBy() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSchemaDefinitionClusteringKey) string { return v.OrderBy }).(pulumi.StringOutput)
 }
@@ -916,9 +866,7 @@ func (o TableSchemaDefinitionClusteringKeyArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type TableSchemaDefinitionColumn struct {
-	// The name of the column.
 	Name string `pulumi:"name"`
-	// The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
 	Type string `pulumi:"type"`
 }
 
@@ -934,9 +882,7 @@ type TableSchemaDefinitionColumnInput interface {
 }
 
 type TableSchemaDefinitionColumnArgs struct {
-	// The name of the column.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -991,12 +937,10 @@ func (o TableSchemaDefinitionColumnOutput) ToTableSchemaDefinitionColumnOutputWi
 	return o
 }
 
-// The name of the column.
 func (o TableSchemaDefinitionColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSchemaDefinitionColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
 func (o TableSchemaDefinitionColumnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSchemaDefinitionColumn) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1022,7 +966,6 @@ func (o TableSchemaDefinitionColumnArrayOutput) Index(i pulumi.IntInput) TableSc
 }
 
 type TableSchemaDefinitionPartitionKey struct {
-	// The name of the partition key column.
 	Name string `pulumi:"name"`
 }
 
@@ -1038,7 +981,6 @@ type TableSchemaDefinitionPartitionKeyInput interface {
 }
 
 type TableSchemaDefinitionPartitionKeyArgs struct {
-	// The name of the partition key column.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1093,7 +1035,6 @@ func (o TableSchemaDefinitionPartitionKeyOutput) ToTableSchemaDefinitionPartitio
 	return o
 }
 
-// The name of the partition key column.
 func (o TableSchemaDefinitionPartitionKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSchemaDefinitionPartitionKey) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1119,7 +1060,6 @@ func (o TableSchemaDefinitionPartitionKeyArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TableSchemaDefinitionStaticColumn struct {
-	// The name of the static column.
 	Name string `pulumi:"name"`
 }
 
@@ -1135,7 +1075,6 @@ type TableSchemaDefinitionStaticColumnInput interface {
 }
 
 type TableSchemaDefinitionStaticColumnArgs struct {
-	// The name of the static column.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1190,7 +1129,6 @@ func (o TableSchemaDefinitionStaticColumnOutput) ToTableSchemaDefinitionStaticCo
 	return o
 }
 
-// The name of the static column.
 func (o TableSchemaDefinitionStaticColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSchemaDefinitionStaticColumn) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1216,7 +1154,6 @@ func (o TableSchemaDefinitionStaticColumnArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TableTtl struct {
-	// Valid values: `ENABLED`.
 	Status string `pulumi:"status"`
 }
 
@@ -1232,7 +1169,6 @@ type TableTtlInput interface {
 }
 
 type TableTtlArgs struct {
-	// Valid values: `ENABLED`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1313,7 +1249,6 @@ func (o TableTtlOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) Tabl
 	}).(TableTtlPtrOutput)
 }
 
-// Valid values: `ENABLED`.
 func (o TableTtlOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v TableTtl) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1342,7 +1277,6 @@ func (o TableTtlPtrOutput) Elem() TableTtlOutput {
 	}).(TableTtlOutput)
 }
 
-// Valid values: `ENABLED`.
 func (o TableTtlPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableTtl) *string {
 		if v == nil {

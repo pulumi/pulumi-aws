@@ -11,50 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DynamoDB contributor insights resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dynamodb.NewContributorInsights(ctx, "test", &dynamodb.ContributorInsightsArgs{
-//				TableName: pulumi.String("ExampleTableName"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
-//
-// ```
 type ContributorInsights struct {
 	pulumi.CustomResourceState
 
-	// The global secondary index name
 	IndexName pulumi.StringPtrOutput `pulumi:"indexName"`
-	// The name of the table to enable contributor insights
-	TableName pulumi.StringOutput `pulumi:"tableName"`
+	TableName pulumi.StringOutput    `pulumi:"tableName"`
 }
 
 // NewContributorInsights registers a new resource with the given unique name, arguments, and options.
@@ -89,16 +50,12 @@ func GetContributorInsights(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContributorInsights resources.
 type contributorInsightsState struct {
-	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
-	// The name of the table to enable contributor insights
 	TableName *string `pulumi:"tableName"`
 }
 
 type ContributorInsightsState struct {
-	// The global secondary index name
 	IndexName pulumi.StringPtrInput
-	// The name of the table to enable contributor insights
 	TableName pulumi.StringPtrInput
 }
 
@@ -107,17 +64,13 @@ func (ContributorInsightsState) ElementType() reflect.Type {
 }
 
 type contributorInsightsArgs struct {
-	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
-	// The name of the table to enable contributor insights
-	TableName string `pulumi:"tableName"`
+	TableName string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a ContributorInsights resource.
 type ContributorInsightsArgs struct {
-	// The global secondary index name
 	IndexName pulumi.StringPtrInput
-	// The name of the table to enable contributor insights
 	TableName pulumi.StringInput
 }
 
@@ -208,12 +161,10 @@ func (o ContributorInsightsOutput) ToContributorInsightsOutputWithContext(ctx co
 	return o
 }
 
-// The global secondary index name
 func (o ContributorInsightsOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringPtrOutput { return v.IndexName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the table to enable contributor insights
 func (o ContributorInsightsOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

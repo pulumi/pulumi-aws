@@ -11,9 +11,7 @@ import (
 )
 
 type GroupExternalId struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id *string `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     *string `pulumi:"id"`
 	Issuer *string `pulumi:"issuer"`
 }
 
@@ -29,9 +27,7 @@ type GroupExternalIdInput interface {
 }
 
 type GroupExternalIdArgs struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
 
@@ -86,12 +82,10 @@ func (o GroupExternalIdOutput) ToGroupExternalIdOutputWithContext(ctx context.Co
 	return o
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o GroupExternalIdOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupExternalId) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The issuer for an external identifier.
 func (o GroupExternalIdOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupExternalId) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
@@ -117,22 +111,14 @@ func (o GroupExternalIdArrayOutput) Index(i pulumi.IntInput) GroupExternalIdOutp
 }
 
 type UserAddresses struct {
-	// The country that this address is in.
-	Country *string `pulumi:"country"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted *string `pulumi:"formatted"`
-	// The address locality.
-	Locality *string `pulumi:"locality"`
-	// The postal code of the address.
-	PostalCode *string `pulumi:"postalCode"`
-	// When `true`, this is the primary phone number associated with the user.
-	Primary *bool `pulumi:"primary"`
-	// The region of the address.
-	Region *string `pulumi:"region"`
-	// The street of the address.
+	Country       *string `pulumi:"country"`
+	Formatted     *string `pulumi:"formatted"`
+	Locality      *string `pulumi:"locality"`
+	PostalCode    *string `pulumi:"postalCode"`
+	Primary       *bool   `pulumi:"primary"`
+	Region        *string `pulumi:"region"`
 	StreetAddress *string `pulumi:"streetAddress"`
-	// The type of phone number.
-	Type *string `pulumi:"type"`
+	Type          *string `pulumi:"type"`
 }
 
 // UserAddressesInput is an input type that accepts UserAddressesArgs and UserAddressesOutput values.
@@ -147,22 +133,14 @@ type UserAddressesInput interface {
 }
 
 type UserAddressesArgs struct {
-	// The country that this address is in.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
-	// The address locality.
-	Locality pulumi.StringPtrInput `pulumi:"locality"`
-	// The postal code of the address.
-	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// The region of the address.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The street of the address.
+	Country       pulumi.StringPtrInput `pulumi:"country"`
+	Formatted     pulumi.StringPtrInput `pulumi:"formatted"`
+	Locality      pulumi.StringPtrInput `pulumi:"locality"`
+	PostalCode    pulumi.StringPtrInput `pulumi:"postalCode"`
+	Primary       pulumi.BoolPtrInput   `pulumi:"primary"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
 	StreetAddress pulumi.StringPtrInput `pulumi:"streetAddress"`
-	// The type of phone number.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (UserAddressesArgs) ElementType() reflect.Type {
@@ -242,42 +220,34 @@ func (o UserAddressesOutput) ToUserAddressesPtrOutputWithContext(ctx context.Con
 	}).(UserAddressesPtrOutput)
 }
 
-// The country that this address is in.
 func (o UserAddressesOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
 func (o UserAddressesOutput) Formatted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Formatted }).(pulumi.StringPtrOutput)
 }
 
-// The address locality.
 func (o UserAddressesOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Locality }).(pulumi.StringPtrOutput)
 }
 
-// The postal code of the address.
 func (o UserAddressesOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o UserAddressesOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-// The region of the address.
 func (o UserAddressesOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The street of the address.
 func (o UserAddressesOutput) StreetAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.StreetAddress }).(pulumi.StringPtrOutput)
 }
 
-// The type of phone number.
 func (o UserAddressesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -306,7 +276,6 @@ func (o UserAddressesPtrOutput) Elem() UserAddressesOutput {
 	}).(UserAddressesOutput)
 }
 
-// The country that this address is in.
 func (o UserAddressesPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -316,7 +285,6 @@ func (o UserAddressesPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
 func (o UserAddressesPtrOutput) Formatted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -326,7 +294,6 @@ func (o UserAddressesPtrOutput) Formatted() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The address locality.
 func (o UserAddressesPtrOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -336,7 +303,6 @@ func (o UserAddressesPtrOutput) Locality() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code of the address.
 func (o UserAddressesPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -346,7 +312,6 @@ func (o UserAddressesPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o UserAddressesPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *bool {
 		if v == nil {
@@ -356,7 +321,6 @@ func (o UserAddressesPtrOutput) Primary() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The region of the address.
 func (o UserAddressesPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -366,7 +330,6 @@ func (o UserAddressesPtrOutput) Region() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The street of the address.
 func (o UserAddressesPtrOutput) StreetAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -376,7 +339,6 @@ func (o UserAddressesPtrOutput) StreetAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of phone number.
 func (o UserAddressesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -387,12 +349,9 @@ func (o UserAddressesPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type UserEmails struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary *bool `pulumi:"primary"`
-	// The type of phone number.
-	Type *string `pulumi:"type"`
-	// The user's phone number.
-	Value *string `pulumi:"value"`
+	Primary *bool   `pulumi:"primary"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
 }
 
 // UserEmailsInput is an input type that accepts UserEmailsArgs and UserEmailsOutput values.
@@ -407,12 +366,9 @@ type UserEmailsInput interface {
 }
 
 type UserEmailsArgs struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// The type of phone number.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The user's phone number.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Primary pulumi.BoolPtrInput   `pulumi:"primary"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (UserEmailsArgs) ElementType() reflect.Type {
@@ -492,17 +448,14 @@ func (o UserEmailsOutput) ToUserEmailsPtrOutputWithContext(ctx context.Context) 
 	}).(UserEmailsPtrOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o UserEmailsOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserEmails) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-// The type of phone number.
 func (o UserEmailsOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserEmails) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The user's phone number.
 func (o UserEmailsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserEmails) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -531,7 +484,6 @@ func (o UserEmailsPtrOutput) Elem() UserEmailsOutput {
 	}).(UserEmailsOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o UserEmailsPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserEmails) *bool {
 		if v == nil {
@@ -541,7 +493,6 @@ func (o UserEmailsPtrOutput) Primary() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of phone number.
 func (o UserEmailsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserEmails) *string {
 		if v == nil {
@@ -551,7 +502,6 @@ func (o UserEmailsPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user's phone number.
 func (o UserEmailsPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserEmails) *string {
 		if v == nil {
@@ -562,9 +512,7 @@ func (o UserEmailsPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type UserExternalId struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id *string `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     *string `pulumi:"id"`
 	Issuer *string `pulumi:"issuer"`
 }
 
@@ -580,9 +528,7 @@ type UserExternalIdInput interface {
 }
 
 type UserExternalIdArgs struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
 
@@ -637,12 +583,10 @@ func (o UserExternalIdOutput) ToUserExternalIdOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o UserExternalIdOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserExternalId) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The issuer for an external identifier.
 func (o UserExternalIdOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserExternalId) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
@@ -668,18 +612,12 @@ func (o UserExternalIdArrayOutput) Index(i pulumi.IntInput) UserExternalIdOutput
 }
 
 type UserName struct {
-	// The family name of the user.
-	FamilyName string `pulumi:"familyName"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted *string `pulumi:"formatted"`
-	// The given name of the user.
-	GivenName string `pulumi:"givenName"`
-	// The honorific prefix of the user.
+	FamilyName      string  `pulumi:"familyName"`
+	Formatted       *string `pulumi:"formatted"`
+	GivenName       string  `pulumi:"givenName"`
 	HonorificPrefix *string `pulumi:"honorificPrefix"`
-	// The honorific suffix of the user.
 	HonorificSuffix *string `pulumi:"honorificSuffix"`
-	// The middle name of the user.
-	MiddleName *string `pulumi:"middleName"`
+	MiddleName      *string `pulumi:"middleName"`
 }
 
 // UserNameInput is an input type that accepts UserNameArgs and UserNameOutput values.
@@ -694,18 +632,12 @@ type UserNameInput interface {
 }
 
 type UserNameArgs struct {
-	// The family name of the user.
-	FamilyName pulumi.StringInput `pulumi:"familyName"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
-	// The given name of the user.
-	GivenName pulumi.StringInput `pulumi:"givenName"`
-	// The honorific prefix of the user.
+	FamilyName      pulumi.StringInput    `pulumi:"familyName"`
+	Formatted       pulumi.StringPtrInput `pulumi:"formatted"`
+	GivenName       pulumi.StringInput    `pulumi:"givenName"`
 	HonorificPrefix pulumi.StringPtrInput `pulumi:"honorificPrefix"`
-	// The honorific suffix of the user.
 	HonorificSuffix pulumi.StringPtrInput `pulumi:"honorificSuffix"`
-	// The middle name of the user.
-	MiddleName pulumi.StringPtrInput `pulumi:"middleName"`
+	MiddleName      pulumi.StringPtrInput `pulumi:"middleName"`
 }
 
 func (UserNameArgs) ElementType() reflect.Type {
@@ -785,32 +717,26 @@ func (o UserNameOutput) ToUserNamePtrOutputWithContext(ctx context.Context) User
 	}).(UserNamePtrOutput)
 }
 
-// The family name of the user.
 func (o UserNameOutput) FamilyName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserName) string { return v.FamilyName }).(pulumi.StringOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
 func (o UserNameOutput) Formatted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserName) *string { return v.Formatted }).(pulumi.StringPtrOutput)
 }
 
-// The given name of the user.
 func (o UserNameOutput) GivenName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserName) string { return v.GivenName }).(pulumi.StringOutput)
 }
 
-// The honorific prefix of the user.
 func (o UserNameOutput) HonorificPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserName) *string { return v.HonorificPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The honorific suffix of the user.
 func (o UserNameOutput) HonorificSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserName) *string { return v.HonorificSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The middle name of the user.
 func (o UserNameOutput) MiddleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserName) *string { return v.MiddleName }).(pulumi.StringPtrOutput)
 }
@@ -839,7 +765,6 @@ func (o UserNamePtrOutput) Elem() UserNameOutput {
 	}).(UserNameOutput)
 }
 
-// The family name of the user.
 func (o UserNamePtrOutput) FamilyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserName) *string {
 		if v == nil {
@@ -849,7 +774,6 @@ func (o UserNamePtrOutput) FamilyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
 func (o UserNamePtrOutput) Formatted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserName) *string {
 		if v == nil {
@@ -859,7 +783,6 @@ func (o UserNamePtrOutput) Formatted() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The given name of the user.
 func (o UserNamePtrOutput) GivenName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserName) *string {
 		if v == nil {
@@ -869,7 +792,6 @@ func (o UserNamePtrOutput) GivenName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The honorific prefix of the user.
 func (o UserNamePtrOutput) HonorificPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserName) *string {
 		if v == nil {
@@ -879,7 +801,6 @@ func (o UserNamePtrOutput) HonorificPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The honorific suffix of the user.
 func (o UserNamePtrOutput) HonorificSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserName) *string {
 		if v == nil {
@@ -889,7 +810,6 @@ func (o UserNamePtrOutput) HonorificSuffix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The middle name of the user.
 func (o UserNamePtrOutput) MiddleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserName) *string {
 		if v == nil {
@@ -900,12 +820,9 @@ func (o UserNamePtrOutput) MiddleName() pulumi.StringPtrOutput {
 }
 
 type UserPhoneNumbers struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary *bool `pulumi:"primary"`
-	// The type of phone number.
-	Type *string `pulumi:"type"`
-	// The user's phone number.
-	Value *string `pulumi:"value"`
+	Primary *bool   `pulumi:"primary"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
 }
 
 // UserPhoneNumbersInput is an input type that accepts UserPhoneNumbersArgs and UserPhoneNumbersOutput values.
@@ -920,12 +837,9 @@ type UserPhoneNumbersInput interface {
 }
 
 type UserPhoneNumbersArgs struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// The type of phone number.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The user's phone number.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Primary pulumi.BoolPtrInput   `pulumi:"primary"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (UserPhoneNumbersArgs) ElementType() reflect.Type {
@@ -1005,17 +919,14 @@ func (o UserPhoneNumbersOutput) ToUserPhoneNumbersPtrOutputWithContext(ctx conte
 	}).(UserPhoneNumbersPtrOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o UserPhoneNumbersOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPhoneNumbers) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-// The type of phone number.
 func (o UserPhoneNumbersOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPhoneNumbers) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The user's phone number.
 func (o UserPhoneNumbersOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPhoneNumbers) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1044,7 +955,6 @@ func (o UserPhoneNumbersPtrOutput) Elem() UserPhoneNumbersOutput {
 	}).(UserPhoneNumbersOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o UserPhoneNumbersPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPhoneNumbers) *bool {
 		if v == nil {
@@ -1054,7 +964,6 @@ func (o UserPhoneNumbersPtrOutput) Primary() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of phone number.
 func (o UserPhoneNumbersPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPhoneNumbers) *string {
 		if v == nil {
@@ -1064,7 +973,6 @@ func (o UserPhoneNumbersPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user's phone number.
 func (o UserPhoneNumbersPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPhoneNumbers) *string {
 		if v == nil {
@@ -1075,9 +983,7 @@ func (o UserPhoneNumbersPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type GetGroupAlternateIdentifier struct {
-	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-	ExternalId *GetGroupAlternateIdentifierExternalId `pulumi:"externalId"`
-	// An entity attribute that's unique to a specific entity. Detailed below.
+	ExternalId      *GetGroupAlternateIdentifierExternalId      `pulumi:"externalId"`
 	UniqueAttribute *GetGroupAlternateIdentifierUniqueAttribute `pulumi:"uniqueAttribute"`
 }
 
@@ -1093,9 +999,7 @@ type GetGroupAlternateIdentifierInput interface {
 }
 
 type GetGroupAlternateIdentifierArgs struct {
-	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-	ExternalId GetGroupAlternateIdentifierExternalIdPtrInput `pulumi:"externalId"`
-	// An entity attribute that's unique to a specific entity. Detailed below.
+	ExternalId      GetGroupAlternateIdentifierExternalIdPtrInput      `pulumi:"externalId"`
 	UniqueAttribute GetGroupAlternateIdentifierUniqueAttributePtrInput `pulumi:"uniqueAttribute"`
 }
 
@@ -1176,12 +1080,10 @@ func (o GetGroupAlternateIdentifierOutput) ToGetGroupAlternateIdentifierPtrOutpu
 	}).(GetGroupAlternateIdentifierPtrOutput)
 }
 
-// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 func (o GetGroupAlternateIdentifierOutput) ExternalId() GetGroupAlternateIdentifierExternalIdPtrOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierExternalId { return v.ExternalId }).(GetGroupAlternateIdentifierExternalIdPtrOutput)
 }
 
-// An entity attribute that's unique to a specific entity. Detailed below.
 func (o GetGroupAlternateIdentifierOutput) UniqueAttribute() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierUniqueAttribute {
 		return v.UniqueAttribute
@@ -1212,7 +1114,6 @@ func (o GetGroupAlternateIdentifierPtrOutput) Elem() GetGroupAlternateIdentifier
 	}).(GetGroupAlternateIdentifierOutput)
 }
 
-// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 func (o GetGroupAlternateIdentifierPtrOutput) ExternalId() GetGroupAlternateIdentifierExternalIdPtrOutput {
 	return o.ApplyT(func(v *GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierExternalId {
 		if v == nil {
@@ -1222,7 +1123,6 @@ func (o GetGroupAlternateIdentifierPtrOutput) ExternalId() GetGroupAlternateIden
 	}).(GetGroupAlternateIdentifierExternalIdPtrOutput)
 }
 
-// An entity attribute that's unique to a specific entity. Detailed below.
 func (o GetGroupAlternateIdentifierPtrOutput) UniqueAttribute() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v *GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierUniqueAttribute {
 		if v == nil {
@@ -1233,9 +1133,7 @@ func (o GetGroupAlternateIdentifierPtrOutput) UniqueAttribute() GetGroupAlternat
 }
 
 type GetGroupAlternateIdentifierExternalId struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id string `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     string `pulumi:"id"`
 	Issuer string `pulumi:"issuer"`
 }
 
@@ -1251,9 +1149,7 @@ type GetGroupAlternateIdentifierExternalIdInput interface {
 }
 
 type GetGroupAlternateIdentifierExternalIdArgs struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     pulumi.StringInput `pulumi:"id"`
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 }
 
@@ -1334,12 +1230,10 @@ func (o GetGroupAlternateIdentifierExternalIdOutput) ToGetGroupAlternateIdentifi
 	}).(GetGroupAlternateIdentifierExternalIdPtrOutput)
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o GetGroupAlternateIdentifierExternalIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifierExternalId) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The issuer for an external identifier.
 func (o GetGroupAlternateIdentifierExternalIdOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifierExternalId) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -1368,7 +1262,6 @@ func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Elem() GetGroupAlternate
 	}).(GetGroupAlternateIdentifierExternalIdOutput)
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGroupAlternateIdentifierExternalId) *string {
 		if v == nil {
@@ -1378,7 +1271,6 @@ func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Id() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The issuer for an external identifier.
 func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGroupAlternateIdentifierExternalId) *string {
 		if v == nil {
@@ -1389,9 +1281,7 @@ func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Issuer() pulumi.StringPt
 }
 
 type GetGroupAlternateIdentifierUniqueAttribute struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-	AttributePath string `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  string `pulumi:"attributePath"`
 	AttributeValue string `pulumi:"attributeValue"`
 }
 
@@ -1407,9 +1297,7 @@ type GetGroupAlternateIdentifierUniqueAttributeInput interface {
 }
 
 type GetGroupAlternateIdentifierUniqueAttributeArgs struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  pulumi.StringInput `pulumi:"attributePath"`
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
 }
 
@@ -1490,12 +1378,10 @@ func (o GetGroupAlternateIdentifierUniqueAttributeOutput) ToGetGroupAlternateIde
 	}).(GetGroupAlternateIdentifierUniqueAttributePtrOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 func (o GetGroupAlternateIdentifierUniqueAttributeOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifierUniqueAttribute) string { return v.AttributePath }).(pulumi.StringOutput)
 }
 
-// Value for an attribute.
 func (o GetGroupAlternateIdentifierUniqueAttributeOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifierUniqueAttribute) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
@@ -1524,7 +1410,6 @@ func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) Elem() GetGroupAlte
 	}).(GetGroupAlternateIdentifierUniqueAttributeOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) AttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGroupAlternateIdentifierUniqueAttribute) *string {
 		if v == nil {
@@ -1534,7 +1419,6 @@ func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) AttributePath() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value for an attribute.
 func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGroupAlternateIdentifierUniqueAttribute) *string {
 		if v == nil {
@@ -1545,9 +1429,7 @@ func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pu
 }
 
 type GetGroupExternalId struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id string `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     string `pulumi:"id"`
 	Issuer string `pulumi:"issuer"`
 }
 
@@ -1563,9 +1445,7 @@ type GetGroupExternalIdInput interface {
 }
 
 type GetGroupExternalIdArgs struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     pulumi.StringInput `pulumi:"id"`
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 }
 
@@ -1620,12 +1500,10 @@ func (o GetGroupExternalIdOutput) ToGetGroupExternalIdOutputWithContext(ctx cont
 	return o
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o GetGroupExternalIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupExternalId) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The issuer for an external identifier.
 func (o GetGroupExternalIdOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupExternalId) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -1651,9 +1529,7 @@ func (o GetGroupExternalIdArrayOutput) Index(i pulumi.IntInput) GetGroupExternal
 }
 
 type GetGroupFilter struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-	AttributePath string `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  string `pulumi:"attributePath"`
 	AttributeValue string `pulumi:"attributeValue"`
 }
 
@@ -1669,9 +1545,7 @@ type GetGroupFilterInput interface {
 }
 
 type GetGroupFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  pulumi.StringInput `pulumi:"attributePath"`
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
 }
 
@@ -1752,12 +1626,10 @@ func (o GetGroupFilterOutput) ToGetGroupFilterPtrOutputWithContext(ctx context.C
 	}).(GetGroupFilterPtrOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 func (o GetGroupFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
 
-// Value for an attribute.
 func (o GetGroupFilterOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
@@ -1786,7 +1658,6 @@ func (o GetGroupFilterPtrOutput) Elem() GetGroupFilterOutput {
 	}).(GetGroupFilterOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 func (o GetGroupFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGroupFilter) *string {
 		if v == nil {
@@ -1796,7 +1667,6 @@ func (o GetGroupFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value for an attribute.
 func (o GetGroupFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGroupFilter) *string {
 		if v == nil {
@@ -1807,22 +1677,14 @@ func (o GetGroupFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
 }
 
 type GetUserAddress struct {
-	// The country that this address is in.
-	Country string `pulumi:"country"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted string `pulumi:"formatted"`
-	// The address locality.
-	Locality string `pulumi:"locality"`
-	// The postal code of the address.
-	PostalCode string `pulumi:"postalCode"`
-	// When `true`, this is the primary phone number associated with the user.
-	Primary bool `pulumi:"primary"`
-	// The region of the address.
-	Region string `pulumi:"region"`
-	// The street of the address.
+	Country       string `pulumi:"country"`
+	Formatted     string `pulumi:"formatted"`
+	Locality      string `pulumi:"locality"`
+	PostalCode    string `pulumi:"postalCode"`
+	Primary       bool   `pulumi:"primary"`
+	Region        string `pulumi:"region"`
 	StreetAddress string `pulumi:"streetAddress"`
-	// The type of phone number.
-	Type string `pulumi:"type"`
+	Type          string `pulumi:"type"`
 }
 
 // GetUserAddressInput is an input type that accepts GetUserAddressArgs and GetUserAddressOutput values.
@@ -1837,22 +1699,14 @@ type GetUserAddressInput interface {
 }
 
 type GetUserAddressArgs struct {
-	// The country that this address is in.
-	Country pulumi.StringInput `pulumi:"country"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted pulumi.StringInput `pulumi:"formatted"`
-	// The address locality.
-	Locality pulumi.StringInput `pulumi:"locality"`
-	// The postal code of the address.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolInput `pulumi:"primary"`
-	// The region of the address.
-	Region pulumi.StringInput `pulumi:"region"`
-	// The street of the address.
+	Country       pulumi.StringInput `pulumi:"country"`
+	Formatted     pulumi.StringInput `pulumi:"formatted"`
+	Locality      pulumi.StringInput `pulumi:"locality"`
+	PostalCode    pulumi.StringInput `pulumi:"postalCode"`
+	Primary       pulumi.BoolInput   `pulumi:"primary"`
+	Region        pulumi.StringInput `pulumi:"region"`
 	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
-	// The type of phone number.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type          pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetUserAddressArgs) ElementType() reflect.Type {
@@ -1906,42 +1760,34 @@ func (o GetUserAddressOutput) ToGetUserAddressOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The country that this address is in.
 func (o GetUserAddressOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
 func (o GetUserAddressOutput) Formatted() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.Formatted }).(pulumi.StringOutput)
 }
 
-// The address locality.
 func (o GetUserAddressOutput) Locality() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.Locality }).(pulumi.StringOutput)
 }
 
-// The postal code of the address.
 func (o GetUserAddressOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o GetUserAddressOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUserAddress) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// The region of the address.
 func (o GetUserAddressOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The street of the address.
 func (o GetUserAddressOutput) StreetAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.StreetAddress }).(pulumi.StringOutput)
 }
 
-// The type of phone number.
 func (o GetUserAddressOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1967,9 +1813,7 @@ func (o GetUserAddressArrayOutput) Index(i pulumi.IntInput) GetUserAddressOutput
 }
 
 type GetUserAlternateIdentifier struct {
-	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-	ExternalId *GetUserAlternateIdentifierExternalId `pulumi:"externalId"`
-	// An entity attribute that's unique to a specific entity. Detailed below.
+	ExternalId      *GetUserAlternateIdentifierExternalId      `pulumi:"externalId"`
 	UniqueAttribute *GetUserAlternateIdentifierUniqueAttribute `pulumi:"uniqueAttribute"`
 }
 
@@ -1985,9 +1829,7 @@ type GetUserAlternateIdentifierInput interface {
 }
 
 type GetUserAlternateIdentifierArgs struct {
-	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-	ExternalId GetUserAlternateIdentifierExternalIdPtrInput `pulumi:"externalId"`
-	// An entity attribute that's unique to a specific entity. Detailed below.
+	ExternalId      GetUserAlternateIdentifierExternalIdPtrInput      `pulumi:"externalId"`
 	UniqueAttribute GetUserAlternateIdentifierUniqueAttributePtrInput `pulumi:"uniqueAttribute"`
 }
 
@@ -2068,12 +1910,10 @@ func (o GetUserAlternateIdentifierOutput) ToGetUserAlternateIdentifierPtrOutputW
 	}).(GetUserAlternateIdentifierPtrOutput)
 }
 
-// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 func (o GetUserAlternateIdentifierOutput) ExternalId() GetUserAlternateIdentifierExternalIdPtrOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifier) *GetUserAlternateIdentifierExternalId { return v.ExternalId }).(GetUserAlternateIdentifierExternalIdPtrOutput)
 }
 
-// An entity attribute that's unique to a specific entity. Detailed below.
 func (o GetUserAlternateIdentifierOutput) UniqueAttribute() GetUserAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifier) *GetUserAlternateIdentifierUniqueAttribute {
 		return v.UniqueAttribute
@@ -2104,7 +1944,6 @@ func (o GetUserAlternateIdentifierPtrOutput) Elem() GetUserAlternateIdentifierOu
 	}).(GetUserAlternateIdentifierOutput)
 }
 
-// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 func (o GetUserAlternateIdentifierPtrOutput) ExternalId() GetUserAlternateIdentifierExternalIdPtrOutput {
 	return o.ApplyT(func(v *GetUserAlternateIdentifier) *GetUserAlternateIdentifierExternalId {
 		if v == nil {
@@ -2114,7 +1953,6 @@ func (o GetUserAlternateIdentifierPtrOutput) ExternalId() GetUserAlternateIdenti
 	}).(GetUserAlternateIdentifierExternalIdPtrOutput)
 }
 
-// An entity attribute that's unique to a specific entity. Detailed below.
 func (o GetUserAlternateIdentifierPtrOutput) UniqueAttribute() GetUserAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v *GetUserAlternateIdentifier) *GetUserAlternateIdentifierUniqueAttribute {
 		if v == nil {
@@ -2125,9 +1963,7 @@ func (o GetUserAlternateIdentifierPtrOutput) UniqueAttribute() GetUserAlternateI
 }
 
 type GetUserAlternateIdentifierExternalId struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id string `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     string `pulumi:"id"`
 	Issuer string `pulumi:"issuer"`
 }
 
@@ -2143,9 +1979,7 @@ type GetUserAlternateIdentifierExternalIdInput interface {
 }
 
 type GetUserAlternateIdentifierExternalIdArgs struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     pulumi.StringInput `pulumi:"id"`
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 }
 
@@ -2226,12 +2060,10 @@ func (o GetUserAlternateIdentifierExternalIdOutput) ToGetUserAlternateIdentifier
 	}).(GetUserAlternateIdentifierExternalIdPtrOutput)
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o GetUserAlternateIdentifierExternalIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifierExternalId) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The issuer for an external identifier.
 func (o GetUserAlternateIdentifierExternalIdOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifierExternalId) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -2260,7 +2092,6 @@ func (o GetUserAlternateIdentifierExternalIdPtrOutput) Elem() GetUserAlternateId
 	}).(GetUserAlternateIdentifierExternalIdOutput)
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o GetUserAlternateIdentifierExternalIdPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetUserAlternateIdentifierExternalId) *string {
 		if v == nil {
@@ -2270,7 +2101,6 @@ func (o GetUserAlternateIdentifierExternalIdPtrOutput) Id() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The issuer for an external identifier.
 func (o GetUserAlternateIdentifierExternalIdPtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetUserAlternateIdentifierExternalId) *string {
 		if v == nil {
@@ -2281,9 +2111,7 @@ func (o GetUserAlternateIdentifierExternalIdPtrOutput) Issuer() pulumi.StringPtr
 }
 
 type GetUserAlternateIdentifierUniqueAttribute struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-	AttributePath string `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  string `pulumi:"attributePath"`
 	AttributeValue string `pulumi:"attributeValue"`
 }
 
@@ -2299,9 +2127,7 @@ type GetUserAlternateIdentifierUniqueAttributeInput interface {
 }
 
 type GetUserAlternateIdentifierUniqueAttributeArgs struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  pulumi.StringInput `pulumi:"attributePath"`
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
 }
 
@@ -2382,12 +2208,10 @@ func (o GetUserAlternateIdentifierUniqueAttributeOutput) ToGetUserAlternateIdent
 	}).(GetUserAlternateIdentifierUniqueAttributePtrOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 func (o GetUserAlternateIdentifierUniqueAttributeOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifierUniqueAttribute) string { return v.AttributePath }).(pulumi.StringOutput)
 }
 
-// Value for an attribute.
 func (o GetUserAlternateIdentifierUniqueAttributeOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifierUniqueAttribute) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
@@ -2416,7 +2240,6 @@ func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) Elem() GetUserAltern
 	}).(GetUserAlternateIdentifierUniqueAttributeOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) AttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetUserAlternateIdentifierUniqueAttribute) *string {
 		if v == nil {
@@ -2426,7 +2249,6 @@ func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) AttributePath() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value for an attribute.
 func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetUserAlternateIdentifierUniqueAttribute) *string {
 		if v == nil {
@@ -2437,12 +2259,9 @@ func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) AttributeValue() pul
 }
 
 type GetUserEmail struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary bool `pulumi:"primary"`
-	// The type of phone number.
-	Type string `pulumi:"type"`
-	// The user's phone number.
-	Value string `pulumi:"value"`
+	Primary bool   `pulumi:"primary"`
+	Type    string `pulumi:"type"`
+	Value   string `pulumi:"value"`
 }
 
 // GetUserEmailInput is an input type that accepts GetUserEmailArgs and GetUserEmailOutput values.
@@ -2457,12 +2276,9 @@ type GetUserEmailInput interface {
 }
 
 type GetUserEmailArgs struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolInput `pulumi:"primary"`
-	// The type of phone number.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The user's phone number.
-	Value pulumi.StringInput `pulumi:"value"`
+	Primary pulumi.BoolInput   `pulumi:"primary"`
+	Type    pulumi.StringInput `pulumi:"type"`
+	Value   pulumi.StringInput `pulumi:"value"`
 }
 
 func (GetUserEmailArgs) ElementType() reflect.Type {
@@ -2516,17 +2332,14 @@ func (o GetUserEmailOutput) ToGetUserEmailOutputWithContext(ctx context.Context)
 	return o
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o GetUserEmailOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUserEmail) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// The type of phone number.
 func (o GetUserEmailOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserEmail) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The user's phone number.
 func (o GetUserEmailOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserEmail) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2552,9 +2365,7 @@ func (o GetUserEmailArrayOutput) Index(i pulumi.IntInput) GetUserEmailOutput {
 }
 
 type GetUserExternalId struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id string `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     string `pulumi:"id"`
 	Issuer string `pulumi:"issuer"`
 }
 
@@ -2570,9 +2381,7 @@ type GetUserExternalIdInput interface {
 }
 
 type GetUserExternalIdArgs struct {
-	// The identifier issued to this resource by an external identity provider.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The issuer for an external identifier.
+	Id     pulumi.StringInput `pulumi:"id"`
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 }
 
@@ -2627,12 +2436,10 @@ func (o GetUserExternalIdOutput) ToGetUserExternalIdOutputWithContext(ctx contex
 	return o
 }
 
-// The identifier issued to this resource by an external identity provider.
 func (o GetUserExternalIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserExternalId) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The issuer for an external identifier.
 func (o GetUserExternalIdOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserExternalId) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -2658,9 +2465,7 @@ func (o GetUserExternalIdArrayOutput) Index(i pulumi.IntInput) GetUserExternalId
 }
 
 type GetUserFilter struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-	AttributePath string `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  string `pulumi:"attributePath"`
 	AttributeValue string `pulumi:"attributeValue"`
 }
 
@@ -2676,9 +2481,7 @@ type GetUserFilterInput interface {
 }
 
 type GetUserFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// Value for an attribute.
+	AttributePath  pulumi.StringInput `pulumi:"attributePath"`
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
 }
 
@@ -2759,12 +2562,10 @@ func (o GetUserFilterOutput) ToGetUserFilterPtrOutputWithContext(ctx context.Con
 	}).(GetUserFilterPtrOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 func (o GetUserFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
 
-// Value for an attribute.
 func (o GetUserFilterOutput) AttributeValue() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
 }
@@ -2793,7 +2594,6 @@ func (o GetUserFilterPtrOutput) Elem() GetUserFilterOutput {
 	}).(GetUserFilterOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 func (o GetUserFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetUserFilter) *string {
 		if v == nil {
@@ -2803,7 +2603,6 @@ func (o GetUserFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value for an attribute.
 func (o GetUserFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetUserFilter) *string {
 		if v == nil {
@@ -2814,18 +2613,12 @@ func (o GetUserFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
 }
 
 type GetUserName struct {
-	// The family name of the user.
-	FamilyName string `pulumi:"familyName"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted string `pulumi:"formatted"`
-	// The given name of the user.
-	GivenName string `pulumi:"givenName"`
-	// The honorific prefix of the user.
+	FamilyName      string `pulumi:"familyName"`
+	Formatted       string `pulumi:"formatted"`
+	GivenName       string `pulumi:"givenName"`
 	HonorificPrefix string `pulumi:"honorificPrefix"`
-	// The honorific suffix of the user.
 	HonorificSuffix string `pulumi:"honorificSuffix"`
-	// The middle name of the user.
-	MiddleName string `pulumi:"middleName"`
+	MiddleName      string `pulumi:"middleName"`
 }
 
 // GetUserNameInput is an input type that accepts GetUserNameArgs and GetUserNameOutput values.
@@ -2840,18 +2633,12 @@ type GetUserNameInput interface {
 }
 
 type GetUserNameArgs struct {
-	// The family name of the user.
-	FamilyName pulumi.StringInput `pulumi:"familyName"`
-	// The name that is typically displayed when the name is shown for display.
-	Formatted pulumi.StringInput `pulumi:"formatted"`
-	// The given name of the user.
-	GivenName pulumi.StringInput `pulumi:"givenName"`
-	// The honorific prefix of the user.
+	FamilyName      pulumi.StringInput `pulumi:"familyName"`
+	Formatted       pulumi.StringInput `pulumi:"formatted"`
+	GivenName       pulumi.StringInput `pulumi:"givenName"`
 	HonorificPrefix pulumi.StringInput `pulumi:"honorificPrefix"`
-	// The honorific suffix of the user.
 	HonorificSuffix pulumi.StringInput `pulumi:"honorificSuffix"`
-	// The middle name of the user.
-	MiddleName pulumi.StringInput `pulumi:"middleName"`
+	MiddleName      pulumi.StringInput `pulumi:"middleName"`
 }
 
 func (GetUserNameArgs) ElementType() reflect.Type {
@@ -2905,32 +2692,26 @@ func (o GetUserNameOutput) ToGetUserNameOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// The family name of the user.
 func (o GetUserNameOutput) FamilyName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserName) string { return v.FamilyName }).(pulumi.StringOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
 func (o GetUserNameOutput) Formatted() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserName) string { return v.Formatted }).(pulumi.StringOutput)
 }
 
-// The given name of the user.
 func (o GetUserNameOutput) GivenName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserName) string { return v.GivenName }).(pulumi.StringOutput)
 }
 
-// The honorific prefix of the user.
 func (o GetUserNameOutput) HonorificPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserName) string { return v.HonorificPrefix }).(pulumi.StringOutput)
 }
 
-// The honorific suffix of the user.
 func (o GetUserNameOutput) HonorificSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserName) string { return v.HonorificSuffix }).(pulumi.StringOutput)
 }
 
-// The middle name of the user.
 func (o GetUserNameOutput) MiddleName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserName) string { return v.MiddleName }).(pulumi.StringOutput)
 }
@@ -2956,12 +2737,9 @@ func (o GetUserNameArrayOutput) Index(i pulumi.IntInput) GetUserNameOutput {
 }
 
 type GetUserPhoneNumber struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary bool `pulumi:"primary"`
-	// The type of phone number.
-	Type string `pulumi:"type"`
-	// The user's phone number.
-	Value string `pulumi:"value"`
+	Primary bool   `pulumi:"primary"`
+	Type    string `pulumi:"type"`
+	Value   string `pulumi:"value"`
 }
 
 // GetUserPhoneNumberInput is an input type that accepts GetUserPhoneNumberArgs and GetUserPhoneNumberOutput values.
@@ -2976,12 +2754,9 @@ type GetUserPhoneNumberInput interface {
 }
 
 type GetUserPhoneNumberArgs struct {
-	// When `true`, this is the primary phone number associated with the user.
-	Primary pulumi.BoolInput `pulumi:"primary"`
-	// The type of phone number.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The user's phone number.
-	Value pulumi.StringInput `pulumi:"value"`
+	Primary pulumi.BoolInput   `pulumi:"primary"`
+	Type    pulumi.StringInput `pulumi:"type"`
+	Value   pulumi.StringInput `pulumi:"value"`
 }
 
 func (GetUserPhoneNumberArgs) ElementType() reflect.Type {
@@ -3035,17 +2810,14 @@ func (o GetUserPhoneNumberOutput) ToGetUserPhoneNumberOutputWithContext(ctx cont
 	return o
 }
 
-// When `true`, this is the primary phone number associated with the user.
 func (o GetUserPhoneNumberOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUserPhoneNumber) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// The type of phone number.
 func (o GetUserPhoneNumberOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPhoneNumber) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The user's phone number.
 func (o GetUserPhoneNumberOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPhoneNumber) string { return v.Value }).(pulumi.StringOutput)
 }

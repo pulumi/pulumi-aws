@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an Amazon MSK Broker Nodes.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.GetBrokerNodes(ctx, &msk.GetBrokerNodesArgs{
-//				ClusterArn: aws_msk_cluster.Example.Arn,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
 	var rv GetBrokerNodesResult
 	err := ctx.Invoke("aws:msk/getBrokerNodes:getBrokerNodes", args, &rv, opts...)
@@ -48,7 +21,6 @@ func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulum
 
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesArgs struct {
-	// ARN of the cluster the nodes belong to.
 	ClusterArn string `pulumi:"clusterArn"`
 }
 
@@ -75,7 +47,6 @@ func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, op
 
 // A collection of arguments for invoking getBrokerNodes.
 type GetBrokerNodesOutputArgs struct {
-	// ARN of the cluster the nodes belong to.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
 }
 

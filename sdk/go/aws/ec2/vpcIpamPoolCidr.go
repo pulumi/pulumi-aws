@@ -11,31 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provisions a CIDR from an IPAM address pool.
-//
-// > **NOTE:** Provisioning Public IPv4 or Public IPv6 require [steps outside the scope of this resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip). The resource accepts `message` and `signature` as part of the `cidrAuthorizationContext` attribute but those must be generated ahead of time. Public IPv6 CIDRs that are provisioned into a Pool with `publiclyAdvertisable = true` and all public IPv4 CIDRs also require creating a Route Origin Authorization (ROA) object in your Regional Internet Registry (RIR).
-//
-// > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
-// either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
-//
-// ## Import
-//
-// IPAMs can be imported using the `<cidr>_<ipam-pool-id>`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
-//
-// ```
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState
 
-	// The CIDR you want to assign to the pool.
-	Cidr pulumi.StringOutput `pulumi:"cidr"`
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     pulumi.StringOutput                              `pulumi:"cidr"`
 	CidrAuthorizationContext VpcIpamPoolCidrCidrAuthorizationContextPtrOutput `pulumi:"cidrAuthorizationContext"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
+	IpamPoolId               pulumi.StringOutput                              `pulumi:"ipamPoolId"`
 }
 
 // NewVpcIpamPoolCidr registers a new resource with the given unique name, arguments, and options.
@@ -70,21 +51,15 @@ func GetVpcIpamPoolCidr(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpamPoolCidr resources.
 type vpcIpamPoolCidrState struct {
-	// The CIDR you want to assign to the pool.
-	Cidr *string `pulumi:"cidr"`
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     *string                                  `pulumi:"cidr"`
 	CidrAuthorizationContext *VpcIpamPoolCidrCidrAuthorizationContext `pulumi:"cidrAuthorizationContext"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId *string `pulumi:"ipamPoolId"`
+	IpamPoolId               *string                                  `pulumi:"ipamPoolId"`
 }
 
 type VpcIpamPoolCidrState struct {
-	// The CIDR you want to assign to the pool.
-	Cidr pulumi.StringPtrInput
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     pulumi.StringPtrInput
 	CidrAuthorizationContext VpcIpamPoolCidrCidrAuthorizationContextPtrInput
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringPtrInput
+	IpamPoolId               pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrState) ElementType() reflect.Type {
@@ -92,22 +67,16 @@ func (VpcIpamPoolCidrState) ElementType() reflect.Type {
 }
 
 type vpcIpamPoolCidrArgs struct {
-	// The CIDR you want to assign to the pool.
-	Cidr *string `pulumi:"cidr"`
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     *string                                  `pulumi:"cidr"`
 	CidrAuthorizationContext *VpcIpamPoolCidrCidrAuthorizationContext `pulumi:"cidrAuthorizationContext"`
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId string `pulumi:"ipamPoolId"`
+	IpamPoolId               string                                   `pulumi:"ipamPoolId"`
 }
 
 // The set of arguments for constructing a VpcIpamPoolCidr resource.
 type VpcIpamPoolCidrArgs struct {
-	// The CIDR you want to assign to the pool.
-	Cidr pulumi.StringPtrInput
-	// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+	Cidr                     pulumi.StringPtrInput
 	CidrAuthorizationContext VpcIpamPoolCidrCidrAuthorizationContextPtrInput
-	// The ID of the pool to which you want to assign a CIDR.
-	IpamPoolId pulumi.StringInput
+	IpamPoolId               pulumi.StringInput
 }
 
 func (VpcIpamPoolCidrArgs) ElementType() reflect.Type {
@@ -197,19 +166,16 @@ func (o VpcIpamPoolCidrOutput) ToVpcIpamPoolCidrOutputWithContext(ctx context.Co
 	return o
 }
 
-// The CIDR you want to assign to the pool.
 func (o VpcIpamPoolCidrOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
 func (o VpcIpamPoolCidrOutput) CidrAuthorizationContext() VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
 		return v.CidrAuthorizationContext
 	}).(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput)
 }
 
-// The ID of the pool to which you want to assign a CIDR.
 func (o VpcIpamPoolCidrOutput) IpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidr) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
 }

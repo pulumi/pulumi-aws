@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an Outposts Outpost.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetOutpost(ctx, &outposts.GetOutpostArgs{
-//				Name: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetOutpost(ctx *pulumi.Context, args *GetOutpostArgs, opts ...pulumi.InvokeOption) (*GetOutpostResult, error) {
 	var rv GetOutpostResult
 	err := ctx.Invoke("aws:outposts/getOutpost:getOutpost", args, &rv, opts...)
@@ -48,30 +21,22 @@ func GetOutpost(ctx *pulumi.Context, args *GetOutpostArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getOutpost.
 type GetOutpostArgs struct {
-	// ARN.
-	Arn *string `pulumi:"arn"`
-	// Identifier of the Outpost.
-	Id *string `pulumi:"id"`
-	// Name of the Outpost.
-	Name *string `pulumi:"name"`
-	// AWS Account identifier of the Outpost owner.
+	Arn     *string `pulumi:"arn"`
+	Id      *string `pulumi:"id"`
+	Name    *string `pulumi:"name"`
 	OwnerId *string `pulumi:"ownerId"`
 }
 
 // A collection of values returned by getOutpost.
 type GetOutpostResult struct {
-	Arn string `pulumi:"arn"`
-	// Availability Zone name.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// Availability Zone identifier.
+	Arn                string `pulumi:"arn"`
+	AvailabilityZone   string `pulumi:"availabilityZone"`
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
-	// Description.
-	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
-	OwnerId     string `pulumi:"ownerId"`
-	// Site identifier.
-	SiteId string `pulumi:"siteId"`
+	Description        string `pulumi:"description"`
+	Id                 string `pulumi:"id"`
+	Name               string `pulumi:"name"`
+	OwnerId            string `pulumi:"ownerId"`
+	SiteId             string `pulumi:"siteId"`
 }
 
 func GetOutpostOutput(ctx *pulumi.Context, args GetOutpostOutputArgs, opts ...pulumi.InvokeOption) GetOutpostResultOutput {
@@ -89,13 +54,9 @@ func GetOutpostOutput(ctx *pulumi.Context, args GetOutpostOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getOutpost.
 type GetOutpostOutputArgs struct {
-	// ARN.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Identifier of the Outpost.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the Outpost.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// AWS Account identifier of the Outpost owner.
+	Arn     pulumi.StringPtrInput `pulumi:"arn"`
+	Id      pulumi.StringPtrInput `pulumi:"id"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 }
 
@@ -122,17 +83,14 @@ func (o GetOutpostResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Availability Zone name.
 func (o GetOutpostResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Availability Zone identifier.
 func (o GetOutpostResultOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
-// Description.
 func (o GetOutpostResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -149,7 +107,6 @@ func (o GetOutpostResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Site identifier.
 func (o GetOutpostResultOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.SiteId }).(pulumi.StringOutput)
 }

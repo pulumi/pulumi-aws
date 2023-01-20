@@ -11,51 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver query logging configuration association resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverQueryLogConfigAssociation(ctx, "example", &route53.ResolverQueryLogConfigAssociationArgs{
-//				ResolverQueryLogConfigId: pulumi.Any(aws_route53_resolver_query_log_config.Example.Id),
-//				ResourceId:               pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-//	Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
-//
-// ```
 type ResolverQueryLogConfigAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringOutput `pulumi:"resolverQueryLogConfigId"`
-	// The ID of a VPC that you want this query logging configuration to log queries for.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceId               pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewResolverQueryLogConfigAssociation registers a new resource with the given unique name, arguments, and options.
@@ -93,17 +53,13 @@ func GetResolverQueryLogConfigAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
 type resolverQueryLogConfigAssociationState struct {
-	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
-	// The ID of a VPC that you want this query logging configuration to log queries for.
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId               *string `pulumi:"resourceId"`
 }
 
 type ResolverQueryLogConfigAssociationState struct {
-	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringPtrInput
-	// The ID of a VPC that you want this query logging configuration to log queries for.
-	ResourceId pulumi.StringPtrInput
+	ResourceId               pulumi.StringPtrInput
 }
 
 func (ResolverQueryLogConfigAssociationState) ElementType() reflect.Type {
@@ -111,18 +67,14 @@ func (ResolverQueryLogConfigAssociationState) ElementType() reflect.Type {
 }
 
 type resolverQueryLogConfigAssociationArgs struct {
-	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId string `pulumi:"resolverQueryLogConfigId"`
-	// The ID of a VPC that you want this query logging configuration to log queries for.
-	ResourceId string `pulumi:"resourceId"`
+	ResourceId               string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
 type ResolverQueryLogConfigAssociationArgs struct {
-	// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 	ResolverQueryLogConfigId pulumi.StringInput
-	// The ID of a VPC that you want this query logging configuration to log queries for.
-	ResourceId pulumi.StringInput
+	ResourceId               pulumi.StringInput
 }
 
 func (ResolverQueryLogConfigAssociationArgs) ElementType() reflect.Type {
@@ -212,12 +164,10 @@ func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssocia
 	return o
 }
 
-// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
 func (o ResolverQueryLogConfigAssociationOutput) ResolverQueryLogConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfigAssociation) pulumi.StringOutput { return v.ResolverQueryLogConfigId }).(pulumi.StringOutput)
 }
 
-// The ID of a VPC that you want this query logging configuration to log queries for.
 func (o ResolverQueryLogConfigAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfigAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

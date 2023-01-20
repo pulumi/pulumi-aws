@@ -11,37 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a confirmation of the creation of the specified hosted connection on an interconnect.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnectionConfirmation(ctx, "confirmation", &directconnect.ConnectionConfirmationArgs{
-//				ConnectionId: pulumi.String("dxcon-ffabc123"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ConnectionConfirmation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the hosted connection.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 }
 
@@ -77,12 +49,10 @@ func GetConnectionConfirmation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectionConfirmation resources.
 type connectionConfirmationState struct {
-	// The ID of the hosted connection.
 	ConnectionId *string `pulumi:"connectionId"`
 }
 
 type ConnectionConfirmationState struct {
-	// The ID of the hosted connection.
 	ConnectionId pulumi.StringPtrInput
 }
 
@@ -91,13 +61,11 @@ func (ConnectionConfirmationState) ElementType() reflect.Type {
 }
 
 type connectionConfirmationArgs struct {
-	// The ID of the hosted connection.
 	ConnectionId string `pulumi:"connectionId"`
 }
 
 // The set of arguments for constructing a ConnectionConfirmation resource.
 type ConnectionConfirmationArgs struct {
-	// The ID of the hosted connection.
 	ConnectionId pulumi.StringInput
 }
 
@@ -188,7 +156,6 @@ func (o ConnectionConfirmationOutput) ToConnectionConfirmationOutputWithContext(
 	return o
 }
 
-// The ID of the hosted connection.
 func (o ConnectionConfirmationOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionConfirmation) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }

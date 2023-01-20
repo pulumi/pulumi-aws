@@ -11,76 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Disable/enable Security Hub standards control in the current region.
-//
-// The `securityhub.StandardsControl` behaves differently from normal resources, in that
-// The provider does not _create_ this resource, but instead "adopts" it
-// into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewAccount(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			cisAwsFoundationsBenchmark, err := securityhub.NewStandardsSubscription(ctx, "cisAwsFoundationsBenchmark", &securityhub.StandardsSubscriptionArgs{
-//				StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewStandardsControl(ctx, "ensureIamPasswordPolicyPreventsPasswordReuse", &securityhub.StandardsControlArgs{
-//				StandardsControlArn: pulumi.String("arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10"),
-//				ControlStatus:       pulumi.String("DISABLED"),
-//				DisabledReason:      pulumi.String("We handle password policies within Okta"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				cisAwsFoundationsBenchmark,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type StandardsControl struct {
 	pulumi.CustomResourceState
 
-	// The identifier of the security standard control.
-	ControlId pulumi.StringOutput `pulumi:"controlId"`
-	// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-	ControlStatus pulumi.StringOutput `pulumi:"controlStatus"`
-	// The date and time that the status of the security standard control was most recently updated.
-	ControlStatusUpdatedAt pulumi.StringOutput `pulumi:"controlStatusUpdatedAt"`
-	// The standard control longer description. Provides information about what the control is checking for.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-	DisabledReason pulumi.StringOutput `pulumi:"disabledReason"`
-	// The list of requirements that are related to this control.
-	RelatedRequirements pulumi.StringArrayOutput `pulumi:"relatedRequirements"`
-	// A link to remediation information for the control in the Security Hub user documentation.
-	RemediationUrl pulumi.StringOutput `pulumi:"remediationUrl"`
-	// The severity of findings generated from this security standard control.
-	SeverityRating pulumi.StringOutput `pulumi:"severityRating"`
-	// The standards control ARN.
-	StandardsControlArn pulumi.StringOutput `pulumi:"standardsControlArn"`
-	// The standard control title.
-	Title pulumi.StringOutput `pulumi:"title"`
+	ControlId              pulumi.StringOutput      `pulumi:"controlId"`
+	ControlStatus          pulumi.StringOutput      `pulumi:"controlStatus"`
+	ControlStatusUpdatedAt pulumi.StringOutput      `pulumi:"controlStatusUpdatedAt"`
+	Description            pulumi.StringOutput      `pulumi:"description"`
+	DisabledReason         pulumi.StringOutput      `pulumi:"disabledReason"`
+	RelatedRequirements    pulumi.StringArrayOutput `pulumi:"relatedRequirements"`
+	RemediationUrl         pulumi.StringOutput      `pulumi:"remediationUrl"`
+	SeverityRating         pulumi.StringOutput      `pulumi:"severityRating"`
+	StandardsControlArn    pulumi.StringOutput      `pulumi:"standardsControlArn"`
+	Title                  pulumi.StringOutput      `pulumi:"title"`
 }
 
 // NewStandardsControl registers a new resource with the given unique name, arguments, and options.
@@ -118,49 +61,29 @@ func GetStandardsControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StandardsControl resources.
 type standardsControlState struct {
-	// The identifier of the security standard control.
-	ControlId *string `pulumi:"controlId"`
-	// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-	ControlStatus *string `pulumi:"controlStatus"`
-	// The date and time that the status of the security standard control was most recently updated.
-	ControlStatusUpdatedAt *string `pulumi:"controlStatusUpdatedAt"`
-	// The standard control longer description. Provides information about what the control is checking for.
-	Description *string `pulumi:"description"`
-	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-	DisabledReason *string `pulumi:"disabledReason"`
-	// The list of requirements that are related to this control.
-	RelatedRequirements []string `pulumi:"relatedRequirements"`
-	// A link to remediation information for the control in the Security Hub user documentation.
-	RemediationUrl *string `pulumi:"remediationUrl"`
-	// The severity of findings generated from this security standard control.
-	SeverityRating *string `pulumi:"severityRating"`
-	// The standards control ARN.
-	StandardsControlArn *string `pulumi:"standardsControlArn"`
-	// The standard control title.
-	Title *string `pulumi:"title"`
+	ControlId              *string  `pulumi:"controlId"`
+	ControlStatus          *string  `pulumi:"controlStatus"`
+	ControlStatusUpdatedAt *string  `pulumi:"controlStatusUpdatedAt"`
+	Description            *string  `pulumi:"description"`
+	DisabledReason         *string  `pulumi:"disabledReason"`
+	RelatedRequirements    []string `pulumi:"relatedRequirements"`
+	RemediationUrl         *string  `pulumi:"remediationUrl"`
+	SeverityRating         *string  `pulumi:"severityRating"`
+	StandardsControlArn    *string  `pulumi:"standardsControlArn"`
+	Title                  *string  `pulumi:"title"`
 }
 
 type StandardsControlState struct {
-	// The identifier of the security standard control.
-	ControlId pulumi.StringPtrInput
-	// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-	ControlStatus pulumi.StringPtrInput
-	// The date and time that the status of the security standard control was most recently updated.
+	ControlId              pulumi.StringPtrInput
+	ControlStatus          pulumi.StringPtrInput
 	ControlStatusUpdatedAt pulumi.StringPtrInput
-	// The standard control longer description. Provides information about what the control is checking for.
-	Description pulumi.StringPtrInput
-	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-	DisabledReason pulumi.StringPtrInput
-	// The list of requirements that are related to this control.
-	RelatedRequirements pulumi.StringArrayInput
-	// A link to remediation information for the control in the Security Hub user documentation.
-	RemediationUrl pulumi.StringPtrInput
-	// The severity of findings generated from this security standard control.
-	SeverityRating pulumi.StringPtrInput
-	// The standards control ARN.
-	StandardsControlArn pulumi.StringPtrInput
-	// The standard control title.
-	Title pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	DisabledReason         pulumi.StringPtrInput
+	RelatedRequirements    pulumi.StringArrayInput
+	RemediationUrl         pulumi.StringPtrInput
+	SeverityRating         pulumi.StringPtrInput
+	StandardsControlArn    pulumi.StringPtrInput
+	Title                  pulumi.StringPtrInput
 }
 
 func (StandardsControlState) ElementType() reflect.Type {
@@ -168,21 +91,15 @@ func (StandardsControlState) ElementType() reflect.Type {
 }
 
 type standardsControlArgs struct {
-	// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-	ControlStatus string `pulumi:"controlStatus"`
-	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-	DisabledReason *string `pulumi:"disabledReason"`
-	// The standards control ARN.
-	StandardsControlArn string `pulumi:"standardsControlArn"`
+	ControlStatus       string  `pulumi:"controlStatus"`
+	DisabledReason      *string `pulumi:"disabledReason"`
+	StandardsControlArn string  `pulumi:"standardsControlArn"`
 }
 
 // The set of arguments for constructing a StandardsControl resource.
 type StandardsControlArgs struct {
-	// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-	ControlStatus pulumi.StringInput
-	// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-	DisabledReason pulumi.StringPtrInput
-	// The standards control ARN.
+	ControlStatus       pulumi.StringInput
+	DisabledReason      pulumi.StringPtrInput
 	StandardsControlArn pulumi.StringInput
 }
 
@@ -273,52 +190,42 @@ func (o StandardsControlOutput) ToStandardsControlOutputWithContext(ctx context.
 	return o
 }
 
-// The identifier of the security standard control.
 func (o StandardsControlOutput) ControlId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.ControlId }).(pulumi.StringOutput)
 }
 
-// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
 func (o StandardsControlOutput) ControlStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.ControlStatus }).(pulumi.StringOutput)
 }
 
-// The date and time that the status of the security standard control was most recently updated.
 func (o StandardsControlOutput) ControlStatusUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.ControlStatusUpdatedAt }).(pulumi.StringOutput)
 }
 
-// The standard control longer description. Provides information about what the control is checking for.
 func (o StandardsControlOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
 func (o StandardsControlOutput) DisabledReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.DisabledReason }).(pulumi.StringOutput)
 }
 
-// The list of requirements that are related to this control.
 func (o StandardsControlOutput) RelatedRequirements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringArrayOutput { return v.RelatedRequirements }).(pulumi.StringArrayOutput)
 }
 
-// A link to remediation information for the control in the Security Hub user documentation.
 func (o StandardsControlOutput) RemediationUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.RemediationUrl }).(pulumi.StringOutput)
 }
 
-// The severity of findings generated from this security standard control.
 func (o StandardsControlOutput) SeverityRating() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.SeverityRating }).(pulumi.StringOutput)
 }
 
-// The standards control ARN.
 func (o StandardsControlOutput) StandardsControlArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.StandardsControlArn }).(pulumi.StringOutput)
 }
 
-// The standard control title.
 func (o StandardsControlOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v *StandardsControl) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
 }

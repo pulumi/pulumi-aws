@@ -11,66 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EC2 placement group. Read more about placement groups
-// in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
-//				Strategy: pulumi.String("cluster"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Placement groups can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
-//
-// ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the placement group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the placement group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of partitions to create in the
-	// placement group.  Can only be specified when the `strategy` is set to
-	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
-	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
-	// The ID of the placement group.
-	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
-	// Determines how placement groups spread instances. Can only be used
-	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-	SpreadLevel pulumi.StringPtrOutput `pulumi:"spreadLevel"`
-	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
-	Strategy pulumi.StringOutput `pulumi:"strategy"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	PartitionCount   pulumi.IntOutput       `pulumi:"partitionCount"`
+	PlacementGroupId pulumi.StringOutput    `pulumi:"placementGroupId"`
+	SpreadLevel      pulumi.StringPtrOutput `pulumi:"spreadLevel"`
+	Strategy         pulumi.StringOutput    `pulumi:"strategy"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPlacementGroup registers a new resource with the given unique name, arguments, and options.
@@ -105,47 +56,25 @@ func GetPlacementGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PlacementGroup resources.
 type placementGroupState struct {
-	// Amazon Resource Name (ARN) of the placement group.
-	Arn *string `pulumi:"arn"`
-	// The name of the placement group.
-	Name *string `pulumi:"name"`
-	// The number of partitions to create in the
-	// placement group.  Can only be specified when the `strategy` is set to
-	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
-	PartitionCount *int `pulumi:"partitionCount"`
-	// The ID of the placement group.
-	PlacementGroupId *string `pulumi:"placementGroupId"`
-	// Determines how placement groups spread instances. Can only be used
-	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-	SpreadLevel *string `pulumi:"spreadLevel"`
-	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
-	Strategy *string `pulumi:"strategy"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string           `pulumi:"arn"`
+	Name             *string           `pulumi:"name"`
+	PartitionCount   *int              `pulumi:"partitionCount"`
+	PlacementGroupId *string           `pulumi:"placementGroupId"`
+	SpreadLevel      *string           `pulumi:"spreadLevel"`
+	Strategy         *string           `pulumi:"strategy"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type PlacementGroupState struct {
-	// Amazon Resource Name (ARN) of the placement group.
-	Arn pulumi.StringPtrInput
-	// The name of the placement group.
-	Name pulumi.StringPtrInput
-	// The number of partitions to create in the
-	// placement group.  Can only be specified when the `strategy` is set to
-	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
-	PartitionCount pulumi.IntPtrInput
-	// The ID of the placement group.
+	Arn              pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	PartitionCount   pulumi.IntPtrInput
 	PlacementGroupId pulumi.StringPtrInput
-	// Determines how placement groups spread instances. Can only be used
-	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-	SpreadLevel pulumi.StringPtrInput
-	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
-	Strategy pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	SpreadLevel      pulumi.StringPtrInput
+	Strategy         pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (PlacementGroupState) ElementType() reflect.Type {
@@ -153,36 +82,20 @@ func (PlacementGroupState) ElementType() reflect.Type {
 }
 
 type placementGroupArgs struct {
-	// The name of the placement group.
-	Name *string `pulumi:"name"`
-	// The number of partitions to create in the
-	// placement group.  Can only be specified when the `strategy` is set to
-	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
-	PartitionCount *int `pulumi:"partitionCount"`
-	// Determines how placement groups spread instances. Can only be used
-	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-	SpreadLevel *string `pulumi:"spreadLevel"`
-	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
-	Strategy string `pulumi:"strategy"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name           *string           `pulumi:"name"`
+	PartitionCount *int              `pulumi:"partitionCount"`
+	SpreadLevel    *string           `pulumi:"spreadLevel"`
+	Strategy       string            `pulumi:"strategy"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
-	// The name of the placement group.
-	Name pulumi.StringPtrInput
-	// The number of partitions to create in the
-	// placement group.  Can only be specified when the `strategy` is set to
-	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+	Name           pulumi.StringPtrInput
 	PartitionCount pulumi.IntPtrInput
-	// Determines how placement groups spread instances. Can only be used
-	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
-	SpreadLevel pulumi.StringPtrInput
-	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
-	Strategy pulumi.StringInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	SpreadLevel    pulumi.StringPtrInput
+	Strategy       pulumi.StringInput
+	Tags           pulumi.StringMapInput
 }
 
 func (PlacementGroupArgs) ElementType() reflect.Type {
@@ -272,45 +185,34 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the placement group.
 func (o PlacementGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the placement group.
 func (o PlacementGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of partitions to create in the
-// placement group.  Can only be specified when the `strategy` is set to
-// `"partition"`.  Valid values are 1 - 7 (default is `2`).
 func (o PlacementGroupOutput) PartitionCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.IntOutput { return v.PartitionCount }).(pulumi.IntOutput)
 }
 
-// The ID of the placement group.
 func (o PlacementGroupOutput) PlacementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.PlacementGroupId }).(pulumi.StringOutput)
 }
 
-// Determines how placement groups spread instances. Can only be used
-// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
 func (o PlacementGroupOutput) SpreadLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.SpreadLevel }).(pulumi.StringPtrOutput)
 }
 
-// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 func (o PlacementGroupOutput) Strategy() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Strategy }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PlacementGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PlacementGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

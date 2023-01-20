@@ -10,66 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an EC2 Transit Gateway Connect Peer.
-//
-// ## Example Usage
-// ### By Filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupConnectPeer(ctx, &ec2transitgateway.LookupConnectPeerArgs{
-//				Filters: []ec2transitgateway.GetConnectPeerFilter{
-//					{
-//						Name: "transit-gateway-attachment-id",
-//						Values: []string{
-//							"tgw-attach-12345678",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### By Identifier
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.LookupConnectPeer(ctx, &ec2transitgateway.LookupConnectPeerArgs{
-//				TransitGatewayConnectPeerId: pulumi.StringRef("tgw-connect-peer-12345678"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConnectPeer(ctx *pulumi.Context, args *LookupConnectPeerArgs, opts ...pulumi.InvokeOption) (*LookupConnectPeerResult, error) {
 	var rv LookupConnectPeerResult
 	err := ctx.Invoke("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args, &rv, opts...)
@@ -81,34 +21,24 @@ func LookupConnectPeer(ctx *pulumi.Context, args *LookupConnectPeerArgs, opts ..
 
 // A collection of arguments for invoking getConnectPeer.
 type LookupConnectPeerArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
-	Filters []GetConnectPeerFilter `pulumi:"filters"`
-	// Key-value tags for the EC2 Transit Gateway Connect Peer
-	Tags map[string]string `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway Connect Peer.
-	TransitGatewayConnectPeerId *string `pulumi:"transitGatewayConnectPeerId"`
+	Filters                     []GetConnectPeerFilter `pulumi:"filters"`
+	Tags                        map[string]string      `pulumi:"tags"`
+	TransitGatewayConnectPeerId *string                `pulumi:"transitGatewayConnectPeerId"`
 }
 
 // A collection of values returned by getConnectPeer.
 type LookupConnectPeerResult struct {
-	// EC2 Transit Gateway Connect Peer ARN
-	Arn string `pulumi:"arn"`
-	// BGP ASN number assigned customer device
+	Arn     string                 `pulumi:"arn"`
 	BgpAsn  string                 `pulumi:"bgpAsn"`
 	Filters []GetConnectPeerFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// CIDR blocks that will be used for addressing within the tunnel.
-	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
-	// IP addressed assigned to customer device, which is used as tunnel endpoint
-	PeerAddress string `pulumi:"peerAddress"`
-	// Key-value tags for the EC2 Transit Gateway Connect Peer
-	Tags map[string]string `pulumi:"tags"`
-	// The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-	TransitGatewayAddress string `pulumi:"transitGatewayAddress"`
-	// The Transit Gateway Connect
-	TransitGatewayAttachmentId  string `pulumi:"transitGatewayAttachmentId"`
-	TransitGatewayConnectPeerId string `pulumi:"transitGatewayConnectPeerId"`
+	Id                          string            `pulumi:"id"`
+	InsideCidrBlocks            []string          `pulumi:"insideCidrBlocks"`
+	PeerAddress                 string            `pulumi:"peerAddress"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TransitGatewayAddress       string            `pulumi:"transitGatewayAddress"`
+	TransitGatewayAttachmentId  string            `pulumi:"transitGatewayAttachmentId"`
+	TransitGatewayConnectPeerId string            `pulumi:"transitGatewayConnectPeerId"`
 }
 
 func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputArgs, opts ...pulumi.InvokeOption) LookupConnectPeerResultOutput {
@@ -126,12 +56,9 @@ func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputAr
 
 // A collection of arguments for invoking getConnectPeer.
 type LookupConnectPeerOutputArgs struct {
-	// One or more configuration blocks containing name-values filters. Detailed below.
-	Filters GetConnectPeerFilterArrayInput `pulumi:"filters"`
-	// Key-value tags for the EC2 Transit Gateway Connect Peer
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Identifier of the EC2 Transit Gateway Connect Peer.
-	TransitGatewayConnectPeerId pulumi.StringPtrInput `pulumi:"transitGatewayConnectPeerId"`
+	Filters                     GetConnectPeerFilterArrayInput `pulumi:"filters"`
+	Tags                        pulumi.StringMapInput          `pulumi:"tags"`
+	TransitGatewayConnectPeerId pulumi.StringPtrInput          `pulumi:"transitGatewayConnectPeerId"`
 }
 
 func (LookupConnectPeerOutputArgs) ElementType() reflect.Type {
@@ -153,12 +80,10 @@ func (o LookupConnectPeerResultOutput) ToLookupConnectPeerResultOutputWithContex
 	return o
 }
 
-// EC2 Transit Gateway Connect Peer ARN
 func (o LookupConnectPeerResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// BGP ASN number assigned customer device
 func (o LookupConnectPeerResultOutput) BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpAsn }).(pulumi.StringOutput)
 }
@@ -172,27 +97,22 @@ func (o LookupConnectPeerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// CIDR blocks that will be used for addressing within the tunnel.
 func (o LookupConnectPeerResultOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// IP addressed assigned to customer device, which is used as tunnel endpoint
 func (o LookupConnectPeerResultOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.PeerAddress }).(pulumi.StringOutput)
 }
 
-// Key-value tags for the EC2 Transit Gateway Connect Peer
 func (o LookupConnectPeerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
 func (o LookupConnectPeerResultOutput) TransitGatewayAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.TransitGatewayAddress }).(pulumi.StringOutput)
 }
 
-// The Transit Gateway Connect
 func (o LookupConnectPeerResultOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }

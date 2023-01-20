@@ -11,109 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Route 53 Recovery Control Config Safety Rule
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
-//				AssertedControls: pulumi.StringArray{
-//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-//				},
-//				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
-//				WaitPeriodMs:    pulumi.Int(5000),
-//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
-//					Inverted:  pulumi.Bool(false),
-//					Threshold: pulumi.Int(1),
-//					Type:      pulumi.String("ATLEAST"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
-//				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
-//				WaitPeriodMs:    pulumi.Int(5000),
-//				GatingControls: pulumi.StringArray{
-//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-//				},
-//				TargetControls: pulumi.StringArray{
-//					aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-//				},
-//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
-//					Inverted:  pulumi.Bool(false),
-//					Threshold: pulumi.Int(1),
-//					Type:      pulumi.String("ATLEAST"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
-//
-// ```
 type SafetyRule struct {
 	pulumi.CustomResourceState
 
-	// ARN of the safety rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-	AssertedControls pulumi.StringArrayOutput `pulumi:"assertedControls"`
-	// ARN of the control panel in which this safety rule will reside.
-	ControlPanelArn pulumi.StringOutput `pulumi:"controlPanelArn"`
-	// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-	GatingControls pulumi.StringArrayOutput `pulumi:"gatingControls"`
-	// Name describing the safety rule.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration block for safety rule criteria. See below.
-	RuleConfig SafetyRuleRuleConfigOutput `pulumi:"ruleConfig"`
-	// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-	TargetControls pulumi.StringArrayOutput `pulumi:"targetControls"`
-	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-	WaitPeriodMs pulumi.IntOutput `pulumi:"waitPeriodMs"`
+	Arn              pulumi.StringOutput        `pulumi:"arn"`
+	AssertedControls pulumi.StringArrayOutput   `pulumi:"assertedControls"`
+	ControlPanelArn  pulumi.StringOutput        `pulumi:"controlPanelArn"`
+	GatingControls   pulumi.StringArrayOutput   `pulumi:"gatingControls"`
+	Name             pulumi.StringOutput        `pulumi:"name"`
+	RuleConfig       SafetyRuleRuleConfigOutput `pulumi:"ruleConfig"`
+	Status           pulumi.StringOutput        `pulumi:"status"`
+	TargetControls   pulumi.StringArrayOutput   `pulumi:"targetControls"`
+	WaitPeriodMs     pulumi.IntOutput           `pulumi:"waitPeriodMs"`
 }
 
 // NewSafetyRule registers a new resource with the given unique name, arguments, and options.
@@ -154,45 +63,27 @@ func GetSafetyRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SafetyRule resources.
 type safetyRuleState struct {
-	// ARN of the safety rule.
-	Arn *string `pulumi:"arn"`
-	// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-	AssertedControls []string `pulumi:"assertedControls"`
-	// ARN of the control panel in which this safety rule will reside.
-	ControlPanelArn *string `pulumi:"controlPanelArn"`
-	// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-	GatingControls []string `pulumi:"gatingControls"`
-	// Name describing the safety rule.
-	Name *string `pulumi:"name"`
-	// Configuration block for safety rule criteria. See below.
-	RuleConfig *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
-	// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-	Status *string `pulumi:"status"`
-	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-	TargetControls []string `pulumi:"targetControls"`
-	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-	WaitPeriodMs *int `pulumi:"waitPeriodMs"`
+	Arn              *string               `pulumi:"arn"`
+	AssertedControls []string              `pulumi:"assertedControls"`
+	ControlPanelArn  *string               `pulumi:"controlPanelArn"`
+	GatingControls   []string              `pulumi:"gatingControls"`
+	Name             *string               `pulumi:"name"`
+	RuleConfig       *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
+	Status           *string               `pulumi:"status"`
+	TargetControls   []string              `pulumi:"targetControls"`
+	WaitPeriodMs     *int                  `pulumi:"waitPeriodMs"`
 }
 
 type SafetyRuleState struct {
-	// ARN of the safety rule.
-	Arn pulumi.StringPtrInput
-	// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
+	Arn              pulumi.StringPtrInput
 	AssertedControls pulumi.StringArrayInput
-	// ARN of the control panel in which this safety rule will reside.
-	ControlPanelArn pulumi.StringPtrInput
-	// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-	GatingControls pulumi.StringArrayInput
-	// Name describing the safety rule.
-	Name pulumi.StringPtrInput
-	// Configuration block for safety rule criteria. See below.
-	RuleConfig SafetyRuleRuleConfigPtrInput
-	// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-	Status pulumi.StringPtrInput
-	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-	TargetControls pulumi.StringArrayInput
-	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-	WaitPeriodMs pulumi.IntPtrInput
+	ControlPanelArn  pulumi.StringPtrInput
+	GatingControls   pulumi.StringArrayInput
+	Name             pulumi.StringPtrInput
+	RuleConfig       SafetyRuleRuleConfigPtrInput
+	Status           pulumi.StringPtrInput
+	TargetControls   pulumi.StringArrayInput
+	WaitPeriodMs     pulumi.IntPtrInput
 }
 
 func (SafetyRuleState) ElementType() reflect.Type {
@@ -200,38 +91,24 @@ func (SafetyRuleState) ElementType() reflect.Type {
 }
 
 type safetyRuleArgs struct {
-	// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-	AssertedControls []string `pulumi:"assertedControls"`
-	// ARN of the control panel in which this safety rule will reside.
-	ControlPanelArn string `pulumi:"controlPanelArn"`
-	// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-	GatingControls []string `pulumi:"gatingControls"`
-	// Name describing the safety rule.
-	Name *string `pulumi:"name"`
-	// Configuration block for safety rule criteria. See below.
-	RuleConfig SafetyRuleRuleConfig `pulumi:"ruleConfig"`
-	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-	TargetControls []string `pulumi:"targetControls"`
-	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-	WaitPeriodMs int `pulumi:"waitPeriodMs"`
+	AssertedControls []string             `pulumi:"assertedControls"`
+	ControlPanelArn  string               `pulumi:"controlPanelArn"`
+	GatingControls   []string             `pulumi:"gatingControls"`
+	Name             *string              `pulumi:"name"`
+	RuleConfig       SafetyRuleRuleConfig `pulumi:"ruleConfig"`
+	TargetControls   []string             `pulumi:"targetControls"`
+	WaitPeriodMs     int                  `pulumi:"waitPeriodMs"`
 }
 
 // The set of arguments for constructing a SafetyRule resource.
 type SafetyRuleArgs struct {
-	// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
 	AssertedControls pulumi.StringArrayInput
-	// ARN of the control panel in which this safety rule will reside.
-	ControlPanelArn pulumi.StringInput
-	// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-	GatingControls pulumi.StringArrayInput
-	// Name describing the safety rule.
-	Name pulumi.StringPtrInput
-	// Configuration block for safety rule criteria. See below.
-	RuleConfig SafetyRuleRuleConfigInput
-	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-	TargetControls pulumi.StringArrayInput
-	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-	WaitPeriodMs pulumi.IntInput
+	ControlPanelArn  pulumi.StringInput
+	GatingControls   pulumi.StringArrayInput
+	Name             pulumi.StringPtrInput
+	RuleConfig       SafetyRuleRuleConfigInput
+	TargetControls   pulumi.StringArrayInput
+	WaitPeriodMs     pulumi.IntInput
 }
 
 func (SafetyRuleArgs) ElementType() reflect.Type {
@@ -321,47 +198,38 @@ func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) Saf
 	return o
 }
 
-// ARN of the safety rule.
 func (o SafetyRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
 func (o SafetyRuleOutput) AssertedControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringArrayOutput { return v.AssertedControls }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the control panel in which this safety rule will reside.
 func (o SafetyRuleOutput) ControlPanelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.ControlPanelArn }).(pulumi.StringOutput)
 }
 
-// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
 func (o SafetyRuleOutput) GatingControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringArrayOutput { return v.GatingControls }).(pulumi.StringArrayOutput)
 }
 
-// Name describing the safety rule.
 func (o SafetyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration block for safety rule criteria. See below.
 func (o SafetyRuleOutput) RuleConfig() SafetyRuleRuleConfigOutput {
 	return o.ApplyT(func(v *SafetyRule) SafetyRuleRuleConfigOutput { return v.RuleConfig }).(SafetyRuleRuleConfigOutput)
 }
 
-// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 func (o SafetyRuleOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 func (o SafetyRuleOutput) TargetControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringArrayOutput { return v.TargetControls }).(pulumi.StringArrayOutput)
 }
 
-// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
 func (o SafetyRuleOutput) WaitPeriodMs() pulumi.IntOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.IntOutput { return v.WaitPeriodMs }).(pulumi.IntOutput)
 }

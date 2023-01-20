@@ -10,36 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information on a Service Catalog Product.
-//
-// > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.LookupProduct(ctx, &servicecatalog.LookupProductArgs{
-//				Id: "prod-dnigbtea24ste",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	var rv LookupProductResult
 	err := ctx.Invoke("aws:servicecatalog/getProduct:getProduct", args, &rv, opts...)
@@ -51,44 +21,28 @@ func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getProduct.
 type LookupProductArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Product ID.
-	Id string `pulumi:"id"`
-	// Tags to apply to the product.
-	Tags map[string]string `pulumi:"tags"`
+	AcceptLanguage *string           `pulumi:"acceptLanguage"`
+	Id             string            `pulumi:"id"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getProduct.
 type LookupProductResult struct {
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// ARN of the product.
-	Arn string `pulumi:"arn"`
-	// Time when the product was created.
-	CreatedTime string `pulumi:"createdTime"`
-	// Description of the product.
-	Description string `pulumi:"description"`
-	// Distributor (i.e., vendor) of the product.
-	Distributor string `pulumi:"distributor"`
-	// Whether the product has a default path.
-	HasDefaultPath bool   `pulumi:"hasDefaultPath"`
-	Id             string `pulumi:"id"`
-	// Name of the product.
-	Name string `pulumi:"name"`
-	// Owner of the product.
-	Owner string `pulumi:"owner"`
-	// Status of the product.
-	Status string `pulumi:"status"`
-	// Support information about the product.
-	SupportDescription string `pulumi:"supportDescription"`
-	// Contact email for product support.
-	SupportEmail string `pulumi:"supportEmail"`
-	// Contact URL for product support.
-	SupportUrl string `pulumi:"supportUrl"`
-	// Tags to apply to the product.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of product.
-	Type string `pulumi:"type"`
+	AcceptLanguage     *string           `pulumi:"acceptLanguage"`
+	Arn                string            `pulumi:"arn"`
+	CreatedTime        string            `pulumi:"createdTime"`
+	Description        string            `pulumi:"description"`
+	Distributor        string            `pulumi:"distributor"`
+	HasDefaultPath     bool              `pulumi:"hasDefaultPath"`
+	Id                 string            `pulumi:"id"`
+	Name               string            `pulumi:"name"`
+	Owner              string            `pulumi:"owner"`
+	Status             string            `pulumi:"status"`
+	SupportDescription string            `pulumi:"supportDescription"`
+	SupportEmail       string            `pulumi:"supportEmail"`
+	SupportUrl         string            `pulumi:"supportUrl"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               string            `pulumi:"type"`
 }
 
 func LookupProductOutput(ctx *pulumi.Context, args LookupProductOutputArgs, opts ...pulumi.InvokeOption) LookupProductResultOutput {
@@ -106,12 +60,9 @@ func LookupProductOutput(ctx *pulumi.Context, args LookupProductOutputArgs, opts
 
 // A collection of arguments for invoking getProduct.
 type LookupProductOutputArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
-	// Product ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Tags to apply to the product.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Id             pulumi.StringInput    `pulumi:"id"`
+	Tags           pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupProductOutputArgs) ElementType() reflect.Type {
@@ -137,27 +88,22 @@ func (o LookupProductResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProductResult) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the product.
 func (o LookupProductResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Time when the product was created.
 func (o LookupProductResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of the product.
 func (o LookupProductResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Distributor (i.e., vendor) of the product.
 func (o LookupProductResultOutput) Distributor() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Distributor }).(pulumi.StringOutput)
 }
 
-// Whether the product has a default path.
 func (o LookupProductResultOutput) HasDefaultPath() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupProductResult) bool { return v.HasDefaultPath }).(pulumi.BoolOutput)
 }
@@ -166,42 +112,34 @@ func (o LookupProductResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the product.
 func (o LookupProductResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Owner of the product.
 func (o LookupProductResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Status of the product.
 func (o LookupProductResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Support information about the product.
 func (o LookupProductResultOutput) SupportDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.SupportDescription }).(pulumi.StringOutput)
 }
 
-// Contact email for product support.
 func (o LookupProductResultOutput) SupportEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.SupportEmail }).(pulumi.StringOutput)
 }
 
-// Contact URL for product support.
 func (o LookupProductResultOutput) SupportUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.SupportUrl }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the product.
 func (o LookupProductResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupProductResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of product.
 func (o LookupProductResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Type }).(pulumi.StringOutput)
 }

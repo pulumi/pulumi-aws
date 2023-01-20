@@ -11,167 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource for controlling versioning on an S3 bucket.
-// Deleting this resource will either suspend versioning on the associated S3 bucket or
-// simply remove the resource from state if the associated S3 bucket is unversioned.
-//
-// For more information, see [How S3 versioning works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html).
-//
-// > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
-//
-// ## Example Usage
-// ### With Versioning Enabled
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With Versioning Disabled
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Disabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Object Dependency On Versioning
-//
-// When you create an object whose `versionId` you need and an `s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `s3.BucketVersioningV2` resource.
-//
-// > **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
-//
-// This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketVersioningV2.Bucket,
-//				Key:    pulumi.String("droeloe"),
-//				Source: pulumi.NewFileAsset("example.txt"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
-//
-// ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
-//
-// ```
 type BucketVersioningV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the S3 bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa pulumi.StringPtrOutput `pulumi:"mfa"`
-	// Configuration block for the versioning parameters detailed below.
+	Bucket                  pulumi.StringOutput                             `pulumi:"bucket"`
+	ExpectedBucketOwner     pulumi.StringPtrOutput                          `pulumi:"expectedBucketOwner"`
+	Mfa                     pulumi.StringPtrOutput                          `pulumi:"mfa"`
 	VersioningConfiguration BucketVersioningV2VersioningConfigurationOutput `pulumi:"versioningConfiguration"`
 }
 
@@ -210,24 +55,16 @@ func GetBucketVersioningV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketVersioningV2 resources.
 type bucketVersioningV2State struct {
-	// The name of the S3 bucket.
-	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa *string `pulumi:"mfa"`
-	// Configuration block for the versioning parameters detailed below.
+	Bucket                  *string                                    `pulumi:"bucket"`
+	ExpectedBucketOwner     *string                                    `pulumi:"expectedBucketOwner"`
+	Mfa                     *string                                    `pulumi:"mfa"`
 	VersioningConfiguration *BucketVersioningV2VersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
 type BucketVersioningV2State struct {
-	// The name of the S3 bucket.
-	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa pulumi.StringPtrInput
-	// Configuration block for the versioning parameters detailed below.
+	Bucket                  pulumi.StringPtrInput
+	ExpectedBucketOwner     pulumi.StringPtrInput
+	Mfa                     pulumi.StringPtrInput
 	VersioningConfiguration BucketVersioningV2VersioningConfigurationPtrInput
 }
 
@@ -236,25 +73,17 @@ func (BucketVersioningV2State) ElementType() reflect.Type {
 }
 
 type bucketVersioningV2Args struct {
-	// The name of the S3 bucket.
-	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa *string `pulumi:"mfa"`
-	// Configuration block for the versioning parameters detailed below.
+	Bucket                  string                                    `pulumi:"bucket"`
+	ExpectedBucketOwner     *string                                   `pulumi:"expectedBucketOwner"`
+	Mfa                     *string                                   `pulumi:"mfa"`
 	VersioningConfiguration BucketVersioningV2VersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
 // The set of arguments for constructing a BucketVersioningV2 resource.
 type BucketVersioningV2Args struct {
-	// The name of the S3 bucket.
-	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-	Mfa pulumi.StringPtrInput
-	// Configuration block for the versioning parameters detailed below.
+	Bucket                  pulumi.StringInput
+	ExpectedBucketOwner     pulumi.StringPtrInput
+	Mfa                     pulumi.StringPtrInput
 	VersioningConfiguration BucketVersioningV2VersioningConfigurationInput
 }
 
@@ -345,22 +174,18 @@ func (o BucketVersioningV2Output) ToBucketVersioningV2OutputWithContext(ctx cont
 	return o
 }
 
-// The name of the S3 bucket.
 func (o BucketVersioningV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketVersioningV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
 func (o BucketVersioningV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioningV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 func (o BucketVersioningV2Output) Mfa() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioningV2) pulumi.StringPtrOutput { return v.Mfa }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for the versioning parameters detailed below.
 func (o BucketVersioningV2Output) VersioningConfiguration() BucketVersioningV2VersioningConfigurationOutput {
 	return o.ApplyT(func(v *BucketVersioningV2) BucketVersioningV2VersioningConfigurationOutput {
 		return v.VersioningConfiguration

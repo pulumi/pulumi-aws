@@ -11,17 +11,11 @@ import (
 )
 
 type ApplicationAppSource struct {
-	// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
 	Password *string `pulumi:"password"`
-	// For sources that are version-aware, the revision to use.
 	Revision *string `pulumi:"revision"`
-	// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-	SshKey *string `pulumi:"sshKey"`
-	// The type of source to use. For example, "archive".
-	Type string `pulumi:"type"`
-	// The URL where the app resource can be found.
-	Url *string `pulumi:"url"`
-	// Username to use when authenticating to the source.
+	SshKey   *string `pulumi:"sshKey"`
+	Type     string  `pulumi:"type"`
+	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
 
@@ -37,17 +31,11 @@ type ApplicationAppSourceInput interface {
 }
 
 type ApplicationAppSourceArgs struct {
-	// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// For sources that are version-aware, the revision to use.
 	Revision pulumi.StringPtrInput `pulumi:"revision"`
-	// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	// The type of source to use. For example, "archive".
-	Type pulumi.StringInput `pulumi:"type"`
-	// The URL where the app resource can be found.
-	Url pulumi.StringPtrInput `pulumi:"url"`
-	// Username to use when authenticating to the source.
+	SshKey   pulumi.StringPtrInput `pulumi:"sshKey"`
+	Type     pulumi.StringInput    `pulumi:"type"`
+	Url      pulumi.StringPtrInput `pulumi:"url"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -102,32 +90,26 @@ func (o ApplicationAppSourceOutput) ToApplicationAppSourceOutputWithContext(ctx 
 	return o
 }
 
-// Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
 func (o ApplicationAppSourceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// For sources that are version-aware, the revision to use.
 func (o ApplicationAppSourceOutput) Revision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Revision }).(pulumi.StringPtrOutput)
 }
 
-// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
 func (o ApplicationAppSourceOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationAppSource) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
-// The type of source to use. For example, "archive".
 func (o ApplicationAppSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAppSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The URL where the app resource can be found.
 func (o ApplicationAppSourceOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// Username to use when authenticating to the source.
 func (o ApplicationAppSourceOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationAppSource) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -153,12 +135,9 @@ func (o ApplicationAppSourceArrayOutput) Index(i pulumi.IntInput) ApplicationApp
 }
 
 type ApplicationEnvironment struct {
-	// Variable name.
-	Key string `pulumi:"key"`
-	// Set visibility of the variable value to `true` or `false`.
-	Secure *bool `pulumi:"secure"`
-	// Variable value.
-	Value string `pulumi:"value"`
+	Key    string `pulumi:"key"`
+	Secure *bool  `pulumi:"secure"`
+	Value  string `pulumi:"value"`
 }
 
 // ApplicationEnvironmentInput is an input type that accepts ApplicationEnvironmentArgs and ApplicationEnvironmentOutput values.
@@ -173,12 +152,9 @@ type ApplicationEnvironmentInput interface {
 }
 
 type ApplicationEnvironmentArgs struct {
-	// Variable name.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Set visibility of the variable value to `true` or `false`.
+	Key    pulumi.StringInput  `pulumi:"key"`
 	Secure pulumi.BoolPtrInput `pulumi:"secure"`
-	// Variable value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value  pulumi.StringInput  `pulumi:"value"`
 }
 
 func (ApplicationEnvironmentArgs) ElementType() reflect.Type {
@@ -232,17 +208,14 @@ func (o ApplicationEnvironmentOutput) ToApplicationEnvironmentOutputWithContext(
 	return o
 }
 
-// Variable name.
 func (o ApplicationEnvironmentOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironment) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Set visibility of the variable value to `true` or `false`.
 func (o ApplicationEnvironmentOutput) Secure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationEnvironment) *bool { return v.Secure }).(pulumi.BoolPtrOutput)
 }
 
-// Variable value.
 func (o ApplicationEnvironmentOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationEnvironment) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -268,12 +241,9 @@ func (o ApplicationEnvironmentArrayOutput) Index(i pulumi.IntInput) ApplicationE
 }
 
 type ApplicationSslConfiguration struct {
-	// The contents of the certificate's domain.crt file.
-	Certificate string `pulumi:"certificate"`
-	// Can be used to specify an intermediate certificate authority key or client authentication.
-	Chain *string `pulumi:"chain"`
-	// The private key; the contents of the certificate's domain.key file.
-	PrivateKey string `pulumi:"privateKey"`
+	Certificate string  `pulumi:"certificate"`
+	Chain       *string `pulumi:"chain"`
+	PrivateKey  string  `pulumi:"privateKey"`
 }
 
 // ApplicationSslConfigurationInput is an input type that accepts ApplicationSslConfigurationArgs and ApplicationSslConfigurationOutput values.
@@ -288,12 +258,9 @@ type ApplicationSslConfigurationInput interface {
 }
 
 type ApplicationSslConfigurationArgs struct {
-	// The contents of the certificate's domain.crt file.
-	Certificate pulumi.StringInput `pulumi:"certificate"`
-	// Can be used to specify an intermediate certificate authority key or client authentication.
-	Chain pulumi.StringPtrInput `pulumi:"chain"`
-	// The private key; the contents of the certificate's domain.key file.
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	Certificate pulumi.StringInput    `pulumi:"certificate"`
+	Chain       pulumi.StringPtrInput `pulumi:"chain"`
+	PrivateKey  pulumi.StringInput    `pulumi:"privateKey"`
 }
 
 func (ApplicationSslConfigurationArgs) ElementType() reflect.Type {
@@ -347,17 +314,14 @@ func (o ApplicationSslConfigurationOutput) ToApplicationSslConfigurationOutputWi
 	return o
 }
 
-// The contents of the certificate's domain.crt file.
 func (o ApplicationSslConfigurationOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSslConfiguration) string { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// Can be used to specify an intermediate certificate authority key or client authentication.
 func (o ApplicationSslConfigurationOutput) Chain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationSslConfiguration) *string { return v.Chain }).(pulumi.StringPtrOutput)
 }
 
-// The private key; the contents of the certificate's domain.key file.
 func (o ApplicationSslConfigurationOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSslConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -383,8 +347,7 @@ func (o ApplicationSslConfigurationArrayOutput) Index(i pulumi.IntInput) Applica
 }
 
 type CustomLayerCloudwatchConfiguration struct {
-	Enabled *bool `pulumi:"enabled"`
-	// A block the specifies how an opsworks logs look like. See Log Streams.
+	Enabled    *bool                                         `pulumi:"enabled"`
 	LogStreams []CustomLayerCloudwatchConfigurationLogStream `pulumi:"logStreams"`
 }
 
@@ -400,8 +363,7 @@ type CustomLayerCloudwatchConfigurationInput interface {
 }
 
 type CustomLayerCloudwatchConfigurationArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// A block the specifies how an opsworks logs look like. See Log Streams.
+	Enabled    pulumi.BoolPtrInput                                   `pulumi:"enabled"`
 	LogStreams CustomLayerCloudwatchConfigurationLogStreamArrayInput `pulumi:"logStreams"`
 }
 
@@ -486,7 +448,6 @@ func (o CustomLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v CustomLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A block the specifies how an opsworks logs look like. See Log Streams.
 func (o CustomLayerCloudwatchConfigurationOutput) LogStreams() CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfiguration) []CustomLayerCloudwatchConfigurationLogStream {
 		return v.LogStreams
@@ -526,7 +487,6 @@ func (o CustomLayerCloudwatchConfigurationPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A block the specifies how an opsworks logs look like. See Log Streams.
 func (o CustomLayerCloudwatchConfigurationPtrOutput) LogStreams() CustomLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o.ApplyT(func(v *CustomLayerCloudwatchConfiguration) []CustomLayerCloudwatchConfigurationLogStream {
 		if v == nil {
@@ -537,28 +497,17 @@ func (o CustomLayerCloudwatchConfigurationPtrOutput) LogStreams() CustomLayerClo
 }
 
 type CustomLayerCloudwatchConfigurationLogStream struct {
-	// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
-	BatchCount *int `pulumi:"batchCount"`
-	// Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
-	BatchSize *int `pulumi:"batchSize"`
-	// Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
-	BufferDuration *int `pulumi:"bufferDuration"`
-	// Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
-	DatetimeFormat *string `pulumi:"datetimeFormat"`
-	// Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
-	Encoding *string `pulumi:"encoding"`
-	// Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
-	File string `pulumi:"file"`
-	// Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
-	FileFingerprintLines *string `pulumi:"fileFingerprintLines"`
-	// Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
-	InitialPosition *string `pulumi:"initialPosition"`
-	// Specifies the destination log group. A log group is created automatically if it doesn't already exist.
-	LogGroupName string `pulumi:"logGroupName"`
-	// Specifies the pattern for identifying the start of a log message.
+	BatchCount            *int    `pulumi:"batchCount"`
+	BatchSize             *int    `pulumi:"batchSize"`
+	BufferDuration        *int    `pulumi:"bufferDuration"`
+	DatetimeFormat        *string `pulumi:"datetimeFormat"`
+	Encoding              *string `pulumi:"encoding"`
+	File                  string  `pulumi:"file"`
+	FileFingerprintLines  *string `pulumi:"fileFingerprintLines"`
+	InitialPosition       *string `pulumi:"initialPosition"`
+	LogGroupName          string  `pulumi:"logGroupName"`
 	MultilineStartPattern *string `pulumi:"multilineStartPattern"`
-	// Specifies the time zone of log event time stamps.
-	TimeZone *string `pulumi:"timeZone"`
+	TimeZone              *string `pulumi:"timeZone"`
 }
 
 // CustomLayerCloudwatchConfigurationLogStreamInput is an input type that accepts CustomLayerCloudwatchConfigurationLogStreamArgs and CustomLayerCloudwatchConfigurationLogStreamOutput values.
@@ -573,28 +522,17 @@ type CustomLayerCloudwatchConfigurationLogStreamInput interface {
 }
 
 type CustomLayerCloudwatchConfigurationLogStreamArgs struct {
-	// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
-	BatchCount pulumi.IntPtrInput `pulumi:"batchCount"`
-	// Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
-	BufferDuration pulumi.IntPtrInput `pulumi:"bufferDuration"`
-	// Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
-	DatetimeFormat pulumi.StringPtrInput `pulumi:"datetimeFormat"`
-	// Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
-	File pulumi.StringInput `pulumi:"file"`
-	// Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
-	FileFingerprintLines pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
-	// Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
-	InitialPosition pulumi.StringPtrInput `pulumi:"initialPosition"`
-	// Specifies the destination log group. A log group is created automatically if it doesn't already exist.
-	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	// Specifies the pattern for identifying the start of a log message.
+	BatchCount            pulumi.IntPtrInput    `pulumi:"batchCount"`
+	BatchSize             pulumi.IntPtrInput    `pulumi:"batchSize"`
+	BufferDuration        pulumi.IntPtrInput    `pulumi:"bufferDuration"`
+	DatetimeFormat        pulumi.StringPtrInput `pulumi:"datetimeFormat"`
+	Encoding              pulumi.StringPtrInput `pulumi:"encoding"`
+	File                  pulumi.StringInput    `pulumi:"file"`
+	FileFingerprintLines  pulumi.StringPtrInput `pulumi:"fileFingerprintLines"`
+	InitialPosition       pulumi.StringPtrInput `pulumi:"initialPosition"`
+	LogGroupName          pulumi.StringInput    `pulumi:"logGroupName"`
 	MultilineStartPattern pulumi.StringPtrInput `pulumi:"multilineStartPattern"`
-	// Specifies the time zone of log event time stamps.
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	TimeZone              pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
 func (CustomLayerCloudwatchConfigurationLogStreamArgs) ElementType() reflect.Type {
@@ -648,57 +586,46 @@ func (o CustomLayerCloudwatchConfigurationLogStreamOutput) ToCustomLayerCloudwat
 	return o
 }
 
-// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *int { return v.BatchCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) BufferDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *int { return v.BufferDuration }).(pulumi.IntPtrOutput)
 }
 
-// Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) DatetimeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.DatetimeFormat }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-// Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) File() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) string { return v.File }).(pulumi.StringOutput)
 }
 
-// Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) FileFingerprintLines() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.FileFingerprintLines }).(pulumi.StringPtrOutput)
 }
 
-// Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) InitialPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.InitialPosition }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the destination log group. A log group is created automatically if it doesn't already exist.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// Specifies the pattern for identifying the start of a log message.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) MultilineStartPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.MultilineStartPattern }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the time zone of log event time stamps.
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerCloudwatchConfigurationLogStream) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -724,20 +651,13 @@ func (o CustomLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.I
 }
 
 type CustomLayerEbsVolume struct {
-	// Encrypt the volume.
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // CustomLayerEbsVolumeInput is an input type that accepts CustomLayerEbsVolumeArgs and CustomLayerEbsVolumeOutput values.
@@ -752,20 +672,13 @@ type CustomLayerEbsVolumeInput interface {
 }
 
 type CustomLayerEbsVolumeArgs struct {
-	// Encrypt the volume.
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CustomLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -819,37 +732,30 @@ func (o CustomLayerEbsVolumeOutput) ToCustomLayerEbsVolumeOutputWithContext(ctx 
 	return o
 }
 
-// Encrypt the volume.
 func (o CustomLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o CustomLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o CustomLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o CustomLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o CustomLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o CustomLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o CustomLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -875,12 +781,9 @@ func (o CustomLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) CustomLayerEbs
 }
 
 type CustomLayerLoadBasedAutoScaling struct {
-	// The downscaling settings, as defined below, used for load-based autoscaling
 	Downscaling *CustomLayerLoadBasedAutoScalingDownscaling `pulumi:"downscaling"`
-	// Whether load-based auto scaling is enabled for the layer.
-	Enable *bool `pulumi:"enable"`
-	// The upscaling settings, as defined below, used for load-based autoscaling
-	Upscaling *CustomLayerLoadBasedAutoScalingUpscaling `pulumi:"upscaling"`
+	Enable      *bool                                       `pulumi:"enable"`
+	Upscaling   *CustomLayerLoadBasedAutoScalingUpscaling   `pulumi:"upscaling"`
 }
 
 // CustomLayerLoadBasedAutoScalingInput is an input type that accepts CustomLayerLoadBasedAutoScalingArgs and CustomLayerLoadBasedAutoScalingOutput values.
@@ -895,12 +798,9 @@ type CustomLayerLoadBasedAutoScalingInput interface {
 }
 
 type CustomLayerLoadBasedAutoScalingArgs struct {
-	// The downscaling settings, as defined below, used for load-based autoscaling
 	Downscaling CustomLayerLoadBasedAutoScalingDownscalingPtrInput `pulumi:"downscaling"`
-	// Whether load-based auto scaling is enabled for the layer.
-	Enable pulumi.BoolPtrInput `pulumi:"enable"`
-	// The upscaling settings, as defined below, used for load-based autoscaling
-	Upscaling CustomLayerLoadBasedAutoScalingUpscalingPtrInput `pulumi:"upscaling"`
+	Enable      pulumi.BoolPtrInput                                `pulumi:"enable"`
+	Upscaling   CustomLayerLoadBasedAutoScalingUpscalingPtrInput   `pulumi:"upscaling"`
 }
 
 func (CustomLayerLoadBasedAutoScalingArgs) ElementType() reflect.Type {
@@ -980,19 +880,16 @@ func (o CustomLayerLoadBasedAutoScalingOutput) ToCustomLayerLoadBasedAutoScaling
 	}).(CustomLayerLoadBasedAutoScalingPtrOutput)
 }
 
-// The downscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingOutput) Downscaling() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingDownscaling {
 		return v.Downscaling
 	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
-// Whether load-based auto scaling is enabled for the layer.
 func (o CustomLayerLoadBasedAutoScalingOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// The upscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingOutput) Upscaling() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingUpscaling { return v.Upscaling }).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
@@ -1021,7 +918,6 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) Elem() CustomLayerLoadBasedAut
 	}).(CustomLayerLoadBasedAutoScalingOutput)
 }
 
-// The downscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) Downscaling() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingDownscaling {
 		if v == nil {
@@ -1031,7 +927,6 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) Downscaling() CustomLayerLoadB
 	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
-// Whether load-based auto scaling is enabled for the layer.
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *bool {
 		if v == nil {
@@ -1041,7 +936,6 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) Enable() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The upscaling settings, as defined below, used for load-based autoscaling
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) Upscaling() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScalingUpscaling {
 		if v == nil {
@@ -1052,20 +946,13 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) Upscaling() CustomLayerLoadBas
 }
 
 type CustomLayerLoadBasedAutoScalingDownscaling struct {
-	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
-	Alarms []string `pulumi:"alarms"`
-	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
-	CpuThreshold *float64 `pulumi:"cpuThreshold"`
-	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
-	IgnoreMetricsTime *int `pulumi:"ignoreMetricsTime"`
-	// The number of instances to add or remove when the load exceeds a threshold.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// The load threshold. A value of -1 disables the threshold.
-	LoadThreshold *float64 `pulumi:"loadThreshold"`
-	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
-	MemoryThreshold *float64 `pulumi:"memoryThreshold"`
-	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
-	ThresholdsWaitTime *int `pulumi:"thresholdsWaitTime"`
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
 }
 
 // CustomLayerLoadBasedAutoScalingDownscalingInput is an input type that accepts CustomLayerLoadBasedAutoScalingDownscalingArgs and CustomLayerLoadBasedAutoScalingDownscalingOutput values.
@@ -1080,20 +967,13 @@ type CustomLayerLoadBasedAutoScalingDownscalingInput interface {
 }
 
 type CustomLayerLoadBasedAutoScalingDownscalingArgs struct {
-	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
-	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
-	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
-	CpuThreshold pulumi.Float64PtrInput `pulumi:"cpuThreshold"`
-	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
-	IgnoreMetricsTime pulumi.IntPtrInput `pulumi:"ignoreMetricsTime"`
-	// The number of instances to add or remove when the load exceeds a threshold.
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// The load threshold. A value of -1 disables the threshold.
-	LoadThreshold pulumi.Float64PtrInput `pulumi:"loadThreshold"`
-	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
-	MemoryThreshold pulumi.Float64PtrInput `pulumi:"memoryThreshold"`
-	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
-	ThresholdsWaitTime pulumi.IntPtrInput `pulumi:"thresholdsWaitTime"`
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
 }
 
 func (CustomLayerLoadBasedAutoScalingDownscalingArgs) ElementType() reflect.Type {
@@ -1173,37 +1053,30 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ToCustomLayerLoadBased
 	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
-// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
 func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
 }
 
-// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
 func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
 }
 
-// The number of instances to add or remove when the load exceeds a threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// The load threshold. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
 }
 
-// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
 func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingDownscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
 }
@@ -1232,7 +1105,6 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() CustomLayerL
 	}).(CustomLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
-// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) []string {
 		if v == nil {
@@ -1242,7 +1114,6 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) Alarms() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *float64 {
 		if v == nil {
@@ -1252,7 +1123,6 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) CpuThreshold() pulu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *int {
 		if v == nil {
@@ -1262,7 +1132,6 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) IgnoreMetricsTime()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of instances to add or remove when the load exceeds a threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *int {
 		if v == nil {
@@ -1272,7 +1141,6 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) InstanceCount() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The load threshold. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *float64 {
 		if v == nil {
@@ -1282,7 +1150,6 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) LoadThreshold() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *float64 {
 		if v == nil {
@@ -1292,7 +1159,6 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) MemoryThreshold() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingDownscaling) *int {
 		if v == nil {
@@ -1303,20 +1169,13 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ThresholdsWaitTime(
 }
 
 type CustomLayerLoadBasedAutoScalingUpscaling struct {
-	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
-	Alarms []string `pulumi:"alarms"`
-	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
-	CpuThreshold *float64 `pulumi:"cpuThreshold"`
-	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
-	IgnoreMetricsTime *int `pulumi:"ignoreMetricsTime"`
-	// The number of instances to add or remove when the load exceeds a threshold.
-	InstanceCount *int `pulumi:"instanceCount"`
-	// The load threshold. A value of -1 disables the threshold.
-	LoadThreshold *float64 `pulumi:"loadThreshold"`
-	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
-	MemoryThreshold *float64 `pulumi:"memoryThreshold"`
-	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
-	ThresholdsWaitTime *int `pulumi:"thresholdsWaitTime"`
+	Alarms             []string `pulumi:"alarms"`
+	CpuThreshold       *float64 `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  *int     `pulumi:"ignoreMetricsTime"`
+	InstanceCount      *int     `pulumi:"instanceCount"`
+	LoadThreshold      *float64 `pulumi:"loadThreshold"`
+	MemoryThreshold    *float64 `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime *int     `pulumi:"thresholdsWaitTime"`
 }
 
 // CustomLayerLoadBasedAutoScalingUpscalingInput is an input type that accepts CustomLayerLoadBasedAutoScalingUpscalingArgs and CustomLayerLoadBasedAutoScalingUpscalingOutput values.
@@ -1331,20 +1190,13 @@ type CustomLayerLoadBasedAutoScalingUpscalingInput interface {
 }
 
 type CustomLayerLoadBasedAutoScalingUpscalingArgs struct {
-	// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
-	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
-	// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
-	CpuThreshold pulumi.Float64PtrInput `pulumi:"cpuThreshold"`
-	// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
-	IgnoreMetricsTime pulumi.IntPtrInput `pulumi:"ignoreMetricsTime"`
-	// The number of instances to add or remove when the load exceeds a threshold.
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// The load threshold. A value of -1 disables the threshold.
-	LoadThreshold pulumi.Float64PtrInput `pulumi:"loadThreshold"`
-	// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
-	MemoryThreshold pulumi.Float64PtrInput `pulumi:"memoryThreshold"`
-	// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
-	ThresholdsWaitTime pulumi.IntPtrInput `pulumi:"thresholdsWaitTime"`
+	Alarms             pulumi.StringArrayInput `pulumi:"alarms"`
+	CpuThreshold       pulumi.Float64PtrInput  `pulumi:"cpuThreshold"`
+	IgnoreMetricsTime  pulumi.IntPtrInput      `pulumi:"ignoreMetricsTime"`
+	InstanceCount      pulumi.IntPtrInput      `pulumi:"instanceCount"`
+	LoadThreshold      pulumi.Float64PtrInput  `pulumi:"loadThreshold"`
+	MemoryThreshold    pulumi.Float64PtrInput  `pulumi:"memoryThreshold"`
+	ThresholdsWaitTime pulumi.IntPtrInput      `pulumi:"thresholdsWaitTime"`
 }
 
 func (CustomLayerLoadBasedAutoScalingUpscalingArgs) ElementType() reflect.Type {
@@ -1424,37 +1276,30 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ToCustomLayerLoadBasedAu
 	}).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
-// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
 func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) []string { return v.Alarms }).(pulumi.StringArrayOutput)
 }
 
-// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) CpuThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *float64 { return v.CpuThreshold }).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
 func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *int { return v.IgnoreMetricsTime }).(pulumi.IntPtrOutput)
 }
 
-// The number of instances to add or remove when the load exceeds a threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// The load threshold. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) LoadThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *float64 { return v.LoadThreshold }).(pulumi.Float64PtrOutput)
 }
 
-// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) MemoryThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *float64 { return v.MemoryThreshold }).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
 func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomLayerLoadBasedAutoScalingUpscaling) *int { return v.ThresholdsWaitTime }).(pulumi.IntPtrOutput)
 }
@@ -1483,7 +1328,6 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() CustomLayerLoa
 	}).(CustomLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
-// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) []string {
 		if v == nil {
@@ -1493,7 +1337,6 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) Alarms() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *float64 {
 		if v == nil {
@@ -1503,7 +1346,6 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) CpuThreshold() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *int {
 		if v == nil {
@@ -1513,7 +1355,6 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) IgnoreMetricsTime() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of instances to add or remove when the load exceeds a threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *int {
 		if v == nil {
@@ -1523,7 +1364,6 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) InstanceCount() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The load threshold. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *float64 {
 		if v == nil {
@@ -1533,7 +1373,6 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) LoadThreshold() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *float64 {
 		if v == nil {
@@ -1543,7 +1382,6 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) MemoryThreshold() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CustomLayerLoadBasedAutoScalingUpscaling) *int {
 		if v == nil {
@@ -1858,19 +1696,13 @@ func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulu
 }
 
 type EcsClusterLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // EcsClusterLayerEbsVolumeInput is an input type that accepts EcsClusterLayerEbsVolumeArgs and EcsClusterLayerEbsVolumeOutput values.
@@ -1885,19 +1717,13 @@ type EcsClusterLayerEbsVolumeInput interface {
 }
 
 type EcsClusterLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (EcsClusterLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -1955,32 +1781,26 @@ func (o EcsClusterLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o EcsClusterLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o EcsClusterLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EcsClusterLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o EcsClusterLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v EcsClusterLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o EcsClusterLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o EcsClusterLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v EcsClusterLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o EcsClusterLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EcsClusterLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2923,19 +2743,13 @@ func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.
 }
 
 type GangliaLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // GangliaLayerEbsVolumeInput is an input type that accepts GangliaLayerEbsVolumeArgs and GangliaLayerEbsVolumeOutput values.
@@ -2950,19 +2764,13 @@ type GangliaLayerEbsVolumeInput interface {
 }
 
 type GangliaLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GangliaLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -3020,32 +2828,26 @@ func (o GangliaLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GangliaLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o GangliaLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GangliaLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o GangliaLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GangliaLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o GangliaLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v GangliaLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o GangliaLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GangliaLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o GangliaLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v GangliaLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o GangliaLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GangliaLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3988,19 +3790,13 @@ func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.
 }
 
 type HaproxyLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // HaproxyLayerEbsVolumeInput is an input type that accepts HaproxyLayerEbsVolumeArgs and HaproxyLayerEbsVolumeOutput values.
@@ -4015,19 +3811,13 @@ type HaproxyLayerEbsVolumeInput interface {
 }
 
 type HaproxyLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (HaproxyLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -4085,32 +3875,26 @@ func (o HaproxyLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HaproxyLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o HaproxyLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HaproxyLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o HaproxyLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v HaproxyLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o HaproxyLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v HaproxyLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o HaproxyLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HaproxyLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o HaproxyLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v HaproxyLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o HaproxyLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HaproxyLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5389,19 +5173,13 @@ func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.
 }
 
 type JavaAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // JavaAppLayerEbsVolumeInput is an input type that accepts JavaAppLayerEbsVolumeArgs and JavaAppLayerEbsVolumeOutput values.
@@ -5416,19 +5194,13 @@ type JavaAppLayerEbsVolumeInput interface {
 }
 
 type JavaAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JavaAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -5486,32 +5258,26 @@ func (o JavaAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JavaAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o JavaAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JavaAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o JavaAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v JavaAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o JavaAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v JavaAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o JavaAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JavaAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o JavaAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v JavaAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o JavaAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JavaAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6454,19 +6220,13 @@ func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulum
 }
 
 type MemcachedLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // MemcachedLayerEbsVolumeInput is an input type that accepts MemcachedLayerEbsVolumeArgs and MemcachedLayerEbsVolumeOutput values.
@@ -6481,19 +6241,13 @@ type MemcachedLayerEbsVolumeInput interface {
 }
 
 type MemcachedLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (MemcachedLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -6551,32 +6305,26 @@ func (o MemcachedLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MemcachedLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o MemcachedLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MemcachedLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o MemcachedLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v MemcachedLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o MemcachedLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v MemcachedLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o MemcachedLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MemcachedLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o MemcachedLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v MemcachedLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o MemcachedLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MemcachedLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -7519,19 +7267,13 @@ func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.In
 }
 
 type MysqlLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // MysqlLayerEbsVolumeInput is an input type that accepts MysqlLayerEbsVolumeArgs and MysqlLayerEbsVolumeOutput values.
@@ -7546,19 +7288,13 @@ type MysqlLayerEbsVolumeInput interface {
 }
 
 type MysqlLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (MysqlLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -7616,32 +7352,26 @@ func (o MysqlLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MysqlLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o MysqlLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MysqlLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o MysqlLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v MysqlLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o MysqlLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v MysqlLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o MysqlLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MysqlLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o MysqlLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v MysqlLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o MysqlLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MysqlLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8582,19 +8312,13 @@ func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulum
 }
 
 type NodejsAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // NodejsAppLayerEbsVolumeInput is an input type that accepts NodejsAppLayerEbsVolumeArgs and NodejsAppLayerEbsVolumeOutput values.
@@ -8609,19 +8333,13 @@ type NodejsAppLayerEbsVolumeInput interface {
 }
 
 type NodejsAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (NodejsAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -8679,32 +8397,26 @@ func (o NodejsAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o NodejsAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o NodejsAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v NodejsAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o NodejsAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v NodejsAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o NodejsAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o NodejsAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v NodejsAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o NodejsAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodejsAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -9647,19 +9359,13 @@ func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.I
 }
 
 type PhpAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // PhpAppLayerEbsVolumeInput is an input type that accepts PhpAppLayerEbsVolumeArgs and PhpAppLayerEbsVolumeOutput values.
@@ -9674,19 +9380,13 @@ type PhpAppLayerEbsVolumeInput interface {
 }
 
 type PhpAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PhpAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -9744,32 +9444,26 @@ func (o PhpAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PhpAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o PhpAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PhpAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o PhpAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v PhpAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o PhpAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v PhpAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o PhpAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PhpAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o PhpAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v PhpAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o PhpAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PhpAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -10710,19 +10404,13 @@ func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi
 }
 
 type RailsAppLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // RailsAppLayerEbsVolumeInput is an input type that accepts RailsAppLayerEbsVolumeArgs and RailsAppLayerEbsVolumeOutput values.
@@ -10737,19 +10425,13 @@ type RailsAppLayerEbsVolumeInput interface {
 }
 
 type RailsAppLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (RailsAppLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -10807,32 +10489,26 @@ func (o RailsAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RailsAppLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o RailsAppLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RailsAppLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o RailsAppLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v RailsAppLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o RailsAppLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v RailsAppLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o RailsAppLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RailsAppLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o RailsAppLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v RailsAppLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o RailsAppLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RailsAppLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -11471,17 +11147,11 @@ func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ThresholdsWaitTime(
 }
 
 type StackCustomCookbooksSource struct {
-	// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
 	Password *string `pulumi:"password"`
-	// For sources that are version-aware, the revision to use.
 	Revision *string `pulumi:"revision"`
-	// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-	SshKey *string `pulumi:"sshKey"`
-	// The type of source to use. For example, "archive".
-	Type string `pulumi:"type"`
-	// The URL where the cookbooks resource can be found.
-	Url string `pulumi:"url"`
-	// Username to use when authenticating to the source.
+	SshKey   *string `pulumi:"sshKey"`
+	Type     string  `pulumi:"type"`
+	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
 
@@ -11497,17 +11167,11 @@ type StackCustomCookbooksSourceInput interface {
 }
 
 type StackCustomCookbooksSourceArgs struct {
-	// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// For sources that are version-aware, the revision to use.
 	Revision pulumi.StringPtrInput `pulumi:"revision"`
-	// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
-	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	// The type of source to use. For example, "archive".
-	Type pulumi.StringInput `pulumi:"type"`
-	// The URL where the cookbooks resource can be found.
-	Url pulumi.StringInput `pulumi:"url"`
-	// Username to use when authenticating to the source.
+	SshKey   pulumi.StringPtrInput `pulumi:"sshKey"`
+	Type     pulumi.StringInput    `pulumi:"type"`
+	Url      pulumi.StringInput    `pulumi:"url"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -11562,32 +11226,26 @@ func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourceOutputWith
 	return o
 }
 
-// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
 func (o StackCustomCookbooksSourceOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// For sources that are version-aware, the revision to use.
 func (o StackCustomCookbooksSourceOutput) Revision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Revision }).(pulumi.StringPtrOutput)
 }
 
-// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
 func (o StackCustomCookbooksSourceOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
-// The type of source to use. For example, "archive".
 func (o StackCustomCookbooksSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The URL where the cookbooks resource can be found.
 func (o StackCustomCookbooksSourceOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Username to use when authenticating to the source.
 func (o StackCustomCookbooksSourceOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -11917,19 +11575,13 @@ func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulum
 }
 
 type StaticWebLayerEbsVolume struct {
-	Encrypted *bool `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops *int `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint string `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks int `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel *string `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size int `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type *string `pulumi:"type"`
+	Encrypted     *bool   `pulumi:"encrypted"`
+	Iops          *int    `pulumi:"iops"`
+	MountPoint    string  `pulumi:"mountPoint"`
+	NumberOfDisks int     `pulumi:"numberOfDisks"`
+	RaidLevel     *string `pulumi:"raidLevel"`
+	Size          int     `pulumi:"size"`
+	Type          *string `pulumi:"type"`
 }
 
 // StaticWebLayerEbsVolumeInput is an input type that accepts StaticWebLayerEbsVolumeArgs and StaticWebLayerEbsVolumeOutput values.
@@ -11944,19 +11596,13 @@ type StaticWebLayerEbsVolumeInput interface {
 }
 
 type StaticWebLayerEbsVolumeArgs struct {
-	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// For PIOPS volumes, the IOPS per disk.
-	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// The path to mount the EBS volume on the layer's instances.
-	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// The number of disks to use for the EBS volume.
-	NumberOfDisks pulumi.IntInput `pulumi:"numberOfDisks"`
-	// The RAID level to use for the volume.
-	RaidLevel pulumi.StringPtrInput `pulumi:"raidLevel"`
-	// The size of the volume in gigabytes.
-	Size pulumi.IntInput `pulumi:"size"`
-	// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Encrypted     pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops          pulumi.IntPtrInput    `pulumi:"iops"`
+	MountPoint    pulumi.StringInput    `pulumi:"mountPoint"`
+	NumberOfDisks pulumi.IntInput       `pulumi:"numberOfDisks"`
+	RaidLevel     pulumi.StringPtrInput `pulumi:"raidLevel"`
+	Size          pulumi.IntInput       `pulumi:"size"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (StaticWebLayerEbsVolumeArgs) ElementType() reflect.Type {
@@ -12014,32 +11660,26 @@ func (o StaticWebLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StaticWebLayerEbsVolume) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// For PIOPS volumes, the IOPS per disk.
 func (o StaticWebLayerEbsVolumeOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StaticWebLayerEbsVolume) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// The path to mount the EBS volume on the layer's instances.
 func (o StaticWebLayerEbsVolumeOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticWebLayerEbsVolume) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// The number of disks to use for the EBS volume.
 func (o StaticWebLayerEbsVolumeOutput) NumberOfDisks() pulumi.IntOutput {
 	return o.ApplyT(func(v StaticWebLayerEbsVolume) int { return v.NumberOfDisks }).(pulumi.IntOutput)
 }
 
-// The RAID level to use for the volume.
 func (o StaticWebLayerEbsVolumeOutput) RaidLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticWebLayerEbsVolume) *string { return v.RaidLevel }).(pulumi.StringPtrOutput)
 }
 
-// The size of the volume in gigabytes.
 func (o StaticWebLayerEbsVolumeOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v StaticWebLayerEbsVolume) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
 func (o StaticWebLayerEbsVolumeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticWebLayerEbsVolume) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

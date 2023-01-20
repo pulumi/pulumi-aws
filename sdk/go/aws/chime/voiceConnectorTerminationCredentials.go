@@ -11,81 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
-//
-// > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultVoiceConnectorTermination, err := chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
-//				Disabled: pulumi.Bool(true),
-//				CpsLimit: pulumi.Int(1),
-//				CidrAllowLists: pulumi.StringArray{
-//					pulumi.String("50.35.78.96/31"),
-//				},
-//				CallingRegions: pulumi.StringArray{
-//					pulumi.String("US"),
-//					pulumi.String("CA"),
-//				},
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorTerminationCredentials(ctx, "defaultVoiceConnectorTerminationCredentials", &chime.VoiceConnectorTerminationCredentialsArgs{
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
-//				Credentials: chime.VoiceConnectorTerminationCredentialsCredentialArray{
-//					&chime.VoiceConnectorTerminationCredentialsCredentialArgs{
-//						Username: pulumi.String("test"),
-//						Password: pulumi.String("test!"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				defaultVoiceConnectorTermination,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
-//
-// ```
 type VoiceConnectorTerminationCredentials struct {
 	pulumi.CustomResourceState
 
-	// List of termination SIP credentials.
-	Credentials VoiceConnectorTerminationCredentialsCredentialArrayOutput `pulumi:"credentials"`
-	// Amazon Chime Voice Connector ID.
-	VoiceConnectorId pulumi.StringOutput `pulumi:"voiceConnectorId"`
+	Credentials      VoiceConnectorTerminationCredentialsCredentialArrayOutput `pulumi:"credentials"`
+	VoiceConnectorId pulumi.StringOutput                                       `pulumi:"voiceConnectorId"`
 }
 
 // NewVoiceConnectorTerminationCredentials registers a new resource with the given unique name, arguments, and options.
@@ -123,16 +53,12 @@ func GetVoiceConnectorTerminationCredentials(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorTerminationCredentials resources.
 type voiceConnectorTerminationCredentialsState struct {
-	// List of termination SIP credentials.
-	Credentials []VoiceConnectorTerminationCredentialsCredential `pulumi:"credentials"`
-	// Amazon Chime Voice Connector ID.
-	VoiceConnectorId *string `pulumi:"voiceConnectorId"`
+	Credentials      []VoiceConnectorTerminationCredentialsCredential `pulumi:"credentials"`
+	VoiceConnectorId *string                                          `pulumi:"voiceConnectorId"`
 }
 
 type VoiceConnectorTerminationCredentialsState struct {
-	// List of termination SIP credentials.
-	Credentials VoiceConnectorTerminationCredentialsCredentialArrayInput
-	// Amazon Chime Voice Connector ID.
+	Credentials      VoiceConnectorTerminationCredentialsCredentialArrayInput
 	VoiceConnectorId pulumi.StringPtrInput
 }
 
@@ -141,17 +67,13 @@ func (VoiceConnectorTerminationCredentialsState) ElementType() reflect.Type {
 }
 
 type voiceConnectorTerminationCredentialsArgs struct {
-	// List of termination SIP credentials.
-	Credentials []VoiceConnectorTerminationCredentialsCredential `pulumi:"credentials"`
-	// Amazon Chime Voice Connector ID.
-	VoiceConnectorId string `pulumi:"voiceConnectorId"`
+	Credentials      []VoiceConnectorTerminationCredentialsCredential `pulumi:"credentials"`
+	VoiceConnectorId string                                           `pulumi:"voiceConnectorId"`
 }
 
 // The set of arguments for constructing a VoiceConnectorTerminationCredentials resource.
 type VoiceConnectorTerminationCredentialsArgs struct {
-	// List of termination SIP credentials.
-	Credentials VoiceConnectorTerminationCredentialsCredentialArrayInput
-	// Amazon Chime Voice Connector ID.
+	Credentials      VoiceConnectorTerminationCredentialsCredentialArrayInput
 	VoiceConnectorId pulumi.StringInput
 }
 
@@ -242,14 +164,12 @@ func (o VoiceConnectorTerminationCredentialsOutput) ToVoiceConnectorTerminationC
 	return o
 }
 
-// List of termination SIP credentials.
 func (o VoiceConnectorTerminationCredentialsOutput) Credentials() VoiceConnectorTerminationCredentialsCredentialArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorTerminationCredentials) VoiceConnectorTerminationCredentialsCredentialArrayOutput {
 		return v.Credentials
 	}).(VoiceConnectorTerminationCredentialsCredentialArrayOutput)
 }
 
-// Amazon Chime Voice Connector ID.
 func (o VoiceConnectorTerminationCredentialsOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorTerminationCredentials) pulumi.StringOutput { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }

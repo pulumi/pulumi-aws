@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about an RDS cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.LookupCluster(ctx, &rds.LookupClusterArgs{
-//				ClusterIdentifier: "clusterName",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:rds/getCluster:getCluster", args, &rv, opts...)
@@ -48,7 +21,6 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier string            `pulumi:"clusterIdentifier"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -104,7 +76,6 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier pulumi.StringInput    `pulumi:"clusterIdentifier"`
 	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }

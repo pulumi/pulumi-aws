@@ -11,16 +11,11 @@ import (
 )
 
 type EndpointAuthenticationOption struct {
-	// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
-	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
-	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
-	RootCertificateChainArn *string `pulumi:"rootCertificateChainArn"`
-	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
-	SamlProviderArn *string `pulumi:"samlProviderArn"`
-	// The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+	ActiveDirectoryId          *string `pulumi:"activeDirectoryId"`
+	RootCertificateChainArn    *string `pulumi:"rootCertificateChainArn"`
+	SamlProviderArn            *string `pulumi:"samlProviderArn"`
 	SelfServiceSamlProviderArn *string `pulumi:"selfServiceSamlProviderArn"`
-	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
-	Type string `pulumi:"type"`
+	Type                       string  `pulumi:"type"`
 }
 
 // EndpointAuthenticationOptionInput is an input type that accepts EndpointAuthenticationOptionArgs and EndpointAuthenticationOptionOutput values.
@@ -35,16 +30,11 @@ type EndpointAuthenticationOptionInput interface {
 }
 
 type EndpointAuthenticationOptionArgs struct {
-	// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
-	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
-	RootCertificateChainArn pulumi.StringPtrInput `pulumi:"rootCertificateChainArn"`
-	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
-	SamlProviderArn pulumi.StringPtrInput `pulumi:"samlProviderArn"`
-	// The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+	ActiveDirectoryId          pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
+	RootCertificateChainArn    pulumi.StringPtrInput `pulumi:"rootCertificateChainArn"`
+	SamlProviderArn            pulumi.StringPtrInput `pulumi:"samlProviderArn"`
 	SelfServiceSamlProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSamlProviderArn"`
-	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type                       pulumi.StringInput    `pulumi:"type"`
 }
 
 func (EndpointAuthenticationOptionArgs) ElementType() reflect.Type {
@@ -98,27 +88,22 @@ func (o EndpointAuthenticationOptionOutput) ToEndpointAuthenticationOptionOutput
 	return o
 }
 
-// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
 func (o EndpointAuthenticationOptionOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
 func (o EndpointAuthenticationOptionOutput) RootCertificateChainArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.RootCertificateChainArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
 func (o EndpointAuthenticationOptionOutput) SamlProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.SamlProviderArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
 func (o EndpointAuthenticationOptionOutput) SelfServiceSamlProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.SelfServiceSamlProviderArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 func (o EndpointAuthenticationOptionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointAuthenticationOption) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -144,9 +129,7 @@ func (o EndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) Endpoi
 }
 
 type EndpointClientConnectOptions struct {
-	// Indicates whether connection logging is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+	Enabled           *bool   `pulumi:"enabled"`
 	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
 }
 
@@ -162,9 +145,7 @@ type EndpointClientConnectOptionsInput interface {
 }
 
 type EndpointClientConnectOptionsArgs struct {
-	// Indicates whether connection logging is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+	Enabled           pulumi.BoolPtrInput   `pulumi:"enabled"`
 	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
 }
 
@@ -245,12 +226,10 @@ func (o EndpointClientConnectOptionsOutput) ToEndpointClientConnectOptionsPtrOut
 	}).(EndpointClientConnectOptionsPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
 func (o EndpointClientConnectOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointClientConnectOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
 func (o EndpointClientConnectOptionsOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointClientConnectOptions) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
 }
@@ -279,7 +258,6 @@ func (o EndpointClientConnectOptionsPtrOutput) Elem() EndpointClientConnectOptio
 	}).(EndpointClientConnectOptionsOutput)
 }
 
-// Indicates whether connection logging is enabled.
 func (o EndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointClientConnectOptions) *bool {
 		if v == nil {
@@ -289,7 +267,6 @@ func (o EndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
 func (o EndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointClientConnectOptions) *string {
 		if v == nil {
@@ -300,10 +277,8 @@ func (o EndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.String
 }
 
 type EndpointClientLoginBannerOptions struct {
-	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
 	BannerText *string `pulumi:"bannerText"`
-	// Indicates whether connection logging is enabled.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled    *bool   `pulumi:"enabled"`
 }
 
 // EndpointClientLoginBannerOptionsInput is an input type that accepts EndpointClientLoginBannerOptionsArgs and EndpointClientLoginBannerOptionsOutput values.
@@ -318,10 +293,8 @@ type EndpointClientLoginBannerOptionsInput interface {
 }
 
 type EndpointClientLoginBannerOptionsArgs struct {
-	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
 	BannerText pulumi.StringPtrInput `pulumi:"bannerText"`
-	// Indicates whether connection logging is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	Enabled    pulumi.BoolPtrInput   `pulumi:"enabled"`
 }
 
 func (EndpointClientLoginBannerOptionsArgs) ElementType() reflect.Type {
@@ -401,12 +374,10 @@ func (o EndpointClientLoginBannerOptionsOutput) ToEndpointClientLoginBannerOptio
 	}).(EndpointClientLoginBannerOptionsPtrOutput)
 }
 
-// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
 func (o EndpointClientLoginBannerOptionsOutput) BannerText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointClientLoginBannerOptions) *string { return v.BannerText }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
 func (o EndpointClientLoginBannerOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointClientLoginBannerOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -435,7 +406,6 @@ func (o EndpointClientLoginBannerOptionsPtrOutput) Elem() EndpointClientLoginBan
 	}).(EndpointClientLoginBannerOptionsOutput)
 }
 
-// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
 func (o EndpointClientLoginBannerOptionsPtrOutput) BannerText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointClientLoginBannerOptions) *string {
 		if v == nil {
@@ -445,7 +415,6 @@ func (o EndpointClientLoginBannerOptionsPtrOutput) BannerText() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
 func (o EndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointClientLoginBannerOptions) *bool {
 		if v == nil {
@@ -456,12 +425,9 @@ func (o EndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.BoolPtrOutpu
 }
 
 type EndpointConnectionLogOptions struct {
-	// The name of the CloudWatch Logs log group.
-	CloudwatchLogGroup *string `pulumi:"cloudwatchLogGroup"`
-	// The name of the CloudWatch Logs log stream to which the connection data is published.
+	CloudwatchLogGroup  *string `pulumi:"cloudwatchLogGroup"`
 	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
-	// Indicates whether connection logging is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled             bool    `pulumi:"enabled"`
 }
 
 // EndpointConnectionLogOptionsInput is an input type that accepts EndpointConnectionLogOptionsArgs and EndpointConnectionLogOptionsOutput values.
@@ -476,12 +442,9 @@ type EndpointConnectionLogOptionsInput interface {
 }
 
 type EndpointConnectionLogOptionsArgs struct {
-	// The name of the CloudWatch Logs log group.
-	CloudwatchLogGroup pulumi.StringPtrInput `pulumi:"cloudwatchLogGroup"`
-	// The name of the CloudWatch Logs log stream to which the connection data is published.
+	CloudwatchLogGroup  pulumi.StringPtrInput `pulumi:"cloudwatchLogGroup"`
 	CloudwatchLogStream pulumi.StringPtrInput `pulumi:"cloudwatchLogStream"`
-	// Indicates whether connection logging is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled             pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (EndpointConnectionLogOptionsArgs) ElementType() reflect.Type {
@@ -561,17 +524,14 @@ func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsPtrOut
 	}).(EndpointConnectionLogOptionsPtrOutput)
 }
 
-// The name of the CloudWatch Logs log group.
 func (o EndpointConnectionLogOptionsOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConnectionLogOptions) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
 }
 
-// The name of the CloudWatch Logs log stream to which the connection data is published.
 func (o EndpointConnectionLogOptionsOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConnectionLogOptions) *string { return v.CloudwatchLogStream }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
 func (o EndpointConnectionLogOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v EndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -600,7 +560,6 @@ func (o EndpointConnectionLogOptionsPtrOutput) Elem() EndpointConnectionLogOptio
 	}).(EndpointConnectionLogOptionsOutput)
 }
 
-// The name of the CloudWatch Logs log group.
 func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
 		if v == nil {
@@ -610,7 +569,6 @@ func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the CloudWatch Logs log stream to which the connection data is published.
 func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
 		if v == nil {
@@ -620,7 +578,6 @@ func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
 func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointConnectionLogOptions) *bool {
 		if v == nil {
@@ -1055,9 +1012,7 @@ func (o GetEndpointConnectionLogOptionArrayOutput) Index(i pulumi.IntInput) GetE
 }
 
 type GetEndpointFilter struct {
-	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1073,9 +1028,7 @@ type GetEndpointFilterInput interface {
 }
 
 type GetEndpointFilterArgs struct {
-	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1130,12 +1083,10 @@ func (o GetEndpointFilterOutput) ToGetEndpointFilterOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
 func (o GetEndpointFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
 func (o GetEndpointFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEndpointFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

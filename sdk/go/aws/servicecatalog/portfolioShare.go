@@ -11,71 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Portfolio Share. Shares the specified portfolio with the specified account or organization node. You can share portfolios to an organization, an organizational unit, or a specific account.
-//
-// If the portfolio share with the specified account or organization node already exists, using this resource to re-create the share will have no effect and will not return an error. You can then use this resource to update the share.
-//
-// > **NOTE:** Shares to an organization node can only be created by the management account of an organization or by a delegated administrator. If a delegated admin is de-registered, they can no longer create portfolio shares.
-//
-// > **NOTE:** AWSOrganizationsAccess must be enabled in order to create a portfolio share to an organization node.
-//
-// > **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewPortfolioShare(ctx, "example", &servicecatalog.PortfolioShareArgs{
-//				PrincipalId: pulumi.String("012128675309"),
-//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-//				Type:        pulumi.String("ACCOUNT"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
-//
-// ```
 type PortfolioShare struct {
 	pulumi.CustomResourceState
 
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
-	Accepted pulumi.BoolOutput `pulumi:"accepted"`
-	// Portfolio identifier.
-	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
-	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
-	ShareTagOptions pulumi.BoolPtrOutput `pulumi:"shareTagOptions"`
-	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-	WaitForAcceptance pulumi.BoolPtrOutput `pulumi:"waitForAcceptance"`
+	AcceptLanguage    pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	Accepted          pulumi.BoolOutput      `pulumi:"accepted"`
+	PortfolioId       pulumi.StringOutput    `pulumi:"portfolioId"`
+	PrincipalId       pulumi.StringOutput    `pulumi:"principalId"`
+	ShareTagOptions   pulumi.BoolPtrOutput   `pulumi:"shareTagOptions"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	WaitForAcceptance pulumi.BoolPtrOutput   `pulumi:"waitForAcceptance"`
 }
 
 // NewPortfolioShare registers a new resource with the given unique name, arguments, and options.
@@ -116,36 +61,22 @@ func GetPortfolioShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PortfolioShare resources.
 type portfolioShareState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
-	Accepted *bool `pulumi:"accepted"`
-	// Portfolio identifier.
-	PortfolioId *string `pulumi:"portfolioId"`
-	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-	PrincipalId *string `pulumi:"principalId"`
-	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
-	ShareTagOptions *bool `pulumi:"shareTagOptions"`
-	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-	Type *string `pulumi:"type"`
-	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-	WaitForAcceptance *bool `pulumi:"waitForAcceptance"`
+	AcceptLanguage    *string `pulumi:"acceptLanguage"`
+	Accepted          *bool   `pulumi:"accepted"`
+	PortfolioId       *string `pulumi:"portfolioId"`
+	PrincipalId       *string `pulumi:"principalId"`
+	ShareTagOptions   *bool   `pulumi:"shareTagOptions"`
+	Type              *string `pulumi:"type"`
+	WaitForAcceptance *bool   `pulumi:"waitForAcceptance"`
 }
 
 type PortfolioShareState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage pulumi.StringPtrInput
-	// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
-	Accepted pulumi.BoolPtrInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringPtrInput
-	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-	PrincipalId pulumi.StringPtrInput
-	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
-	ShareTagOptions pulumi.BoolPtrInput
-	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-	Type pulumi.StringPtrInput
-	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
+	AcceptLanguage    pulumi.StringPtrInput
+	Accepted          pulumi.BoolPtrInput
+	PortfolioId       pulumi.StringPtrInput
+	PrincipalId       pulumi.StringPtrInput
+	ShareTagOptions   pulumi.BoolPtrInput
+	Type              pulumi.StringPtrInput
 	WaitForAcceptance pulumi.BoolPtrInput
 }
 
@@ -154,33 +85,21 @@ func (PortfolioShareState) ElementType() reflect.Type {
 }
 
 type portfolioShareArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId string `pulumi:"portfolioId"`
-	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-	PrincipalId string `pulumi:"principalId"`
-	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
-	ShareTagOptions *bool `pulumi:"shareTagOptions"`
-	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-	Type string `pulumi:"type"`
-	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-	WaitForAcceptance *bool `pulumi:"waitForAcceptance"`
+	AcceptLanguage    *string `pulumi:"acceptLanguage"`
+	PortfolioId       string  `pulumi:"portfolioId"`
+	PrincipalId       string  `pulumi:"principalId"`
+	ShareTagOptions   *bool   `pulumi:"shareTagOptions"`
+	Type              string  `pulumi:"type"`
+	WaitForAcceptance *bool   `pulumi:"waitForAcceptance"`
 }
 
 // The set of arguments for constructing a PortfolioShare resource.
 type PortfolioShareArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-	AcceptLanguage pulumi.StringPtrInput
-	// Portfolio identifier.
-	PortfolioId pulumi.StringInput
-	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-	PrincipalId pulumi.StringInput
-	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
-	ShareTagOptions pulumi.BoolPtrInput
-	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
-	Type pulumi.StringInput
-	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
+	AcceptLanguage    pulumi.StringPtrInput
+	PortfolioId       pulumi.StringInput
+	PrincipalId       pulumi.StringInput
+	ShareTagOptions   pulumi.BoolPtrInput
+	Type              pulumi.StringInput
 	WaitForAcceptance pulumi.BoolPtrInput
 }
 
@@ -271,37 +190,30 @@ func (o PortfolioShareOutput) ToPortfolioShareOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 func (o PortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
 func (o PortfolioShareOutput) Accepted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.BoolOutput { return v.Accepted }).(pulumi.BoolOutput)
 }
 
-// Portfolio identifier.
 func (o PortfolioShareOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
-// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 func (o PortfolioShareOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 func (o PortfolioShareOutput) ShareTagOptions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.BoolPtrOutput { return v.ShareTagOptions }).(pulumi.BoolPtrOutput)
 }
 
-// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
 func (o PortfolioShareOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
 func (o PortfolioShareOutput) WaitForAcceptance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.BoolPtrOutput { return v.WaitForAcceptance }).(pulumi.BoolPtrOutput)
 }

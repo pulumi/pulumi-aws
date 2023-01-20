@@ -11,86 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Image Builder Image Pipeline.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImagePipeline(ctx, "example", &imagebuilder.ImagePipelineArgs{
-//				ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
-//				InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
-//				Schedule: &imagebuilder.ImagePipelineScheduleArgs{
-//					ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
-//
-// ```
 type ImagePipeline struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the image pipeline.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the container recipe.
-	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
-	// Date the image pipeline was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// Date the image pipeline was last run.
-	DateLastRun pulumi.StringOutput `pulumi:"dateLastRun"`
-	// Date the image pipeline will run next.
-	DateNextRun pulumi.StringOutput `pulumi:"dateNextRun"`
-	// Date the image pipeline was updated.
-	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
-	// Description of the image pipeline.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
-	// Whether additional information about the image being created is collected. Defaults to `true`.
-	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the image recipe.
-	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
-	// Configuration block with image tests configuration. Detailed below.
-	ImageTestsConfiguration ImagePipelineImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
-	// Name of the image pipeline.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Platform of the image pipeline.
-	Platform pulumi.StringOutput `pulumi:"platform"`
-	// Configuration block with schedule settings. Detailed below.
-	Schedule ImagePipelineSchedulePtrOutput `pulumi:"schedule"`
-	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                            pulumi.StringOutput                        `pulumi:"arn"`
+	ContainerRecipeArn             pulumi.StringPtrOutput                     `pulumi:"containerRecipeArn"`
+	DateCreated                    pulumi.StringOutput                        `pulumi:"dateCreated"`
+	DateLastRun                    pulumi.StringOutput                        `pulumi:"dateLastRun"`
+	DateNextRun                    pulumi.StringOutput                        `pulumi:"dateNextRun"`
+	DateUpdated                    pulumi.StringOutput                        `pulumi:"dateUpdated"`
+	Description                    pulumi.StringPtrOutput                     `pulumi:"description"`
+	DistributionConfigurationArn   pulumi.StringPtrOutput                     `pulumi:"distributionConfigurationArn"`
+	EnhancedImageMetadataEnabled   pulumi.BoolPtrOutput                       `pulumi:"enhancedImageMetadataEnabled"`
+	ImageRecipeArn                 pulumi.StringPtrOutput                     `pulumi:"imageRecipeArn"`
+	ImageTestsConfiguration        ImagePipelineImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
+	InfrastructureConfigurationArn pulumi.StringOutput                        `pulumi:"infrastructureConfigurationArn"`
+	Name                           pulumi.StringOutput                        `pulumi:"name"`
+	Platform                       pulumi.StringOutput                        `pulumi:"platform"`
+	Schedule                       ImagePipelineSchedulePtrOutput             `pulumi:"schedule"`
+	Status                         pulumi.StringPtrOutput                     `pulumi:"status"`
+	Tags                           pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput                     `pulumi:"tagsAll"`
 }
 
 // NewImagePipeline registers a new resource with the given unique name, arguments, and options.
@@ -125,81 +66,45 @@ func GetImagePipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImagePipeline resources.
 type imagePipelineState struct {
-	// Amazon Resource Name (ARN) of the image pipeline.
-	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) of the container recipe.
-	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
-	// Date the image pipeline was created.
-	DateCreated *string `pulumi:"dateCreated"`
-	// Date the image pipeline was last run.
-	DateLastRun *string `pulumi:"dateLastRun"`
-	// Date the image pipeline will run next.
-	DateNextRun *string `pulumi:"dateNextRun"`
-	// Date the image pipeline was updated.
-	DateUpdated *string `pulumi:"dateUpdated"`
-	// Description of the image pipeline.
-	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
-	// Whether additional information about the image being created is collected. Defaults to `true`.
-	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the image recipe.
-	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
-	// Configuration block with image tests configuration. Detailed below.
-	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
-	// Name of the image pipeline.
-	Name *string `pulumi:"name"`
-	// Platform of the image pipeline.
-	Platform *string `pulumi:"platform"`
-	// Configuration block with schedule settings. Detailed below.
-	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
-	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                            *string                               `pulumi:"arn"`
+	ContainerRecipeArn             *string                               `pulumi:"containerRecipeArn"`
+	DateCreated                    *string                               `pulumi:"dateCreated"`
+	DateLastRun                    *string                               `pulumi:"dateLastRun"`
+	DateNextRun                    *string                               `pulumi:"dateNextRun"`
+	DateUpdated                    *string                               `pulumi:"dateUpdated"`
+	Description                    *string                               `pulumi:"description"`
+	DistributionConfigurationArn   *string                               `pulumi:"distributionConfigurationArn"`
+	EnhancedImageMetadataEnabled   *bool                                 `pulumi:"enhancedImageMetadataEnabled"`
+	ImageRecipeArn                 *string                               `pulumi:"imageRecipeArn"`
+	ImageTestsConfiguration        *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
+	InfrastructureConfigurationArn *string                               `pulumi:"infrastructureConfigurationArn"`
+	Name                           *string                               `pulumi:"name"`
+	Platform                       *string                               `pulumi:"platform"`
+	Schedule                       *ImagePipelineSchedule                `pulumi:"schedule"`
+	Status                         *string                               `pulumi:"status"`
+	Tags                           map[string]string                     `pulumi:"tags"`
+	TagsAll                        map[string]string                     `pulumi:"tagsAll"`
 }
 
 type ImagePipelineState struct {
-	// Amazon Resource Name (ARN) of the image pipeline.
-	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the container recipe.
-	ContainerRecipeArn pulumi.StringPtrInput
-	// Date the image pipeline was created.
-	DateCreated pulumi.StringPtrInput
-	// Date the image pipeline was last run.
-	DateLastRun pulumi.StringPtrInput
-	// Date the image pipeline will run next.
-	DateNextRun pulumi.StringPtrInput
-	// Date the image pipeline was updated.
-	DateUpdated pulumi.StringPtrInput
-	// Description of the image pipeline.
-	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-	DistributionConfigurationArn pulumi.StringPtrInput
-	// Whether additional information about the image being created is collected. Defaults to `true`.
-	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the image recipe.
-	ImageRecipeArn pulumi.StringPtrInput
-	// Configuration block with image tests configuration. Detailed below.
-	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	Arn                            pulumi.StringPtrInput
+	ContainerRecipeArn             pulumi.StringPtrInput
+	DateCreated                    pulumi.StringPtrInput
+	DateLastRun                    pulumi.StringPtrInput
+	DateNextRun                    pulumi.StringPtrInput
+	DateUpdated                    pulumi.StringPtrInput
+	Description                    pulumi.StringPtrInput
+	DistributionConfigurationArn   pulumi.StringPtrInput
+	EnhancedImageMetadataEnabled   pulumi.BoolPtrInput
+	ImageRecipeArn                 pulumi.StringPtrInput
+	ImageTestsConfiguration        ImagePipelineImageTestsConfigurationPtrInput
 	InfrastructureConfigurationArn pulumi.StringPtrInput
-	// Name of the image pipeline.
-	Name pulumi.StringPtrInput
-	// Platform of the image pipeline.
-	Platform pulumi.StringPtrInput
-	// Configuration block with schedule settings. Detailed below.
-	Schedule ImagePipelineSchedulePtrInput
-	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name                           pulumi.StringPtrInput
+	Platform                       pulumi.StringPtrInput
+	Schedule                       ImagePipelineSchedulePtrInput
+	Status                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 }
 
 func (ImagePipelineState) ElementType() reflect.Type {
@@ -207,54 +112,32 @@ func (ImagePipelineState) ElementType() reflect.Type {
 }
 
 type imagePipelineArgs struct {
-	// Amazon Resource Name (ARN) of the container recipe.
-	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
-	// Description of the image pipeline.
-	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
-	// Whether additional information about the image being created is collected. Defaults to `true`.
-	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// Amazon Resource Name (ARN) of the image recipe.
-	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
-	// Configuration block with image tests configuration. Detailed below.
-	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
-	// Name of the image pipeline.
-	Name *string `pulumi:"name"`
-	// Configuration block with schedule settings. Detailed below.
-	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
-	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-	Status *string `pulumi:"status"`
-	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ContainerRecipeArn             *string                               `pulumi:"containerRecipeArn"`
+	Description                    *string                               `pulumi:"description"`
+	DistributionConfigurationArn   *string                               `pulumi:"distributionConfigurationArn"`
+	EnhancedImageMetadataEnabled   *bool                                 `pulumi:"enhancedImageMetadataEnabled"`
+	ImageRecipeArn                 *string                               `pulumi:"imageRecipeArn"`
+	ImageTestsConfiguration        *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
+	InfrastructureConfigurationArn string                                `pulumi:"infrastructureConfigurationArn"`
+	Name                           *string                               `pulumi:"name"`
+	Schedule                       *ImagePipelineSchedule                `pulumi:"schedule"`
+	Status                         *string                               `pulumi:"status"`
+	Tags                           map[string]string                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ImagePipeline resource.
 type ImagePipelineArgs struct {
-	// Amazon Resource Name (ARN) of the container recipe.
-	ContainerRecipeArn pulumi.StringPtrInput
-	// Description of the image pipeline.
-	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-	DistributionConfigurationArn pulumi.StringPtrInput
-	// Whether additional information about the image being created is collected. Defaults to `true`.
-	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the image recipe.
-	ImageRecipeArn pulumi.StringPtrInput
-	// Configuration block with image tests configuration. Detailed below.
-	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
-	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	ContainerRecipeArn             pulumi.StringPtrInput
+	Description                    pulumi.StringPtrInput
+	DistributionConfigurationArn   pulumi.StringPtrInput
+	EnhancedImageMetadataEnabled   pulumi.BoolPtrInput
+	ImageRecipeArn                 pulumi.StringPtrInput
+	ImageTestsConfiguration        ImagePipelineImageTestsConfigurationPtrInput
 	InfrastructureConfigurationArn pulumi.StringInput
-	// Name of the image pipeline.
-	Name pulumi.StringPtrInput
-	// Configuration block with schedule settings. Detailed below.
-	Schedule ImagePipelineSchedulePtrInput
-	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-	Status pulumi.StringPtrInput
-	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name                           pulumi.StringPtrInput
+	Schedule                       ImagePipelineSchedulePtrInput
+	Status                         pulumi.StringPtrInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (ImagePipelineArgs) ElementType() reflect.Type {
@@ -344,92 +227,74 @@ func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the image pipeline.
 func (o ImagePipelineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the container recipe.
 func (o ImagePipelineOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
 }
 
-// Date the image pipeline was created.
 func (o ImagePipelineOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Date the image pipeline was last run.
 func (o ImagePipelineOutput) DateLastRun() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateLastRun }).(pulumi.StringOutput)
 }
 
-// Date the image pipeline will run next.
 func (o ImagePipelineOutput) DateNextRun() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateNextRun }).(pulumi.StringOutput)
 }
 
-// Date the image pipeline was updated.
 func (o ImagePipelineOutput) DateUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.DateUpdated }).(pulumi.StringOutput)
 }
 
-// Description of the image pipeline.
 func (o ImagePipelineOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 func (o ImagePipelineOutput) DistributionConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.DistributionConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether additional information about the image being created is collected. Defaults to `true`.
 func (o ImagePipelineOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.BoolPtrOutput { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the image recipe.
 func (o ImagePipelineOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block with image tests configuration. Detailed below.
 func (o ImagePipelineOutput) ImageTestsConfiguration() ImagePipelineImageTestsConfigurationOutput {
 	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageTestsConfigurationOutput { return v.ImageTestsConfiguration }).(ImagePipelineImageTestsConfigurationOutput)
 }
 
-// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 func (o ImagePipelineOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }
 
-// Name of the image pipeline.
 func (o ImagePipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Platform of the image pipeline.
 func (o ImagePipelineOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// Configuration block with schedule settings. Detailed below.
 func (o ImagePipelineOutput) Schedule() ImagePipelineSchedulePtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) ImagePipelineSchedulePtrOutput { return v.Schedule }).(ImagePipelineSchedulePtrOutput)
 }
 
-// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
 func (o ImagePipelineOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ImagePipelineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ImagePipelineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

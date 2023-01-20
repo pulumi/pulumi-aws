@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information on Service Catalog Portfolio Constraints.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.GetPortfolioConstraints(ctx, &servicecatalog.GetPortfolioConstraintsArgs{
-//				PortfolioId: "port-3lli3b3an",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetPortfolioConstraints(ctx *pulumi.Context, args *GetPortfolioConstraintsArgs, opts ...pulumi.InvokeOption) (*GetPortfolioConstraintsResult, error) {
 	var rv GetPortfolioConstraintsResult
 	err := ctx.Invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, &rv, opts...)
@@ -49,25 +21,19 @@ func GetPortfolioConstraints(ctx *pulumi.Context, args *GetPortfolioConstraintsA
 
 // A collection of arguments for invoking getPortfolioConstraints.
 type GetPortfolioConstraintsArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId string `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId *string `pulumi:"productId"`
+	PortfolioId    string  `pulumi:"portfolioId"`
+	ProductId      *string `pulumi:"productId"`
 }
 
 // A collection of values returned by getPortfolioConstraints.
 type GetPortfolioConstraintsResult struct {
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// List of information about the constraints. See details below.
-	Details []GetPortfolioConstraintsDetail `pulumi:"details"`
+	AcceptLanguage *string                         `pulumi:"acceptLanguage"`
+	Details        []GetPortfolioConstraintsDetail `pulumi:"details"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-	PortfolioId string `pulumi:"portfolioId"`
-	// Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
-	ProductId *string `pulumi:"productId"`
+	Id          string  `pulumi:"id"`
+	PortfolioId string  `pulumi:"portfolioId"`
+	ProductId   *string `pulumi:"productId"`
 }
 
 func GetPortfolioConstraintsOutput(ctx *pulumi.Context, args GetPortfolioConstraintsOutputArgs, opts ...pulumi.InvokeOption) GetPortfolioConstraintsResultOutput {
@@ -85,12 +51,9 @@ func GetPortfolioConstraintsOutput(ctx *pulumi.Context, args GetPortfolioConstra
 
 // A collection of arguments for invoking getPortfolioConstraints.
 type GetPortfolioConstraintsOutputArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
-	// Portfolio identifier.
-	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId pulumi.StringPtrInput `pulumi:"productId"`
+	PortfolioId    pulumi.StringInput    `pulumi:"portfolioId"`
+	ProductId      pulumi.StringPtrInput `pulumi:"productId"`
 }
 
 func (GetPortfolioConstraintsOutputArgs) ElementType() reflect.Type {
@@ -116,7 +79,6 @@ func (o GetPortfolioConstraintsResultOutput) AcceptLanguage() pulumi.StringPtrOu
 	return o.ApplyT(func(v GetPortfolioConstraintsResult) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// List of information about the constraints. See details below.
 func (o GetPortfolioConstraintsResultOutput) Details() GetPortfolioConstraintsDetailArrayOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsResult) []GetPortfolioConstraintsDetail { return v.Details }).(GetPortfolioConstraintsDetailArrayOutput)
 }
@@ -126,12 +88,10 @@ func (o GetPortfolioConstraintsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
 func (o GetPortfolioConstraintsResultOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsResult) string { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
-// Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
 func (o GetPortfolioConstraintsResultOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsResult) *string { return v.ProductId }).(pulumi.StringPtrOutput)
 }

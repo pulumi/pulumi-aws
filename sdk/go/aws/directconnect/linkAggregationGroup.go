@@ -11,73 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
-//
-// > *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewLinkAggregationGroup(ctx, "hoge", &directconnect.LinkAggregationGroupArgs{
-//				ConnectionsBandwidth: pulumi.String("1Gbps"),
-//				ForceDestroy:         pulumi.Bool(true),
-//				Location:             pulumi.String("EqDC2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Direct Connect LAGs can be imported using the `lag id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
-//
-// ```
 type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the LAG.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of an existing dedicated connection to migrate to the LAG.
-	ConnectionId pulumi.StringPtrOutput `pulumi:"connectionId"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
-	ConnectionsBandwidth pulumi.StringOutput `pulumi:"connectionsBandwidth"`
-	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
-	JumboFrameCapable    pulumi.BoolOutput   `pulumi:"jumboFrameCapable"`
-	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the LAG.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the AWS account that owns the LAG.
-	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The name of the service provider associated with the LAG.
-	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                  pulumi.StringOutput    `pulumi:"arn"`
+	ConnectionId         pulumi.StringPtrOutput `pulumi:"connectionId"`
+	ConnectionsBandwidth pulumi.StringOutput    `pulumi:"connectionsBandwidth"`
+	ForceDestroy         pulumi.BoolPtrOutput   `pulumi:"forceDestroy"`
+	HasLogicalRedundancy pulumi.StringOutput    `pulumi:"hasLogicalRedundancy"`
+	JumboFrameCapable    pulumi.BoolOutput      `pulumi:"jumboFrameCapable"`
+	Location             pulumi.StringOutput    `pulumi:"location"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	OwnerAccountId       pulumi.StringOutput    `pulumi:"ownerAccountId"`
+	ProviderName         pulumi.StringOutput    `pulumi:"providerName"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewLinkAggregationGroup registers a new resource with the given unique name, arguments, and options.
@@ -115,55 +63,33 @@ func GetLinkAggregationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkAggregationGroup resources.
 type linkAggregationGroupState struct {
-	// The ARN of the LAG.
-	Arn *string `pulumi:"arn"`
-	// The ID of an existing dedicated connection to migrate to the LAG.
-	ConnectionId *string `pulumi:"connectionId"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
-	ConnectionsBandwidth *string `pulumi:"connectionsBandwidth"`
-	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-	HasLogicalRedundancy *string `pulumi:"hasLogicalRedundancy"`
-	JumboFrameCapable    *bool   `pulumi:"jumboFrameCapable"`
-	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-	Location *string `pulumi:"location"`
-	// The name of the LAG.
-	Name *string `pulumi:"name"`
-	// The ID of the AWS account that owns the LAG.
-	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The name of the service provider associated with the LAG.
-	ProviderName *string `pulumi:"providerName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                  *string           `pulumi:"arn"`
+	ConnectionId         *string           `pulumi:"connectionId"`
+	ConnectionsBandwidth *string           `pulumi:"connectionsBandwidth"`
+	ForceDestroy         *bool             `pulumi:"forceDestroy"`
+	HasLogicalRedundancy *string           `pulumi:"hasLogicalRedundancy"`
+	JumboFrameCapable    *bool             `pulumi:"jumboFrameCapable"`
+	Location             *string           `pulumi:"location"`
+	Name                 *string           `pulumi:"name"`
+	OwnerAccountId       *string           `pulumi:"ownerAccountId"`
+	ProviderName         *string           `pulumi:"providerName"`
+	Tags                 map[string]string `pulumi:"tags"`
+	TagsAll              map[string]string `pulumi:"tagsAll"`
 }
 
 type LinkAggregationGroupState struct {
-	// The ARN of the LAG.
-	Arn pulumi.StringPtrInput
-	// The ID of an existing dedicated connection to migrate to the LAG.
-	ConnectionId pulumi.StringPtrInput
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+	Arn                  pulumi.StringPtrInput
+	ConnectionId         pulumi.StringPtrInput
 	ConnectionsBandwidth pulumi.StringPtrInput
-	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-	ForceDestroy pulumi.BoolPtrInput
-	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
+	ForceDestroy         pulumi.BoolPtrInput
 	HasLogicalRedundancy pulumi.StringPtrInput
 	JumboFrameCapable    pulumi.BoolPtrInput
-	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-	Location pulumi.StringPtrInput
-	// The name of the LAG.
-	Name pulumi.StringPtrInput
-	// The ID of the AWS account that owns the LAG.
-	OwnerAccountId pulumi.StringPtrInput
-	// The name of the service provider associated with the LAG.
-	ProviderName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Location             pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	OwnerAccountId       pulumi.StringPtrInput
+	ProviderName         pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
 }
 
 func (LinkAggregationGroupState) ElementType() reflect.Type {
@@ -171,38 +97,24 @@ func (LinkAggregationGroupState) ElementType() reflect.Type {
 }
 
 type linkAggregationGroupArgs struct {
-	// The ID of an existing dedicated connection to migrate to the LAG.
-	ConnectionId *string `pulumi:"connectionId"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
-	ConnectionsBandwidth string `pulumi:"connectionsBandwidth"`
-	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-	Location string `pulumi:"location"`
-	// The name of the LAG.
-	Name *string `pulumi:"name"`
-	// The name of the service provider associated with the LAG.
-	ProviderName *string `pulumi:"providerName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ConnectionId         *string           `pulumi:"connectionId"`
+	ConnectionsBandwidth string            `pulumi:"connectionsBandwidth"`
+	ForceDestroy         *bool             `pulumi:"forceDestroy"`
+	Location             string            `pulumi:"location"`
+	Name                 *string           `pulumi:"name"`
+	ProviderName         *string           `pulumi:"providerName"`
+	Tags                 map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LinkAggregationGroup resource.
 type LinkAggregationGroupArgs struct {
-	// The ID of an existing dedicated connection to migrate to the LAG.
-	ConnectionId pulumi.StringPtrInput
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
+	ConnectionId         pulumi.StringPtrInput
 	ConnectionsBandwidth pulumi.StringInput
-	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-	ForceDestroy pulumi.BoolPtrInput
-	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-	Location pulumi.StringInput
-	// The name of the LAG.
-	Name pulumi.StringPtrInput
-	// The name of the service provider associated with the LAG.
-	ProviderName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ForceDestroy         pulumi.BoolPtrInput
+	Location             pulumi.StringInput
+	Name                 pulumi.StringPtrInput
+	ProviderName         pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (LinkAggregationGroupArgs) ElementType() reflect.Type {
@@ -292,27 +204,22 @@ func (o LinkAggregationGroupOutput) ToLinkAggregationGroupOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the LAG.
 func (o LinkAggregationGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of an existing dedicated connection to migrate to the LAG.
 func (o LinkAggregationGroupOutput) ConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringPtrOutput { return v.ConnectionId }).(pulumi.StringPtrOutput)
 }
 
-// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 func (o LinkAggregationGroupOutput) ConnectionsBandwidth() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.ConnectionsBandwidth }).(pulumi.StringOutput)
 }
 
-// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 func (o LinkAggregationGroupOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 func (o LinkAggregationGroupOutput) HasLogicalRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.HasLogicalRedundancy }).(pulumi.StringOutput)
 }
@@ -321,32 +228,26 @@ func (o LinkAggregationGroupOutput) JumboFrameCapable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.BoolOutput { return v.JumboFrameCapable }).(pulumi.BoolOutput)
 }
 
-// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 func (o LinkAggregationGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the LAG.
 func (o LinkAggregationGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the LAG.
 func (o LinkAggregationGroupOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The name of the service provider associated with the LAG.
 func (o LinkAggregationGroupOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LinkAggregationGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LinkAggregationGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

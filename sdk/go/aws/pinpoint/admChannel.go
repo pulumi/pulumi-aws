@@ -11,61 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewAdmChannel(ctx, "channel", &pinpoint.AdmChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				ClientId:      pulumi.String(""),
-//				ClientSecret:  pulumi.String(""),
-//				Enabled:       pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
-//
-// ```
 type AdmChannel struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
-	// Specifies whether to enable the channel. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	ApplicationId pulumi.StringOutput  `pulumi:"applicationId"`
+	ClientId      pulumi.StringOutput  `pulumi:"clientId"`
+	ClientSecret  pulumi.StringOutput  `pulumi:"clientSecret"`
+	Enabled       pulumi.BoolPtrOutput `pulumi:"enabled"`
 }
 
 // NewAdmChannel registers a new resource with the given unique name, arguments, and options.
@@ -117,25 +69,17 @@ func GetAdmChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdmChannel resources.
 type admChannelState struct {
-	// The application ID.
 	ApplicationId *string `pulumi:"applicationId"`
-	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientId *string `pulumi:"clientId"`
-	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Specifies whether to enable the channel. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
+	ClientId      *string `pulumi:"clientId"`
+	ClientSecret  *string `pulumi:"clientSecret"`
+	Enabled       *bool   `pulumi:"enabled"`
 }
 
 type AdmChannelState struct {
-	// The application ID.
 	ApplicationId pulumi.StringPtrInput
-	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientId pulumi.StringPtrInput
-	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientSecret pulumi.StringPtrInput
-	// Specifies whether to enable the channel. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
+	ClientId      pulumi.StringPtrInput
+	ClientSecret  pulumi.StringPtrInput
+	Enabled       pulumi.BoolPtrInput
 }
 
 func (AdmChannelState) ElementType() reflect.Type {
@@ -143,26 +87,18 @@ func (AdmChannelState) ElementType() reflect.Type {
 }
 
 type admChannelArgs struct {
-	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`
-	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientId string `pulumi:"clientId"`
-	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientSecret string `pulumi:"clientSecret"`
-	// Specifies whether to enable the channel. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
+	ClientId      string `pulumi:"clientId"`
+	ClientSecret  string `pulumi:"clientSecret"`
+	Enabled       *bool  `pulumi:"enabled"`
 }
 
 // The set of arguments for constructing a AdmChannel resource.
 type AdmChannelArgs struct {
-	// The application ID.
 	ApplicationId pulumi.StringInput
-	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientId pulumi.StringInput
-	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-	ClientSecret pulumi.StringInput
-	// Specifies whether to enable the channel. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
+	ClientId      pulumi.StringInput
+	ClientSecret  pulumi.StringInput
+	Enabled       pulumi.BoolPtrInput
 }
 
 func (AdmChannelArgs) ElementType() reflect.Type {
@@ -252,22 +188,18 @@ func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) Adm
 	return o
 }
 
-// The application ID.
 func (o AdmChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
 func (o AdmChannelOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
 func (o AdmChannelOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// Specifies whether to enable the channel. Defaults to `true`.
 func (o AdmChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

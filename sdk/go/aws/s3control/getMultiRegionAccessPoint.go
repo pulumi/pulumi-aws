@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details on a specific S3 Multi-Region Access Point.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.LookupMultiRegionAccessPoint(ctx, &s3control.LookupMultiRegionAccessPointArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupMultiRegionAccessPoint(ctx *pulumi.Context, args *LookupMultiRegionAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupMultiRegionAccessPointResult, error) {
 	var rv LookupMultiRegionAccessPointResult
 	err := ctx.Invoke("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, &rv, opts...)
@@ -48,32 +21,23 @@ func LookupMultiRegionAccessPoint(ctx *pulumi.Context, args *LookupMultiRegionAc
 
 // A collection of arguments for invoking getMultiRegionAccessPoint.
 type LookupMultiRegionAccessPointArgs struct {
-	// The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The name of the Multi-Region Access Point.
-	Name string `pulumi:"name"`
+	Name      string  `pulumi:"name"`
 }
 
 // A collection of values returned by getMultiRegionAccessPoint.
 type LookupMultiRegionAccessPointResult struct {
-	AccountId string `pulumi:"accountId"`
-	// The alias for the Multi-Region Access Point.
-	Alias string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the Multi-Region Access Point.
-	Arn string `pulumi:"arn"`
-	// Timestamp when the resource has been created.
-	CreatedAt string `pulumi:"createdAt"`
-	// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+	AccountId  string `pulumi:"accountId"`
+	Alias      string `pulumi:"alias"`
+	Arn        string `pulumi:"arn"`
+	CreatedAt  string `pulumi:"createdAt"`
 	DomainName string `pulumi:"domainName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// Public Access Block of the Multi-Region Access Point. Detailed below.
+	Id                 string                                       `pulumi:"id"`
+	Name               string                                       `pulumi:"name"`
 	PublicAccessBlocks []GetMultiRegionAccessPointPublicAccessBlock `pulumi:"publicAccessBlocks"`
-	// A collection of the regions and buckets associated with the Multi-Region Access Point.
-	Regions []GetMultiRegionAccessPointRegion `pulumi:"regions"`
-	// The current status of the Multi-Region Access Point.
-	Status string `pulumi:"status"`
+	Regions            []GetMultiRegionAccessPointRegion            `pulumi:"regions"`
+	Status             string                                       `pulumi:"status"`
 }
 
 func LookupMultiRegionAccessPointOutput(ctx *pulumi.Context, args LookupMultiRegionAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionAccessPointResultOutput {
@@ -91,10 +55,8 @@ func LookupMultiRegionAccessPointOutput(ctx *pulumi.Context, args LookupMultiReg
 
 // A collection of arguments for invoking getMultiRegionAccessPoint.
 type LookupMultiRegionAccessPointOutputArgs struct {
-	// The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The name of the Multi-Region Access Point.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput    `pulumi:"name"`
 }
 
 func (LookupMultiRegionAccessPointOutputArgs) ElementType() reflect.Type {
@@ -120,22 +82,18 @@ func (o LookupMultiRegionAccessPointResultOutput) AccountId() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The alias for the Multi-Region Access Point.
 func (o LookupMultiRegionAccessPointResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Multi-Region Access Point.
 func (o LookupMultiRegionAccessPointResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Timestamp when the resource has been created.
 func (o LookupMultiRegionAccessPointResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
 func (o LookupMultiRegionAccessPointResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -149,19 +107,16 @@ func (o LookupMultiRegionAccessPointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Public Access Block of the Multi-Region Access Point. Detailed below.
 func (o LookupMultiRegionAccessPointResultOutput) PublicAccessBlocks() GetMultiRegionAccessPointPublicAccessBlockArrayOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) []GetMultiRegionAccessPointPublicAccessBlock {
 		return v.PublicAccessBlocks
 	}).(GetMultiRegionAccessPointPublicAccessBlockArrayOutput)
 }
 
-// A collection of the regions and buckets associated with the Multi-Region Access Point.
 func (o LookupMultiRegionAccessPointResultOutput) Regions() GetMultiRegionAccessPointRegionArrayOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) []GetMultiRegionAccessPointRegion { return v.Regions }).(GetMultiRegionAccessPointRegionArrayOutput)
 }
 
-// The current status of the Multi-Region Access Point.
 func (o LookupMultiRegionAccessPointResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Status }).(pulumi.StringOutput)
 }

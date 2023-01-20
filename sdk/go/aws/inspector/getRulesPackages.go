@@ -7,55 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS Inspector Rules Packages data source allows access to the list of AWS
-// Inspector Rules Packages which can be used by AWS Inspector within the region
-// configured in the provider.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			rules, err := inspector.GetRulesPackages(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			group, err := inspector.NewResourceGroup(ctx, "group", &inspector.ResourceGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"test": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assessmentAssessmentTarget, err := inspector.NewAssessmentTarget(ctx, "assessmentAssessmentTarget", &inspector.AssessmentTargetArgs{
-//				ResourceGroupArn: group.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector.NewAssessmentTemplate(ctx, "assessmentAssessmentTemplate", &inspector.AssessmentTemplateArgs{
-//				TargetArn:        assessmentAssessmentTarget.Arn,
-//				Duration:         pulumi.Int(60),
-//				RulesPackageArns: interface{}(rules.Arns),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
 	var rv GetRulesPackagesResult
 	err := ctx.Invoke("aws:inspector/getRulesPackages:getRulesPackages", nil, &rv, opts...)
@@ -67,7 +18,6 @@ func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRul
 
 // A collection of values returned by getRulesPackages.
 type GetRulesPackagesResult struct {
-	// List of the AWS Inspector Rules Packages arns available in the AWS region.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

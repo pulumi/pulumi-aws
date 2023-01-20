@@ -10,9 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of VPC Ids for a region.
-//
-// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
 	var rv GetVpcsResult
 	err := ctx.Invoke("aws:ec2/getVpcs:getVpcs", args, &rv, opts...)
@@ -24,19 +21,15 @@ func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getVpcs.
 type GetVpcsArgs struct {
-	// Custom filter block as described below.
-	Filters []GetVpcsFilter `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired vpcs.
-	Tags map[string]string `pulumi:"tags"`
+	Filters []GetVpcsFilter   `pulumi:"filters"`
+	Tags    map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getVpcs.
 type GetVpcsResult struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the VPC Ids found.
+	Id   string            `pulumi:"id"`
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -56,11 +49,8 @@ func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getVpcs.
 type GetVpcsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetVpcsFilterArrayInput `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired vpcs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags    pulumi.StringMapInput   `pulumi:"tags"`
 }
 
 func (GetVpcsOutputArgs) ElementType() reflect.Type {
@@ -91,7 +81,6 @@ func (o GetVpcsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the VPC Ids found.
 func (o GetVpcsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

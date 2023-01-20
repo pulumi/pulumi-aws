@@ -10,63 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Connect Contact Flow.
-//
-// ## Example Usage
-//
-// # By name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupContactFlow(ctx, &connect.LookupContactFlowArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Test"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// # By contactFlowId
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupContactFlow(ctx, &connect.LookupContactFlowArgs{
-//				ContactFlowId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//				InstanceId:    "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupContactFlow(ctx *pulumi.Context, args *LookupContactFlowArgs, opts ...pulumi.InvokeOption) (*LookupContactFlowResult, error) {
 	var rv LookupContactFlowResult
 	err := ctx.Invoke("aws:connect/getContactFlow:getContactFlow", args, &rv, opts...)
@@ -78,35 +21,25 @@ func LookupContactFlow(ctx *pulumi.Context, args *LookupContactFlowArgs, opts ..
 
 // A collection of arguments for invoking getContactFlow.
 type LookupContactFlowArgs struct {
-	// Returns information on a specific Contact Flow by contact flow id
-	ContactFlowId *string `pulumi:"contactFlowId"`
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
-	// Returns information on a specific Contact Flow by name
-	Name *string `pulumi:"name"`
-	// Tags to assign to the Contact Flow.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of Contact Flow.
-	Type *string `pulumi:"type"`
+	ContactFlowId *string           `pulumi:"contactFlowId"`
+	InstanceId    string            `pulumi:"instanceId"`
+	Name          *string           `pulumi:"name"`
+	Tags          map[string]string `pulumi:"tags"`
+	Type          *string           `pulumi:"type"`
 }
 
 // A collection of values returned by getContactFlow.
 type LookupContactFlowResult struct {
-	// ARN of the Contact Flow.
 	Arn           string `pulumi:"arn"`
 	ContactFlowId string `pulumi:"contactFlowId"`
-	// Logic of the Contact Flow.
-	Content string `pulumi:"content"`
-	// Description of the Contact Flow.
-	Description string `pulumi:"description"`
+	Content       string `pulumi:"content"`
+	Description   string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	Name       string `pulumi:"name"`
-	// Tags to assign to the Contact Flow.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of Contact Flow.
-	Type *string `pulumi:"type"`
+	Id         string            `pulumi:"id"`
+	InstanceId string            `pulumi:"instanceId"`
+	Name       string            `pulumi:"name"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       *string           `pulumi:"type"`
 }
 
 func LookupContactFlowOutput(ctx *pulumi.Context, args LookupContactFlowOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowResultOutput {
@@ -124,16 +57,11 @@ func LookupContactFlowOutput(ctx *pulumi.Context, args LookupContactFlowOutputAr
 
 // A collection of arguments for invoking getContactFlow.
 type LookupContactFlowOutputArgs struct {
-	// Returns information on a specific Contact Flow by contact flow id
 	ContactFlowId pulumi.StringPtrInput `pulumi:"contactFlowId"`
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Returns information on a specific Contact Flow by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Tags to assign to the Contact Flow.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of Contact Flow.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	InstanceId    pulumi.StringInput    `pulumi:"instanceId"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Tags          pulumi.StringMapInput `pulumi:"tags"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (LookupContactFlowOutputArgs) ElementType() reflect.Type {
@@ -155,7 +83,6 @@ func (o LookupContactFlowResultOutput) ToLookupContactFlowResultOutputWithContex
 	return o
 }
 
-// ARN of the Contact Flow.
 func (o LookupContactFlowResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -164,12 +91,10 @@ func (o LookupContactFlowResultOutput) ContactFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.ContactFlowId }).(pulumi.StringOutput)
 }
 
-// Logic of the Contact Flow.
 func (o LookupContactFlowResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Description of the Contact Flow.
 func (o LookupContactFlowResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -187,12 +112,10 @@ func (o LookupContactFlowResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Tags to assign to the Contact Flow.
 func (o LookupContactFlowResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of Contact Flow.
 func (o LookupContactFlowResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

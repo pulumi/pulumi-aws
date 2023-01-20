@@ -11,61 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppStream Directory Config.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewDirectoryConfig(ctx, "example", &appstream.DirectoryConfigArgs{
-//				DirectoryName: pulumi.String("NAME OF DIRECTORY"),
-//				OrganizationalUnitDistinguishedNames: pulumi.StringArray{
-//					pulumi.String("DISTINGUISHED NAME"),
-//				},
-//				ServiceAccountCredentials: &appstream.DirectoryConfigServiceAccountCredentialsArgs{
-//					AccountName:     pulumi.String("NAME OF ACCOUNT"),
-//					AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_appstream_directory_config` can be imported using the id, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
-//
-// ```
 type DirectoryConfig struct {
 	pulumi.CustomResourceState
 
-	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Fully qualified name of the directory.
-	DirectoryName pulumi.StringOutput `pulumi:"directoryName"`
-	// Distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput `pulumi:"organizationalUnitDistinguishedNames"`
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsOutput `pulumi:"serviceAccountCredentials"`
+	CreatedTime                          pulumi.StringOutput                            `pulumi:"createdTime"`
+	DirectoryName                        pulumi.StringOutput                            `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput                       `pulumi:"organizationalUnitDistinguishedNames"`
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsOutput `pulumi:"serviceAccountCredentials"`
 }
 
 // NewDirectoryConfig registers a new resource with the given unique name, arguments, and options.
@@ -106,25 +58,17 @@ func GetDirectoryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DirectoryConfig resources.
 type directoryConfigState struct {
-	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Fully qualified name of the directory.
-	DirectoryName *string `pulumi:"directoryName"`
-	// Distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials *DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
+	CreatedTime                          *string                                   `pulumi:"createdTime"`
+	DirectoryName                        *string                                   `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames []string                                  `pulumi:"organizationalUnitDistinguishedNames"`
+	ServiceAccountCredentials            *DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
 }
 
 type DirectoryConfigState struct {
-	// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
-	CreatedTime pulumi.StringPtrInput
-	// Fully qualified name of the directory.
-	DirectoryName pulumi.StringPtrInput
-	// Distinguished names of the organizational units for computer accounts.
+	CreatedTime                          pulumi.StringPtrInput
+	DirectoryName                        pulumi.StringPtrInput
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsPtrInput
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsPtrInput
 }
 
 func (DirectoryConfigState) ElementType() reflect.Type {
@@ -132,22 +76,16 @@ func (DirectoryConfigState) ElementType() reflect.Type {
 }
 
 type directoryConfigArgs struct {
-	// Fully qualified name of the directory.
-	DirectoryName string `pulumi:"directoryName"`
-	// Distinguished names of the organizational units for computer accounts.
-	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
+	DirectoryName                        string                                   `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames []string                                 `pulumi:"organizationalUnitDistinguishedNames"`
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
 }
 
 // The set of arguments for constructing a DirectoryConfig resource.
 type DirectoryConfigArgs struct {
-	// Fully qualified name of the directory.
-	DirectoryName pulumi.StringInput
-	// Distinguished names of the organizational units for computer accounts.
+	DirectoryName                        pulumi.StringInput
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
-	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsInput
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsInput
 }
 
 func (DirectoryConfigArgs) ElementType() reflect.Type {
@@ -237,22 +175,18 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Co
 	return o
 }
 
-// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
 func (o DirectoryConfigOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the directory.
 func (o DirectoryConfigOutput) DirectoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringOutput { return v.DirectoryName }).(pulumi.StringOutput)
 }
 
-// Distinguished names of the organizational units for computer accounts.
 func (o DirectoryConfigOutput) OrganizationalUnitDistinguishedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringArrayOutput { return v.OrganizationalUnitDistinguishedNames }).(pulumi.StringArrayOutput)
 }
 
-// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
 func (o DirectoryConfigOutput) ServiceAccountCredentials() DirectoryConfigServiceAccountCredentialsOutput {
 	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigServiceAccountCredentialsOutput {
 		return v.ServiceAccountCredentials

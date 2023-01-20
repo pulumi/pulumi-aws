@@ -11,53 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Budget Resource Association.
-//
-// > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewBudgetResourceAssociation(ctx, "example", &servicecatalog.BudgetResourceAssociationArgs{
-//				BudgetName: pulumi.String("budget-pjtvyakdlyo3m"),
-//				ResourceId: pulumi.String("prod-dnigbtea24ste"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-//
-// ```
 type BudgetResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	// Budget name.
 	BudgetName pulumi.StringOutput `pulumi:"budgetName"`
-	// Resource identifier.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
@@ -96,16 +53,12 @@ func GetBudgetResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BudgetResourceAssociation resources.
 type budgetResourceAssociationState struct {
-	// Budget name.
 	BudgetName *string `pulumi:"budgetName"`
-	// Resource identifier.
 	ResourceId *string `pulumi:"resourceId"`
 }
 
 type BudgetResourceAssociationState struct {
-	// Budget name.
 	BudgetName pulumi.StringPtrInput
-	// Resource identifier.
 	ResourceId pulumi.StringPtrInput
 }
 
@@ -114,17 +67,13 @@ func (BudgetResourceAssociationState) ElementType() reflect.Type {
 }
 
 type budgetResourceAssociationArgs struct {
-	// Budget name.
 	BudgetName string `pulumi:"budgetName"`
-	// Resource identifier.
 	ResourceId string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a BudgetResourceAssociation resource.
 type BudgetResourceAssociationArgs struct {
-	// Budget name.
 	BudgetName pulumi.StringInput
-	// Resource identifier.
 	ResourceId pulumi.StringInput
 }
 
@@ -215,12 +164,10 @@ func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationOutputWithCo
 	return o
 }
 
-// Budget name.
 func (o BudgetResourceAssociationOutput) BudgetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetResourceAssociation) pulumi.StringOutput { return v.BudgetName }).(pulumi.StringOutput)
 }
 
-// Resource identifier.
 func (o BudgetResourceAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetResourceAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

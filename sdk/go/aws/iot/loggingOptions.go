@@ -11,43 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewLoggingOptions(ctx, "example", &iot.LoggingOptionsArgs{
-//				DefaultLogLevel: pulumi.String("WARN"),
-//				RoleArn:         pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type LoggingOptions struct {
 	pulumi.CustomResourceState
 
-	// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-	DefaultLogLevel pulumi.StringOutput `pulumi:"defaultLogLevel"`
-	// If `true` all logs are disabled. The default is `false`.
-	DisableAllLogs pulumi.BoolPtrOutput `pulumi:"disableAllLogs"`
-	// The ARN of the role that allows IoT to write to Cloudwatch logs.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	DefaultLogLevel pulumi.StringOutput  `pulumi:"defaultLogLevel"`
+	DisableAllLogs  pulumi.BoolPtrOutput `pulumi:"disableAllLogs"`
+	RoleArn         pulumi.StringOutput  `pulumi:"roleArn"`
 }
 
 // NewLoggingOptions registers a new resource with the given unique name, arguments, and options.
@@ -85,21 +54,15 @@ func GetLoggingOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoggingOptions resources.
 type loggingOptionsState struct {
-	// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
 	DefaultLogLevel *string `pulumi:"defaultLogLevel"`
-	// If `true` all logs are disabled. The default is `false`.
-	DisableAllLogs *bool `pulumi:"disableAllLogs"`
-	// The ARN of the role that allows IoT to write to Cloudwatch logs.
-	RoleArn *string `pulumi:"roleArn"`
+	DisableAllLogs  *bool   `pulumi:"disableAllLogs"`
+	RoleArn         *string `pulumi:"roleArn"`
 }
 
 type LoggingOptionsState struct {
-	// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
 	DefaultLogLevel pulumi.StringPtrInput
-	// If `true` all logs are disabled. The default is `false`.
-	DisableAllLogs pulumi.BoolPtrInput
-	// The ARN of the role that allows IoT to write to Cloudwatch logs.
-	RoleArn pulumi.StringPtrInput
+	DisableAllLogs  pulumi.BoolPtrInput
+	RoleArn         pulumi.StringPtrInput
 }
 
 func (LoggingOptionsState) ElementType() reflect.Type {
@@ -107,22 +70,16 @@ func (LoggingOptionsState) ElementType() reflect.Type {
 }
 
 type loggingOptionsArgs struct {
-	// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
 	DefaultLogLevel string `pulumi:"defaultLogLevel"`
-	// If `true` all logs are disabled. The default is `false`.
-	DisableAllLogs *bool `pulumi:"disableAllLogs"`
-	// The ARN of the role that allows IoT to write to Cloudwatch logs.
-	RoleArn string `pulumi:"roleArn"`
+	DisableAllLogs  *bool  `pulumi:"disableAllLogs"`
+	RoleArn         string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a LoggingOptions resource.
 type LoggingOptionsArgs struct {
-	// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
 	DefaultLogLevel pulumi.StringInput
-	// If `true` all logs are disabled. The default is `false`.
-	DisableAllLogs pulumi.BoolPtrInput
-	// The ARN of the role that allows IoT to write to Cloudwatch logs.
-	RoleArn pulumi.StringInput
+	DisableAllLogs  pulumi.BoolPtrInput
+	RoleArn         pulumi.StringInput
 }
 
 func (LoggingOptionsArgs) ElementType() reflect.Type {
@@ -212,17 +169,14 @@ func (o LoggingOptionsOutput) ToLoggingOptionsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
 func (o LoggingOptionsOutput) DefaultLogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingOptions) pulumi.StringOutput { return v.DefaultLogLevel }).(pulumi.StringOutput)
 }
 
-// If `true` all logs are disabled. The default is `false`.
 func (o LoggingOptionsOutput) DisableAllLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoggingOptions) pulumi.BoolPtrOutput { return v.DisableAllLogs }).(pulumi.BoolPtrOutput)
 }
 
-// The ARN of the role that allows IoT to write to Cloudwatch logs.
 func (o LoggingOptionsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingOptions) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

@@ -11,16 +11,11 @@ import (
 )
 
 type BucketLifecycleConfigurationRule struct {
-	// Configuration block containing settings for abort incomplete multipart upload.
 	AbortIncompleteMultipartUpload *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
-	// Configuration block containing settings for expiration of objects.
-	Expiration *BucketLifecycleConfigurationRuleExpiration `pulumi:"expiration"`
-	// Configuration block containing settings for filtering.
-	Filter *BucketLifecycleConfigurationRuleFilter `pulumi:"filter"`
-	// Unique identifier for the rule.
-	Id string `pulumi:"id"`
-	// Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-	Status *string `pulumi:"status"`
+	Expiration                     *BucketLifecycleConfigurationRuleExpiration                     `pulumi:"expiration"`
+	Filter                         *BucketLifecycleConfigurationRuleFilter                         `pulumi:"filter"`
+	Id                             string                                                          `pulumi:"id"`
+	Status                         *string                                                         `pulumi:"status"`
 }
 
 // BucketLifecycleConfigurationRuleInput is an input type that accepts BucketLifecycleConfigurationRuleArgs and BucketLifecycleConfigurationRuleOutput values.
@@ -35,16 +30,11 @@ type BucketLifecycleConfigurationRuleInput interface {
 }
 
 type BucketLifecycleConfigurationRuleArgs struct {
-	// Configuration block containing settings for abort incomplete multipart upload.
 	AbortIncompleteMultipartUpload BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
-	// Configuration block containing settings for expiration of objects.
-	Expiration BucketLifecycleConfigurationRuleExpirationPtrInput `pulumi:"expiration"`
-	// Configuration block containing settings for filtering.
-	Filter BucketLifecycleConfigurationRuleFilterPtrInput `pulumi:"filter"`
-	// Unique identifier for the rule.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Expiration                     BucketLifecycleConfigurationRuleExpirationPtrInput                     `pulumi:"expiration"`
+	Filter                         BucketLifecycleConfigurationRuleFilterPtrInput                         `pulumi:"filter"`
+	Id                             pulumi.StringInput                                                     `pulumi:"id"`
+	Status                         pulumi.StringPtrInput                                                  `pulumi:"status"`
 }
 
 func (BucketLifecycleConfigurationRuleArgs) ElementType() reflect.Type {
@@ -98,31 +88,26 @@ func (o BucketLifecycleConfigurationRuleOutput) ToBucketLifecycleConfigurationRu
 	return o
 }
 
-// Configuration block containing settings for abort incomplete multipart upload.
 func (o BucketLifecycleConfigurationRuleOutput) AbortIncompleteMultipartUpload() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
 		return v.AbortIncompleteMultipartUpload
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
-// Configuration block containing settings for expiration of objects.
 func (o BucketLifecycleConfigurationRuleOutput) Expiration() BucketLifecycleConfigurationRuleExpirationPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleExpiration {
 		return v.Expiration
 	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
-// Configuration block containing settings for filtering.
 func (o BucketLifecycleConfigurationRuleOutput) Filter() BucketLifecycleConfigurationRuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleFilter { return v.Filter }).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
-// Unique identifier for the rule.
 func (o BucketLifecycleConfigurationRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
 func (o BucketLifecycleConfigurationRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -148,7 +133,6 @@ func (o BucketLifecycleConfigurationRuleArrayOutput) Index(i pulumi.IntInput) Bu
 }
 
 type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload struct {
-	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 	DaysAfterInitiation int `pulumi:"daysAfterInitiation"`
 }
 
@@ -164,7 +148,6 @@ type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput interfa
 }
 
 type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs struct {
-	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 	DaysAfterInitiation pulumi.IntInput `pulumi:"daysAfterInitiation"`
 }
 
@@ -245,7 +228,6 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) To
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
-// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) int {
 		return v.DaysAfterInitiation
@@ -276,7 +258,6 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput)
 }
 
-// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) *int {
 		if v == nil {
@@ -287,12 +268,9 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
 type BucketLifecycleConfigurationRuleExpiration struct {
-	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-	Date *string `pulumi:"date"`
-	// Number of days before the object is to be deleted.
-	Days *int `pulumi:"days"`
-	// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
+	Date                      *string `pulumi:"date"`
+	Days                      *int    `pulumi:"days"`
+	ExpiredObjectDeleteMarker *bool   `pulumi:"expiredObjectDeleteMarker"`
 }
 
 // BucketLifecycleConfigurationRuleExpirationInput is an input type that accepts BucketLifecycleConfigurationRuleExpirationArgs and BucketLifecycleConfigurationRuleExpirationOutput values.
@@ -307,12 +285,9 @@ type BucketLifecycleConfigurationRuleExpirationInput interface {
 }
 
 type BucketLifecycleConfigurationRuleExpirationArgs struct {
-	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-	Date pulumi.StringPtrInput `pulumi:"date"`
-	// Number of days before the object is to be deleted.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
+	Date                      pulumi.StringPtrInput `pulumi:"date"`
+	Days                      pulumi.IntPtrInput    `pulumi:"days"`
+	ExpiredObjectDeleteMarker pulumi.BoolPtrInput   `pulumi:"expiredObjectDeleteMarker"`
 }
 
 func (BucketLifecycleConfigurationRuleExpirationArgs) ElementType() reflect.Type {
@@ -392,17 +367,14 @@ func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfi
 	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
-// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// Number of days before the object is to be deleted.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *bool { return v.ExpiredObjectDeleteMarker }).(pulumi.BoolPtrOutput)
 }
@@ -431,7 +403,6 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Elem() BucketLifecy
 	}).(BucketLifecycleConfigurationRuleExpirationOutput)
 }
 
-// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *string {
 		if v == nil {
@@ -441,7 +412,6 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Date() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of days before the object is to be deleted.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *int {
 		if v == nil {
@@ -451,7 +421,6 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Days() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *bool {
 		if v == nil {
@@ -462,10 +431,8 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ExpiredObjectDelete
 }
 
 type BucketLifecycleConfigurationRuleFilter struct {
-	// Object prefix for rule filtering.
-	Prefix *string `pulumi:"prefix"`
-	// Key-value map of object tags for rule filtering.
-	Tags map[string]string `pulumi:"tags"`
+	Prefix *string           `pulumi:"prefix"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // BucketLifecycleConfigurationRuleFilterInput is an input type that accepts BucketLifecycleConfigurationRuleFilterArgs and BucketLifecycleConfigurationRuleFilterOutput values.
@@ -480,10 +447,8 @@ type BucketLifecycleConfigurationRuleFilterInput interface {
 }
 
 type BucketLifecycleConfigurationRuleFilterArgs struct {
-	// Object prefix for rule filtering.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Key-value map of object tags for rule filtering.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (BucketLifecycleConfigurationRuleFilterArgs) ElementType() reflect.Type {
@@ -563,12 +528,10 @@ func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigura
 	}).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
-// Object prefix for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of object tags for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -597,7 +560,6 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Elem() BucketLifecycleC
 	}).(BucketLifecycleConfigurationRuleFilterOutput)
 }
 
-// Object prefix for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) *string {
 		if v == nil {
@@ -607,7 +569,6 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Prefix() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of object tags for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) map[string]string {
 		if v == nil {
@@ -1055,9 +1016,7 @@ func (o MultiRegionAccessPointDetailsRegionArrayOutput) Index(i pulumi.IntInput)
 }
 
 type MultiRegionAccessPointPolicyDetails struct {
-	// The name of the Multi-Region Access Point.
-	Name string `pulumi:"name"`
-	// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+	Name   string `pulumi:"name"`
 	Policy string `pulumi:"policy"`
 }
 
@@ -1073,9 +1032,7 @@ type MultiRegionAccessPointPolicyDetailsInput interface {
 }
 
 type MultiRegionAccessPointPolicyDetailsArgs struct {
-	// The name of the Multi-Region Access Point.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+	Name   pulumi.StringInput `pulumi:"name"`
 	Policy pulumi.StringInput `pulumi:"policy"`
 }
 
@@ -1156,12 +1113,10 @@ func (o MultiRegionAccessPointPolicyDetailsOutput) ToMultiRegionAccessPointPolic
 	}).(MultiRegionAccessPointPolicyDetailsPtrOutput)
 }
 
-// The name of the Multi-Region Access Point.
 func (o MultiRegionAccessPointPolicyDetailsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointPolicyDetails) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
 func (o MultiRegionAccessPointPolicyDetailsOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointPolicyDetails) string { return v.Policy }).(pulumi.StringOutput)
 }
@@ -1190,7 +1145,6 @@ func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Elem() MultiRegionAccessPo
 	}).(MultiRegionAccessPointPolicyDetailsOutput)
 }
 
-// The name of the Multi-Region Access Point.
 func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicyDetails) *string {
 		if v == nil {
@@ -1200,7 +1154,6 @@ func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
 func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicyDetails) *string {
 		if v == nil {
@@ -1211,13 +1164,9 @@ func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Policy() pulumi.StringPtrO
 }
 
 type ObjectLambdaAccessPointConfiguration struct {
-	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-	AllowedFeatures []string `pulumi:"allowedFeatures"`
-	// Whether or not the CloudWatch metrics configuration is enabled.
-	CloudWatchMetricsEnabled *bool `pulumi:"cloudWatchMetricsEnabled"`
-	// Standard access point associated with the Object Lambda Access Point.
-	SupportingAccessPoint string `pulumi:"supportingAccessPoint"`
-	// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+	AllowedFeatures              []string                                                          `pulumi:"allowedFeatures"`
+	CloudWatchMetricsEnabled     *bool                                                             `pulumi:"cloudWatchMetricsEnabled"`
+	SupportingAccessPoint        string                                                            `pulumi:"supportingAccessPoint"`
 	TransformationConfigurations []ObjectLambdaAccessPointConfigurationTransformationConfiguration `pulumi:"transformationConfigurations"`
 }
 
@@ -1233,13 +1182,9 @@ type ObjectLambdaAccessPointConfigurationInput interface {
 }
 
 type ObjectLambdaAccessPointConfigurationArgs struct {
-	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-	AllowedFeatures pulumi.StringArrayInput `pulumi:"allowedFeatures"`
-	// Whether or not the CloudWatch metrics configuration is enabled.
-	CloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchMetricsEnabled"`
-	// Standard access point associated with the Object Lambda Access Point.
-	SupportingAccessPoint pulumi.StringInput `pulumi:"supportingAccessPoint"`
-	// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+	AllowedFeatures              pulumi.StringArrayInput                                                   `pulumi:"allowedFeatures"`
+	CloudWatchMetricsEnabled     pulumi.BoolPtrInput                                                       `pulumi:"cloudWatchMetricsEnabled"`
+	SupportingAccessPoint        pulumi.StringInput                                                        `pulumi:"supportingAccessPoint"`
 	TransformationConfigurations ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput `pulumi:"transformationConfigurations"`
 }
 
@@ -1320,22 +1265,18 @@ func (o ObjectLambdaAccessPointConfigurationOutput) ToObjectLambdaAccessPointCon
 	}).(ObjectLambdaAccessPointConfigurationPtrOutput)
 }
 
-// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
 func (o ObjectLambdaAccessPointConfigurationOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) []string { return v.AllowedFeatures }).(pulumi.StringArrayOutput)
 }
 
-// Whether or not the CloudWatch metrics configuration is enabled.
 func (o ObjectLambdaAccessPointConfigurationOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) *bool { return v.CloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Standard access point associated with the Object Lambda Access Point.
 func (o ObjectLambdaAccessPointConfigurationOutput) SupportingAccessPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) string { return v.SupportingAccessPoint }).(pulumi.StringOutput)
 }
 
-// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
 func (o ObjectLambdaAccessPointConfigurationOutput) TransformationConfigurations() ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) []ObjectLambdaAccessPointConfigurationTransformationConfiguration {
 		return v.TransformationConfigurations
@@ -1366,7 +1307,6 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) Elem() ObjectLambdaAccess
 	}).(ObjectLambdaAccessPointConfigurationOutput)
 }
 
-// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
 func (o ObjectLambdaAccessPointConfigurationPtrOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) []string {
 		if v == nil {
@@ -1376,7 +1316,6 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) AllowedFeatures() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// Whether or not the CloudWatch metrics configuration is enabled.
 func (o ObjectLambdaAccessPointConfigurationPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) *bool {
 		if v == nil {
@@ -1386,7 +1325,6 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) CloudWatchMetricsEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Standard access point associated with the Object Lambda Access Point.
 func (o ObjectLambdaAccessPointConfigurationPtrOutput) SupportingAccessPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) *string {
 		if v == nil {
@@ -1396,7 +1334,6 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) SupportingAccessPoint() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
 func (o ObjectLambdaAccessPointConfigurationPtrOutput) TransformationConfigurations() ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) []ObjectLambdaAccessPointConfigurationTransformationConfiguration {
 		if v == nil {
@@ -1407,9 +1344,7 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) TransformationConfigurati
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfiguration struct {
-	// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-	Actions []string `pulumi:"actions"`
-	// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+	Actions               []string                                                                             `pulumi:"actions"`
 	ContentTransformation ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation `pulumi:"contentTransformation"`
 }
 
@@ -1425,9 +1360,7 @@ type ObjectLambdaAccessPointConfigurationTransformationConfigurationInput interf
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs struct {
-	// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+	Actions               pulumi.StringArrayInput                                                                   `pulumi:"actions"`
 	ContentTransformation ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput `pulumi:"contentTransformation"`
 }
 
@@ -1482,12 +1415,10 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) T
 	return o
 }
 
-// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfiguration) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ContentTransformation() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfiguration) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation {
 		return v.ContentTransformation
@@ -1515,7 +1446,6 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutp
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation struct {
-	// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
 	AwsLambda ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda `pulumi:"awsLambda"`
 }
 
@@ -1531,7 +1461,6 @@ type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTrans
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs struct {
-	// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
 	AwsLambda ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput `pulumi:"awsLambda"`
 }
 
@@ -1561,7 +1490,6 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 	return o
 }
 
-// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) AwsLambda() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda {
 		return v.AwsLambda
@@ -1569,9 +1497,7 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda struct {
-	// The Amazon Resource Name (ARN) of the AWS Lambda function.
-	FunctionArn string `pulumi:"functionArn"`
-	// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+	FunctionArn     string  `pulumi:"functionArn"`
 	FunctionPayload *string `pulumi:"functionPayload"`
 }
 
@@ -1587,9 +1513,7 @@ type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTrans
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Lambda function.
-	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
-	// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+	FunctionArn     pulumi.StringInput    `pulumi:"functionArn"`
 	FunctionPayload pulumi.StringPtrInput `pulumi:"functionPayload"`
 }
 
@@ -1619,14 +1543,12 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AWS Lambda function.
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda) string {
 		return v.FunctionArn
 	}).(pulumi.StringOutput)
 }
 
-// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) FunctionPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda) *string {
 		return v.FunctionPayload
@@ -1634,18 +1556,12 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 }
 
 type StorageLensConfigurationStorageLensConfiguration struct {
-	// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
 	AccountLevel StorageLensConfigurationStorageLensConfigurationAccountLevel `pulumi:"accountLevel"`
-	// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-	AwsOrg *StorageLensConfigurationStorageLensConfigurationAwsOrg `pulumi:"awsOrg"`
-	// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-	DataExport *StorageLensConfigurationStorageLensConfigurationDataExport `pulumi:"dataExport"`
-	// Whether the S3 Storage Lens configuration is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-	Exclude *StorageLensConfigurationStorageLensConfigurationExclude `pulumi:"exclude"`
-	// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-	Include *StorageLensConfigurationStorageLensConfigurationInclude `pulumi:"include"`
+	AwsOrg       *StorageLensConfigurationStorageLensConfigurationAwsOrg      `pulumi:"awsOrg"`
+	DataExport   *StorageLensConfigurationStorageLensConfigurationDataExport  `pulumi:"dataExport"`
+	Enabled      bool                                                         `pulumi:"enabled"`
+	Exclude      *StorageLensConfigurationStorageLensConfigurationExclude     `pulumi:"exclude"`
+	Include      *StorageLensConfigurationStorageLensConfigurationInclude     `pulumi:"include"`
 }
 
 // StorageLensConfigurationStorageLensConfigurationInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationArgs and StorageLensConfigurationStorageLensConfigurationOutput values.
@@ -1660,18 +1576,12 @@ type StorageLensConfigurationStorageLensConfigurationInput interface {
 }
 
 type StorageLensConfigurationStorageLensConfigurationArgs struct {
-	// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-	AccountLevel StorageLensConfigurationStorageLensConfigurationAccountLevelInput `pulumi:"accountLevel"`
-	// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-	AwsOrg StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput `pulumi:"awsOrg"`
-	// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-	DataExport StorageLensConfigurationStorageLensConfigurationDataExportPtrInput `pulumi:"dataExport"`
-	// Whether the S3 Storage Lens configuration is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-	Exclude StorageLensConfigurationStorageLensConfigurationExcludePtrInput `pulumi:"exclude"`
-	// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-	Include StorageLensConfigurationStorageLensConfigurationIncludePtrInput `pulumi:"include"`
+	AccountLevel StorageLensConfigurationStorageLensConfigurationAccountLevelInput  `pulumi:"accountLevel"`
+	AwsOrg       StorageLensConfigurationStorageLensConfigurationAwsOrgPtrInput     `pulumi:"awsOrg"`
+	DataExport   StorageLensConfigurationStorageLensConfigurationDataExportPtrInput `pulumi:"dataExport"`
+	Enabled      pulumi.BoolInput                                                   `pulumi:"enabled"`
+	Exclude      StorageLensConfigurationStorageLensConfigurationExcludePtrInput    `pulumi:"exclude"`
+	Include      StorageLensConfigurationStorageLensConfigurationIncludePtrInput    `pulumi:"include"`
 }
 
 func (StorageLensConfigurationStorageLensConfigurationArgs) ElementType() reflect.Type {
@@ -1751,40 +1661,34 @@ func (o StorageLensConfigurationStorageLensConfigurationOutput) ToStorageLensCon
 	}).(StorageLensConfigurationStorageLensConfigurationPtrOutput)
 }
 
-// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationOutput) AccountLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) StorageLensConfigurationStorageLensConfigurationAccountLevel {
 		return v.AccountLevel
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput)
 }
 
-// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationOutput) AwsOrg() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationAwsOrg {
 		return v.AwsOrg
 	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
 }
 
-// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationOutput) DataExport() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationDataExport {
 		return v.DataExport
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
 }
 
-// Whether the S3 Storage Lens configuration is enabled.
 func (o StorageLensConfigurationStorageLensConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationOutput) Exclude() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationExclude {
 		return v.Exclude
 	}).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
 }
 
-// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationOutput) Include() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationInclude {
 		return v.Include
@@ -1815,7 +1719,6 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Elem() Storag
 	}).(StorageLensConfigurationStorageLensConfigurationOutput)
 }
 
-// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) AccountLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationAccountLevel {
 		if v == nil {
@@ -1825,7 +1728,6 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) AccountLevel(
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput)
 }
 
-// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) AwsOrg() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationAwsOrg {
 		if v == nil {
@@ -1835,7 +1737,6 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) AwsOrg() Stor
 	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
 }
 
-// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) DataExport() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationDataExport {
 		if v == nil {
@@ -1845,7 +1746,6 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) DataExport() 
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
 }
 
-// Whether the S3 Storage Lens configuration is enabled.
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *bool {
 		if v == nil {
@@ -1855,7 +1755,6 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Exclude() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationExclude {
 		if v == nil {
@@ -1865,7 +1764,6 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Exclude() Sto
 	}).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
 }
 
-// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Include() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfigurationInclude {
 		if v == nil {
@@ -1876,16 +1774,11 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Include() Sto
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevel struct {
-	// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-	ActivityMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics `pulumi:"activityMetrics"`
-	// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+	ActivityMetrics                 *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics                 `pulumi:"activityMetrics"`
 	AdvancedCostOptimizationMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
-	// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-	AdvancedDataProtectionMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
-	// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-	BucketLevel StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel `pulumi:"bucketLevel"`
-	// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-	DetailedStatusCodeMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics `pulumi:"detailedStatusCodeMetrics"`
+	AdvancedDataProtectionMetrics   *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics   `pulumi:"advancedDataProtectionMetrics"`
+	BucketLevel                     StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel                      `pulumi:"bucketLevel"`
+	DetailedStatusCodeMetrics       *StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics       `pulumi:"detailedStatusCodeMetrics"`
 }
 
 // StorageLensConfigurationStorageLensConfigurationAccountLevelInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelOutput values.
@@ -1900,16 +1793,11 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelInput interface
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelArgs struct {
-	// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-	ActivityMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+	ActivityMetrics                 StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrInput                 `pulumi:"activityMetrics"`
 	AdvancedCostOptimizationMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
-	// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-	AdvancedDataProtectionMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
-	// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-	BucketLevel StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput `pulumi:"bucketLevel"`
-	// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-	DetailedStatusCodeMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrInput `pulumi:"detailedStatusCodeMetrics"`
+	AdvancedDataProtectionMetrics   StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrInput   `pulumi:"advancedDataProtectionMetrics"`
+	BucketLevel                     StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput                        `pulumi:"bucketLevel"`
+	DetailedStatusCodeMetrics       StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrInput       `pulumi:"detailedStatusCodeMetrics"`
 }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ElementType() reflect.Type {
@@ -1989,35 +1877,30 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ToSt
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput)
 }
 
-// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
 		return v.ActivityMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
 }
 
-// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) AdvancedCostOptimizationMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics {
 		return v.AdvancedCostOptimizationMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) AdvancedDataProtectionMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics {
 		return v.AdvancedDataProtectionMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) BucketLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevel) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
 		return v.BucketLevel
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput)
 }
 
-// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) DetailedStatusCodeMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics {
 		return v.DetailedStatusCodeMetrics
@@ -2048,7 +1931,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) E
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput)
 }
 
-// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics {
 		if v == nil {
@@ -2058,7 +1940,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) A
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
 }
 
-// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) AdvancedCostOptimizationMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics {
 		if v == nil {
@@ -2068,7 +1949,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) A
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) AdvancedDataProtectionMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics {
 		if v == nil {
@@ -2078,7 +1958,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) A
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) BucketLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
 		if v == nil {
@@ -2088,7 +1967,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) B
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput)
 }
 
-// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) DetailedStatusCodeMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics {
 		if v == nil {
@@ -2099,7 +1977,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) D
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics struct {
-	// Whether the activity metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -2115,7 +1992,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs struct {
-	// Whether the activity metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -2196,7 +2072,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetr
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
 }
 
-// Whether the activity metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) *bool {
 		return v.Enabled
@@ -2227,7 +2102,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetr
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput)
 }
 
-// Whether the activity metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) *bool {
 		if v == nil {
@@ -2238,7 +2112,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetr
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics struct {
-	// Whether advanced cost-optimization metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -2254,7 +2127,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOpt
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs struct {
-	// Whether advanced cost-optimization metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -2335,7 +2207,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCost
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// Whether advanced cost-optimization metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics) *bool {
 		return v.Enabled
@@ -2366,7 +2237,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCost
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput)
 }
 
-// Whether advanced cost-optimization metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics) *bool {
 		if v == nil {
@@ -2377,7 +2247,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCost
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics struct {
-	// Whether advanced data-protection metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -2393,7 +2262,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataPro
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs struct {
-	// Whether advanced data-protection metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -2474,7 +2342,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedData
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// Whether advanced data-protection metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics) *bool {
 		return v.Enabled
@@ -2505,7 +2372,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedData
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput)
 }
 
-// Whether advanced data-protection metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics) *bool {
 		if v == nil {
@@ -2516,16 +2382,11 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedData
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel struct {
-	// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-	ActivityMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics `pulumi:"activityMetrics"`
-	// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+	ActivityMetrics                 *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics                 `pulumi:"activityMetrics"`
 	AdvancedCostOptimizationMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
-	// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-	AdvancedDataProtectionMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
-	// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-	DetailedStatusCodeMetrics *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics `pulumi:"detailedStatusCodeMetrics"`
-	// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
-	PrefixLevel *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel `pulumi:"prefixLevel"`
+	AdvancedDataProtectionMetrics   *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics   `pulumi:"advancedDataProtectionMetrics"`
+	DetailedStatusCodeMetrics       *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics       `pulumi:"detailedStatusCodeMetrics"`
+	PrefixLevel                     *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel                     `pulumi:"prefixLevel"`
 }
 
 // StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs and StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput values.
@@ -2540,16 +2401,11 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelInpu
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs struct {
-	// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-	ActivityMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+	ActivityMetrics                 StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrInput                 `pulumi:"activityMetrics"`
 	AdvancedCostOptimizationMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
-	// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-	AdvancedDataProtectionMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
-	// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-	DetailedStatusCodeMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrInput `pulumi:"detailedStatusCodeMetrics"`
-	// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
-	PrefixLevel StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput `pulumi:"prefixLevel"`
+	AdvancedDataProtectionMetrics   StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrInput   `pulumi:"advancedDataProtectionMetrics"`
+	DetailedStatusCodeMetrics       StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrInput       `pulumi:"detailedStatusCodeMetrics"`
+	PrefixLevel                     StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrInput                     `pulumi:"prefixLevel"`
 }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ElementType() reflect.Type {
@@ -2629,35 +2485,30 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelO
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput)
 }
 
-// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics {
 		return v.ActivityMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
 }
 
-// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) AdvancedCostOptimizationMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics {
 		return v.AdvancedCostOptimizationMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) AdvancedDataProtectionMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics {
 		return v.AdvancedDataProtectionMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) DetailedStatusCodeMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics {
 		return v.DetailedStatusCodeMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) PrefixLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
 		return v.PrefixLevel
@@ -2688,7 +2539,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput)
 }
 
-// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) ActivityMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics {
 		if v == nil {
@@ -2698,7 +2548,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
 }
 
-// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) AdvancedCostOptimizationMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics {
 		if v == nil {
@@ -2708,7 +2557,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) AdvancedDataProtectionMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics {
 		if v == nil {
@@ -2718,7 +2566,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) DetailedStatusCodeMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics {
 		if v == nil {
@@ -2728,7 +2575,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) PrefixLevel() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
 		if v == nil {
@@ -2739,7 +2585,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics struct {
-	// Whether the activity metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -2755,7 +2600,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActi
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs struct {
-	// Whether the activity metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -2836,7 +2680,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
 }
 
-// Whether the activity metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) *bool {
 		return v.Enabled
@@ -2867,7 +2710,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput)
 }
 
-// Whether the activity metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) *bool {
 		if v == nil {
@@ -2878,7 +2720,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics struct {
-	// Whether advanced cost-optimization metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -2894,7 +2735,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdva
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs struct {
-	// Whether advanced cost-optimization metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -2975,7 +2815,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// Whether advanced cost-optimization metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics) *bool {
 		return v.Enabled
@@ -3006,7 +2845,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput)
 }
 
-// Whether advanced cost-optimization metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics) *bool {
 		if v == nil {
@@ -3017,7 +2855,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics struct {
-	// Whether advanced data-protection metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -3033,7 +2870,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdva
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs struct {
-	// Whether advanced data-protection metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -3114,7 +2950,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// Whether advanced data-protection metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics) *bool {
 		return v.Enabled
@@ -3145,7 +2980,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput)
 }
 
-// Whether advanced data-protection metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics) *bool {
 		if v == nil {
@@ -3156,7 +2990,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics struct {
-	// Whether detailed status code metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -3172,7 +3005,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDeta
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs struct {
-	// Whether detailed status code metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -3253,7 +3085,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelD
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-// Whether detailed status code metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics) *bool {
 		return v.Enabled
@@ -3284,7 +3115,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelD
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput)
 }
 
-// Whether detailed status code metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics) *bool {
 		if v == nil {
@@ -3295,7 +3125,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelD
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel struct {
-	// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
 	StorageMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics `pulumi:"storageMetrics"`
 }
 
@@ -3311,7 +3140,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPref
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs struct {
-	// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
 	StorageMetrics StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsInput `pulumi:"storageMetrics"`
 }
 
@@ -3392,7 +3220,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput)
 }
 
-// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) StorageMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
 		return v.StorageMetrics
@@ -3423,7 +3250,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput)
 }
 
-// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) StorageMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
 		if v == nil {
@@ -3434,9 +3260,7 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics struct {
-	// Whether prefix-level storage metrics are enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Selection criteria. See Selection Criteria below for more details.
+	Enabled           *bool                                                                                                              `pulumi:"enabled"`
 	SelectionCriteria *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria `pulumi:"selectionCriteria"`
 }
 
@@ -3452,9 +3276,7 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPref
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs struct {
-	// Whether prefix-level storage metrics are enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Selection criteria. See Selection Criteria below for more details.
+	Enabled           pulumi.BoolPtrInput                                                                                                       `pulumi:"enabled"`
 	SelectionCriteria StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrInput `pulumi:"selectionCriteria"`
 }
 
@@ -3535,14 +3357,12 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput)
 }
 
-// Whether prefix-level storage metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *bool {
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Selection criteria. See Selection Criteria below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) SelectionCriteria() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
 		return v.SelectionCriteria
@@ -3573,7 +3393,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput)
 }
 
-// Whether prefix-level storage metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *bool {
 		if v == nil {
@@ -3583,7 +3402,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Selection criteria. See Selection Criteria below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) SelectionCriteria() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
 		if v == nil {
@@ -3594,11 +3412,8 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria struct {
-	// The delimiter of the selection criteria being used.
-	Delimiter *string `pulumi:"delimiter"`
-	// The max depth of the selection criteria.
-	MaxDepth *int `pulumi:"maxDepth"`
-	// The minimum number of storage bytes percentage whose metrics will be selected.
+	Delimiter                 *string  `pulumi:"delimiter"`
+	MaxDepth                  *int     `pulumi:"maxDepth"`
 	MinStorageBytesPercentage *float64 `pulumi:"minStorageBytesPercentage"`
 }
 
@@ -3614,11 +3429,8 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPref
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs struct {
-	// The delimiter of the selection criteria being used.
-	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// The max depth of the selection criteria.
-	MaxDepth pulumi.IntPtrInput `pulumi:"maxDepth"`
-	// The minimum number of storage bytes percentage whose metrics will be selected.
+	Delimiter                 pulumi.StringPtrInput  `pulumi:"delimiter"`
+	MaxDepth                  pulumi.IntPtrInput     `pulumi:"maxDepth"`
 	MinStorageBytesPercentage pulumi.Float64PtrInput `pulumi:"minStorageBytesPercentage"`
 }
 
@@ -3699,21 +3511,18 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput)
 }
 
-// The delimiter of the selection criteria being used.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *string {
 		return v.Delimiter
 	}).(pulumi.StringPtrOutput)
 }
 
-// The max depth of the selection criteria.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) MaxDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *int {
 		return v.MaxDepth
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of storage bytes percentage whose metrics will be selected.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *float64 {
 		return v.MinStorageBytesPercentage
@@ -3744,7 +3553,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput)
 }
 
-// The delimiter of the selection criteria being used.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *string {
 		if v == nil {
@@ -3754,7 +3562,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The max depth of the selection criteria.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) MaxDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *int {
 		if v == nil {
@@ -3764,7 +3571,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of storage bytes percentage whose metrics will be selected.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *float64 {
 		if v == nil {
@@ -3775,7 +3581,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics struct {
-	// Whether detailed status code metrics are enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -3791,7 +3596,6 @@ type StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusC
 }
 
 type StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs struct {
-	// Whether detailed status code metrics are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -3872,7 +3676,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStat
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-// Whether detailed status code metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics) *bool {
 		return v.Enabled
@@ -3903,7 +3706,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStat
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput)
 }
 
-// Whether detailed status code metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics) *bool {
 		if v == nil {
@@ -3914,7 +3716,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStat
 }
 
 type StorageLensConfigurationStorageLensConfigurationAwsOrg struct {
-	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 	Arn string `pulumi:"arn"`
 }
 
@@ -3930,7 +3731,6 @@ type StorageLensConfigurationStorageLensConfigurationAwsOrgInput interface {
 }
 
 type StorageLensConfigurationStorageLensConfigurationAwsOrgArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -4011,7 +3811,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToStorageL
 	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAwsOrg) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -4040,7 +3839,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Elem() 
 	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAwsOrg) *string {
 		if v == nil {
@@ -4051,9 +3849,7 @@ func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Arn() p
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExport struct {
-	// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-	CloudWatchMetrics *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics `pulumi:"cloudWatchMetrics"`
-	// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+	CloudWatchMetrics   *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics   `pulumi:"cloudWatchMetrics"`
 	S3BucketDestination *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
@@ -4069,9 +3865,7 @@ type StorageLensConfigurationStorageLensConfigurationDataExportInput interface {
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportArgs struct {
-	// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-	CloudWatchMetrics StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput `pulumi:"cloudWatchMetrics"`
-	// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+	CloudWatchMetrics   StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrInput   `pulumi:"cloudWatchMetrics"`
 	S3BucketDestination StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
 }
 
@@ -4152,14 +3946,12 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) ToStor
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
 }
 
-// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) CloudWatchMetrics() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
 		return v.CloudWatchMetrics
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
 }
 
-// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) S3BucketDestination() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
 		return v.S3BucketDestination
@@ -4190,7 +3982,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) Ele
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportOutput)
 }
 
-// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) CloudWatchMetrics() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics {
 		if v == nil {
@@ -4200,7 +3991,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) Clo
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
 }
 
-// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) S3BucketDestination() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
 		if v == nil {
@@ -4211,7 +4001,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) S3B
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics struct {
-	// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -4227,7 +4016,6 @@ type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs struct {
-	// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -4308,7 +4096,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
 }
 
-// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) bool {
 		return v.Enabled
@@ -4339,7 +4126,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput)
 }
 
-// Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) *bool {
 		if v == nil {
@@ -4350,18 +4136,12 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination struct {
-	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
-	AccountId string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the bucket.
-	Arn string `pulumi:"arn"`
-	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
-	Encryption *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption `pulumi:"encryption"`
-	// The export format. Valid values: `CSV`, `Parquet`.
-	Format string `pulumi:"format"`
-	// The schema version of the export file. Valid values: `V_1`.
-	OutputSchemaVersion string `pulumi:"outputSchemaVersion"`
-	// The prefix of the destination bucket where the metrics export will be delivered.
-	Prefix *string `pulumi:"prefix"`
+	AccountId           string                                                                                   `pulumi:"accountId"`
+	Arn                 string                                                                                   `pulumi:"arn"`
+	Encryption          *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption `pulumi:"encryption"`
+	Format              string                                                                                   `pulumi:"format"`
+	OutputSchemaVersion string                                                                                   `pulumi:"outputSchemaVersion"`
+	Prefix              *string                                                                                  `pulumi:"prefix"`
 }
 
 // StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput values.
@@ -4376,18 +4156,12 @@ type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinati
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs struct {
-	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the bucket.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
-	Encryption StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput `pulumi:"encryption"`
-	// The export format. Valid values: `CSV`, `Parquet`.
-	Format pulumi.StringInput `pulumi:"format"`
-	// The schema version of the export file. Valid values: `V_1`.
-	OutputSchemaVersion pulumi.StringInput `pulumi:"outputSchemaVersion"`
-	// The prefix of the destination bucket where the metrics export will be delivered.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	AccountId           pulumi.StringInput                                                                              `pulumi:"accountId"`
+	Arn                 pulumi.StringInput                                                                              `pulumi:"arn"`
+	Encryption          StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput `pulumi:"encryption"`
+	Format              pulumi.StringInput                                                                              `pulumi:"format"`
+	OutputSchemaVersion pulumi.StringInput                                                                              `pulumi:"outputSchemaVersion"`
+	Prefix              pulumi.StringPtrInput                                                                           `pulumi:"prefix"`
 }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ElementType() reflect.Type {
@@ -4467,42 +4241,36 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
 }
 
-// The account ID of the owner of the S3 Storage Lens metrics export bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.AccountId
 	}).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.Arn
 	}).(pulumi.StringOutput)
 }
 
-// Encryption of the metrics exports in this bucket. See Encryption below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Encryption() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
 		return v.Encryption
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
 }
 
-// The export format. Valid values: `CSV`, `Parquet`.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.Format
 	}).(pulumi.StringOutput)
 }
 
-// The schema version of the export file. Valid values: `V_1`.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) OutputSchemaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.OutputSchemaVersion
 	}).(pulumi.StringOutput)
 }
 
-// The prefix of the destination bucket where the metrics export will be delivered.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		return v.Prefix
@@ -4533,7 +4301,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput)
 }
 
-// The account ID of the owner of the S3 Storage Lens metrics export bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -4543,7 +4310,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -4553,7 +4319,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption of the metrics exports in this bucket. See Encryption below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Encryption() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
 		if v == nil {
@@ -4563,7 +4328,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
 }
 
-// The export format. Valid values: `CSV`, `Parquet`.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -4573,7 +4337,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schema version of the export file. Valid values: `V_1`.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -4583,7 +4346,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The prefix of the destination bucket where the metrics export will be delivered.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -4594,9 +4356,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption struct {
-	// SSE-KMS encryption. See SSE KMS below for more details.
 	SseKms *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms `pulumi:"sseKms"`
-	// SSE-S3 encryption. An empty configuration block `{}` should be used.
 	SseS3s []StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 `pulumi:"sseS3s"`
 }
 
@@ -4612,9 +4372,7 @@ type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinati
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs struct {
-	// SSE-KMS encryption. See SSE KMS below for more details.
-	SseKms StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput `pulumi:"sseKms"`
-	// SSE-S3 encryption. An empty configuration block `{}` should be used.
+	SseKms StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrInput  `pulumi:"sseKms"`
 	SseS3s StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput `pulumi:"sseS3s"`
 }
 
@@ -4695,14 +4453,12 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
 }
 
-// SSE-KMS encryption. See SSE KMS below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) SseKms() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
 		return v.SseKms
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
 }
 
-// SSE-S3 encryption. An empty configuration block `{}` should be used.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) SseS3s() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) []StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 {
 		return v.SseS3s
@@ -4733,7 +4489,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput)
 }
 
-// SSE-KMS encryption. See SSE KMS below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) SseKms() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms {
 		if v == nil {
@@ -4743,7 +4498,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
 }
 
-// SSE-S3 encryption. An empty configuration block `{}` should be used.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) SseS3s() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) []StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3 {
 		if v == nil {
@@ -4754,7 +4508,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms struct {
-	// KMS key ARN.
 	KeyId string `pulumi:"keyId"`
 }
 
@@ -4770,7 +4523,6 @@ type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinati
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs struct {
-	// KMS key ARN.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
 
@@ -4851,7 +4603,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
 }
 
-// KMS key ARN.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) string {
 		return v.KeyId
@@ -4882,7 +4633,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput)
 }
 
-// KMS key ARN.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) *string {
 		if v == nil {
@@ -4981,9 +4731,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 }
 
 type StorageLensConfigurationStorageLensConfigurationExclude struct {
-	// List of S3 bucket ARNs.
 	Buckets []string `pulumi:"buckets"`
-	// List of AWS Regions.
 	Regions []string `pulumi:"regions"`
 }
 
@@ -4999,9 +4747,7 @@ type StorageLensConfigurationStorageLensConfigurationExcludeInput interface {
 }
 
 type StorageLensConfigurationStorageLensConfigurationExcludeArgs struct {
-	// List of S3 bucket ARNs.
 	Buckets pulumi.StringArrayInput `pulumi:"buckets"`
-	// List of AWS Regions.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 }
 
@@ -5082,12 +4828,10 @@ func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) ToStorage
 	}).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
 }
 
-// List of S3 bucket ARNs.
 func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationExclude) []string { return v.Buckets }).(pulumi.StringArrayOutput)
 }
 
-// List of AWS Regions.
 func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationExclude) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -5116,7 +4860,6 @@ func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Elem()
 	}).(StorageLensConfigurationStorageLensConfigurationExcludeOutput)
 }
 
-// List of S3 bucket ARNs.
 func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationExclude) []string {
 		if v == nil {
@@ -5126,7 +4869,6 @@ func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Bucket
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of AWS Regions.
 func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationExclude) []string {
 		if v == nil {
@@ -5137,9 +4879,7 @@ func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Region
 }
 
 type StorageLensConfigurationStorageLensConfigurationInclude struct {
-	// List of S3 bucket ARNs.
 	Buckets []string `pulumi:"buckets"`
-	// List of AWS Regions.
 	Regions []string `pulumi:"regions"`
 }
 
@@ -5155,9 +4895,7 @@ type StorageLensConfigurationStorageLensConfigurationIncludeInput interface {
 }
 
 type StorageLensConfigurationStorageLensConfigurationIncludeArgs struct {
-	// List of S3 bucket ARNs.
 	Buckets pulumi.StringArrayInput `pulumi:"buckets"`
-	// List of AWS Regions.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 }
 
@@ -5238,12 +4976,10 @@ func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) ToStorage
 	}).(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput)
 }
 
-// List of S3 bucket ARNs.
 func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationInclude) []string { return v.Buckets }).(pulumi.StringArrayOutput)
 }
 
-// List of AWS Regions.
 func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationInclude) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -5272,7 +5008,6 @@ func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Elem()
 	}).(StorageLensConfigurationStorageLensConfigurationIncludeOutput)
 }
 
-// List of S3 bucket ARNs.
 func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationInclude) []string {
 		if v == nil {
@@ -5282,7 +5017,6 @@ func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Bucket
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of AWS Regions.
 func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationInclude) []string {
 		if v == nil {
@@ -5293,19 +5027,9 @@ func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Region
 }
 
 type GetMultiRegionAccessPointPublicAccessBlock struct {
-	// Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
-	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-	// * PUT Object calls fail if the request includes a public ACL.
-	// * PUT Bucket calls fail if the request includes a public ACL.
-	BlockPublicAcls bool `pulumi:"blockPublicAcls"`
-	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
-	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-	BlockPublicPolicy bool `pulumi:"blockPublicPolicy"`
-	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
-	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
-	IgnorePublicAcls bool `pulumi:"ignorePublicAcls"`
-	// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
-	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	BlockPublicAcls       bool `pulumi:"blockPublicAcls"`
+	BlockPublicPolicy     bool `pulumi:"blockPublicPolicy"`
+	IgnorePublicAcls      bool `pulumi:"ignorePublicAcls"`
 	RestrictPublicBuckets bool `pulumi:"restrictPublicBuckets"`
 }
 
@@ -5321,19 +5045,9 @@ type GetMultiRegionAccessPointPublicAccessBlockInput interface {
 }
 
 type GetMultiRegionAccessPointPublicAccessBlockArgs struct {
-	// Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
-	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-	// * PUT Object calls fail if the request includes a public ACL.
-	// * PUT Bucket calls fail if the request includes a public ACL.
-	BlockPublicAcls pulumi.BoolInput `pulumi:"blockPublicAcls"`
-	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
-	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-	BlockPublicPolicy pulumi.BoolInput `pulumi:"blockPublicPolicy"`
-	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
-	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
-	IgnorePublicAcls pulumi.BoolInput `pulumi:"ignorePublicAcls"`
-	// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
-	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	BlockPublicAcls       pulumi.BoolInput `pulumi:"blockPublicAcls"`
+	BlockPublicPolicy     pulumi.BoolInput `pulumi:"blockPublicPolicy"`
+	IgnorePublicAcls      pulumi.BoolInput `pulumi:"ignorePublicAcls"`
 	RestrictPublicBuckets pulumi.BoolInput `pulumi:"restrictPublicBuckets"`
 }
 
@@ -5388,28 +5102,18 @@ func (o GetMultiRegionAccessPointPublicAccessBlockOutput) ToGetMultiRegionAccess
 	return o
 }
 
-// Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
-// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-// * PUT Object calls fail if the request includes a public ACL.
-// * PUT Bucket calls fail if the request includes a public ACL.
 func (o GetMultiRegionAccessPointPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.BlockPublicAcls }).(pulumi.BoolOutput)
 }
 
-// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
-// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 func (o GetMultiRegionAccessPointPublicAccessBlockOutput) BlockPublicPolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.BlockPublicPolicy }).(pulumi.BoolOutput)
 }
 
-// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
-// * Ignore all public ACLs on buckets in this account and any objects that they contain.
 func (o GetMultiRegionAccessPointPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.IgnorePublicAcls }).(pulumi.BoolOutput)
 }
 
-// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
-// * Only the bucket owner and AWS Services can access buckets with public policies.
 func (o GetMultiRegionAccessPointPublicAccessBlockOutput) RestrictPublicBuckets() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointPublicAccessBlock) bool { return v.RestrictPublicBuckets }).(pulumi.BoolOutput)
 }
@@ -5435,9 +5139,7 @@ func (o GetMultiRegionAccessPointPublicAccessBlockArrayOutput) Index(i pulumi.In
 }
 
 type GetMultiRegionAccessPointRegion struct {
-	// The name of the bucket.
 	Bucket string `pulumi:"bucket"`
-	// The name of the region.
 	Region string `pulumi:"region"`
 }
 
@@ -5453,9 +5155,7 @@ type GetMultiRegionAccessPointRegionInput interface {
 }
 
 type GetMultiRegionAccessPointRegionArgs struct {
-	// The name of the bucket.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the region.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -5510,12 +5210,10 @@ func (o GetMultiRegionAccessPointRegionOutput) ToGetMultiRegionAccessPointRegion
 	return o
 }
 
-// The name of the bucket.
 func (o GetMultiRegionAccessPointRegionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the region.
 func (o GetMultiRegionAccessPointRegionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.Region }).(pulumi.StringOutput)
 }

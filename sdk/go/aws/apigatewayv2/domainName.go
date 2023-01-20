@@ -11,120 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon API Gateway Version 2 domain name.
-// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
-//
-// > **Note:** This resource establishes ownership of and the TLS settings for
-// a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
-//				DomainName: pulumi.String("ws-api.example.com"),
-//				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//					EndpointType:   pulumi.String("REGIONAL"),
-//					SecurityPolicy: pulumi.String("TLS_1_2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Associated Route 53 Resource Record
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainName, err := apigatewayv2.NewDomainName(ctx, "exampleDomainName", &apigatewayv2.DomainNameArgs{
-//				DomainName: pulumi.String("http-api.example.com"),
-//				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//					EndpointType:   pulumi.String("REGIONAL"),
-//					SecurityPolicy: pulumi.String("TLS_1_2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				Name:   exampleDomainName.DomainName,
-//				Type:   pulumi.String("A"),
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
-//							return &domainNameConfiguration.TargetDomainName, nil
-//						}).(pulumi.StringPtrOutput),
-//						ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
-//							return &domainNameConfiguration.HostedZoneId, nil
-//						}).(pulumi.StringPtrOutput),
-//						EvaluateTargetHealth: pulumi.Bool(false),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
-//
-// ```
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-	ApiMappingSelectionExpression pulumi.StringOutput `pulumi:"apiMappingSelectionExpression"`
-	// ARN of the domain name.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Domain name. Must be between 1 and 512 characters in length.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Domain name configuration. See below.
-	DomainNameConfiguration DomainNameDomainNameConfigurationOutput `pulumi:"domainNameConfiguration"`
-	// Mutual TLS authentication configuration for the domain name.
-	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
-	// Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ApiMappingSelectionExpression pulumi.StringOutput                        `pulumi:"apiMappingSelectionExpression"`
+	Arn                           pulumi.StringOutput                        `pulumi:"arn"`
+	DomainName                    pulumi.StringOutput                        `pulumi:"domainName"`
+	DomainNameConfiguration       DomainNameDomainNameConfigurationOutput    `pulumi:"domainNameConfiguration"`
+	MutualTlsAuthentication       DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
+	Tags                          pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll                       pulumi.StringMapOutput                     `pulumi:"tagsAll"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -162,37 +58,23 @@ func GetDomainName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainName resources.
 type domainNameState struct {
-	// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-	ApiMappingSelectionExpression *string `pulumi:"apiMappingSelectionExpression"`
-	// ARN of the domain name.
-	Arn *string `pulumi:"arn"`
-	// Domain name. Must be between 1 and 512 characters in length.
-	DomainName *string `pulumi:"domainName"`
-	// Domain name configuration. See below.
-	DomainNameConfiguration *DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
-	// Mutual TLS authentication configuration for the domain name.
-	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	// Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ApiMappingSelectionExpression *string                            `pulumi:"apiMappingSelectionExpression"`
+	Arn                           *string                            `pulumi:"arn"`
+	DomainName                    *string                            `pulumi:"domainName"`
+	DomainNameConfiguration       *DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
+	MutualTlsAuthentication       *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
+	Tags                          map[string]string                  `pulumi:"tags"`
+	TagsAll                       map[string]string                  `pulumi:"tagsAll"`
 }
 
 type DomainNameState struct {
-	// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
 	ApiMappingSelectionExpression pulumi.StringPtrInput
-	// ARN of the domain name.
-	Arn pulumi.StringPtrInput
-	// Domain name. Must be between 1 and 512 characters in length.
-	DomainName pulumi.StringPtrInput
-	// Domain name configuration. See below.
-	DomainNameConfiguration DomainNameDomainNameConfigurationPtrInput
-	// Mutual TLS authentication configuration for the domain name.
-	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
-	// Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Arn                           pulumi.StringPtrInput
+	DomainName                    pulumi.StringPtrInput
+	DomainNameConfiguration       DomainNameDomainNameConfigurationPtrInput
+	MutualTlsAuthentication       DomainNameMutualTlsAuthenticationPtrInput
+	Tags                          pulumi.StringMapInput
+	TagsAll                       pulumi.StringMapInput
 }
 
 func (DomainNameState) ElementType() reflect.Type {
@@ -200,26 +82,18 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// Domain name. Must be between 1 and 512 characters in length.
-	DomainName string `pulumi:"domainName"`
-	// Domain name configuration. See below.
-	DomainNameConfiguration DomainNameDomainNameConfiguration `pulumi:"domainNameConfiguration"`
-	// Mutual TLS authentication configuration for the domain name.
+	DomainName              string                             `pulumi:"domainName"`
+	DomainNameConfiguration DomainNameDomainNameConfiguration  `pulumi:"domainNameConfiguration"`
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	// Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                    map[string]string                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// Domain name. Must be between 1 and 512 characters in length.
-	DomainName pulumi.StringInput
-	// Domain name configuration. See below.
+	DomainName              pulumi.StringInput
 	DomainNameConfiguration DomainNameDomainNameConfigurationInput
-	// Mutual TLS authentication configuration for the domain name.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
-	// Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {
@@ -309,37 +183,30 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
-// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
 func (o DomainNameOutput) ApiMappingSelectionExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.ApiMappingSelectionExpression }).(pulumi.StringOutput)
 }
 
-// ARN of the domain name.
 func (o DomainNameOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Domain name. Must be between 1 and 512 characters in length.
 func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Domain name configuration. See below.
 func (o DomainNameOutput) DomainNameConfiguration() DomainNameDomainNameConfigurationOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameDomainNameConfigurationOutput { return v.DomainNameConfiguration }).(DomainNameDomainNameConfigurationOutput)
 }
 
-// Mutual TLS authentication configuration for the domain name.
 func (o DomainNameOutput) MutualTlsAuthentication() DomainNameMutualTlsAuthenticationPtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameMutualTlsAuthenticationPtrOutput { return v.MutualTlsAuthentication }).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-// Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DomainNameOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainNameOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

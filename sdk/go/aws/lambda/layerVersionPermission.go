@@ -11,70 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
-//
-// For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda.LayerVersionPermissionArgs{
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				LayerName:     pulumi.String("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1"),
-//				Principal:     pulumi.String("111111111111"),
-//				StatementId:   pulumi.String("dev-account"),
-//				VersionNumber: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
-//
-// ```sh
-//
-//	$ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-//
-// ```
-//
-//	[1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
 type LayerVersionPermission struct {
 	pulumi.CustomResourceState
 
-	// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
-	Action pulumi.StringOutput `pulumi:"action"`
-	// The name or ARN of the Lambda Layer, which you want to grant access to.
-	LayerName pulumi.StringOutput `pulumi:"layerName"`
-	// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+	Action         pulumi.StringOutput    `pulumi:"action"`
+	LayerName      pulumi.StringOutput    `pulumi:"layerName"`
 	OrganizationId pulumi.StringPtrOutput `pulumi:"organizationId"`
-	// Full Lambda Layer Permission policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// A unique identifier for the current revision of the policy.
-	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
-	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
-	StatementId pulumi.StringOutput `pulumi:"statementId"`
-	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
-	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
+	Policy         pulumi.StringOutput    `pulumi:"policy"`
+	Principal      pulumi.StringOutput    `pulumi:"principal"`
+	RevisionId     pulumi.StringOutput    `pulumi:"revisionId"`
+	StatementId    pulumi.StringOutput    `pulumi:"statementId"`
+	VersionNumber  pulumi.IntOutput       `pulumi:"versionNumber"`
 }
 
 // NewLayerVersionPermission registers a new resource with the given unique name, arguments, and options.
@@ -121,41 +68,25 @@ func GetLayerVersionPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LayerVersionPermission resources.
 type layerVersionPermissionState struct {
-	// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
-	Action *string `pulumi:"action"`
-	// The name or ARN of the Lambda Layer, which you want to grant access to.
-	LayerName *string `pulumi:"layerName"`
-	// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+	Action         *string `pulumi:"action"`
+	LayerName      *string `pulumi:"layerName"`
 	OrganizationId *string `pulumi:"organizationId"`
-	// Full Lambda Layer Permission policy.
-	Policy *string `pulumi:"policy"`
-	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-	Principal *string `pulumi:"principal"`
-	// A unique identifier for the current revision of the policy.
-	RevisionId *string `pulumi:"revisionId"`
-	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
-	StatementId *string `pulumi:"statementId"`
-	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
-	VersionNumber *int `pulumi:"versionNumber"`
+	Policy         *string `pulumi:"policy"`
+	Principal      *string `pulumi:"principal"`
+	RevisionId     *string `pulumi:"revisionId"`
+	StatementId    *string `pulumi:"statementId"`
+	VersionNumber  *int    `pulumi:"versionNumber"`
 }
 
 type LayerVersionPermissionState struct {
-	// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
-	Action pulumi.StringPtrInput
-	// The name or ARN of the Lambda Layer, which you want to grant access to.
-	LayerName pulumi.StringPtrInput
-	// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+	Action         pulumi.StringPtrInput
+	LayerName      pulumi.StringPtrInput
 	OrganizationId pulumi.StringPtrInput
-	// Full Lambda Layer Permission policy.
-	Policy pulumi.StringPtrInput
-	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-	Principal pulumi.StringPtrInput
-	// A unique identifier for the current revision of the policy.
-	RevisionId pulumi.StringPtrInput
-	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
-	StatementId pulumi.StringPtrInput
-	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
-	VersionNumber pulumi.IntPtrInput
+	Policy         pulumi.StringPtrInput
+	Principal      pulumi.StringPtrInput
+	RevisionId     pulumi.StringPtrInput
+	StatementId    pulumi.StringPtrInput
+	VersionNumber  pulumi.IntPtrInput
 }
 
 func (LayerVersionPermissionState) ElementType() reflect.Type {
@@ -163,34 +94,22 @@ func (LayerVersionPermissionState) ElementType() reflect.Type {
 }
 
 type layerVersionPermissionArgs struct {
-	// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
-	Action string `pulumi:"action"`
-	// The name or ARN of the Lambda Layer, which you want to grant access to.
-	LayerName string `pulumi:"layerName"`
-	// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+	Action         string  `pulumi:"action"`
+	LayerName      string  `pulumi:"layerName"`
 	OrganizationId *string `pulumi:"organizationId"`
-	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-	Principal string `pulumi:"principal"`
-	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
-	StatementId string `pulumi:"statementId"`
-	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
-	VersionNumber int `pulumi:"versionNumber"`
+	Principal      string  `pulumi:"principal"`
+	StatementId    string  `pulumi:"statementId"`
+	VersionNumber  int     `pulumi:"versionNumber"`
 }
 
 // The set of arguments for constructing a LayerVersionPermission resource.
 type LayerVersionPermissionArgs struct {
-	// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
-	Action pulumi.StringInput
-	// The name or ARN of the Lambda Layer, which you want to grant access to.
-	LayerName pulumi.StringInput
-	// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
+	Action         pulumi.StringInput
+	LayerName      pulumi.StringInput
 	OrganizationId pulumi.StringPtrInput
-	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-	Principal pulumi.StringInput
-	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
-	StatementId pulumi.StringInput
-	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
-	VersionNumber pulumi.IntInput
+	Principal      pulumi.StringInput
+	StatementId    pulumi.StringInput
+	VersionNumber  pulumi.IntInput
 }
 
 func (LayerVersionPermissionArgs) ElementType() reflect.Type {
@@ -280,42 +199,34 @@ func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(
 	return o
 }
 
-// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
 func (o LayerVersionPermissionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
 
-// The name or ARN of the Lambda Layer, which you want to grant access to.
 func (o LayerVersionPermissionOutput) LayerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.LayerName }).(pulumi.StringOutput)
 }
 
-// An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organizationId` provided.
 func (o LayerVersionPermissionOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringPtrOutput { return v.OrganizationId }).(pulumi.StringPtrOutput)
 }
 
-// Full Lambda Layer Permission policy.
 func (o LayerVersionPermissionOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 func (o LayerVersionPermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the current revision of the policy.
 func (o LayerVersionPermissionOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
 
-// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
 func (o LayerVersionPermissionOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }
 
-// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
 func (o LayerVersionPermissionOutput) VersionNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.IntOutput { return v.VersionNumber }).(pulumi.IntOutput)
 }

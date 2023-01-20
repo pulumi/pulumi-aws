@@ -11,134 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
-//
-// ## Example Usage
-// ### With `routingRule` configured
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
-//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
-//					Suffix: pulumi.String("index.html"),
-//				},
-//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
-//					Key: pulumi.String("error.html"),
-//				},
-//				RoutingRules: s3.BucketWebsiteConfigurationV2RoutingRuleArray{
-//					&s3.BucketWebsiteConfigurationV2RoutingRuleArgs{
-//						Condition: &s3.BucketWebsiteConfigurationV2RoutingRuleConditionArgs{
-//							KeyPrefixEquals: pulumi.String("docs/"),
-//						},
-//						Redirect: &s3.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{
-//							ReplaceKeyPrefixWith: pulumi.String("documents/"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With `routingRules` configured
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
-//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
-//					Suffix: pulumi.String("index.html"),
-//				},
-//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
-//					Key: pulumi.String("error.html"),
-//				},
-//				RoutingRuleDetails: pulumi.String(fmt.Sprintf(`[{
-//	    "Condition": {
-//	        "KeyPrefixEquals": "docs/"
-//	    },
-//	    "Redirect": {
-//	        "ReplaceKeyPrefixWith": ""
-//	    }
-//	}]
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 bucket website configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket website configuration resource should be imported using the `bucket` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
-//
-// ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket website configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
-//
-// ```
 type BucketWebsiteConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The name of the error document for the website detailed below.
-	ErrorDocument BucketWebsiteConfigurationV2ErrorDocumentPtrOutput `pulumi:"errorDocument"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The name of the index document for the website detailed below.
-	IndexDocument BucketWebsiteConfigurationV2IndexDocumentPtrOutput `pulumi:"indexDocument"`
-	// The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
+	Bucket                pulumi.StringOutput                                        `pulumi:"bucket"`
+	ErrorDocument         BucketWebsiteConfigurationV2ErrorDocumentPtrOutput         `pulumi:"errorDocument"`
+	ExpectedBucketOwner   pulumi.StringPtrOutput                                     `pulumi:"expectedBucketOwner"`
+	IndexDocument         BucketWebsiteConfigurationV2IndexDocumentPtrOutput         `pulumi:"indexDocument"`
 	RedirectAllRequestsTo BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput `pulumi:"redirectAllRequestsTo"`
-	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-	RoutingRuleDetails pulumi.StringOutput `pulumi:"routingRuleDetails"`
-	// List of rules that define when a redirect is applied and the redirect behavior detailed below.
-	RoutingRules BucketWebsiteConfigurationV2RoutingRuleArrayOutput `pulumi:"routingRules"`
-	// The domain of the website endpoint. This is used to create Route 53 alias records.
-	WebsiteDomain pulumi.StringOutput `pulumi:"websiteDomain"`
-	// The website endpoint.
-	WebsiteEndpoint pulumi.StringOutput `pulumi:"websiteEndpoint"`
+	RoutingRuleDetails    pulumi.StringOutput                                        `pulumi:"routingRuleDetails"`
+	RoutingRules          BucketWebsiteConfigurationV2RoutingRuleArrayOutput         `pulumi:"routingRules"`
+	WebsiteDomain         pulumi.StringOutput                                        `pulumi:"websiteDomain"`
+	WebsiteEndpoint       pulumi.StringOutput                                        `pulumi:"websiteEndpoint"`
 }
 
 // NewBucketWebsiteConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -173,47 +57,27 @@ func GetBucketWebsiteConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketWebsiteConfigurationV2 resources.
 type bucketWebsiteConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// The name of the error document for the website detailed below.
-	ErrorDocument *BucketWebsiteConfigurationV2ErrorDocument `pulumi:"errorDocument"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The name of the index document for the website detailed below.
-	IndexDocument *BucketWebsiteConfigurationV2IndexDocument `pulumi:"indexDocument"`
-	// The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
+	Bucket                *string                                            `pulumi:"bucket"`
+	ErrorDocument         *BucketWebsiteConfigurationV2ErrorDocument         `pulumi:"errorDocument"`
+	ExpectedBucketOwner   *string                                            `pulumi:"expectedBucketOwner"`
+	IndexDocument         *BucketWebsiteConfigurationV2IndexDocument         `pulumi:"indexDocument"`
 	RedirectAllRequestsTo *BucketWebsiteConfigurationV2RedirectAllRequestsTo `pulumi:"redirectAllRequestsTo"`
-	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-	RoutingRuleDetails *string `pulumi:"routingRuleDetails"`
-	// List of rules that define when a redirect is applied and the redirect behavior detailed below.
-	RoutingRules []BucketWebsiteConfigurationV2RoutingRule `pulumi:"routingRules"`
-	// The domain of the website endpoint. This is used to create Route 53 alias records.
-	WebsiteDomain *string `pulumi:"websiteDomain"`
-	// The website endpoint.
-	WebsiteEndpoint *string `pulumi:"websiteEndpoint"`
+	RoutingRuleDetails    *string                                            `pulumi:"routingRuleDetails"`
+	RoutingRules          []BucketWebsiteConfigurationV2RoutingRule          `pulumi:"routingRules"`
+	WebsiteDomain         *string                                            `pulumi:"websiteDomain"`
+	WebsiteEndpoint       *string                                            `pulumi:"websiteEndpoint"`
 }
 
 type BucketWebsiteConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// The name of the error document for the website detailed below.
-	ErrorDocument BucketWebsiteConfigurationV2ErrorDocumentPtrInput
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// The name of the index document for the website detailed below.
-	IndexDocument BucketWebsiteConfigurationV2IndexDocumentPtrInput
-	// The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
+	Bucket                pulumi.StringPtrInput
+	ErrorDocument         BucketWebsiteConfigurationV2ErrorDocumentPtrInput
+	ExpectedBucketOwner   pulumi.StringPtrInput
+	IndexDocument         BucketWebsiteConfigurationV2IndexDocumentPtrInput
 	RedirectAllRequestsTo BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput
-	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-	RoutingRuleDetails pulumi.StringPtrInput
-	// List of rules that define when a redirect is applied and the redirect behavior detailed below.
-	RoutingRules BucketWebsiteConfigurationV2RoutingRuleArrayInput
-	// The domain of the website endpoint. This is used to create Route 53 alias records.
-	WebsiteDomain pulumi.StringPtrInput
-	// The website endpoint.
-	WebsiteEndpoint pulumi.StringPtrInput
+	RoutingRuleDetails    pulumi.StringPtrInput
+	RoutingRules          BucketWebsiteConfigurationV2RoutingRuleArrayInput
+	WebsiteDomain         pulumi.StringPtrInput
+	WebsiteEndpoint       pulumi.StringPtrInput
 }
 
 func (BucketWebsiteConfigurationV2State) ElementType() reflect.Type {
@@ -221,40 +85,24 @@ func (BucketWebsiteConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketWebsiteConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// The name of the error document for the website detailed below.
-	ErrorDocument *BucketWebsiteConfigurationV2ErrorDocument `pulumi:"errorDocument"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The name of the index document for the website detailed below.
-	IndexDocument *BucketWebsiteConfigurationV2IndexDocument `pulumi:"indexDocument"`
-	// The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
+	Bucket                string                                             `pulumi:"bucket"`
+	ErrorDocument         *BucketWebsiteConfigurationV2ErrorDocument         `pulumi:"errorDocument"`
+	ExpectedBucketOwner   *string                                            `pulumi:"expectedBucketOwner"`
+	IndexDocument         *BucketWebsiteConfigurationV2IndexDocument         `pulumi:"indexDocument"`
 	RedirectAllRequestsTo *BucketWebsiteConfigurationV2RedirectAllRequestsTo `pulumi:"redirectAllRequestsTo"`
-	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-	RoutingRuleDetails *string `pulumi:"routingRuleDetails"`
-	// List of rules that define when a redirect is applied and the redirect behavior detailed below.
-	RoutingRules []BucketWebsiteConfigurationV2RoutingRule `pulumi:"routingRules"`
+	RoutingRuleDetails    *string                                            `pulumi:"routingRuleDetails"`
+	RoutingRules          []BucketWebsiteConfigurationV2RoutingRule          `pulumi:"routingRules"`
 }
 
 // The set of arguments for constructing a BucketWebsiteConfigurationV2 resource.
 type BucketWebsiteConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket pulumi.StringInput
-	// The name of the error document for the website detailed below.
-	ErrorDocument BucketWebsiteConfigurationV2ErrorDocumentPtrInput
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrInput
-	// The name of the index document for the website detailed below.
-	IndexDocument BucketWebsiteConfigurationV2IndexDocumentPtrInput
-	// The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
+	Bucket                pulumi.StringInput
+	ErrorDocument         BucketWebsiteConfigurationV2ErrorDocumentPtrInput
+	ExpectedBucketOwner   pulumi.StringPtrInput
+	IndexDocument         BucketWebsiteConfigurationV2IndexDocumentPtrInput
 	RedirectAllRequestsTo BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput
-	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
-	RoutingRuleDetails pulumi.StringPtrInput
-	// List of rules that define when a redirect is applied and the redirect behavior detailed below.
-	RoutingRules BucketWebsiteConfigurationV2RoutingRuleArrayInput
+	RoutingRuleDetails    pulumi.StringPtrInput
+	RoutingRules          BucketWebsiteConfigurationV2RoutingRuleArrayInput
 }
 
 func (BucketWebsiteConfigurationV2Args) ElementType() reflect.Type {
@@ -344,56 +192,46 @@ func (o BucketWebsiteConfigurationV2Output) ToBucketWebsiteConfigurationV2Output
 	return o
 }
 
-// The name of the bucket.
 func (o BucketWebsiteConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the error document for the website detailed below.
 func (o BucketWebsiteConfigurationV2Output) ErrorDocument() BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
 		return v.ErrorDocument
 	}).(BucketWebsiteConfigurationV2ErrorDocumentPtrOutput)
 }
 
-// The account ID of the expected bucket owner.
 func (o BucketWebsiteConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The name of the index document for the website detailed below.
 func (o BucketWebsiteConfigurationV2Output) IndexDocument() BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
 		return v.IndexDocument
 	}).(BucketWebsiteConfigurationV2IndexDocumentPtrOutput)
 }
 
-// The redirect behavior for every request to this bucket's website endpoint detailed below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
 func (o BucketWebsiteConfigurationV2Output) RedirectAllRequestsTo() BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
 		return v.RedirectAllRequestsTo
 	}).(BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput)
 }
 
-// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 func (o BucketWebsiteConfigurationV2Output) RoutingRuleDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringOutput { return v.RoutingRuleDetails }).(pulumi.StringOutput)
 }
 
-// List of rules that define when a redirect is applied and the redirect behavior detailed below.
 func (o BucketWebsiteConfigurationV2Output) RoutingRules() BucketWebsiteConfigurationV2RoutingRuleArrayOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) BucketWebsiteConfigurationV2RoutingRuleArrayOutput {
 		return v.RoutingRules
 	}).(BucketWebsiteConfigurationV2RoutingRuleArrayOutput)
 }
 
-// The domain of the website endpoint. This is used to create Route 53 alias records.
 func (o BucketWebsiteConfigurationV2Output) WebsiteDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringOutput { return v.WebsiteDomain }).(pulumi.StringOutput)
 }
 
-// The website endpoint.
 func (o BucketWebsiteConfigurationV2Output) WebsiteEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2) pulumi.StringOutput { return v.WebsiteEndpoint }).(pulumi.StringOutput)
 }

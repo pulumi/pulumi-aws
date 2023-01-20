@@ -10,86 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EventBridge event bus resource.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplepartnerEventSource, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
-//				NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventBus(ctx, "examplepartnerEventBus", &cloudwatch.EventBusArgs{
-//				EventSourceName: *pulumi.String(examplepartnerEventSource.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// # EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
-//
-// ```
 type EventBus struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the event bus.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The partner event source that the new event bus will be matched with. Must match `name`.
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
 	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
-	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewEventBus registers a new resource with the given unique name, arguments, and options.
@@ -121,29 +49,19 @@ func GetEventBus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventBus resources.
 type eventBusState struct {
-	// The Amazon Resource Name (ARN) of the event bus.
-	Arn *string `pulumi:"arn"`
-	// The partner event source that the new event bus will be matched with. Must match `name`.
-	EventSourceName *string `pulumi:"eventSourceName"`
-	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string           `pulumi:"arn"`
+	EventSourceName *string           `pulumi:"eventSourceName"`
+	Name            *string           `pulumi:"name"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 type EventBusState struct {
-	// The Amazon Resource Name (ARN) of the event bus.
-	Arn pulumi.StringPtrInput
-	// The partner event source that the new event bus will be matched with. Must match `name`.
+	Arn             pulumi.StringPtrInput
 	EventSourceName pulumi.StringPtrInput
-	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (EventBusState) ElementType() reflect.Type {
@@ -151,22 +69,16 @@ func (EventBusState) ElementType() reflect.Type {
 }
 
 type eventBusArgs struct {
-	// The partner event source that the new event bus will be matched with. Must match `name`.
-	EventSourceName *string `pulumi:"eventSourceName"`
-	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	EventSourceName *string           `pulumi:"eventSourceName"`
+	Name            *string           `pulumi:"name"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventBus resource.
 type EventBusArgs struct {
-	// The partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName pulumi.StringPtrInput
-	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (EventBusArgs) ElementType() reflect.Type {
@@ -256,27 +168,22 @@ func (o EventBusOutput) ToEventBusOutputWithContext(ctx context.Context) EventBu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the event bus.
 func (o EventBusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The partner event source that the new event bus will be matched with. Must match `name`.
 func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.EventSourceName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 func (o EventBusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EventBusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventBusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

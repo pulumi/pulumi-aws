@@ -21,21 +21,16 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired network ACLs.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC ID that you want to filter from.
-	VpcId *string `pulumi:"vpcId"`
+	Tags    map[string]string      `pulumi:"tags"`
+	VpcId   *string                `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getNetworkAcls.
 type GetNetworkAclsResult struct {
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the network ACL ids found.
+	Id    string            `pulumi:"id"`
 	Ids   []string          `pulumi:"ids"`
 	Tags  map[string]string `pulumi:"tags"`
 	VpcId *string           `pulumi:"vpcId"`
@@ -56,13 +51,9 @@ func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, op
 
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetNetworkAclsFilterArrayInput `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired network ACLs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// VPC ID that you want to filter from.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	Tags    pulumi.StringMapInput          `pulumi:"tags"`
+	VpcId   pulumi.StringPtrInput          `pulumi:"vpcId"`
 }
 
 func (GetNetworkAclsOutputArgs) ElementType() reflect.Type {
@@ -93,7 +84,6 @@ func (o GetNetworkAclsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the network ACL ids found.
 func (o GetNetworkAclsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNetworkAclsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

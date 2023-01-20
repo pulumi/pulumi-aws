@@ -11,12 +11,9 @@ import (
 )
 
 type GatewayRouteSpec struct {
-	// Specification of a gRPC gateway route.
-	GrpcRoute *GatewayRouteSpecGrpcRoute `pulumi:"grpcRoute"`
-	// Specification of an HTTP/2 gateway route.
+	GrpcRoute  *GatewayRouteSpecGrpcRoute  `pulumi:"grpcRoute"`
 	Http2Route *GatewayRouteSpecHttp2Route `pulumi:"http2Route"`
-	// Specification of an HTTP gateway route.
-	HttpRoute *GatewayRouteSpecHttpRoute `pulumi:"httpRoute"`
+	HttpRoute  *GatewayRouteSpecHttpRoute  `pulumi:"httpRoute"`
 }
 
 // GatewayRouteSpecInput is an input type that accepts GatewayRouteSpecArgs and GatewayRouteSpecOutput values.
@@ -31,12 +28,9 @@ type GatewayRouteSpecInput interface {
 }
 
 type GatewayRouteSpecArgs struct {
-	// Specification of a gRPC gateway route.
-	GrpcRoute GatewayRouteSpecGrpcRoutePtrInput `pulumi:"grpcRoute"`
-	// Specification of an HTTP/2 gateway route.
+	GrpcRoute  GatewayRouteSpecGrpcRoutePtrInput  `pulumi:"grpcRoute"`
 	Http2Route GatewayRouteSpecHttp2RoutePtrInput `pulumi:"http2Route"`
-	// Specification of an HTTP gateway route.
-	HttpRoute GatewayRouteSpecHttpRoutePtrInput `pulumi:"httpRoute"`
+	HttpRoute  GatewayRouteSpecHttpRoutePtrInput  `pulumi:"httpRoute"`
 }
 
 func (GatewayRouteSpecArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o GatewayRouteSpecOutput) ToGatewayRouteSpecPtrOutputWithContext(ctx conte
 	}).(GatewayRouteSpecPtrOutput)
 }
 
-// Specification of a gRPC gateway route.
 func (o GatewayRouteSpecOutput) GrpcRoute() GatewayRouteSpecGrpcRoutePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteSpecGrpcRoute { return v.GrpcRoute }).(GatewayRouteSpecGrpcRoutePtrOutput)
 }
 
-// Specification of an HTTP/2 gateway route.
 func (o GatewayRouteSpecOutput) Http2Route() GatewayRouteSpecHttp2RoutePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteSpecHttp2Route { return v.Http2Route }).(GatewayRouteSpecHttp2RoutePtrOutput)
 }
 
-// Specification of an HTTP gateway route.
 func (o GatewayRouteSpecOutput) HttpRoute() GatewayRouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteSpecHttpRoute { return v.HttpRoute }).(GatewayRouteSpecHttpRoutePtrOutput)
 }
@@ -155,7 +146,6 @@ func (o GatewayRouteSpecPtrOutput) Elem() GatewayRouteSpecOutput {
 	}).(GatewayRouteSpecOutput)
 }
 
-// Specification of a gRPC gateway route.
 func (o GatewayRouteSpecPtrOutput) GrpcRoute() GatewayRouteSpecGrpcRoutePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpec) *GatewayRouteSpecGrpcRoute {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o GatewayRouteSpecPtrOutput) GrpcRoute() GatewayRouteSpecGrpcRoutePtrOutpu
 	}).(GatewayRouteSpecGrpcRoutePtrOutput)
 }
 
-// Specification of an HTTP/2 gateway route.
 func (o GatewayRouteSpecPtrOutput) Http2Route() GatewayRouteSpecHttp2RoutePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpec) *GatewayRouteSpecHttp2Route {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o GatewayRouteSpecPtrOutput) Http2Route() GatewayRouteSpecHttp2RoutePtrOut
 	}).(GatewayRouteSpecHttp2RoutePtrOutput)
 }
 
-// Specification of an HTTP gateway route.
 func (o GatewayRouteSpecPtrOutput) HttpRoute() GatewayRouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpec) *GatewayRouteSpecHttpRoute {
 		if v == nil {
@@ -186,10 +174,8 @@ func (o GatewayRouteSpecPtrOutput) HttpRoute() GatewayRouteSpecHttpRoutePtrOutpu
 }
 
 type GatewayRouteSpecGrpcRoute struct {
-	// Action to take if a match is determined.
 	Action GatewayRouteSpecGrpcRouteAction `pulumi:"action"`
-	// Criteria for determining a request match.
-	Match GatewayRouteSpecGrpcRouteMatch `pulumi:"match"`
+	Match  GatewayRouteSpecGrpcRouteMatch  `pulumi:"match"`
 }
 
 // GatewayRouteSpecGrpcRouteInput is an input type that accepts GatewayRouteSpecGrpcRouteArgs and GatewayRouteSpecGrpcRouteOutput values.
@@ -204,10 +190,8 @@ type GatewayRouteSpecGrpcRouteInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteArgs struct {
-	// Action to take if a match is determined.
 	Action GatewayRouteSpecGrpcRouteActionInput `pulumi:"action"`
-	// Criteria for determining a request match.
-	Match GatewayRouteSpecGrpcRouteMatchInput `pulumi:"match"`
+	Match  GatewayRouteSpecGrpcRouteMatchInput  `pulumi:"match"`
 }
 
 func (GatewayRouteSpecGrpcRouteArgs) ElementType() reflect.Type {
@@ -287,12 +271,10 @@ func (o GatewayRouteSpecGrpcRouteOutput) ToGatewayRouteSpecGrpcRoutePtrOutputWit
 	}).(GatewayRouteSpecGrpcRoutePtrOutput)
 }
 
-// Action to take if a match is determined.
 func (o GatewayRouteSpecGrpcRouteOutput) Action() GatewayRouteSpecGrpcRouteActionOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRoute) GatewayRouteSpecGrpcRouteAction { return v.Action }).(GatewayRouteSpecGrpcRouteActionOutput)
 }
 
-// Criteria for determining a request match.
 func (o GatewayRouteSpecGrpcRouteOutput) Match() GatewayRouteSpecGrpcRouteMatchOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRoute) GatewayRouteSpecGrpcRouteMatch { return v.Match }).(GatewayRouteSpecGrpcRouteMatchOutput)
 }
@@ -321,7 +303,6 @@ func (o GatewayRouteSpecGrpcRoutePtrOutput) Elem() GatewayRouteSpecGrpcRouteOutp
 	}).(GatewayRouteSpecGrpcRouteOutput)
 }
 
-// Action to take if a match is determined.
 func (o GatewayRouteSpecGrpcRoutePtrOutput) Action() GatewayRouteSpecGrpcRouteActionPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRoute) *GatewayRouteSpecGrpcRouteAction {
 		if v == nil {
@@ -331,7 +312,6 @@ func (o GatewayRouteSpecGrpcRoutePtrOutput) Action() GatewayRouteSpecGrpcRouteAc
 	}).(GatewayRouteSpecGrpcRouteActionPtrOutput)
 }
 
-// Criteria for determining a request match.
 func (o GatewayRouteSpecGrpcRoutePtrOutput) Match() GatewayRouteSpecGrpcRouteMatchPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRoute) *GatewayRouteSpecGrpcRouteMatch {
 		if v == nil {
@@ -342,7 +322,6 @@ func (o GatewayRouteSpecGrpcRoutePtrOutput) Match() GatewayRouteSpecGrpcRouteMat
 }
 
 type GatewayRouteSpecGrpcRouteAction struct {
-	// Target that traffic is routed to when a request matches the gateway route.
 	Target GatewayRouteSpecGrpcRouteActionTarget `pulumi:"target"`
 }
 
@@ -358,7 +337,6 @@ type GatewayRouteSpecGrpcRouteActionInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteActionArgs struct {
-	// Target that traffic is routed to when a request matches the gateway route.
 	Target GatewayRouteSpecGrpcRouteActionTargetInput `pulumi:"target"`
 }
 
@@ -439,7 +417,6 @@ func (o GatewayRouteSpecGrpcRouteActionOutput) ToGatewayRouteSpecGrpcRouteAction
 	}).(GatewayRouteSpecGrpcRouteActionPtrOutput)
 }
 
-// Target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecGrpcRouteActionOutput) Target() GatewayRouteSpecGrpcRouteActionTargetOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteAction) GatewayRouteSpecGrpcRouteActionTarget { return v.Target }).(GatewayRouteSpecGrpcRouteActionTargetOutput)
 }
@@ -468,7 +445,6 @@ func (o GatewayRouteSpecGrpcRouteActionPtrOutput) Elem() GatewayRouteSpecGrpcRou
 	}).(GatewayRouteSpecGrpcRouteActionOutput)
 }
 
-// Target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecGrpcRouteActionPtrOutput) Target() GatewayRouteSpecGrpcRouteActionTargetPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteAction) *GatewayRouteSpecGrpcRouteActionTarget {
 		if v == nil {
@@ -479,7 +455,6 @@ func (o GatewayRouteSpecGrpcRouteActionPtrOutput) Target() GatewayRouteSpecGrpcR
 }
 
 type GatewayRouteSpecGrpcRouteActionTarget struct {
-	// Virtual service gateway route target.
 	VirtualService GatewayRouteSpecGrpcRouteActionTargetVirtualService `pulumi:"virtualService"`
 }
 
@@ -495,7 +470,6 @@ type GatewayRouteSpecGrpcRouteActionTargetInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteActionTargetArgs struct {
-	// Virtual service gateway route target.
 	VirtualService GatewayRouteSpecGrpcRouteActionTargetVirtualServiceInput `pulumi:"virtualService"`
 }
 
@@ -576,7 +550,6 @@ func (o GatewayRouteSpecGrpcRouteActionTargetOutput) ToGatewayRouteSpecGrpcRoute
 	}).(GatewayRouteSpecGrpcRouteActionTargetPtrOutput)
 }
 
-// Virtual service gateway route target.
 func (o GatewayRouteSpecGrpcRouteActionTargetOutput) VirtualService() GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteActionTarget) GatewayRouteSpecGrpcRouteActionTargetVirtualService {
 		return v.VirtualService
@@ -607,7 +580,6 @@ func (o GatewayRouteSpecGrpcRouteActionTargetPtrOutput) Elem() GatewayRouteSpecG
 	}).(GatewayRouteSpecGrpcRouteActionTargetOutput)
 }
 
-// Virtual service gateway route target.
 func (o GatewayRouteSpecGrpcRouteActionTargetPtrOutput) VirtualService() GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteActionTarget) *GatewayRouteSpecGrpcRouteActionTargetVirtualService {
 		if v == nil {
@@ -618,7 +590,6 @@ func (o GatewayRouteSpecGrpcRouteActionTargetPtrOutput) VirtualService() Gateway
 }
 
 type GatewayRouteSpecGrpcRouteActionTargetVirtualService struct {
-	// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
@@ -634,7 +605,6 @@ type GatewayRouteSpecGrpcRouteActionTargetVirtualServiceInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs struct {
-	// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
@@ -715,7 +685,6 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) ToGatewayRout
 	}).(GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput)
 }
 
-// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -744,7 +713,6 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) Elem() Gat
 	}).(GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput)
 }
 
-// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteActionTargetVirtualService) *string {
 		if v == nil {
@@ -755,7 +723,6 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) VirtualSer
 }
 
 type GatewayRouteSpecGrpcRouteMatch struct {
-	// Fully qualified domain name for the service to match from the request.
 	ServiceName string `pulumi:"serviceName"`
 }
 
@@ -771,7 +738,6 @@ type GatewayRouteSpecGrpcRouteMatchInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteMatchArgs struct {
-	// Fully qualified domain name for the service to match from the request.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
 
@@ -852,7 +818,6 @@ func (o GatewayRouteSpecGrpcRouteMatchOutput) ToGatewayRouteSpecGrpcRouteMatchPt
 	}).(GatewayRouteSpecGrpcRouteMatchPtrOutput)
 }
 
-// Fully qualified domain name for the service to match from the request.
 func (o GatewayRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteMatch) string { return v.ServiceName }).(pulumi.StringOutput)
 }
@@ -881,7 +846,6 @@ func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) Elem() GatewayRouteSpecGrpcRout
 	}).(GatewayRouteSpecGrpcRouteMatchOutput)
 }
 
-// Fully qualified domain name for the service to match from the request.
 func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteMatch) *string {
 		if v == nil {
@@ -892,10 +856,8 @@ func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) ServiceName() pulumi.StringPtrO
 }
 
 type GatewayRouteSpecHttp2Route struct {
-	// Action to take if a match is determined.
 	Action GatewayRouteSpecHttp2RouteAction `pulumi:"action"`
-	// Criteria for determining a request match.
-	Match GatewayRouteSpecHttp2RouteMatch `pulumi:"match"`
+	Match  GatewayRouteSpecHttp2RouteMatch  `pulumi:"match"`
 }
 
 // GatewayRouteSpecHttp2RouteInput is an input type that accepts GatewayRouteSpecHttp2RouteArgs and GatewayRouteSpecHttp2RouteOutput values.
@@ -910,10 +872,8 @@ type GatewayRouteSpecHttp2RouteInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteArgs struct {
-	// Action to take if a match is determined.
 	Action GatewayRouteSpecHttp2RouteActionInput `pulumi:"action"`
-	// Criteria for determining a request match.
-	Match GatewayRouteSpecHttp2RouteMatchInput `pulumi:"match"`
+	Match  GatewayRouteSpecHttp2RouteMatchInput  `pulumi:"match"`
 }
 
 func (GatewayRouteSpecHttp2RouteArgs) ElementType() reflect.Type {
@@ -993,12 +953,10 @@ func (o GatewayRouteSpecHttp2RouteOutput) ToGatewayRouteSpecHttp2RoutePtrOutputW
 	}).(GatewayRouteSpecHttp2RoutePtrOutput)
 }
 
-// Action to take if a match is determined.
 func (o GatewayRouteSpecHttp2RouteOutput) Action() GatewayRouteSpecHttp2RouteActionOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2Route) GatewayRouteSpecHttp2RouteAction { return v.Action }).(GatewayRouteSpecHttp2RouteActionOutput)
 }
 
-// Criteria for determining a request match.
 func (o GatewayRouteSpecHttp2RouteOutput) Match() GatewayRouteSpecHttp2RouteMatchOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2Route) GatewayRouteSpecHttp2RouteMatch { return v.Match }).(GatewayRouteSpecHttp2RouteMatchOutput)
 }
@@ -1027,7 +985,6 @@ func (o GatewayRouteSpecHttp2RoutePtrOutput) Elem() GatewayRouteSpecHttp2RouteOu
 	}).(GatewayRouteSpecHttp2RouteOutput)
 }
 
-// Action to take if a match is determined.
 func (o GatewayRouteSpecHttp2RoutePtrOutput) Action() GatewayRouteSpecHttp2RouteActionPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2Route) *GatewayRouteSpecHttp2RouteAction {
 		if v == nil {
@@ -1037,7 +994,6 @@ func (o GatewayRouteSpecHttp2RoutePtrOutput) Action() GatewayRouteSpecHttp2Route
 	}).(GatewayRouteSpecHttp2RouteActionPtrOutput)
 }
 
-// Criteria for determining a request match.
 func (o GatewayRouteSpecHttp2RoutePtrOutput) Match() GatewayRouteSpecHttp2RouteMatchPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2Route) *GatewayRouteSpecHttp2RouteMatch {
 		if v == nil {
@@ -1048,10 +1004,8 @@ func (o GatewayRouteSpecHttp2RoutePtrOutput) Match() GatewayRouteSpecHttp2RouteM
 }
 
 type GatewayRouteSpecHttp2RouteAction struct {
-	// Gateway route action to rewrite.
 	Rewrite *GatewayRouteSpecHttp2RouteActionRewrite `pulumi:"rewrite"`
-	// Target that traffic is routed to when a request matches the gateway route.
-	Target GatewayRouteSpecHttp2RouteActionTarget `pulumi:"target"`
+	Target  GatewayRouteSpecHttp2RouteActionTarget   `pulumi:"target"`
 }
 
 // GatewayRouteSpecHttp2RouteActionInput is an input type that accepts GatewayRouteSpecHttp2RouteActionArgs and GatewayRouteSpecHttp2RouteActionOutput values.
@@ -1066,10 +1020,8 @@ type GatewayRouteSpecHttp2RouteActionInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionArgs struct {
-	// Gateway route action to rewrite.
 	Rewrite GatewayRouteSpecHttp2RouteActionRewritePtrInput `pulumi:"rewrite"`
-	// Target that traffic is routed to when a request matches the gateway route.
-	Target GatewayRouteSpecHttp2RouteActionTargetInput `pulumi:"target"`
+	Target  GatewayRouteSpecHttp2RouteActionTargetInput     `pulumi:"target"`
 }
 
 func (GatewayRouteSpecHttp2RouteActionArgs) ElementType() reflect.Type {
@@ -1149,12 +1101,10 @@ func (o GatewayRouteSpecHttp2RouteActionOutput) ToGatewayRouteSpecHttp2RouteActi
 	}).(GatewayRouteSpecHttp2RouteActionPtrOutput)
 }
 
-// Gateway route action to rewrite.
 func (o GatewayRouteSpecHttp2RouteActionOutput) Rewrite() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteActionRewrite { return v.Rewrite }).(GatewayRouteSpecHttp2RouteActionRewritePtrOutput)
 }
 
-// Target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttp2RouteActionOutput) Target() GatewayRouteSpecHttp2RouteActionTargetOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteAction) GatewayRouteSpecHttp2RouteActionTarget { return v.Target }).(GatewayRouteSpecHttp2RouteActionTargetOutput)
 }
@@ -1183,7 +1133,6 @@ func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Elem() GatewayRouteSpecHttp2R
 	}).(GatewayRouteSpecHttp2RouteActionOutput)
 }
 
-// Gateway route action to rewrite.
 func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Rewrite() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteActionRewrite {
 		if v == nil {
@@ -1193,7 +1142,6 @@ func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Rewrite() GatewayRouteSpecHtt
 	}).(GatewayRouteSpecHttp2RouteActionRewritePtrOutput)
 }
 
-// Target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Target() GatewayRouteSpecHttp2RouteActionTargetPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteActionTarget {
 		if v == nil {
@@ -1204,10 +1152,8 @@ func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Target() GatewayRouteSpecHttp
 }
 
 type GatewayRouteSpecHttp2RouteActionRewrite struct {
-	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttp2RouteActionRewriteHostname `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix *GatewayRouteSpecHttp2RouteActionRewritePrefix `pulumi:"prefix"`
+	Prefix   *GatewayRouteSpecHttp2RouteActionRewritePrefix   `pulumi:"prefix"`
 }
 
 // GatewayRouteSpecHttp2RouteActionRewriteInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewriteArgs and GatewayRouteSpecHttp2RouteActionRewriteOutput values.
@@ -1222,10 +1168,8 @@ type GatewayRouteSpecHttp2RouteActionRewriteInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionRewriteArgs struct {
-	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput `pulumi:"prefix"`
+	Prefix   GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput   `pulumi:"prefix"`
 }
 
 func (GatewayRouteSpecHttp2RouteActionRewriteArgs) ElementType() reflect.Type {
@@ -1305,14 +1249,12 @@ func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) ToGatewayRouteSpecHttp2Ro
 	}).(GatewayRouteSpecHttp2RouteActionRewritePtrOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) Hostname() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewriteHostname {
 		return v.Hostname
 	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) Prefix() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewritePrefix {
 		return v.Prefix
@@ -1343,7 +1285,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Elem() GatewayRouteSpe
 	}).(GatewayRouteSpecHttp2RouteActionRewriteOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Hostname() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewriteHostname {
 		if v == nil {
@@ -1353,7 +1294,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Hostname() GatewayRout
 	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Prefix() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewritePrefix {
 		if v == nil {
@@ -1364,7 +1304,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Prefix() GatewayRouteS
 }
 
 type GatewayRouteSpecHttp2RouteActionRewriteHostname struct {
-	// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 	DefaultTargetHostname string `pulumi:"defaultTargetHostname"`
 }
 
@@ -1380,7 +1319,6 @@ type GatewayRouteSpecHttp2RouteActionRewriteHostnameInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs struct {
-	// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 	DefaultTargetHostname pulumi.StringInput `pulumi:"defaultTargetHostname"`
 }
 
@@ -1461,7 +1399,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) ToGatewayRouteSpe
 	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
 }
 
-// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewriteHostname) string { return v.DefaultTargetHostname }).(pulumi.StringOutput)
 }
@@ -1490,7 +1427,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) Elem() Gateway
 	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput)
 }
 
-// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewriteHostname) *string {
 		if v == nil {
@@ -1501,10 +1437,8 @@ func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) DefaultTargetH
 }
 
 type GatewayRouteSpecHttp2RouteActionRewritePrefix struct {
-	// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 	DefaultPrefix *string `pulumi:"defaultPrefix"`
-	// Value used to replace the incoming route prefix when rewritten.
-	Value *string `pulumi:"value"`
+	Value         *string `pulumi:"value"`
 }
 
 // GatewayRouteSpecHttp2RouteActionRewritePrefixInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewritePrefixArgs and GatewayRouteSpecHttp2RouteActionRewritePrefixOutput values.
@@ -1519,10 +1453,8 @@ type GatewayRouteSpecHttp2RouteActionRewritePrefixInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionRewritePrefixArgs struct {
-	// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 	DefaultPrefix pulumi.StringPtrInput `pulumi:"defaultPrefix"`
-	// Value used to replace the incoming route prefix when rewritten.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value         pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GatewayRouteSpecHttp2RouteActionRewritePrefixArgs) ElementType() reflect.Type {
@@ -1602,12 +1534,10 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) ToGatewayRouteSpecH
 	}).(GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput)
 }
 
-// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewritePrefix) *string { return v.DefaultPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Value used to replace the incoming route prefix when rewritten.
 func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewritePrefix) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1636,7 +1566,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) Elem() GatewayRo
 	}).(GatewayRouteSpecHttp2RouteActionRewritePrefixOutput)
 }
 
-// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) DefaultPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewritePrefix) *string {
 		if v == nil {
@@ -1646,7 +1575,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) DefaultPrefix() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value used to replace the incoming route prefix when rewritten.
 func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewritePrefix) *string {
 		if v == nil {
@@ -1657,7 +1585,6 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) Value() pulumi.S
 }
 
 type GatewayRouteSpecHttp2RouteActionTarget struct {
-	// Virtual service gateway route target.
 	VirtualService GatewayRouteSpecHttp2RouteActionTargetVirtualService `pulumi:"virtualService"`
 }
 
@@ -1673,7 +1600,6 @@ type GatewayRouteSpecHttp2RouteActionTargetInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionTargetArgs struct {
-	// Virtual service gateway route target.
 	VirtualService GatewayRouteSpecHttp2RouteActionTargetVirtualServiceInput `pulumi:"virtualService"`
 }
 
@@ -1754,7 +1680,6 @@ func (o GatewayRouteSpecHttp2RouteActionTargetOutput) ToGatewayRouteSpecHttp2Rou
 	}).(GatewayRouteSpecHttp2RouteActionTargetPtrOutput)
 }
 
-// Virtual service gateway route target.
 func (o GatewayRouteSpecHttp2RouteActionTargetOutput) VirtualService() GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionTarget) GatewayRouteSpecHttp2RouteActionTargetVirtualService {
 		return v.VirtualService
@@ -1785,7 +1710,6 @@ func (o GatewayRouteSpecHttp2RouteActionTargetPtrOutput) Elem() GatewayRouteSpec
 	}).(GatewayRouteSpecHttp2RouteActionTargetOutput)
 }
 
-// Virtual service gateway route target.
 func (o GatewayRouteSpecHttp2RouteActionTargetPtrOutput) VirtualService() GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionTarget) *GatewayRouteSpecHttp2RouteActionTargetVirtualService {
 		if v == nil {
@@ -1796,7 +1720,6 @@ func (o GatewayRouteSpecHttp2RouteActionTargetPtrOutput) VirtualService() Gatewa
 }
 
 type GatewayRouteSpecHttp2RouteActionTargetVirtualService struct {
-	// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
@@ -1812,7 +1735,6 @@ type GatewayRouteSpecHttp2RouteActionTargetVirtualServiceInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs struct {
-	// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
@@ -1893,7 +1815,6 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) ToGatewayRou
 	}).(GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput)
 }
 
-// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -1922,7 +1843,6 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) Elem() Ga
 	}).(GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput)
 }
 
-// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionTargetVirtualService) *string {
 		if v == nil {
@@ -1933,10 +1853,8 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) VirtualSe
 }
 
 type GatewayRouteSpecHttp2RouteMatch struct {
-	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttp2RouteMatchHostname `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix *string `pulumi:"prefix"`
+	Prefix   *string                                  `pulumi:"prefix"`
 }
 
 // GatewayRouteSpecHttp2RouteMatchInput is an input type that accepts GatewayRouteSpecHttp2RouteMatchArgs and GatewayRouteSpecHttp2RouteMatchOutput values.
@@ -1951,10 +1869,8 @@ type GatewayRouteSpecHttp2RouteMatchInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteMatchArgs struct {
-	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttp2RouteMatchHostnamePtrInput `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Prefix   pulumi.StringPtrInput                           `pulumi:"prefix"`
 }
 
 func (GatewayRouteSpecHttp2RouteMatchArgs) ElementType() reflect.Type {
@@ -2034,12 +1950,10 @@ func (o GatewayRouteSpecHttp2RouteMatchOutput) ToGatewayRouteSpecHttp2RouteMatch
 	}).(GatewayRouteSpecHttp2RouteMatchPtrOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchOutput) Hostname() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2068,7 +1982,6 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Elem() GatewayRouteSpecHttp2Ro
 	}).(GatewayRouteSpecHttp2RouteMatchOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Hostname() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchHostname {
 		if v == nil {
@@ -2078,7 +1991,6 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Hostname() GatewayRouteSpecHtt
 	}).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *string {
 		if v == nil {
@@ -2089,9 +2001,7 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutpu
 }
 
 type GatewayRouteSpecHttp2RouteMatchHostname struct {
-	// Exact host name to match on.
-	Exact *string `pulumi:"exact"`
-	// Specified ending characters of the host name to match on.
+	Exact  *string `pulumi:"exact"`
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -2107,9 +2017,7 @@ type GatewayRouteSpecHttp2RouteMatchHostnameInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteMatchHostnameArgs struct {
-	// Exact host name to match on.
-	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Specified ending characters of the host name to match on.
+	Exact  pulumi.StringPtrInput `pulumi:"exact"`
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -2190,12 +2098,10 @@ func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) ToGatewayRouteSpecHttp2Ro
 	}).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
 }
 
-// Exact host name to match on.
 func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatchHostname) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Specified ending characters of the host name to match on.
 func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatchHostname) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -2224,7 +2130,6 @@ func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Elem() GatewayRouteSpe
 	}).(GatewayRouteSpecHttp2RouteMatchHostnameOutput)
 }
 
-// Exact host name to match on.
 func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchHostname) *string {
 		if v == nil {
@@ -2234,7 +2139,6 @@ func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Exact() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specified ending characters of the host name to match on.
 func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchHostname) *string {
 		if v == nil {
@@ -2245,10 +2149,8 @@ func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Suffix() pulumi.String
 }
 
 type GatewayRouteSpecHttpRoute struct {
-	// Action to take if a match is determined.
 	Action GatewayRouteSpecHttpRouteAction `pulumi:"action"`
-	// Criteria for determining a request match.
-	Match GatewayRouteSpecHttpRouteMatch `pulumi:"match"`
+	Match  GatewayRouteSpecHttpRouteMatch  `pulumi:"match"`
 }
 
 // GatewayRouteSpecHttpRouteInput is an input type that accepts GatewayRouteSpecHttpRouteArgs and GatewayRouteSpecHttpRouteOutput values.
@@ -2263,10 +2165,8 @@ type GatewayRouteSpecHttpRouteInput interface {
 }
 
 type GatewayRouteSpecHttpRouteArgs struct {
-	// Action to take if a match is determined.
 	Action GatewayRouteSpecHttpRouteActionInput `pulumi:"action"`
-	// Criteria for determining a request match.
-	Match GatewayRouteSpecHttpRouteMatchInput `pulumi:"match"`
+	Match  GatewayRouteSpecHttpRouteMatchInput  `pulumi:"match"`
 }
 
 func (GatewayRouteSpecHttpRouteArgs) ElementType() reflect.Type {
@@ -2346,12 +2246,10 @@ func (o GatewayRouteSpecHttpRouteOutput) ToGatewayRouteSpecHttpRoutePtrOutputWit
 	}).(GatewayRouteSpecHttpRoutePtrOutput)
 }
 
-// Action to take if a match is determined.
 func (o GatewayRouteSpecHttpRouteOutput) Action() GatewayRouteSpecHttpRouteActionOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRoute) GatewayRouteSpecHttpRouteAction { return v.Action }).(GatewayRouteSpecHttpRouteActionOutput)
 }
 
-// Criteria for determining a request match.
 func (o GatewayRouteSpecHttpRouteOutput) Match() GatewayRouteSpecHttpRouteMatchOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRoute) GatewayRouteSpecHttpRouteMatch { return v.Match }).(GatewayRouteSpecHttpRouteMatchOutput)
 }
@@ -2380,7 +2278,6 @@ func (o GatewayRouteSpecHttpRoutePtrOutput) Elem() GatewayRouteSpecHttpRouteOutp
 	}).(GatewayRouteSpecHttpRouteOutput)
 }
 
-// Action to take if a match is determined.
 func (o GatewayRouteSpecHttpRoutePtrOutput) Action() GatewayRouteSpecHttpRouteActionPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRoute) *GatewayRouteSpecHttpRouteAction {
 		if v == nil {
@@ -2390,7 +2287,6 @@ func (o GatewayRouteSpecHttpRoutePtrOutput) Action() GatewayRouteSpecHttpRouteAc
 	}).(GatewayRouteSpecHttpRouteActionPtrOutput)
 }
 
-// Criteria for determining a request match.
 func (o GatewayRouteSpecHttpRoutePtrOutput) Match() GatewayRouteSpecHttpRouteMatchPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRoute) *GatewayRouteSpecHttpRouteMatch {
 		if v == nil {
@@ -2401,10 +2297,8 @@ func (o GatewayRouteSpecHttpRoutePtrOutput) Match() GatewayRouteSpecHttpRouteMat
 }
 
 type GatewayRouteSpecHttpRouteAction struct {
-	// Gateway route action to rewrite.
 	Rewrite *GatewayRouteSpecHttpRouteActionRewrite `pulumi:"rewrite"`
-	// Target that traffic is routed to when a request matches the gateway route.
-	Target GatewayRouteSpecHttpRouteActionTarget `pulumi:"target"`
+	Target  GatewayRouteSpecHttpRouteActionTarget   `pulumi:"target"`
 }
 
 // GatewayRouteSpecHttpRouteActionInput is an input type that accepts GatewayRouteSpecHttpRouteActionArgs and GatewayRouteSpecHttpRouteActionOutput values.
@@ -2419,10 +2313,8 @@ type GatewayRouteSpecHttpRouteActionInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionArgs struct {
-	// Gateway route action to rewrite.
 	Rewrite GatewayRouteSpecHttpRouteActionRewritePtrInput `pulumi:"rewrite"`
-	// Target that traffic is routed to when a request matches the gateway route.
-	Target GatewayRouteSpecHttpRouteActionTargetInput `pulumi:"target"`
+	Target  GatewayRouteSpecHttpRouteActionTargetInput     `pulumi:"target"`
 }
 
 func (GatewayRouteSpecHttpRouteActionArgs) ElementType() reflect.Type {
@@ -2502,12 +2394,10 @@ func (o GatewayRouteSpecHttpRouteActionOutput) ToGatewayRouteSpecHttpRouteAction
 	}).(GatewayRouteSpecHttpRouteActionPtrOutput)
 }
 
-// Gateway route action to rewrite.
 func (o GatewayRouteSpecHttpRouteActionOutput) Rewrite() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteActionRewrite { return v.Rewrite }).(GatewayRouteSpecHttpRouteActionRewritePtrOutput)
 }
 
-// Target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttpRouteActionOutput) Target() GatewayRouteSpecHttpRouteActionTargetOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteAction) GatewayRouteSpecHttpRouteActionTarget { return v.Target }).(GatewayRouteSpecHttpRouteActionTargetOutput)
 }
@@ -2536,7 +2426,6 @@ func (o GatewayRouteSpecHttpRouteActionPtrOutput) Elem() GatewayRouteSpecHttpRou
 	}).(GatewayRouteSpecHttpRouteActionOutput)
 }
 
-// Gateway route action to rewrite.
 func (o GatewayRouteSpecHttpRouteActionPtrOutput) Rewrite() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteActionRewrite {
 		if v == nil {
@@ -2546,7 +2435,6 @@ func (o GatewayRouteSpecHttpRouteActionPtrOutput) Rewrite() GatewayRouteSpecHttp
 	}).(GatewayRouteSpecHttpRouteActionRewritePtrOutput)
 }
 
-// Target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttpRouteActionPtrOutput) Target() GatewayRouteSpecHttpRouteActionTargetPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteActionTarget {
 		if v == nil {
@@ -2557,10 +2445,8 @@ func (o GatewayRouteSpecHttpRouteActionPtrOutput) Target() GatewayRouteSpecHttpR
 }
 
 type GatewayRouteSpecHttpRouteActionRewrite struct {
-	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttpRouteActionRewriteHostname `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix *GatewayRouteSpecHttpRouteActionRewritePrefix `pulumi:"prefix"`
+	Prefix   *GatewayRouteSpecHttpRouteActionRewritePrefix   `pulumi:"prefix"`
 }
 
 // GatewayRouteSpecHttpRouteActionRewriteInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewriteArgs and GatewayRouteSpecHttpRouteActionRewriteOutput values.
@@ -2575,10 +2461,8 @@ type GatewayRouteSpecHttpRouteActionRewriteInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionRewriteArgs struct {
-	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput `pulumi:"prefix"`
+	Prefix   GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput   `pulumi:"prefix"`
 }
 
 func (GatewayRouteSpecHttpRouteActionRewriteArgs) ElementType() reflect.Type {
@@ -2658,14 +2542,12 @@ func (o GatewayRouteSpecHttpRouteActionRewriteOutput) ToGatewayRouteSpecHttpRout
 	}).(GatewayRouteSpecHttpRouteActionRewritePtrOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttpRouteActionRewriteOutput) Hostname() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewriteHostname {
 		return v.Hostname
 	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteActionRewriteOutput) Prefix() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewritePrefix {
 		return v.Prefix
@@ -2696,7 +2578,6 @@ func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Elem() GatewayRouteSpec
 	}).(GatewayRouteSpecHttpRouteActionRewriteOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Hostname() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewriteHostname {
 		if v == nil {
@@ -2706,7 +2587,6 @@ func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Hostname() GatewayRoute
 	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Prefix() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewritePrefix {
 		if v == nil {
@@ -2717,7 +2597,6 @@ func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Prefix() GatewayRouteSp
 }
 
 type GatewayRouteSpecHttpRouteActionRewriteHostname struct {
-	// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 	DefaultTargetHostname string `pulumi:"defaultTargetHostname"`
 }
 
@@ -2733,7 +2612,6 @@ type GatewayRouteSpecHttpRouteActionRewriteHostnameInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionRewriteHostnameArgs struct {
-	// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 	DefaultTargetHostname pulumi.StringInput `pulumi:"defaultTargetHostname"`
 }
 
@@ -2814,7 +2692,6 @@ func (o GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) ToGatewayRouteSpec
 	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
 }
 
-// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewriteHostname) string { return v.DefaultTargetHostname }).(pulumi.StringOutput)
 }
@@ -2843,7 +2720,6 @@ func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) Elem() GatewayR
 	}).(GatewayRouteSpecHttpRouteActionRewriteHostnameOutput)
 }
 
-// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewriteHostname) *string {
 		if v == nil {
@@ -2854,10 +2730,8 @@ func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) DefaultTargetHo
 }
 
 type GatewayRouteSpecHttpRouteActionRewritePrefix struct {
-	// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 	DefaultPrefix *string `pulumi:"defaultPrefix"`
-	// Value used to replace the incoming route prefix when rewritten.
-	Value *string `pulumi:"value"`
+	Value         *string `pulumi:"value"`
 }
 
 // GatewayRouteSpecHttpRouteActionRewritePrefixInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewritePrefixArgs and GatewayRouteSpecHttpRouteActionRewritePrefixOutput values.
@@ -2872,10 +2746,8 @@ type GatewayRouteSpecHttpRouteActionRewritePrefixInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionRewritePrefixArgs struct {
-	// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 	DefaultPrefix pulumi.StringPtrInput `pulumi:"defaultPrefix"`
-	// Value used to replace the incoming route prefix when rewritten.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value         pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (GatewayRouteSpecHttpRouteActionRewritePrefixArgs) ElementType() reflect.Type {
@@ -2955,12 +2827,10 @@ func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) ToGatewayRouteSpecHt
 	}).(GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput)
 }
 
-// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewritePrefix) *string { return v.DefaultPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Value used to replace the incoming route prefix when rewritten.
 func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewritePrefix) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2989,7 +2859,6 @@ func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) Elem() GatewayRou
 	}).(GatewayRouteSpecHttpRouteActionRewritePrefixOutput)
 }
 
-// Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
 func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) DefaultPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewritePrefix) *string {
 		if v == nil {
@@ -2999,7 +2868,6 @@ func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) DefaultPrefix() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value used to replace the incoming route prefix when rewritten.
 func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewritePrefix) *string {
 		if v == nil {
@@ -3010,7 +2878,6 @@ func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) Value() pulumi.St
 }
 
 type GatewayRouteSpecHttpRouteActionTarget struct {
-	// Virtual service gateway route target.
 	VirtualService GatewayRouteSpecHttpRouteActionTargetVirtualService `pulumi:"virtualService"`
 }
 
@@ -3026,7 +2893,6 @@ type GatewayRouteSpecHttpRouteActionTargetInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionTargetArgs struct {
-	// Virtual service gateway route target.
 	VirtualService GatewayRouteSpecHttpRouteActionTargetVirtualServiceInput `pulumi:"virtualService"`
 }
 
@@ -3107,7 +2973,6 @@ func (o GatewayRouteSpecHttpRouteActionTargetOutput) ToGatewayRouteSpecHttpRoute
 	}).(GatewayRouteSpecHttpRouteActionTargetPtrOutput)
 }
 
-// Virtual service gateway route target.
 func (o GatewayRouteSpecHttpRouteActionTargetOutput) VirtualService() GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionTarget) GatewayRouteSpecHttpRouteActionTargetVirtualService {
 		return v.VirtualService
@@ -3138,7 +3003,6 @@ func (o GatewayRouteSpecHttpRouteActionTargetPtrOutput) Elem() GatewayRouteSpecH
 	}).(GatewayRouteSpecHttpRouteActionTargetOutput)
 }
 
-// Virtual service gateway route target.
 func (o GatewayRouteSpecHttpRouteActionTargetPtrOutput) VirtualService() GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionTarget) *GatewayRouteSpecHttpRouteActionTargetVirtualService {
 		if v == nil {
@@ -3149,7 +3013,6 @@ func (o GatewayRouteSpecHttpRouteActionTargetPtrOutput) VirtualService() Gateway
 }
 
 type GatewayRouteSpecHttpRouteActionTargetVirtualService struct {
-	// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName string `pulumi:"virtualServiceName"`
 }
 
@@ -3165,7 +3028,6 @@ type GatewayRouteSpecHttpRouteActionTargetVirtualServiceInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs struct {
-	// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
 }
 
@@ -3246,7 +3108,6 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) ToGatewayRout
 	}).(GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput)
 }
 
-// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionTargetVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
@@ -3275,7 +3136,6 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) Elem() Gat
 	}).(GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput)
 }
 
-// Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
 func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) VirtualServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionTargetVirtualService) *string {
 		if v == nil {
@@ -3286,10 +3146,8 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) VirtualSer
 }
 
 type GatewayRouteSpecHttpRouteMatch struct {
-	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttpRouteMatchHostname `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix *string `pulumi:"prefix"`
+	Prefix   *string                                 `pulumi:"prefix"`
 }
 
 // GatewayRouteSpecHttpRouteMatchInput is an input type that accepts GatewayRouteSpecHttpRouteMatchArgs and GatewayRouteSpecHttpRouteMatchOutput values.
@@ -3304,10 +3162,8 @@ type GatewayRouteSpecHttpRouteMatchInput interface {
 }
 
 type GatewayRouteSpecHttpRouteMatchArgs struct {
-	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttpRouteMatchHostnamePtrInput `pulumi:"hostname"`
-	// Specified beginning characters to rewrite.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Prefix   pulumi.StringPtrInput                          `pulumi:"prefix"`
 }
 
 func (GatewayRouteSpecHttpRouteMatchArgs) ElementType() reflect.Type {
@@ -3387,12 +3243,10 @@ func (o GatewayRouteSpecHttpRouteMatchOutput) ToGatewayRouteSpecHttpRouteMatchPt
 	}).(GatewayRouteSpecHttpRouteMatchPtrOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchOutput) Hostname() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3421,7 +3275,6 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Elem() GatewayRouteSpecHttpRout
 	}).(GatewayRouteSpecHttpRouteMatchOutput)
 }
 
-// Host name to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Hostname() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchHostname {
 		if v == nil {
@@ -3431,7 +3284,6 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Hostname() GatewayRouteSpecHttp
 	}).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
 }
 
-// Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *string {
 		if v == nil {
@@ -3442,9 +3294,7 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput
 }
 
 type GatewayRouteSpecHttpRouteMatchHostname struct {
-	// Exact host name to match on.
-	Exact *string `pulumi:"exact"`
-	// Specified ending characters of the host name to match on.
+	Exact  *string `pulumi:"exact"`
 	Suffix *string `pulumi:"suffix"`
 }
 
@@ -3460,9 +3310,7 @@ type GatewayRouteSpecHttpRouteMatchHostnameInput interface {
 }
 
 type GatewayRouteSpecHttpRouteMatchHostnameArgs struct {
-	// Exact host name to match on.
-	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Specified ending characters of the host name to match on.
+	Exact  pulumi.StringPtrInput `pulumi:"exact"`
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
@@ -3543,12 +3391,10 @@ func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) ToGatewayRouteSpecHttpRout
 	}).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
 }
 
-// Exact host name to match on.
 func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatchHostname) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Specified ending characters of the host name to match on.
 func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatchHostname) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -3577,7 +3423,6 @@ func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Elem() GatewayRouteSpec
 	}).(GatewayRouteSpecHttpRouteMatchHostnameOutput)
 }
 
-// Exact host name to match on.
 func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchHostname) *string {
 		if v == nil {
@@ -3587,7 +3432,6 @@ func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Exact() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specified ending characters of the host name to match on.
 func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchHostname) *string {
 		if v == nil {
@@ -3598,7 +3442,6 @@ func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Suffix() pulumi.StringP
 }
 
 type MeshSpec struct {
-	// Egress filter rules for the service mesh.
 	EgressFilter *MeshSpecEgressFilter `pulumi:"egressFilter"`
 }
 
@@ -3614,7 +3457,6 @@ type MeshSpecInput interface {
 }
 
 type MeshSpecArgs struct {
-	// Egress filter rules for the service mesh.
 	EgressFilter MeshSpecEgressFilterPtrInput `pulumi:"egressFilter"`
 }
 
@@ -3695,7 +3537,6 @@ func (o MeshSpecOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) Mesh
 	}).(MeshSpecPtrOutput)
 }
 
-// Egress filter rules for the service mesh.
 func (o MeshSpecOutput) EgressFilter() MeshSpecEgressFilterPtrOutput {
 	return o.ApplyT(func(v MeshSpec) *MeshSpecEgressFilter { return v.EgressFilter }).(MeshSpecEgressFilterPtrOutput)
 }
@@ -3724,7 +3565,6 @@ func (o MeshSpecPtrOutput) Elem() MeshSpecOutput {
 	}).(MeshSpecOutput)
 }
 
-// Egress filter rules for the service mesh.
 func (o MeshSpecPtrOutput) EgressFilter() MeshSpecEgressFilterPtrOutput {
 	return o.ApplyT(func(v *MeshSpec) *MeshSpecEgressFilter {
 		if v == nil {
@@ -3735,8 +3575,6 @@ func (o MeshSpecPtrOutput) EgressFilter() MeshSpecEgressFilterPtrOutput {
 }
 
 type MeshSpecEgressFilter struct {
-	// Egress filter type. By default, the type is `DROP_ALL`.
-	// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 	Type *string `pulumi:"type"`
 }
 
@@ -3752,8 +3590,6 @@ type MeshSpecEgressFilterInput interface {
 }
 
 type MeshSpecEgressFilterArgs struct {
-	// Egress filter type. By default, the type is `DROP_ALL`.
-	// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -3834,8 +3670,6 @@ func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterPtrOutputWithContext(c
 	}).(MeshSpecEgressFilterPtrOutput)
 }
 
-// Egress filter type. By default, the type is `DROP_ALL`.
-// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MeshSpecEgressFilter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3864,8 +3698,6 @@ func (o MeshSpecEgressFilterPtrOutput) Elem() MeshSpecEgressFilterOutput {
 	}).(MeshSpecEgressFilterOutput)
 }
 
-// Egress filter type. By default, the type is `DROP_ALL`.
-// Valid values are `ALLOW_ALL` and `DROP_ALL`.
 func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MeshSpecEgressFilter) *string {
 		if v == nil {
@@ -3876,17 +3708,11 @@ func (o MeshSpecEgressFilterPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type RouteSpec struct {
-	// GRPC routing information for the route.
-	GrpcRoute *RouteSpecGrpcRoute `pulumi:"grpcRoute"`
-	// HTTP/2 routing information for the route.
+	GrpcRoute  *RouteSpecGrpcRoute  `pulumi:"grpcRoute"`
 	Http2Route *RouteSpecHttp2Route `pulumi:"http2Route"`
-	// HTTP routing information for the route.
-	HttpRoute *RouteSpecHttpRoute `pulumi:"httpRoute"`
-	// Priority for the route, between `0` and `1000`.
-	// Routes are matched based on the specified value, where `0` is the highest priority.
-	Priority *int `pulumi:"priority"`
-	// TCP routing information for the route.
-	TcpRoute *RouteSpecTcpRoute `pulumi:"tcpRoute"`
+	HttpRoute  *RouteSpecHttpRoute  `pulumi:"httpRoute"`
+	Priority   *int                 `pulumi:"priority"`
+	TcpRoute   *RouteSpecTcpRoute   `pulumi:"tcpRoute"`
 }
 
 // RouteSpecInput is an input type that accepts RouteSpecArgs and RouteSpecOutput values.
@@ -3901,17 +3727,11 @@ type RouteSpecInput interface {
 }
 
 type RouteSpecArgs struct {
-	// GRPC routing information for the route.
-	GrpcRoute RouteSpecGrpcRoutePtrInput `pulumi:"grpcRoute"`
-	// HTTP/2 routing information for the route.
+	GrpcRoute  RouteSpecGrpcRoutePtrInput  `pulumi:"grpcRoute"`
 	Http2Route RouteSpecHttp2RoutePtrInput `pulumi:"http2Route"`
-	// HTTP routing information for the route.
-	HttpRoute RouteSpecHttpRoutePtrInput `pulumi:"httpRoute"`
-	// Priority for the route, between `0` and `1000`.
-	// Routes are matched based on the specified value, where `0` is the highest priority.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// TCP routing information for the route.
-	TcpRoute RouteSpecTcpRoutePtrInput `pulumi:"tcpRoute"`
+	HttpRoute  RouteSpecHttpRoutePtrInput  `pulumi:"httpRoute"`
+	Priority   pulumi.IntPtrInput          `pulumi:"priority"`
+	TcpRoute   RouteSpecTcpRoutePtrInput   `pulumi:"tcpRoute"`
 }
 
 func (RouteSpecArgs) ElementType() reflect.Type {
@@ -3991,28 +3811,22 @@ func (o RouteSpecOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) Ro
 	}).(RouteSpecPtrOutput)
 }
 
-// GRPC routing information for the route.
 func (o RouteSpecOutput) GrpcRoute() RouteSpecGrpcRoutePtrOutput {
 	return o.ApplyT(func(v RouteSpec) *RouteSpecGrpcRoute { return v.GrpcRoute }).(RouteSpecGrpcRoutePtrOutput)
 }
 
-// HTTP/2 routing information for the route.
 func (o RouteSpecOutput) Http2Route() RouteSpecHttp2RoutePtrOutput {
 	return o.ApplyT(func(v RouteSpec) *RouteSpecHttp2Route { return v.Http2Route }).(RouteSpecHttp2RoutePtrOutput)
 }
 
-// HTTP routing information for the route.
 func (o RouteSpecOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func(v RouteSpec) *RouteSpecHttpRoute { return v.HttpRoute }).(RouteSpecHttpRoutePtrOutput)
 }
 
-// Priority for the route, between `0` and `1000`.
-// Routes are matched based on the specified value, where `0` is the highest priority.
 func (o RouteSpecOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RouteSpec) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// TCP routing information for the route.
 func (o RouteSpecOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 	return o.ApplyT(func(v RouteSpec) *RouteSpecTcpRoute { return v.TcpRoute }).(RouteSpecTcpRoutePtrOutput)
 }
@@ -4041,7 +3855,6 @@ func (o RouteSpecPtrOutput) Elem() RouteSpecOutput {
 	}).(RouteSpecOutput)
 }
 
-// GRPC routing information for the route.
 func (o RouteSpecPtrOutput) GrpcRoute() RouteSpecGrpcRoutePtrOutput {
 	return o.ApplyT(func(v *RouteSpec) *RouteSpecGrpcRoute {
 		if v == nil {
@@ -4051,7 +3864,6 @@ func (o RouteSpecPtrOutput) GrpcRoute() RouteSpecGrpcRoutePtrOutput {
 	}).(RouteSpecGrpcRoutePtrOutput)
 }
 
-// HTTP/2 routing information for the route.
 func (o RouteSpecPtrOutput) Http2Route() RouteSpecHttp2RoutePtrOutput {
 	return o.ApplyT(func(v *RouteSpec) *RouteSpecHttp2Route {
 		if v == nil {
@@ -4061,7 +3873,6 @@ func (o RouteSpecPtrOutput) Http2Route() RouteSpecHttp2RoutePtrOutput {
 	}).(RouteSpecHttp2RoutePtrOutput)
 }
 
-// HTTP routing information for the route.
 func (o RouteSpecPtrOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
 	return o.ApplyT(func(v *RouteSpec) *RouteSpecHttpRoute {
 		if v == nil {
@@ -4071,8 +3882,6 @@ func (o RouteSpecPtrOutput) HttpRoute() RouteSpecHttpRoutePtrOutput {
 	}).(RouteSpecHttpRoutePtrOutput)
 }
 
-// Priority for the route, between `0` and `1000`.
-// Routes are matched based on the specified value, where `0` is the highest priority.
 func (o RouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpec) *int {
 		if v == nil {
@@ -4082,7 +3891,6 @@ func (o RouteSpecPtrOutput) Priority() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// TCP routing information for the route.
 func (o RouteSpecPtrOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 	return o.ApplyT(func(v *RouteSpec) *RouteSpecTcpRoute {
 		if v == nil {
@@ -4093,14 +3901,10 @@ func (o RouteSpecPtrOutput) TcpRoute() RouteSpecTcpRoutePtrOutput {
 }
 
 type RouteSpecGrpcRoute struct {
-	// Action to take if a match is determined.
-	Action RouteSpecGrpcRouteAction `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
-	Match *RouteSpecGrpcRouteMatch `pulumi:"match"`
-	// Retry policy.
+	Action      RouteSpecGrpcRouteAction       `pulumi:"action"`
+	Match       *RouteSpecGrpcRouteMatch       `pulumi:"match"`
 	RetryPolicy *RouteSpecGrpcRouteRetryPolicy `pulumi:"retryPolicy"`
-	// Types of timeouts.
-	Timeout *RouteSpecGrpcRouteTimeout `pulumi:"timeout"`
+	Timeout     *RouteSpecGrpcRouteTimeout     `pulumi:"timeout"`
 }
 
 // RouteSpecGrpcRouteInput is an input type that accepts RouteSpecGrpcRouteArgs and RouteSpecGrpcRouteOutput values.
@@ -4115,14 +3919,10 @@ type RouteSpecGrpcRouteInput interface {
 }
 
 type RouteSpecGrpcRouteArgs struct {
-	// Action to take if a match is determined.
-	Action RouteSpecGrpcRouteActionInput `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
-	Match RouteSpecGrpcRouteMatchPtrInput `pulumi:"match"`
-	// Retry policy.
+	Action      RouteSpecGrpcRouteActionInput         `pulumi:"action"`
+	Match       RouteSpecGrpcRouteMatchPtrInput       `pulumi:"match"`
 	RetryPolicy RouteSpecGrpcRouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
-	// Types of timeouts.
-	Timeout RouteSpecGrpcRouteTimeoutPtrInput `pulumi:"timeout"`
+	Timeout     RouteSpecGrpcRouteTimeoutPtrInput     `pulumi:"timeout"`
 }
 
 func (RouteSpecGrpcRouteArgs) ElementType() reflect.Type {
@@ -4202,22 +4002,18 @@ func (o RouteSpecGrpcRouteOutput) ToRouteSpecGrpcRoutePtrOutputWithContext(ctx c
 	}).(RouteSpecGrpcRoutePtrOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecGrpcRouteOutput) Action() RouteSpecGrpcRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRoute) RouteSpecGrpcRouteAction { return v.Action }).(RouteSpecGrpcRouteActionOutput)
 }
 
-// Criteria for determining an gRPC request match.
 func (o RouteSpecGrpcRouteOutput) Match() RouteSpecGrpcRouteMatchPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRouteMatch { return v.Match }).(RouteSpecGrpcRouteMatchPtrOutput)
 }
 
-// Retry policy.
 func (o RouteSpecGrpcRouteOutput) RetryPolicy() RouteSpecGrpcRouteRetryPolicyPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRouteRetryPolicy { return v.RetryPolicy }).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecGrpcRouteOutput) Timeout() RouteSpecGrpcRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRouteTimeout { return v.Timeout }).(RouteSpecGrpcRouteTimeoutPtrOutput)
 }
@@ -4246,7 +4042,6 @@ func (o RouteSpecGrpcRoutePtrOutput) Elem() RouteSpecGrpcRouteOutput {
 	}).(RouteSpecGrpcRouteOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecGrpcRoutePtrOutput) Action() RouteSpecGrpcRouteActionPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteAction {
 		if v == nil {
@@ -4256,7 +4051,6 @@ func (o RouteSpecGrpcRoutePtrOutput) Action() RouteSpecGrpcRouteActionPtrOutput 
 	}).(RouteSpecGrpcRouteActionPtrOutput)
 }
 
-// Criteria for determining an gRPC request match.
 func (o RouteSpecGrpcRoutePtrOutput) Match() RouteSpecGrpcRouteMatchPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteMatch {
 		if v == nil {
@@ -4266,7 +4060,6 @@ func (o RouteSpecGrpcRoutePtrOutput) Match() RouteSpecGrpcRouteMatchPtrOutput {
 	}).(RouteSpecGrpcRouteMatchPtrOutput)
 }
 
-// Retry policy.
 func (o RouteSpecGrpcRoutePtrOutput) RetryPolicy() RouteSpecGrpcRouteRetryPolicyPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteRetryPolicy {
 		if v == nil {
@@ -4276,7 +4069,6 @@ func (o RouteSpecGrpcRoutePtrOutput) RetryPolicy() RouteSpecGrpcRouteRetryPolicy
 	}).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecGrpcRoutePtrOutput) Timeout() RouteSpecGrpcRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRoute) *RouteSpecGrpcRouteTimeout {
 		if v == nil {
@@ -4287,8 +4079,6 @@ func (o RouteSpecGrpcRoutePtrOutput) Timeout() RouteSpecGrpcRouteTimeoutPtrOutpu
 }
 
 type RouteSpecGrpcRouteAction struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets []RouteSpecGrpcRouteActionWeightedTarget `pulumi:"weightedTargets"`
 }
 
@@ -4304,8 +4094,6 @@ type RouteSpecGrpcRouteActionInput interface {
 }
 
 type RouteSpecGrpcRouteActionArgs struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets RouteSpecGrpcRouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
 }
 
@@ -4386,8 +4174,6 @@ func (o RouteSpecGrpcRouteActionOutput) ToRouteSpecGrpcRouteActionPtrOutputWithC
 	}).(RouteSpecGrpcRouteActionPtrOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecGrpcRouteActionOutput) WeightedTargets() RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteAction) []RouteSpecGrpcRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecGrpcRouteActionWeightedTargetArrayOutput)
 }
@@ -4416,8 +4202,6 @@ func (o RouteSpecGrpcRouteActionPtrOutput) Elem() RouteSpecGrpcRouteActionOutput
 	}).(RouteSpecGrpcRouteActionOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecGrpcRouteActionPtrOutput) WeightedTargets() RouteSpecGrpcRouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteAction) []RouteSpecGrpcRouteActionWeightedTarget {
 		if v == nil {
@@ -4428,10 +4212,8 @@ func (o RouteSpecGrpcRouteActionPtrOutput) WeightedTargets() RouteSpecGrpcRouteA
 }
 
 type RouteSpecGrpcRouteActionWeightedTarget struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight int `pulumi:"weight"`
+	Weight      int    `pulumi:"weight"`
 }
 
 // RouteSpecGrpcRouteActionWeightedTargetInput is an input type that accepts RouteSpecGrpcRouteActionWeightedTargetArgs and RouteSpecGrpcRouteActionWeightedTargetOutput values.
@@ -4446,10 +4228,8 @@ type RouteSpecGrpcRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecGrpcRouteActionWeightedTargetArgs struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (RouteSpecGrpcRouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -4503,12 +4283,10 @@ func (o RouteSpecGrpcRouteActionWeightedTargetOutput) ToRouteSpecGrpcRouteAction
 	return o
 }
 
-// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
 
-// Relative weight of the weighted target. An integer between 0 and 100.
 func (o RouteSpecGrpcRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -4534,15 +4312,10 @@ func (o RouteSpecGrpcRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInp
 }
 
 type RouteSpecGrpcRouteMatch struct {
-	// Data to match from the gRPC request.
-	Metadatas []RouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
-	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-	MethodName *string `pulumi:"methodName"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix *string `pulumi:"prefix"`
-	// Fully qualified domain name for the service to match from the request.
-	ServiceName *string `pulumi:"serviceName"`
+	Metadatas   []RouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
+	MethodName  *string                           `pulumi:"methodName"`
+	Prefix      *string                           `pulumi:"prefix"`
+	ServiceName *string                           `pulumi:"serviceName"`
 }
 
 // RouteSpecGrpcRouteMatchInput is an input type that accepts RouteSpecGrpcRouteMatchArgs and RouteSpecGrpcRouteMatchOutput values.
@@ -4557,15 +4330,10 @@ type RouteSpecGrpcRouteMatchInput interface {
 }
 
 type RouteSpecGrpcRouteMatchArgs struct {
-	// Data to match from the gRPC request.
-	Metadatas RouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
-	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
-	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Fully qualified domain name for the service to match from the request.
-	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	Metadatas   RouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
+	MethodName  pulumi.StringPtrInput                     `pulumi:"methodName"`
+	Prefix      pulumi.StringPtrInput                     `pulumi:"prefix"`
+	ServiceName pulumi.StringPtrInput                     `pulumi:"serviceName"`
 }
 
 func (RouteSpecGrpcRouteMatchArgs) ElementType() reflect.Type {
@@ -4645,23 +4413,18 @@ func (o RouteSpecGrpcRouteMatchOutput) ToRouteSpecGrpcRouteMatchPtrOutputWithCon
 	}).(RouteSpecGrpcRouteMatchPtrOutput)
 }
 
-// Data to match from the gRPC request.
 func (o RouteSpecGrpcRouteMatchOutput) Metadatas() RouteSpecGrpcRouteMatchMetadataArrayOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) []RouteSpecGrpcRouteMatchMetadata { return v.Metadatas }).(RouteSpecGrpcRouteMatchMetadataArrayOutput)
 }
 
-// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 func (o RouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified domain name for the service to match from the request.
 func (o RouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
@@ -4690,7 +4453,6 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) Elem() RouteSpecGrpcRouteMatchOutput {
 	}).(RouteSpecGrpcRouteMatchOutput)
 }
 
-// Data to match from the gRPC request.
 func (o RouteSpecGrpcRouteMatchPtrOutput) Metadatas() RouteSpecGrpcRouteMatchMetadataArrayOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) []RouteSpecGrpcRouteMatchMetadata {
 		if v == nil {
@@ -4700,7 +4462,6 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) Metadatas() RouteSpecGrpcRouteMatchMet
 	}).(RouteSpecGrpcRouteMatchMetadataArrayOutput)
 }
 
-// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 func (o RouteSpecGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
 		if v == nil {
@@ -4710,8 +4471,6 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
 		if v == nil {
@@ -4721,7 +4480,6 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified domain name for the service to match from the request.
 func (o RouteSpecGrpcRouteMatchPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *string {
 		if v == nil {
@@ -4732,12 +4490,9 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) ServiceName() pulumi.StringPtrOutput {
 }
 
 type RouteSpecGrpcRouteMatchMetadata struct {
-	// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
-	Invert *bool `pulumi:"invert"`
-	// Data to match from the request.
-	Match *RouteSpecGrpcRouteMatchMetadataMatch `pulumi:"match"`
-	// Name of the route. Must be between 1 and 50 characters in length.
-	Name string `pulumi:"name"`
+	Invert *bool                                 `pulumi:"invert"`
+	Match  *RouteSpecGrpcRouteMatchMetadataMatch `pulumi:"match"`
+	Name   string                                `pulumi:"name"`
 }
 
 // RouteSpecGrpcRouteMatchMetadataInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataArgs and RouteSpecGrpcRouteMatchMetadataOutput values.
@@ -4752,12 +4507,9 @@ type RouteSpecGrpcRouteMatchMetadataInput interface {
 }
 
 type RouteSpecGrpcRouteMatchMetadataArgs struct {
-	// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
-	Invert pulumi.BoolPtrInput `pulumi:"invert"`
-	// Data to match from the request.
-	Match RouteSpecGrpcRouteMatchMetadataMatchPtrInput `pulumi:"match"`
-	// Name of the route. Must be between 1 and 50 characters in length.
-	Name pulumi.StringInput `pulumi:"name"`
+	Invert pulumi.BoolPtrInput                          `pulumi:"invert"`
+	Match  RouteSpecGrpcRouteMatchMetadataMatchPtrInput `pulumi:"match"`
+	Name   pulumi.StringInput                           `pulumi:"name"`
 }
 
 func (RouteSpecGrpcRouteMatchMetadataArgs) ElementType() reflect.Type {
@@ -4811,17 +4563,14 @@ func (o RouteSpecGrpcRouteMatchMetadataOutput) ToRouteSpecGrpcRouteMatchMetadata
 	return o
 }
 
-// If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
 func (o RouteSpecGrpcRouteMatchMetadataOutput) Invert() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
-// Data to match from the request.
 func (o RouteSpecGrpcRouteMatchMetadataOutput) Match() RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) *RouteSpecGrpcRouteMatchMetadataMatch { return v.Match }).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
 }
 
-// Name of the route. Must be between 1 and 50 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadata) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4847,17 +4596,11 @@ func (o RouteSpecGrpcRouteMatchMetadataArrayOutput) Index(i pulumi.IntInput) Rou
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatch struct {
-	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-	Exact *string `pulumi:"exact"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix *string `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the value sent by the client must be included in.
-	Range *RouteSpecGrpcRouteMatchMetadataMatchRange `pulumi:"range"`
-	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-	Regex *string `pulumi:"regex"`
-	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-	Suffix *string `pulumi:"suffix"`
+	Exact  *string                                    `pulumi:"exact"`
+	Prefix *string                                    `pulumi:"prefix"`
+	Range  *RouteSpecGrpcRouteMatchMetadataMatchRange `pulumi:"range"`
+	Regex  *string                                    `pulumi:"regex"`
+	Suffix *string                                    `pulumi:"suffix"`
 }
 
 // RouteSpecGrpcRouteMatchMetadataMatchInput is an input type that accepts RouteSpecGrpcRouteMatchMetadataMatchArgs and RouteSpecGrpcRouteMatchMetadataMatchOutput values.
@@ -4872,17 +4615,11 @@ type RouteSpecGrpcRouteMatchMetadataMatchInput interface {
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatchArgs struct {
-	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the value sent by the client must be included in.
-	Range RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput `pulumi:"range"`
-	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+	Exact  pulumi.StringPtrInput                             `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                             `pulumi:"prefix"`
+	Range  RouteSpecGrpcRouteMatchMetadataMatchRangePtrInput `pulumi:"range"`
+	Regex  pulumi.StringPtrInput                             `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                             `pulumi:"suffix"`
 }
 
 func (RouteSpecGrpcRouteMatchMetadataMatchArgs) ElementType() reflect.Type {
@@ -4962,30 +4699,24 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMet
 	}).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
 }
 
-// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Range() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatchRange {
 		return v.Range
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
 
-// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -5014,7 +4745,6 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Elem() RouteSpecGrpcRoute
 	}).(RouteSpecGrpcRouteMatchMetadataMatchOutput)
 }
 
-// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -5024,8 +4754,6 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Exact() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -5035,7 +4763,6 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Prefix() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Range() RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatchRange {
 		if v == nil {
@@ -5045,7 +4772,6 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Range() RouteSpecGrpcRout
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
 
-// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -5055,7 +4781,6 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Regex() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) *string {
 		if v == nil {
@@ -5066,9 +4791,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Suffix() pulumi.StringPtr
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatchRange struct {
-	// End of the range.
-	End int `pulumi:"end"`
-	// Start of the range.
+	End   int `pulumi:"end"`
 	Start int `pulumi:"start"`
 }
 
@@ -5084,9 +4807,7 @@ type RouteSpecGrpcRouteMatchMetadataMatchRangeInput interface {
 }
 
 type RouteSpecGrpcRouteMatchMetadataMatchRangeArgs struct {
-	// End of the range.
-	End pulumi.IntInput `pulumi:"end"`
-	// Start of the range.
+	End   pulumi.IntInput `pulumi:"end"`
 	Start pulumi.IntInput `pulumi:"start"`
 }
 
@@ -5167,12 +4888,10 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToRouteSpecGrpcRouteMat
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
 
-// End of the range.
 func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) End() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.End }).(pulumi.IntOutput)
 }
 
-// Start of the range.
 func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) Start() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatchRange) int { return v.Start }).(pulumi.IntOutput)
 }
@@ -5201,7 +4920,6 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) Elem() RouteSpecGrpc
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangeOutput)
 }
 
-// End of the range.
 func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatchRange) *int {
 		if v == nil {
@@ -5211,7 +4929,6 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) End() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Start of the range.
 func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) Start() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatchRange) *int {
 		if v == nil {
@@ -5222,19 +4939,11 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) Start() pulumi.IntPt
 }
 
 type RouteSpecGrpcRouteRetryPolicy struct {
-	// List of gRPC retry events.
-	// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
-	GrpcRetryEvents []string `pulumi:"grpcRetryEvents"`
-	// List of HTTP retry events.
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	HttpRetryEvents []string `pulumi:"httpRetryEvents"`
-	// Maximum number of retries.
-	MaxRetries int `pulumi:"maxRetries"`
-	// Per-retry timeout.
+	GrpcRetryEvents []string                                     `pulumi:"grpcRetryEvents"`
+	HttpRetryEvents []string                                     `pulumi:"httpRetryEvents"`
+	MaxRetries      int                                          `pulumi:"maxRetries"`
 	PerRetryTimeout RouteSpecGrpcRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
-	// List of TCP retry events. The only valid value is `connection-error`.
-	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
+	TcpRetryEvents  []string                                     `pulumi:"tcpRetryEvents"`
 }
 
 // RouteSpecGrpcRouteRetryPolicyInput is an input type that accepts RouteSpecGrpcRouteRetryPolicyArgs and RouteSpecGrpcRouteRetryPolicyOutput values.
@@ -5249,19 +4958,11 @@ type RouteSpecGrpcRouteRetryPolicyInput interface {
 }
 
 type RouteSpecGrpcRouteRetryPolicyArgs struct {
-	// List of gRPC retry events.
-	// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
-	GrpcRetryEvents pulumi.StringArrayInput `pulumi:"grpcRetryEvents"`
-	// List of HTTP retry events.
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	HttpRetryEvents pulumi.StringArrayInput `pulumi:"httpRetryEvents"`
-	// Maximum number of retries.
-	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
-	// Per-retry timeout.
+	GrpcRetryEvents pulumi.StringArrayInput                           `pulumi:"grpcRetryEvents"`
+	HttpRetryEvents pulumi.StringArrayInput                           `pulumi:"httpRetryEvents"`
+	MaxRetries      pulumi.IntInput                                   `pulumi:"maxRetries"`
 	PerRetryTimeout RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
-	// List of TCP retry events. The only valid value is `connection-error`.
-	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
+	TcpRetryEvents  pulumi.StringArrayInput                           `pulumi:"tcpRetryEvents"`
 }
 
 func (RouteSpecGrpcRouteRetryPolicyArgs) ElementType() reflect.Type {
@@ -5341,32 +5042,24 @@ func (o RouteSpecGrpcRouteRetryPolicyOutput) ToRouteSpecGrpcRouteRetryPolicyPtrO
 	}).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
 }
 
-// List of gRPC retry events.
-// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
 func (o RouteSpecGrpcRouteRetryPolicyOutput) GrpcRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) []string { return v.GrpcRetryEvents }).(pulumi.StringArrayOutput)
 }
 
-// List of HTTP retry events.
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
 func (o RouteSpecGrpcRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries.
 func (o RouteSpecGrpcRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
 }
 
-// Per-retry timeout.
 func (o RouteSpecGrpcRouteRetryPolicyOutput) PerRetryTimeout() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
 		return v.PerRetryTimeout
 	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
 }
 
-// List of TCP retry events. The only valid value is `connection-error`.
 func (o RouteSpecGrpcRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -5395,8 +5088,6 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) Elem() RouteSpecGrpcRouteRetryPo
 	}).(RouteSpecGrpcRouteRetryPolicyOutput)
 }
 
-// List of gRPC retry events.
-// Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
 func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) GrpcRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) []string {
 		if v == nil {
@@ -5406,9 +5097,6 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) GrpcRetryEvents() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of HTTP retry events.
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
 func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) []string {
 		if v == nil {
@@ -5418,7 +5106,6 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries.
 func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) *int {
 		if v == nil {
@@ -5428,7 +5115,6 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Per-retry timeout.
 func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
 		if v == nil {
@@ -5438,7 +5124,6 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecGrpcR
 	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
 
-// List of TCP retry events. The only valid value is `connection-error`.
 func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) []string {
 		if v == nil {
@@ -5449,10 +5134,8 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringAr
 }
 
 type RouteSpecGrpcRouteRetryPolicyPerRetryTimeout struct {
-	// Retry unit. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Retry value.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs and RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput values.
@@ -5467,10 +5150,8 @@ type RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput interface {
 }
 
 type RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs struct {
-	// Retry unit. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Retry value.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
@@ -5550,12 +5231,10 @@ func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecGrpcRoute
 	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
 
-// Retry unit. Valid values: `ms`, `s`.
 func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Retry value.
 func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -5584,7 +5263,6 @@ func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecG
 	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
 }
 
-// Retry unit. Valid values: `ms`, `s`.
 func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *string {
 		if v == nil {
@@ -5594,7 +5272,6 @@ func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retry value.
 func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *int {
 		if v == nil {
@@ -5605,9 +5282,7 @@ func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.In
 }
 
 type RouteSpecGrpcRouteTimeout struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle *RouteSpecGrpcRouteTimeoutIdle `pulumi:"idle"`
-	// Per request timeout.
+	Idle       *RouteSpecGrpcRouteTimeoutIdle       `pulumi:"idle"`
 	PerRequest *RouteSpecGrpcRouteTimeoutPerRequest `pulumi:"perRequest"`
 }
 
@@ -5623,9 +5298,7 @@ type RouteSpecGrpcRouteTimeoutInput interface {
 }
 
 type RouteSpecGrpcRouteTimeoutArgs struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle RouteSpecGrpcRouteTimeoutIdlePtrInput `pulumi:"idle"`
-	// Per request timeout.
+	Idle       RouteSpecGrpcRouteTimeoutIdlePtrInput       `pulumi:"idle"`
 	PerRequest RouteSpecGrpcRouteTimeoutPerRequestPtrInput `pulumi:"perRequest"`
 }
 
@@ -5706,12 +5379,10 @@ func (o RouteSpecGrpcRouteTimeoutOutput) ToRouteSpecGrpcRouteTimeoutPtrOutputWit
 	}).(RouteSpecGrpcRouteTimeoutPtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecGrpcRouteTimeoutOutput) Idle() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutIdle { return v.Idle }).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o RouteSpecGrpcRouteTimeoutOutput) PerRequest() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutPerRequest { return v.PerRequest }).(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput)
 }
@@ -5740,7 +5411,6 @@ func (o RouteSpecGrpcRouteTimeoutPtrOutput) Elem() RouteSpecGrpcRouteTimeoutOutp
 	}).(RouteSpecGrpcRouteTimeoutOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecGrpcRouteTimeoutPtrOutput) Idle() RouteSpecGrpcRouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutIdle {
 		if v == nil {
@@ -5750,7 +5420,6 @@ func (o RouteSpecGrpcRouteTimeoutPtrOutput) Idle() RouteSpecGrpcRouteTimeoutIdle
 	}).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o RouteSpecGrpcRouteTimeoutPtrOutput) PerRequest() RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeoutPerRequest {
 		if v == nil {
@@ -5761,10 +5430,8 @@ func (o RouteSpecGrpcRouteTimeoutPtrOutput) PerRequest() RouteSpecGrpcRouteTimeo
 }
 
 type RouteSpecGrpcRouteTimeoutIdle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecGrpcRouteTimeoutIdleInput is an input type that accepts RouteSpecGrpcRouteTimeoutIdleArgs and RouteSpecGrpcRouteTimeoutIdleOutput values.
@@ -5779,10 +5446,8 @@ type RouteSpecGrpcRouteTimeoutIdleInput interface {
 }
 
 type RouteSpecGrpcRouteTimeoutIdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecGrpcRouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -5862,12 +5527,10 @@ func (o RouteSpecGrpcRouteTimeoutIdleOutput) ToRouteSpecGrpcRouteTimeoutIdlePtrO
 	}).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecGrpcRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecGrpcRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -5896,7 +5559,6 @@ func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Elem() RouteSpecGrpcRouteTimeout
 	}).(RouteSpecGrpcRouteTimeoutIdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutIdle) *string {
 		if v == nil {
@@ -5906,7 +5568,6 @@ func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutIdle) *int {
 		if v == nil {
@@ -5917,10 +5578,8 @@ func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 }
 
 type RouteSpecGrpcRouteTimeoutPerRequest struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecGrpcRouteTimeoutPerRequestInput is an input type that accepts RouteSpecGrpcRouteTimeoutPerRequestArgs and RouteSpecGrpcRouteTimeoutPerRequestOutput values.
@@ -5935,10 +5594,8 @@ type RouteSpecGrpcRouteTimeoutPerRequestInput interface {
 }
 
 type RouteSpecGrpcRouteTimeoutPerRequestArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecGrpcRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
@@ -6018,12 +5675,10 @@ func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) ToRouteSpecGrpcRouteTimeoutPe
 	}).(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -6052,7 +5707,6 @@ func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Elem() RouteSpecGrpcRouteT
 	}).(RouteSpecGrpcRouteTimeoutPerRequestOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutPerRequest) *string {
 		if v == nil {
@@ -6062,7 +5716,6 @@ func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutPerRequest) *int {
 		if v == nil {
@@ -6073,14 +5726,10 @@ func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutpu
 }
 
 type RouteSpecHttp2Route struct {
-	// Action to take if a match is determined.
-	Action RouteSpecHttp2RouteAction `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
-	Match RouteSpecHttp2RouteMatch `pulumi:"match"`
-	// Retry policy.
+	Action      RouteSpecHttp2RouteAction       `pulumi:"action"`
+	Match       RouteSpecHttp2RouteMatch        `pulumi:"match"`
 	RetryPolicy *RouteSpecHttp2RouteRetryPolicy `pulumi:"retryPolicy"`
-	// Types of timeouts.
-	Timeout *RouteSpecHttp2RouteTimeout `pulumi:"timeout"`
+	Timeout     *RouteSpecHttp2RouteTimeout     `pulumi:"timeout"`
 }
 
 // RouteSpecHttp2RouteInput is an input type that accepts RouteSpecHttp2RouteArgs and RouteSpecHttp2RouteOutput values.
@@ -6095,14 +5744,10 @@ type RouteSpecHttp2RouteInput interface {
 }
 
 type RouteSpecHttp2RouteArgs struct {
-	// Action to take if a match is determined.
-	Action RouteSpecHttp2RouteActionInput `pulumi:"action"`
-	// Criteria for determining an gRPC request match.
-	Match RouteSpecHttp2RouteMatchInput `pulumi:"match"`
-	// Retry policy.
+	Action      RouteSpecHttp2RouteActionInput         `pulumi:"action"`
+	Match       RouteSpecHttp2RouteMatchInput          `pulumi:"match"`
 	RetryPolicy RouteSpecHttp2RouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
-	// Types of timeouts.
-	Timeout RouteSpecHttp2RouteTimeoutPtrInput `pulumi:"timeout"`
+	Timeout     RouteSpecHttp2RouteTimeoutPtrInput     `pulumi:"timeout"`
 }
 
 func (RouteSpecHttp2RouteArgs) ElementType() reflect.Type {
@@ -6182,22 +5827,18 @@ func (o RouteSpecHttp2RouteOutput) ToRouteSpecHttp2RoutePtrOutputWithContext(ctx
 	}).(RouteSpecHttp2RoutePtrOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecHttp2RouteOutput) Action() RouteSpecHttp2RouteActionOutput {
 	return o.ApplyT(func(v RouteSpecHttp2Route) RouteSpecHttp2RouteAction { return v.Action }).(RouteSpecHttp2RouteActionOutput)
 }
 
-// Criteria for determining an gRPC request match.
 func (o RouteSpecHttp2RouteOutput) Match() RouteSpecHttp2RouteMatchOutput {
 	return o.ApplyT(func(v RouteSpecHttp2Route) RouteSpecHttp2RouteMatch { return v.Match }).(RouteSpecHttp2RouteMatchOutput)
 }
 
-// Retry policy.
 func (o RouteSpecHttp2RouteOutput) RetryPolicy() RouteSpecHttp2RouteRetryPolicyPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2Route) *RouteSpecHttp2RouteRetryPolicy { return v.RetryPolicy }).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecHttp2RouteOutput) Timeout() RouteSpecHttp2RouteTimeoutPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2Route) *RouteSpecHttp2RouteTimeout { return v.Timeout }).(RouteSpecHttp2RouteTimeoutPtrOutput)
 }
@@ -6226,7 +5867,6 @@ func (o RouteSpecHttp2RoutePtrOutput) Elem() RouteSpecHttp2RouteOutput {
 	}).(RouteSpecHttp2RouteOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecHttp2RoutePtrOutput) Action() RouteSpecHttp2RouteActionPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteAction {
 		if v == nil {
@@ -6236,7 +5876,6 @@ func (o RouteSpecHttp2RoutePtrOutput) Action() RouteSpecHttp2RouteActionPtrOutpu
 	}).(RouteSpecHttp2RouteActionPtrOutput)
 }
 
-// Criteria for determining an gRPC request match.
 func (o RouteSpecHttp2RoutePtrOutput) Match() RouteSpecHttp2RouteMatchPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteMatch {
 		if v == nil {
@@ -6246,7 +5885,6 @@ func (o RouteSpecHttp2RoutePtrOutput) Match() RouteSpecHttp2RouteMatchPtrOutput 
 	}).(RouteSpecHttp2RouteMatchPtrOutput)
 }
 
-// Retry policy.
 func (o RouteSpecHttp2RoutePtrOutput) RetryPolicy() RouteSpecHttp2RouteRetryPolicyPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteRetryPolicy {
 		if v == nil {
@@ -6256,7 +5894,6 @@ func (o RouteSpecHttp2RoutePtrOutput) RetryPolicy() RouteSpecHttp2RouteRetryPoli
 	}).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecHttp2RoutePtrOutput) Timeout() RouteSpecHttp2RouteTimeoutPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2Route) *RouteSpecHttp2RouteTimeout {
 		if v == nil {
@@ -6267,8 +5904,6 @@ func (o RouteSpecHttp2RoutePtrOutput) Timeout() RouteSpecHttp2RouteTimeoutPtrOut
 }
 
 type RouteSpecHttp2RouteAction struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets []RouteSpecHttp2RouteActionWeightedTarget `pulumi:"weightedTargets"`
 }
 
@@ -6284,8 +5919,6 @@ type RouteSpecHttp2RouteActionInput interface {
 }
 
 type RouteSpecHttp2RouteActionArgs struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets RouteSpecHttp2RouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
 }
 
@@ -6366,8 +5999,6 @@ func (o RouteSpecHttp2RouteActionOutput) ToRouteSpecHttp2RouteActionPtrOutputWit
 	}).(RouteSpecHttp2RouteActionPtrOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecHttp2RouteActionOutput) WeightedTargets() RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteAction) []RouteSpecHttp2RouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecHttp2RouteActionWeightedTargetArrayOutput)
 }
@@ -6396,8 +6027,6 @@ func (o RouteSpecHttp2RouteActionPtrOutput) Elem() RouteSpecHttp2RouteActionOutp
 	}).(RouteSpecHttp2RouteActionOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecHttp2RouteActionPtrOutput) WeightedTargets() RouteSpecHttp2RouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteAction) []RouteSpecHttp2RouteActionWeightedTarget {
 		if v == nil {
@@ -6408,10 +6037,8 @@ func (o RouteSpecHttp2RouteActionPtrOutput) WeightedTargets() RouteSpecHttp2Rout
 }
 
 type RouteSpecHttp2RouteActionWeightedTarget struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight int `pulumi:"weight"`
+	Weight      int    `pulumi:"weight"`
 }
 
 // RouteSpecHttp2RouteActionWeightedTargetInput is an input type that accepts RouteSpecHttp2RouteActionWeightedTargetArgs and RouteSpecHttp2RouteActionWeightedTargetOutput values.
@@ -6426,10 +6053,8 @@ type RouteSpecHttp2RouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttp2RouteActionWeightedTargetArgs struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (RouteSpecHttp2RouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -6483,12 +6108,10 @@ func (o RouteSpecHttp2RouteActionWeightedTargetOutput) ToRouteSpecHttp2RouteActi
 	return o
 }
 
-// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
 
-// Relative weight of the weighted target. An integer between 0 and 100.
 func (o RouteSpecHttp2RouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -6514,15 +6137,10 @@ func (o RouteSpecHttp2RouteActionWeightedTargetArrayOutput) Index(i pulumi.IntIn
 }
 
 type RouteSpecHttp2RouteMatch struct {
-	// Client request headers to match on.
 	Headers []RouteSpecHttp2RouteMatchHeader `pulumi:"headers"`
-	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-	Method *string `pulumi:"method"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix string `pulumi:"prefix"`
-	// Client request header scheme to match on. Valid values: `http`, `https`.
-	Scheme *string `pulumi:"scheme"`
+	Method  *string                          `pulumi:"method"`
+	Prefix  string                           `pulumi:"prefix"`
+	Scheme  *string                          `pulumi:"scheme"`
 }
 
 // RouteSpecHttp2RouteMatchInput is an input type that accepts RouteSpecHttp2RouteMatchArgs and RouteSpecHttp2RouteMatchOutput values.
@@ -6537,15 +6155,10 @@ type RouteSpecHttp2RouteMatchInput interface {
 }
 
 type RouteSpecHttp2RouteMatchArgs struct {
-	// Client request headers to match on.
 	Headers RouteSpecHttp2RouteMatchHeaderArrayInput `pulumi:"headers"`
-	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-	Method pulumi.StringPtrInput `pulumi:"method"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// Client request header scheme to match on. Valid values: `http`, `https`.
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	Method  pulumi.StringPtrInput                    `pulumi:"method"`
+	Prefix  pulumi.StringInput                       `pulumi:"prefix"`
+	Scheme  pulumi.StringPtrInput                    `pulumi:"scheme"`
 }
 
 func (RouteSpecHttp2RouteMatchArgs) ElementType() reflect.Type {
@@ -6625,23 +6238,18 @@ func (o RouteSpecHttp2RouteMatchOutput) ToRouteSpecHttp2RouteMatchPtrOutputWithC
 	}).(RouteSpecHttp2RouteMatchPtrOutput)
 }
 
-// Client request headers to match on.
 func (o RouteSpecHttp2RouteMatchOutput) Headers() RouteSpecHttp2RouteMatchHeaderArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) []RouteSpecHttp2RouteMatchHeader { return v.Headers }).(RouteSpecHttp2RouteMatchHeaderArrayOutput)
 }
 
-// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 func (o RouteSpecHttp2RouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// Client request header scheme to match on. Valid values: `http`, `https`.
 func (o RouteSpecHttp2RouteMatchOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
@@ -6670,7 +6278,6 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Elem() RouteSpecHttp2RouteMatchOutput
 	}).(RouteSpecHttp2RouteMatchOutput)
 }
 
-// Client request headers to match on.
 func (o RouteSpecHttp2RouteMatchPtrOutput) Headers() RouteSpecHttp2RouteMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) []RouteSpecHttp2RouteMatchHeader {
 		if v == nil {
@@ -6680,7 +6287,6 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Headers() RouteSpecHttp2RouteMatchHea
 	}).(RouteSpecHttp2RouteMatchHeaderArrayOutput)
 }
 
-// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 func (o RouteSpecHttp2RouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
 		if v == nil {
@@ -6690,8 +6296,6 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
 		if v == nil {
@@ -6701,7 +6305,6 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client request header scheme to match on. Valid values: `http`, `https`.
 func (o RouteSpecHttp2RouteMatchPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *string {
 		if v == nil {
@@ -6712,12 +6315,9 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Scheme() pulumi.StringPtrOutput {
 }
 
 type RouteSpecHttp2RouteMatchHeader struct {
-	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-	Invert *bool `pulumi:"invert"`
-	// Method and value to match the header value sent with a request. Specify one match method.
-	Match *RouteSpecHttp2RouteMatchHeaderMatch `pulumi:"match"`
-	// Name for the HTTP header in the client request that will be matched on.
-	Name string `pulumi:"name"`
+	Invert *bool                                `pulumi:"invert"`
+	Match  *RouteSpecHttp2RouteMatchHeaderMatch `pulumi:"match"`
+	Name   string                               `pulumi:"name"`
 }
 
 // RouteSpecHttp2RouteMatchHeaderInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderArgs and RouteSpecHttp2RouteMatchHeaderOutput values.
@@ -6732,12 +6332,9 @@ type RouteSpecHttp2RouteMatchHeaderInput interface {
 }
 
 type RouteSpecHttp2RouteMatchHeaderArgs struct {
-	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-	Invert pulumi.BoolPtrInput `pulumi:"invert"`
-	// Method and value to match the header value sent with a request. Specify one match method.
-	Match RouteSpecHttp2RouteMatchHeaderMatchPtrInput `pulumi:"match"`
-	// Name for the HTTP header in the client request that will be matched on.
-	Name pulumi.StringInput `pulumi:"name"`
+	Invert pulumi.BoolPtrInput                         `pulumi:"invert"`
+	Match  RouteSpecHttp2RouteMatchHeaderMatchPtrInput `pulumi:"match"`
+	Name   pulumi.StringInput                          `pulumi:"name"`
 }
 
 func (RouteSpecHttp2RouteMatchHeaderArgs) ElementType() reflect.Type {
@@ -6791,17 +6388,14 @@ func (o RouteSpecHttp2RouteMatchHeaderOutput) ToRouteSpecHttp2RouteMatchHeaderOu
 	return o
 }
 
-// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
 func (o RouteSpecHttp2RouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
-// Method and value to match the header value sent with a request. Specify one match method.
 func (o RouteSpecHttp2RouteMatchHeaderOutput) Match() RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeader) *RouteSpecHttp2RouteMatchHeaderMatch { return v.Match }).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
 }
 
-// Name for the HTTP header in the client request that will be matched on.
 func (o RouteSpecHttp2RouteMatchHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6827,17 +6421,11 @@ func (o RouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Rout
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatch struct {
-	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-	Exact *string `pulumi:"exact"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix *string `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the value sent by the client must be included in.
-	Range *RouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"range"`
-	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-	Regex *string `pulumi:"regex"`
-	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-	Suffix *string `pulumi:"suffix"`
+	Exact  *string                                   `pulumi:"exact"`
+	Prefix *string                                   `pulumi:"prefix"`
+	Range  *RouteSpecHttp2RouteMatchHeaderMatchRange `pulumi:"range"`
+	Regex  *string                                   `pulumi:"regex"`
+	Suffix *string                                   `pulumi:"suffix"`
 }
 
 // RouteSpecHttp2RouteMatchHeaderMatchInput is an input type that accepts RouteSpecHttp2RouteMatchHeaderMatchArgs and RouteSpecHttp2RouteMatchHeaderMatchOutput values.
@@ -6852,17 +6440,11 @@ type RouteSpecHttp2RouteMatchHeaderMatchInput interface {
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatchArgs struct {
-	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the value sent by the client must be included in.
-	Range RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
-	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+	Exact  pulumi.StringPtrInput                            `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                            `pulumi:"prefix"`
+	Range  RouteSpecHttp2RouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
+	Regex  pulumi.StringPtrInput                            `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                            `pulumi:"suffix"`
 }
 
 func (RouteSpecHttp2RouteMatchHeaderMatchArgs) ElementType() reflect.Type {
@@ -6942,28 +6524,22 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHea
 	}).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
 }
 
-// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Range() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
 
-// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -6992,7 +6568,6 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttp2Route
 	}).(RouteSpecHttp2RouteMatchHeaderMatchOutput)
 }
 
-// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -7002,8 +6577,6 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -7013,7 +6586,6 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatchRange {
 		if v == nil {
@@ -7023,7 +6595,6 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttp2Rout
 	}).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
 
-// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -7033,7 +6604,6 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -7044,9 +6614,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrO
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatchRange struct {
-	// End of the range.
-	End int `pulumi:"end"`
-	// Start of the range.
+	End   int `pulumi:"end"`
 	Start int `pulumi:"start"`
 }
 
@@ -7062,9 +6630,7 @@ type RouteSpecHttp2RouteMatchHeaderMatchRangeInput interface {
 }
 
 type RouteSpecHttp2RouteMatchHeaderMatchRangeArgs struct {
-	// End of the range.
-	End pulumi.IntInput `pulumi:"end"`
-	// Start of the range.
+	End   pulumi.IntInput `pulumi:"end"`
 	Start pulumi.IntInput `pulumi:"start"`
 }
 
@@ -7145,12 +6711,10 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToRouteSpecHttp2RouteMat
 	}).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
 
-// End of the range.
 func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
 }
 
-// Start of the range.
 func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
 }
@@ -7179,7 +6743,6 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) Elem() RouteSpecHttp2
 	}).(RouteSpecHttp2RouteMatchHeaderMatchRangeOutput)
 }
 
-// End of the range.
 func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatchRange) *int {
 		if v == nil {
@@ -7189,7 +6752,6 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) End() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Start of the range.
 func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatchRange) *int {
 		if v == nil {
@@ -7200,16 +6762,10 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtr
 }
 
 type RouteSpecHttp2RouteRetryPolicy struct {
-	// List of HTTP retry events.
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	HttpRetryEvents []string `pulumi:"httpRetryEvents"`
-	// Maximum number of retries.
-	MaxRetries int `pulumi:"maxRetries"`
-	// Per-retry timeout.
+	HttpRetryEvents []string                                      `pulumi:"httpRetryEvents"`
+	MaxRetries      int                                           `pulumi:"maxRetries"`
 	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
-	// List of TCP retry events. The only valid value is `connection-error`.
-	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
+	TcpRetryEvents  []string                                      `pulumi:"tcpRetryEvents"`
 }
 
 // RouteSpecHttp2RouteRetryPolicyInput is an input type that accepts RouteSpecHttp2RouteRetryPolicyArgs and RouteSpecHttp2RouteRetryPolicyOutput values.
@@ -7224,16 +6780,10 @@ type RouteSpecHttp2RouteRetryPolicyInput interface {
 }
 
 type RouteSpecHttp2RouteRetryPolicyArgs struct {
-	// List of HTTP retry events.
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	HttpRetryEvents pulumi.StringArrayInput `pulumi:"httpRetryEvents"`
-	// Maximum number of retries.
-	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
-	// Per-retry timeout.
+	HttpRetryEvents pulumi.StringArrayInput                            `pulumi:"httpRetryEvents"`
+	MaxRetries      pulumi.IntInput                                    `pulumi:"maxRetries"`
 	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
-	// List of TCP retry events. The only valid value is `connection-error`.
-	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
+	TcpRetryEvents  pulumi.StringArrayInput                            `pulumi:"tcpRetryEvents"`
 }
 
 func (RouteSpecHttp2RouteRetryPolicyArgs) ElementType() reflect.Type {
@@ -7313,26 +6863,20 @@ func (o RouteSpecHttp2RouteRetryPolicyOutput) ToRouteSpecHttp2RouteRetryPolicyPt
 	}).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
 }
 
-// List of HTTP retry events.
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
 func (o RouteSpecHttp2RouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries.
 func (o RouteSpecHttp2RouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
 }
 
-// Per-retry timeout.
 func (o RouteSpecHttp2RouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
 		return v.PerRetryTimeout
 	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
 }
 
-// List of TCP retry events. The only valid value is `connection-error`.
 func (o RouteSpecHttp2RouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -7361,9 +6905,6 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) Elem() RouteSpecHttp2RouteRetry
 	}).(RouteSpecHttp2RouteRetryPolicyOutput)
 }
 
-// List of HTTP retry events.
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
 func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) []string {
 		if v == nil {
@@ -7373,7 +6914,6 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries.
 func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) *int {
 		if v == nil {
@@ -7383,7 +6923,6 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Per-retry timeout.
 func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
 		if v == nil {
@@ -7393,7 +6932,6 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttp
 	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
 
-// List of TCP retry events. The only valid value is `connection-error`.
 func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) []string {
 		if v == nil {
@@ -7404,10 +6942,8 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringA
 }
 
 type RouteSpecHttp2RouteRetryPolicyPerRetryTimeout struct {
-	// Retry unit. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Retry value.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput is an input type that accepts RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs and RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput values.
@@ -7422,10 +6958,8 @@ type RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput interface {
 }
 
 type RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs struct {
-	// Retry unit. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Retry value.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
@@ -7505,12 +7039,10 @@ func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttp2Rou
 	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
 
-// Retry unit. Valid values: `ms`, `s`.
 func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Retry value.
 func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -7539,7 +7071,6 @@ func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpec
 	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
 }
 
-// Retry unit. Valid values: `ms`, `s`.
 func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *string {
 		if v == nil {
@@ -7549,7 +7080,6 @@ func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retry value.
 func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *int {
 		if v == nil {
@@ -7560,9 +7090,7 @@ func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.I
 }
 
 type RouteSpecHttp2RouteTimeout struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle *RouteSpecHttp2RouteTimeoutIdle `pulumi:"idle"`
-	// Per request timeout.
+	Idle       *RouteSpecHttp2RouteTimeoutIdle       `pulumi:"idle"`
 	PerRequest *RouteSpecHttp2RouteTimeoutPerRequest `pulumi:"perRequest"`
 }
 
@@ -7578,9 +7106,7 @@ type RouteSpecHttp2RouteTimeoutInput interface {
 }
 
 type RouteSpecHttp2RouteTimeoutArgs struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle RouteSpecHttp2RouteTimeoutIdlePtrInput `pulumi:"idle"`
-	// Per request timeout.
+	Idle       RouteSpecHttp2RouteTimeoutIdlePtrInput       `pulumi:"idle"`
 	PerRequest RouteSpecHttp2RouteTimeoutPerRequestPtrInput `pulumi:"perRequest"`
 }
 
@@ -7661,12 +7187,10 @@ func (o RouteSpecHttp2RouteTimeoutOutput) ToRouteSpecHttp2RouteTimeoutPtrOutputW
 	}).(RouteSpecHttp2RouteTimeoutPtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecHttp2RouteTimeoutOutput) Idle() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutIdle { return v.Idle }).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o RouteSpecHttp2RouteTimeoutOutput) PerRequest() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutPerRequest { return v.PerRequest }).(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput)
 }
@@ -7695,7 +7219,6 @@ func (o RouteSpecHttp2RouteTimeoutPtrOutput) Elem() RouteSpecHttp2RouteTimeoutOu
 	}).(RouteSpecHttp2RouteTimeoutOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecHttp2RouteTimeoutPtrOutput) Idle() RouteSpecHttp2RouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutIdle {
 		if v == nil {
@@ -7705,7 +7228,6 @@ func (o RouteSpecHttp2RouteTimeoutPtrOutput) Idle() RouteSpecHttp2RouteTimeoutId
 	}).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o RouteSpecHttp2RouteTimeoutPtrOutput) PerRequest() RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeoutPerRequest {
 		if v == nil {
@@ -7716,10 +7238,8 @@ func (o RouteSpecHttp2RouteTimeoutPtrOutput) PerRequest() RouteSpecHttp2RouteTim
 }
 
 type RouteSpecHttp2RouteTimeoutIdle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecHttp2RouteTimeoutIdleInput is an input type that accepts RouteSpecHttp2RouteTimeoutIdleArgs and RouteSpecHttp2RouteTimeoutIdleOutput values.
@@ -7734,10 +7254,8 @@ type RouteSpecHttp2RouteTimeoutIdleInput interface {
 }
 
 type RouteSpecHttp2RouteTimeoutIdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecHttp2RouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -7817,12 +7335,10 @@ func (o RouteSpecHttp2RouteTimeoutIdleOutput) ToRouteSpecHttp2RouteTimeoutIdlePt
 	}).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttp2RouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttp2RouteTimeoutIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -7851,7 +7367,6 @@ func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Elem() RouteSpecHttp2RouteTimeo
 	}).(RouteSpecHttp2RouteTimeoutIdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutIdle) *string {
 		if v == nil {
@@ -7861,7 +7376,6 @@ func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutIdle) *int {
 		if v == nil {
@@ -7872,10 +7386,8 @@ func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 }
 
 type RouteSpecHttp2RouteTimeoutPerRequest struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecHttp2RouteTimeoutPerRequestInput is an input type that accepts RouteSpecHttp2RouteTimeoutPerRequestArgs and RouteSpecHttp2RouteTimeoutPerRequestOutput values.
@@ -7890,10 +7402,8 @@ type RouteSpecHttp2RouteTimeoutPerRequestInput interface {
 }
 
 type RouteSpecHttp2RouteTimeoutPerRequestArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecHttp2RouteTimeoutPerRequestArgs) ElementType() reflect.Type {
@@ -7973,12 +7483,10 @@ func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) ToRouteSpecHttp2RouteTimeout
 	}).(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -8007,7 +7515,6 @@ func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Elem() RouteSpecHttp2Rout
 	}).(RouteSpecHttp2RouteTimeoutPerRequestOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutPerRequest) *string {
 		if v == nil {
@@ -8017,7 +7524,6 @@ func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutPerRequest) *int {
 		if v == nil {
@@ -8028,14 +7534,10 @@ func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutp
 }
 
 type RouteSpecHttpRoute struct {
-	// Action to take if a match is determined.
-	Action RouteSpecHttpRouteAction `pulumi:"action"`
-	// Criteria for determining an HTTP request match.
-	Match RouteSpecHttpRouteMatch `pulumi:"match"`
-	// Retry policy.
+	Action      RouteSpecHttpRouteAction       `pulumi:"action"`
+	Match       RouteSpecHttpRouteMatch        `pulumi:"match"`
 	RetryPolicy *RouteSpecHttpRouteRetryPolicy `pulumi:"retryPolicy"`
-	// Types of timeouts.
-	Timeout *RouteSpecHttpRouteTimeout `pulumi:"timeout"`
+	Timeout     *RouteSpecHttpRouteTimeout     `pulumi:"timeout"`
 }
 
 // RouteSpecHttpRouteInput is an input type that accepts RouteSpecHttpRouteArgs and RouteSpecHttpRouteOutput values.
@@ -8050,14 +7552,10 @@ type RouteSpecHttpRouteInput interface {
 }
 
 type RouteSpecHttpRouteArgs struct {
-	// Action to take if a match is determined.
-	Action RouteSpecHttpRouteActionInput `pulumi:"action"`
-	// Criteria for determining an HTTP request match.
-	Match RouteSpecHttpRouteMatchInput `pulumi:"match"`
-	// Retry policy.
+	Action      RouteSpecHttpRouteActionInput         `pulumi:"action"`
+	Match       RouteSpecHttpRouteMatchInput          `pulumi:"match"`
 	RetryPolicy RouteSpecHttpRouteRetryPolicyPtrInput `pulumi:"retryPolicy"`
-	// Types of timeouts.
-	Timeout RouteSpecHttpRouteTimeoutPtrInput `pulumi:"timeout"`
+	Timeout     RouteSpecHttpRouteTimeoutPtrInput     `pulumi:"timeout"`
 }
 
 func (RouteSpecHttpRouteArgs) ElementType() reflect.Type {
@@ -8137,22 +7635,18 @@ func (o RouteSpecHttpRouteOutput) ToRouteSpecHttpRoutePtrOutputWithContext(ctx c
 	}).(RouteSpecHttpRoutePtrOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecHttpRouteOutput) Action() RouteSpecHttpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteAction { return v.Action }).(RouteSpecHttpRouteActionOutput)
 }
 
-// Criteria for determining an HTTP request match.
 func (o RouteSpecHttpRouteOutput) Match() RouteSpecHttpRouteMatchOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) RouteSpecHttpRouteMatch { return v.Match }).(RouteSpecHttpRouteMatchOutput)
 }
 
-// Retry policy.
 func (o RouteSpecHttpRouteOutput) RetryPolicy() RouteSpecHttpRouteRetryPolicyPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) *RouteSpecHttpRouteRetryPolicy { return v.RetryPolicy }).(RouteSpecHttpRouteRetryPolicyPtrOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecHttpRouteOutput) Timeout() RouteSpecHttpRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRoute) *RouteSpecHttpRouteTimeout { return v.Timeout }).(RouteSpecHttpRouteTimeoutPtrOutput)
 }
@@ -8181,7 +7675,6 @@ func (o RouteSpecHttpRoutePtrOutput) Elem() RouteSpecHttpRouteOutput {
 	}).(RouteSpecHttpRouteOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecHttpRoutePtrOutput) Action() RouteSpecHttpRouteActionPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRoute) *RouteSpecHttpRouteAction {
 		if v == nil {
@@ -8191,7 +7684,6 @@ func (o RouteSpecHttpRoutePtrOutput) Action() RouteSpecHttpRouteActionPtrOutput 
 	}).(RouteSpecHttpRouteActionPtrOutput)
 }
 
-// Criteria for determining an HTTP request match.
 func (o RouteSpecHttpRoutePtrOutput) Match() RouteSpecHttpRouteMatchPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRoute) *RouteSpecHttpRouteMatch {
 		if v == nil {
@@ -8201,7 +7693,6 @@ func (o RouteSpecHttpRoutePtrOutput) Match() RouteSpecHttpRouteMatchPtrOutput {
 	}).(RouteSpecHttpRouteMatchPtrOutput)
 }
 
-// Retry policy.
 func (o RouteSpecHttpRoutePtrOutput) RetryPolicy() RouteSpecHttpRouteRetryPolicyPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRoute) *RouteSpecHttpRouteRetryPolicy {
 		if v == nil {
@@ -8211,7 +7702,6 @@ func (o RouteSpecHttpRoutePtrOutput) RetryPolicy() RouteSpecHttpRouteRetryPolicy
 	}).(RouteSpecHttpRouteRetryPolicyPtrOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecHttpRoutePtrOutput) Timeout() RouteSpecHttpRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRoute) *RouteSpecHttpRouteTimeout {
 		if v == nil {
@@ -8222,8 +7712,6 @@ func (o RouteSpecHttpRoutePtrOutput) Timeout() RouteSpecHttpRouteTimeoutPtrOutpu
 }
 
 type RouteSpecHttpRouteAction struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets []RouteSpecHttpRouteActionWeightedTarget `pulumi:"weightedTargets"`
 }
 
@@ -8239,8 +7727,6 @@ type RouteSpecHttpRouteActionInput interface {
 }
 
 type RouteSpecHttpRouteActionArgs struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets RouteSpecHttpRouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
 }
 
@@ -8321,8 +7807,6 @@ func (o RouteSpecHttpRouteActionOutput) ToRouteSpecHttpRouteActionPtrOutputWithC
 	}).(RouteSpecHttpRouteActionPtrOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecHttpRouteActionOutput) WeightedTargets() RouteSpecHttpRouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteAction) []RouteSpecHttpRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecHttpRouteActionWeightedTargetArrayOutput)
 }
@@ -8351,8 +7835,6 @@ func (o RouteSpecHttpRouteActionPtrOutput) Elem() RouteSpecHttpRouteActionOutput
 	}).(RouteSpecHttpRouteActionOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecHttpRouteActionPtrOutput) WeightedTargets() RouteSpecHttpRouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteAction) []RouteSpecHttpRouteActionWeightedTarget {
 		if v == nil {
@@ -8363,10 +7845,8 @@ func (o RouteSpecHttpRouteActionPtrOutput) WeightedTargets() RouteSpecHttpRouteA
 }
 
 type RouteSpecHttpRouteActionWeightedTarget struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight int `pulumi:"weight"`
+	Weight      int    `pulumi:"weight"`
 }
 
 // RouteSpecHttpRouteActionWeightedTargetInput is an input type that accepts RouteSpecHttpRouteActionWeightedTargetArgs and RouteSpecHttpRouteActionWeightedTargetOutput values.
@@ -8381,10 +7861,8 @@ type RouteSpecHttpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttpRouteActionWeightedTargetArgs struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (RouteSpecHttpRouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -8438,12 +7916,10 @@ func (o RouteSpecHttpRouteActionWeightedTargetOutput) ToRouteSpecHttpRouteAction
 	return o
 }
 
-// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
 
-// Relative weight of the weighted target. An integer between 0 and 100.
 func (o RouteSpecHttpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -8469,15 +7945,10 @@ func (o RouteSpecHttpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInp
 }
 
 type RouteSpecHttpRouteMatch struct {
-	// Client request headers to match on.
 	Headers []RouteSpecHttpRouteMatchHeader `pulumi:"headers"`
-	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-	Method *string `pulumi:"method"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix string `pulumi:"prefix"`
-	// Client request header scheme to match on. Valid values: `http`, `https`.
-	Scheme *string `pulumi:"scheme"`
+	Method  *string                         `pulumi:"method"`
+	Prefix  string                          `pulumi:"prefix"`
+	Scheme  *string                         `pulumi:"scheme"`
 }
 
 // RouteSpecHttpRouteMatchInput is an input type that accepts RouteSpecHttpRouteMatchArgs and RouteSpecHttpRouteMatchOutput values.
@@ -8492,15 +7963,10 @@ type RouteSpecHttpRouteMatchInput interface {
 }
 
 type RouteSpecHttpRouteMatchArgs struct {
-	// Client request headers to match on.
 	Headers RouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
-	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-	Method pulumi.StringPtrInput `pulumi:"method"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// Client request header scheme to match on. Valid values: `http`, `https`.
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
+	Method  pulumi.StringPtrInput                   `pulumi:"method"`
+	Prefix  pulumi.StringInput                      `pulumi:"prefix"`
+	Scheme  pulumi.StringPtrInput                   `pulumi:"scheme"`
 }
 
 func (RouteSpecHttpRouteMatchArgs) ElementType() reflect.Type {
@@ -8580,23 +8046,18 @@ func (o RouteSpecHttpRouteMatchOutput) ToRouteSpecHttpRouteMatchPtrOutputWithCon
 	}).(RouteSpecHttpRouteMatchPtrOutput)
 }
 
-// Client request headers to match on.
 func (o RouteSpecHttpRouteMatchOutput) Headers() RouteSpecHttpRouteMatchHeaderArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) []RouteSpecHttpRouteMatchHeader { return v.Headers }).(RouteSpecHttpRouteMatchHeaderArrayOutput)
 }
 
-// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// Client request header scheme to match on. Valid values: `http`, `https`.
 func (o RouteSpecHttpRouteMatchOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
@@ -8625,7 +8086,6 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Elem() RouteSpecHttpRouteMatchOutput {
 	}).(RouteSpecHttpRouteMatchOutput)
 }
 
-// Client request headers to match on.
 func (o RouteSpecHttpRouteMatchPtrOutput) Headers() RouteSpecHttpRouteMatchHeaderArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) []RouteSpecHttpRouteMatchHeader {
 		if v == nil {
@@ -8635,7 +8095,6 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Headers() RouteSpecHttpRouteMatchHeade
 	}).(RouteSpecHttpRouteMatchHeaderArrayOutput)
 }
 
-// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 func (o RouteSpecHttpRouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *string {
 		if v == nil {
@@ -8645,8 +8104,6 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *string {
 		if v == nil {
@@ -8656,7 +8113,6 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client request header scheme to match on. Valid values: `http`, `https`.
 func (o RouteSpecHttpRouteMatchPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *string {
 		if v == nil {
@@ -8667,12 +8123,9 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Scheme() pulumi.StringPtrOutput {
 }
 
 type RouteSpecHttpRouteMatchHeader struct {
-	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-	Invert *bool `pulumi:"invert"`
-	// Method and value to match the header value sent with a request. Specify one match method.
-	Match *RouteSpecHttpRouteMatchHeaderMatch `pulumi:"match"`
-	// Name for the HTTP header in the client request that will be matched on.
-	Name string `pulumi:"name"`
+	Invert *bool                               `pulumi:"invert"`
+	Match  *RouteSpecHttpRouteMatchHeaderMatch `pulumi:"match"`
+	Name   string                              `pulumi:"name"`
 }
 
 // RouteSpecHttpRouteMatchHeaderInput is an input type that accepts RouteSpecHttpRouteMatchHeaderArgs and RouteSpecHttpRouteMatchHeaderOutput values.
@@ -8687,12 +8140,9 @@ type RouteSpecHttpRouteMatchHeaderInput interface {
 }
 
 type RouteSpecHttpRouteMatchHeaderArgs struct {
-	// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-	Invert pulumi.BoolPtrInput `pulumi:"invert"`
-	// Method and value to match the header value sent with a request. Specify one match method.
-	Match RouteSpecHttpRouteMatchHeaderMatchPtrInput `pulumi:"match"`
-	// Name for the HTTP header in the client request that will be matched on.
-	Name pulumi.StringInput `pulumi:"name"`
+	Invert pulumi.BoolPtrInput                        `pulumi:"invert"`
+	Match  RouteSpecHttpRouteMatchHeaderMatchPtrInput `pulumi:"match"`
+	Name   pulumi.StringInput                         `pulumi:"name"`
 }
 
 func (RouteSpecHttpRouteMatchHeaderArgs) ElementType() reflect.Type {
@@ -8746,17 +8196,14 @@ func (o RouteSpecHttpRouteMatchHeaderOutput) ToRouteSpecHttpRouteMatchHeaderOutp
 	return o
 }
 
-// If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
 func (o RouteSpecHttpRouteMatchHeaderOutput) Invert() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeader) *bool { return v.Invert }).(pulumi.BoolPtrOutput)
 }
 
-// Method and value to match the header value sent with a request. Specify one match method.
 func (o RouteSpecHttpRouteMatchHeaderOutput) Match() RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeader) *RouteSpecHttpRouteMatchHeaderMatch { return v.Match }).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
-// Name for the HTTP header in the client request that will be matched on.
 func (o RouteSpecHttpRouteMatchHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8782,17 +8229,11 @@ func (o RouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput) Route
 }
 
 type RouteSpecHttpRouteMatchHeaderMatch struct {
-	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-	Exact *string `pulumi:"exact"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix *string `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the value sent by the client must be included in.
-	Range *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
-	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-	Regex *string `pulumi:"regex"`
-	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-	Suffix *string `pulumi:"suffix"`
+	Exact  *string                                  `pulumi:"exact"`
+	Prefix *string                                  `pulumi:"prefix"`
+	Range  *RouteSpecHttpRouteMatchHeaderMatchRange `pulumi:"range"`
+	Regex  *string                                  `pulumi:"regex"`
+	Suffix *string                                  `pulumi:"suffix"`
 }
 
 // RouteSpecHttpRouteMatchHeaderMatchInput is an input type that accepts RouteSpecHttpRouteMatchHeaderMatchArgs and RouteSpecHttpRouteMatchHeaderMatchOutput values.
@@ -8807,17 +8248,11 @@ type RouteSpecHttpRouteMatchHeaderMatchInput interface {
 }
 
 type RouteSpecHttpRouteMatchHeaderMatchArgs struct {
-	// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-	Exact pulumi.StringPtrInput `pulumi:"exact"`
-	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Object that specifies the range of numbers that the value sent by the client must be included in.
-	Range RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
-	// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-	Regex pulumi.StringPtrInput `pulumi:"regex"`
-	// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+	Exact  pulumi.StringPtrInput                           `pulumi:"exact"`
+	Prefix pulumi.StringPtrInput                           `pulumi:"prefix"`
+	Range  RouteSpecHttpRouteMatchHeaderMatchRangePtrInput `pulumi:"range"`
+	Regex  pulumi.StringPtrInput                           `pulumi:"regex"`
+	Suffix pulumi.StringPtrInput                           `pulumi:"suffix"`
 }
 
 func (RouteSpecHttpRouteMatchHeaderMatchArgs) ElementType() reflect.Type {
@@ -8897,28 +8332,22 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeade
 	}).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
-// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange { return v.Range }).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
@@ -8947,7 +8376,6 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttpRouteMa
 	}).(RouteSpecHttpRouteMatchHeaderMatchOutput)
 }
 
-// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -8957,8 +8385,6 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -8968,7 +8394,6 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Prefix() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object that specifies the range of numbers that the value sent by the client must be included in.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatchRange {
 		if v == nil {
@@ -8978,7 +8403,6 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Range() RouteSpecHttpRouteM
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -8988,7 +8412,6 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Regex() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -8999,9 +8422,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Suffix() pulumi.StringPtrOu
 }
 
 type RouteSpecHttpRouteMatchHeaderMatchRange struct {
-	// End of the range.
-	End int `pulumi:"end"`
-	// Start of the range.
+	End   int `pulumi:"end"`
 	Start int `pulumi:"start"`
 }
 
@@ -9017,9 +8438,7 @@ type RouteSpecHttpRouteMatchHeaderMatchRangeInput interface {
 }
 
 type RouteSpecHttpRouteMatchHeaderMatchRangeArgs struct {
-	// End of the range.
-	End pulumi.IntInput `pulumi:"end"`
-	// Start of the range.
+	End   pulumi.IntInput `pulumi:"end"`
 	Start pulumi.IntInput `pulumi:"start"`
 }
 
@@ -9100,12 +8519,10 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatch
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
 
-// End of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) End() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.End }).(pulumi.IntOutput)
 }
 
-// Start of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) Start() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) int { return v.Start }).(pulumi.IntOutput)
 }
@@ -9134,7 +8551,6 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Elem() RouteSpecHttpRo
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput)
 }
 
-// End of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) End() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatchRange) *int {
 		if v == nil {
@@ -9144,7 +8560,6 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) End() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Start of the range.
 func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatchRange) *int {
 		if v == nil {
@@ -9155,16 +8570,10 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Start() pulumi.IntPtrO
 }
 
 type RouteSpecHttpRouteRetryPolicy struct {
-	// List of HTTP retry events.
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	HttpRetryEvents []string `pulumi:"httpRetryEvents"`
-	// Maximum number of retries.
-	MaxRetries int `pulumi:"maxRetries"`
-	// Per-retry timeout.
+	HttpRetryEvents []string                                     `pulumi:"httpRetryEvents"`
+	MaxRetries      int                                          `pulumi:"maxRetries"`
 	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
-	// List of TCP retry events. The only valid value is `connection-error`.
-	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
+	TcpRetryEvents  []string                                     `pulumi:"tcpRetryEvents"`
 }
 
 // RouteSpecHttpRouteRetryPolicyInput is an input type that accepts RouteSpecHttpRouteRetryPolicyArgs and RouteSpecHttpRouteRetryPolicyOutput values.
@@ -9179,16 +8588,10 @@ type RouteSpecHttpRouteRetryPolicyInput interface {
 }
 
 type RouteSpecHttpRouteRetryPolicyArgs struct {
-	// List of HTTP retry events.
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-	HttpRetryEvents pulumi.StringArrayInput `pulumi:"httpRetryEvents"`
-	// Maximum number of retries.
-	MaxRetries pulumi.IntInput `pulumi:"maxRetries"`
-	// Per-retry timeout.
+	HttpRetryEvents pulumi.StringArrayInput                           `pulumi:"httpRetryEvents"`
+	MaxRetries      pulumi.IntInput                                   `pulumi:"maxRetries"`
 	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
-	// List of TCP retry events. The only valid value is `connection-error`.
-	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
+	TcpRetryEvents  pulumi.StringArrayInput                           `pulumi:"tcpRetryEvents"`
 }
 
 func (RouteSpecHttpRouteRetryPolicyArgs) ElementType() reflect.Type {
@@ -9268,26 +8671,20 @@ func (o RouteSpecHttpRouteRetryPolicyOutput) ToRouteSpecHttpRouteRetryPolicyPtrO
 	}).(RouteSpecHttpRouteRetryPolicyPtrOutput)
 }
 
-// List of HTTP retry events.
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
 func (o RouteSpecHttpRouteRetryPolicyOutput) HttpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) []string { return v.HttpRetryEvents }).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries.
 func (o RouteSpecHttpRouteRetryPolicyOutput) MaxRetries() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) int { return v.MaxRetries }).(pulumi.IntOutput)
 }
 
-// Per-retry timeout.
 func (o RouteSpecHttpRouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
 		return v.PerRetryTimeout
 	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
 }
 
-// List of TCP retry events. The only valid value is `connection-error`.
 func (o RouteSpecHttpRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -9316,9 +8713,6 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) Elem() RouteSpecHttpRouteRetryPo
 	}).(RouteSpecHttpRouteRetryPolicyOutput)
 }
 
-// List of HTTP retry events.
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-// Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
 func (o RouteSpecHttpRouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) []string {
 		if v == nil {
@@ -9328,7 +8722,6 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) HttpRetryEvents() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries.
 func (o RouteSpecHttpRouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) *int {
 		if v == nil {
@@ -9338,7 +8731,6 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) MaxRetries() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Per-retry timeout.
 func (o RouteSpecHttpRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) *RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
 		if v == nil {
@@ -9348,7 +8740,6 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttpR
 	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
 
-// List of TCP retry events. The only valid value is `connection-error`.
 func (o RouteSpecHttpRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) []string {
 		if v == nil {
@@ -9359,10 +8750,8 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringAr
 }
 
 type RouteSpecHttpRouteRetryPolicyPerRetryTimeout struct {
-	// Retry unit. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Retry value.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput is an input type that accepts RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs and RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput values.
@@ -9377,10 +8766,8 @@ type RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput interface {
 }
 
 type RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs struct {
-	// Retry unit. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Retry value.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs) ElementType() reflect.Type {
@@ -9460,12 +8847,10 @@ func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttpRoute
 	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
 
-// Retry unit. Valid values: `ms`, `s`.
 func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicyPerRetryTimeout) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Retry value.
 func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicyPerRetryTimeout) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -9494,7 +8879,6 @@ func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecH
 	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
 }
 
-// Retry unit. Valid values: `ms`, `s`.
 func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicyPerRetryTimeout) *string {
 		if v == nil {
@@ -9504,7 +8888,6 @@ func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Unit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retry value.
 func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicyPerRetryTimeout) *int {
 		if v == nil {
@@ -9515,9 +8898,7 @@ func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Value() pulumi.In
 }
 
 type RouteSpecHttpRouteTimeout struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle *RouteSpecHttpRouteTimeoutIdle `pulumi:"idle"`
-	// Per request timeout.
+	Idle       *RouteSpecHttpRouteTimeoutIdle       `pulumi:"idle"`
 	PerRequest *RouteSpecHttpRouteTimeoutPerRequest `pulumi:"perRequest"`
 }
 
@@ -9533,9 +8914,7 @@ type RouteSpecHttpRouteTimeoutInput interface {
 }
 
 type RouteSpecHttpRouteTimeoutArgs struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle RouteSpecHttpRouteTimeoutIdlePtrInput `pulumi:"idle"`
-	// Per request timeout.
+	Idle       RouteSpecHttpRouteTimeoutIdlePtrInput       `pulumi:"idle"`
 	PerRequest RouteSpecHttpRouteTimeoutPerRequestPtrInput `pulumi:"perRequest"`
 }
 
@@ -9616,12 +8995,10 @@ func (o RouteSpecHttpRouteTimeoutOutput) ToRouteSpecHttpRouteTimeoutPtrOutputWit
 	}).(RouteSpecHttpRouteTimeoutPtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecHttpRouteTimeoutOutput) Idle() RouteSpecHttpRouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutIdle { return v.Idle }).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o RouteSpecHttpRouteTimeoutOutput) PerRequest() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutPerRequest { return v.PerRequest }).(RouteSpecHttpRouteTimeoutPerRequestPtrOutput)
 }
@@ -9650,7 +9027,6 @@ func (o RouteSpecHttpRouteTimeoutPtrOutput) Elem() RouteSpecHttpRouteTimeoutOutp
 	}).(RouteSpecHttpRouteTimeoutOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecHttpRouteTimeoutPtrOutput) Idle() RouteSpecHttpRouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutIdle {
 		if v == nil {
@@ -9660,7 +9036,6 @@ func (o RouteSpecHttpRouteTimeoutPtrOutput) Idle() RouteSpecHttpRouteTimeoutIdle
 	}).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o RouteSpecHttpRouteTimeoutPtrOutput) PerRequest() RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeoutPerRequest {
 		if v == nil {
@@ -9671,10 +9046,8 @@ func (o RouteSpecHttpRouteTimeoutPtrOutput) PerRequest() RouteSpecHttpRouteTimeo
 }
 
 type RouteSpecHttpRouteTimeoutIdle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecHttpRouteTimeoutIdleInput is an input type that accepts RouteSpecHttpRouteTimeoutIdleArgs and RouteSpecHttpRouteTimeoutIdleOutput values.
@@ -9689,10 +9062,8 @@ type RouteSpecHttpRouteTimeoutIdleInput interface {
 }
 
 type RouteSpecHttpRouteTimeoutIdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecHttpRouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -9772,12 +9143,10 @@ func (o RouteSpecHttpRouteTimeoutIdleOutput) ToRouteSpecHttpRouteTimeoutIdlePtrO
 	}).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -9806,7 +9175,6 @@ func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Elem() RouteSpecHttpRouteTimeout
 	}).(RouteSpecHttpRouteTimeoutIdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutIdle) *string {
 		if v == nil {
@@ -9816,7 +9184,6 @@ func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutIdle) *int {
 		if v == nil {
@@ -9827,10 +9194,8 @@ func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 }
 
 type RouteSpecHttpRouteTimeoutPerRequest struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecHttpRouteTimeoutPerRequestInput is an input type that accepts RouteSpecHttpRouteTimeoutPerRequestArgs and RouteSpecHttpRouteTimeoutPerRequestOutput values.
@@ -9845,10 +9210,8 @@ type RouteSpecHttpRouteTimeoutPerRequestInput interface {
 }
 
 type RouteSpecHttpRouteTimeoutPerRequestArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecHttpRouteTimeoutPerRequestArgs) ElementType() reflect.Type {
@@ -9928,12 +9291,10 @@ func (o RouteSpecHttpRouteTimeoutPerRequestOutput) ToRouteSpecHttpRouteTimeoutPe
 	}).(RouteSpecHttpRouteTimeoutPerRequestPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttpRouteTimeoutPerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttpRouteTimeoutPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -9962,7 +9323,6 @@ func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Elem() RouteSpecHttpRouteT
 	}).(RouteSpecHttpRouteTimeoutPerRequestOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutPerRequest) *string {
 		if v == nil {
@@ -9972,7 +9332,6 @@ func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Unit() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutPerRequest) *int {
 		if v == nil {
@@ -9983,9 +9342,7 @@ func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutpu
 }
 
 type RouteSpecTcpRoute struct {
-	// Action to take if a match is determined.
-	Action RouteSpecTcpRouteAction `pulumi:"action"`
-	// Types of timeouts.
+	Action  RouteSpecTcpRouteAction   `pulumi:"action"`
 	Timeout *RouteSpecTcpRouteTimeout `pulumi:"timeout"`
 }
 
@@ -10001,9 +9358,7 @@ type RouteSpecTcpRouteInput interface {
 }
 
 type RouteSpecTcpRouteArgs struct {
-	// Action to take if a match is determined.
-	Action RouteSpecTcpRouteActionInput `pulumi:"action"`
-	// Types of timeouts.
+	Action  RouteSpecTcpRouteActionInput     `pulumi:"action"`
 	Timeout RouteSpecTcpRouteTimeoutPtrInput `pulumi:"timeout"`
 }
 
@@ -10084,12 +9439,10 @@ func (o RouteSpecTcpRouteOutput) ToRouteSpecTcpRoutePtrOutputWithContext(ctx con
 	}).(RouteSpecTcpRoutePtrOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecTcpRouteOutput) Action() RouteSpecTcpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecTcpRouteOutput) Timeout() RouteSpecTcpRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRouteTimeout { return v.Timeout }).(RouteSpecTcpRouteTimeoutPtrOutput)
 }
@@ -10118,7 +9471,6 @@ func (o RouteSpecTcpRoutePtrOutput) Elem() RouteSpecTcpRouteOutput {
 	}).(RouteSpecTcpRouteOutput)
 }
 
-// Action to take if a match is determined.
 func (o RouteSpecTcpRoutePtrOutput) Action() RouteSpecTcpRouteActionPtrOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRoute) *RouteSpecTcpRouteAction {
 		if v == nil {
@@ -10128,7 +9480,6 @@ func (o RouteSpecTcpRoutePtrOutput) Action() RouteSpecTcpRouteActionPtrOutput {
 	}).(RouteSpecTcpRouteActionPtrOutput)
 }
 
-// Types of timeouts.
 func (o RouteSpecTcpRoutePtrOutput) Timeout() RouteSpecTcpRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRoute) *RouteSpecTcpRouteTimeout {
 		if v == nil {
@@ -10139,8 +9490,6 @@ func (o RouteSpecTcpRoutePtrOutput) Timeout() RouteSpecTcpRouteTimeoutPtrOutput 
 }
 
 type RouteSpecTcpRouteAction struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets []RouteSpecTcpRouteActionWeightedTarget `pulumi:"weightedTargets"`
 }
 
@@ -10156,8 +9505,6 @@ type RouteSpecTcpRouteActionInput interface {
 }
 
 type RouteSpecTcpRouteActionArgs struct {
-	// Targets that traffic is routed to when a request matches the route.
-	// You can specify one or more targets and their relative weights with which to distribute traffic.
 	WeightedTargets RouteSpecTcpRouteActionWeightedTargetArrayInput `pulumi:"weightedTargets"`
 }
 
@@ -10238,8 +9585,6 @@ func (o RouteSpecTcpRouteActionOutput) ToRouteSpecTcpRouteActionPtrOutputWithCon
 	}).(RouteSpecTcpRouteActionPtrOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecTcpRouteActionOutput) WeightedTargets() RouteSpecTcpRouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteAction) []RouteSpecTcpRouteActionWeightedTarget { return v.WeightedTargets }).(RouteSpecTcpRouteActionWeightedTargetArrayOutput)
 }
@@ -10268,8 +9613,6 @@ func (o RouteSpecTcpRouteActionPtrOutput) Elem() RouteSpecTcpRouteActionOutput {
 	}).(RouteSpecTcpRouteActionOutput)
 }
 
-// Targets that traffic is routed to when a request matches the route.
-// You can specify one or more targets and their relative weights with which to distribute traffic.
 func (o RouteSpecTcpRouteActionPtrOutput) WeightedTargets() RouteSpecTcpRouteActionWeightedTargetArrayOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRouteAction) []RouteSpecTcpRouteActionWeightedTarget {
 		if v == nil {
@@ -10280,10 +9623,8 @@ func (o RouteSpecTcpRouteActionPtrOutput) WeightedTargets() RouteSpecTcpRouteAct
 }
 
 type RouteSpecTcpRouteActionWeightedTarget struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight int `pulumi:"weight"`
+	Weight      int    `pulumi:"weight"`
 }
 
 // RouteSpecTcpRouteActionWeightedTargetInput is an input type that accepts RouteSpecTcpRouteActionWeightedTargetArgs and RouteSpecTcpRouteActionWeightedTargetOutput values.
@@ -10298,10 +9639,8 @@ type RouteSpecTcpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecTcpRouteActionWeightedTargetArgs struct {
-	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
-	// Relative weight of the weighted target. An integer between 0 and 100.
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Weight      pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (RouteSpecTcpRouteActionWeightedTargetArgs) ElementType() reflect.Type {
@@ -10355,12 +9694,10 @@ func (o RouteSpecTcpRouteActionWeightedTargetOutput) ToRouteSpecTcpRouteActionWe
 	return o
 }
 
-// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
 }
 
-// Relative weight of the weighted target. An integer between 0 and 100.
 func (o RouteSpecTcpRouteActionWeightedTargetOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -10386,7 +9723,6 @@ func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInpu
 }
 
 type RouteSpecTcpRouteTimeout struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 	Idle *RouteSpecTcpRouteTimeoutIdle `pulumi:"idle"`
 }
 
@@ -10402,7 +9738,6 @@ type RouteSpecTcpRouteTimeoutInput interface {
 }
 
 type RouteSpecTcpRouteTimeoutArgs struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 	Idle RouteSpecTcpRouteTimeoutIdlePtrInput `pulumi:"idle"`
 }
 
@@ -10483,7 +9818,6 @@ func (o RouteSpecTcpRouteTimeoutOutput) ToRouteSpecTcpRouteTimeoutPtrOutputWithC
 	}).(RouteSpecTcpRouteTimeoutPtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecTcpRouteTimeoutOutput) Idle() RouteSpecTcpRouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteTimeout) *RouteSpecTcpRouteTimeoutIdle { return v.Idle }).(RouteSpecTcpRouteTimeoutIdlePtrOutput)
 }
@@ -10512,7 +9846,6 @@ func (o RouteSpecTcpRouteTimeoutPtrOutput) Elem() RouteSpecTcpRouteTimeoutOutput
 	}).(RouteSpecTcpRouteTimeoutOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o RouteSpecTcpRouteTimeoutPtrOutput) Idle() RouteSpecTcpRouteTimeoutIdlePtrOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRouteTimeout) *RouteSpecTcpRouteTimeoutIdle {
 		if v == nil {
@@ -10523,10 +9856,8 @@ func (o RouteSpecTcpRouteTimeoutPtrOutput) Idle() RouteSpecTcpRouteTimeoutIdlePt
 }
 
 type RouteSpecTcpRouteTimeoutIdle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // RouteSpecTcpRouteTimeoutIdleInput is an input type that accepts RouteSpecTcpRouteTimeoutIdleArgs and RouteSpecTcpRouteTimeoutIdleOutput values.
@@ -10541,10 +9872,8 @@ type RouteSpecTcpRouteTimeoutIdleInput interface {
 }
 
 type RouteSpecTcpRouteTimeoutIdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (RouteSpecTcpRouteTimeoutIdleArgs) ElementType() reflect.Type {
@@ -10624,12 +9953,10 @@ func (o RouteSpecTcpRouteTimeoutIdleOutput) ToRouteSpecTcpRouteTimeoutIdlePtrOut
 	}).(RouteSpecTcpRouteTimeoutIdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecTcpRouteTimeoutIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteTimeoutIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecTcpRouteTimeoutIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteTimeoutIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -10658,7 +9985,6 @@ func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Elem() RouteSpecTcpRouteTimeoutId
 	}).(RouteSpecTcpRouteTimeoutIdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRouteTimeoutIdle) *string {
 		if v == nil {
@@ -10668,7 +9994,6 @@ func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteSpecTcpRouteTimeoutIdle) *int {
 		if v == nil {
@@ -10679,12 +10004,9 @@ func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Value() pulumi.IntPtrOutput {
 }
 
 type VirtualGatewaySpec struct {
-	// Defaults for backends.
 	BackendDefaults *VirtualGatewaySpecBackendDefaults `pulumi:"backendDefaults"`
-	// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-	Listener VirtualGatewaySpecListener `pulumi:"listener"`
-	// Inbound and outbound access logging information for the virtual gateway.
-	Logging *VirtualGatewaySpecLogging `pulumi:"logging"`
+	Listener        VirtualGatewaySpecListener         `pulumi:"listener"`
+	Logging         *VirtualGatewaySpecLogging         `pulumi:"logging"`
 }
 
 // VirtualGatewaySpecInput is an input type that accepts VirtualGatewaySpecArgs and VirtualGatewaySpecOutput values.
@@ -10699,12 +10021,9 @@ type VirtualGatewaySpecInput interface {
 }
 
 type VirtualGatewaySpecArgs struct {
-	// Defaults for backends.
 	BackendDefaults VirtualGatewaySpecBackendDefaultsPtrInput `pulumi:"backendDefaults"`
-	// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-	Listener VirtualGatewaySpecListenerInput `pulumi:"listener"`
-	// Inbound and outbound access logging information for the virtual gateway.
-	Logging VirtualGatewaySpecLoggingPtrInput `pulumi:"logging"`
+	Listener        VirtualGatewaySpecListenerInput           `pulumi:"listener"`
+	Logging         VirtualGatewaySpecLoggingPtrInput         `pulumi:"logging"`
 }
 
 func (VirtualGatewaySpecArgs) ElementType() reflect.Type {
@@ -10784,17 +10103,14 @@ func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecPtrOutputWithContext(ctx c
 	}).(VirtualGatewaySpecPtrOutput)
 }
 
-// Defaults for backends.
 func (o VirtualGatewaySpecOutput) BackendDefaults() VirtualGatewaySpecBackendDefaultsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpec) *VirtualGatewaySpecBackendDefaults { return v.BackendDefaults }).(VirtualGatewaySpecBackendDefaultsPtrOutput)
 }
 
-// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
 func (o VirtualGatewaySpecOutput) Listener() VirtualGatewaySpecListenerOutput {
 	return o.ApplyT(func(v VirtualGatewaySpec) VirtualGatewaySpecListener { return v.Listener }).(VirtualGatewaySpecListenerOutput)
 }
 
-// Inbound and outbound access logging information for the virtual gateway.
 func (o VirtualGatewaySpecOutput) Logging() VirtualGatewaySpecLoggingPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpec) *VirtualGatewaySpecLogging { return v.Logging }).(VirtualGatewaySpecLoggingPtrOutput)
 }
@@ -10823,7 +10139,6 @@ func (o VirtualGatewaySpecPtrOutput) Elem() VirtualGatewaySpecOutput {
 	}).(VirtualGatewaySpecOutput)
 }
 
-// Defaults for backends.
 func (o VirtualGatewaySpecPtrOutput) BackendDefaults() VirtualGatewaySpecBackendDefaultsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpec) *VirtualGatewaySpecBackendDefaults {
 		if v == nil {
@@ -10833,7 +10148,6 @@ func (o VirtualGatewaySpecPtrOutput) BackendDefaults() VirtualGatewaySpecBackend
 	}).(VirtualGatewaySpecBackendDefaultsPtrOutput)
 }
 
-// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
 func (o VirtualGatewaySpecPtrOutput) Listener() VirtualGatewaySpecListenerPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpec) *VirtualGatewaySpecListener {
 		if v == nil {
@@ -10843,7 +10157,6 @@ func (o VirtualGatewaySpecPtrOutput) Listener() VirtualGatewaySpecListenerPtrOut
 	}).(VirtualGatewaySpecListenerPtrOutput)
 }
 
-// Inbound and outbound access logging information for the virtual gateway.
 func (o VirtualGatewaySpecPtrOutput) Logging() VirtualGatewaySpecLoggingPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpec) *VirtualGatewaySpecLogging {
 		if v == nil {
@@ -10854,7 +10167,6 @@ func (o VirtualGatewaySpecPtrOutput) Logging() VirtualGatewaySpecLoggingPtrOutpu
 }
 
 type VirtualGatewaySpecBackendDefaults struct {
-	// Default client policy for virtual gateway backends.
 	ClientPolicy *VirtualGatewaySpecBackendDefaultsClientPolicy `pulumi:"clientPolicy"`
 }
 
@@ -10870,7 +10182,6 @@ type VirtualGatewaySpecBackendDefaultsInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsArgs struct {
-	// Default client policy for virtual gateway backends.
 	ClientPolicy VirtualGatewaySpecBackendDefaultsClientPolicyPtrInput `pulumi:"clientPolicy"`
 }
 
@@ -10951,7 +10262,6 @@ func (o VirtualGatewaySpecBackendDefaultsOutput) ToVirtualGatewaySpecBackendDefa
 	}).(VirtualGatewaySpecBackendDefaultsPtrOutput)
 }
 
-// Default client policy for virtual gateway backends.
 func (o VirtualGatewaySpecBackendDefaultsOutput) ClientPolicy() VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaults) *VirtualGatewaySpecBackendDefaultsClientPolicy {
 		return v.ClientPolicy
@@ -10982,7 +10292,6 @@ func (o VirtualGatewaySpecBackendDefaultsPtrOutput) Elem() VirtualGatewaySpecBac
 	}).(VirtualGatewaySpecBackendDefaultsOutput)
 }
 
-// Default client policy for virtual gateway backends.
 func (o VirtualGatewaySpecBackendDefaultsPtrOutput) ClientPolicy() VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaults) *VirtualGatewaySpecBackendDefaultsClientPolicy {
 		if v == nil {
@@ -10993,7 +10302,6 @@ func (o VirtualGatewaySpecBackendDefaultsPtrOutput) ClientPolicy() VirtualGatewa
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicy struct {
-	// Transport Layer Security (TLS) client policy.
 	Tls *VirtualGatewaySpecBackendDefaultsClientPolicyTls `pulumi:"tls"`
 }
 
@@ -11009,7 +10317,6 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyArgs struct {
-	// Transport Layer Security (TLS) client policy.
 	Tls VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
@@ -11090,7 +10397,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyOutput) ToVirtualGatewaySpe
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput)
 }
 
-// Transport Layer Security (TLS) client policy.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyOutput) Tls() VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicy) *VirtualGatewaySpecBackendDefaultsClientPolicyTls {
 		return v.Tls
@@ -11121,7 +10427,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) Elem() VirtualGa
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyOutput)
 }
 
-// Transport Layer Security (TLS) client policy.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicy) *VirtualGatewaySpecBackendDefaultsClientPolicyTls {
 		if v == nil {
@@ -11132,14 +10437,10 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualGat
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTls struct {
-	// Listener's TLS certificate.
 	Certificate *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate `pulumi:"certificate"`
-	// Whether the policy is enforced. Default is `true`.
-	Enforce *bool `pulumi:"enforce"`
-	// One or more ports that the policy is enforced for.
-	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation `pulumi:"validation"`
+	Enforce     *bool                                                        `pulumi:"enforce"`
+	Ports       []int                                                        `pulumi:"ports"`
+	Validation  VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation   `pulumi:"validation"`
 }
 
 // VirtualGatewaySpecBackendDefaultsClientPolicyTlsInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput values.
@@ -11154,14 +10455,10 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs struct {
-	// Listener's TLS certificate.
 	Certificate VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrInput `pulumi:"certificate"`
-	// Whether the policy is enforced. Default is `true`.
-	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
-	// One or more ports that the policy is enforced for.
-	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput `pulumi:"validation"`
+	Enforce     pulumi.BoolPtrInput                                                 `pulumi:"enforce"`
+	Ports       pulumi.IntArrayInput                                                `pulumi:"ports"`
+	Validation  VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput     `pulumi:"validation"`
 }
 
 func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs) ElementType() reflect.Type {
@@ -11241,24 +10538,20 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) ToVirtualGateway
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Certificate() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
 		return v.Certificate
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
 
-// Whether the policy is enforced. Default is `true`.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
 
-// One or more ports that the policy is enforced for.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) Validation() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 		return v.Validation
@@ -11289,7 +10582,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() Virtua
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Certificate() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
 		if v == nil {
@@ -11299,7 +10591,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Certificate()
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
 
-// Whether the policy is enforced. Default is `true`.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) *bool {
 		if v == nil {
@@ -11309,7 +10600,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// One or more ports that the policy is enforced for.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) []int {
 		if v == nil {
@@ -11319,7 +10609,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulum
 	}).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 		if v == nil {
@@ -11330,10 +10619,8 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() 
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate struct {
-	// Local file certificate.
 	File *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds `pulumi:"sds"`
+	Sds  *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds  `pulumi:"sds"`
 }
 
 // VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput values.
@@ -11348,10 +10635,8 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateInput interface 
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs struct {
-	// Local file certificate.
 	File VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs) ElementType() reflect.Type {
@@ -11431,14 +10716,12 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVir
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
 
-// Local file certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
 		return v.File
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
 		return v.Sds
@@ -11469,7 +10752,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) El
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput)
 }
 
-// Local file certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
 		if v == nil {
@@ -11479,7 +10761,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Fi
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
 		if v == nil {
@@ -11490,10 +10771,8 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Sd
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey string `pulumi:"privateKey"`
+	PrivateKey       string `pulumi:"privateKey"`
 }
 
 // VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput values.
@@ -11508,10 +10787,8 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileInput interf
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ElementType() reflect.Type {
@@ -11591,14 +10868,12 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) T
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) string {
 		return v.CertificateChain
 	}).(pulumi.StringOutput)
 }
 
-// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -11627,7 +10902,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
 		if v == nil {
@@ -11637,7 +10911,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
 		if v == nil {
@@ -11648,7 +10921,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -11664,7 +10936,6 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsInput interfa
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -11745,7 +11016,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) To
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -11774,7 +11044,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) *string {
 		if v == nil {
@@ -11785,10 +11054,8 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 	SubjectAlternativeNames *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust `pulumi:"trust"`
+	Trust                   VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust                    `pulumi:"trust"`
 }
 
 // VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput values.
@@ -11803,10 +11070,8 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationInput interface {
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 	SubjectAlternativeNames VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput `pulumi:"trust"`
+	Trust                   VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput                      `pulumi:"trust"`
 }
 
 func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs) ElementType() reflect.Type {
@@ -11886,14 +11151,12 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirt
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) SubjectAlternativeNames() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) Trust() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
 		return v.Trust
@@ -11924,7 +11187,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Ele
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) SubjectAlternativeNames() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		if v == nil {
@@ -11934,7 +11196,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Sub
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
 		if v == nil {
@@ -11945,7 +11206,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Tru
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
 }
 
@@ -11961,7 +11221,6 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
 }
 
@@ -12042,7 +11301,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) Match() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		return v.Match
@@ -12073,7 +11331,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		if v == nil {
@@ -12084,7 +11341,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch struct {
-	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -12100,7 +11356,6 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs struct {
-	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -12181,7 +11436,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
 		return v.Exacts
@@ -12212,7 +11466,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
 		if v == nil {
@@ -12223,12 +11476,9 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust struct {
-	// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-	Acm *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
-	// TLS validation context trust for a local file certificate.
+	Acm  *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm  `pulumi:"acm"`
 	File *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds `pulumi:"sds"`
+	Sds  *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds  `pulumi:"sds"`
 }
 
 // VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput is an input type that accepts VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs and VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput values.
@@ -12243,12 +11493,9 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustInput interf
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs struct {
-	// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-	Acm VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
-	// TLS validation context trust for a local file certificate.
+	Acm  VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput  `pulumi:"acm"`
 	File VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -12328,21 +11575,18 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) T
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
 }
 
-// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Acm() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		return v.Acm
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		return v.File
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
 		return v.Sds
@@ -12373,7 +11617,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
 }
 
-// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Acm() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		if v == nil {
@@ -12383,7 +11626,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) File() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		if v == nil {
@@ -12393,7 +11635,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Sds() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
 		if v == nil {
@@ -12404,7 +11645,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm struct {
-	// One or more ACM ARNs.
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
@@ -12420,7 +11660,6 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmInput int
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs struct {
-	// One or more ACM ARNs.
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
@@ -12501,7 +11740,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// One or more ACM ARNs.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm) []string {
 		return v.CertificateAuthorityArns
@@ -12532,7 +11770,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOut
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput)
 }
 
-// One or more ACM ARNs.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm) []string {
 		if v == nil {
@@ -12543,7 +11780,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOut
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -12559,7 +11795,6 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileInput in
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -12640,7 +11875,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutpu
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -12671,7 +11905,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOu
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
@@ -12682,7 +11915,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOu
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -12698,7 +11930,6 @@ type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput int
 }
 
 type VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -12779,7 +12010,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -12808,7 +12038,6 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOut
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) *string {
 		if v == nil {
@@ -12819,14 +12048,10 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOut
 }
 
 type VirtualGatewaySpecListener struct {
-	// Connection pool information for the listener.
 	ConnectionPool *VirtualGatewaySpecListenerConnectionPool `pulumi:"connectionPool"`
-	// Health check information for the listener.
-	HealthCheck *VirtualGatewaySpecListenerHealthCheck `pulumi:"healthCheck"`
-	// Port mapping information for the listener.
-	PortMapping VirtualGatewaySpecListenerPortMapping `pulumi:"portMapping"`
-	// Transport Layer Security (TLS) properties for the listener
-	Tls *VirtualGatewaySpecListenerTls `pulumi:"tls"`
+	HealthCheck    *VirtualGatewaySpecListenerHealthCheck    `pulumi:"healthCheck"`
+	PortMapping    VirtualGatewaySpecListenerPortMapping     `pulumi:"portMapping"`
+	Tls            *VirtualGatewaySpecListenerTls            `pulumi:"tls"`
 }
 
 // VirtualGatewaySpecListenerInput is an input type that accepts VirtualGatewaySpecListenerArgs and VirtualGatewaySpecListenerOutput values.
@@ -12841,14 +12066,10 @@ type VirtualGatewaySpecListenerInput interface {
 }
 
 type VirtualGatewaySpecListenerArgs struct {
-	// Connection pool information for the listener.
 	ConnectionPool VirtualGatewaySpecListenerConnectionPoolPtrInput `pulumi:"connectionPool"`
-	// Health check information for the listener.
-	HealthCheck VirtualGatewaySpecListenerHealthCheckPtrInput `pulumi:"healthCheck"`
-	// Port mapping information for the listener.
-	PortMapping VirtualGatewaySpecListenerPortMappingInput `pulumi:"portMapping"`
-	// Transport Layer Security (TLS) properties for the listener
-	Tls VirtualGatewaySpecListenerTlsPtrInput `pulumi:"tls"`
+	HealthCheck    VirtualGatewaySpecListenerHealthCheckPtrInput    `pulumi:"healthCheck"`
+	PortMapping    VirtualGatewaySpecListenerPortMappingInput       `pulumi:"portMapping"`
+	Tls            VirtualGatewaySpecListenerTlsPtrInput            `pulumi:"tls"`
 }
 
 func (VirtualGatewaySpecListenerArgs) ElementType() reflect.Type {
@@ -12928,22 +12149,18 @@ func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerPtrOutputW
 	}).(VirtualGatewaySpecListenerPtrOutput)
 }
 
-// Connection pool information for the listener.
 func (o VirtualGatewaySpecListenerOutput) ConnectionPool() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListenerConnectionPool { return v.ConnectionPool }).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
 }
 
-// Health check information for the listener.
 func (o VirtualGatewaySpecListenerOutput) HealthCheck() VirtualGatewaySpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListenerHealthCheck { return v.HealthCheck }).(VirtualGatewaySpecListenerHealthCheckPtrOutput)
 }
 
-// Port mapping information for the listener.
 func (o VirtualGatewaySpecListenerOutput) PortMapping() VirtualGatewaySpecListenerPortMappingOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListener) VirtualGatewaySpecListenerPortMapping { return v.PortMapping }).(VirtualGatewaySpecListenerPortMappingOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener
 func (o VirtualGatewaySpecListenerOutput) Tls() VirtualGatewaySpecListenerTlsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListenerTls { return v.Tls }).(VirtualGatewaySpecListenerTlsPtrOutput)
 }
@@ -12972,7 +12189,6 @@ func (o VirtualGatewaySpecListenerPtrOutput) Elem() VirtualGatewaySpecListenerOu
 	}).(VirtualGatewaySpecListenerOutput)
 }
 
-// Connection pool information for the listener.
 func (o VirtualGatewaySpecListenerPtrOutput) ConnectionPool() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerConnectionPool {
 		if v == nil {
@@ -12982,7 +12198,6 @@ func (o VirtualGatewaySpecListenerPtrOutput) ConnectionPool() VirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
 }
 
-// Health check information for the listener.
 func (o VirtualGatewaySpecListenerPtrOutput) HealthCheck() VirtualGatewaySpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerHealthCheck {
 		if v == nil {
@@ -12992,7 +12207,6 @@ func (o VirtualGatewaySpecListenerPtrOutput) HealthCheck() VirtualGatewaySpecLis
 	}).(VirtualGatewaySpecListenerHealthCheckPtrOutput)
 }
 
-// Port mapping information for the listener.
 func (o VirtualGatewaySpecListenerPtrOutput) PortMapping() VirtualGatewaySpecListenerPortMappingPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerPortMapping {
 		if v == nil {
@@ -13002,7 +12216,6 @@ func (o VirtualGatewaySpecListenerPtrOutput) PortMapping() VirtualGatewaySpecLis
 	}).(VirtualGatewaySpecListenerPortMappingPtrOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener
 func (o VirtualGatewaySpecListenerPtrOutput) Tls() VirtualGatewaySpecListenerTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerTls {
 		if v == nil {
@@ -13013,11 +12226,8 @@ func (o VirtualGatewaySpecListenerPtrOutput) Tls() VirtualGatewaySpecListenerTls
 }
 
 type VirtualGatewaySpecListenerConnectionPool struct {
-	// Connection pool information for gRPC listeners.
-	Grpc *VirtualGatewaySpecListenerConnectionPoolGrpc `pulumi:"grpc"`
-	// Connection pool information for HTTP listeners.
-	Http *VirtualGatewaySpecListenerConnectionPoolHttp `pulumi:"http"`
-	// Connection pool information for HTTP2 listeners.
+	Grpc  *VirtualGatewaySpecListenerConnectionPoolGrpc  `pulumi:"grpc"`
+	Http  *VirtualGatewaySpecListenerConnectionPoolHttp  `pulumi:"http"`
 	Http2 *VirtualGatewaySpecListenerConnectionPoolHttp2 `pulumi:"http2"`
 }
 
@@ -13033,11 +12243,8 @@ type VirtualGatewaySpecListenerConnectionPoolInput interface {
 }
 
 type VirtualGatewaySpecListenerConnectionPoolArgs struct {
-	// Connection pool information for gRPC listeners.
-	Grpc VirtualGatewaySpecListenerConnectionPoolGrpcPtrInput `pulumi:"grpc"`
-	// Connection pool information for HTTP listeners.
-	Http VirtualGatewaySpecListenerConnectionPoolHttpPtrInput `pulumi:"http"`
-	// Connection pool information for HTTP2 listeners.
+	Grpc  VirtualGatewaySpecListenerConnectionPoolGrpcPtrInput  `pulumi:"grpc"`
+	Http  VirtualGatewaySpecListenerConnectionPoolHttpPtrInput  `pulumi:"http"`
 	Http2 VirtualGatewaySpecListenerConnectionPoolHttp2PtrInput `pulumi:"http2"`
 }
 
@@ -13118,21 +12325,18 @@ func (o VirtualGatewaySpecListenerConnectionPoolOutput) ToVirtualGatewaySpecList
 	}).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
 }
 
-// Connection pool information for gRPC listeners.
 func (o VirtualGatewaySpecListenerConnectionPoolOutput) Grpc() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolGrpc {
 		return v.Grpc
 	}).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Connection pool information for HTTP listeners.
 func (o VirtualGatewaySpecListenerConnectionPoolOutput) Http() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp {
 		return v.Http
 	}).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
 }
 
-// Connection pool information for HTTP2 listeners.
 func (o VirtualGatewaySpecListenerConnectionPoolOutput) Http2() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp2 {
 		return v.Http2
@@ -13163,7 +12367,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Elem() VirtualGateway
 	}).(VirtualGatewaySpecListenerConnectionPoolOutput)
 }
 
-// Connection pool information for gRPC listeners.
 func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Grpc() VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolGrpc {
 		if v == nil {
@@ -13173,7 +12376,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Grpc() VirtualGateway
 	}).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Connection pool information for HTTP listeners.
 func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Http() VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp {
 		if v == nil {
@@ -13183,7 +12385,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Http() VirtualGateway
 	}).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
 }
 
-// Connection pool information for HTTP2 listeners.
 func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Http2() VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPoolHttp2 {
 		if v == nil {
@@ -13194,7 +12395,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Http2() VirtualGatewa
 }
 
 type VirtualGatewaySpecListenerConnectionPoolGrpc struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests int `pulumi:"maxRequests"`
 }
 
@@ -13210,7 +12410,6 @@ type VirtualGatewaySpecListenerConnectionPoolGrpcInput interface {
 }
 
 type VirtualGatewaySpecListenerConnectionPoolGrpcArgs struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
 }
 
@@ -13291,7 +12490,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToVirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -13320,7 +12518,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) Elem() VirtualGat
 	}).(VirtualGatewaySpecListenerConnectionPoolGrpcOutput)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) MaxRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolGrpc) *int {
 		if v == nil {
@@ -13331,7 +12528,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) MaxRequests() pul
 }
 
 type VirtualGatewaySpecListenerConnectionPoolHttp2 struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests int `pulumi:"maxRequests"`
 }
 
@@ -13347,7 +12543,6 @@ type VirtualGatewaySpecListenerConnectionPoolHttp2Input interface {
 }
 
 type VirtualGatewaySpecListenerConnectionPoolHttp2Args struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
 }
 
@@ -13428,7 +12623,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) ToVirtualGatewaySpe
 	}).(VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -13457,7 +12651,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) Elem() VirtualGa
 	}).(VirtualGatewaySpecListenerConnectionPoolHttp2Output)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) MaxRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp2) *int {
 		if v == nil {
@@ -13468,9 +12661,7 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) MaxRequests() pu
 }
 
 type VirtualGatewaySpecListenerConnectionPoolHttp struct {
-	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-	MaxConnections int `pulumi:"maxConnections"`
-	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxConnections     int  `pulumi:"maxConnections"`
 	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
@@ -13486,9 +12677,7 @@ type VirtualGatewaySpecListenerConnectionPoolHttpInput interface {
 }
 
 type VirtualGatewaySpecListenerConnectionPoolHttpArgs struct {
-	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
-	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxConnections     pulumi.IntInput    `pulumi:"maxConnections"`
 	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
@@ -13569,12 +12758,10 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) ToVirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
 }
 
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
 
-// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
@@ -13603,7 +12790,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) Elem() VirtualGat
 	}).(VirtualGatewaySpecListenerConnectionPoolHttpOutput)
 }
 
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) *int {
 		if v == nil {
@@ -13613,7 +12799,6 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxConnections() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
 func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) *int {
 		if v == nil {
@@ -13624,20 +12809,13 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequest
 }
 
 type VirtualGatewaySpecListenerHealthCheck struct {
-	// Number of consecutive successful health checks that must occur before declaring listener healthy.
-	HealthyThreshold int `pulumi:"healthyThreshold"`
-	// Time period in milliseconds between each health check execution.
-	IntervalMillis int `pulumi:"intervalMillis"`
-	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-	Path *string `pulumi:"path"`
-	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
-	Port *int `pulumi:"port"`
-	// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
-	Protocol string `pulumi:"protocol"`
-	// Amount of time to wait when receiving a response from the health check, in milliseconds.
-	TimeoutMillis int `pulumi:"timeoutMillis"`
-	// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
-	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   int     `pulumi:"healthyThreshold"`
+	IntervalMillis     int     `pulumi:"intervalMillis"`
+	Path               *string `pulumi:"path"`
+	Port               *int    `pulumi:"port"`
+	Protocol           string  `pulumi:"protocol"`
+	TimeoutMillis      int     `pulumi:"timeoutMillis"`
+	UnhealthyThreshold int     `pulumi:"unhealthyThreshold"`
 }
 
 // VirtualGatewaySpecListenerHealthCheckInput is an input type that accepts VirtualGatewaySpecListenerHealthCheckArgs and VirtualGatewaySpecListenerHealthCheckOutput values.
@@ -13652,20 +12830,13 @@ type VirtualGatewaySpecListenerHealthCheckInput interface {
 }
 
 type VirtualGatewaySpecListenerHealthCheckArgs struct {
-	// Number of consecutive successful health checks that must occur before declaring listener healthy.
-	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
-	// Time period in milliseconds between each health check execution.
-	IntervalMillis pulumi.IntInput `pulumi:"intervalMillis"`
-	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Amount of time to wait when receiving a response from the health check, in milliseconds.
-	TimeoutMillis pulumi.IntInput `pulumi:"timeoutMillis"`
-	// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
-	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   pulumi.IntInput       `pulumi:"healthyThreshold"`
+	IntervalMillis     pulumi.IntInput       `pulumi:"intervalMillis"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Port               pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol           pulumi.StringInput    `pulumi:"protocol"`
+	TimeoutMillis      pulumi.IntInput       `pulumi:"timeoutMillis"`
+	UnhealthyThreshold pulumi.IntInput       `pulumi:"unhealthyThreshold"`
 }
 
 func (VirtualGatewaySpecListenerHealthCheckArgs) ElementType() reflect.Type {
@@ -13745,37 +12916,30 @@ func (o VirtualGatewaySpecListenerHealthCheckOutput) ToVirtualGatewaySpecListene
 	}).(VirtualGatewaySpecListenerHealthCheckPtrOutput)
 }
 
-// Number of consecutive successful health checks that must occur before declaring listener healthy.
 func (o VirtualGatewaySpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
 }
 
-// Time period in milliseconds between each health check execution.
 func (o VirtualGatewaySpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
 }
 
-// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 func (o VirtualGatewaySpecListenerHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 func (o VirtualGatewaySpecListenerHealthCheckOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
 func (o VirtualGatewaySpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Amount of time to wait when receiving a response from the health check, in milliseconds.
 func (o VirtualGatewaySpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
 }
 
-// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
 func (o VirtualGatewaySpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
@@ -13804,7 +12968,6 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Elem() VirtualGatewaySpe
 	}).(VirtualGatewaySpecListenerHealthCheckOutput)
 }
 
-// Number of consecutive successful health checks that must occur before declaring listener healthy.
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) *int {
 		if v == nil {
@@ -13814,7 +12977,6 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) HealthyThreshold() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time period in milliseconds between each health check execution.
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) IntervalMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) *int {
 		if v == nil {
@@ -13824,7 +12986,6 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) IntervalMillis() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) *string {
 		if v == nil {
@@ -13834,7 +12995,6 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Path() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) *int {
 		if v == nil {
@@ -13844,7 +13004,6 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Port() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) *string {
 		if v == nil {
@@ -13854,7 +13013,6 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Protocol() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of time to wait when receiving a response from the health check, in milliseconds.
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) TimeoutMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) *int {
 		if v == nil {
@@ -13864,7 +13022,6 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) TimeoutMillis() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) *int {
 		if v == nil {
@@ -13875,9 +13032,7 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pul
 }
 
 type VirtualGatewaySpecListenerPortMapping struct {
-	// Port used for the port mapping.
-	Port int `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+	Port     int    `pulumi:"port"`
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -13893,9 +13048,7 @@ type VirtualGatewaySpecListenerPortMappingInput interface {
 }
 
 type VirtualGatewaySpecListenerPortMappingArgs struct {
-	// Port used for the port mapping.
-	Port pulumi.IntInput `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+	Port     pulumi.IntInput    `pulumi:"port"`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -13976,12 +13129,10 @@ func (o VirtualGatewaySpecListenerPortMappingOutput) ToVirtualGatewaySpecListene
 	}).(VirtualGatewaySpecListenerPortMappingPtrOutput)
 }
 
-// Port used for the port mapping.
 func (o VirtualGatewaySpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualGatewaySpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -14010,7 +13161,6 @@ func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Elem() VirtualGatewaySpe
 	}).(VirtualGatewaySpecListenerPortMappingOutput)
 }
 
-// Port used for the port mapping.
 func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerPortMapping) *int {
 		if v == nil {
@@ -14020,7 +13170,6 @@ func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerPortMapping) *string {
 		if v == nil {
@@ -14031,12 +13180,9 @@ func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Protocol() pulumi.String
 }
 
 type VirtualGatewaySpecListenerTls struct {
-	// Listener's TLS certificate.
 	Certificate VirtualGatewaySpecListenerTlsCertificate `pulumi:"certificate"`
-	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-	Mode string `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation *VirtualGatewaySpecListenerTlsValidation `pulumi:"validation"`
+	Mode        string                                   `pulumi:"mode"`
+	Validation  *VirtualGatewaySpecListenerTlsValidation `pulumi:"validation"`
 }
 
 // VirtualGatewaySpecListenerTlsInput is an input type that accepts VirtualGatewaySpecListenerTlsArgs and VirtualGatewaySpecListenerTlsOutput values.
@@ -14051,12 +13197,9 @@ type VirtualGatewaySpecListenerTlsInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsArgs struct {
-	// Listener's TLS certificate.
-	Certificate VirtualGatewaySpecListenerTlsCertificateInput `pulumi:"certificate"`
-	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-	Mode pulumi.StringInput `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualGatewaySpecListenerTlsValidationPtrInput `pulumi:"validation"`
+	Certificate VirtualGatewaySpecListenerTlsCertificateInput   `pulumi:"certificate"`
+	Mode        pulumi.StringInput                              `pulumi:"mode"`
+	Validation  VirtualGatewaySpecListenerTlsValidationPtrInput `pulumi:"validation"`
 }
 
 func (VirtualGatewaySpecListenerTlsArgs) ElementType() reflect.Type {
@@ -14136,17 +13279,14 @@ func (o VirtualGatewaySpecListenerTlsOutput) ToVirtualGatewaySpecListenerTlsPtrO
 	}).(VirtualGatewaySpecListenerTlsPtrOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualGatewaySpecListenerTlsOutput) Certificate() VirtualGatewaySpecListenerTlsCertificateOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) VirtualGatewaySpecListenerTlsCertificate { return v.Certificate }).(VirtualGatewaySpecListenerTlsCertificateOutput)
 }
 
-// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 func (o VirtualGatewaySpecListenerTlsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecListenerTlsOutput) Validation() VirtualGatewaySpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTlsValidation { return v.Validation }).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
 }
@@ -14175,7 +13315,6 @@ func (o VirtualGatewaySpecListenerTlsPtrOutput) Elem() VirtualGatewaySpecListene
 	}).(VirtualGatewaySpecListenerTlsOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualGatewaySpecListenerTlsPtrOutput) Certificate() VirtualGatewaySpecListenerTlsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTlsCertificate {
 		if v == nil {
@@ -14185,7 +13324,6 @@ func (o VirtualGatewaySpecListenerTlsPtrOutput) Certificate() VirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerTlsCertificatePtrOutput)
 }
 
-// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 func (o VirtualGatewaySpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTls) *string {
 		if v == nil {
@@ -14195,7 +13333,6 @@ func (o VirtualGatewaySpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecListenerTlsPtrOutput) Validation() VirtualGatewaySpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTlsValidation {
 		if v == nil {
@@ -14206,12 +13343,9 @@ func (o VirtualGatewaySpecListenerTlsPtrOutput) Validation() VirtualGatewaySpecL
 }
 
 type VirtualGatewaySpecListenerTlsCertificate struct {
-	// An AWS Certificate Manager (ACM) certificate.
-	Acm *VirtualGatewaySpecListenerTlsCertificateAcm `pulumi:"acm"`
-	// Local file certificate.
+	Acm  *VirtualGatewaySpecListenerTlsCertificateAcm  `pulumi:"acm"`
 	File *VirtualGatewaySpecListenerTlsCertificateFile `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualGatewaySpecListenerTlsCertificateSds `pulumi:"sds"`
+	Sds  *VirtualGatewaySpecListenerTlsCertificateSds  `pulumi:"sds"`
 }
 
 // VirtualGatewaySpecListenerTlsCertificateInput is an input type that accepts VirtualGatewaySpecListenerTlsCertificateArgs and VirtualGatewaySpecListenerTlsCertificateOutput values.
@@ -14226,12 +13360,9 @@ type VirtualGatewaySpecListenerTlsCertificateInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsCertificateArgs struct {
-	// An AWS Certificate Manager (ACM) certificate.
-	Acm VirtualGatewaySpecListenerTlsCertificateAcmPtrInput `pulumi:"acm"`
-	// Local file certificate.
+	Acm  VirtualGatewaySpecListenerTlsCertificateAcmPtrInput  `pulumi:"acm"`
 	File VirtualGatewaySpecListenerTlsCertificateFilePtrInput `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualGatewaySpecListenerTlsCertificateSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualGatewaySpecListenerTlsCertificateSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewaySpecListenerTlsCertificateArgs) ElementType() reflect.Type {
@@ -14311,21 +13442,18 @@ func (o VirtualGatewaySpecListenerTlsCertificateOutput) ToVirtualGatewaySpecList
 	}).(VirtualGatewaySpecListenerTlsCertificatePtrOutput)
 }
 
-// An AWS Certificate Manager (ACM) certificate.
 func (o VirtualGatewaySpecListenerTlsCertificateOutput) Acm() VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateAcm {
 		return v.Acm
 	}).(VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput)
 }
 
-// Local file certificate.
 func (o VirtualGatewaySpecListenerTlsCertificateOutput) File() VirtualGatewaySpecListenerTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateFile {
 		return v.File
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecListenerTlsCertificateOutput) Sds() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateSds {
 		return v.Sds
@@ -14356,7 +13484,6 @@ func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) Elem() VirtualGateway
 	}).(VirtualGatewaySpecListenerTlsCertificateOutput)
 }
 
-// An AWS Certificate Manager (ACM) certificate.
 func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) Acm() VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateAcm {
 		if v == nil {
@@ -14366,7 +13493,6 @@ func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) Acm() VirtualGatewayS
 	}).(VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput)
 }
 
-// Local file certificate.
 func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) File() VirtualGatewaySpecListenerTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateFile {
 		if v == nil {
@@ -14376,7 +13502,6 @@ func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) File() VirtualGateway
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) Sds() VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificateSds {
 		if v == nil {
@@ -14387,7 +13512,6 @@ func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) Sds() VirtualGatewayS
 }
 
 type VirtualGatewaySpecListenerTlsCertificateAcm struct {
-	// ARN for the certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 }
 
@@ -14403,7 +13527,6 @@ type VirtualGatewaySpecListenerTlsCertificateAcmInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsCertificateAcmArgs struct {
-	// ARN for the certificate.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 }
 
@@ -14484,7 +13607,6 @@ func (o VirtualGatewaySpecListenerTlsCertificateAcmOutput) ToVirtualGatewaySpecL
 	}).(VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput)
 }
 
-// ARN for the certificate.
 func (o VirtualGatewaySpecListenerTlsCertificateAcmOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateAcm) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -14513,7 +13635,6 @@ func (o VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput) Elem() VirtualGate
 	}).(VirtualGatewaySpecListenerTlsCertificateAcmOutput)
 }
 
-// ARN for the certificate.
 func (o VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateAcm) *string {
 		if v == nil {
@@ -14524,10 +13645,8 @@ func (o VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput) CertificateArn() p
 }
 
 type VirtualGatewaySpecListenerTlsCertificateFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey string `pulumi:"privateKey"`
+	PrivateKey       string `pulumi:"privateKey"`
 }
 
 // VirtualGatewaySpecListenerTlsCertificateFileInput is an input type that accepts VirtualGatewaySpecListenerTlsCertificateFileArgs and VirtualGatewaySpecListenerTlsCertificateFileOutput values.
@@ -14542,10 +13661,8 @@ type VirtualGatewaySpecListenerTlsCertificateFileInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsCertificateFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (VirtualGatewaySpecListenerTlsCertificateFileArgs) ElementType() reflect.Type {
@@ -14625,12 +13742,10 @@ func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) ToVirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -14659,7 +13774,6 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) Elem() VirtualGat
 	}).(VirtualGatewaySpecListenerTlsCertificateFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -14669,7 +13783,6 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) CertificateChain(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -14680,7 +13793,6 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulu
 }
 
 type VirtualGatewaySpecListenerTlsCertificateSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -14696,7 +13808,6 @@ type VirtualGatewaySpecListenerTlsCertificateSdsInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -14777,7 +13888,6 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecL
 	}).(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -14806,7 +13916,6 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualGate
 	}).(VirtualGatewaySpecListenerTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateSds) *string {
 		if v == nil {
@@ -14817,10 +13926,8 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) SecretName() pulum
 }
 
 type VirtualGatewaySpecListenerTlsValidation struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 	SubjectAlternativeNames *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualGatewaySpecListenerTlsValidationTrust `pulumi:"trust"`
+	Trust                   VirtualGatewaySpecListenerTlsValidationTrust                    `pulumi:"trust"`
 }
 
 // VirtualGatewaySpecListenerTlsValidationInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationArgs and VirtualGatewaySpecListenerTlsValidationOutput values.
@@ -14835,10 +13942,8 @@ type VirtualGatewaySpecListenerTlsValidationInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsValidationArgs struct {
-	// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 	SubjectAlternativeNames VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualGatewaySpecListenerTlsValidationTrustInput `pulumi:"trust"`
+	Trust                   VirtualGatewaySpecListenerTlsValidationTrustInput                      `pulumi:"trust"`
 }
 
 func (VirtualGatewaySpecListenerTlsValidationArgs) ElementType() reflect.Type {
@@ -14918,14 +14023,12 @@ func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListe
 	}).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecListenerTlsValidationOutput) SubjectAlternativeNames() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualGatewaySpecListenerTlsValidationOutput) Trust() VirtualGatewaySpecListenerTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidation) VirtualGatewaySpecListenerTlsValidationTrust {
 		return v.Trust
@@ -14956,7 +14059,6 @@ func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) Elem() VirtualGatewayS
 	}).(VirtualGatewaySpecListenerTlsValidationOutput)
 }
 
-// SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
 func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) SubjectAlternativeNames() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
 		if v == nil {
@@ -14966,7 +14068,6 @@ func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) SubjectAlternativeName
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) Trust() VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidationTrust {
 		if v == nil {
@@ -14977,7 +14078,6 @@ func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) Trust() VirtualGateway
 }
 
 type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
 }
 
@@ -14993,7 +14093,6 @@ type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesInput interfa
 }
 
 type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
 }
 
@@ -15074,7 +14173,6 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) To
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) Match() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
 		return v.Match
@@ -15105,7 +14203,6 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
 		if v == nil {
@@ -15116,7 +14213,6 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
 type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch struct {
-	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -15132,7 +14228,6 @@ type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchInput in
 }
 
 type VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs struct {
-	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -15213,7 +14308,6 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutpu
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) []string { return v.Exacts }).(pulumi.StringArrayOutput)
 }
@@ -15242,7 +14336,6 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOu
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) []string {
 		if v == nil {
@@ -15253,10 +14346,8 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOu
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrust struct {
-	// TLS validation context trust for a local file certificate.
 	File *VirtualGatewaySpecListenerTlsValidationTrustFile `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualGatewaySpecListenerTlsValidationTrustSds `pulumi:"sds"`
+	Sds  *VirtualGatewaySpecListenerTlsValidationTrustSds  `pulumi:"sds"`
 }
 
 // VirtualGatewaySpecListenerTlsValidationTrustInput is an input type that accepts VirtualGatewaySpecListenerTlsValidationTrustArgs and VirtualGatewaySpecListenerTlsValidationTrustOutput values.
@@ -15271,10 +14362,8 @@ type VirtualGatewaySpecListenerTlsValidationTrustInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrustArgs struct {
-	// TLS validation context trust for a local file certificate.
 	File VirtualGatewaySpecListenerTlsValidationTrustFilePtrInput `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualGatewaySpecListenerTlsValidationTrustSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualGatewaySpecListenerTlsValidationTrustSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewaySpecListenerTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -15354,14 +14443,12 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) ToVirtualGatewaySpec
 	}).(VirtualGatewaySpecListenerTlsValidationTrustPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) File() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustFile {
 		return v.File
 	}).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) Sds() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustSds {
 		return v.Sds
@@ -15392,7 +14479,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) Elem() VirtualGat
 	}).(VirtualGatewaySpecListenerTlsValidationTrustOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) File() VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustFile {
 		if v == nil {
@@ -15402,7 +14488,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) File() VirtualGat
 	}).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) Sds() VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrustSds {
 		if v == nil {
@@ -15413,7 +14498,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) Sds() VirtualGate
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrustFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -15429,7 +14513,6 @@ type VirtualGatewaySpecListenerTlsValidationTrustFileInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrustFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -15510,7 +14593,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ToVirtualGateway
 	}).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -15539,7 +14621,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) Elem() Virtua
 	}).(VirtualGatewaySpecListenerTlsValidationTrustFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustFile) *string {
 		if v == nil {
@@ -15550,7 +14631,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) CertificateCh
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrustSds struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -15566,7 +14646,6 @@ type VirtualGatewaySpecListenerTlsValidationTrustSdsInput interface {
 }
 
 type VirtualGatewaySpecListenerTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -15647,7 +14726,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewayS
 	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -15676,7 +14754,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) Elem() Virtual
 	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustSds) *string {
 		if v == nil {
@@ -15687,7 +14764,6 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) SecretName() p
 }
 
 type VirtualGatewaySpecLogging struct {
-	// Access log configuration for a virtual gateway.
 	AccessLog *VirtualGatewaySpecLoggingAccessLog `pulumi:"accessLog"`
 }
 
@@ -15703,7 +14779,6 @@ type VirtualGatewaySpecLoggingInput interface {
 }
 
 type VirtualGatewaySpecLoggingArgs struct {
-	// Access log configuration for a virtual gateway.
 	AccessLog VirtualGatewaySpecLoggingAccessLogPtrInput `pulumi:"accessLog"`
 }
 
@@ -15784,7 +14859,6 @@ func (o VirtualGatewaySpecLoggingOutput) ToVirtualGatewaySpecLoggingPtrOutputWit
 	}).(VirtualGatewaySpecLoggingPtrOutput)
 }
 
-// Access log configuration for a virtual gateway.
 func (o VirtualGatewaySpecLoggingOutput) AccessLog() VirtualGatewaySpecLoggingAccessLogPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecLogging) *VirtualGatewaySpecLoggingAccessLog { return v.AccessLog }).(VirtualGatewaySpecLoggingAccessLogPtrOutput)
 }
@@ -15813,7 +14887,6 @@ func (o VirtualGatewaySpecLoggingPtrOutput) Elem() VirtualGatewaySpecLoggingOutp
 	}).(VirtualGatewaySpecLoggingOutput)
 }
 
-// Access log configuration for a virtual gateway.
 func (o VirtualGatewaySpecLoggingPtrOutput) AccessLog() VirtualGatewaySpecLoggingAccessLogPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecLogging) *VirtualGatewaySpecLoggingAccessLog {
 		if v == nil {
@@ -15824,7 +14897,6 @@ func (o VirtualGatewaySpecLoggingPtrOutput) AccessLog() VirtualGatewaySpecLoggin
 }
 
 type VirtualGatewaySpecLoggingAccessLog struct {
-	// File object to send virtual gateway access logs to.
 	File *VirtualGatewaySpecLoggingAccessLogFile `pulumi:"file"`
 }
 
@@ -15840,7 +14912,6 @@ type VirtualGatewaySpecLoggingAccessLogInput interface {
 }
 
 type VirtualGatewaySpecLoggingAccessLogArgs struct {
-	// File object to send virtual gateway access logs to.
 	File VirtualGatewaySpecLoggingAccessLogFilePtrInput `pulumi:"file"`
 }
 
@@ -15921,7 +14992,6 @@ func (o VirtualGatewaySpecLoggingAccessLogOutput) ToVirtualGatewaySpecLoggingAcc
 	}).(VirtualGatewaySpecLoggingAccessLogPtrOutput)
 }
 
-// File object to send virtual gateway access logs to.
 func (o VirtualGatewaySpecLoggingAccessLogOutput) File() VirtualGatewaySpecLoggingAccessLogFilePtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLog) *VirtualGatewaySpecLoggingAccessLogFile { return v.File }).(VirtualGatewaySpecLoggingAccessLogFilePtrOutput)
 }
@@ -15950,7 +15020,6 @@ func (o VirtualGatewaySpecLoggingAccessLogPtrOutput) Elem() VirtualGatewaySpecLo
 	}).(VirtualGatewaySpecLoggingAccessLogOutput)
 }
 
-// File object to send virtual gateway access logs to.
 func (o VirtualGatewaySpecLoggingAccessLogPtrOutput) File() VirtualGatewaySpecLoggingAccessLogFilePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLog) *VirtualGatewaySpecLoggingAccessLogFile {
 		if v == nil {
@@ -15961,7 +15030,6 @@ func (o VirtualGatewaySpecLoggingAccessLogPtrOutput) File() VirtualGatewaySpecLo
 }
 
 type VirtualGatewaySpecLoggingAccessLogFile struct {
-	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path string `pulumi:"path"`
 }
 
@@ -15977,7 +15045,6 @@ type VirtualGatewaySpecLoggingAccessLogFileInput interface {
 }
 
 type VirtualGatewaySpecLoggingAccessLogFileArgs struct {
-	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -16058,7 +15125,6 @@ func (o VirtualGatewaySpecLoggingAccessLogFileOutput) ToVirtualGatewaySpecLoggin
 	}).(VirtualGatewaySpecLoggingAccessLogFilePtrOutput)
 }
 
-// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -16087,7 +15153,6 @@ func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Elem() VirtualGatewaySp
 	}).(VirtualGatewaySpecLoggingAccessLogFileOutput)
 }
 
-// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFile) *string {
 		if v == nil {
@@ -16098,15 +15163,10 @@ func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtr
 }
 
 type VirtualNodeSpec struct {
-	// Defaults for backends.
-	BackendDefaults *VirtualNodeSpecBackendDefaults `pulumi:"backendDefaults"`
-	// Backends to which the virtual node is expected to send outbound traffic.
-	Backends []VirtualNodeSpecBackend `pulumi:"backends"`
-	// Listeners from which the virtual node is expected to receive inbound traffic.
-	Listener *VirtualNodeSpecListener `pulumi:"listener"`
-	// Inbound and outbound access logging information for the virtual node.
-	Logging *VirtualNodeSpecLogging `pulumi:"logging"`
-	// Service discovery information for the virtual node.
+	BackendDefaults  *VirtualNodeSpecBackendDefaults  `pulumi:"backendDefaults"`
+	Backends         []VirtualNodeSpecBackend         `pulumi:"backends"`
+	Listener         *VirtualNodeSpecListener         `pulumi:"listener"`
+	Logging          *VirtualNodeSpecLogging          `pulumi:"logging"`
 	ServiceDiscovery *VirtualNodeSpecServiceDiscovery `pulumi:"serviceDiscovery"`
 }
 
@@ -16122,15 +15182,10 @@ type VirtualNodeSpecInput interface {
 }
 
 type VirtualNodeSpecArgs struct {
-	// Defaults for backends.
-	BackendDefaults VirtualNodeSpecBackendDefaultsPtrInput `pulumi:"backendDefaults"`
-	// Backends to which the virtual node is expected to send outbound traffic.
-	Backends VirtualNodeSpecBackendArrayInput `pulumi:"backends"`
-	// Listeners from which the virtual node is expected to receive inbound traffic.
-	Listener VirtualNodeSpecListenerPtrInput `pulumi:"listener"`
-	// Inbound and outbound access logging information for the virtual node.
-	Logging VirtualNodeSpecLoggingPtrInput `pulumi:"logging"`
-	// Service discovery information for the virtual node.
+	BackendDefaults  VirtualNodeSpecBackendDefaultsPtrInput  `pulumi:"backendDefaults"`
+	Backends         VirtualNodeSpecBackendArrayInput        `pulumi:"backends"`
+	Listener         VirtualNodeSpecListenerPtrInput         `pulumi:"listener"`
+	Logging          VirtualNodeSpecLoggingPtrInput          `pulumi:"logging"`
 	ServiceDiscovery VirtualNodeSpecServiceDiscoveryPtrInput `pulumi:"serviceDiscovery"`
 }
 
@@ -16211,27 +15266,22 @@ func (o VirtualNodeSpecOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx context
 	}).(VirtualNodeSpecPtrOutput)
 }
 
-// Defaults for backends.
 func (o VirtualNodeSpecOutput) BackendDefaults() VirtualNodeSpecBackendDefaultsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecBackendDefaults { return v.BackendDefaults }).(VirtualNodeSpecBackendDefaultsPtrOutput)
 }
 
-// Backends to which the virtual node is expected to send outbound traffic.
 func (o VirtualNodeSpecOutput) Backends() VirtualNodeSpecBackendArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpec) []VirtualNodeSpecBackend { return v.Backends }).(VirtualNodeSpecBackendArrayOutput)
 }
 
-// Listeners from which the virtual node is expected to receive inbound traffic.
 func (o VirtualNodeSpecOutput) Listener() VirtualNodeSpecListenerPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecListener { return v.Listener }).(VirtualNodeSpecListenerPtrOutput)
 }
 
-// Inbound and outbound access logging information for the virtual node.
 func (o VirtualNodeSpecOutput) Logging() VirtualNodeSpecLoggingPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecLogging { return v.Logging }).(VirtualNodeSpecLoggingPtrOutput)
 }
 
-// Service discovery information for the virtual node.
 func (o VirtualNodeSpecOutput) ServiceDiscovery() VirtualNodeSpecServiceDiscoveryPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecServiceDiscovery { return v.ServiceDiscovery }).(VirtualNodeSpecServiceDiscoveryPtrOutput)
 }
@@ -16260,7 +15310,6 @@ func (o VirtualNodeSpecPtrOutput) Elem() VirtualNodeSpecOutput {
 	}).(VirtualNodeSpecOutput)
 }
 
-// Defaults for backends.
 func (o VirtualNodeSpecPtrOutput) BackendDefaults() VirtualNodeSpecBackendDefaultsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeSpecBackendDefaults {
 		if v == nil {
@@ -16270,7 +15319,6 @@ func (o VirtualNodeSpecPtrOutput) BackendDefaults() VirtualNodeSpecBackendDefaul
 	}).(VirtualNodeSpecBackendDefaultsPtrOutput)
 }
 
-// Backends to which the virtual node is expected to send outbound traffic.
 func (o VirtualNodeSpecPtrOutput) Backends() VirtualNodeSpecBackendArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpec) []VirtualNodeSpecBackend {
 		if v == nil {
@@ -16280,7 +15328,6 @@ func (o VirtualNodeSpecPtrOutput) Backends() VirtualNodeSpecBackendArrayOutput {
 	}).(VirtualNodeSpecBackendArrayOutput)
 }
 
-// Listeners from which the virtual node is expected to receive inbound traffic.
 func (o VirtualNodeSpecPtrOutput) Listener() VirtualNodeSpecListenerPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeSpecListener {
 		if v == nil {
@@ -16290,7 +15337,6 @@ func (o VirtualNodeSpecPtrOutput) Listener() VirtualNodeSpecListenerPtrOutput {
 	}).(VirtualNodeSpecListenerPtrOutput)
 }
 
-// Inbound and outbound access logging information for the virtual node.
 func (o VirtualNodeSpecPtrOutput) Logging() VirtualNodeSpecLoggingPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeSpecLogging {
 		if v == nil {
@@ -16300,7 +15346,6 @@ func (o VirtualNodeSpecPtrOutput) Logging() VirtualNodeSpecLoggingPtrOutput {
 	}).(VirtualNodeSpecLoggingPtrOutput)
 }
 
-// Service discovery information for the virtual node.
 func (o VirtualNodeSpecPtrOutput) ServiceDiscovery() VirtualNodeSpecServiceDiscoveryPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeSpecServiceDiscovery {
 		if v == nil {
@@ -16311,7 +15356,6 @@ func (o VirtualNodeSpecPtrOutput) ServiceDiscovery() VirtualNodeSpecServiceDisco
 }
 
 type VirtualNodeSpecBackend struct {
-	// Virtual service to use as a backend for a virtual node.
 	VirtualService VirtualNodeSpecBackendVirtualService `pulumi:"virtualService"`
 }
 
@@ -16327,7 +15371,6 @@ type VirtualNodeSpecBackendInput interface {
 }
 
 type VirtualNodeSpecBackendArgs struct {
-	// Virtual service to use as a backend for a virtual node.
 	VirtualService VirtualNodeSpecBackendVirtualServiceInput `pulumi:"virtualService"`
 }
 
@@ -16382,7 +15425,6 @@ func (o VirtualNodeSpecBackendOutput) ToVirtualNodeSpecBackendOutputWithContext(
 	return o
 }
 
-// Virtual service to use as a backend for a virtual node.
 func (o VirtualNodeSpecBackendOutput) VirtualService() VirtualNodeSpecBackendVirtualServiceOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackend) VirtualNodeSpecBackendVirtualService { return v.VirtualService }).(VirtualNodeSpecBackendVirtualServiceOutput)
 }
@@ -16408,7 +15450,6 @@ func (o VirtualNodeSpecBackendArrayOutput) Index(i pulumi.IntInput) VirtualNodeS
 }
 
 type VirtualNodeSpecBackendDefaults struct {
-	// Default client policy for virtual service backends. See above for details.
 	ClientPolicy *VirtualNodeSpecBackendDefaultsClientPolicy `pulumi:"clientPolicy"`
 }
 
@@ -16424,7 +15465,6 @@ type VirtualNodeSpecBackendDefaultsInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsArgs struct {
-	// Default client policy for virtual service backends. See above for details.
 	ClientPolicy VirtualNodeSpecBackendDefaultsClientPolicyPtrInput `pulumi:"clientPolicy"`
 }
 
@@ -16505,7 +15545,6 @@ func (o VirtualNodeSpecBackendDefaultsOutput) ToVirtualNodeSpecBackendDefaultsPt
 	}).(VirtualNodeSpecBackendDefaultsPtrOutput)
 }
 
-// Default client policy for virtual service backends. See above for details.
 func (o VirtualNodeSpecBackendDefaultsOutput) ClientPolicy() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaults) *VirtualNodeSpecBackendDefaultsClientPolicy {
 		return v.ClientPolicy
@@ -16536,7 +15575,6 @@ func (o VirtualNodeSpecBackendDefaultsPtrOutput) Elem() VirtualNodeSpecBackendDe
 	}).(VirtualNodeSpecBackendDefaultsOutput)
 }
 
-// Default client policy for virtual service backends. See above for details.
 func (o VirtualNodeSpecBackendDefaultsPtrOutput) ClientPolicy() VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaults) *VirtualNodeSpecBackendDefaultsClientPolicy {
 		if v == nil {
@@ -16547,7 +15585,6 @@ func (o VirtualNodeSpecBackendDefaultsPtrOutput) ClientPolicy() VirtualNodeSpecB
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicy struct {
-	// Transport Layer Security (TLS) client policy.
 	Tls *VirtualNodeSpecBackendDefaultsClientPolicyTls `pulumi:"tls"`
 }
 
@@ -16563,7 +15600,6 @@ type VirtualNodeSpecBackendDefaultsClientPolicyInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyArgs struct {
-	// Transport Layer Security (TLS) client policy.
 	Tls VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
@@ -16644,7 +15680,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBacke
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput)
 }
 
-// Transport Layer Security (TLS) client policy.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) Tls() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
 		return v.Tls
@@ -16675,7 +15710,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Elem() VirtualNodeS
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyOutput)
 }
 
-// Transport Layer Security (TLS) client policy.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
 		if v == nil {
@@ -16686,14 +15720,10 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Tls() VirtualNodeSp
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTls struct {
-	// Listener's TLS certificate.
 	Certificate *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate `pulumi:"certificate"`
-	// Whether the policy is enforced. Default is `true`.
-	Enforce *bool `pulumi:"enforce"`
-	// One or more ports that the policy is enforced for.
-	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation `pulumi:"validation"`
+	Enforce     *bool                                                     `pulumi:"enforce"`
+	Ports       []int                                                     `pulumi:"ports"`
+	Validation  VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation   `pulumi:"validation"`
 }
 
 // VirtualNodeSpecBackendDefaultsClientPolicyTlsInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput values.
@@ -16708,14 +15738,10 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs struct {
-	// Listener's TLS certificate.
 	Certificate VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrInput `pulumi:"certificate"`
-	// Whether the policy is enforced. Default is `true`.
-	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
-	// One or more ports that the policy is enforced for.
-	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput `pulumi:"validation"`
+	Enforce     pulumi.BoolPtrInput                                              `pulumi:"enforce"`
+	Ports       pulumi.IntArrayInput                                             `pulumi:"ports"`
+	Validation  VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput     `pulumi:"validation"`
 }
 
 func (VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs) ElementType() reflect.Type {
@@ -16795,24 +15821,20 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBa
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Certificate() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
 		return v.Certificate
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
 
-// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
 
-// One or more ports that the policy is enforced for.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
 		return v.Validation
@@ -16843,7 +15865,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() VirtualNo
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Certificate() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
 		if v == nil {
@@ -16853,7 +15874,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Certificate() Vi
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
 
-// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *bool {
 		if v == nil {
@@ -16863,7 +15883,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Enforce() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// One or more ports that the policy is enforced for.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) []int {
 		if v == nil {
@@ -16873,7 +15892,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Ports() pulumi.I
 	}).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
 		if v == nil {
@@ -16884,10 +15902,8 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Validation() Vir
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate struct {
-	// Local file certificate.
 	File *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds `pulumi:"sds"`
+	Sds  *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds  `pulumi:"sds"`
 }
 
 // VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput values.
@@ -16902,10 +15918,8 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs struct {
-	// Local file certificate.
 	File VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrInput `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs) ElementType() reflect.Type {
@@ -16985,14 +15999,12 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtua
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
 
-// Local file certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
 		return v.File
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
 		return v.Sds
@@ -17023,7 +16035,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Elem(
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput)
 }
 
-// Local file certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
 		if v == nil {
@@ -17033,7 +16044,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) File(
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
 		if v == nil {
@@ -17044,10 +16054,8 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Sds()
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey string `pulumi:"privateKey"`
+	PrivateKey       string `pulumi:"privateKey"`
 }
 
 // VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput values.
@@ -17062,10 +16070,8 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileInput interface
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs) ElementType() reflect.Type {
@@ -17145,12 +16151,10 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVi
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -17179,7 +16183,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) E
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
 		if v == nil {
@@ -17189,7 +16192,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) C
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) *string {
 		if v == nil {
@@ -17200,7 +16202,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) P
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -17216,7 +16217,6 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsInput interface 
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -17297,7 +16297,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVir
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -17326,7 +16325,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) El
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) *string {
 		if v == nil {
@@ -17337,10 +16335,8 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) Se
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation struct {
-	// SANs for a TLS validation context.
 	SubjectAlternativeNames *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust `pulumi:"trust"`
+	Trust                   VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust                    `pulumi:"trust"`
 }
 
 // VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput values.
@@ -17355,10 +16351,8 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationInput interface {
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs struct {
-	// SANs for a TLS validation context.
 	SubjectAlternativeNames VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput `pulumi:"trust"`
+	Trust                   VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput                      `pulumi:"trust"`
 }
 
 func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs) ElementType() reflect.Type {
@@ -17438,14 +16432,12 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtual
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
 
-// SANs for a TLS validation context.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) SubjectAlternativeNames() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) Trust() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
 		return v.Trust
@@ -17476,7 +16468,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Elem()
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput)
 }
 
-// SANs for a TLS validation context.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) SubjectAlternativeNames() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		if v == nil {
@@ -17486,7 +16477,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Subjec
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
 		if v == nil {
@@ -17497,7 +16487,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Trust(
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
 }
 
@@ -17513,7 +16502,6 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNa
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
 }
 
@@ -17594,7 +16582,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) Match() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		return v.Match
@@ -17625,7 +16612,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		if v == nil {
@@ -17636,7 +16622,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch struct {
-	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -17652,7 +16637,6 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNa
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs struct {
-	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -17733,7 +16717,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
 		return v.Exacts
@@ -17764,7 +16747,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
 		if v == nil {
@@ -17775,12 +16757,9 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust struct {
-	// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-	Acm *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
-	// TLS validation context trust for a local file certificate.
+	Acm  *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm  `pulumi:"acm"`
 	File *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds `pulumi:"sds"`
+	Sds  *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds  `pulumi:"sds"`
 }
 
 // VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput is an input type that accepts VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs and VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput values.
@@ -17795,12 +16774,9 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustInput interface
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs struct {
-	// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-	Acm VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
-	// TLS validation context trust for a local file certificate.
+	Acm  VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrInput  `pulumi:"acm"`
 	File VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -17880,21 +16856,18 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVi
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
 }
 
-// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Acm() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		return v.Acm
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		return v.File
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
 		return v.Sds
@@ -17925,7 +16898,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) E
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
 }
 
-// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Acm() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		if v == nil {
@@ -17935,7 +16907,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) A
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) File() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		if v == nil {
@@ -17945,7 +16916,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) F
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Sds() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
 		if v == nil {
@@ -17956,7 +16926,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) S
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm struct {
-	// One or more ACM ARNs.
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
@@ -17972,7 +16941,6 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmInput interf
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs struct {
-	// One or more ACM ARNs.
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
@@ -18053,7 +17021,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) T
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// One or more ACM ARNs.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) []string {
 		return v.CertificateAuthorityArns
@@ -18084,7 +17051,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput)
 }
 
-// One or more ACM ARNs.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) []string {
 		if v == nil {
@@ -18095,7 +17061,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -18111,7 +17076,6 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileInput inter
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -18192,7 +17156,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) 
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -18223,7 +17186,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutpu
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
@@ -18234,7 +17196,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutpu
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -18250,7 +17211,6 @@ type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput interf
 }
 
 type VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -18331,7 +17291,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) T
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -18360,7 +17319,6 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) *string {
 		if v == nil {
@@ -18371,10 +17329,8 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
 }
 
 type VirtualNodeSpecBackendVirtualService struct {
-	// Client policy for the backend.
-	ClientPolicy *VirtualNodeSpecBackendVirtualServiceClientPolicy `pulumi:"clientPolicy"`
-	// Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
-	VirtualServiceName string `pulumi:"virtualServiceName"`
+	ClientPolicy       *VirtualNodeSpecBackendVirtualServiceClientPolicy `pulumi:"clientPolicy"`
+	VirtualServiceName string                                            `pulumi:"virtualServiceName"`
 }
 
 // VirtualNodeSpecBackendVirtualServiceInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceArgs and VirtualNodeSpecBackendVirtualServiceOutput values.
@@ -18389,10 +17345,8 @@ type VirtualNodeSpecBackendVirtualServiceInput interface {
 }
 
 type VirtualNodeSpecBackendVirtualServiceArgs struct {
-	// Client policy for the backend.
-	ClientPolicy VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput `pulumi:"clientPolicy"`
-	// Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
-	VirtualServiceName pulumi.StringInput `pulumi:"virtualServiceName"`
+	ClientPolicy       VirtualNodeSpecBackendVirtualServiceClientPolicyPtrInput `pulumi:"clientPolicy"`
+	VirtualServiceName pulumi.StringInput                                       `pulumi:"virtualServiceName"`
 }
 
 func (VirtualNodeSpecBackendVirtualServiceArgs) ElementType() reflect.Type {
@@ -18421,20 +17375,17 @@ func (o VirtualNodeSpecBackendVirtualServiceOutput) ToVirtualNodeSpecBackendVirt
 	return o
 }
 
-// Client policy for the backend.
 func (o VirtualNodeSpecBackendVirtualServiceOutput) ClientPolicy() VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) *VirtualNodeSpecBackendVirtualServiceClientPolicy {
 		return v.ClientPolicy
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
 }
 
-// Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceOutput) VirtualServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualService) string { return v.VirtualServiceName }).(pulumi.StringOutput)
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicy struct {
-	// Transport Layer Security (TLS) client policy.
 	Tls *VirtualNodeSpecBackendVirtualServiceClientPolicyTls `pulumi:"tls"`
 }
 
@@ -18450,7 +17401,6 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyInput interface {
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyArgs struct {
-	// Transport Layer Security (TLS) client policy.
 	Tls VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
@@ -18531,7 +17481,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpe
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
 }
 
-// Transport Layer Security (TLS) client policy.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) Tls() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
 		return v.Tls
@@ -18562,7 +17511,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Elem() Virtua
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput)
 }
 
-// Transport Layer Security (TLS) client policy.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Tls() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
 		if v == nil {
@@ -18573,14 +17521,10 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Tls() Virtual
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTls struct {
-	// Listener's TLS certificate.
 	Certificate *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate `pulumi:"certificate"`
-	// Whether the policy is enforced. Default is `true`.
-	Enforce *bool `pulumi:"enforce"`
-	// One or more ports that the policy is enforced for.
-	Ports []int `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation `pulumi:"validation"`
+	Enforce     *bool                                                           `pulumi:"enforce"`
+	Ports       []int                                                           `pulumi:"ports"`
+	Validation  VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation   `pulumi:"validation"`
 }
 
 // VirtualNodeSpecBackendVirtualServiceClientPolicyTlsInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput values.
@@ -18595,14 +17539,10 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsInput interface {
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs struct {
-	// Listener's TLS certificate.
 	Certificate VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrInput `pulumi:"certificate"`
-	// Whether the policy is enforced. Default is `true`.
-	Enforce pulumi.BoolPtrInput `pulumi:"enforce"`
-	// One or more ports that the policy is enforced for.
-	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput `pulumi:"validation"`
+	Enforce     pulumi.BoolPtrInput                                                    `pulumi:"enforce"`
+	Ports       pulumi.IntArrayInput                                                   `pulumi:"ports"`
+	Validation  VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput     `pulumi:"validation"`
 }
 
 func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs) ElementType() reflect.Type {
@@ -18682,24 +17622,20 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNode
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Certificate() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
 		return v.Certificate
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 }
 
-// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool { return v.Enforce }).(pulumi.BoolPtrOutput)
 }
 
-// One or more ports that the policy is enforced for.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
 		return v.Validation
@@ -18730,7 +17666,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Elem() Vir
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Certificate() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
 		if v == nil {
@@ -18740,7 +17675,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Certificat
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 }
 
-// Whether the policy is enforced. Default is `true`.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Enforce() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *bool {
 		if v == nil {
@@ -18750,7 +17684,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Enforce() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// One or more ports that the policy is enforced for.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) []int {
 		if v == nil {
@@ -18760,7 +17693,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Ports() pu
 	}).(pulumi.IntArrayOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Validation() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
 		if v == nil {
@@ -18771,10 +17703,8 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Validation
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate struct {
-	// Local file certificate.
 	File *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds `pulumi:"sds"`
+	Sds  *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds  `pulumi:"sds"`
 }
 
 // VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput values.
@@ -18789,10 +17719,8 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateInput interfa
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs struct {
-	// Local file certificate.
 	File VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrInput `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs) ElementType() reflect.Type {
@@ -18872,14 +17800,12 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) To
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 }
 
-// Local file certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
 		return v.File
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
 		return v.Sds
@@ -18910,7 +17836,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput)
 }
 
-// Local file certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
 		if v == nil {
@@ -18920,7 +17845,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
 		if v == nil {
@@ -18931,10 +17855,8 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey string `pulumi:"privateKey"`
+	PrivateKey       string `pulumi:"privateKey"`
 }
 
 // VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput values.
@@ -18949,10 +17871,8 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileInput int
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs) ElementType() reflect.Type {
@@ -19032,14 +17952,12 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) string {
 		return v.CertificateChain
 	}).(pulumi.StringOutput)
 }
 
-// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -19068,7 +17986,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) *string {
 		if v == nil {
@@ -19078,7 +17995,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) *string {
 		if v == nil {
@@ -19089,7 +18005,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOut
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -19105,7 +18020,6 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsInput inte
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -19186,7 +18100,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -19215,7 +18128,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutp
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) *string {
 		if v == nil {
@@ -19226,10 +18138,8 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutp
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation struct {
-	// SANs for a TLS validation context.
 	SubjectAlternativeNames *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust `pulumi:"trust"`
+	Trust                   VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust                    `pulumi:"trust"`
 }
 
 // VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput values.
@@ -19244,10 +18154,8 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationInput interfac
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs struct {
-	// SANs for a TLS validation context.
 	SubjectAlternativeNames VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput `pulumi:"trust"`
+	Trust                   VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput                      `pulumi:"trust"`
 }
 
 func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs) ElementType() reflect.Type {
@@ -19327,14 +18235,12 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToV
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput)
 }
 
-// SANs for a TLS validation context.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) SubjectAlternativeNames() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) Trust() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
 		return v.Trust
@@ -19365,7 +18271,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) 
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput)
 }
 
-// SANs for a TLS validation context.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) SubjectAlternativeNames() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
 		if v == nil {
@@ -19375,7 +18280,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) 
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) Trust() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
 		if v == nil {
@@ -19386,7 +18290,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) 
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
 }
 
@@ -19402,7 +18305,6 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlterna
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
 }
 
@@ -19483,7 +18385,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) Match() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		return v.Match
@@ -19514,7 +18415,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		if v == nil {
@@ -19525,7 +18425,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch struct {
-	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -19541,7 +18440,6 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlterna
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs struct {
-	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -19622,7 +18520,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
 		return v.Exacts
@@ -19653,7 +18550,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) []string {
 		if v == nil {
@@ -19664,12 +18560,9 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust struct {
-	// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-	Acm *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm `pulumi:"acm"`
-	// TLS validation context trust for a local file certificate.
+	Acm  *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm  `pulumi:"acm"`
 	File *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds `pulumi:"sds"`
+	Sds  *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds  `pulumi:"sds"`
 }
 
 // VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput is an input type that accepts VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs and VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput values.
@@ -19684,12 +18577,9 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustInput int
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs struct {
-	// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-	Acm VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput `pulumi:"acm"`
-	// TLS validation context trust for a local file certificate.
+	Acm  VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrInput  `pulumi:"acm"`
 	File VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrInput `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -19769,21 +18659,18 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput)
 }
 
-// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) Acm() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
 		return v.Acm
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
 		return v.File
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
 		return v.Sds
@@ -19814,7 +18701,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput)
 }
 
-// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) Acm() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
 		if v == nil {
@@ -19824,7 +18710,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) File() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
 		if v == nil {
@@ -19834,7 +18719,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) Sds() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
 		if v == nil {
@@ -19845,7 +18729,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm struct {
-	// One or more ACM ARNs.
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
@@ -19861,7 +18744,6 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmInput 
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs struct {
-	// One or more ACM ARNs.
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
@@ -19942,7 +18824,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
 }
 
-// One or more ACM ARNs.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) []string {
 		return v.CertificateAuthorityArns
@@ -19973,7 +18854,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtr
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput)
 }
 
-// One or more ACM ARNs.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) []string {
 		if v == nil {
@@ -19984,7 +18864,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtr
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -20000,7 +18879,6 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileInput
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -20081,7 +18959,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOu
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) string {
 		return v.CertificateChain
@@ -20112,7 +18989,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePt
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) *string {
 		if v == nil {
@@ -20123,7 +18999,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePt
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -20139,7 +19014,6 @@ type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsInput 
 }
 
 type VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -20220,7 +19094,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOut
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) string {
 		return v.SecretName
@@ -20251,7 +19124,6 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtr
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) *string {
 		if v == nil {
@@ -20262,18 +19134,12 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtr
 }
 
 type VirtualNodeSpecListener struct {
-	// Connection pool information for the listener.
-	ConnectionPool *VirtualNodeSpecListenerConnectionPool `pulumi:"connectionPool"`
-	// Health check information for the listener.
-	HealthCheck *VirtualNodeSpecListenerHealthCheck `pulumi:"healthCheck"`
-	// Outlier detection information for the listener.
+	ConnectionPool   *VirtualNodeSpecListenerConnectionPool   `pulumi:"connectionPool"`
+	HealthCheck      *VirtualNodeSpecListenerHealthCheck      `pulumi:"healthCheck"`
 	OutlierDetection *VirtualNodeSpecListenerOutlierDetection `pulumi:"outlierDetection"`
-	// Port mapping information for the listener.
-	PortMapping VirtualNodeSpecListenerPortMapping `pulumi:"portMapping"`
-	// Timeouts for different protocols.
-	Timeout *VirtualNodeSpecListenerTimeout `pulumi:"timeout"`
-	// Transport Layer Security (TLS) properties for the listener
-	Tls *VirtualNodeSpecListenerTls `pulumi:"tls"`
+	PortMapping      VirtualNodeSpecListenerPortMapping       `pulumi:"portMapping"`
+	Timeout          *VirtualNodeSpecListenerTimeout          `pulumi:"timeout"`
+	Tls              *VirtualNodeSpecListenerTls              `pulumi:"tls"`
 }
 
 // VirtualNodeSpecListenerInput is an input type that accepts VirtualNodeSpecListenerArgs and VirtualNodeSpecListenerOutput values.
@@ -20288,18 +19154,12 @@ type VirtualNodeSpecListenerInput interface {
 }
 
 type VirtualNodeSpecListenerArgs struct {
-	// Connection pool information for the listener.
-	ConnectionPool VirtualNodeSpecListenerConnectionPoolPtrInput `pulumi:"connectionPool"`
-	// Health check information for the listener.
-	HealthCheck VirtualNodeSpecListenerHealthCheckPtrInput `pulumi:"healthCheck"`
-	// Outlier detection information for the listener.
+	ConnectionPool   VirtualNodeSpecListenerConnectionPoolPtrInput   `pulumi:"connectionPool"`
+	HealthCheck      VirtualNodeSpecListenerHealthCheckPtrInput      `pulumi:"healthCheck"`
 	OutlierDetection VirtualNodeSpecListenerOutlierDetectionPtrInput `pulumi:"outlierDetection"`
-	// Port mapping information for the listener.
-	PortMapping VirtualNodeSpecListenerPortMappingInput `pulumi:"portMapping"`
-	// Timeouts for different protocols.
-	Timeout VirtualNodeSpecListenerTimeoutPtrInput `pulumi:"timeout"`
-	// Transport Layer Security (TLS) properties for the listener
-	Tls VirtualNodeSpecListenerTlsPtrInput `pulumi:"tls"`
+	PortMapping      VirtualNodeSpecListenerPortMappingInput         `pulumi:"portMapping"`
+	Timeout          VirtualNodeSpecListenerTimeoutPtrInput          `pulumi:"timeout"`
+	Tls              VirtualNodeSpecListenerTlsPtrInput              `pulumi:"tls"`
 }
 
 func (VirtualNodeSpecListenerArgs) ElementType() reflect.Type {
@@ -20379,32 +19239,26 @@ func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerPtrOutputWithCon
 	}).(VirtualNodeSpecListenerPtrOutput)
 }
 
-// Connection pool information for the listener.
 func (o VirtualNodeSpecListenerOutput) ConnectionPool() VirtualNodeSpecListenerConnectionPoolPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerConnectionPool { return v.ConnectionPool }).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
 }
 
-// Health check information for the listener.
 func (o VirtualNodeSpecListenerOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck { return v.HealthCheck }).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
 
-// Outlier detection information for the listener.
 func (o VirtualNodeSpecListenerOutput) OutlierDetection() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerOutlierDetection { return v.OutlierDetection }).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
 }
 
-// Port mapping information for the listener.
 func (o VirtualNodeSpecListenerOutput) PortMapping() VirtualNodeSpecListenerPortMappingOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) VirtualNodeSpecListenerPortMapping { return v.PortMapping }).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
-// Timeouts for different protocols.
 func (o VirtualNodeSpecListenerOutput) Timeout() VirtualNodeSpecListenerTimeoutPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTimeout { return v.Timeout }).(VirtualNodeSpecListenerTimeoutPtrOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener
 func (o VirtualNodeSpecListenerOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTls { return v.Tls }).(VirtualNodeSpecListenerTlsPtrOutput)
 }
@@ -20433,7 +19287,6 @@ func (o VirtualNodeSpecListenerPtrOutput) Elem() VirtualNodeSpecListenerOutput {
 	}).(VirtualNodeSpecListenerOutput)
 }
 
-// Connection pool information for the listener.
 func (o VirtualNodeSpecListenerPtrOutput) ConnectionPool() VirtualNodeSpecListenerConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerConnectionPool {
 		if v == nil {
@@ -20443,7 +19296,6 @@ func (o VirtualNodeSpecListenerPtrOutput) ConnectionPool() VirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
 }
 
-// Health check information for the listener.
 func (o VirtualNodeSpecListenerPtrOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck {
 		if v == nil {
@@ -20453,7 +19305,6 @@ func (o VirtualNodeSpecListenerPtrOutput) HealthCheck() VirtualNodeSpecListenerH
 	}).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
 
-// Outlier detection information for the listener.
 func (o VirtualNodeSpecListenerPtrOutput) OutlierDetection() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerOutlierDetection {
 		if v == nil {
@@ -20463,7 +19314,6 @@ func (o VirtualNodeSpecListenerPtrOutput) OutlierDetection() VirtualNodeSpecList
 	}).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
 }
 
-// Port mapping information for the listener.
 func (o VirtualNodeSpecListenerPtrOutput) PortMapping() VirtualNodeSpecListenerPortMappingPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerPortMapping {
 		if v == nil {
@@ -20473,7 +19323,6 @@ func (o VirtualNodeSpecListenerPtrOutput) PortMapping() VirtualNodeSpecListenerP
 	}).(VirtualNodeSpecListenerPortMappingPtrOutput)
 }
 
-// Timeouts for different protocols.
 func (o VirtualNodeSpecListenerPtrOutput) Timeout() VirtualNodeSpecListenerTimeoutPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerTimeout {
 		if v == nil {
@@ -20483,7 +19332,6 @@ func (o VirtualNodeSpecListenerPtrOutput) Timeout() VirtualNodeSpecListenerTimeo
 	}).(VirtualNodeSpecListenerTimeoutPtrOutput)
 }
 
-// Transport Layer Security (TLS) properties for the listener
 func (o VirtualNodeSpecListenerPtrOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerTls {
 		if v == nil {
@@ -20494,14 +19342,10 @@ func (o VirtualNodeSpecListenerPtrOutput) Tls() VirtualNodeSpecListenerTlsPtrOut
 }
 
 type VirtualNodeSpecListenerConnectionPool struct {
-	// Connection pool information for gRPC listeners.
-	Grpc *VirtualNodeSpecListenerConnectionPoolGrpc `pulumi:"grpc"`
-	// Connection pool information for HTTP listeners.
-	Http *VirtualNodeSpecListenerConnectionPoolHttp `pulumi:"http"`
-	// Connection pool information for HTTP2 listeners.
+	Grpc  *VirtualNodeSpecListenerConnectionPoolGrpc  `pulumi:"grpc"`
+	Http  *VirtualNodeSpecListenerConnectionPoolHttp  `pulumi:"http"`
 	Http2 *VirtualNodeSpecListenerConnectionPoolHttp2 `pulumi:"http2"`
-	// Connection pool information for TCP listeners.
-	Tcp *VirtualNodeSpecListenerConnectionPoolTcp `pulumi:"tcp"`
+	Tcp   *VirtualNodeSpecListenerConnectionPoolTcp   `pulumi:"tcp"`
 }
 
 // VirtualNodeSpecListenerConnectionPoolInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolArgs and VirtualNodeSpecListenerConnectionPoolOutput values.
@@ -20516,14 +19360,10 @@ type VirtualNodeSpecListenerConnectionPoolInput interface {
 }
 
 type VirtualNodeSpecListenerConnectionPoolArgs struct {
-	// Connection pool information for gRPC listeners.
-	Grpc VirtualNodeSpecListenerConnectionPoolGrpcPtrInput `pulumi:"grpc"`
-	// Connection pool information for HTTP listeners.
-	Http VirtualNodeSpecListenerConnectionPoolHttpPtrInput `pulumi:"http"`
-	// Connection pool information for HTTP2 listeners.
+	Grpc  VirtualNodeSpecListenerConnectionPoolGrpcPtrInput  `pulumi:"grpc"`
+	Http  VirtualNodeSpecListenerConnectionPoolHttpPtrInput  `pulumi:"http"`
 	Http2 VirtualNodeSpecListenerConnectionPoolHttp2PtrInput `pulumi:"http2"`
-	// Connection pool information for TCP listeners.
-	Tcp VirtualNodeSpecListenerConnectionPoolTcpPtrInput `pulumi:"tcp"`
+	Tcp   VirtualNodeSpecListenerConnectionPoolTcpPtrInput   `pulumi:"tcp"`
 }
 
 func (VirtualNodeSpecListenerConnectionPoolArgs) ElementType() reflect.Type {
@@ -20603,28 +19443,24 @@ func (o VirtualNodeSpecListenerConnectionPoolOutput) ToVirtualNodeSpecListenerCo
 	}).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
 }
 
-// Connection pool information for gRPC listeners.
 func (o VirtualNodeSpecListenerConnectionPoolOutput) Grpc() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolGrpc {
 		return v.Grpc
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Connection pool information for HTTP listeners.
 func (o VirtualNodeSpecListenerConnectionPoolOutput) Http() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp {
 		return v.Http
 	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
 }
 
-// Connection pool information for HTTP2 listeners.
 func (o VirtualNodeSpecListenerConnectionPoolOutput) Http2() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp2 {
 		return v.Http2
 	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
 }
 
-// Connection pool information for TCP listeners.
 func (o VirtualNodeSpecListenerConnectionPoolOutput) Tcp() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolTcp { return v.Tcp }).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
 }
@@ -20653,7 +19489,6 @@ func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Elem() VirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerConnectionPoolOutput)
 }
 
-// Connection pool information for gRPC listeners.
 func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Grpc() VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolGrpc {
 		if v == nil {
@@ -20663,7 +19498,6 @@ func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Grpc() VirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Connection pool information for HTTP listeners.
 func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp {
 		if v == nil {
@@ -20673,7 +19507,6 @@ func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http() VirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
 }
 
-// Connection pool information for HTTP2 listeners.
 func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http2() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp2 {
 		if v == nil {
@@ -20683,7 +19516,6 @@ func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http2() VirtualNodeSpecL
 	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
 }
 
-// Connection pool information for TCP listeners.
 func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Tcp() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolTcp {
 		if v == nil {
@@ -20694,7 +19526,6 @@ func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Tcp() VirtualNodeSpecLis
 }
 
 type VirtualNodeSpecListenerConnectionPoolGrpc struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests int `pulumi:"maxRequests"`
 }
 
@@ -20710,7 +19541,6 @@ type VirtualNodeSpecListenerConnectionPoolGrpcInput interface {
 }
 
 type VirtualNodeSpecListenerConnectionPoolGrpcArgs struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
 }
 
@@ -20791,7 +19621,6 @@ func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) ToVirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolGrpc) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -20820,7 +19649,6 @@ func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) Elem() VirtualNodeSp
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcOutput)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) MaxRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolGrpc) *int {
 		if v == nil {
@@ -20831,7 +19659,6 @@ func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) MaxRequests() pulumi
 }
 
 type VirtualNodeSpecListenerConnectionPoolHttp2 struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests int `pulumi:"maxRequests"`
 }
 
@@ -20847,7 +19674,6 @@ type VirtualNodeSpecListenerConnectionPoolHttp2Input interface {
 }
 
 type VirtualNodeSpecListenerConnectionPoolHttp2Args struct {
-	// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 	MaxRequests pulumi.IntInput `pulumi:"maxRequests"`
 }
 
@@ -20928,7 +19754,6 @@ func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
@@ -20957,7 +19782,6 @@ func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) Elem() VirtualNodeS
 	}).(VirtualNodeSpecListenerConnectionPoolHttp2Output)
 }
 
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) MaxRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp2) *int {
 		if v == nil {
@@ -20968,9 +19792,7 @@ func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) MaxRequests() pulum
 }
 
 type VirtualNodeSpecListenerConnectionPoolHttp struct {
-	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-	MaxConnections int `pulumi:"maxConnections"`
-	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxConnections     int  `pulumi:"maxConnections"`
 	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
@@ -20986,9 +19808,7 @@ type VirtualNodeSpecListenerConnectionPoolHttpInput interface {
 }
 
 type VirtualNodeSpecListenerConnectionPoolHttpArgs struct {
-	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
-	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	MaxConnections     pulumi.IntInput    `pulumi:"maxConnections"`
 	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
@@ -21069,12 +19889,10 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
 }
 
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
 
-// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
@@ -21103,7 +19921,6 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) Elem() VirtualNodeSp
 	}).(VirtualNodeSpecListenerConnectionPoolHttpOutput)
 }
 
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) *int {
 		if v == nil {
@@ -21113,7 +19930,6 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxConnections() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) *int {
 		if v == nil {
@@ -21124,7 +19940,6 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests()
 }
 
 type VirtualNodeSpecListenerConnectionPoolTcp struct {
-	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections int `pulumi:"maxConnections"`
 }
 
@@ -21140,7 +19955,6 @@ type VirtualNodeSpecListenerConnectionPoolTcpInput interface {
 }
 
 type VirtualNodeSpecListenerConnectionPoolTcpArgs struct {
-	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
 }
 
@@ -21221,7 +20035,6 @@ func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListene
 	}).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
 }
 
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolTcp) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
@@ -21250,7 +20063,6 @@ func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) Elem() VirtualNodeSpe
 	}).(VirtualNodeSpecListenerConnectionPoolTcpOutput)
 }
 
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolTcp) *int {
 		if v == nil {
@@ -21261,20 +20073,13 @@ func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) MaxConnections() pulu
 }
 
 type VirtualNodeSpecListenerHealthCheck struct {
-	// Number of consecutive successful health checks that must occur before declaring listener healthy.
-	HealthyThreshold int `pulumi:"healthyThreshold"`
-	// Time period in milliseconds between each health check execution.
-	IntervalMillis int `pulumi:"intervalMillis"`
-	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-	Path *string `pulumi:"path"`
-	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
-	Port *int `pulumi:"port"`
-	// Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
-	Protocol string `pulumi:"protocol"`
-	// Amount of time to wait when receiving a response from the health check, in milliseconds.
-	TimeoutMillis int `pulumi:"timeoutMillis"`
-	// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
-	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   int     `pulumi:"healthyThreshold"`
+	IntervalMillis     int     `pulumi:"intervalMillis"`
+	Path               *string `pulumi:"path"`
+	Port               *int    `pulumi:"port"`
+	Protocol           string  `pulumi:"protocol"`
+	TimeoutMillis      int     `pulumi:"timeoutMillis"`
+	UnhealthyThreshold int     `pulumi:"unhealthyThreshold"`
 }
 
 // VirtualNodeSpecListenerHealthCheckInput is an input type that accepts VirtualNodeSpecListenerHealthCheckArgs and VirtualNodeSpecListenerHealthCheckOutput values.
@@ -21289,20 +20094,13 @@ type VirtualNodeSpecListenerHealthCheckInput interface {
 }
 
 type VirtualNodeSpecListenerHealthCheckArgs struct {
-	// Number of consecutive successful health checks that must occur before declaring listener healthy.
-	HealthyThreshold pulumi.IntInput `pulumi:"healthyThreshold"`
-	// Time period in milliseconds between each health check execution.
-	IntervalMillis pulumi.IntInput `pulumi:"intervalMillis"`
-	// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Amount of time to wait when receiving a response from the health check, in milliseconds.
-	TimeoutMillis pulumi.IntInput `pulumi:"timeoutMillis"`
-	// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
-	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   pulumi.IntInput       `pulumi:"healthyThreshold"`
+	IntervalMillis     pulumi.IntInput       `pulumi:"intervalMillis"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Port               pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol           pulumi.StringInput    `pulumi:"protocol"`
+	TimeoutMillis      pulumi.IntInput       `pulumi:"timeoutMillis"`
+	UnhealthyThreshold pulumi.IntInput       `pulumi:"unhealthyThreshold"`
 }
 
 func (VirtualNodeSpecListenerHealthCheckArgs) ElementType() reflect.Type {
@@ -21382,37 +20180,30 @@ func (o VirtualNodeSpecListenerHealthCheckOutput) ToVirtualNodeSpecListenerHealt
 	}).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
 
-// Number of consecutive successful health checks that must occur before declaring listener healthy.
 func (o VirtualNodeSpecListenerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.HealthyThreshold }).(pulumi.IntOutput)
 }
 
-// Time period in milliseconds between each health check execution.
 func (o VirtualNodeSpecListenerHealthCheckOutput) IntervalMillis() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.IntervalMillis }).(pulumi.IntOutput)
 }
 
-// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerHealthCheckOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Amount of time to wait when receiving a response from the health check, in milliseconds.
 func (o VirtualNodeSpecListenerHealthCheckOutput) TimeoutMillis() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.TimeoutMillis }).(pulumi.IntOutput)
 }
 
-// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 func (o VirtualNodeSpecListenerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
@@ -21441,7 +20232,6 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Elem() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerHealthCheckOutput)
 }
 
-// Number of consecutive successful health checks that must occur before declaring listener healthy.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *int {
 		if v == nil {
@@ -21451,7 +20241,6 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) HealthyThreshold() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time period in milliseconds between each health check execution.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) IntervalMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *int {
 		if v == nil {
@@ -21461,7 +20250,6 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) IntervalMillis() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *string {
 		if v == nil {
@@ -21471,7 +20259,6 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Path() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *int {
 		if v == nil {
@@ -21481,7 +20268,6 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Port() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *string {
 		if v == nil {
@@ -21491,7 +20277,6 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Protocol() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of time to wait when receiving a response from the health check, in milliseconds.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) TimeoutMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *int {
 		if v == nil {
@@ -21501,7 +20286,6 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) TimeoutMillis() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) *int {
 		if v == nil {
@@ -21512,15 +20296,10 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) UnhealthyThreshold() pulumi
 }
 
 type VirtualNodeSpecListenerOutlierDetection struct {
-	// Base amount of time for which a host is ejected.
 	BaseEjectionDuration VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration `pulumi:"baseEjectionDuration"`
-	// Time interval between ejection sweep analysis.
-	Interval VirtualNodeSpecListenerOutlierDetectionInterval `pulumi:"interval"`
-	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-	// Minimum value of `0`. Maximum value of `100`.
-	MaxEjectionPercent int `pulumi:"maxEjectionPercent"`
-	// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
-	MaxServerErrors int `pulumi:"maxServerErrors"`
+	Interval             VirtualNodeSpecListenerOutlierDetectionInterval             `pulumi:"interval"`
+	MaxEjectionPercent   int                                                         `pulumi:"maxEjectionPercent"`
+	MaxServerErrors      int                                                         `pulumi:"maxServerErrors"`
 }
 
 // VirtualNodeSpecListenerOutlierDetectionInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionArgs and VirtualNodeSpecListenerOutlierDetectionOutput values.
@@ -21535,15 +20314,10 @@ type VirtualNodeSpecListenerOutlierDetectionInput interface {
 }
 
 type VirtualNodeSpecListenerOutlierDetectionArgs struct {
-	// Base amount of time for which a host is ejected.
 	BaseEjectionDuration VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput `pulumi:"baseEjectionDuration"`
-	// Time interval between ejection sweep analysis.
-	Interval VirtualNodeSpecListenerOutlierDetectionIntervalInput `pulumi:"interval"`
-	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-	// Minimum value of `0`. Maximum value of `100`.
-	MaxEjectionPercent pulumi.IntInput `pulumi:"maxEjectionPercent"`
-	// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
-	MaxServerErrors pulumi.IntInput `pulumi:"maxServerErrors"`
+	Interval             VirtualNodeSpecListenerOutlierDetectionIntervalInput             `pulumi:"interval"`
+	MaxEjectionPercent   pulumi.IntInput                                                  `pulumi:"maxEjectionPercent"`
+	MaxServerErrors      pulumi.IntInput                                                  `pulumi:"maxServerErrors"`
 }
 
 func (VirtualNodeSpecListenerOutlierDetectionArgs) ElementType() reflect.Type {
@@ -21623,27 +20397,22 @@ func (o VirtualNodeSpecListenerOutlierDetectionOutput) ToVirtualNodeSpecListener
 	}).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
 }
 
-// Base amount of time for which a host is ejected.
 func (o VirtualNodeSpecListenerOutlierDetectionOutput) BaseEjectionDuration() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
 		return v.BaseEjectionDuration
 	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput)
 }
 
-// Time interval between ejection sweep analysis.
 func (o VirtualNodeSpecListenerOutlierDetectionOutput) Interval() VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) VirtualNodeSpecListenerOutlierDetectionInterval {
 		return v.Interval
 	}).(VirtualNodeSpecListenerOutlierDetectionIntervalOutput)
 }
 
-// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-// Minimum value of `0`. Maximum value of `100`.
 func (o VirtualNodeSpecListenerOutlierDetectionOutput) MaxEjectionPercent() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) int { return v.MaxEjectionPercent }).(pulumi.IntOutput)
 }
 
-// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
 func (o VirtualNodeSpecListenerOutlierDetectionOutput) MaxServerErrors() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) int { return v.MaxServerErrors }).(pulumi.IntOutput)
 }
@@ -21672,7 +20441,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) Elem() VirtualNodeSpec
 	}).(VirtualNodeSpecListenerOutlierDetectionOutput)
 }
 
-// Base amount of time for which a host is ejected.
 func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) BaseEjectionDuration() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
 		if v == nil {
@@ -21682,7 +20450,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) BaseEjectionDuration()
 	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput)
 }
 
-// Time interval between ejection sweep analysis.
 func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) Interval() VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *VirtualNodeSpecListenerOutlierDetectionInterval {
 		if v == nil {
@@ -21692,8 +20459,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) Interval() VirtualNode
 	}).(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput)
 }
 
-// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-// Minimum value of `0`. Maximum value of `100`.
 func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) MaxEjectionPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *int {
 		if v == nil {
@@ -21703,7 +20468,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) MaxEjectionPercent() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
 func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) MaxServerErrors() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) *int {
 		if v == nil {
@@ -21714,10 +20478,8 @@ func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) MaxServerErrors() pulu
 }
 
 type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs and VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput values.
@@ -21732,10 +20494,8 @@ type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationInput interface 
 }
 
 type VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs) ElementType() reflect.Type {
@@ -21815,12 +20575,10 @@ func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ToVir
 	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -21849,7 +20607,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) El
 	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *string {
 		if v == nil {
@@ -21859,7 +20616,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Un
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *int {
 		if v == nil {
@@ -21870,10 +20626,8 @@ func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Va
 }
 
 type VirtualNodeSpecListenerOutlierDetectionInterval struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerOutlierDetectionIntervalInput is an input type that accepts VirtualNodeSpecListenerOutlierDetectionIntervalArgs and VirtualNodeSpecListenerOutlierDetectionIntervalOutput values.
@@ -21888,10 +20642,8 @@ type VirtualNodeSpecListenerOutlierDetectionIntervalInput interface {
 }
 
 type VirtualNodeSpecListenerOutlierDetectionIntervalArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerOutlierDetectionIntervalArgs) ElementType() reflect.Type {
@@ -21971,12 +20723,10 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToVirtualNodeSpec
 	}).(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -22005,7 +20755,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Elem() Virtual
 	}).(VirtualNodeSpecListenerOutlierDetectionIntervalOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionInterval) *string {
 		if v == nil {
@@ -22015,7 +20764,6 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Unit() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionInterval) *int {
 		if v == nil {
@@ -22026,9 +20774,7 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Value() pulumi
 }
 
 type VirtualNodeSpecListenerPortMapping struct {
-	// Port used for the port mapping.
-	Port int `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+	Port     int    `pulumi:"port"`
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -22044,9 +20790,7 @@ type VirtualNodeSpecListenerPortMappingInput interface {
 }
 
 type VirtualNodeSpecListenerPortMappingArgs struct {
-	// Port used for the port mapping.
-	Port pulumi.IntInput `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+	Port     pulumi.IntInput    `pulumi:"port"`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -22127,12 +20871,10 @@ func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortM
 	}).(VirtualNodeSpecListenerPortMappingPtrOutput)
 }
 
-// Port used for the port mapping.
 func (o VirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -22161,7 +20903,6 @@ func (o VirtualNodeSpecListenerPortMappingPtrOutput) Elem() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
-// Port used for the port mapping.
 func (o VirtualNodeSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) *int {
 		if v == nil {
@@ -22171,7 +20912,6 @@ func (o VirtualNodeSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) *string {
 		if v == nil {
@@ -22182,14 +20922,10 @@ func (o VirtualNodeSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtr
 }
 
 type VirtualNodeSpecListenerTimeout struct {
-	// Timeouts for gRPC listeners.
-	Grpc *VirtualNodeSpecListenerTimeoutGrpc `pulumi:"grpc"`
-	// Timeouts for HTTP listeners.
-	Http *VirtualNodeSpecListenerTimeoutHttp `pulumi:"http"`
-	// Timeouts for HTTP2 listeners.
+	Grpc  *VirtualNodeSpecListenerTimeoutGrpc  `pulumi:"grpc"`
+	Http  *VirtualNodeSpecListenerTimeoutHttp  `pulumi:"http"`
 	Http2 *VirtualNodeSpecListenerTimeoutHttp2 `pulumi:"http2"`
-	// Timeouts for TCP listeners.
-	Tcp *VirtualNodeSpecListenerTimeoutTcp `pulumi:"tcp"`
+	Tcp   *VirtualNodeSpecListenerTimeoutTcp   `pulumi:"tcp"`
 }
 
 // VirtualNodeSpecListenerTimeoutInput is an input type that accepts VirtualNodeSpecListenerTimeoutArgs and VirtualNodeSpecListenerTimeoutOutput values.
@@ -22204,14 +20940,10 @@ type VirtualNodeSpecListenerTimeoutInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutArgs struct {
-	// Timeouts for gRPC listeners.
-	Grpc VirtualNodeSpecListenerTimeoutGrpcPtrInput `pulumi:"grpc"`
-	// Timeouts for HTTP listeners.
-	Http VirtualNodeSpecListenerTimeoutHttpPtrInput `pulumi:"http"`
-	// Timeouts for HTTP2 listeners.
+	Grpc  VirtualNodeSpecListenerTimeoutGrpcPtrInput  `pulumi:"grpc"`
+	Http  VirtualNodeSpecListenerTimeoutHttpPtrInput  `pulumi:"http"`
 	Http2 VirtualNodeSpecListenerTimeoutHttp2PtrInput `pulumi:"http2"`
-	// Timeouts for TCP listeners.
-	Tcp VirtualNodeSpecListenerTimeoutTcpPtrInput `pulumi:"tcp"`
+	Tcp   VirtualNodeSpecListenerTimeoutTcpPtrInput   `pulumi:"tcp"`
 }
 
 func (VirtualNodeSpecListenerTimeoutArgs) ElementType() reflect.Type {
@@ -22291,22 +21023,18 @@ func (o VirtualNodeSpecListenerTimeoutOutput) ToVirtualNodeSpecListenerTimeoutPt
 	}).(VirtualNodeSpecListenerTimeoutPtrOutput)
 }
 
-// Timeouts for gRPC listeners.
 func (o VirtualNodeSpecListenerTimeoutOutput) Grpc() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutGrpc { return v.Grpc }).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
 }
 
-// Timeouts for HTTP listeners.
 func (o VirtualNodeSpecListenerTimeoutOutput) Http() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp { return v.Http }).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
 }
 
-// Timeouts for HTTP2 listeners.
 func (o VirtualNodeSpecListenerTimeoutOutput) Http2() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp2 { return v.Http2 }).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
 }
 
-// Timeouts for TCP listeners.
 func (o VirtualNodeSpecListenerTimeoutOutput) Tcp() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutTcp { return v.Tcp }).(VirtualNodeSpecListenerTimeoutTcpPtrOutput)
 }
@@ -22335,7 +21063,6 @@ func (o VirtualNodeSpecListenerTimeoutPtrOutput) Elem() VirtualNodeSpecListenerT
 	}).(VirtualNodeSpecListenerTimeoutOutput)
 }
 
-// Timeouts for gRPC listeners.
 func (o VirtualNodeSpecListenerTimeoutPtrOutput) Grpc() VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutGrpc {
 		if v == nil {
@@ -22345,7 +21072,6 @@ func (o VirtualNodeSpecListenerTimeoutPtrOutput) Grpc() VirtualNodeSpecListenerT
 	}).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
 }
 
-// Timeouts for HTTP listeners.
 func (o VirtualNodeSpecListenerTimeoutPtrOutput) Http() VirtualNodeSpecListenerTimeoutHttpPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp {
 		if v == nil {
@@ -22355,7 +21081,6 @@ func (o VirtualNodeSpecListenerTimeoutPtrOutput) Http() VirtualNodeSpecListenerT
 	}).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
 }
 
-// Timeouts for HTTP2 listeners.
 func (o VirtualNodeSpecListenerTimeoutPtrOutput) Http2() VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutHttp2 {
 		if v == nil {
@@ -22365,7 +21090,6 @@ func (o VirtualNodeSpecListenerTimeoutPtrOutput) Http2() VirtualNodeSpecListener
 	}).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
 }
 
-// Timeouts for TCP listeners.
 func (o VirtualNodeSpecListenerTimeoutPtrOutput) Tcp() VirtualNodeSpecListenerTimeoutTcpPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeoutTcp {
 		if v == nil {
@@ -22376,9 +21100,7 @@ func (o VirtualNodeSpecListenerTimeoutPtrOutput) Tcp() VirtualNodeSpecListenerTi
 }
 
 type VirtualNodeSpecListenerTimeoutGrpc struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle *VirtualNodeSpecListenerTimeoutGrpcIdle `pulumi:"idle"`
-	// Per request timeout.
+	Idle       *VirtualNodeSpecListenerTimeoutGrpcIdle       `pulumi:"idle"`
 	PerRequest *VirtualNodeSpecListenerTimeoutGrpcPerRequest `pulumi:"perRequest"`
 }
 
@@ -22394,9 +21116,7 @@ type VirtualNodeSpecListenerTimeoutGrpcInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutGrpcArgs struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle VirtualNodeSpecListenerTimeoutGrpcIdlePtrInput `pulumi:"idle"`
-	// Per request timeout.
+	Idle       VirtualNodeSpecListenerTimeoutGrpcIdlePtrInput       `pulumi:"idle"`
 	PerRequest VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrInput `pulumi:"perRequest"`
 }
 
@@ -22477,12 +21197,10 @@ func (o VirtualNodeSpecListenerTimeoutGrpcOutput) ToVirtualNodeSpecListenerTimeo
 	}).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutGrpcOutput) Idle() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcIdle { return v.Idle }).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o VirtualNodeSpecListenerTimeoutGrpcOutput) PerRequest() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcPerRequest {
 		return v.PerRequest
@@ -22513,7 +21231,6 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) Elem() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerTimeoutGrpcOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) Idle() VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcIdle {
 		if v == nil {
@@ -22523,7 +21240,6 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) Idle() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) PerRequest() VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpcPerRequest {
 		if v == nil {
@@ -22534,10 +21250,8 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) PerRequest() VirtualNodeSpe
 }
 
 type VirtualNodeSpecListenerTimeoutGrpcIdle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerTimeoutGrpcIdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcIdleArgs and VirtualNodeSpecListenerTimeoutGrpcIdleOutput values.
@@ -22552,10 +21266,8 @@ type VirtualNodeSpecListenerTimeoutGrpcIdleInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutGrpcIdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerTimeoutGrpcIdleArgs) ElementType() reflect.Type {
@@ -22635,12 +21347,10 @@ func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToVirtualNodeSpecListenerT
 	}).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -22669,7 +21379,6 @@ func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Elem() VirtualNodeSpecL
 	}).(VirtualNodeSpecListenerTimeoutGrpcIdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcIdle) *string {
 		if v == nil {
@@ -22679,7 +21388,6 @@ func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Unit() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcIdle) *int {
 		if v == nil {
@@ -22690,10 +21398,8 @@ func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Value() pulumi.IntPtrOu
 }
 
 type VirtualNodeSpecListenerTimeoutGrpcPerRequest struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerTimeoutGrpcPerRequestInput is an input type that accepts VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs and VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput values.
@@ -22708,10 +21414,8 @@ type VirtualNodeSpecListenerTimeoutGrpcPerRequestInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs) ElementType() reflect.Type {
@@ -22791,12 +21495,10 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToVirtualNodeSpecLis
 	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -22825,7 +21527,6 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Elem() VirtualNod
 	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcPerRequest) *string {
 		if v == nil {
@@ -22835,7 +21536,6 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Unit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcPerRequest) *int {
 		if v == nil {
@@ -22846,9 +21546,7 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Value() pulumi.In
 }
 
 type VirtualNodeSpecListenerTimeoutHttp2 struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle *VirtualNodeSpecListenerTimeoutHttp2Idle `pulumi:"idle"`
-	// Per request timeout.
+	Idle       *VirtualNodeSpecListenerTimeoutHttp2Idle       `pulumi:"idle"`
 	PerRequest *VirtualNodeSpecListenerTimeoutHttp2PerRequest `pulumi:"perRequest"`
 }
 
@@ -22864,9 +21562,7 @@ type VirtualNodeSpecListenerTimeoutHttp2Input interface {
 }
 
 type VirtualNodeSpecListenerTimeoutHttp2Args struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle VirtualNodeSpecListenerTimeoutHttp2IdlePtrInput `pulumi:"idle"`
-	// Per request timeout.
+	Idle       VirtualNodeSpecListenerTimeoutHttp2IdlePtrInput       `pulumi:"idle"`
 	PerRequest VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrInput `pulumi:"perRequest"`
 }
 
@@ -22947,12 +21643,10 @@ func (o VirtualNodeSpecListenerTimeoutHttp2Output) ToVirtualNodeSpecListenerTime
 	}).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutHttp2Output) Idle() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2Idle { return v.Idle }).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
 }
 
-// Per request timeout.
 func (o VirtualNodeSpecListenerTimeoutHttp2Output) PerRequest() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2PerRequest {
 		return v.PerRequest
@@ -22983,7 +21677,6 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) Elem() VirtualNodeSpecList
 	}).(VirtualNodeSpecListenerTimeoutHttp2Output)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) Idle() VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2Idle {
 		if v == nil {
@@ -22993,7 +21686,6 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) Idle() VirtualNodeSpecList
 	}).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
 }
 
-// Per request timeout.
 func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) PerRequest() VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2PerRequest {
 		if v == nil {
@@ -23004,10 +21696,8 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) PerRequest() VirtualNodeSp
 }
 
 type VirtualNodeSpecListenerTimeoutHttp2Idle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerTimeoutHttp2IdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2IdleArgs and VirtualNodeSpecListenerTimeoutHttp2IdleOutput values.
@@ -23022,10 +21712,8 @@ type VirtualNodeSpecListenerTimeoutHttp2IdleInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutHttp2IdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerTimeoutHttp2IdleArgs) ElementType() reflect.Type {
@@ -23105,12 +21793,10 @@ func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToVirtualNodeSpecListener
 	}).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2Idle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2Idle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -23139,7 +21825,6 @@ func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Elem() VirtualNodeSpec
 	}).(VirtualNodeSpecListenerTimeoutHttp2IdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2Idle) *string {
 		if v == nil {
@@ -23149,7 +21834,6 @@ func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Unit() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2Idle) *int {
 		if v == nil {
@@ -23160,10 +21844,8 @@ func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Value() pulumi.IntPtrO
 }
 
 type VirtualNodeSpecListenerTimeoutHttp2PerRequest struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerTimeoutHttp2PerRequestInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs and VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput values.
@@ -23178,10 +21860,8 @@ type VirtualNodeSpecListenerTimeoutHttp2PerRequestInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs) ElementType() reflect.Type {
@@ -23261,12 +21941,10 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToVirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -23295,7 +21973,6 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Elem() VirtualNo
 	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2PerRequest) *string {
 		if v == nil {
@@ -23305,7 +21982,6 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Unit() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2PerRequest) *int {
 		if v == nil {
@@ -23316,9 +21992,7 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Value() pulumi.I
 }
 
 type VirtualNodeSpecListenerTimeoutHttp struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle *VirtualNodeSpecListenerTimeoutHttpIdle `pulumi:"idle"`
-	// Per request timeout.
+	Idle       *VirtualNodeSpecListenerTimeoutHttpIdle       `pulumi:"idle"`
 	PerRequest *VirtualNodeSpecListenerTimeoutHttpPerRequest `pulumi:"perRequest"`
 }
 
@@ -23334,9 +22008,7 @@ type VirtualNodeSpecListenerTimeoutHttpInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutHttpArgs struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-	Idle VirtualNodeSpecListenerTimeoutHttpIdlePtrInput `pulumi:"idle"`
-	// Per request timeout.
+	Idle       VirtualNodeSpecListenerTimeoutHttpIdlePtrInput       `pulumi:"idle"`
 	PerRequest VirtualNodeSpecListenerTimeoutHttpPerRequestPtrInput `pulumi:"perRequest"`
 }
 
@@ -23417,12 +22089,10 @@ func (o VirtualNodeSpecListenerTimeoutHttpOutput) ToVirtualNodeSpecListenerTimeo
 	}).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutHttpOutput) Idle() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpIdle { return v.Idle }).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o VirtualNodeSpecListenerTimeoutHttpOutput) PerRequest() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpPerRequest {
 		return v.PerRequest
@@ -23453,7 +22123,6 @@ func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) Elem() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerTimeoutHttpOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) Idle() VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpIdle {
 		if v == nil {
@@ -23463,7 +22132,6 @@ func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) Idle() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
 }
 
-// Per request timeout.
 func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) PerRequest() VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttpPerRequest {
 		if v == nil {
@@ -23474,10 +22142,8 @@ func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) PerRequest() VirtualNodeSpe
 }
 
 type VirtualNodeSpecListenerTimeoutHttpIdle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerTimeoutHttpIdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpIdleArgs and VirtualNodeSpecListenerTimeoutHttpIdleOutput values.
@@ -23492,10 +22158,8 @@ type VirtualNodeSpecListenerTimeoutHttpIdleInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutHttpIdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerTimeoutHttpIdleArgs) ElementType() reflect.Type {
@@ -23575,12 +22239,10 @@ func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) ToVirtualNodeSpecListenerT
 	}).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -23609,7 +22271,6 @@ func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Elem() VirtualNodeSpecL
 	}).(VirtualNodeSpecListenerTimeoutHttpIdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpIdle) *string {
 		if v == nil {
@@ -23619,7 +22280,6 @@ func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Unit() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpIdle) *int {
 		if v == nil {
@@ -23630,10 +22290,8 @@ func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Value() pulumi.IntPtrOu
 }
 
 type VirtualNodeSpecListenerTimeoutHttpPerRequest struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerTimeoutHttpPerRequestInput is an input type that accepts VirtualNodeSpecListenerTimeoutHttpPerRequestArgs and VirtualNodeSpecListenerTimeoutHttpPerRequestOutput values.
@@ -23648,10 +22306,8 @@ type VirtualNodeSpecListenerTimeoutHttpPerRequestInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutHttpPerRequestArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerTimeoutHttpPerRequestArgs) ElementType() reflect.Type {
@@ -23731,12 +22387,10 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToVirtualNodeSpecLis
 	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -23765,7 +22419,6 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Elem() VirtualNod
 	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpPerRequest) *string {
 		if v == nil {
@@ -23775,7 +22428,6 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Unit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpPerRequest) *int {
 		if v == nil {
@@ -23786,7 +22438,6 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Value() pulumi.In
 }
 
 type VirtualNodeSpecListenerTimeoutTcp struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 	Idle *VirtualNodeSpecListenerTimeoutTcpIdle `pulumi:"idle"`
 }
 
@@ -23802,7 +22453,6 @@ type VirtualNodeSpecListenerTimeoutTcpInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutTcpArgs struct {
-	// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 	Idle VirtualNodeSpecListenerTimeoutTcpIdlePtrInput `pulumi:"idle"`
 }
 
@@ -23883,7 +22533,6 @@ func (o VirtualNodeSpecListenerTimeoutTcpOutput) ToVirtualNodeSpecListenerTimeou
 	}).(VirtualNodeSpecListenerTimeoutTcpPtrOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutTcpOutput) Idle() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcp) *VirtualNodeSpecListenerTimeoutTcpIdle { return v.Idle }).(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput)
 }
@@ -23912,7 +22561,6 @@ func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) Elem() VirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerTimeoutTcpOutput)
 }
 
-// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
 func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) Idle() VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcp) *VirtualNodeSpecListenerTimeoutTcpIdle {
 		if v == nil {
@@ -23923,10 +22571,8 @@ func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) Idle() VirtualNodeSpecListen
 }
 
 type VirtualNodeSpecListenerTimeoutTcpIdle struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit string `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value int `pulumi:"value"`
+	Unit  string `pulumi:"unit"`
+	Value int    `pulumi:"value"`
 }
 
 // VirtualNodeSpecListenerTimeoutTcpIdleInput is an input type that accepts VirtualNodeSpecListenerTimeoutTcpIdleArgs and VirtualNodeSpecListenerTimeoutTcpIdleOutput values.
@@ -23941,10 +22587,8 @@ type VirtualNodeSpecListenerTimeoutTcpIdleInput interface {
 }
 
 type VirtualNodeSpecListenerTimeoutTcpIdleArgs struct {
-	// Unit of time. Valid values: `ms`, `s`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Number of time units. Minimum value of `0`.
-	Value pulumi.IntInput `pulumi:"value"`
+	Unit  pulumi.StringInput `pulumi:"unit"`
+	Value pulumi.IntInput    `pulumi:"value"`
 }
 
 func (VirtualNodeSpecListenerTimeoutTcpIdleArgs) ElementType() reflect.Type {
@@ -24024,12 +22668,10 @@ func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) ToVirtualNodeSpecListenerTi
 	}).(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcpIdle) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcpIdle) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -24058,7 +22700,6 @@ func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Elem() VirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerTimeoutTcpIdleOutput)
 }
 
-// Unit of time. Valid values: `ms`, `s`.
 func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcpIdle) *string {
 		if v == nil {
@@ -24068,7 +22709,6 @@ func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Unit() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of time units. Minimum value of `0`.
 func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcpIdle) *int {
 		if v == nil {
@@ -24079,12 +22719,9 @@ func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Value() pulumi.IntPtrOut
 }
 
 type VirtualNodeSpecListenerTls struct {
-	// Listener's TLS certificate.
 	Certificate VirtualNodeSpecListenerTlsCertificate `pulumi:"certificate"`
-	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-	Mode string `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation *VirtualNodeSpecListenerTlsValidation `pulumi:"validation"`
+	Mode        string                                `pulumi:"mode"`
+	Validation  *VirtualNodeSpecListenerTlsValidation `pulumi:"validation"`
 }
 
 // VirtualNodeSpecListenerTlsInput is an input type that accepts VirtualNodeSpecListenerTlsArgs and VirtualNodeSpecListenerTlsOutput values.
@@ -24099,12 +22736,9 @@ type VirtualNodeSpecListenerTlsInput interface {
 }
 
 type VirtualNodeSpecListenerTlsArgs struct {
-	// Listener's TLS certificate.
-	Certificate VirtualNodeSpecListenerTlsCertificateInput `pulumi:"certificate"`
-	// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-	Mode pulumi.StringInput `pulumi:"mode"`
-	// Listener's Transport Layer Security (TLS) validation context.
-	Validation VirtualNodeSpecListenerTlsValidationPtrInput `pulumi:"validation"`
+	Certificate VirtualNodeSpecListenerTlsCertificateInput   `pulumi:"certificate"`
+	Mode        pulumi.StringInput                           `pulumi:"mode"`
+	Validation  VirtualNodeSpecListenerTlsValidationPtrInput `pulumi:"validation"`
 }
 
 func (VirtualNodeSpecListenerTlsArgs) ElementType() reflect.Type {
@@ -24184,17 +22818,14 @@ func (o VirtualNodeSpecListenerTlsOutput) ToVirtualNodeSpecListenerTlsPtrOutputW
 	}).(VirtualNodeSpecListenerTlsPtrOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualNodeSpecListenerTlsOutput) Certificate() VirtualNodeSpecListenerTlsCertificateOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTls) VirtualNodeSpecListenerTlsCertificate { return v.Certificate }).(VirtualNodeSpecListenerTlsCertificateOutput)
 }
 
-// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 func (o VirtualNodeSpecListenerTlsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTls) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecListenerTlsOutput) Validation() VirtualNodeSpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsValidation { return v.Validation }).(VirtualNodeSpecListenerTlsValidationPtrOutput)
 }
@@ -24223,7 +22854,6 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) Elem() VirtualNodeSpecListenerTlsOu
 	}).(VirtualNodeSpecListenerTlsOutput)
 }
 
-// Listener's TLS certificate.
 func (o VirtualNodeSpecListenerTlsPtrOutput) Certificate() VirtualNodeSpecListenerTlsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsCertificate {
 		if v == nil {
@@ -24233,7 +22863,6 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) Certificate() VirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerTlsCertificatePtrOutput)
 }
 
-// Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
 func (o VirtualNodeSpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) *string {
 		if v == nil {
@@ -24243,7 +22872,6 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Listener's Transport Layer Security (TLS) validation context.
 func (o VirtualNodeSpecListenerTlsPtrOutput) Validation() VirtualNodeSpecListenerTlsValidationPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTlsValidation {
 		if v == nil {
@@ -24254,12 +22882,9 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) Validation() VirtualNodeSpecListene
 }
 
 type VirtualNodeSpecListenerTlsCertificate struct {
-	// An AWS Certificate Manager (ACM) certificate.
-	Acm *VirtualNodeSpecListenerTlsCertificateAcm `pulumi:"acm"`
-	// Local file certificate.
+	Acm  *VirtualNodeSpecListenerTlsCertificateAcm  `pulumi:"acm"`
 	File *VirtualNodeSpecListenerTlsCertificateFile `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualNodeSpecListenerTlsCertificateSds `pulumi:"sds"`
+	Sds  *VirtualNodeSpecListenerTlsCertificateSds  `pulumi:"sds"`
 }
 
 // VirtualNodeSpecListenerTlsCertificateInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateArgs and VirtualNodeSpecListenerTlsCertificateOutput values.
@@ -24274,12 +22899,9 @@ type VirtualNodeSpecListenerTlsCertificateInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateArgs struct {
-	// An AWS Certificate Manager (ACM) certificate.
-	Acm VirtualNodeSpecListenerTlsCertificateAcmPtrInput `pulumi:"acm"`
-	// Local file certificate.
+	Acm  VirtualNodeSpecListenerTlsCertificateAcmPtrInput  `pulumi:"acm"`
 	File VirtualNodeSpecListenerTlsCertificateFilePtrInput `pulumi:"file"`
-	// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualNodeSpecListenerTlsCertificateSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualNodeSpecListenerTlsCertificateSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecListenerTlsCertificateArgs) ElementType() reflect.Type {
@@ -24359,19 +22981,16 @@ func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTl
 	}).(VirtualNodeSpecListenerTlsCertificatePtrOutput)
 }
 
-// An AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecListenerTlsCertificateOutput) Acm() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateAcm { return v.Acm }).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
 }
 
-// Local file certificate.
 func (o VirtualNodeSpecListenerTlsCertificateOutput) File() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateFile {
 		return v.File
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecListenerTlsCertificateOutput) Sds() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateSds { return v.Sds }).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
 }
@@ -24400,7 +23019,6 @@ func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Elem() VirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerTlsCertificateOutput)
 }
 
-// An AWS Certificate Manager (ACM) certificate.
 func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Acm() VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateAcm {
 		if v == nil {
@@ -24410,7 +23028,6 @@ func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Acm() VirtualNodeSpecLis
 	}).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
 }
 
-// Local file certificate.
 func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) File() VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateFile {
 		if v == nil {
@@ -24420,7 +23037,6 @@ func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) File() VirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
 }
 
-// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Sds() VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificateSds {
 		if v == nil {
@@ -24431,7 +23047,6 @@ func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Sds() VirtualNodeSpecLis
 }
 
 type VirtualNodeSpecListenerTlsCertificateAcm struct {
-	// ARN for the certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 }
 
@@ -24447,7 +23062,6 @@ type VirtualNodeSpecListenerTlsCertificateAcmInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateAcmArgs struct {
-	// ARN for the certificate.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 }
 
@@ -24528,7 +23142,6 @@ func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) ToVirtualNodeSpecListene
 	}).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
 }
 
-// ARN for the certificate.
 func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateAcm) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -24557,7 +23170,6 @@ func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) Elem() VirtualNodeSpe
 	}).(VirtualNodeSpecListenerTlsCertificateAcmOutput)
 }
 
-// ARN for the certificate.
 func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateAcm) *string {
 		if v == nil {
@@ -24568,10 +23180,8 @@ func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) CertificateArn() pulu
 }
 
 type VirtualNodeSpecListenerTlsCertificateFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey string `pulumi:"privateKey"`
+	PrivateKey       string `pulumi:"privateKey"`
 }
 
 // VirtualNodeSpecListenerTlsCertificateFileInput is an input type that accepts VirtualNodeSpecListenerTlsCertificateFileArgs and VirtualNodeSpecListenerTlsCertificateFileOutput values.
@@ -24586,10 +23196,8 @@ type VirtualNodeSpecListenerTlsCertificateFileInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
-	// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	PrivateKey       pulumi.StringInput `pulumi:"privateKey"`
 }
 
 func (VirtualNodeSpecListenerTlsCertificateFileArgs) ElementType() reflect.Type {
@@ -24669,12 +23277,10 @@ func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFileOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
@@ -24703,7 +23309,6 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) Elem() VirtualNodeSp
 	}).(VirtualNodeSpecListenerTlsCertificateFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -24713,7 +23318,6 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) CertificateChain() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) *string {
 		if v == nil {
@@ -24724,7 +23328,6 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) PrivateKey() pulumi.
 }
 
 type VirtualNodeSpecListenerTlsCertificateSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -24740,7 +23343,6 @@ type VirtualNodeSpecListenerTlsCertificateSdsInput interface {
 }
 
 type VirtualNodeSpecListenerTlsCertificateSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -24821,7 +23423,6 @@ func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListene
 	}).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -24850,7 +23451,6 @@ func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpe
 	}).(VirtualNodeSpecListenerTlsCertificateSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateSds) *string {
 		if v == nil {
@@ -24861,10 +23461,8 @@ func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) SecretName() pulumi.S
 }
 
 type VirtualNodeSpecListenerTlsValidation struct {
-	// SANs for a TLS validation context.
 	SubjectAlternativeNames *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualNodeSpecListenerTlsValidationTrust `pulumi:"trust"`
+	Trust                   VirtualNodeSpecListenerTlsValidationTrust                    `pulumi:"trust"`
 }
 
 // VirtualNodeSpecListenerTlsValidationInput is an input type that accepts VirtualNodeSpecListenerTlsValidationArgs and VirtualNodeSpecListenerTlsValidationOutput values.
@@ -24879,10 +23477,8 @@ type VirtualNodeSpecListenerTlsValidationInput interface {
 }
 
 type VirtualNodeSpecListenerTlsValidationArgs struct {
-	// SANs for a TLS validation context.
 	SubjectAlternativeNames VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
-	// TLS validation context trust.
-	Trust VirtualNodeSpecListenerTlsValidationTrustInput `pulumi:"trust"`
+	Trust                   VirtualNodeSpecListenerTlsValidationTrustInput                      `pulumi:"trust"`
 }
 
 func (VirtualNodeSpecListenerTlsValidationArgs) ElementType() reflect.Type {
@@ -24962,14 +23558,12 @@ func (o VirtualNodeSpecListenerTlsValidationOutput) ToVirtualNodeSpecListenerTls
 	}).(VirtualNodeSpecListenerTlsValidationPtrOutput)
 }
 
-// SANs for a TLS validation context.
 func (o VirtualNodeSpecListenerTlsValidationOutput) SubjectAlternativeNames() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualNodeSpecListenerTlsValidationOutput) Trust() VirtualNodeSpecListenerTlsValidationTrustOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidation) VirtualNodeSpecListenerTlsValidationTrust { return v.Trust }).(VirtualNodeSpecListenerTlsValidationTrustOutput)
 }
@@ -24998,7 +23592,6 @@ func (o VirtualNodeSpecListenerTlsValidationPtrOutput) Elem() VirtualNodeSpecLis
 	}).(VirtualNodeSpecListenerTlsValidationOutput)
 }
 
-// SANs for a TLS validation context.
 func (o VirtualNodeSpecListenerTlsValidationPtrOutput) SubjectAlternativeNames() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
 		if v == nil {
@@ -25008,7 +23601,6 @@ func (o VirtualNodeSpecListenerTlsValidationPtrOutput) SubjectAlternativeNames()
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// TLS validation context trust.
 func (o VirtualNodeSpecListenerTlsValidationPtrOutput) Trust() VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidationTrust {
 		if v == nil {
@@ -25019,7 +23611,6 @@ func (o VirtualNodeSpecListenerTlsValidationPtrOutput) Trust() VirtualNodeSpecLi
 }
 
 type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch `pulumi:"match"`
 }
 
@@ -25035,7 +23626,6 @@ type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesInput interface 
 }
 
 type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs struct {
-	// Criteria for determining a SAN's match.
 	Match VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchInput `pulumi:"match"`
 }
 
@@ -25116,7 +23706,6 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVir
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) Match() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
 		return v.Match
@@ -25147,7 +23736,6 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) El
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput)
 }
 
-// Criteria for determining a SAN's match.
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Match() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
 		if v == nil {
@@ -25158,7 +23746,6 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Ma
 }
 
 type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch struct {
-	// Values sent must match the specified values exactly.
 	Exacts []string `pulumi:"exacts"`
 }
 
@@ -25174,7 +23761,6 @@ type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchInput inter
 }
 
 type VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs struct {
-	// Values sent must match the specified values exactly.
 	Exacts pulumi.StringArrayInput `pulumi:"exacts"`
 }
 
@@ -25255,7 +23841,6 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) 
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) []string { return v.Exacts }).(pulumi.StringArrayOutput)
 }
@@ -25284,7 +23869,6 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutpu
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
-// Values sent must match the specified values exactly.
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Exacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) []string {
 		if v == nil {
@@ -25295,10 +23879,8 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutpu
 }
 
 type VirtualNodeSpecListenerTlsValidationTrust struct {
-	// TLS validation context trust for a local file certificate.
 	File *VirtualNodeSpecListenerTlsValidationTrustFile `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds *VirtualNodeSpecListenerTlsValidationTrustSds `pulumi:"sds"`
+	Sds  *VirtualNodeSpecListenerTlsValidationTrustSds  `pulumi:"sds"`
 }
 
 // VirtualNodeSpecListenerTlsValidationTrustInput is an input type that accepts VirtualNodeSpecListenerTlsValidationTrustArgs and VirtualNodeSpecListenerTlsValidationTrustOutput values.
@@ -25313,10 +23895,8 @@ type VirtualNodeSpecListenerTlsValidationTrustInput interface {
 }
 
 type VirtualNodeSpecListenerTlsValidationTrustArgs struct {
-	// TLS validation context trust for a local file certificate.
 	File VirtualNodeSpecListenerTlsValidationTrustFilePtrInput `pulumi:"file"`
-	// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-	Sds VirtualNodeSpecListenerTlsValidationTrustSdsPtrInput `pulumi:"sds"`
+	Sds  VirtualNodeSpecListenerTlsValidationTrustSdsPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeSpecListenerTlsValidationTrustArgs) ElementType() reflect.Type {
@@ -25396,14 +23976,12 @@ func (o VirtualNodeSpecListenerTlsValidationTrustOutput) ToVirtualNodeSpecListen
 	}).(VirtualNodeSpecListenerTlsValidationTrustPtrOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecListenerTlsValidationTrustOutput) File() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustFile {
 		return v.File
 	}).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecListenerTlsValidationTrustOutput) Sds() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustSds {
 		return v.Sds
@@ -25434,7 +24012,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) Elem() VirtualNodeSp
 	}).(VirtualNodeSpecListenerTlsValidationTrustOutput)
 }
 
-// TLS validation context trust for a local file certificate.
 func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) File() VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustFile {
 		if v == nil {
@@ -25444,7 +24021,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) File() VirtualNodeSp
 	}).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
 }
 
-// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
 func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) Sds() VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrustSds {
 		if v == nil {
@@ -25455,7 +24031,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) Sds() VirtualNodeSpe
 }
 
 type VirtualNodeSpecListenerTlsValidationTrustFile struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain string `pulumi:"certificateChain"`
 }
 
@@ -25471,7 +24046,6 @@ type VirtualNodeSpecListenerTlsValidationTrustFileInput interface {
 }
 
 type VirtualNodeSpecListenerTlsValidationTrustFileArgs struct {
-	// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 	CertificateChain pulumi.StringInput `pulumi:"certificateChain"`
 }
 
@@ -25552,7 +24126,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) ToVirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustFile) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
@@ -25581,7 +24154,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) Elem() VirtualNo
 	}).(VirtualNodeSpecListenerTlsValidationTrustFileOutput)
 }
 
-// Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustFile) *string {
 		if v == nil {
@@ -25592,7 +24164,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) CertificateChain
 }
 
 type VirtualNodeSpecListenerTlsValidationTrustSds struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -25608,7 +24179,6 @@ type VirtualNodeSpecListenerTlsValidationTrustSdsInput interface {
 }
 
 type VirtualNodeSpecListenerTlsValidationTrustSdsArgs struct {
-	// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 	SecretName pulumi.StringInput `pulumi:"secretName"`
 }
 
@@ -25689,7 +24259,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecLis
 	}).(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustSds) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -25718,7 +24287,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) Elem() VirtualNod
 	}).(VirtualNodeSpecListenerTlsValidationTrustSdsOutput)
 }
 
-// Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
 func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustSds) *string {
 		if v == nil {
@@ -25729,7 +24297,6 @@ func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) SecretName() pulu
 }
 
 type VirtualNodeSpecLogging struct {
-	// Access log configuration for a virtual node.
 	AccessLog *VirtualNodeSpecLoggingAccessLog `pulumi:"accessLog"`
 }
 
@@ -25745,7 +24312,6 @@ type VirtualNodeSpecLoggingInput interface {
 }
 
 type VirtualNodeSpecLoggingArgs struct {
-	// Access log configuration for a virtual node.
 	AccessLog VirtualNodeSpecLoggingAccessLogPtrInput `pulumi:"accessLog"`
 }
 
@@ -25826,7 +24392,6 @@ func (o VirtualNodeSpecLoggingOutput) ToVirtualNodeSpecLoggingPtrOutputWithConte
 	}).(VirtualNodeSpecLoggingPtrOutput)
 }
 
-// Access log configuration for a virtual node.
 func (o VirtualNodeSpecLoggingOutput) AccessLog() VirtualNodeSpecLoggingAccessLogPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecLogging) *VirtualNodeSpecLoggingAccessLog { return v.AccessLog }).(VirtualNodeSpecLoggingAccessLogPtrOutput)
 }
@@ -25855,7 +24420,6 @@ func (o VirtualNodeSpecLoggingPtrOutput) Elem() VirtualNodeSpecLoggingOutput {
 	}).(VirtualNodeSpecLoggingOutput)
 }
 
-// Access log configuration for a virtual node.
 func (o VirtualNodeSpecLoggingPtrOutput) AccessLog() VirtualNodeSpecLoggingAccessLogPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecLogging) *VirtualNodeSpecLoggingAccessLog {
 		if v == nil {
@@ -25866,7 +24430,6 @@ func (o VirtualNodeSpecLoggingPtrOutput) AccessLog() VirtualNodeSpecLoggingAcces
 }
 
 type VirtualNodeSpecLoggingAccessLog struct {
-	// File object to send virtual node access logs to.
 	File *VirtualNodeSpecLoggingAccessLogFile `pulumi:"file"`
 }
 
@@ -25882,7 +24445,6 @@ type VirtualNodeSpecLoggingAccessLogInput interface {
 }
 
 type VirtualNodeSpecLoggingAccessLogArgs struct {
-	// File object to send virtual node access logs to.
 	File VirtualNodeSpecLoggingAccessLogFilePtrInput `pulumi:"file"`
 }
 
@@ -25963,7 +24525,6 @@ func (o VirtualNodeSpecLoggingAccessLogOutput) ToVirtualNodeSpecLoggingAccessLog
 	}).(VirtualNodeSpecLoggingAccessLogPtrOutput)
 }
 
-// File object to send virtual node access logs to.
 func (o VirtualNodeSpecLoggingAccessLogOutput) File() VirtualNodeSpecLoggingAccessLogFilePtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLogFile { return v.File }).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
@@ -25992,7 +24553,6 @@ func (o VirtualNodeSpecLoggingAccessLogPtrOutput) Elem() VirtualNodeSpecLoggingA
 	}).(VirtualNodeSpecLoggingAccessLogOutput)
 }
 
-// File object to send virtual node access logs to.
 func (o VirtualNodeSpecLoggingAccessLogPtrOutput) File() VirtualNodeSpecLoggingAccessLogFilePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLogFile {
 		if v == nil {
@@ -26003,7 +24563,6 @@ func (o VirtualNodeSpecLoggingAccessLogPtrOutput) File() VirtualNodeSpecLoggingA
 }
 
 type VirtualNodeSpecLoggingAccessLogFile struct {
-	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path string `pulumi:"path"`
 }
 
@@ -26019,7 +24578,6 @@ type VirtualNodeSpecLoggingAccessLogFileInput interface {
 }
 
 type VirtualNodeSpecLoggingAccessLogFileArgs struct {
-	// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -26100,7 +24658,6 @@ func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAcces
 	}).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
 
-// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecLoggingAccessLogFileOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -26129,7 +24686,6 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Elem() VirtualNodeSpecLogg
 	}).(VirtualNodeSpecLoggingAccessLogFileOutput)
 }
 
-// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
 func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) *string {
 		if v == nil {
@@ -26140,10 +24696,8 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Path() pulumi.StringPtrOut
 }
 
 type VirtualNodeSpecServiceDiscovery struct {
-	// Any AWS Cloud Map information for the virtual node.
 	AwsCloudMap *VirtualNodeSpecServiceDiscoveryAwsCloudMap `pulumi:"awsCloudMap"`
-	// DNS service name for the virtual node.
-	Dns *VirtualNodeSpecServiceDiscoveryDns `pulumi:"dns"`
+	Dns         *VirtualNodeSpecServiceDiscoveryDns         `pulumi:"dns"`
 }
 
 // VirtualNodeSpecServiceDiscoveryInput is an input type that accepts VirtualNodeSpecServiceDiscoveryArgs and VirtualNodeSpecServiceDiscoveryOutput values.
@@ -26158,10 +24712,8 @@ type VirtualNodeSpecServiceDiscoveryInput interface {
 }
 
 type VirtualNodeSpecServiceDiscoveryArgs struct {
-	// Any AWS Cloud Map information for the virtual node.
 	AwsCloudMap VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrInput `pulumi:"awsCloudMap"`
-	// DNS service name for the virtual node.
-	Dns VirtualNodeSpecServiceDiscoveryDnsPtrInput `pulumi:"dns"`
+	Dns         VirtualNodeSpecServiceDiscoveryDnsPtrInput         `pulumi:"dns"`
 }
 
 func (VirtualNodeSpecServiceDiscoveryArgs) ElementType() reflect.Type {
@@ -26241,14 +24793,12 @@ func (o VirtualNodeSpecServiceDiscoveryOutput) ToVirtualNodeSpecServiceDiscovery
 	}).(VirtualNodeSpecServiceDiscoveryPtrOutput)
 }
 
-// Any AWS Cloud Map information for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryOutput) AwsCloudMap() VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryAwsCloudMap {
 		return v.AwsCloudMap
 	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
 
-// DNS service name for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryOutput) Dns() VirtualNodeSpecServiceDiscoveryDnsPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryDns { return v.Dns }).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
 }
@@ -26277,7 +24827,6 @@ func (o VirtualNodeSpecServiceDiscoveryPtrOutput) Elem() VirtualNodeSpecServiceD
 	}).(VirtualNodeSpecServiceDiscoveryOutput)
 }
 
-// Any AWS Cloud Map information for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryPtrOutput) AwsCloudMap() VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryAwsCloudMap {
 		if v == nil {
@@ -26287,7 +24836,6 @@ func (o VirtualNodeSpecServiceDiscoveryPtrOutput) AwsCloudMap() VirtualNodeSpecS
 	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
 
-// DNS service name for the virtual node.
 func (o VirtualNodeSpecServiceDiscoveryPtrOutput) Dns() VirtualNodeSpecServiceDiscoveryDnsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscoveryDns {
 		if v == nil {
@@ -26298,13 +24846,9 @@ func (o VirtualNodeSpecServiceDiscoveryPtrOutput) Dns() VirtualNodeSpecServiceDi
 }
 
 type VirtualNodeSpecServiceDiscoveryAwsCloudMap struct {
-	// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-	Attributes map[string]string `pulumi:"attributes"`
-	// Name of the AWS Cloud Map namespace to use.
-	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
-	ServiceName string `pulumi:"serviceName"`
+	Attributes    map[string]string `pulumi:"attributes"`
+	NamespaceName string            `pulumi:"namespaceName"`
+	ServiceName   string            `pulumi:"serviceName"`
 }
 
 // VirtualNodeSpecServiceDiscoveryAwsCloudMapInput is an input type that accepts VirtualNodeSpecServiceDiscoveryAwsCloudMap and VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput values.
@@ -26319,13 +24863,9 @@ type VirtualNodeSpecServiceDiscoveryAwsCloudMapInput interface {
 }
 
 type VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs struct {
-	// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-	Attributes pulumi.StringMapInput `pulumi:"attributes"`
-	// Name of the AWS Cloud Map namespace to use.
-	// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
-	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
-	// Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	Attributes    pulumi.StringMapInput `pulumi:"attributes"`
+	NamespaceName pulumi.StringInput    `pulumi:"namespaceName"`
+	ServiceName   pulumi.StringInput    `pulumi:"serviceName"`
 }
 
 func (VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs) ElementType() reflect.Type {
@@ -26405,18 +24945,14 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ToVirtualNodeSpecServi
 	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
 
-// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
-// Name of the AWS Cloud Map namespace to use.
-// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) string { return v.ServiceName }).(pulumi.StringOutput)
 }
@@ -26445,7 +24981,6 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Elem() VirtualNodeS
 	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput)
 }
 
-// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) map[string]string {
 		if v == nil {
@@ -26455,8 +24990,6 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Attributes() pulumi
 	}).(pulumi.StringMapOutput)
 }
 
-// Name of the AWS Cloud Map namespace to use.
-// Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) *string {
 		if v == nil {
@@ -26466,7 +24999,6 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) NamespaceName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) *string {
 		if v == nil {
@@ -26477,7 +25009,6 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ServiceName() pulum
 }
 
 type VirtualNodeSpecServiceDiscoveryDns struct {
-	// DNS host name for your virtual node.
 	Hostname string `pulumi:"hostname"`
 }
 
@@ -26493,7 +25024,6 @@ type VirtualNodeSpecServiceDiscoveryDnsInput interface {
 }
 
 type VirtualNodeSpecServiceDiscoveryDnsArgs struct {
-	// DNS host name for your virtual node.
 	Hostname pulumi.StringInput `pulumi:"hostname"`
 }
 
@@ -26574,7 +25104,6 @@ func (o VirtualNodeSpecServiceDiscoveryDnsOutput) ToVirtualNodeSpecServiceDiscov
 	}).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
 }
 
-// DNS host name for your virtual node.
 func (o VirtualNodeSpecServiceDiscoveryDnsOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryDns) string { return v.Hostname }).(pulumi.StringOutput)
 }
@@ -26603,7 +25132,6 @@ func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) Elem() VirtualNodeSpecServi
 	}).(VirtualNodeSpecServiceDiscoveryDnsOutput)
 }
 
-// DNS host name for your virtual node.
 func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) Hostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryDns) *string {
 		if v == nil {
@@ -26614,8 +25142,6 @@ func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) Hostname() pulumi.StringPtr
 }
 
 type VirtualRouterSpec struct {
-	// Listeners that the virtual router is expected to receive inbound traffic from.
-	// Currently only one listener is supported per virtual router.
 	Listener VirtualRouterSpecListener `pulumi:"listener"`
 }
 
@@ -26631,8 +25157,6 @@ type VirtualRouterSpecInput interface {
 }
 
 type VirtualRouterSpecArgs struct {
-	// Listeners that the virtual router is expected to receive inbound traffic from.
-	// Currently only one listener is supported per virtual router.
 	Listener VirtualRouterSpecListenerInput `pulumi:"listener"`
 }
 
@@ -26713,8 +25237,6 @@ func (o VirtualRouterSpecOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx con
 	}).(VirtualRouterSpecPtrOutput)
 }
 
-// Listeners that the virtual router is expected to receive inbound traffic from.
-// Currently only one listener is supported per virtual router.
 func (o VirtualRouterSpecOutput) Listener() VirtualRouterSpecListenerOutput {
 	return o.ApplyT(func(v VirtualRouterSpec) VirtualRouterSpecListener { return v.Listener }).(VirtualRouterSpecListenerOutput)
 }
@@ -26743,8 +25265,6 @@ func (o VirtualRouterSpecPtrOutput) Elem() VirtualRouterSpecOutput {
 	}).(VirtualRouterSpecOutput)
 }
 
-// Listeners that the virtual router is expected to receive inbound traffic from.
-// Currently only one listener is supported per virtual router.
 func (o VirtualRouterSpecPtrOutput) Listener() VirtualRouterSpecListenerPtrOutput {
 	return o.ApplyT(func(v *VirtualRouterSpec) *VirtualRouterSpecListener {
 		if v == nil {
@@ -26755,7 +25275,6 @@ func (o VirtualRouterSpecPtrOutput) Listener() VirtualRouterSpecListenerPtrOutpu
 }
 
 type VirtualRouterSpecListener struct {
-	// Port mapping information for the listener.
 	PortMapping VirtualRouterSpecListenerPortMapping `pulumi:"portMapping"`
 }
 
@@ -26771,7 +25290,6 @@ type VirtualRouterSpecListenerInput interface {
 }
 
 type VirtualRouterSpecListenerArgs struct {
-	// Port mapping information for the listener.
 	PortMapping VirtualRouterSpecListenerPortMappingInput `pulumi:"portMapping"`
 }
 
@@ -26852,7 +25370,6 @@ func (o VirtualRouterSpecListenerOutput) ToVirtualRouterSpecListenerPtrOutputWit
 	}).(VirtualRouterSpecListenerPtrOutput)
 }
 
-// Port mapping information for the listener.
 func (o VirtualRouterSpecListenerOutput) PortMapping() VirtualRouterSpecListenerPortMappingOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListener) VirtualRouterSpecListenerPortMapping { return v.PortMapping }).(VirtualRouterSpecListenerPortMappingOutput)
 }
@@ -26881,7 +25398,6 @@ func (o VirtualRouterSpecListenerPtrOutput) Elem() VirtualRouterSpecListenerOutp
 	}).(VirtualRouterSpecListenerOutput)
 }
 
-// Port mapping information for the listener.
 func (o VirtualRouterSpecListenerPtrOutput) PortMapping() VirtualRouterSpecListenerPortMappingPtrOutput {
 	return o.ApplyT(func(v *VirtualRouterSpecListener) *VirtualRouterSpecListenerPortMapping {
 		if v == nil {
@@ -26892,9 +25408,7 @@ func (o VirtualRouterSpecListenerPtrOutput) PortMapping() VirtualRouterSpecListe
 }
 
 type VirtualRouterSpecListenerPortMapping struct {
-	// Port used for the port mapping.
-	Port int `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
+	Port     int    `pulumi:"port"`
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -26910,9 +25424,7 @@ type VirtualRouterSpecListenerPortMappingInput interface {
 }
 
 type VirtualRouterSpecListenerPortMappingArgs struct {
-	// Port used for the port mapping.
-	Port pulumi.IntInput `pulumi:"port"`
-	// Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
+	Port     pulumi.IntInput    `pulumi:"port"`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -26993,12 +25505,10 @@ func (o VirtualRouterSpecListenerPortMappingOutput) ToVirtualRouterSpecListenerP
 	}).(VirtualRouterSpecListenerPortMappingPtrOutput)
 }
 
-// Port used for the port mapping.
 func (o VirtualRouterSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
 func (o VirtualRouterSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -27027,7 +25537,6 @@ func (o VirtualRouterSpecListenerPortMappingPtrOutput) Elem() VirtualRouterSpecL
 	}).(VirtualRouterSpecListenerPortMappingOutput)
 }
 
-// Port used for the port mapping.
 func (o VirtualRouterSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) *int {
 		if v == nil {
@@ -27037,7 +25546,6 @@ func (o VirtualRouterSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
 func (o VirtualRouterSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) *string {
 		if v == nil {
@@ -27048,7 +25556,6 @@ func (o VirtualRouterSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringP
 }
 
 type VirtualServiceSpec struct {
-	// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
 	Provider *VirtualServiceSpecProvider `pulumi:"provider"`
 }
 
@@ -27064,7 +25571,6 @@ type VirtualServiceSpecInput interface {
 }
 
 type VirtualServiceSpecArgs struct {
-	// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
 	Provider VirtualServiceSpecProviderPtrInput `pulumi:"provider"`
 }
 
@@ -27145,7 +25651,6 @@ func (o VirtualServiceSpecOutput) ToVirtualServiceSpecPtrOutputWithContext(ctx c
 	}).(VirtualServiceSpecPtrOutput)
 }
 
-// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
 func (o VirtualServiceSpecOutput) Provider() VirtualServiceSpecProviderPtrOutput {
 	return o.ApplyT(func(v VirtualServiceSpec) *VirtualServiceSpecProvider { return v.Provider }).(VirtualServiceSpecProviderPtrOutput)
 }
@@ -27174,7 +25679,6 @@ func (o VirtualServiceSpecPtrOutput) Elem() VirtualServiceSpecOutput {
 	}).(VirtualServiceSpecOutput)
 }
 
-// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
 func (o VirtualServiceSpecPtrOutput) Provider() VirtualServiceSpecProviderPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceSpec) *VirtualServiceSpecProvider {
 		if v == nil {
@@ -27185,9 +25689,7 @@ func (o VirtualServiceSpecPtrOutput) Provider() VirtualServiceSpecProviderPtrOut
 }
 
 type VirtualServiceSpecProvider struct {
-	// Virtual node associated with a virtual service.
-	VirtualNode *VirtualServiceSpecProviderVirtualNode `pulumi:"virtualNode"`
-	// Virtual router associated with a virtual service.
+	VirtualNode   *VirtualServiceSpecProviderVirtualNode   `pulumi:"virtualNode"`
 	VirtualRouter *VirtualServiceSpecProviderVirtualRouter `pulumi:"virtualRouter"`
 }
 
@@ -27203,9 +25705,7 @@ type VirtualServiceSpecProviderInput interface {
 }
 
 type VirtualServiceSpecProviderArgs struct {
-	// Virtual node associated with a virtual service.
-	VirtualNode VirtualServiceSpecProviderVirtualNodePtrInput `pulumi:"virtualNode"`
-	// Virtual router associated with a virtual service.
+	VirtualNode   VirtualServiceSpecProviderVirtualNodePtrInput   `pulumi:"virtualNode"`
 	VirtualRouter VirtualServiceSpecProviderVirtualRouterPtrInput `pulumi:"virtualRouter"`
 }
 
@@ -27286,12 +25786,10 @@ func (o VirtualServiceSpecProviderOutput) ToVirtualServiceSpecProviderPtrOutputW
 	}).(VirtualServiceSpecProviderPtrOutput)
 }
 
-// Virtual node associated with a virtual service.
 func (o VirtualServiceSpecProviderOutput) VirtualNode() VirtualServiceSpecProviderVirtualNodePtrOutput {
 	return o.ApplyT(func(v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualNode { return v.VirtualNode }).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
 
-// Virtual router associated with a virtual service.
 func (o VirtualServiceSpecProviderOutput) VirtualRouter() VirtualServiceSpecProviderVirtualRouterPtrOutput {
 	return o.ApplyT(func(v VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualRouter { return v.VirtualRouter }).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
@@ -27320,7 +25818,6 @@ func (o VirtualServiceSpecProviderPtrOutput) Elem() VirtualServiceSpecProviderOu
 	}).(VirtualServiceSpecProviderOutput)
 }
 
-// Virtual node associated with a virtual service.
 func (o VirtualServiceSpecProviderPtrOutput) VirtualNode() VirtualServiceSpecProviderVirtualNodePtrOutput {
 	return o.ApplyT(func(v *VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualNode {
 		if v == nil {
@@ -27330,7 +25827,6 @@ func (o VirtualServiceSpecProviderPtrOutput) VirtualNode() VirtualServiceSpecPro
 	}).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
 
-// Virtual router associated with a virtual service.
 func (o VirtualServiceSpecProviderPtrOutput) VirtualRouter() VirtualServiceSpecProviderVirtualRouterPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceSpecProvider) *VirtualServiceSpecProviderVirtualRouter {
 		if v == nil {
@@ -27341,7 +25837,6 @@ func (o VirtualServiceSpecProviderPtrOutput) VirtualRouter() VirtualServiceSpecP
 }
 
 type VirtualServiceSpecProviderVirtualNode struct {
-	// Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualNodeName string `pulumi:"virtualNodeName"`
 }
 
@@ -27357,7 +25852,6 @@ type VirtualServiceSpecProviderVirtualNodeInput interface {
 }
 
 type VirtualServiceSpecProviderVirtualNodeArgs struct {
-	// Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualNodeName pulumi.StringInput `pulumi:"virtualNodeName"`
 }
 
@@ -27438,7 +25932,6 @@ func (o VirtualServiceSpecProviderVirtualNodeOutput) ToVirtualServiceSpecProvide
 	}).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
 
-// Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
 }
@@ -27467,7 +25960,6 @@ func (o VirtualServiceSpecProviderVirtualNodePtrOutput) Elem() VirtualServiceSpe
 	}).(VirtualServiceSpecProviderVirtualNodeOutput)
 }
 
-// Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualNodePtrOutput) VirtualNodeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualNode) *string {
 		if v == nil {
@@ -27478,7 +25970,6 @@ func (o VirtualServiceSpecProviderVirtualNodePtrOutput) VirtualNodeName() pulumi
 }
 
 type VirtualServiceSpecProviderVirtualRouter struct {
-	// Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
@@ -27494,7 +25985,6 @@ type VirtualServiceSpecProviderVirtualRouterInput interface {
 }
 
 type VirtualServiceSpecProviderVirtualRouterArgs struct {
-	// Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
 }
 
@@ -27575,7 +26065,6 @@ func (o VirtualServiceSpecProviderVirtualRouterOutput) ToVirtualServiceSpecProvi
 	}).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
 
-// Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
 }
@@ -27604,7 +26093,6 @@ func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) Elem() VirtualServiceS
 	}).(VirtualServiceSpecProviderVirtualRouterOutput)
 }
 
-// Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
 func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) VirtualRouterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualRouter) *string {
 		if v == nil {
@@ -27615,7 +26103,6 @@ func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) VirtualRouterName() pu
 }
 
 type GetMeshSpec struct {
-	// Egress filter rules for the service mesh.
 	EgressFilters []GetMeshSpecEgressFilter `pulumi:"egressFilters"`
 }
 
@@ -27631,7 +26118,6 @@ type GetMeshSpecInput interface {
 }
 
 type GetMeshSpecArgs struct {
-	// Egress filter rules for the service mesh.
 	EgressFilters GetMeshSpecEgressFilterArrayInput `pulumi:"egressFilters"`
 }
 
@@ -27686,7 +26172,6 @@ func (o GetMeshSpecOutput) ToGetMeshSpecOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// Egress filter rules for the service mesh.
 func (o GetMeshSpecOutput) EgressFilters() GetMeshSpecEgressFilterArrayOutput {
 	return o.ApplyT(func(v GetMeshSpec) []GetMeshSpecEgressFilter { return v.EgressFilters }).(GetMeshSpecEgressFilterArrayOutput)
 }
@@ -27712,7 +26197,6 @@ func (o GetMeshSpecArrayOutput) Index(i pulumi.IntInput) GetMeshSpecOutput {
 }
 
 type GetMeshSpecEgressFilter struct {
-	// Egress filter type.
 	Type string `pulumi:"type"`
 }
 
@@ -27728,7 +26212,6 @@ type GetMeshSpecEgressFilterInput interface {
 }
 
 type GetMeshSpecEgressFilterArgs struct {
-	// Egress filter type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -27783,7 +26266,6 @@ func (o GetMeshSpecEgressFilterOutput) ToGetMeshSpecEgressFilterOutputWithContex
 	return o
 }
 
-// Egress filter type.
 func (o GetMeshSpecEgressFilterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMeshSpecEgressFilter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -27809,7 +26291,6 @@ func (o GetMeshSpecEgressFilterArrayOutput) Index(i pulumi.IntInput) GetMeshSpec
 }
 
 type GetVirtualServiceSpec struct {
-	// App Mesh object that is acting as the provider for a virtual service.
 	Providers []GetVirtualServiceSpecProvider `pulumi:"providers"`
 }
 
@@ -27825,7 +26306,6 @@ type GetVirtualServiceSpecInput interface {
 }
 
 type GetVirtualServiceSpecArgs struct {
-	// App Mesh object that is acting as the provider for a virtual service.
 	Providers GetVirtualServiceSpecProviderArrayInput `pulumi:"providers"`
 }
 
@@ -27880,7 +26360,6 @@ func (o GetVirtualServiceSpecOutput) ToGetVirtualServiceSpecOutputWithContext(ct
 	return o
 }
 
-// App Mesh object that is acting as the provider for a virtual service.
 func (o GetVirtualServiceSpecOutput) Providers() GetVirtualServiceSpecProviderArrayOutput {
 	return o.ApplyT(func(v GetVirtualServiceSpec) []GetVirtualServiceSpecProvider { return v.Providers }).(GetVirtualServiceSpecProviderArrayOutput)
 }
@@ -27906,9 +26385,7 @@ func (o GetVirtualServiceSpecArrayOutput) Index(i pulumi.IntInput) GetVirtualSer
 }
 
 type GetVirtualServiceSpecProvider struct {
-	// Virtual node associated with the virtual service.
-	VirtualNodes []GetVirtualServiceSpecProviderVirtualNode `pulumi:"virtualNodes"`
-	// Virtual router associated with the virtual service.
+	VirtualNodes   []GetVirtualServiceSpecProviderVirtualNode   `pulumi:"virtualNodes"`
 	VirtualRouters []GetVirtualServiceSpecProviderVirtualRouter `pulumi:"virtualRouters"`
 }
 
@@ -27924,9 +26401,7 @@ type GetVirtualServiceSpecProviderInput interface {
 }
 
 type GetVirtualServiceSpecProviderArgs struct {
-	// Virtual node associated with the virtual service.
-	VirtualNodes GetVirtualServiceSpecProviderVirtualNodeArrayInput `pulumi:"virtualNodes"`
-	// Virtual router associated with the virtual service.
+	VirtualNodes   GetVirtualServiceSpecProviderVirtualNodeArrayInput   `pulumi:"virtualNodes"`
 	VirtualRouters GetVirtualServiceSpecProviderVirtualRouterArrayInput `pulumi:"virtualRouters"`
 }
 
@@ -27981,14 +26456,12 @@ func (o GetVirtualServiceSpecProviderOutput) ToGetVirtualServiceSpecProviderOutp
 	return o
 }
 
-// Virtual node associated with the virtual service.
 func (o GetVirtualServiceSpecProviderOutput) VirtualNodes() GetVirtualServiceSpecProviderVirtualNodeArrayOutput {
 	return o.ApplyT(func(v GetVirtualServiceSpecProvider) []GetVirtualServiceSpecProviderVirtualNode {
 		return v.VirtualNodes
 	}).(GetVirtualServiceSpecProviderVirtualNodeArrayOutput)
 }
 
-// Virtual router associated with the virtual service.
 func (o GetVirtualServiceSpecProviderOutput) VirtualRouters() GetVirtualServiceSpecProviderVirtualRouterArrayOutput {
 	return o.ApplyT(func(v GetVirtualServiceSpecProvider) []GetVirtualServiceSpecProviderVirtualRouter {
 		return v.VirtualRouters
@@ -28016,7 +26489,6 @@ func (o GetVirtualServiceSpecProviderArrayOutput) Index(i pulumi.IntInput) GetVi
 }
 
 type GetVirtualServiceSpecProviderVirtualNode struct {
-	// Name of the virtual node that is acting as a service provider.
 	VirtualNodeName string `pulumi:"virtualNodeName"`
 }
 
@@ -28032,7 +26504,6 @@ type GetVirtualServiceSpecProviderVirtualNodeInput interface {
 }
 
 type GetVirtualServiceSpecProviderVirtualNodeArgs struct {
-	// Name of the virtual node that is acting as a service provider.
 	VirtualNodeName pulumi.StringInput `pulumi:"virtualNodeName"`
 }
 
@@ -28087,7 +26558,6 @@ func (o GetVirtualServiceSpecProviderVirtualNodeOutput) ToGetVirtualServiceSpecP
 	return o
 }
 
-// Name of the virtual node that is acting as a service provider.
 func (o GetVirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
 }
@@ -28113,7 +26583,6 @@ func (o GetVirtualServiceSpecProviderVirtualNodeArrayOutput) Index(i pulumi.IntI
 }
 
 type GetVirtualServiceSpecProviderVirtualRouter struct {
-	// Name of the virtual router that is acting as a service provider.
 	VirtualRouterName string `pulumi:"virtualRouterName"`
 }
 
@@ -28129,7 +26598,6 @@ type GetVirtualServiceSpecProviderVirtualRouterInput interface {
 }
 
 type GetVirtualServiceSpecProviderVirtualRouterArgs struct {
-	// Name of the virtual router that is acting as a service provider.
 	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
 }
 
@@ -28184,7 +26652,6 @@ func (o GetVirtualServiceSpecProviderVirtualRouterOutput) ToGetVirtualServiceSpe
 	return o
 }
 
-// Name of the virtual router that is acting as a service provider.
 func (o GetVirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
 }

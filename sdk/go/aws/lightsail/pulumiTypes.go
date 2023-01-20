@@ -11,7 +11,6 @@ import (
 )
 
 type CertificateDomainValidationOption struct {
-	// A domain name for which the certificate should be issued.
 	DomainName          *string `pulumi:"domainName"`
 	ResourceRecordName  *string `pulumi:"resourceRecordName"`
 	ResourceRecordType  *string `pulumi:"resourceRecordType"`
@@ -30,7 +29,6 @@ type CertificateDomainValidationOptionInput interface {
 }
 
 type CertificateDomainValidationOptionArgs struct {
-	// A domain name for which the certificate should be issued.
 	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
 	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
 	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
@@ -88,7 +86,6 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 	return o
 }
 
-// A domain name for which the certificate should be issued.
 func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
@@ -126,16 +123,11 @@ func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ContainerServiceDeploymentVersionContainer struct {
-	// The launch command for the container. A list of string.
-	Commands []string `pulumi:"commands"`
-	// The name for the container.
-	ContainerName string `pulumi:"containerName"`
-	// A key-value map of the environment variables of the container.
-	Environment map[string]string `pulumi:"environment"`
-	// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
-	Image string `pulumi:"image"`
-	// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
-	Ports map[string]string `pulumi:"ports"`
+	Commands      []string          `pulumi:"commands"`
+	ContainerName string            `pulumi:"containerName"`
+	Environment   map[string]string `pulumi:"environment"`
+	Image         string            `pulumi:"image"`
+	Ports         map[string]string `pulumi:"ports"`
 }
 
 // ContainerServiceDeploymentVersionContainerInput is an input type that accepts ContainerServiceDeploymentVersionContainerArgs and ContainerServiceDeploymentVersionContainerOutput values.
@@ -150,16 +142,11 @@ type ContainerServiceDeploymentVersionContainerInput interface {
 }
 
 type ContainerServiceDeploymentVersionContainerArgs struct {
-	// The launch command for the container. A list of string.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The name for the container.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// A key-value map of the environment variables of the container.
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
-	Image pulumi.StringInput `pulumi:"image"`
-	// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
-	Ports pulumi.StringMapInput `pulumi:"ports"`
+	Commands      pulumi.StringArrayInput `pulumi:"commands"`
+	ContainerName pulumi.StringInput      `pulumi:"containerName"`
+	Environment   pulumi.StringMapInput   `pulumi:"environment"`
+	Image         pulumi.StringInput      `pulumi:"image"`
+	Ports         pulumi.StringMapInput   `pulumi:"ports"`
 }
 
 func (ContainerServiceDeploymentVersionContainerArgs) ElementType() reflect.Type {
@@ -213,27 +200,22 @@ func (o ContainerServiceDeploymentVersionContainerOutput) ToContainerServiceDepl
 	return o
 }
 
-// The launch command for the container. A list of string.
 func (o ContainerServiceDeploymentVersionContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The name for the container.
 func (o ContainerServiceDeploymentVersionContainerOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// A key-value map of the environment variables of the container.
 func (o ContainerServiceDeploymentVersionContainerOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
-// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
 func (o ContainerServiceDeploymentVersionContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
 func (o ContainerServiceDeploymentVersionContainerOutput) Ports() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) map[string]string { return v.Ports }).(pulumi.StringMapOutput)
 }
@@ -259,12 +241,9 @@ func (o ContainerServiceDeploymentVersionContainerArrayOutput) Index(i pulumi.In
 }
 
 type ContainerServiceDeploymentVersionPublicEndpoint struct {
-	// The name of the container for the endpoint.
-	ContainerName string `pulumi:"containerName"`
-	// The port of the container to which traffic is forwarded to.
-	ContainerPort int `pulumi:"containerPort"`
-	// A configuration block that describes the health check configuration of the container. Detailed below.
-	HealthCheck ContainerServiceDeploymentVersionPublicEndpointHealthCheck `pulumi:"healthCheck"`
+	ContainerName string                                                     `pulumi:"containerName"`
+	ContainerPort int                                                        `pulumi:"containerPort"`
+	HealthCheck   ContainerServiceDeploymentVersionPublicEndpointHealthCheck `pulumi:"healthCheck"`
 }
 
 // ContainerServiceDeploymentVersionPublicEndpointInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointArgs and ContainerServiceDeploymentVersionPublicEndpointOutput values.
@@ -279,12 +258,9 @@ type ContainerServiceDeploymentVersionPublicEndpointInput interface {
 }
 
 type ContainerServiceDeploymentVersionPublicEndpointArgs struct {
-	// The name of the container for the endpoint.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The port of the container to which traffic is forwarded to.
-	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
-	// A configuration block that describes the health check configuration of the container. Detailed below.
-	HealthCheck ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput `pulumi:"healthCheck"`
+	ContainerName pulumi.StringInput                                              `pulumi:"containerName"`
+	ContainerPort pulumi.IntInput                                                 `pulumi:"containerPort"`
+	HealthCheck   ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput `pulumi:"healthCheck"`
 }
 
 func (ContainerServiceDeploymentVersionPublicEndpointArgs) ElementType() reflect.Type {
@@ -364,17 +340,14 @@ func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToContainerServic
 	}).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
 }
 
-// The name of the container for the endpoint.
 func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The port of the container to which traffic is forwarded to.
 func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ContainerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) int { return v.ContainerPort }).(pulumi.IntOutput)
 }
 
-// A configuration block that describes the health check configuration of the container. Detailed below.
 func (o ContainerServiceDeploymentVersionPublicEndpointOutput) HealthCheck() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
 		return v.HealthCheck
@@ -405,7 +378,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) Elem() Contain
 	}).(ContainerServiceDeploymentVersionPublicEndpointOutput)
 }
 
-// The name of the container for the endpoint.
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *string {
 		if v == nil {
@@ -415,7 +387,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port of the container to which traffic is forwarded to.
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *int {
 		if v == nil {
@@ -425,7 +396,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerPort(
 	}).(pulumi.IntPtrOutput)
 }
 
-// A configuration block that describes the health check configuration of the container. Detailed below.
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) HealthCheck() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
 		if v == nil {
@@ -436,18 +406,12 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) HealthCheck() 
 }
 
 type ContainerServiceDeploymentVersionPublicEndpointHealthCheck struct {
-	// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
-	HealthyThreshold *int `pulumi:"healthyThreshold"`
-	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-	IntervalSeconds *int `pulumi:"intervalSeconds"`
-	// The path on the container on which to perform the health check. Defaults to "/".
-	Path *string `pulumi:"path"`
-	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
-	SuccessCodes *string `pulumi:"successCodes"`
-	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
-	// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
-	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   *int    `pulumi:"healthyThreshold"`
+	IntervalSeconds    *int    `pulumi:"intervalSeconds"`
+	Path               *string `pulumi:"path"`
+	SuccessCodes       *string `pulumi:"successCodes"`
+	TimeoutSeconds     *int    `pulumi:"timeoutSeconds"`
+	UnhealthyThreshold *int    `pulumi:"unhealthyThreshold"`
 }
 
 // ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs and ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput values.
@@ -462,18 +426,12 @@ type ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput interface {
 }
 
 type ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs struct {
-	// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
-	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
-	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
-	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
-	// The path on the container on which to perform the health check. Defaults to "/".
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
-	SuccessCodes pulumi.StringPtrInput `pulumi:"successCodes"`
-	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
-	// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
-	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
+	HealthyThreshold   pulumi.IntPtrInput    `pulumi:"healthyThreshold"`
+	IntervalSeconds    pulumi.IntPtrInput    `pulumi:"intervalSeconds"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	SuccessCodes       pulumi.StringPtrInput `pulumi:"successCodes"`
+	TimeoutSeconds     pulumi.IntPtrInput    `pulumi:"timeoutSeconds"`
+	UnhealthyThreshold pulumi.IntPtrInput    `pulumi:"unhealthyThreshold"`
 }
 
 func (ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ElementType() reflect.Type {
@@ -553,32 +511,26 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToCont
 	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput)
 }
 
-// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) IntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The path on the container on which to perform the health check. Defaults to "/".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) SuccessCodes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string { return v.SuccessCodes }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
@@ -607,7 +559,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Ele
 	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput)
 }
 
-// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -617,7 +568,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Hea
 	}).(pulumi.IntPtrOutput)
 }
 
-// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) IntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -627,7 +577,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The path on the container on which to perform the health check. Defaults to "/".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string {
 		if v == nil {
@@ -637,7 +586,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Pat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) SuccessCodes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string {
 		if v == nil {
@@ -647,7 +595,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Suc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -657,7 +604,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Tim
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
 		if v == nil {
@@ -668,7 +614,6 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Unh
 }
 
 type ContainerServicePrivateRegistryAccess struct {
-	// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
 	EcrImagePullerRole *ContainerServicePrivateRegistryAccessEcrImagePullerRole `pulumi:"ecrImagePullerRole"`
 }
 
@@ -684,7 +629,6 @@ type ContainerServicePrivateRegistryAccessInput interface {
 }
 
 type ContainerServicePrivateRegistryAccessArgs struct {
-	// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
 	EcrImagePullerRole ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrInput `pulumi:"ecrImagePullerRole"`
 }
 
@@ -765,7 +709,6 @@ func (o ContainerServicePrivateRegistryAccessOutput) ToContainerServicePrivateRe
 	}).(ContainerServicePrivateRegistryAccessPtrOutput)
 }
 
-// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
 func (o ContainerServicePrivateRegistryAccessOutput) EcrImagePullerRole() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
 		return v.EcrImagePullerRole
@@ -796,7 +739,6 @@ func (o ContainerServicePrivateRegistryAccessPtrOutput) Elem() ContainerServiceP
 	}).(ContainerServicePrivateRegistryAccessOutput)
 }
 
-// Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
 func (o ContainerServicePrivateRegistryAccessPtrOutput) EcrImagePullerRole() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
 	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
 		if v == nil {
@@ -807,7 +749,6 @@ func (o ContainerServicePrivateRegistryAccessPtrOutput) EcrImagePullerRole() Con
 }
 
 type ContainerServicePrivateRegistryAccessEcrImagePullerRole struct {
-	// A Boolean value that indicates whether to activate the role. The default is `false`.
 	IsActive     *bool   `pulumi:"isActive"`
 	PrincipalArn *string `pulumi:"principalArn"`
 }
@@ -824,7 +765,6 @@ type ContainerServicePrivateRegistryAccessEcrImagePullerRoleInput interface {
 }
 
 type ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs struct {
-	// A Boolean value that indicates whether to activate the role. The default is `false`.
 	IsActive     pulumi.BoolPtrInput   `pulumi:"isActive"`
 	PrincipalArn pulumi.StringPtrInput `pulumi:"principalArn"`
 }
@@ -906,7 +846,6 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToContain
 	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
 }
 
-// A Boolean value that indicates whether to activate the role. The default is `false`.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
@@ -939,7 +878,6 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) Elem()
 	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput)
 }
 
-// A Boolean value that indicates whether to activate the role. The default is `false`.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccessEcrImagePullerRole) *bool {
 		if v == nil {
@@ -1194,12 +1132,9 @@ func (o ContainerServicePublicDomainNamesCertificateArrayOutput) Index(i pulumi.
 }
 
 type InstanceAddOn struct {
-	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 	SnapshotTime string `pulumi:"snapshotTime"`
-	// The status of the add on. Valid Values: `Enabled`, `Disabled`.
-	Status string `pulumi:"status"`
-	// The add-on type. There is currently only one valid type `AutoSnapshot`.
-	Type string `pulumi:"type"`
+	Status       string `pulumi:"status"`
+	Type         string `pulumi:"type"`
 }
 
 // InstanceAddOnInput is an input type that accepts InstanceAddOnArgs and InstanceAddOnOutput values.
@@ -1214,12 +1149,9 @@ type InstanceAddOnInput interface {
 }
 
 type InstanceAddOnArgs struct {
-	// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 	SnapshotTime pulumi.StringInput `pulumi:"snapshotTime"`
-	// The status of the add on. Valid Values: `Enabled`, `Disabled`.
-	Status pulumi.StringInput `pulumi:"status"`
-	// The add-on type. There is currently only one valid type `AutoSnapshot`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Status       pulumi.StringInput `pulumi:"status"`
+	Type         pulumi.StringInput `pulumi:"type"`
 }
 
 func (InstanceAddOnArgs) ElementType() reflect.Type {
@@ -1299,17 +1231,14 @@ func (o InstanceAddOnOutput) ToInstanceAddOnPtrOutputWithContext(ctx context.Con
 	}).(InstanceAddOnPtrOutput)
 }
 
-// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 func (o InstanceAddOnOutput) SnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.SnapshotTime }).(pulumi.StringOutput)
 }
 
-// The status of the add on. Valid Values: `Enabled`, `Disabled`.
 func (o InstanceAddOnOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The add-on type. There is currently only one valid type `AutoSnapshot`.
 func (o InstanceAddOnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1338,7 +1267,6 @@ func (o InstanceAddOnPtrOutput) Elem() InstanceAddOnOutput {
 	}).(InstanceAddOnOutput)
 }
 
-// The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
 func (o InstanceAddOnPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAddOn) *string {
 		if v == nil {
@@ -1348,7 +1276,6 @@ func (o InstanceAddOnPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the add on. Valid Values: `Enabled`, `Disabled`.
 func (o InstanceAddOnPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAddOn) *string {
 		if v == nil {
@@ -1358,7 +1285,6 @@ func (o InstanceAddOnPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The add-on type. There is currently only one valid type `AutoSnapshot`.
 func (o InstanceAddOnPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceAddOn) *string {
 		if v == nil {
@@ -1369,17 +1295,12 @@ func (o InstanceAddOnPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type InstancePublicPortsPortInfo struct {
-	// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
 	CidrListAliases []string `pulumi:"cidrListAliases"`
-	// Set of CIDR blocks.
-	Cidrs []string `pulumi:"cidrs"`
-	// First port in a range of open ports on an instance.
-	FromPort  int      `pulumi:"fromPort"`
-	Ipv6Cidrs []string `pulumi:"ipv6Cidrs"`
-	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
-	Protocol string `pulumi:"protocol"`
-	// Last port in a range of open ports on an instance.
-	ToPort int `pulumi:"toPort"`
+	Cidrs           []string `pulumi:"cidrs"`
+	FromPort        int      `pulumi:"fromPort"`
+	Ipv6Cidrs       []string `pulumi:"ipv6Cidrs"`
+	Protocol        string   `pulumi:"protocol"`
+	ToPort          int      `pulumi:"toPort"`
 }
 
 // InstancePublicPortsPortInfoInput is an input type that accepts InstancePublicPortsPortInfoArgs and InstancePublicPortsPortInfoOutput values.
@@ -1394,17 +1315,12 @@ type InstancePublicPortsPortInfoInput interface {
 }
 
 type InstancePublicPortsPortInfoArgs struct {
-	// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
 	CidrListAliases pulumi.StringArrayInput `pulumi:"cidrListAliases"`
-	// Set of CIDR blocks.
-	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
-	// First port in a range of open ports on an instance.
-	FromPort  pulumi.IntInput         `pulumi:"fromPort"`
-	Ipv6Cidrs pulumi.StringArrayInput `pulumi:"ipv6Cidrs"`
-	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Last port in a range of open ports on an instance.
-	ToPort pulumi.IntInput `pulumi:"toPort"`
+	Cidrs           pulumi.StringArrayInput `pulumi:"cidrs"`
+	FromPort        pulumi.IntInput         `pulumi:"fromPort"`
+	Ipv6Cidrs       pulumi.StringArrayInput `pulumi:"ipv6Cidrs"`
+	Protocol        pulumi.StringInput      `pulumi:"protocol"`
+	ToPort          pulumi.IntInput         `pulumi:"toPort"`
 }
 
 func (InstancePublicPortsPortInfoArgs) ElementType() reflect.Type {
@@ -1458,17 +1374,14 @@ func (o InstancePublicPortsPortInfoOutput) ToInstancePublicPortsPortInfoOutputWi
 	return o
 }
 
-// Set of CIDR aliases that define access for a preconfigured range of IP addresses.
 func (o InstancePublicPortsPortInfoOutput) CidrListAliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.CidrListAliases }).(pulumi.StringArrayOutput)
 }
 
-// Set of CIDR blocks.
 func (o InstancePublicPortsPortInfoOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
 
-// First port in a range of open ports on an instance.
 func (o InstancePublicPortsPortInfoOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) int { return v.FromPort }).(pulumi.IntOutput)
 }
@@ -1477,12 +1390,10 @@ func (o InstancePublicPortsPortInfoOutput) Ipv6Cidrs() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) []string { return v.Ipv6Cidrs }).(pulumi.StringArrayOutput)
 }
 
-// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
 func (o InstancePublicPortsPortInfoOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Last port in a range of open ports on an instance.
 func (o InstancePublicPortsPortInfoOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -1508,7 +1419,6 @@ func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) Instanc
 }
 
 type LbCertificateDomainValidationRecord struct {
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName          *string `pulumi:"domainName"`
 	ResourceRecordName  *string `pulumi:"resourceRecordName"`
 	ResourceRecordType  *string `pulumi:"resourceRecordType"`
@@ -1527,7 +1437,6 @@ type LbCertificateDomainValidationRecordInput interface {
 }
 
 type LbCertificateDomainValidationRecordArgs struct {
-	// The domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName          pulumi.StringPtrInput `pulumi:"domainName"`
 	ResourceRecordName  pulumi.StringPtrInput `pulumi:"resourceRecordName"`
 	ResourceRecordType  pulumi.StringPtrInput `pulumi:"resourceRecordType"`
@@ -1585,7 +1494,6 @@ func (o LbCertificateDomainValidationRecordOutput) ToLbCertificateDomainValidati
 	return o
 }
 
-// The domain name (e.g., example.com) for your SSL/TLS certificate.
 func (o LbCertificateDomainValidationRecordOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LbCertificateDomainValidationRecord) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }

@@ -11,83 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a MediaStore Container Policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediastore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := mediastore.NewContainer(ctx, "exampleContainer", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mediastore.NewContainerPolicy(ctx, "exampleContainerPolicy", &mediastore.ContainerPolicyArgs{
-//				ContainerName: exampleContainer.Name,
-//				Policy: exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf(`{
-//		"Version": "2012-10-17",
-//		"Statement": [{
-//			"Sid": "MediaStoreFullAccess",
-//			"Action": [ "mediastore:*" ],
-//			"Principal": {"AWS" : "arn:aws:iam::%v:root"},
-//			"Effect": "Allow",
-//			"Resource": "arn:aws:mediastore:%v:%v:container/%v/*",
-//			"Condition": {
-//				"Bool": { "aws:SecureTransport": "true" }
-//			}
-//		}]
-//	}
-//
-// `, currentCallerIdentity.AccountId, currentRegion.Name, currentCallerIdentity.AccountId, name), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
-//
-// ```
 type ContainerPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the container.
 	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// The contents of the policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy        pulumi.StringOutput `pulumi:"policy"`
 }
 
 // NewContainerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -125,17 +53,13 @@ func GetContainerPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerPolicy resources.
 type containerPolicyState struct {
-	// The name of the container.
 	ContainerName *string `pulumi:"containerName"`
-	// The contents of the policy.
-	Policy *string `pulumi:"policy"`
+	Policy        *string `pulumi:"policy"`
 }
 
 type ContainerPolicyState struct {
-	// The name of the container.
 	ContainerName pulumi.StringPtrInput
-	// The contents of the policy.
-	Policy pulumi.StringPtrInput
+	Policy        pulumi.StringPtrInput
 }
 
 func (ContainerPolicyState) ElementType() reflect.Type {
@@ -143,18 +67,14 @@ func (ContainerPolicyState) ElementType() reflect.Type {
 }
 
 type containerPolicyArgs struct {
-	// The name of the container.
 	ContainerName string `pulumi:"containerName"`
-	// The contents of the policy.
-	Policy string `pulumi:"policy"`
+	Policy        string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a ContainerPolicy resource.
 type ContainerPolicyArgs struct {
-	// The name of the container.
 	ContainerName pulumi.StringInput
-	// The contents of the policy.
-	Policy pulumi.StringInput
+	Policy        pulumi.StringInput
 }
 
 func (ContainerPolicyArgs) ElementType() reflect.Type {
@@ -244,12 +164,10 @@ func (o ContainerPolicyOutput) ToContainerPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the container.
 func (o ContainerPolicyOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The contents of the policy.
 func (o ContainerPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

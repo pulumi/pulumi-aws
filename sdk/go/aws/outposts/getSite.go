@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about an Outposts Site.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetSite(ctx, &outposts.GetSiteArgs{
-//				Name: pulumi.StringRef("example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSite(ctx *pulumi.Context, args *GetSiteArgs, opts ...pulumi.InvokeOption) (*GetSiteResult, error) {
 	var rv GetSiteResult
 	err := ctx.Invoke("aws:outposts/getSite:getSite", args, &rv, opts...)
@@ -48,17 +21,13 @@ func GetSite(ctx *pulumi.Context, args *GetSiteArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getSite.
 type GetSiteArgs struct {
-	// Identifier of the Site.
-	Id *string `pulumi:"id"`
-	// Name of the Site.
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getSite.
 type GetSiteResult struct {
-	// AWS Account identifier.
-	AccountId string `pulumi:"accountId"`
-	// Description.
+	AccountId   string `pulumi:"accountId"`
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	Name        string `pulumi:"name"`
@@ -79,9 +48,7 @@ func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getSite.
 type GetSiteOutputArgs struct {
-	// Identifier of the Site.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the Site.
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -104,12 +71,10 @@ func (o GetSiteResultOutput) ToGetSiteResultOutputWithContext(ctx context.Contex
 	return o
 }
 
-// AWS Account identifier.
 func (o GetSiteResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSiteResult) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Description.
 func (o GetSiteResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSiteResult) string { return v.Description }).(pulumi.StringOutput)
 }

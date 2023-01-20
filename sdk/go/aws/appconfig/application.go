@@ -10,59 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppConfig Application resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewApplication(ctx, "example", &appconfig.ApplicationArgs{
-//				Description: pulumi.String("Example AppConfig Application"),
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Application"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AppConfig Applications can be imported using their application ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:appconfig/application:Application example 71rxuzt
-//
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 
-	// ARN of the AppConfig Application.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the application. Can be at most 1024 characters.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name for the application. Must be between 1 and 64 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -94,29 +49,19 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// ARN of the AppConfig Application.
-	Arn *string `pulumi:"arn"`
-	// Description of the application. Can be at most 1024 characters.
-	Description *string `pulumi:"description"`
-	// Name for the application. Must be between 1 and 64 characters in length.
-	Name *string `pulumi:"name"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
-	// ARN of the AppConfig Application.
-	Arn pulumi.StringPtrInput
-	// Description of the application. Can be at most 1024 characters.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// Name for the application. Must be between 1 and 64 characters in length.
-	Name pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -124,22 +69,16 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// Description of the application. Can be at most 1024 characters.
-	Description *string `pulumi:"description"`
-	// Name for the application. Must be between 1 and 64 characters in length.
-	Name *string `pulumi:"name"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// Description of the application. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// Name for the application. Must be between 1 and 64 characters in length.
-	Name pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -229,27 +168,22 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// ARN of the AppConfig Application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the application. Can be at most 1024 characters.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name for the application. Must be between 1 and 64 characters in length.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

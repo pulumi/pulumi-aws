@@ -10,49 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
-//
-// > **NOTE:** Removing this resource disables serial console access.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSerialConsoleAccess(ctx, "example", &ec2.SerialConsoleAccessArgs{
-//				Enabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Serial console access state can be imported, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-//
-// ```
 type SerialConsoleAccess struct {
 	pulumi.CustomResourceState
 
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 }
 
@@ -85,12 +45,10 @@ func GetSerialConsoleAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SerialConsoleAccess resources.
 type serialConsoleAccessState struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
 type SerialConsoleAccessState struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 }
 
@@ -99,13 +57,11 @@ func (SerialConsoleAccessState) ElementType() reflect.Type {
 }
 
 type serialConsoleAccessArgs struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
 // The set of arguments for constructing a SerialConsoleAccess resource.
 type SerialConsoleAccessArgs struct {
-	// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 }
 
@@ -196,7 +152,6 @@ func (o SerialConsoleAccessOutput) ToSerialConsoleAccessOutputWithContext(ctx co
 	return o
 }
 
-// Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
 func (o SerialConsoleAccessOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SerialConsoleAccess) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

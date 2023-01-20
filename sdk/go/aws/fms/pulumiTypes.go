@@ -11,9 +11,7 @@ import (
 )
 
 type PolicyExcludeMap struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
-	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -29,9 +27,7 @@ type PolicyExcludeMapInput interface {
 }
 
 type PolicyExcludeMapArgs struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -112,12 +108,10 @@ func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx conte
 	}).(PolicyExcludeMapPtrOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyExcludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyExcludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -146,7 +140,6 @@ func (o PolicyExcludeMapPtrOutput) Elem() PolicyExcludeMapOutput {
 	}).(PolicyExcludeMapOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -167,9 +159,7 @@ func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 }
 
 type PolicyIncludeMap struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
-	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -185,9 +175,7 @@ type PolicyIncludeMapInput interface {
 }
 
 type PolicyIncludeMapArgs struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -268,12 +256,10 @@ func (o PolicyIncludeMapOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx conte
 	}).(PolicyIncludeMapPtrOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyIncludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyIncludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -302,7 +288,6 @@ func (o PolicyIncludeMapPtrOutput) Elem() PolicyIncludeMapOutput {
 	}).(PolicyIncludeMapOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 func (o PolicyIncludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIncludeMap) []string {
 		if v == nil {
@@ -312,7 +297,6 @@ func (o PolicyIncludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIncludeMap) []string {
 		if v == nil {
@@ -323,10 +307,8 @@ func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 }
 
 type PolicySecurityServicePolicyData struct {
-	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData *string `pulumi:"managedServiceData"`
-	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
-	Type string `pulumi:"type"`
+	Type               string  `pulumi:"type"`
 }
 
 // PolicySecurityServicePolicyDataInput is an input type that accepts PolicySecurityServicePolicyDataArgs and PolicySecurityServicePolicyDataOutput values.
@@ -341,10 +323,8 @@ type PolicySecurityServicePolicyDataInput interface {
 }
 
 type PolicySecurityServicePolicyDataArgs struct {
-	// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
-	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
-	Type pulumi.StringInput `pulumi:"type"`
+	Type               pulumi.StringInput    `pulumi:"type"`
 }
 
 func (PolicySecurityServicePolicyDataArgs) ElementType() reflect.Type {
@@ -424,12 +404,10 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 	}).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
-// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
 }
 
-// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 func (o PolicySecurityServicePolicyDataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -458,7 +436,6 @@ func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePo
 	}).(PolicySecurityServicePolicyDataOutput)
 }
 
-// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {
@@ -468,7 +445,6 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {

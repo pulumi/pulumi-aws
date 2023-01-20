@@ -11,7 +11,6 @@ import (
 )
 
 type WorkspaceLoggingConfiguration struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
 	LogGroupArn string `pulumi:"logGroupArn"`
 }
 
@@ -27,7 +26,6 @@ type WorkspaceLoggingConfigurationInput interface {
 }
 
 type WorkspaceLoggingConfigurationArgs struct {
-	// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
 	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
 }
 
@@ -108,7 +106,6 @@ func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrO
 	}).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
 func (o WorkspaceLoggingConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceLoggingConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
 }
@@ -137,7 +134,6 @@ func (o WorkspaceLoggingConfigurationPtrOutput) Elem() WorkspaceLoggingConfigura
 	}).(WorkspaceLoggingConfigurationOutput)
 }
 
-// The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
 func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceLoggingConfiguration) *string {
 		if v == nil {

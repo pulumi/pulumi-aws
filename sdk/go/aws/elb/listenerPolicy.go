@@ -11,152 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a load balancer policy to an ELB Listener.
-//
-// ## Example Usage
-// ### Custom Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(443),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::000000000000:server-certificate/wu-tang.net"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("wu-tang"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl", &elb.LoadBalancerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-ssl"),
-//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
-//				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("ECDHE-ECDSA-AES128-GCM-SHA256"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1.2"),
-//						Value: pulumi.String("true"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb.ListenerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				LoadBalancerPort: pulumi.Int(443),
-//				PolicyNames: pulumi.StringArray{
-//					wu_tang_ssl.PolicyName,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// This example shows how to customize the TLS settings of an HTTPS listener.
-// ### AWS Predefined Security Policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elb.NewLoadBalancer(ctx, "wu-tang", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(443),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::000000000000:server-certificate/wu-tang.net"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("wu-tang"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancerPolicy(ctx, "wu-tang-ssl-tls-1-1", &elb.LoadBalancerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				PolicyName:       pulumi.String("wu-tang-ssl"),
-//				PolicyTypeName:   pulumi.String("SSLNegotiationPolicyType"),
-//				PolicyAttributes: elb.LoadBalancerPolicyPolicyAttributeArray{
-//					&elb.LoadBalancerPolicyPolicyAttributeArgs{
-//						Name:  pulumi.String("Reference-Security-Policy"),
-//						Value: pulumi.String("ELBSecurityPolicy-TLS-1-1-2017-01"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewListenerPolicy(ctx, "wu-tang-listener-policies-443", &elb.ListenerPolicyArgs{
-//				LoadBalancerName: wu_tang.Name,
-//				LoadBalancerPort: pulumi.Int(443),
-//				PolicyNames: pulumi.StringArray{
-//					wu_tang_ssl_tls_1_1.PolicyName,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 type ListenerPolicy struct {
 	pulumi.CustomResourceState
 
-	// The load balancer to attach the policy to.
-	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
-	// The load balancer listener port to apply the policy to.
-	LoadBalancerPort pulumi.IntOutput `pulumi:"loadBalancerPort"`
-	// List of Policy Names to apply to the backend server.
-	PolicyNames pulumi.StringArrayOutput `pulumi:"policyNames"`
+	LoadBalancerName pulumi.StringOutput      `pulumi:"loadBalancerName"`
+	LoadBalancerPort pulumi.IntOutput         `pulumi:"loadBalancerPort"`
+	PolicyNames      pulumi.StringArrayOutput `pulumi:"policyNames"`
 }
 
 // NewListenerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -200,21 +60,15 @@ func GetListenerPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ListenerPolicy resources.
 type listenerPolicyState struct {
-	// The load balancer to attach the policy to.
-	LoadBalancerName *string `pulumi:"loadBalancerName"`
-	// The load balancer listener port to apply the policy to.
-	LoadBalancerPort *int `pulumi:"loadBalancerPort"`
-	// List of Policy Names to apply to the backend server.
-	PolicyNames []string `pulumi:"policyNames"`
+	LoadBalancerName *string  `pulumi:"loadBalancerName"`
+	LoadBalancerPort *int     `pulumi:"loadBalancerPort"`
+	PolicyNames      []string `pulumi:"policyNames"`
 }
 
 type ListenerPolicyState struct {
-	// The load balancer to attach the policy to.
 	LoadBalancerName pulumi.StringPtrInput
-	// The load balancer listener port to apply the policy to.
 	LoadBalancerPort pulumi.IntPtrInput
-	// List of Policy Names to apply to the backend server.
-	PolicyNames pulumi.StringArrayInput
+	PolicyNames      pulumi.StringArrayInput
 }
 
 func (ListenerPolicyState) ElementType() reflect.Type {
@@ -222,22 +76,16 @@ func (ListenerPolicyState) ElementType() reflect.Type {
 }
 
 type listenerPolicyArgs struct {
-	// The load balancer to attach the policy to.
-	LoadBalancerName string `pulumi:"loadBalancerName"`
-	// The load balancer listener port to apply the policy to.
-	LoadBalancerPort int `pulumi:"loadBalancerPort"`
-	// List of Policy Names to apply to the backend server.
-	PolicyNames []string `pulumi:"policyNames"`
+	LoadBalancerName string   `pulumi:"loadBalancerName"`
+	LoadBalancerPort int      `pulumi:"loadBalancerPort"`
+	PolicyNames      []string `pulumi:"policyNames"`
 }
 
 // The set of arguments for constructing a ListenerPolicy resource.
 type ListenerPolicyArgs struct {
-	// The load balancer to attach the policy to.
 	LoadBalancerName pulumi.StringInput
-	// The load balancer listener port to apply the policy to.
 	LoadBalancerPort pulumi.IntInput
-	// List of Policy Names to apply to the backend server.
-	PolicyNames pulumi.StringArrayInput
+	PolicyNames      pulumi.StringArrayInput
 }
 
 func (ListenerPolicyArgs) ElementType() reflect.Type {
@@ -327,17 +175,14 @@ func (o ListenerPolicyOutput) ToListenerPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The load balancer to attach the policy to.
 func (o ListenerPolicyOutput) LoadBalancerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerPolicy) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
 }
 
-// The load balancer listener port to apply the policy to.
 func (o ListenerPolicyOutput) LoadBalancerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerPolicy) pulumi.IntOutput { return v.LoadBalancerPort }).(pulumi.IntOutput)
 }
 
-// List of Policy Names to apply to the backend server.
 func (o ListenerPolicyOutput) PolicyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerPolicy) pulumi.StringArrayOutput { return v.PolicyNames }).(pulumi.StringArrayOutput)
 }

@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `waf.Rule` Retrieves a WAF Rule Resource Id.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.LookupRule(ctx, &waf.LookupRuleArgs{
-//				Name: "tfWAFRule",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	var rv LookupRuleResult
 	err := ctx.Invoke("aws:waf/getRule:getRule", args, &rv, opts...)
@@ -48,7 +21,6 @@ func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getRule.
 type LookupRuleArgs struct {
-	// Name of the WAF rule.
 	Name string `pulumi:"name"`
 }
 
@@ -74,7 +46,6 @@ func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getRule.
 type LookupRuleOutputArgs struct {
-	// Name of the WAF rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 

@@ -11,79 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Service Catalog Provisioning Artifact for a specified product.
-//
-// > A "provisioning artifact" is also referred to as a "version."
-//
-// > **NOTE:** You cannot create a provisioning artifact for a product that was shared with you.
-//
-// > **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `templatePhysicalId` argument.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewProvisioningArtifact(ctx, "example", &servicecatalog.ProvisioningArtifactArgs{
-//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
-//				Type:        pulumi.String("CLOUD_FORMATION_TEMPLATE"),
-//				TemplateUrl: pulumi.String(fmt.Sprintf("https://%v/%v", aws_s3_bucket.Example.Bucket_regional_domain_name, aws_s3_object.Example.Key)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_servicecatalog_provisioning_artifact` can be imported using the provisioning artifact ID and product ID separated by a colon, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
-//
-// ```
 type ProvisioningArtifact struct {
 	pulumi.CustomResourceState
 
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
-	Active pulumi.BoolPtrOutput `pulumi:"active"`
-	// Time when the provisioning artifact was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-	DisableTemplateValidation pulumi.BoolPtrOutput `pulumi:"disableTemplateValidation"`
-	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
-	Guidance pulumi.StringPtrOutput `pulumi:"guidance"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Identifier of the product.
-	ProductId pulumi.StringOutput `pulumi:"productId"`
-	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-	TemplatePhysicalId pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
-	// Template source as URL of the CloudFormation template in Amazon S3.
-	TemplateUrl pulumi.StringPtrOutput `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	AcceptLanguage            pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
+	Active                    pulumi.BoolPtrOutput   `pulumi:"active"`
+	CreatedTime               pulumi.StringOutput    `pulumi:"createdTime"`
+	Description               pulumi.StringOutput    `pulumi:"description"`
+	DisableTemplateValidation pulumi.BoolPtrOutput   `pulumi:"disableTemplateValidation"`
+	Guidance                  pulumi.StringPtrOutput `pulumi:"guidance"`
+	Name                      pulumi.StringOutput    `pulumi:"name"`
+	ProductId                 pulumi.StringOutput    `pulumi:"productId"`
+	TemplatePhysicalId        pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
+	TemplateUrl               pulumi.StringPtrOutput `pulumi:"templateUrl"`
+	Type                      pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewProvisioningArtifact registers a new resource with the given unique name, arguments, and options.
@@ -118,53 +59,31 @@ func GetProvisioningArtifact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProvisioningArtifact resources.
 type provisioningArtifactState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
-	Active *bool `pulumi:"active"`
-	// Time when the provisioning artifact was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description *string `pulumi:"description"`
-	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-	DisableTemplateValidation *bool `pulumi:"disableTemplateValidation"`
-	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
-	Guidance *string `pulumi:"guidance"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-	Name *string `pulumi:"name"`
-	// Identifier of the product.
-	ProductId *string `pulumi:"productId"`
-	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
-	// Template source as URL of the CloudFormation template in Amazon S3.
-	TemplateUrl *string `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-	Type *string `pulumi:"type"`
+	AcceptLanguage            *string `pulumi:"acceptLanguage"`
+	Active                    *bool   `pulumi:"active"`
+	CreatedTime               *string `pulumi:"createdTime"`
+	Description               *string `pulumi:"description"`
+	DisableTemplateValidation *bool   `pulumi:"disableTemplateValidation"`
+	Guidance                  *string `pulumi:"guidance"`
+	Name                      *string `pulumi:"name"`
+	ProductId                 *string `pulumi:"productId"`
+	TemplatePhysicalId        *string `pulumi:"templatePhysicalId"`
+	TemplateUrl               *string `pulumi:"templateUrl"`
+	Type                      *string `pulumi:"type"`
 }
 
 type ProvisioningArtifactState struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-	AcceptLanguage pulumi.StringPtrInput
-	// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
-	Active pulumi.BoolPtrInput
-	// Time when the provisioning artifact was created.
-	CreatedTime pulumi.StringPtrInput
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description pulumi.StringPtrInput
-	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
+	AcceptLanguage            pulumi.StringPtrInput
+	Active                    pulumi.BoolPtrInput
+	CreatedTime               pulumi.StringPtrInput
+	Description               pulumi.StringPtrInput
 	DisableTemplateValidation pulumi.BoolPtrInput
-	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
-	Guidance pulumi.StringPtrInput
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-	Name pulumi.StringPtrInput
-	// Identifier of the product.
-	ProductId pulumi.StringPtrInput
-	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-	TemplatePhysicalId pulumi.StringPtrInput
-	// Template source as URL of the CloudFormation template in Amazon S3.
-	TemplateUrl pulumi.StringPtrInput
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-	Type pulumi.StringPtrInput
+	Guidance                  pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	ProductId                 pulumi.StringPtrInput
+	TemplatePhysicalId        pulumi.StringPtrInput
+	TemplateUrl               pulumi.StringPtrInput
+	Type                      pulumi.StringPtrInput
 }
 
 func (ProvisioningArtifactState) ElementType() reflect.Type {
@@ -172,50 +91,30 @@ func (ProvisioningArtifactState) ElementType() reflect.Type {
 }
 
 type provisioningArtifactArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
-	Active *bool `pulumi:"active"`
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description *string `pulumi:"description"`
-	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-	DisableTemplateValidation *bool `pulumi:"disableTemplateValidation"`
-	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
-	Guidance *string `pulumi:"guidance"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-	Name *string `pulumi:"name"`
-	// Identifier of the product.
-	ProductId string `pulumi:"productId"`
-	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
-	// Template source as URL of the CloudFormation template in Amazon S3.
-	TemplateUrl *string `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-	Type *string `pulumi:"type"`
+	AcceptLanguage            *string `pulumi:"acceptLanguage"`
+	Active                    *bool   `pulumi:"active"`
+	Description               *string `pulumi:"description"`
+	DisableTemplateValidation *bool   `pulumi:"disableTemplateValidation"`
+	Guidance                  *string `pulumi:"guidance"`
+	Name                      *string `pulumi:"name"`
+	ProductId                 string  `pulumi:"productId"`
+	TemplatePhysicalId        *string `pulumi:"templatePhysicalId"`
+	TemplateUrl               *string `pulumi:"templateUrl"`
+	Type                      *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ProvisioningArtifact resource.
 type ProvisioningArtifactArgs struct {
-	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-	AcceptLanguage pulumi.StringPtrInput
-	// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
-	Active pulumi.BoolPtrInput
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description pulumi.StringPtrInput
-	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
+	AcceptLanguage            pulumi.StringPtrInput
+	Active                    pulumi.BoolPtrInput
+	Description               pulumi.StringPtrInput
 	DisableTemplateValidation pulumi.BoolPtrInput
-	// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
-	Guidance pulumi.StringPtrInput
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-	Name pulumi.StringPtrInput
-	// Identifier of the product.
-	ProductId pulumi.StringInput
-	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-	TemplatePhysicalId pulumi.StringPtrInput
-	// Template source as URL of the CloudFormation template in Amazon S3.
-	TemplateUrl pulumi.StringPtrInput
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-	Type pulumi.StringPtrInput
+	Guidance                  pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	ProductId                 pulumi.StringInput
+	TemplatePhysicalId        pulumi.StringPtrInput
+	TemplateUrl               pulumi.StringPtrInput
+	Type                      pulumi.StringPtrInput
 }
 
 func (ProvisioningArtifactArgs) ElementType() reflect.Type {
@@ -305,57 +204,46 @@ func (o ProvisioningArtifactOutput) ToProvisioningArtifactOutputWithContext(ctx 
 	return o
 }
 
-// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
 func (o ProvisioningArtifactOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
 func (o ProvisioningArtifactOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// Time when the provisioning artifact was created.
 func (o ProvisioningArtifactOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
 func (o ProvisioningArtifactOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
 func (o ProvisioningArtifactOutput) DisableTemplateValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.BoolPtrOutput { return v.DisableTemplateValidation }).(pulumi.BoolPtrOutput)
 }
 
-// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
 func (o ProvisioningArtifactOutput) Guidance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.Guidance }).(pulumi.StringPtrOutput)
 }
 
-// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
 func (o ProvisioningArtifactOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Identifier of the product.
 func (o ProvisioningArtifactOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
 }
 
-// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 func (o ProvisioningArtifactOutput) TemplatePhysicalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.TemplatePhysicalId }).(pulumi.StringPtrOutput)
 }
 
-// Template source as URL of the CloudFormation template in Amazon S3.
 func (o ProvisioningArtifactOutput) TemplateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }
 
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 func (o ProvisioningArtifactOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

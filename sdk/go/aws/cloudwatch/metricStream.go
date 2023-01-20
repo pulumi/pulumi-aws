@@ -11,262 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Metric Stream resource.
-//
-// ## Example Usage
-// ### Filters
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metricStreamToFirehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "streams.metrics.cloudwatch.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			firehoseToS3Role, err := iam.NewRole(ctx, "firehoseToS3Role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "firehose.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3Stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("s3"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:   firehoseToS3Role.Arn,
-//					BucketArn: bucket.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				RoleArn:      metricStreamToFirehoseRole.Arn,
-//				FirehoseArn:  s3Stream.Arn,
-//				OutputFormat: pulumi.String("json"),
-//				IncludeFilters: cloudwatch.MetricStreamIncludeFilterArray{
-//					&cloudwatch.MetricStreamIncludeFilterArgs{
-//						Namespace: pulumi.String("AWS/EC2"),
-//					},
-//					&cloudwatch.MetricStreamIncludeFilterArgs{
-//						Namespace: pulumi.String("AWS/EBS"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "metricStreamToFirehoseRolePolicy", &iam.RolePolicyArgs{
-//				Role: metricStreamToFirehoseRole.ID(),
-//				Policy: s3Stream.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Effect": "Allow",
-//	            "Action": [
-//	                "firehose:PutRecord",
-//	                "firehose:PutRecordBatch"
-//	            ],
-//	            "Resource": "%v"
-//	        }
-//	    ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "firehoseToS3RolePolicy", &iam.RolePolicyArgs{
-//				Role: firehoseToS3Role.ID(),
-//				Policy: pulumi.All(bucket.Arn, bucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					bucketArn := _args[0].(string)
-//					bucketArn1 := _args[1].(string)
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Effect": "Allow",
-//	            "Action": [
-//	                "s3:AbortMultipartUpload",
-//	                "s3:GetBucketLocation",
-//	                "s3:GetObject",
-//	                "s3:ListBucket",
-//	                "s3:ListBucketMultipartUploads",
-//	                "s3:PutObject"
-//	            ],
-//	            "Resource": [
-//	                "%v",
-//	                "%v/*"
-//	            ]
-//	        }
-//	    ]
-//	}
-//
-// `, bucketArn, bucketArn1), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Additional Statistics
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				RoleArn:      pulumi.Any(aws_iam_role.Metric_stream_to_firehose.Arn),
-//				FirehoseArn:  pulumi.Any(aws_kinesis_firehose_delivery_stream.S3_stream.Arn),
-//				OutputFormat: pulumi.String("json"),
-//				StatisticsConfigurations: cloudwatch.MetricStreamStatisticsConfigurationArray{
-//					&cloudwatch.MetricStreamStatisticsConfigurationArgs{
-//						AdditionalStatistics: pulumi.StringArray{
-//							pulumi.String("p1"),
-//							pulumi.String("tm99"),
-//						},
-//						IncludeMetrics: cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArray{
-//							&cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs{
-//								MetricName: pulumi.String("CPUUtilization"),
-//								Namespace:  pulumi.String("AWS/EC2"),
-//							},
-//						},
-//					},
-//					&cloudwatch.MetricStreamStatisticsConfigurationArgs{
-//						AdditionalStatistics: pulumi.StringArray{
-//							pulumi.String("TS(50.5:)"),
-//						},
-//						IncludeMetrics: cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArray{
-//							&cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs{
-//								MetricName: pulumi.String("CPUUtilization"),
-//								Namespace:  pulumi.String("AWS/EC2"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// CloudWatch metric streams can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
-//
-// ```
 type MetricStream struct {
 	pulumi.CustomResourceState
 
-	// ARN of the metric stream.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
-	ExcludeFilters MetricStreamExcludeFilterArrayOutput `pulumi:"excludeFilters"`
-	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-	FirehoseArn pulumi.StringOutput `pulumi:"firehoseArn"`
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
-	IncludeFilters MetricStreamIncludeFilterArrayOutput `pulumi:"includeFilters"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
-	LastUpdateDate pulumi.StringOutput `pulumi:"lastUpdateDate"`
-	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
-	OutputFormat pulumi.StringOutput `pulumi:"outputFormat"`
-	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// State of the metric stream. Possible values are `running` and `stopped`.
-	State pulumi.StringOutput `pulumi:"state"`
-	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+	Arn                      pulumi.StringOutput                            `pulumi:"arn"`
+	CreationDate             pulumi.StringOutput                            `pulumi:"creationDate"`
+	ExcludeFilters           MetricStreamExcludeFilterArrayOutput           `pulumi:"excludeFilters"`
+	FirehoseArn              pulumi.StringOutput                            `pulumi:"firehoseArn"`
+	IncludeFilters           MetricStreamIncludeFilterArrayOutput           `pulumi:"includeFilters"`
+	LastUpdateDate           pulumi.StringOutput                            `pulumi:"lastUpdateDate"`
+	Name                     pulumi.StringOutput                            `pulumi:"name"`
+	NamePrefix               pulumi.StringOutput                            `pulumi:"namePrefix"`
+	OutputFormat             pulumi.StringOutput                            `pulumi:"outputFormat"`
+	RoleArn                  pulumi.StringOutput                            `pulumi:"roleArn"`
+	State                    pulumi.StringOutput                            `pulumi:"state"`
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayOutput `pulumi:"statisticsConfigurations"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags                     pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                         `pulumi:"tagsAll"`
 }
 
 // NewMetricStream registers a new resource with the given unique name, arguments, and options.
@@ -307,65 +68,37 @@ func GetMetricStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MetricStream resources.
 type metricStreamState struct {
-	// ARN of the metric stream.
-	Arn *string `pulumi:"arn"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
-	CreationDate *string `pulumi:"creationDate"`
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
-	ExcludeFilters []MetricStreamExcludeFilter `pulumi:"excludeFilters"`
-	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-	FirehoseArn *string `pulumi:"firehoseArn"`
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
-	IncludeFilters []MetricStreamIncludeFilter `pulumi:"includeFilters"`
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
-	LastUpdateDate *string `pulumi:"lastUpdateDate"`
-	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
-	OutputFormat *string `pulumi:"outputFormat"`
-	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
-	RoleArn *string `pulumi:"roleArn"`
-	// State of the metric stream. Possible values are `running` and `stopped`.
-	State *string `pulumi:"state"`
-	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+	Arn                      *string                               `pulumi:"arn"`
+	CreationDate             *string                               `pulumi:"creationDate"`
+	ExcludeFilters           []MetricStreamExcludeFilter           `pulumi:"excludeFilters"`
+	FirehoseArn              *string                               `pulumi:"firehoseArn"`
+	IncludeFilters           []MetricStreamIncludeFilter           `pulumi:"includeFilters"`
+	LastUpdateDate           *string                               `pulumi:"lastUpdateDate"`
+	Name                     *string                               `pulumi:"name"`
+	NamePrefix               *string                               `pulumi:"namePrefix"`
+	OutputFormat             *string                               `pulumi:"outputFormat"`
+	RoleArn                  *string                               `pulumi:"roleArn"`
+	State                    *string                               `pulumi:"state"`
 	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags                     map[string]string                     `pulumi:"tags"`
+	TagsAll                  map[string]string                     `pulumi:"tagsAll"`
 }
 
 type MetricStreamState struct {
-	// ARN of the metric stream.
-	Arn pulumi.StringPtrInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
-	CreationDate pulumi.StringPtrInput
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
-	ExcludeFilters MetricStreamExcludeFilterArrayInput
-	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-	FirehoseArn pulumi.StringPtrInput
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
-	IncludeFilters MetricStreamIncludeFilterArrayInput
-	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
-	LastUpdateDate pulumi.StringPtrInput
-	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
-	OutputFormat pulumi.StringPtrInput
-	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
-	RoleArn pulumi.StringPtrInput
-	// State of the metric stream. Possible values are `running` and `stopped`.
-	State pulumi.StringPtrInput
-	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+	Arn                      pulumi.StringPtrInput
+	CreationDate             pulumi.StringPtrInput
+	ExcludeFilters           MetricStreamExcludeFilterArrayInput
+	FirehoseArn              pulumi.StringPtrInput
+	IncludeFilters           MetricStreamIncludeFilterArrayInput
+	LastUpdateDate           pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	NamePrefix               pulumi.StringPtrInput
+	OutputFormat             pulumi.StringPtrInput
+	RoleArn                  pulumi.StringPtrInput
+	State                    pulumi.StringPtrInput
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 }
 
 func (MetricStreamState) ElementType() reflect.Type {
@@ -373,46 +106,28 @@ func (MetricStreamState) ElementType() reflect.Type {
 }
 
 type metricStreamArgs struct {
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
-	ExcludeFilters []MetricStreamExcludeFilter `pulumi:"excludeFilters"`
-	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-	FirehoseArn string `pulumi:"firehoseArn"`
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
-	IncludeFilters []MetricStreamIncludeFilter `pulumi:"includeFilters"`
-	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
-	OutputFormat string `pulumi:"outputFormat"`
-	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
-	RoleArn string `pulumi:"roleArn"`
-	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+	ExcludeFilters           []MetricStreamExcludeFilter           `pulumi:"excludeFilters"`
+	FirehoseArn              string                                `pulumi:"firehoseArn"`
+	IncludeFilters           []MetricStreamIncludeFilter           `pulumi:"includeFilters"`
+	Name                     *string                               `pulumi:"name"`
+	NamePrefix               *string                               `pulumi:"namePrefix"`
+	OutputFormat             string                                `pulumi:"outputFormat"`
+	RoleArn                  string                                `pulumi:"roleArn"`
 	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                     map[string]string                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MetricStream resource.
 type MetricStreamArgs struct {
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
-	ExcludeFilters MetricStreamExcludeFilterArrayInput
-	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-	FirehoseArn pulumi.StringInput
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
-	IncludeFilters MetricStreamIncludeFilterArrayInput
-	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
-	OutputFormat pulumi.StringInput
-	// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
-	RoleArn pulumi.StringInput
-	// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+	ExcludeFilters           MetricStreamExcludeFilterArrayInput
+	FirehoseArn              pulumi.StringInput
+	IncludeFilters           MetricStreamIncludeFilterArrayInput
+	Name                     pulumi.StringPtrInput
+	NamePrefix               pulumi.StringPtrInput
+	OutputFormat             pulumi.StringInput
+	RoleArn                  pulumi.StringInput
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (MetricStreamArgs) ElementType() reflect.Type {
@@ -502,74 +217,60 @@ func (o MetricStreamOutput) ToMetricStreamOutputWithContext(ctx context.Context)
 	return o
 }
 
-// ARN of the metric stream.
 func (o MetricStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
 func (o MetricStreamOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
 func (o MetricStreamOutput) ExcludeFilters() MetricStreamExcludeFilterArrayOutput {
 	return o.ApplyT(func(v *MetricStream) MetricStreamExcludeFilterArrayOutput { return v.ExcludeFilters }).(MetricStreamExcludeFilterArrayOutput)
 }
 
-// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
 func (o MetricStreamOutput) FirehoseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.FirehoseArn }).(pulumi.StringOutput)
 }
 
-// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
 func (o MetricStreamOutput) IncludeFilters() MetricStreamIncludeFilterArrayOutput {
 	return o.ApplyT(func(v *MetricStream) MetricStreamIncludeFilterArrayOutput { return v.IncludeFilters }).(MetricStreamIncludeFilterArrayOutput)
 }
 
-// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
 func (o MetricStreamOutput) LastUpdateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.LastUpdateDate }).(pulumi.StringOutput)
 }
 
-// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o MetricStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
 func (o MetricStreamOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
 func (o MetricStreamOutput) OutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.OutputFormat }).(pulumi.StringOutput)
 }
 
-// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
 func (o MetricStreamOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// State of the metric stream. Possible values are `running` and `stopped`.
 func (o MetricStreamOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
 func (o MetricStreamOutput) StatisticsConfigurations() MetricStreamStatisticsConfigurationArrayOutput {
 	return o.ApplyT(func(v *MetricStream) MetricStreamStatisticsConfigurationArrayOutput {
 		return v.StatisticsConfigurations
 	}).(MetricStreamStatisticsConfigurationArrayOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o MetricStreamOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o MetricStreamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

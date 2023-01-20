@@ -11,62 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryGraph, err := detective.NewGraph(ctx, "primaryGraph", nil)
-//			if err != nil {
-//				return err
-//			}
-//			primaryMember, err := detective.NewMember(ctx, "primaryMember", &detective.MemberArgs{
-//				AccountId:    pulumi.String("ACCOUNT ID"),
-//				EmailAddress: pulumi.String("EMAIL"),
-//				GraphArn:     primaryGraph.ID(),
-//				Message:      pulumi.String("Message of the invite"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = detective.NewInvitationAccepter(ctx, "member", &detective.InvitationAccepterArgs{
-//				GraphArn: primaryGraph.GraphArn,
-//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-//
-// ```
 type InvitationAccepter struct {
 	pulumi.CustomResourceState
 
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
 }
 
@@ -102,12 +49,10 @@ func GetInvitationAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InvitationAccepter resources.
 type invitationAccepterState struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn *string `pulumi:"graphArn"`
 }
 
 type InvitationAccepterState struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringPtrInput
 }
 
@@ -116,13 +61,11 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 }
 
 type invitationAccepterArgs struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn string `pulumi:"graphArn"`
 }
 
 // The set of arguments for constructing a InvitationAccepter resource.
 type InvitationAccepterArgs struct {
-	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringInput
 }
 
@@ -213,7 +156,6 @@ func (o InvitationAccepterOutput) ToInvitationAccepterOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the behavior graph that the member account is accepting the invitation for.
 func (o InvitationAccepterOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
 }

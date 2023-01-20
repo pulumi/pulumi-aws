@@ -10,97 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
-//				Name: pulumi.String("MyCatalogDatabase"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Create Table Default Permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
-//				CreateTableDefaultPermissions: glue.CatalogDatabaseCreateTableDefaultPermissionArray{
-//					&glue.CatalogDatabaseCreateTableDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("SELECT"),
-//						},
-//						Principal: &glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{
-//							DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
-//						},
-//					},
-//				},
-//				Name: pulumi.String("MyCatalogDatabase"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-//
-// ```
 type CatalogDatabase struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Glue Catalog Database.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Data Catalog in which the database resides.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	Arn                           pulumi.StringOutput                                    `pulumi:"arn"`
+	CatalogId                     pulumi.StringOutput                                    `pulumi:"catalogId"`
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
-	// Description of the database.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Location of the database (for example, an HDFS path).
-	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
-	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of key-value pairs that define parameters and properties of the database.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
-	TargetDatabase CatalogDatabaseTargetDatabasePtrOutput `pulumi:"targetDatabase"`
+	Description                   pulumi.StringPtrOutput                                 `pulumi:"description"`
+	LocationUri                   pulumi.StringOutput                                    `pulumi:"locationUri"`
+	Name                          pulumi.StringOutput                                    `pulumi:"name"`
+	Parameters                    pulumi.StringMapOutput                                 `pulumi:"parameters"`
+	TargetDatabase                CatalogDatabaseTargetDatabasePtrOutput                 `pulumi:"targetDatabase"`
 }
 
 // NewCatalogDatabase registers a new resource with the given unique name, arguments, and options.
@@ -132,41 +52,25 @@ func GetCatalogDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogDatabase resources.
 type catalogDatabaseState struct {
-	// ARN of the Glue Catalog Database.
-	Arn *string `pulumi:"arn"`
-	// ID of the Data Catalog in which the database resides.
-	CatalogId *string `pulumi:"catalogId"`
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	Arn                           *string                                       `pulumi:"arn"`
+	CatalogId                     *string                                       `pulumi:"catalogId"`
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
-	// Description of the database.
-	Description *string `pulumi:"description"`
-	// Location of the database (for example, an HDFS path).
-	LocationUri *string `pulumi:"locationUri"`
-	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-	Name *string `pulumi:"name"`
-	// List of key-value pairs that define parameters and properties of the database.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
-	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
+	Description                   *string                                       `pulumi:"description"`
+	LocationUri                   *string                                       `pulumi:"locationUri"`
+	Name                          *string                                       `pulumi:"name"`
+	Parameters                    map[string]string                             `pulumi:"parameters"`
+	TargetDatabase                *CatalogDatabaseTargetDatabase                `pulumi:"targetDatabase"`
 }
 
 type CatalogDatabaseState struct {
-	// ARN of the Glue Catalog Database.
-	Arn pulumi.StringPtrInput
-	// ID of the Data Catalog in which the database resides.
-	CatalogId pulumi.StringPtrInput
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	Arn                           pulumi.StringPtrInput
+	CatalogId                     pulumi.StringPtrInput
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
-	// Description of the database.
-	Description pulumi.StringPtrInput
-	// Location of the database (for example, an HDFS path).
-	LocationUri pulumi.StringPtrInput
-	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-	Name pulumi.StringPtrInput
-	// List of key-value pairs that define parameters and properties of the database.
-	Parameters pulumi.StringMapInput
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
-	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
+	Description                   pulumi.StringPtrInput
+	LocationUri                   pulumi.StringPtrInput
+	Name                          pulumi.StringPtrInput
+	Parameters                    pulumi.StringMapInput
+	TargetDatabase                CatalogDatabaseTargetDatabasePtrInput
 }
 
 func (CatalogDatabaseState) ElementType() reflect.Type {
@@ -174,38 +78,24 @@ func (CatalogDatabaseState) ElementType() reflect.Type {
 }
 
 type catalogDatabaseArgs struct {
-	// ID of the Data Catalog in which the database resides.
-	CatalogId *string `pulumi:"catalogId"`
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	CatalogId                     *string                                       `pulumi:"catalogId"`
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
-	// Description of the database.
-	Description *string `pulumi:"description"`
-	// Location of the database (for example, an HDFS path).
-	LocationUri *string `pulumi:"locationUri"`
-	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-	Name *string `pulumi:"name"`
-	// List of key-value pairs that define parameters and properties of the database.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
-	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
+	Description                   *string                                       `pulumi:"description"`
+	LocationUri                   *string                                       `pulumi:"locationUri"`
+	Name                          *string                                       `pulumi:"name"`
+	Parameters                    map[string]string                             `pulumi:"parameters"`
+	TargetDatabase                *CatalogDatabaseTargetDatabase                `pulumi:"targetDatabase"`
 }
 
 // The set of arguments for constructing a CatalogDatabase resource.
 type CatalogDatabaseArgs struct {
-	// ID of the Data Catalog in which the database resides.
-	CatalogId pulumi.StringPtrInput
-	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
+	CatalogId                     pulumi.StringPtrInput
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
-	// Description of the database.
-	Description pulumi.StringPtrInput
-	// Location of the database (for example, an HDFS path).
-	LocationUri pulumi.StringPtrInput
-	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-	Name pulumi.StringPtrInput
-	// List of key-value pairs that define parameters and properties of the database.
-	Parameters pulumi.StringMapInput
-	// Configuration block for a target database for resource linking. See `targetDatabase` below.
-	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
+	Description                   pulumi.StringPtrInput
+	LocationUri                   pulumi.StringPtrInput
+	Name                          pulumi.StringPtrInput
+	Parameters                    pulumi.StringMapInput
+	TargetDatabase                CatalogDatabaseTargetDatabasePtrInput
 }
 
 func (CatalogDatabaseArgs) ElementType() reflect.Type {
@@ -295,44 +185,36 @@ func (o CatalogDatabaseOutput) ToCatalogDatabaseOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the Glue Catalog Database.
 func (o CatalogDatabaseOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the Data Catalog in which the database resides.
 func (o CatalogDatabaseOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
 func (o CatalogDatabaseOutput) CreateTableDefaultPermissions() CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v *CatalogDatabase) CatalogDatabaseCreateTableDefaultPermissionArrayOutput {
 		return v.CreateTableDefaultPermissions
 	}).(CatalogDatabaseCreateTableDefaultPermissionArrayOutput)
 }
 
-// Description of the database.
 func (o CatalogDatabaseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Location of the database (for example, an HDFS path).
 func (o CatalogDatabaseOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
-// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 func (o CatalogDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of key-value pairs that define parameters and properties of the database.
 func (o CatalogDatabaseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for a target database for resource linking. See `targetDatabase` below.
 func (o CatalogDatabaseOutput) TargetDatabase() CatalogDatabaseTargetDatabasePtrOutput {
 	return o.ApplyT(func(v *CatalogDatabase) CatalogDatabaseTargetDatabasePtrOutput { return v.TargetDatabase }).(CatalogDatabaseTargetDatabasePtrOutput)
 }

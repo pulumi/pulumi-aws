@@ -10,59 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about EC2 Instance Types.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetInstanceTypes(ctx, &ec2.GetInstanceTypesArgs{
-//				Filters: []ec2.GetInstanceTypesFilter{
-//					{
-//						Name: "auto-recovery-supported",
-//						Values: []string{
-//							"true",
-//						},
-//					},
-//					{
-//						Name: "network-info.encryption-in-transit-supported",
-//						Values: []string{
-//							"true",
-//						},
-//					},
-//					{
-//						Name: "instance-storage-supported",
-//						Values: []string{
-//							"true",
-//						},
-//					},
-//					{
-//						Name: "instance-type",
-//						Values: []string{
-//							"g5.2xlarge",
-//							"g5.4xlarge",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstanceTypes(ctx *pulumi.Context, args *GetInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypesResult, error) {
 	var rv GetInstanceTypesResult
 	err := ctx.Invoke("aws:ec2/getInstanceTypes:getInstanceTypes", args, &rv, opts...)
@@ -74,7 +21,6 @@ func GetInstanceTypes(ctx *pulumi.Context, args *GetInstanceTypesArgs, opts ...p
 
 // A collection of arguments for invoking getInstanceTypes.
 type GetInstanceTypesArgs struct {
-	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
 	Filters []GetInstanceTypesFilter `pulumi:"filters"`
 }
 
@@ -82,8 +28,7 @@ type GetInstanceTypesArgs struct {
 type GetInstanceTypesResult struct {
 	Filters []GetInstanceTypesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of EC2 Instance Types.
+	Id            string   `pulumi:"id"`
 	InstanceTypes []string `pulumi:"instanceTypes"`
 }
 
@@ -102,7 +47,6 @@ func GetInstanceTypesOutput(ctx *pulumi.Context, args GetInstanceTypesOutputArgs
 
 // A collection of arguments for invoking getInstanceTypes.
 type GetInstanceTypesOutputArgs struct {
-	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
 	Filters GetInstanceTypesFilterArrayInput `pulumi:"filters"`
 }
 
@@ -134,7 +78,6 @@ func (o GetInstanceTypesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of EC2 Instance Types.
 func (o GetInstanceTypesResultOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypesResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
 }

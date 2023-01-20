@@ -11,114 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates an AppConfig Extension with a Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testTopic, err := sns.NewTopic(ctx, "testTopic", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"appconfig.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(testPolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testExtension, err := appconfig.NewExtension(ctx, "testExtension", &appconfig.ExtensionArgs{
-//				Description: pulumi.String("test description"),
-//				ActionPoints: appconfig.ExtensionActionPointArray{
-//					&appconfig.ExtensionActionPointArgs{
-//						Point: pulumi.String("ON_DEPLOYMENT_COMPLETE"),
-//						Actions: appconfig.ExtensionActionPointActionArray{
-//							&appconfig.ExtensionActionPointActionArgs{
-//								Name:    pulumi.String("test"),
-//								RoleArn: testRole.Arn,
-//								Uri:     testTopic.Arn,
-//							},
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Extension"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testApplication, err := appconfig.NewApplication(ctx, "testApplication", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appconfig.NewExtensionAssociation(ctx, "testExtensionAssociation", &appconfig.ExtensionAssociationArgs{
-//				ExtensionArn: testExtension.Arn,
-//				ResourceArn:  testApplication.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AppConfig Extension Associations can be imported using their extension association ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
-//
-// ```
 type ExtensionAssociation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the AppConfig Extension Association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the extension defined in the association.
-	ExtensionArn pulumi.StringOutput `pulumi:"extensionArn"`
-	// The version number for the extension defined in the association.
-	ExtensionVersion pulumi.IntOutput `pulumi:"extensionVersion"`
-	// The parameter names and values defined for the association.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The ARN of the application, configuration profile, or environment to associate with the extension.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	ExtensionArn     pulumi.StringOutput    `pulumi:"extensionArn"`
+	ExtensionVersion pulumi.IntOutput       `pulumi:"extensionVersion"`
+	Parameters       pulumi.StringMapOutput `pulumi:"parameters"`
+	ResourceArn      pulumi.StringOutput    `pulumi:"resourceArn"`
 }
 
 // NewExtensionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -156,29 +56,19 @@ func GetExtensionAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExtensionAssociation resources.
 type extensionAssociationState struct {
-	// ARN of the AppConfig Extension Association.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the extension defined in the association.
-	ExtensionArn *string `pulumi:"extensionArn"`
-	// The version number for the extension defined in the association.
-	ExtensionVersion *int `pulumi:"extensionVersion"`
-	// The parameter names and values defined for the association.
-	Parameters map[string]string `pulumi:"parameters"`
-	// The ARN of the application, configuration profile, or environment to associate with the extension.
-	ResourceArn *string `pulumi:"resourceArn"`
+	Arn              *string           `pulumi:"arn"`
+	ExtensionArn     *string           `pulumi:"extensionArn"`
+	ExtensionVersion *int              `pulumi:"extensionVersion"`
+	Parameters       map[string]string `pulumi:"parameters"`
+	ResourceArn      *string           `pulumi:"resourceArn"`
 }
 
 type ExtensionAssociationState struct {
-	// ARN of the AppConfig Extension Association.
-	Arn pulumi.StringPtrInput
-	// The ARN of the extension defined in the association.
-	ExtensionArn pulumi.StringPtrInput
-	// The version number for the extension defined in the association.
+	Arn              pulumi.StringPtrInput
+	ExtensionArn     pulumi.StringPtrInput
 	ExtensionVersion pulumi.IntPtrInput
-	// The parameter names and values defined for the association.
-	Parameters pulumi.StringMapInput
-	// The ARN of the application, configuration profile, or environment to associate with the extension.
-	ResourceArn pulumi.StringPtrInput
+	Parameters       pulumi.StringMapInput
+	ResourceArn      pulumi.StringPtrInput
 }
 
 func (ExtensionAssociationState) ElementType() reflect.Type {
@@ -186,22 +76,16 @@ func (ExtensionAssociationState) ElementType() reflect.Type {
 }
 
 type extensionAssociationArgs struct {
-	// The ARN of the extension defined in the association.
-	ExtensionArn string `pulumi:"extensionArn"`
-	// The parameter names and values defined for the association.
-	Parameters map[string]string `pulumi:"parameters"`
-	// The ARN of the application, configuration profile, or environment to associate with the extension.
-	ResourceArn string `pulumi:"resourceArn"`
+	ExtensionArn string            `pulumi:"extensionArn"`
+	Parameters   map[string]string `pulumi:"parameters"`
+	ResourceArn  string            `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a ExtensionAssociation resource.
 type ExtensionAssociationArgs struct {
-	// The ARN of the extension defined in the association.
 	ExtensionArn pulumi.StringInput
-	// The parameter names and values defined for the association.
-	Parameters pulumi.StringMapInput
-	// The ARN of the application, configuration profile, or environment to associate with the extension.
-	ResourceArn pulumi.StringInput
+	Parameters   pulumi.StringMapInput
+	ResourceArn  pulumi.StringInput
 }
 
 func (ExtensionAssociationArgs) ElementType() reflect.Type {
@@ -291,27 +175,22 @@ func (o ExtensionAssociationOutput) ToExtensionAssociationOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the AppConfig Extension Association.
 func (o ExtensionAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the extension defined in the association.
 func (o ExtensionAssociationOutput) ExtensionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.ExtensionArn }).(pulumi.StringOutput)
 }
 
-// The version number for the extension defined in the association.
 func (o ExtensionAssociationOutput) ExtensionVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.IntOutput { return v.ExtensionVersion }).(pulumi.IntOutput)
 }
 
-// The parameter names and values defined for the association.
 func (o ExtensionAssociationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the application, configuration profile, or environment to associate with the extension.
 func (o ExtensionAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

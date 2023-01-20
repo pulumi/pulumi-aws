@@ -11,7 +11,6 @@ import (
 )
 
 type ClusterCertificateAuthority struct {
-	// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data *string `pulumi:"data"`
 }
 
@@ -27,7 +26,6 @@ type ClusterCertificateAuthorityInput interface {
 }
 
 type ClusterCertificateAuthorityArgs struct {
-	// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data pulumi.StringPtrInput `pulumi:"data"`
 }
 
@@ -133,7 +131,6 @@ func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutpu
 	}).(ClusterCertificateAuthorityPtrOutput)
 }
 
-// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
@@ -162,7 +159,6 @@ func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthority
 	}).(ClusterCertificateAuthorityOutput)
 }
 
-// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCertificateAuthority) *string {
 		if v == nil {
@@ -193,10 +189,8 @@ func (o ClusterCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) Cluster
 }
 
 type ClusterEncryptionConfig struct {
-	// Configuration block with provider for encryption. Detailed below.
-	Provider ClusterEncryptionConfigProvider `pulumi:"provider"`
-	// List of strings with resources to be encrypted. Valid values: `secrets`.
-	Resources []string `pulumi:"resources"`
+	Provider  ClusterEncryptionConfigProvider `pulumi:"provider"`
+	Resources []string                        `pulumi:"resources"`
 }
 
 // ClusterEncryptionConfigInput is an input type that accepts ClusterEncryptionConfigArgs and ClusterEncryptionConfigOutput values.
@@ -211,10 +205,8 @@ type ClusterEncryptionConfigInput interface {
 }
 
 type ClusterEncryptionConfigArgs struct {
-	// Configuration block with provider for encryption. Detailed below.
-	Provider ClusterEncryptionConfigProviderInput `pulumi:"provider"`
-	// List of strings with resources to be encrypted. Valid values: `secrets`.
-	Resources pulumi.StringArrayInput `pulumi:"resources"`
+	Provider  ClusterEncryptionConfigProviderInput `pulumi:"provider"`
+	Resources pulumi.StringArrayInput              `pulumi:"resources"`
 }
 
 func (ClusterEncryptionConfigArgs) ElementType() reflect.Type {
@@ -294,12 +286,10 @@ func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigPtrOutputWithCon
 	}).(ClusterEncryptionConfigPtrOutput)
 }
 
-// Configuration block with provider for encryption. Detailed below.
 func (o ClusterEncryptionConfigOutput) Provider() ClusterEncryptionConfigProviderOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfig) ClusterEncryptionConfigProvider { return v.Provider }).(ClusterEncryptionConfigProviderOutput)
 }
 
-// List of strings with resources to be encrypted. Valid values: `secrets`.
 func (o ClusterEncryptionConfigOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
@@ -328,7 +318,6 @@ func (o ClusterEncryptionConfigPtrOutput) Elem() ClusterEncryptionConfigOutput {
 	}).(ClusterEncryptionConfigOutput)
 }
 
-// Configuration block with provider for encryption. Detailed below.
 func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProviderPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionConfig) *ClusterEncryptionConfigProvider {
 		if v == nil {
@@ -338,7 +327,6 @@ func (o ClusterEncryptionConfigPtrOutput) Provider() ClusterEncryptionConfigProv
 	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
 
-// List of strings with resources to be encrypted. Valid values: `secrets`.
 func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterEncryptionConfig) []string {
 		if v == nil {
@@ -349,7 +337,6 @@ func (o ClusterEncryptionConfigPtrOutput) Resources() pulumi.StringArrayOutput {
 }
 
 type ClusterEncryptionConfigProvider struct {
-	// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 	KeyArn string `pulumi:"keyArn"`
 }
 
@@ -365,7 +352,6 @@ type ClusterEncryptionConfigProviderInput interface {
 }
 
 type ClusterEncryptionConfigProviderArgs struct {
-	// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 	KeyArn pulumi.StringInput `pulumi:"keyArn"`
 }
 
@@ -446,7 +432,6 @@ func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProvider
 	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
 
-// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterEncryptionConfigProvider) string { return v.KeyArn }).(pulumi.StringOutput)
 }
@@ -475,7 +460,6 @@ func (o ClusterEncryptionConfigProviderPtrOutput) Elem() ClusterEncryptionConfig
 	}).(ClusterEncryptionConfigProviderOutput)
 }
 
-// ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 func (o ClusterEncryptionConfigProviderPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) *string {
 		if v == nil {
@@ -486,7 +470,6 @@ func (o ClusterEncryptionConfigProviderPtrOutput) KeyArn() pulumi.StringPtrOutpu
 }
 
 type ClusterIdentity struct {
-	// Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidcs []ClusterIdentityOidc `pulumi:"oidcs"`
 }
 
@@ -502,7 +485,6 @@ type ClusterIdentityInput interface {
 }
 
 type ClusterIdentityArgs struct {
-	// Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidcs ClusterIdentityOidcArrayInput `pulumi:"oidcs"`
 }
 
@@ -557,7 +539,6 @@ func (o ClusterIdentityOutput) ToClusterIdentityOutputWithContext(ctx context.Co
 	return o
 }
 
-// Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 func (o ClusterIdentityOutput) Oidcs() ClusterIdentityOidcArrayOutput {
 	return o.ApplyT(func(v ClusterIdentity) []ClusterIdentityOidc { return v.Oidcs }).(ClusterIdentityOidcArrayOutput)
 }
@@ -583,7 +564,6 @@ func (o ClusterIdentityArrayOutput) Index(i pulumi.IntInput) ClusterIdentityOutp
 }
 
 type ClusterIdentityOidc struct {
-	// Issuer URL for the OpenID Connect identity provider.
 	Issuer *string `pulumi:"issuer"`
 }
 
@@ -599,7 +579,6 @@ type ClusterIdentityOidcInput interface {
 }
 
 type ClusterIdentityOidcArgs struct {
-	// Issuer URL for the OpenID Connect identity provider.
 	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 }
 
@@ -654,7 +633,6 @@ func (o ClusterIdentityOidcOutput) ToClusterIdentityOidcOutputWithContext(ctx co
 	return o
 }
 
-// Issuer URL for the OpenID Connect identity provider.
 func (o ClusterIdentityOidcOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIdentityOidc) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
@@ -680,9 +658,7 @@ func (o ClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) ClusterIdentity
 }
 
 type ClusterKubernetesNetworkConfig struct {
-	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
-	IpFamily *string `pulumi:"ipFamily"`
-	// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+	IpFamily        *string `pulumi:"ipFamily"`
 	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
 	ServiceIpv6Cidr *string `pulumi:"serviceIpv6Cidr"`
 }
@@ -699,9 +675,7 @@ type ClusterKubernetesNetworkConfigInput interface {
 }
 
 type ClusterKubernetesNetworkConfigArgs struct {
-	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
-	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
-	// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+	IpFamily        pulumi.StringPtrInput `pulumi:"ipFamily"`
 	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
 	ServiceIpv6Cidr pulumi.StringPtrInput `pulumi:"serviceIpv6Cidr"`
 }
@@ -783,12 +757,10 @@ func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPt
 	}).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
-// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 func (o ClusterKubernetesNetworkConfigOutput) IpFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
 }
 
-// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
 func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
 }
@@ -821,7 +793,6 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetwork
 	}).(ClusterKubernetesNetworkConfigOutput)
 }
 
-// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 func (o ClusterKubernetesNetworkConfigPtrOutput) IpFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
 		if v == nil {
@@ -831,7 +802,6 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) IpFamily() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
 func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
 		if v == nil {
@@ -851,13 +821,9 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.String
 }
 
 type ClusterOutpostConfig struct {
-	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
-	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-	// The following arguments are supported in the `controlPlanePlacement` configuration block:
-	ControlPlanePlacement *ClusterOutpostConfigControlPlanePlacement `pulumi:"controlPlanePlacement"`
-	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-	OutpostArns []string `pulumi:"outpostArns"`
+	ControlPlaneInstanceType string                                     `pulumi:"controlPlaneInstanceType"`
+	ControlPlanePlacement    *ClusterOutpostConfigControlPlanePlacement `pulumi:"controlPlanePlacement"`
+	OutpostArns              []string                                   `pulumi:"outpostArns"`
 }
 
 // ClusterOutpostConfigInput is an input type that accepts ClusterOutpostConfigArgs and ClusterOutpostConfigOutput values.
@@ -872,13 +838,9 @@ type ClusterOutpostConfigInput interface {
 }
 
 type ClusterOutpostConfigArgs struct {
-	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
-	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
-	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-	// The following arguments are supported in the `controlPlanePlacement` configuration block:
-	ControlPlanePlacement ClusterOutpostConfigControlPlanePlacementPtrInput `pulumi:"controlPlanePlacement"`
-	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
+	ControlPlaneInstanceType pulumi.StringInput                                `pulumi:"controlPlaneInstanceType"`
+	ControlPlanePlacement    ClusterOutpostConfigControlPlanePlacementPtrInput `pulumi:"controlPlanePlacement"`
+	OutpostArns              pulumi.StringArrayInput                           `pulumi:"outpostArns"`
 }
 
 func (ClusterOutpostConfigArgs) ElementType() reflect.Type {
@@ -958,20 +920,16 @@ func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutputWithContext(c
 	}).(ClusterOutpostConfigPtrOutput)
 }
 
-// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
 func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
 }
 
-// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-// The following arguments are supported in the `controlPlanePlacement` configuration block:
 func (o ClusterOutpostConfigOutput) ControlPlanePlacement() ClusterOutpostConfigControlPlanePlacementPtrOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) *ClusterOutpostConfigControlPlanePlacement {
 		return v.ControlPlanePlacement
 	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
 }
 
-// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 func (o ClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
 }
@@ -1000,7 +958,6 @@ func (o ClusterOutpostConfigPtrOutput) Elem() ClusterOutpostConfigOutput {
 	}).(ClusterOutpostConfigOutput)
 }
 
-// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
 func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) *string {
 		if v == nil {
@@ -1010,8 +967,6 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-// The following arguments are supported in the `controlPlanePlacement` configuration block:
 func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterOutpostConfigControlPlanePlacementPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) *ClusterOutpostConfigControlPlanePlacement {
 		if v == nil {
@@ -1021,7 +976,6 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterOutpostCon
 	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
 }
 
-// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) []string {
 		if v == nil {
@@ -1032,7 +986,6 @@ func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 }
 
 type ClusterOutpostConfigControlPlanePlacement struct {
-	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 	GroupName string `pulumi:"groupName"`
 }
 
@@ -1048,7 +1001,6 @@ type ClusterOutpostConfigControlPlanePlacementInput interface {
 }
 
 type ClusterOutpostConfigControlPlanePlacementArgs struct {
-	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 	GroupName pulumi.StringInput `pulumi:"groupName"`
 }
 
@@ -1129,7 +1081,6 @@ func (o ClusterOutpostConfigControlPlanePlacementOutput) ToClusterOutpostConfigC
 	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
 }
 
-// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 func (o ClusterOutpostConfigControlPlanePlacementOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterOutpostConfigControlPlanePlacement) string { return v.GroupName }).(pulumi.StringOutput)
 }
@@ -1158,7 +1109,6 @@ func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) Elem() ClusterOutpos
 	}).(ClusterOutpostConfigControlPlanePlacementOutput)
 }
 
-// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfigControlPlanePlacement) *string {
 		if v == nil {
@@ -1169,20 +1119,13 @@ func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) GroupName() pulumi.S
 }
 
 type ClusterVpcConfig struct {
-	// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
-	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
-	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
-	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
-	// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
-	EndpointPublicAccess *bool `pulumi:"endpointPublicAccess"`
-	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
-	PublicAccessCidrs []string `pulumi:"publicAccessCidrs"`
-	// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// ID of the VPC associated with your cluster.
-	VpcId *string `pulumi:"vpcId"`
+	ClusterSecurityGroupId *string  `pulumi:"clusterSecurityGroupId"`
+	EndpointPrivateAccess  *bool    `pulumi:"endpointPrivateAccess"`
+	EndpointPublicAccess   *bool    `pulumi:"endpointPublicAccess"`
+	PublicAccessCidrs      []string `pulumi:"publicAccessCidrs"`
+	SecurityGroupIds       []string `pulumi:"securityGroupIds"`
+	SubnetIds              []string `pulumi:"subnetIds"`
+	VpcId                  *string  `pulumi:"vpcId"`
 }
 
 // ClusterVpcConfigInput is an input type that accepts ClusterVpcConfigArgs and ClusterVpcConfigOutput values.
@@ -1197,20 +1140,13 @@ type ClusterVpcConfigInput interface {
 }
 
 type ClusterVpcConfigArgs struct {
-	// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
-	ClusterSecurityGroupId pulumi.StringPtrInput `pulumi:"clusterSecurityGroupId"`
-	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
-	EndpointPrivateAccess pulumi.BoolPtrInput `pulumi:"endpointPrivateAccess"`
-	// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
-	EndpointPublicAccess pulumi.BoolPtrInput `pulumi:"endpointPublicAccess"`
-	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
-	PublicAccessCidrs pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
-	// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// ID of the VPC associated with your cluster.
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	ClusterSecurityGroupId pulumi.StringPtrInput   `pulumi:"clusterSecurityGroupId"`
+	EndpointPrivateAccess  pulumi.BoolPtrInput     `pulumi:"endpointPrivateAccess"`
+	EndpointPublicAccess   pulumi.BoolPtrInput     `pulumi:"endpointPublicAccess"`
+	PublicAccessCidrs      pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
+	SecurityGroupIds       pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds              pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId                  pulumi.StringPtrInput   `pulumi:"vpcId"`
 }
 
 func (ClusterVpcConfigArgs) ElementType() reflect.Type {
@@ -1290,37 +1226,30 @@ func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutputWithContext(ctx conte
 	}).(ClusterVpcConfigPtrOutput)
 }
 
-// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 func (o ClusterVpcConfigOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 func (o ClusterVpcConfigOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPrivateAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
 func (o ClusterVpcConfigOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPublicAccess }).(pulumi.BoolPtrOutput)
 }
 
-// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
 func (o ClusterVpcConfigOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.PublicAccessCidrs }).(pulumi.StringArrayOutput)
 }
 
-// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// ID of the VPC associated with your cluster.
 func (o ClusterVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -1349,7 +1278,6 @@ func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
 	}).(ClusterVpcConfigOutput)
 }
 
-// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *string {
 		if v == nil {
@@ -1359,7 +1287,6 @@ func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 func (o ClusterVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
 		if v == nil {
@@ -1369,7 +1296,6 @@ func (o ClusterVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
 func (o ClusterVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
 		if v == nil {
@@ -1379,7 +1305,6 @@ func (o ClusterVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
 func (o ClusterVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) []string {
 		if v == nil {
@@ -1389,7 +1314,6 @@ func (o ClusterVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) []string {
 		if v == nil {
@@ -1399,7 +1323,6 @@ func (o ClusterVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
 func (o ClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) []string {
 		if v == nil {
@@ -1409,7 +1332,6 @@ func (o ClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// ID of the VPC associated with your cluster.
 func (o ClusterVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConfig) *string {
 		if v == nil {
@@ -1420,10 +1342,8 @@ func (o ClusterVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type FargateProfileSelector struct {
-	// Key-value map of Kubernetes labels for selection.
-	Labels map[string]string `pulumi:"labels"`
-	// Kubernetes namespace for selection.
-	Namespace string `pulumi:"namespace"`
+	Labels    map[string]string `pulumi:"labels"`
+	Namespace string            `pulumi:"namespace"`
 }
 
 // FargateProfileSelectorInput is an input type that accepts FargateProfileSelectorArgs and FargateProfileSelectorOutput values.
@@ -1438,10 +1358,8 @@ type FargateProfileSelectorInput interface {
 }
 
 type FargateProfileSelectorArgs struct {
-	// Key-value map of Kubernetes labels for selection.
-	Labels pulumi.StringMapInput `pulumi:"labels"`
-	// Kubernetes namespace for selection.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Labels    pulumi.StringMapInput `pulumi:"labels"`
+	Namespace pulumi.StringInput    `pulumi:"namespace"`
 }
 
 func (FargateProfileSelectorArgs) ElementType() reflect.Type {
@@ -1495,12 +1413,10 @@ func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(
 	return o
 }
 
-// Key-value map of Kubernetes labels for selection.
 func (o FargateProfileSelectorOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FargateProfileSelector) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
-// Kubernetes namespace for selection.
 func (o FargateProfileSelectorOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v FargateProfileSelector) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -1526,22 +1442,14 @@ func (o FargateProfileSelectorArrayOutput) Index(i pulumi.IntInput) FargateProfi
 }
 
 type IdentityProviderConfigOidc struct {
-	// Client ID for the OpenID Connect identity provider.
-	ClientId string `pulumi:"clientId"`
-	// The JWT claim that the provider will use to return groups.
-	GroupsClaim *string `pulumi:"groupsClaim"`
-	// A prefix that is prepended to group claims e.g., `oidc:`.
-	GroupsPrefix *string `pulumi:"groupsPrefix"`
-	// The name of the identity provider config.
-	IdentityProviderConfigName string `pulumi:"identityProviderConfigName"`
-	// Issuer URL for the OpenID Connect identity provider.
-	IssuerUrl string `pulumi:"issuerUrl"`
-	// The key value pairs that describe required claims in the identity token.
-	RequiredClaims map[string]string `pulumi:"requiredClaims"`
-	// The JWT claim that the provider will use as the username.
-	UsernameClaim *string `pulumi:"usernameClaim"`
-	// A prefix that is prepended to username claims.
-	UsernamePrefix *string `pulumi:"usernamePrefix"`
+	ClientId                   string            `pulumi:"clientId"`
+	GroupsClaim                *string           `pulumi:"groupsClaim"`
+	GroupsPrefix               *string           `pulumi:"groupsPrefix"`
+	IdentityProviderConfigName string            `pulumi:"identityProviderConfigName"`
+	IssuerUrl                  string            `pulumi:"issuerUrl"`
+	RequiredClaims             map[string]string `pulumi:"requiredClaims"`
+	UsernameClaim              *string           `pulumi:"usernameClaim"`
+	UsernamePrefix             *string           `pulumi:"usernamePrefix"`
 }
 
 // IdentityProviderConfigOidcInput is an input type that accepts IdentityProviderConfigOidcArgs and IdentityProviderConfigOidcOutput values.
@@ -1556,22 +1464,14 @@ type IdentityProviderConfigOidcInput interface {
 }
 
 type IdentityProviderConfigOidcArgs struct {
-	// Client ID for the OpenID Connect identity provider.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The JWT claim that the provider will use to return groups.
-	GroupsClaim pulumi.StringPtrInput `pulumi:"groupsClaim"`
-	// A prefix that is prepended to group claims e.g., `oidc:`.
-	GroupsPrefix pulumi.StringPtrInput `pulumi:"groupsPrefix"`
-	// The name of the identity provider config.
-	IdentityProviderConfigName pulumi.StringInput `pulumi:"identityProviderConfigName"`
-	// Issuer URL for the OpenID Connect identity provider.
-	IssuerUrl pulumi.StringInput `pulumi:"issuerUrl"`
-	// The key value pairs that describe required claims in the identity token.
-	RequiredClaims pulumi.StringMapInput `pulumi:"requiredClaims"`
-	// The JWT claim that the provider will use as the username.
-	UsernameClaim pulumi.StringPtrInput `pulumi:"usernameClaim"`
-	// A prefix that is prepended to username claims.
-	UsernamePrefix pulumi.StringPtrInput `pulumi:"usernamePrefix"`
+	ClientId                   pulumi.StringInput    `pulumi:"clientId"`
+	GroupsClaim                pulumi.StringPtrInput `pulumi:"groupsClaim"`
+	GroupsPrefix               pulumi.StringPtrInput `pulumi:"groupsPrefix"`
+	IdentityProviderConfigName pulumi.StringInput    `pulumi:"identityProviderConfigName"`
+	IssuerUrl                  pulumi.StringInput    `pulumi:"issuerUrl"`
+	RequiredClaims             pulumi.StringMapInput `pulumi:"requiredClaims"`
+	UsernameClaim              pulumi.StringPtrInput `pulumi:"usernameClaim"`
+	UsernamePrefix             pulumi.StringPtrInput `pulumi:"usernamePrefix"`
 }
 
 func (IdentityProviderConfigOidcArgs) ElementType() reflect.Type {
@@ -1651,42 +1551,34 @@ func (o IdentityProviderConfigOidcOutput) ToIdentityProviderConfigOidcPtrOutputW
 	}).(IdentityProviderConfigOidcPtrOutput)
 }
 
-// Client ID for the OpenID Connect identity provider.
 func (o IdentityProviderConfigOidcOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The JWT claim that the provider will use to return groups.
 func (o IdentityProviderConfigOidcOutput) GroupsClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) *string { return v.GroupsClaim }).(pulumi.StringPtrOutput)
 }
 
-// A prefix that is prepended to group claims e.g., `oidc:`.
 func (o IdentityProviderConfigOidcOutput) GroupsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) *string { return v.GroupsPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The name of the identity provider config.
 func (o IdentityProviderConfigOidcOutput) IdentityProviderConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) string { return v.IdentityProviderConfigName }).(pulumi.StringOutput)
 }
 
-// Issuer URL for the OpenID Connect identity provider.
 func (o IdentityProviderConfigOidcOutput) IssuerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) string { return v.IssuerUrl }).(pulumi.StringOutput)
 }
 
-// The key value pairs that describe required claims in the identity token.
 func (o IdentityProviderConfigOidcOutput) RequiredClaims() pulumi.StringMapOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) map[string]string { return v.RequiredClaims }).(pulumi.StringMapOutput)
 }
 
-// The JWT claim that the provider will use as the username.
 func (o IdentityProviderConfigOidcOutput) UsernameClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) *string { return v.UsernameClaim }).(pulumi.StringPtrOutput)
 }
 
-// A prefix that is prepended to username claims.
 func (o IdentityProviderConfigOidcOutput) UsernamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) *string { return v.UsernamePrefix }).(pulumi.StringPtrOutput)
 }
@@ -1715,7 +1607,6 @@ func (o IdentityProviderConfigOidcPtrOutput) Elem() IdentityProviderConfigOidcOu
 	}).(IdentityProviderConfigOidcOutput)
 }
 
-// Client ID for the OpenID Connect identity provider.
 func (o IdentityProviderConfigOidcPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {
@@ -1725,7 +1616,6 @@ func (o IdentityProviderConfigOidcPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The JWT claim that the provider will use to return groups.
 func (o IdentityProviderConfigOidcPtrOutput) GroupsClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {
@@ -1735,7 +1625,6 @@ func (o IdentityProviderConfigOidcPtrOutput) GroupsClaim() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A prefix that is prepended to group claims e.g., `oidc:`.
 func (o IdentityProviderConfigOidcPtrOutput) GroupsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {
@@ -1745,7 +1634,6 @@ func (o IdentityProviderConfigOidcPtrOutput) GroupsPrefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the identity provider config.
 func (o IdentityProviderConfigOidcPtrOutput) IdentityProviderConfigName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {
@@ -1755,7 +1643,6 @@ func (o IdentityProviderConfigOidcPtrOutput) IdentityProviderConfigName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Issuer URL for the OpenID Connect identity provider.
 func (o IdentityProviderConfigOidcPtrOutput) IssuerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {
@@ -1765,7 +1652,6 @@ func (o IdentityProviderConfigOidcPtrOutput) IssuerUrl() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key value pairs that describe required claims in the identity token.
 func (o IdentityProviderConfigOidcPtrOutput) RequiredClaims() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) map[string]string {
 		if v == nil {
@@ -1775,7 +1661,6 @@ func (o IdentityProviderConfigOidcPtrOutput) RequiredClaims() pulumi.StringMapOu
 	}).(pulumi.StringMapOutput)
 }
 
-// The JWT claim that the provider will use as the username.
 func (o IdentityProviderConfigOidcPtrOutput) UsernameClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {
@@ -1785,7 +1670,6 @@ func (o IdentityProviderConfigOidcPtrOutput) UsernameClaim() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A prefix that is prepended to username claims.
 func (o IdentityProviderConfigOidcPtrOutput) UsernamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {
@@ -1796,12 +1680,9 @@ func (o IdentityProviderConfigOidcPtrOutput) UsernamePrefix() pulumi.StringPtrOu
 }
 
 type NodeGroupLaunchTemplate struct {
-	// Identifier of the EC2 Launch Template. Conflicts with `name`.
-	Id *string `pulumi:"id"`
-	// Name of the EC2 Launch Template. Conflicts with `id`.
-	Name *string `pulumi:"name"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
-	Version string `pulumi:"version"`
+	Id      *string `pulumi:"id"`
+	Name    *string `pulumi:"name"`
+	Version string  `pulumi:"version"`
 }
 
 // NodeGroupLaunchTemplateInput is an input type that accepts NodeGroupLaunchTemplateArgs and NodeGroupLaunchTemplateOutput values.
@@ -1816,12 +1697,9 @@ type NodeGroupLaunchTemplateInput interface {
 }
 
 type NodeGroupLaunchTemplateArgs struct {
-	// Identifier of the EC2 Launch Template. Conflicts with `name`.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the EC2 Launch Template. Conflicts with `id`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
-	Version pulumi.StringInput `pulumi:"version"`
+	Id      pulumi.StringPtrInput `pulumi:"id"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringInput    `pulumi:"version"`
 }
 
 func (NodeGroupLaunchTemplateArgs) ElementType() reflect.Type {
@@ -1901,17 +1779,14 @@ func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplatePtrOutputWithCon
 	}).(NodeGroupLaunchTemplatePtrOutput)
 }
 
-// Identifier of the EC2 Launch Template. Conflicts with `name`.
 func (o NodeGroupLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the EC2 Launch Template. Conflicts with `id`.
 func (o NodeGroupLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 func (o NodeGroupLaunchTemplateOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeGroupLaunchTemplate) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1940,7 +1815,6 @@ func (o NodeGroupLaunchTemplatePtrOutput) Elem() NodeGroupLaunchTemplateOutput {
 	}).(NodeGroupLaunchTemplateOutput)
 }
 
-// Identifier of the EC2 Launch Template. Conflicts with `name`.
 func (o NodeGroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1950,7 +1824,6 @@ func (o NodeGroupLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the EC2 Launch Template. Conflicts with `id`.
 func (o NodeGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1960,7 +1833,6 @@ func (o NodeGroupLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
 func (o NodeGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1971,9 +1843,7 @@ func (o NodeGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type NodeGroupRemoteAccess struct {
-	// EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
-	Ec2SshKey *string `pulumi:"ec2SshKey"`
-	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+	Ec2SshKey              *string  `pulumi:"ec2SshKey"`
 	SourceSecurityGroupIds []string `pulumi:"sourceSecurityGroupIds"`
 }
 
@@ -1989,9 +1859,7 @@ type NodeGroupRemoteAccessInput interface {
 }
 
 type NodeGroupRemoteAccessArgs struct {
-	// EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
-	Ec2SshKey pulumi.StringPtrInput `pulumi:"ec2SshKey"`
-	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+	Ec2SshKey              pulumi.StringPtrInput   `pulumi:"ec2SshKey"`
 	SourceSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceSecurityGroupIds"`
 }
 
@@ -2072,12 +1940,10 @@ func (o NodeGroupRemoteAccessOutput) ToNodeGroupRemoteAccessPtrOutputWithContext
 	}).(NodeGroupRemoteAccessPtrOutput)
 }
 
-// EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
 func (o NodeGroupRemoteAccessOutput) Ec2SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupRemoteAccess) *string { return v.Ec2SshKey }).(pulumi.StringPtrOutput)
 }
 
-// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 func (o NodeGroupRemoteAccessOutput) SourceSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NodeGroupRemoteAccess) []string { return v.SourceSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -2106,7 +1972,6 @@ func (o NodeGroupRemoteAccessPtrOutput) Elem() NodeGroupRemoteAccessOutput {
 	}).(NodeGroupRemoteAccessOutput)
 }
 
-// EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
 func (o NodeGroupRemoteAccessPtrOutput) Ec2SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeGroupRemoteAccess) *string {
 		if v == nil {
@@ -2116,7 +1981,6 @@ func (o NodeGroupRemoteAccessPtrOutput) Ec2SshKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2SshKey`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
 func (o NodeGroupRemoteAccessPtrOutput) SourceSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodeGroupRemoteAccess) []string {
 		if v == nil {
@@ -2127,10 +1991,8 @@ func (o NodeGroupRemoteAccessPtrOutput) SourceSecurityGroupIds() pulumi.StringAr
 }
 
 type NodeGroupResource struct {
-	// List of objects containing information about AutoScaling Groups.
-	AutoscalingGroups []NodeGroupResourceAutoscalingGroup `pulumi:"autoscalingGroups"`
-	// Identifier of the remote access EC2 Security Group.
-	RemoteAccessSecurityGroupId *string `pulumi:"remoteAccessSecurityGroupId"`
+	AutoscalingGroups           []NodeGroupResourceAutoscalingGroup `pulumi:"autoscalingGroups"`
+	RemoteAccessSecurityGroupId *string                             `pulumi:"remoteAccessSecurityGroupId"`
 }
 
 // NodeGroupResourceInput is an input type that accepts NodeGroupResourceArgs and NodeGroupResourceOutput values.
@@ -2145,10 +2007,8 @@ type NodeGroupResourceInput interface {
 }
 
 type NodeGroupResourceArgs struct {
-	// List of objects containing information about AutoScaling Groups.
-	AutoscalingGroups NodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
-	// Identifier of the remote access EC2 Security Group.
-	RemoteAccessSecurityGroupId pulumi.StringPtrInput `pulumi:"remoteAccessSecurityGroupId"`
+	AutoscalingGroups           NodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
+	RemoteAccessSecurityGroupId pulumi.StringPtrInput                       `pulumi:"remoteAccessSecurityGroupId"`
 }
 
 func (NodeGroupResourceArgs) ElementType() reflect.Type {
@@ -2202,12 +2062,10 @@ func (o NodeGroupResourceOutput) ToNodeGroupResourceOutputWithContext(ctx contex
 	return o
 }
 
-// List of objects containing information about AutoScaling Groups.
 func (o NodeGroupResourceOutput) AutoscalingGroups() NodeGroupResourceAutoscalingGroupArrayOutput {
 	return o.ApplyT(func(v NodeGroupResource) []NodeGroupResourceAutoscalingGroup { return v.AutoscalingGroups }).(NodeGroupResourceAutoscalingGroupArrayOutput)
 }
 
-// Identifier of the remote access EC2 Security Group.
 func (o NodeGroupResourceOutput) RemoteAccessSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupResource) *string { return v.RemoteAccessSecurityGroupId }).(pulumi.StringPtrOutput)
 }
@@ -2233,7 +2091,6 @@ func (o NodeGroupResourceArrayOutput) Index(i pulumi.IntInput) NodeGroupResource
 }
 
 type NodeGroupResourceAutoscalingGroup struct {
-	// Name of the EC2 Launch Template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
 }
 
@@ -2249,7 +2106,6 @@ type NodeGroupResourceAutoscalingGroupInput interface {
 }
 
 type NodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the EC2 Launch Template. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2304,7 +2160,6 @@ func (o NodeGroupResourceAutoscalingGroupOutput) ToNodeGroupResourceAutoscalingG
 	return o
 }
 
-// Name of the EC2 Launch Template. Conflicts with `id`.
 func (o NodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupResourceAutoscalingGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2330,12 +2185,9 @@ func (o NodeGroupResourceAutoscalingGroupArrayOutput) Index(i pulumi.IntInput) N
 }
 
 type NodeGroupScalingConfig struct {
-	// Desired number of worker nodes.
 	DesiredSize int `pulumi:"desiredSize"`
-	// Maximum number of worker nodes.
-	MaxSize int `pulumi:"maxSize"`
-	// Minimum number of worker nodes.
-	MinSize int `pulumi:"minSize"`
+	MaxSize     int `pulumi:"maxSize"`
+	MinSize     int `pulumi:"minSize"`
 }
 
 // NodeGroupScalingConfigInput is an input type that accepts NodeGroupScalingConfigArgs and NodeGroupScalingConfigOutput values.
@@ -2350,12 +2202,9 @@ type NodeGroupScalingConfigInput interface {
 }
 
 type NodeGroupScalingConfigArgs struct {
-	// Desired number of worker nodes.
 	DesiredSize pulumi.IntInput `pulumi:"desiredSize"`
-	// Maximum number of worker nodes.
-	MaxSize pulumi.IntInput `pulumi:"maxSize"`
-	// Minimum number of worker nodes.
-	MinSize pulumi.IntInput `pulumi:"minSize"`
+	MaxSize     pulumi.IntInput `pulumi:"maxSize"`
+	MinSize     pulumi.IntInput `pulumi:"minSize"`
 }
 
 func (NodeGroupScalingConfigArgs) ElementType() reflect.Type {
@@ -2435,17 +2284,14 @@ func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigPtrOutputWithConte
 	}).(NodeGroupScalingConfigPtrOutput)
 }
 
-// Desired number of worker nodes.
 func (o NodeGroupScalingConfigOutput) DesiredSize() pulumi.IntOutput {
 	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.DesiredSize }).(pulumi.IntOutput)
 }
 
-// Maximum number of worker nodes.
 func (o NodeGroupScalingConfigOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.MaxSize }).(pulumi.IntOutput)
 }
 
-// Minimum number of worker nodes.
 func (o NodeGroupScalingConfigOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.MinSize }).(pulumi.IntOutput)
 }
@@ -2474,7 +2320,6 @@ func (o NodeGroupScalingConfigPtrOutput) Elem() NodeGroupScalingConfigOutput {
 	}).(NodeGroupScalingConfigOutput)
 }
 
-// Desired number of worker nodes.
 func (o NodeGroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
 		if v == nil {
@@ -2484,7 +2329,6 @@ func (o NodeGroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of worker nodes.
 func (o NodeGroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
 		if v == nil {
@@ -2494,7 +2338,6 @@ func (o NodeGroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of worker nodes.
 func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
 		if v == nil {
@@ -2505,12 +2348,9 @@ func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
 }
 
 type NodeGroupTaint struct {
-	// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
-	Effect string `pulumi:"effect"`
-	// The key of the taint. Maximum length of 63.
-	Key string `pulumi:"key"`
-	// The value of the taint. Maximum length of 63.
-	Value *string `pulumi:"value"`
+	Effect string  `pulumi:"effect"`
+	Key    string  `pulumi:"key"`
+	Value  *string `pulumi:"value"`
 }
 
 // NodeGroupTaintInput is an input type that accepts NodeGroupTaintArgs and NodeGroupTaintOutput values.
@@ -2525,12 +2365,9 @@ type NodeGroupTaintInput interface {
 }
 
 type NodeGroupTaintArgs struct {
-	// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
-	Effect pulumi.StringInput `pulumi:"effect"`
-	// The key of the taint. Maximum length of 63.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the taint. Maximum length of 63.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Effect pulumi.StringInput    `pulumi:"effect"`
+	Key    pulumi.StringInput    `pulumi:"key"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (NodeGroupTaintArgs) ElementType() reflect.Type {
@@ -2584,17 +2421,14 @@ func (o NodeGroupTaintOutput) ToNodeGroupTaintOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
 func (o NodeGroupTaintOutput) Effect() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeGroupTaint) string { return v.Effect }).(pulumi.StringOutput)
 }
 
-// The key of the taint. Maximum length of 63.
 func (o NodeGroupTaintOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeGroupTaint) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the taint. Maximum length of 63.
 func (o NodeGroupTaintOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeGroupTaint) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2620,9 +2454,7 @@ func (o NodeGroupTaintArrayOutput) Index(i pulumi.IntInput) NodeGroupTaintOutput
 }
 
 type NodeGroupUpdateConfig struct {
-	// Desired max number of unavailable worker nodes during node group update.
-	MaxUnavailable *int `pulumi:"maxUnavailable"`
-	// Desired max percentage of unavailable worker nodes during node group update.
+	MaxUnavailable           *int `pulumi:"maxUnavailable"`
 	MaxUnavailablePercentage *int `pulumi:"maxUnavailablePercentage"`
 }
 
@@ -2638,9 +2470,7 @@ type NodeGroupUpdateConfigInput interface {
 }
 
 type NodeGroupUpdateConfigArgs struct {
-	// Desired max number of unavailable worker nodes during node group update.
-	MaxUnavailable pulumi.IntPtrInput `pulumi:"maxUnavailable"`
-	// Desired max percentage of unavailable worker nodes during node group update.
+	MaxUnavailable           pulumi.IntPtrInput `pulumi:"maxUnavailable"`
 	MaxUnavailablePercentage pulumi.IntPtrInput `pulumi:"maxUnavailablePercentage"`
 }
 
@@ -2721,12 +2551,10 @@ func (o NodeGroupUpdateConfigOutput) ToNodeGroupUpdateConfigPtrOutputWithContext
 	}).(NodeGroupUpdateConfigPtrOutput)
 }
 
-// Desired max number of unavailable worker nodes during node group update.
 func (o NodeGroupUpdateConfigOutput) MaxUnavailable() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodeGroupUpdateConfig) *int { return v.MaxUnavailable }).(pulumi.IntPtrOutput)
 }
 
-// Desired max percentage of unavailable worker nodes during node group update.
 func (o NodeGroupUpdateConfigOutput) MaxUnavailablePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodeGroupUpdateConfig) *int { return v.MaxUnavailablePercentage }).(pulumi.IntPtrOutput)
 }
@@ -2755,7 +2583,6 @@ func (o NodeGroupUpdateConfigPtrOutput) Elem() NodeGroupUpdateConfigOutput {
 	}).(NodeGroupUpdateConfigOutput)
 }
 
-// Desired max number of unavailable worker nodes during node group update.
 func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailable() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeGroupUpdateConfig) *int {
 		if v == nil {
@@ -2765,7 +2592,6 @@ func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailable() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Desired max percentage of unavailable worker nodes during node group update.
 func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeGroupUpdateConfig) *int {
 		if v == nil {
@@ -2776,7 +2602,6 @@ func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.IntPtr
 }
 
 type GetClusterCertificateAuthority struct {
-	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data string `pulumi:"data"`
 }
 
@@ -2792,7 +2617,6 @@ type GetClusterCertificateAuthorityInput interface {
 }
 
 type GetClusterCertificateAuthorityArgs struct {
-	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data pulumi.StringInput `pulumi:"data"`
 }
 
@@ -2847,7 +2671,6 @@ func (o GetClusterCertificateAuthorityOutput) ToGetClusterCertificateAuthorityOu
 	return o
 }
 
-// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o GetClusterCertificateAuthorityOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCertificateAuthority) string { return v.Data }).(pulumi.StringOutput)
 }
@@ -2873,7 +2696,6 @@ func (o GetClusterCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) GetC
 }
 
 type GetClusterIdentity struct {
-	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
 	Oidcs []GetClusterIdentityOidc `pulumi:"oidcs"`
 }
 
@@ -2889,7 +2711,6 @@ type GetClusterIdentityInput interface {
 }
 
 type GetClusterIdentityArgs struct {
-	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
 	Oidcs GetClusterIdentityOidcArrayInput `pulumi:"oidcs"`
 }
 
@@ -2944,7 +2765,6 @@ func (o GetClusterIdentityOutput) ToGetClusterIdentityOutputWithContext(ctx cont
 	return o
 }
 
-// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
 func (o GetClusterIdentityOutput) Oidcs() GetClusterIdentityOidcArrayOutput {
 	return o.ApplyT(func(v GetClusterIdentity) []GetClusterIdentityOidc { return v.Oidcs }).(GetClusterIdentityOidcArrayOutput)
 }
@@ -2970,7 +2790,6 @@ func (o GetClusterIdentityArrayOutput) Index(i pulumi.IntInput) GetClusterIdenti
 }
 
 type GetClusterIdentityOidc struct {
-	// Issuer URL for the OpenID Connect identity provider.
 	Issuer string `pulumi:"issuer"`
 }
 
@@ -2986,7 +2805,6 @@ type GetClusterIdentityOidcInput interface {
 }
 
 type GetClusterIdentityOidcArgs struct {
-	// Issuer URL for the OpenID Connect identity provider.
 	Issuer pulumi.StringInput `pulumi:"issuer"`
 }
 
@@ -3041,7 +2859,6 @@ func (o GetClusterIdentityOidcOutput) ToGetClusterIdentityOidcOutputWithContext(
 	return o
 }
 
-// Issuer URL for the OpenID Connect identity provider.
 func (o GetClusterIdentityOidcOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterIdentityOidc) string { return v.Issuer }).(pulumi.StringOutput)
 }
@@ -3067,11 +2884,8 @@ func (o GetClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) GetClusterId
 }
 
 type GetClusterKubernetesNetworkConfig struct {
-	// `ipv4` or `ipv6`.
-	IpFamily string `pulumi:"ipFamily"`
-	// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
+	IpFamily        string `pulumi:"ipFamily"`
 	ServiceIpv4Cidr string `pulumi:"serviceIpv4Cidr"`
-	// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	ServiceIpv6Cidr string `pulumi:"serviceIpv6Cidr"`
 }
 
@@ -3087,11 +2901,8 @@ type GetClusterKubernetesNetworkConfigInput interface {
 }
 
 type GetClusterKubernetesNetworkConfigArgs struct {
-	// `ipv4` or `ipv6`.
-	IpFamily pulumi.StringInput `pulumi:"ipFamily"`
-	// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
+	IpFamily        pulumi.StringInput `pulumi:"ipFamily"`
 	ServiceIpv4Cidr pulumi.StringInput `pulumi:"serviceIpv4Cidr"`
-	// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	ServiceIpv6Cidr pulumi.StringInput `pulumi:"serviceIpv6Cidr"`
 }
 
@@ -3146,17 +2957,14 @@ func (o GetClusterKubernetesNetworkConfigOutput) ToGetClusterKubernetesNetworkCo
 	return o
 }
 
-// `ipv4` or `ipv6`.
 func (o GetClusterKubernetesNetworkConfigOutput) IpFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterKubernetesNetworkConfig) string { return v.IpFamily }).(pulumi.StringOutput)
 }
 
-// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
 func (o GetClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterKubernetesNetworkConfig) string { return v.ServiceIpv4Cidr }).(pulumi.StringOutput)
 }
 
-// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv6` was specified when the cluster was created. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 func (o GetClusterKubernetesNetworkConfigOutput) ServiceIpv6Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterKubernetesNetworkConfig) string { return v.ServiceIpv6Cidr }).(pulumi.StringOutput)
 }
@@ -3182,10 +2990,8 @@ func (o GetClusterKubernetesNetworkConfigArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetClusterOutpostConfig struct {
-	// The Amazon EC2 instance type for all Kubernetes control plane instances.
-	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
-	// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
-	OutpostArns []string `pulumi:"outpostArns"`
+	ControlPlaneInstanceType string   `pulumi:"controlPlaneInstanceType"`
+	OutpostArns              []string `pulumi:"outpostArns"`
 }
 
 // GetClusterOutpostConfigInput is an input type that accepts GetClusterOutpostConfigArgs and GetClusterOutpostConfigOutput values.
@@ -3200,10 +3006,8 @@ type GetClusterOutpostConfigInput interface {
 }
 
 type GetClusterOutpostConfigArgs struct {
-	// The Amazon EC2 instance type for all Kubernetes control plane instances.
-	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
-	// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
-	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
+	ControlPlaneInstanceType pulumi.StringInput      `pulumi:"controlPlaneInstanceType"`
+	OutpostArns              pulumi.StringArrayInput `pulumi:"outpostArns"`
 }
 
 func (GetClusterOutpostConfigArgs) ElementType() reflect.Type {
@@ -3257,12 +3061,10 @@ func (o GetClusterOutpostConfigOutput) ToGetClusterOutpostConfigOutputWithContex
 	return o
 }
 
-// The Amazon EC2 instance type for all Kubernetes control plane instances.
 func (o GetClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
 }
 
-// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
 func (o GetClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
 }
@@ -3288,20 +3090,13 @@ func (o GetClusterOutpostConfigArrayOutput) Index(i pulumi.IntInput) GetClusterO
 }
 
 type GetClusterVpcConfig struct {
-	// The cluster security group that was created by Amazon EKS for the cluster.
-	ClusterSecurityGroupId string `pulumi:"clusterSecurityGroupId"`
-	// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-	EndpointPrivateAccess bool `pulumi:"endpointPrivateAccess"`
-	// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-	EndpointPublicAccess bool `pulumi:"endpointPublicAccess"`
-	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-	PublicAccessCidrs []string `pulumi:"publicAccessCidrs"`
-	// List of security group IDs
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of subnet IDs
-	SubnetIds []string `pulumi:"subnetIds"`
-	// The VPC associated with your cluster.
-	VpcId string `pulumi:"vpcId"`
+	ClusterSecurityGroupId string   `pulumi:"clusterSecurityGroupId"`
+	EndpointPrivateAccess  bool     `pulumi:"endpointPrivateAccess"`
+	EndpointPublicAccess   bool     `pulumi:"endpointPublicAccess"`
+	PublicAccessCidrs      []string `pulumi:"publicAccessCidrs"`
+	SecurityGroupIds       []string `pulumi:"securityGroupIds"`
+	SubnetIds              []string `pulumi:"subnetIds"`
+	VpcId                  string   `pulumi:"vpcId"`
 }
 
 // GetClusterVpcConfigInput is an input type that accepts GetClusterVpcConfigArgs and GetClusterVpcConfigOutput values.
@@ -3316,20 +3111,13 @@ type GetClusterVpcConfigInput interface {
 }
 
 type GetClusterVpcConfigArgs struct {
-	// The cluster security group that was created by Amazon EKS for the cluster.
-	ClusterSecurityGroupId pulumi.StringInput `pulumi:"clusterSecurityGroupId"`
-	// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-	EndpointPrivateAccess pulumi.BoolInput `pulumi:"endpointPrivateAccess"`
-	// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-	EndpointPublicAccess pulumi.BoolInput `pulumi:"endpointPublicAccess"`
-	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-	PublicAccessCidrs pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
-	// List of security group IDs
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// List of subnet IDs
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The VPC associated with your cluster.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
+	ClusterSecurityGroupId pulumi.StringInput      `pulumi:"clusterSecurityGroupId"`
+	EndpointPrivateAccess  pulumi.BoolInput        `pulumi:"endpointPrivateAccess"`
+	EndpointPublicAccess   pulumi.BoolInput        `pulumi:"endpointPublicAccess"`
+	PublicAccessCidrs      pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
+	SecurityGroupIds       pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds              pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId                  pulumi.StringInput      `pulumi:"vpcId"`
 }
 
 func (GetClusterVpcConfigArgs) ElementType() reflect.Type {
@@ -3358,45 +3146,36 @@ func (o GetClusterVpcConfigOutput) ToGetClusterVpcConfigOutputWithContext(ctx co
 	return o
 }
 
-// The cluster security group that was created by Amazon EKS for the cluster.
 func (o GetClusterVpcConfigOutput) ClusterSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) string { return v.ClusterSecurityGroupId }).(pulumi.StringOutput)
 }
 
-// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
 func (o GetClusterVpcConfigOutput) EndpointPrivateAccess() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) bool { return v.EndpointPrivateAccess }).(pulumi.BoolOutput)
 }
 
-// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
 func (o GetClusterVpcConfigOutput) EndpointPublicAccess() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) bool { return v.EndpointPublicAccess }).(pulumi.BoolOutput)
 }
 
-// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
 func (o GetClusterVpcConfigOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) []string { return v.PublicAccessCidrs }).(pulumi.StringArrayOutput)
 }
 
-// List of security group IDs
 func (o GetClusterVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// List of subnet IDs
 func (o GetClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The VPC associated with your cluster.
 func (o GetClusterVpcConfigOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 type GetNodeGroupRemoteAccess struct {
-	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
-	Ec2SshKey string `pulumi:"ec2SshKey"`
-	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+	Ec2SshKey              string   `pulumi:"ec2SshKey"`
 	SourceSecurityGroupIds []string `pulumi:"sourceSecurityGroupIds"`
 }
 
@@ -3412,9 +3191,7 @@ type GetNodeGroupRemoteAccessInput interface {
 }
 
 type GetNodeGroupRemoteAccessArgs struct {
-	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
-	Ec2SshKey pulumi.StringInput `pulumi:"ec2SshKey"`
-	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+	Ec2SshKey              pulumi.StringInput      `pulumi:"ec2SshKey"`
 	SourceSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceSecurityGroupIds"`
 }
 
@@ -3469,12 +3246,10 @@ func (o GetNodeGroupRemoteAccessOutput) ToGetNodeGroupRemoteAccessOutputWithCont
 	return o
 }
 
-// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
 func (o GetNodeGroupRemoteAccessOutput) Ec2SshKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupRemoteAccess) string { return v.Ec2SshKey }).(pulumi.StringOutput)
 }
 
-// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
 func (o GetNodeGroupRemoteAccessOutput) SourceSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNodeGroupRemoteAccess) []string { return v.SourceSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -3500,10 +3275,8 @@ func (o GetNodeGroupRemoteAccessArrayOutput) Index(i pulumi.IntInput) GetNodeGro
 }
 
 type GetNodeGroupResource struct {
-	// List of objects containing information about AutoScaling Groups.
-	AutoscalingGroups []GetNodeGroupResourceAutoscalingGroup `pulumi:"autoscalingGroups"`
-	// Identifier of the remote access EC2 Security Group.
-	RemoteAccessSecurityGroupId string `pulumi:"remoteAccessSecurityGroupId"`
+	AutoscalingGroups           []GetNodeGroupResourceAutoscalingGroup `pulumi:"autoscalingGroups"`
+	RemoteAccessSecurityGroupId string                                 `pulumi:"remoteAccessSecurityGroupId"`
 }
 
 // GetNodeGroupResourceInput is an input type that accepts GetNodeGroupResourceArgs and GetNodeGroupResourceOutput values.
@@ -3518,10 +3291,8 @@ type GetNodeGroupResourceInput interface {
 }
 
 type GetNodeGroupResourceArgs struct {
-	// List of objects containing information about AutoScaling Groups.
-	AutoscalingGroups GetNodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
-	// Identifier of the remote access EC2 Security Group.
-	RemoteAccessSecurityGroupId pulumi.StringInput `pulumi:"remoteAccessSecurityGroupId"`
+	AutoscalingGroups           GetNodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
+	RemoteAccessSecurityGroupId pulumi.StringInput                             `pulumi:"remoteAccessSecurityGroupId"`
 }
 
 func (GetNodeGroupResourceArgs) ElementType() reflect.Type {
@@ -3575,12 +3346,10 @@ func (o GetNodeGroupResourceOutput) ToGetNodeGroupResourceOutputWithContext(ctx 
 	return o
 }
 
-// List of objects containing information about AutoScaling Groups.
 func (o GetNodeGroupResourceOutput) AutoscalingGroups() GetNodeGroupResourceAutoscalingGroupArrayOutput {
 	return o.ApplyT(func(v GetNodeGroupResource) []GetNodeGroupResourceAutoscalingGroup { return v.AutoscalingGroups }).(GetNodeGroupResourceAutoscalingGroupArrayOutput)
 }
 
-// Identifier of the remote access EC2 Security Group.
 func (o GetNodeGroupResourceOutput) RemoteAccessSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupResource) string { return v.RemoteAccessSecurityGroupId }).(pulumi.StringOutput)
 }
@@ -3606,7 +3375,6 @@ func (o GetNodeGroupResourceArrayOutput) Index(i pulumi.IntInput) GetNodeGroupRe
 }
 
 type GetNodeGroupResourceAutoscalingGroup struct {
-	// Name of the AutoScaling Group.
 	Name string `pulumi:"name"`
 }
 
@@ -3622,7 +3390,6 @@ type GetNodeGroupResourceAutoscalingGroupInput interface {
 }
 
 type GetNodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the AutoScaling Group.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -3677,7 +3444,6 @@ func (o GetNodeGroupResourceAutoscalingGroupOutput) ToGetNodeGroupResourceAutosc
 	return o
 }
 
-// Name of the AutoScaling Group.
 func (o GetNodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupResourceAutoscalingGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3703,12 +3469,9 @@ func (o GetNodeGroupResourceAutoscalingGroupArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetNodeGroupScalingConfig struct {
-	// Desired number of worker nodes.
 	DesiredSize int `pulumi:"desiredSize"`
-	// Maximum number of worker nodes.
-	MaxSize int `pulumi:"maxSize"`
-	// Minimum number of worker nodes.
-	MinSize int `pulumi:"minSize"`
+	MaxSize     int `pulumi:"maxSize"`
+	MinSize     int `pulumi:"minSize"`
 }
 
 // GetNodeGroupScalingConfigInput is an input type that accepts GetNodeGroupScalingConfigArgs and GetNodeGroupScalingConfigOutput values.
@@ -3723,12 +3486,9 @@ type GetNodeGroupScalingConfigInput interface {
 }
 
 type GetNodeGroupScalingConfigArgs struct {
-	// Desired number of worker nodes.
 	DesiredSize pulumi.IntInput `pulumi:"desiredSize"`
-	// Maximum number of worker nodes.
-	MaxSize pulumi.IntInput `pulumi:"maxSize"`
-	// Minimum number of worker nodes.
-	MinSize pulumi.IntInput `pulumi:"minSize"`
+	MaxSize     pulumi.IntInput `pulumi:"maxSize"`
+	MinSize     pulumi.IntInput `pulumi:"minSize"`
 }
 
 func (GetNodeGroupScalingConfigArgs) ElementType() reflect.Type {
@@ -3782,17 +3542,14 @@ func (o GetNodeGroupScalingConfigOutput) ToGetNodeGroupScalingConfigOutputWithCo
 	return o
 }
 
-// Desired number of worker nodes.
 func (o GetNodeGroupScalingConfigOutput) DesiredSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNodeGroupScalingConfig) int { return v.DesiredSize }).(pulumi.IntOutput)
 }
 
-// Maximum number of worker nodes.
 func (o GetNodeGroupScalingConfigOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNodeGroupScalingConfig) int { return v.MaxSize }).(pulumi.IntOutput)
 }
 
-// Minimum number of worker nodes.
 func (o GetNodeGroupScalingConfigOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNodeGroupScalingConfig) int { return v.MinSize }).(pulumi.IntOutput)
 }
@@ -3818,12 +3575,9 @@ func (o GetNodeGroupScalingConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGr
 }
 
 type GetNodeGroupTaint struct {
-	// The effect of the taint.
 	Effect string `pulumi:"effect"`
-	// The key of the taint.
-	Key string `pulumi:"key"`
-	// The value of the taint.
-	Value string `pulumi:"value"`
+	Key    string `pulumi:"key"`
+	Value  string `pulumi:"value"`
 }
 
 // GetNodeGroupTaintInput is an input type that accepts GetNodeGroupTaintArgs and GetNodeGroupTaintOutput values.
@@ -3838,12 +3592,9 @@ type GetNodeGroupTaintInput interface {
 }
 
 type GetNodeGroupTaintArgs struct {
-	// The effect of the taint.
 	Effect pulumi.StringInput `pulumi:"effect"`
-	// The key of the taint.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the taint.
-	Value pulumi.StringInput `pulumi:"value"`
+	Key    pulumi.StringInput `pulumi:"key"`
+	Value  pulumi.StringInput `pulumi:"value"`
 }
 
 func (GetNodeGroupTaintArgs) ElementType() reflect.Type {
@@ -3897,17 +3648,14 @@ func (o GetNodeGroupTaintOutput) ToGetNodeGroupTaintOutputWithContext(ctx contex
 	return o
 }
 
-// The effect of the taint.
 func (o GetNodeGroupTaintOutput) Effect() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupTaint) string { return v.Effect }).(pulumi.StringOutput)
 }
 
-// The key of the taint.
 func (o GetNodeGroupTaintOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupTaint) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the taint.
 func (o GetNodeGroupTaintOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupTaint) string { return v.Value }).(pulumi.StringOutput)
 }

@@ -10,62 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Byte Match Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewByteMatchSet(ctx, "byteSet", &waf.ByteMatchSetArgs{
-//				ByteMatchTuples: waf.ByteMatchSetByteMatchTupleArray{
-//					&waf.ByteMatchSetByteMatchTupleArgs{
-//						FieldToMatch: &waf.ByteMatchSetByteMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("referer"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						PositionalConstraint: pulumi.String("CONTAINS"),
-//						TargetString:         pulumi.String("badrefer1"),
-//						TextTransformation:   pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// WAF Byte Match Set can be imported using the id, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
 
-	// Specifies the bytes (typically a string that corresponds
-	// with ASCII characters) that you want to search for in web requests,
-	// the location in requests that you want to search, and other settings.
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayOutput `pulumi:"byteMatchTuples"`
-	// The name or description of the Byte Match Set.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name            pulumi.StringOutput                   `pulumi:"name"`
 }
 
 // NewByteMatchSet registers a new resource with the given unique name, arguments, and options.
@@ -97,21 +46,13 @@ func GetByteMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ByteMatchSet resources.
 type byteMatchSetState struct {
-	// Specifies the bytes (typically a string that corresponds
-	// with ASCII characters) that you want to search for in web requests,
-	// the location in requests that you want to search, and other settings.
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`
-	// The name or description of the Byte Match Set.
-	Name *string `pulumi:"name"`
+	Name            *string                      `pulumi:"name"`
 }
 
 type ByteMatchSetState struct {
-	// Specifies the bytes (typically a string that corresponds
-	// with ASCII characters) that you want to search for in web requests,
-	// the location in requests that you want to search, and other settings.
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayInput
-	// The name or description of the Byte Match Set.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
 }
 
 func (ByteMatchSetState) ElementType() reflect.Type {
@@ -119,22 +60,14 @@ func (ByteMatchSetState) ElementType() reflect.Type {
 }
 
 type byteMatchSetArgs struct {
-	// Specifies the bytes (typically a string that corresponds
-	// with ASCII characters) that you want to search for in web requests,
-	// the location in requests that you want to search, and other settings.
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`
-	// The name or description of the Byte Match Set.
-	Name *string `pulumi:"name"`
+	Name            *string                      `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ByteMatchSet resource.
 type ByteMatchSetArgs struct {
-	// Specifies the bytes (typically a string that corresponds
-	// with ASCII characters) that you want to search for in web requests,
-	// the location in requests that you want to search, and other settings.
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayInput
-	// The name or description of the Byte Match Set.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
 }
 
 func (ByteMatchSetArgs) ElementType() reflect.Type {
@@ -224,14 +157,10 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Specifies the bytes (typically a string that corresponds
-// with ASCII characters) that you want to search for in web requests,
-// the location in requests that you want to search, and other settings.
 func (o ByteMatchSetOutput) ByteMatchTuples() ByteMatchSetByteMatchTupleArrayOutput {
 	return o.ApplyT(func(v *ByteMatchSet) ByteMatchSetByteMatchTupleArrayOutput { return v.ByteMatchTuples }).(ByteMatchSetByteMatchTupleArrayOutput)
 }
 
-// The name or description of the Byte Match Set.
 func (o ByteMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -11,59 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon MSK Connect Worker Configuration Resource.
-//
-// ## Example Usage
-// ### Basic configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.NewWorkerConfiguration(ctx, "example", &mskconnect.WorkerConfigurationArgs{
-//				PropertiesFileContent: pulumi.String(fmt.Sprintf("key.converter=org.apache.kafka.connect.storage.StringConverter\nvalue.converter=org.apache.kafka.connect.storage.StringConverter\n\n")),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
-//
-// ```
 type WorkerConfiguration struct {
 	pulumi.CustomResourceState
 
-	// the Amazon Resource Name (ARN) of the worker configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A summary description of the worker configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// an ID of the latest successfully created revision of the worker configuration.
-	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
-	// The name of the worker configuration.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-	PropertiesFileContent pulumi.StringOutput `pulumi:"propertiesFileContent"`
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	LatestRevision        pulumi.IntOutput       `pulumi:"latestRevision"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	PropertiesFileContent pulumi.StringOutput    `pulumi:"propertiesFileContent"`
 }
 
 // NewWorkerConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -98,28 +53,18 @@ func GetWorkerConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkerConfiguration resources.
 type workerConfigurationState struct {
-	// the Amazon Resource Name (ARN) of the worker configuration.
-	Arn *string `pulumi:"arn"`
-	// A summary description of the worker configuration.
-	Description *string `pulumi:"description"`
-	// an ID of the latest successfully created revision of the worker configuration.
-	LatestRevision *int `pulumi:"latestRevision"`
-	// The name of the worker configuration.
-	Name *string `pulumi:"name"`
-	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	Arn                   *string `pulumi:"arn"`
+	Description           *string `pulumi:"description"`
+	LatestRevision        *int    `pulumi:"latestRevision"`
+	Name                  *string `pulumi:"name"`
 	PropertiesFileContent *string `pulumi:"propertiesFileContent"`
 }
 
 type WorkerConfigurationState struct {
-	// the Amazon Resource Name (ARN) of the worker configuration.
-	Arn pulumi.StringPtrInput
-	// A summary description of the worker configuration.
-	Description pulumi.StringPtrInput
-	// an ID of the latest successfully created revision of the worker configuration.
-	LatestRevision pulumi.IntPtrInput
-	// The name of the worker configuration.
-	Name pulumi.StringPtrInput
-	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	Arn                   pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	LatestRevision        pulumi.IntPtrInput
+	Name                  pulumi.StringPtrInput
 	PropertiesFileContent pulumi.StringPtrInput
 }
 
@@ -128,21 +73,15 @@ func (WorkerConfigurationState) ElementType() reflect.Type {
 }
 
 type workerConfigurationArgs struct {
-	// A summary description of the worker configuration.
-	Description *string `pulumi:"description"`
-	// The name of the worker configuration.
-	Name *string `pulumi:"name"`
-	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-	PropertiesFileContent string `pulumi:"propertiesFileContent"`
+	Description           *string `pulumi:"description"`
+	Name                  *string `pulumi:"name"`
+	PropertiesFileContent string  `pulumi:"propertiesFileContent"`
 }
 
 // The set of arguments for constructing a WorkerConfiguration resource.
 type WorkerConfigurationArgs struct {
-	// A summary description of the worker configuration.
-	Description pulumi.StringPtrInput
-	// The name of the worker configuration.
-	Name pulumi.StringPtrInput
-	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	Description           pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
 	PropertiesFileContent pulumi.StringInput
 }
 
@@ -233,27 +172,22 @@ func (o WorkerConfigurationOutput) ToWorkerConfigurationOutputWithContext(ctx co
 	return o
 }
 
-// the Amazon Resource Name (ARN) of the worker configuration.
 func (o WorkerConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A summary description of the worker configuration.
 func (o WorkerConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// an ID of the latest successfully created revision of the worker configuration.
 func (o WorkerConfigurationOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
 }
 
-// The name of the worker configuration.
 func (o WorkerConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
 func (o WorkerConfigurationOutput) PropertiesFileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.PropertiesFileContent }).(pulumi.StringOutput)
 }

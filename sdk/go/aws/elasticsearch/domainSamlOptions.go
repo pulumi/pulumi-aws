@@ -11,82 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages SAML authentication options for an AWS Elasticsearch Domain.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
-//				ElasticsearchVersion: pulumi.String("1.5"),
-//				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r4.large.elasticsearch"),
-//				},
-//				SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
-//					AutomatedSnapshotStartHour: pulumi.Int(23),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Domain": pulumi.String("TestDomain"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticsearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &elasticsearch.DomainSamlOptionsArgs{
-//				DomainName: exampleDomain.DomainName,
-//				SamlOptions: &elasticsearch.DomainSamlOptionsSamlOptionsArgs{
-//					Enabled: pulumi.Bool(true),
-//					Idp: &elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs{
-//						EntityId:        pulumi.String("https://example.com"),
-//						MetadataContent: readFileOrPanic("./saml-metadata.xml"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Elasticsearch domains can be imported using the `domain_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
-//
-// ```
 type DomainSamlOptions struct {
 	pulumi.CustomResourceState
 
-	// Name of the domain.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The SAML authentication options for an AWS Elasticsearch Domain.
+	DomainName  pulumi.StringOutput                   `pulumi:"domainName"`
 	SamlOptions DomainSamlOptionsSamlOptionsPtrOutput `pulumi:"samlOptions"`
 }
 
@@ -122,16 +50,12 @@ func GetDomainSamlOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainSamlOptions resources.
 type domainSamlOptionsState struct {
-	// Name of the domain.
-	DomainName *string `pulumi:"domainName"`
-	// The SAML authentication options for an AWS Elasticsearch Domain.
+	DomainName  *string                       `pulumi:"domainName"`
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
 
 type DomainSamlOptionsState struct {
-	// Name of the domain.
-	DomainName pulumi.StringPtrInput
-	// The SAML authentication options for an AWS Elasticsearch Domain.
+	DomainName  pulumi.StringPtrInput
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
 
@@ -140,17 +64,13 @@ func (DomainSamlOptionsState) ElementType() reflect.Type {
 }
 
 type domainSamlOptionsArgs struct {
-	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
-	// The SAML authentication options for an AWS Elasticsearch Domain.
+	DomainName  string                        `pulumi:"domainName"`
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
 
 // The set of arguments for constructing a DomainSamlOptions resource.
 type DomainSamlOptionsArgs struct {
-	// Name of the domain.
-	DomainName pulumi.StringInput
-	// The SAML authentication options for an AWS Elasticsearch Domain.
+	DomainName  pulumi.StringInput
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
 
@@ -241,12 +161,10 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutputWithContext(ctx contex
 	return o
 }
 
-// Name of the domain.
 func (o DomainSamlOptionsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The SAML authentication options for an AWS Elasticsearch Domain.
 func (o DomainSamlOptionsOutput) SamlOptions() DomainSamlOptionsSamlOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) DomainSamlOptionsSamlOptionsPtrOutput { return v.SamlOptions }).(DomainSamlOptionsSamlOptionsPtrOutput)
 }

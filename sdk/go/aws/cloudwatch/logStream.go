@@ -11,56 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch Log Stream resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
-//				LogGroupName: yada.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
-//
-// ```
 type LogStream struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the log stream.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the log group under which the log stream is to be created.
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
-	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name         pulumi.StringOutput `pulumi:"name"`
 }
 
 // NewLogStream registers a new resource with the given unique name, arguments, and options.
@@ -95,21 +51,15 @@ func GetLogStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogStream resources.
 type logStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the log stream.
-	Arn *string `pulumi:"arn"`
-	// The name of the log group under which the log stream is to be created.
+	Arn          *string `pulumi:"arn"`
 	LogGroupName *string `pulumi:"logGroupName"`
-	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-	Name *string `pulumi:"name"`
+	Name         *string `pulumi:"name"`
 }
 
 type LogStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the log stream.
-	Arn pulumi.StringPtrInput
-	// The name of the log group under which the log stream is to be created.
+	Arn          pulumi.StringPtrInput
 	LogGroupName pulumi.StringPtrInput
-	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-	Name pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
 }
 
 func (LogStreamState) ElementType() reflect.Type {
@@ -117,18 +67,14 @@ func (LogStreamState) ElementType() reflect.Type {
 }
 
 type logStreamArgs struct {
-	// The name of the log group under which the log stream is to be created.
-	LogGroupName string `pulumi:"logGroupName"`
-	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-	Name *string `pulumi:"name"`
+	LogGroupName string  `pulumi:"logGroupName"`
+	Name         *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a LogStream resource.
 type LogStreamArgs struct {
-	// The name of the log group under which the log stream is to be created.
 	LogGroupName pulumi.StringInput
-	// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-	Name pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
 }
 
 func (LogStreamArgs) ElementType() reflect.Type {
@@ -218,17 +164,14 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the log stream.
 func (o LogStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the log group under which the log stream is to be created.
 func (o LogStreamOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
 func (o LogStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

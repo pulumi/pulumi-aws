@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
-//
-// ## Example Usage
-//
-// The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.GetResolverFirewallRules(ctx, &route53.GetResolverFirewallRulesArgs{
-//				FirewallRuleGroupId: aws_route53_resolver_firewall_rule_group.Example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetResolverFirewallRules(ctx *pulumi.Context, args *GetResolverFirewallRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverFirewallRulesResult, error) {
 	var rv GetResolverFirewallRulesResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallRules:getResolverFirewallRules", args, &rv, opts...)
@@ -50,20 +21,16 @@ func GetResolverFirewallRules(ctx *pulumi.Context, args *GetResolverFirewallRule
 
 // A collection of arguments for invoking getResolverFirewallRules.
 type GetResolverFirewallRulesArgs struct {
-	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-	Action *string `pulumi:"action"`
-	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
-	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
-	// The setting that determines the processing order of the rules in a rule group.
-	Priority *int `pulumi:"priority"`
+	Action              *string `pulumi:"action"`
+	FirewallRuleGroupId string  `pulumi:"firewallRuleGroupId"`
+	Priority            *int    `pulumi:"priority"`
 }
 
 // A collection of values returned by getResolverFirewallRules.
 type GetResolverFirewallRulesResult struct {
-	Action              *string `pulumi:"action"`
-	FirewallRuleGroupId string  `pulumi:"firewallRuleGroupId"`
-	// List with information about the firewall rules. See details below.
-	FirewallRules []GetResolverFirewallRulesFirewallRule `pulumi:"firewallRules"`
+	Action              *string                                `pulumi:"action"`
+	FirewallRuleGroupId string                                 `pulumi:"firewallRuleGroupId"`
+	FirewallRules       []GetResolverFirewallRulesFirewallRule `pulumi:"firewallRules"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	Priority *int   `pulumi:"priority"`
@@ -84,12 +51,9 @@ func GetResolverFirewallRulesOutput(ctx *pulumi.Context, args GetResolverFirewal
 
 // A collection of arguments for invoking getResolverFirewallRules.
 type GetResolverFirewallRulesOutputArgs struct {
-	// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The unique identifier of the firewall rule group that you want to retrieve the rules for.
-	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
-	// The setting that determines the processing order of the rules in a rule group.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	Action              pulumi.StringPtrInput `pulumi:"action"`
+	FirewallRuleGroupId pulumi.StringInput    `pulumi:"firewallRuleGroupId"`
+	Priority            pulumi.IntPtrInput    `pulumi:"priority"`
 }
 
 func (GetResolverFirewallRulesOutputArgs) ElementType() reflect.Type {
@@ -119,7 +83,6 @@ func (o GetResolverFirewallRulesResultOutput) FirewallRuleGroupId() pulumi.Strin
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) string { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
 }
 
-// List with information about the firewall rules. See details below.
 func (o GetResolverFirewallRulesResultOutput) FirewallRules() GetResolverFirewallRulesFirewallRuleArrayOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) []GetResolverFirewallRulesFirewallRule { return v.FirewallRules }).(GetResolverFirewallRulesFirewallRuleArrayOutput)
 }

@@ -11,95 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("https"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewSslNegotiationPolicy(ctx, "foo", &elb.SslNegotiationPolicyArgs{
-//				LoadBalancer: lb.ID(),
-//				LbPort:       pulumi.Int(443),
-//				Attributes: elb.SslNegotiationPolicyAttributeArray{
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1"),
-//						Value: pulumi.String("false"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1.1"),
-//						Value: pulumi.String("false"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Protocol-TLSv1.2"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("Server-Defined-Cipher-Order"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("ECDHE-RSA-AES128-GCM-SHA256"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("AES128-GCM-SHA256"),
-//						Value: pulumi.String("true"),
-//					},
-//					&elb.SslNegotiationPolicyAttributeArgs{
-//						Name:  pulumi.String("EDH-RSA-DES-CBC3-SHA"),
-//						Value: pulumi.String("false"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SslNegotiationPolicy struct {
 	pulumi.CustomResourceState
 
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes SslNegotiationPolicyAttributeArrayOutput `pulumi:"attributes"`
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort pulumi.IntOutput `pulumi:"lbPort"`
-	// The load balancer to which the policy
-	// should be attached.
-	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
-	// The name of the attribute
-	Name pulumi.StringOutput `pulumi:"name"`
+	Attributes   SslNegotiationPolicyAttributeArrayOutput `pulumi:"attributes"`
+	LbPort       pulumi.IntOutput                         `pulumi:"lbPort"`
+	LoadBalancer pulumi.StringOutput                      `pulumi:"loadBalancer"`
+	Name         pulumi.StringOutput                      `pulumi:"name"`
 }
 
 // NewSslNegotiationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -143,31 +61,17 @@ func GetSslNegotiationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SslNegotiationPolicy resources.
 type sslNegotiationPolicyState struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes []SslNegotiationPolicyAttribute `pulumi:"attributes"`
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort *int `pulumi:"lbPort"`
-	// The load balancer to which the policy
-	// should be attached.
-	LoadBalancer *string `pulumi:"loadBalancer"`
-	// The name of the attribute
-	Name *string `pulumi:"name"`
+	Attributes   []SslNegotiationPolicyAttribute `pulumi:"attributes"`
+	LbPort       *int                            `pulumi:"lbPort"`
+	LoadBalancer *string                         `pulumi:"loadBalancer"`
+	Name         *string                         `pulumi:"name"`
 }
 
 type SslNegotiationPolicyState struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes SslNegotiationPolicyAttributeArrayInput
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort pulumi.IntPtrInput
-	// The load balancer to which the policy
-	// should be attached.
+	Attributes   SslNegotiationPolicyAttributeArrayInput
+	LbPort       pulumi.IntPtrInput
 	LoadBalancer pulumi.StringPtrInput
-	// The name of the attribute
-	Name pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
 }
 
 func (SslNegotiationPolicyState) ElementType() reflect.Type {
@@ -175,32 +79,18 @@ func (SslNegotiationPolicyState) ElementType() reflect.Type {
 }
 
 type sslNegotiationPolicyArgs struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes []SslNegotiationPolicyAttribute `pulumi:"attributes"`
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort int `pulumi:"lbPort"`
-	// The load balancer to which the policy
-	// should be attached.
-	LoadBalancer string `pulumi:"loadBalancer"`
-	// The name of the attribute
-	Name *string `pulumi:"name"`
+	Attributes   []SslNegotiationPolicyAttribute `pulumi:"attributes"`
+	LbPort       int                             `pulumi:"lbPort"`
+	LoadBalancer string                          `pulumi:"loadBalancer"`
+	Name         *string                         `pulumi:"name"`
 }
 
 // The set of arguments for constructing a SslNegotiationPolicy resource.
 type SslNegotiationPolicyArgs struct {
-	// An SSL Negotiation policy attribute. Each has two properties:
-	Attributes SslNegotiationPolicyAttributeArrayInput
-	// The load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
-	LbPort pulumi.IntInput
-	// The load balancer to which the policy
-	// should be attached.
+	Attributes   SslNegotiationPolicyAttributeArrayInput
+	LbPort       pulumi.IntInput
 	LoadBalancer pulumi.StringInput
-	// The name of the attribute
-	Name pulumi.StringPtrInput
+	Name         pulumi.StringPtrInput
 }
 
 func (SslNegotiationPolicyArgs) ElementType() reflect.Type {
@@ -290,25 +180,18 @@ func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutputWithContext(ctx 
 	return o
 }
 
-// An SSL Negotiation policy attribute. Each has two properties:
 func (o SslNegotiationPolicyOutput) Attributes() SslNegotiationPolicyAttributeArrayOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) SslNegotiationPolicyAttributeArrayOutput { return v.Attributes }).(SslNegotiationPolicyAttributeArrayOutput)
 }
 
-// The load balancer port to which the policy
-// should be applied. This must be an active listener on the load
-// balancer.
 func (o SslNegotiationPolicyOutput) LbPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.IntOutput { return v.LbPort }).(pulumi.IntOutput)
 }
 
-// The load balancer to which the policy
-// should be attached.
 func (o SslNegotiationPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
 }
 
-// The name of the attribute
 func (o SslNegotiationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

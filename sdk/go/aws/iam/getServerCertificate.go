@@ -10,49 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to lookup information about IAM Server Certificates.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			my_domain, err := iam.LookupServerCertificate(ctx, &iam.LookupServerCertificateArgs{
-//				NamePrefix: pulumi.StringRef("my-domain.org"),
-//				Latest:     pulumi.BoolRef(true),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elb.NewLoadBalancer(ctx, "elb", &elb.LoadBalancerArgs{
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(8000),
-//						InstanceProtocol: pulumi.String("https"),
-//						LbPort:           pulumi.Int(443),
-//						LbProtocol:       pulumi.String("https"),
-//						SslCertificateId: *pulumi.String(my_domain.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateArgs, opts ...pulumi.InvokeOption) (*LookupServerCertificateResult, error) {
 	var rv LookupServerCertificateResult
 	err := ctx.Invoke("aws:iam/getServerCertificate:getServerCertificate", args, &rv, opts...)
@@ -64,13 +21,9 @@ func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateA
 
 // A collection of arguments for invoking getServerCertificate.
 type LookupServerCertificateArgs struct {
-	// sort results by expiration date. returns the certificate with expiration date in furthest in the future.
-	Latest *bool `pulumi:"latest"`
-	// exact name of the cert to lookup
-	Name *string `pulumi:"name"`
-	// prefix of cert to filter by
+	Latest     *bool   `pulumi:"latest"`
+	Name       *string `pulumi:"name"`
 	NamePrefix *string `pulumi:"namePrefix"`
-	// prefix of path to filter by
 	PathPrefix *string `pulumi:"pathPrefix"`
 }
 
@@ -105,13 +58,9 @@ func LookupServerCertificateOutput(ctx *pulumi.Context, args LookupServerCertifi
 
 // A collection of arguments for invoking getServerCertificate.
 type LookupServerCertificateOutputArgs struct {
-	// sort results by expiration date. returns the certificate with expiration date in furthest in the future.
-	Latest pulumi.BoolPtrInput `pulumi:"latest"`
-	// exact name of the cert to lookup
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// prefix of cert to filter by
+	Latest     pulumi.BoolPtrInput   `pulumi:"latest"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
-	// prefix of path to filter by
 	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
 }
 

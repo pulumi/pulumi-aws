@@ -11,72 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS AccessAnalyzer Archive Rule.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewArchiveRule(ctx, "example", &accessanalyzer.ArchiveRuleArgs{
-//				AnalyzerName: pulumi.String("example-analyzer"),
-//				Filters: accessanalyzer.ArchiveRuleFilterArray{
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("condition.aws:UserId"),
-//						Eqs: pulumi.StringArray{
-//							pulumi.String("userid"),
-//						},
-//					},
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("error"),
-//						Exists:   pulumi.String("true"),
-//					},
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("isPublic"),
-//						Eqs: pulumi.StringArray{
-//							pulumi.String("false"),
-//						},
-//					},
-//				},
-//				RuleName: pulumi.String("example-rule"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AccessAnalyzer ArchiveRule can be imported using the `analyzer_name/rule_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
-//
-// ```
 type ArchiveRule struct {
 	pulumi.CustomResourceState
 
-	// Analyzer name.
-	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
-	// Filter criteria for the archive rule. See Filter for more details.
-	Filters ArchiveRuleFilterArrayOutput `pulumi:"filters"`
-	// Rule name.
-	RuleName pulumi.StringOutput `pulumi:"ruleName"`
+	AnalyzerName pulumi.StringOutput          `pulumi:"analyzerName"`
+	Filters      ArchiveRuleFilterArrayOutput `pulumi:"filters"`
+	RuleName     pulumi.StringOutput          `pulumi:"ruleName"`
 }
 
 // NewArchiveRule registers a new resource with the given unique name, arguments, and options.
@@ -117,21 +57,15 @@ func GetArchiveRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ArchiveRule resources.
 type archiveRuleState struct {
-	// Analyzer name.
-	AnalyzerName *string `pulumi:"analyzerName"`
-	// Filter criteria for the archive rule. See Filter for more details.
-	Filters []ArchiveRuleFilter `pulumi:"filters"`
-	// Rule name.
-	RuleName *string `pulumi:"ruleName"`
+	AnalyzerName *string             `pulumi:"analyzerName"`
+	Filters      []ArchiveRuleFilter `pulumi:"filters"`
+	RuleName     *string             `pulumi:"ruleName"`
 }
 
 type ArchiveRuleState struct {
-	// Analyzer name.
 	AnalyzerName pulumi.StringPtrInput
-	// Filter criteria for the archive rule. See Filter for more details.
-	Filters ArchiveRuleFilterArrayInput
-	// Rule name.
-	RuleName pulumi.StringPtrInput
+	Filters      ArchiveRuleFilterArrayInput
+	RuleName     pulumi.StringPtrInput
 }
 
 func (ArchiveRuleState) ElementType() reflect.Type {
@@ -139,22 +73,16 @@ func (ArchiveRuleState) ElementType() reflect.Type {
 }
 
 type archiveRuleArgs struct {
-	// Analyzer name.
-	AnalyzerName string `pulumi:"analyzerName"`
-	// Filter criteria for the archive rule. See Filter for more details.
-	Filters []ArchiveRuleFilter `pulumi:"filters"`
-	// Rule name.
-	RuleName string `pulumi:"ruleName"`
+	AnalyzerName string              `pulumi:"analyzerName"`
+	Filters      []ArchiveRuleFilter `pulumi:"filters"`
+	RuleName     string              `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a ArchiveRule resource.
 type ArchiveRuleArgs struct {
-	// Analyzer name.
 	AnalyzerName pulumi.StringInput
-	// Filter criteria for the archive rule. See Filter for more details.
-	Filters ArchiveRuleFilterArrayInput
-	// Rule name.
-	RuleName pulumi.StringInput
+	Filters      ArchiveRuleFilterArrayInput
+	RuleName     pulumi.StringInput
 }
 
 func (ArchiveRuleArgs) ElementType() reflect.Type {
@@ -244,17 +172,14 @@ func (o ArchiveRuleOutput) ToArchiveRuleOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Analyzer name.
 func (o ArchiveRuleOutput) AnalyzerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ArchiveRule) pulumi.StringOutput { return v.AnalyzerName }).(pulumi.StringOutput)
 }
 
-// Filter criteria for the archive rule. See Filter for more details.
 func (o ArchiveRuleOutput) Filters() ArchiveRuleFilterArrayOutput {
 	return o.ApplyT(func(v *ArchiveRule) ArchiveRuleFilterArrayOutput { return v.Filters }).(ArchiveRuleFilterArrayOutput)
 }
 
-// Rule name.
 func (o ArchiveRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ArchiveRule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }

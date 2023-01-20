@@ -11,28 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Backup vault notifications resource.
-//
-// ## Import
-//
-// Backup vault notifications can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-//
-// ```
 type VaultNotifications struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the vault.
-	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	BackupVaultArn    pulumi.StringOutput      `pulumi:"backupVaultArn"`
 	BackupVaultEvents pulumi.StringArrayOutput `pulumi:"backupVaultEvents"`
-	// Name of the backup vault to add notifications for.
-	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
+	BackupVaultName   pulumi.StringOutput      `pulumi:"backupVaultName"`
+	SnsTopicArn       pulumi.StringOutput      `pulumi:"snsTopicArn"`
 }
 
 // NewVaultNotifications registers a new resource with the given unique name, arguments, and options.
@@ -73,25 +58,17 @@ func GetVaultNotifications(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultNotifications resources.
 type vaultNotificationsState struct {
-	// The ARN of the vault.
-	BackupVaultArn *string `pulumi:"backupVaultArn"`
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	BackupVaultArn    *string  `pulumi:"backupVaultArn"`
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
-	// Name of the backup vault to add notifications for.
-	BackupVaultName *string `pulumi:"backupVaultName"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn *string `pulumi:"snsTopicArn"`
+	BackupVaultName   *string  `pulumi:"backupVaultName"`
+	SnsTopicArn       *string  `pulumi:"snsTopicArn"`
 }
 
 type VaultNotificationsState struct {
-	// The ARN of the vault.
-	BackupVaultArn pulumi.StringPtrInput
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
+	BackupVaultArn    pulumi.StringPtrInput
 	BackupVaultEvents pulumi.StringArrayInput
-	// Name of the backup vault to add notifications for.
-	BackupVaultName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn pulumi.StringPtrInput
+	BackupVaultName   pulumi.StringPtrInput
+	SnsTopicArn       pulumi.StringPtrInput
 }
 
 func (VaultNotificationsState) ElementType() reflect.Type {
@@ -99,22 +76,16 @@ func (VaultNotificationsState) ElementType() reflect.Type {
 }
 
 type vaultNotificationsArgs struct {
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
-	// Name of the backup vault to add notifications for.
-	BackupVaultName string `pulumi:"backupVaultName"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn string `pulumi:"snsTopicArn"`
+	BackupVaultName   string   `pulumi:"backupVaultName"`
+	SnsTopicArn       string   `pulumi:"snsTopicArn"`
 }
 
 // The set of arguments for constructing a VaultNotifications resource.
 type VaultNotificationsArgs struct {
-	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents pulumi.StringArrayInput
-	// Name of the backup vault to add notifications for.
-	BackupVaultName pulumi.StringInput
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-	SnsTopicArn pulumi.StringInput
+	BackupVaultName   pulumi.StringInput
+	SnsTopicArn       pulumi.StringInput
 }
 
 func (VaultNotificationsArgs) ElementType() reflect.Type {
@@ -204,22 +175,18 @@ func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx cont
 	return o
 }
 
-// The ARN of the vault.
 func (o VaultNotificationsOutput) BackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
-// An array of events that indicate the status of jobs to back up resources to the backup vault.
 func (o VaultNotificationsOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringArrayOutput { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
 }
 
-// Name of the backup vault to add notifications for.
 func (o VaultNotificationsOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
 func (o VaultNotificationsOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }

@@ -11,62 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches Principal to AWS IoT Thing.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.NewThing(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				Csr:    readFileOrPanic("csr.pem"),
-//				Active: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewThingPrincipalAttachment(ctx, "att", &iot.ThingPrincipalAttachmentArgs{
-//				Principal: cert.Arn,
-//				Thing:     example.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ThingPrincipalAttachment struct {
 	pulumi.CustomResourceState
 
-	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// The name of the thing.
-	Thing pulumi.StringOutput `pulumi:"thing"`
+	Thing     pulumi.StringOutput `pulumi:"thing"`
 }
 
 // NewThingPrincipalAttachment registers a new resource with the given unique name, arguments, and options.
@@ -104,17 +53,13 @@ func GetThingPrincipalAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThingPrincipalAttachment resources.
 type thingPrincipalAttachmentState struct {
-	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal *string `pulumi:"principal"`
-	// The name of the thing.
-	Thing *string `pulumi:"thing"`
+	Thing     *string `pulumi:"thing"`
 }
 
 type ThingPrincipalAttachmentState struct {
-	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal pulumi.StringPtrInput
-	// The name of the thing.
-	Thing pulumi.StringPtrInput
+	Thing     pulumi.StringPtrInput
 }
 
 func (ThingPrincipalAttachmentState) ElementType() reflect.Type {
@@ -122,18 +67,14 @@ func (ThingPrincipalAttachmentState) ElementType() reflect.Type {
 }
 
 type thingPrincipalAttachmentArgs struct {
-	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal string `pulumi:"principal"`
-	// The name of the thing.
-	Thing string `pulumi:"thing"`
+	Thing     string `pulumi:"thing"`
 }
 
 // The set of arguments for constructing a ThingPrincipalAttachment resource.
 type ThingPrincipalAttachmentArgs struct {
-	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 	Principal pulumi.StringInput
-	// The name of the thing.
-	Thing pulumi.StringInput
+	Thing     pulumi.StringInput
 }
 
 func (ThingPrincipalAttachmentArgs) ElementType() reflect.Type {
@@ -223,12 +164,10 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithCont
 	return o
 }
 
-// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
 func (o ThingPrincipalAttachmentOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-// The name of the thing.
 func (o ThingPrincipalAttachmentOutput) Thing() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.Thing }).(pulumi.StringOutput)
 }

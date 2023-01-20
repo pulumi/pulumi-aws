@@ -10,60 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewByteMatchSet(ctx, "byteSet", &wafregional.ByteMatchSetArgs{
-//				ByteMatchTuples: wafregional.ByteMatchSetByteMatchTupleArray{
-//					&wafregional.ByteMatchSetByteMatchTupleArgs{
-//						FieldToMatch: &wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("referer"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						PositionalConstraint: pulumi.String("CONTAINS"),
-//						TargetString:         pulumi.String("badrefer1"),
-//						TextTransformation:   pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// WAF Regional Byte Match Set can be imported using the id, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
 
-	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayOutput `pulumi:"byteMatchTuples"`
-	// The name or description of the ByteMatchSet.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name            pulumi.StringOutput                   `pulumi:"name"`
 }
 
 // NewByteMatchSet registers a new resource with the given unique name, arguments, and options.
@@ -95,17 +46,13 @@ func GetByteMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ByteMatchSet resources.
 type byteMatchSetState struct {
-	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`
-	// The name or description of the ByteMatchSet.
-	Name *string `pulumi:"name"`
+	Name            *string                      `pulumi:"name"`
 }
 
 type ByteMatchSetState struct {
-	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayInput
-	// The name or description of the ByteMatchSet.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
 }
 
 func (ByteMatchSetState) ElementType() reflect.Type {
@@ -113,18 +60,14 @@ func (ByteMatchSetState) ElementType() reflect.Type {
 }
 
 type byteMatchSetArgs struct {
-	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples []ByteMatchSetByteMatchTuple `pulumi:"byteMatchTuples"`
-	// The name or description of the ByteMatchSet.
-	Name *string `pulumi:"name"`
+	Name            *string                      `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ByteMatchSet resource.
 type ByteMatchSetArgs struct {
-	// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 	ByteMatchTuples ByteMatchSetByteMatchTupleArrayInput
-	// The name or description of the ByteMatchSet.
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
 }
 
 func (ByteMatchSetArgs) ElementType() reflect.Type {
@@ -214,12 +157,10 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
 func (o ByteMatchSetOutput) ByteMatchTuples() ByteMatchSetByteMatchTupleArrayOutput {
 	return o.ApplyT(func(v *ByteMatchSet) ByteMatchSetByteMatchTupleArrayOutput { return v.ByteMatchTuples }).(ByteMatchSetByteMatchTupleArrayOutput)
 }
 
-// The name or description of the ByteMatchSet.
 func (o ByteMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

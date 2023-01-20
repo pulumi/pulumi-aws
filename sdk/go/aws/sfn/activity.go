@@ -10,52 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Step Function Activity resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewActivity(ctx, "sfnActivity", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Activities can be imported using the `arn`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
-//
-// ```
 type Activity struct {
 	pulumi.CustomResourceState
 
-	// The date the activity was created.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The name of the activity to create.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	CreationDate pulumi.StringOutput    `pulumi:"creationDate"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewActivity registers a new resource with the given unique name, arguments, and options.
@@ -87,25 +48,17 @@ func GetActivity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Activity resources.
 type activityState struct {
-	// The date the activity was created.
-	CreationDate *string `pulumi:"creationDate"`
-	// The name of the activity to create.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	CreationDate *string           `pulumi:"creationDate"`
+	Name         *string           `pulumi:"name"`
+	Tags         map[string]string `pulumi:"tags"`
+	TagsAll      map[string]string `pulumi:"tagsAll"`
 }
 
 type ActivityState struct {
-	// The date the activity was created.
 	CreationDate pulumi.StringPtrInput
-	// The name of the activity to create.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name         pulumi.StringPtrInput
+	Tags         pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 }
 
 func (ActivityState) ElementType() reflect.Type {
@@ -113,17 +66,13 @@ func (ActivityState) ElementType() reflect.Type {
 }
 
 type activityArgs struct {
-	// The name of the activity to create.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Activity resource.
 type ActivityArgs struct {
-	// The name of the activity to create.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -214,22 +163,18 @@ func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) Activit
 	return o
 }
 
-// The date the activity was created.
 func (o ActivityOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// The name of the activity to create.
 func (o ActivityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ActivityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ActivityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,33 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a replicated Region and directory for Multi-Region replication.
-// Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
-//
-// ## Import
-//
-// Replicated Regions can be imported using directory ID,Region name e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
-//
-// ```
 type ServiceRegion struct {
 	pulumi.CustomResourceState
 
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-	DesiredNumberOfDomainControllers pulumi.IntOutput `pulumi:"desiredNumberOfDomainControllers"`
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName pulumi.StringOutput `pulumi:"regionName"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettingsOutput `pulumi:"vpcSettings"`
+	DesiredNumberOfDomainControllers pulumi.IntOutput               `pulumi:"desiredNumberOfDomainControllers"`
+	DirectoryId                      pulumi.StringOutput            `pulumi:"directoryId"`
+	RegionName                       pulumi.StringOutput            `pulumi:"regionName"`
+	Tags                             pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll                          pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	VpcSettings                      ServiceRegionVpcSettingsOutput `pulumi:"vpcSettings"`
 }
 
 // NewServiceRegion registers a new resource with the given unique name, arguments, and options.
@@ -78,33 +60,21 @@ func GetServiceRegion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceRegion resources.
 type serviceRegionState struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId *string `pulumi:"directoryId"`
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName *string `pulumi:"regionName"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings *ServiceRegionVpcSettings `pulumi:"vpcSettings"`
+	DesiredNumberOfDomainControllers *int                      `pulumi:"desiredNumberOfDomainControllers"`
+	DirectoryId                      *string                   `pulumi:"directoryId"`
+	RegionName                       *string                   `pulumi:"regionName"`
+	Tags                             map[string]string         `pulumi:"tags"`
+	TagsAll                          map[string]string         `pulumi:"tagsAll"`
+	VpcSettings                      *ServiceRegionVpcSettings `pulumi:"vpcSettings"`
 }
 
 type ServiceRegionState struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId pulumi.StringPtrInput
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName pulumi.StringPtrInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettingsPtrInput
+	DirectoryId                      pulumi.StringPtrInput
+	RegionName                       pulumi.StringPtrInput
+	Tags                             pulumi.StringMapInput
+	TagsAll                          pulumi.StringMapInput
+	VpcSettings                      ServiceRegionVpcSettingsPtrInput
 }
 
 func (ServiceRegionState) ElementType() reflect.Type {
@@ -112,30 +82,20 @@ func (ServiceRegionState) ElementType() reflect.Type {
 }
 
 type serviceRegionArgs struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-	DesiredNumberOfDomainControllers *int `pulumi:"desiredNumberOfDomainControllers"`
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId string `pulumi:"directoryId"`
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName string `pulumi:"regionName"`
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettings `pulumi:"vpcSettings"`
+	DesiredNumberOfDomainControllers *int                     `pulumi:"desiredNumberOfDomainControllers"`
+	DirectoryId                      string                   `pulumi:"directoryId"`
+	RegionName                       string                   `pulumi:"regionName"`
+	Tags                             map[string]string        `pulumi:"tags"`
+	VpcSettings                      ServiceRegionVpcSettings `pulumi:"vpcSettings"`
 }
 
 // The set of arguments for constructing a ServiceRegion resource.
 type ServiceRegionArgs struct {
-	// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
 	DesiredNumberOfDomainControllers pulumi.IntPtrInput
-	// The identifier of the directory to which you want to add Region replication.
-	DirectoryId pulumi.StringInput
-	// The name of the Region where you want to add domain controllers for replication.
-	RegionName pulumi.StringInput
-	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// VPC information in the replicated Region. Detailed below.
-	VpcSettings ServiceRegionVpcSettingsInput
+	DirectoryId                      pulumi.StringInput
+	RegionName                       pulumi.StringInput
+	Tags                             pulumi.StringMapInput
+	VpcSettings                      ServiceRegionVpcSettingsInput
 }
 
 func (ServiceRegionArgs) ElementType() reflect.Type {
@@ -225,32 +185,26 @@ func (o ServiceRegionOutput) ToServiceRegionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
 func (o ServiceRegionOutput) DesiredNumberOfDomainControllers() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.IntOutput { return v.DesiredNumberOfDomainControllers }).(pulumi.IntOutput)
 }
 
-// The identifier of the directory to which you want to add Region replication.
 func (o ServiceRegionOutput) DirectoryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
 }
 
-// The name of the Region where you want to add domain controllers for replication.
 func (o ServiceRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringOutput { return v.RegionName }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceRegionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceRegionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// VPC information in the replicated Region. Detailed below.
 func (o ServiceRegionOutput) VpcSettings() ServiceRegionVpcSettingsOutput {
 	return o.ApplyT(func(v *ServiceRegion) ServiceRegionVpcSettingsOutput { return v.VpcSettings }).(ServiceRegionVpcSettingsOutput)
 }

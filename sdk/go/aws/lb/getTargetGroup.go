@@ -10,50 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
-//
-// Provides information about a Load Balancer Target Group.
-//
-// This data source can prove useful when a module accepts an LB Target Group as an
-// input variable and needs to know its attributes. It can also be used to get the ARN of
-// an LB Target Group for use in other resources, given LB Target Group name.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbTgArn := ""
-//			if param := cfg.Get("lbTgArn"); param != "" {
-//				lbTgArn = param
-//			}
-//			lbTgName := ""
-//			if param := cfg.Get("lbTgName"); param != "" {
-//				lbTgName = param
-//			}
-//			_, err := lb.LookupTargetGroup(ctx, &lb.LookupTargetGroupArgs{
-//				Arn:  pulumi.StringRef(lbTgArn),
-//				Name: pulumi.StringRef(lbTgName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws:lb/getTargetGroup:getTargetGroup", args, &rv, opts...)
@@ -65,9 +21,7 @@ func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ..
 
 // A collection of arguments for invoking getTargetGroup.
 type LookupTargetGroupArgs struct {
-	// Full ARN of the target group.
-	Arn *string `pulumi:"arn"`
-	// Unique name of the target group.
+	Arn  *string           `pulumi:"arn"`
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -111,9 +65,7 @@ func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputAr
 
 // A collection of arguments for invoking getTargetGroup.
 type LookupTargetGroupOutputArgs struct {
-	// Full ARN of the target group.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Unique name of the target group.
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

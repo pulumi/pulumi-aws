@@ -11,123 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create a VPC routing table.
-//
-// > **NOTE on Route Tables and Routes:** This provider currently
-// provides both a standalone Route resource and a Route Table resource with routes
-// defined in-line. At this time you cannot use a Route Table with in-line routes
-// in conjunction with any Route resources. Doing so will cause
-// a conflict of rule settings and will overwrite rules.
-//
-// > **NOTE on `gatewayId` and `natGatewayId`:** The AWS API is very forgiving with these two
-// attributes and the `ec2.RouteTable` resource can be created with a NAT ID specified as a Gateway ID attribute.
-// This _will_ lead to a permanent diff between your configuration and statefile, as the API returns the correct
-// parameters in the returned route table. If you're experiencing constant diffs in your `ec2.RouteTable` resources,
-// the first thing to check is whether or not you're specifying a NAT ID instead of a Gateway ID, or vice-versa.
-//
-// > **NOTE on `propagatingVgws` and the `ec2.VpnGatewayRoutePropagation` resource:**
-// If the `propagatingVgws` argument is present, it's not supported to _also_
-// define route propagations using `ec2.VpnGatewayRoutePropagation`, since
-// this resource will delete any propagating gateways not explicitly listed in
-// `propagatingVgws`. Omit this argument when defining route propagation using
-// the separate resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-//				VpcId: pulumi.Any(aws_vpc.Example.Id),
-//				Routes: ec2.RouteTableRouteArray{
-//					&ec2.RouteTableRouteArgs{
-//						CidrBlock: pulumi.String("10.0.1.0/24"),
-//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
-//					},
-//					&ec2.RouteTableRouteArgs{
-//						Ipv6CidrBlock:       pulumi.String("::/0"),
-//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To subsequently remove all managed routes:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-//				VpcId:  pulumi.Any(aws_vpc.Example.Id),
-//				Routes: ec2.RouteTableRouteArray{},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
-//
-// ```
 type RouteTable struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the route table.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the AWS account that owns the route table.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A list of virtual gateways for propagation.
-	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
-	// A list of route objects. Their keys are documented below.
-	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-	Routes RouteTableRouteArrayOutput `pulumi:"routes"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VPC ID.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	Arn             pulumi.StringOutput        `pulumi:"arn"`
+	OwnerId         pulumi.StringOutput        `pulumi:"ownerId"`
+	PropagatingVgws pulumi.StringArrayOutput   `pulumi:"propagatingVgws"`
+	Routes          RouteTableRouteArrayOutput `pulumi:"routes"`
+	Tags            pulumi.StringMapOutput     `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput     `pulumi:"tagsAll"`
+	VpcId           pulumi.StringOutput        `pulumi:"vpcId"`
 }
 
 // NewRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -162,39 +55,23 @@ func GetRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTable resources.
 type routeTableState struct {
-	// The ARN of the route table.
-	Arn *string `pulumi:"arn"`
-	// The ID of the AWS account that owns the route table.
-	OwnerId *string `pulumi:"ownerId"`
-	// A list of virtual gateways for propagation.
-	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// A list of route objects. Their keys are documented below.
-	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-	Routes []RouteTableRoute `pulumi:"routes"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VPC ID.
-	VpcId *string `pulumi:"vpcId"`
+	Arn             *string           `pulumi:"arn"`
+	OwnerId         *string           `pulumi:"ownerId"`
+	PropagatingVgws []string          `pulumi:"propagatingVgws"`
+	Routes          []RouteTableRoute `pulumi:"routes"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
+	VpcId           *string           `pulumi:"vpcId"`
 }
 
 type RouteTableState struct {
-	// The ARN of the route table.
-	Arn pulumi.StringPtrInput
-	// The ID of the AWS account that owns the route table.
-	OwnerId pulumi.StringPtrInput
-	// A list of virtual gateways for propagation.
+	Arn             pulumi.StringPtrInput
+	OwnerId         pulumi.StringPtrInput
 	PropagatingVgws pulumi.StringArrayInput
-	// A list of route objects. Their keys are documented below.
-	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-	Routes RouteTableRouteArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The VPC ID.
-	VpcId pulumi.StringPtrInput
+	Routes          RouteTableRouteArrayInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	VpcId           pulumi.StringPtrInput
 }
 
 func (RouteTableState) ElementType() reflect.Type {
@@ -202,28 +79,18 @@ func (RouteTableState) ElementType() reflect.Type {
 }
 
 type routeTableArgs struct {
-	// A list of virtual gateways for propagation.
-	PropagatingVgws []string `pulumi:"propagatingVgws"`
-	// A list of route objects. Their keys are documented below.
-	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-	Routes []RouteTableRoute `pulumi:"routes"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The VPC ID.
-	VpcId string `pulumi:"vpcId"`
+	PropagatingVgws []string          `pulumi:"propagatingVgws"`
+	Routes          []RouteTableRoute `pulumi:"routes"`
+	Tags            map[string]string `pulumi:"tags"`
+	VpcId           string            `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
-	// A list of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	// A list of route objects. Their keys are documented below.
-	// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
-	Routes RouteTableRouteArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The VPC ID.
-	VpcId pulumi.StringInput
+	Routes          RouteTableRouteArrayInput
+	Tags            pulumi.StringMapInput
+	VpcId           pulumi.StringInput
 }
 
 func (RouteTableArgs) ElementType() reflect.Type {
@@ -313,38 +180,30 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
-// The ARN of the route table.
 func (o RouteTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the AWS account that owns the route table.
 func (o RouteTableOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// A list of virtual gateways for propagation.
 func (o RouteTableOutput) PropagatingVgws() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringArrayOutput { return v.PropagatingVgws }).(pulumi.StringArrayOutput)
 }
 
-// A list of route objects. Their keys are documented below.
-// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
 func (o RouteTableOutput) Routes() RouteTableRouteArrayOutput {
 	return o.ApplyT(func(v *RouteTable) RouteTableRouteArrayOutput { return v.Routes }).(RouteTableRouteArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteTableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteTableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VPC ID.
 func (o RouteTableOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

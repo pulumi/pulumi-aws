@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.LookupRepository(ctx, &ecr.LookupRepositoryArgs{
-//				Name: "ecr-repository",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
 	var rv LookupRepositoryResult
 	err := ctx.Invoke("aws:ecr/getRepository:getRepository", args, &rv, opts...)
@@ -48,32 +21,23 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
-	// Name of the ECR Repository.
-	Name string `pulumi:"name"`
-	// Registry ID where the repository was created.
-	RegistryId *string `pulumi:"registryId"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name       string            `pulumi:"name"`
+	RegistryId *string           `pulumi:"registryId"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRepository.
 type LookupRepositoryResult struct {
-	// Full ARN of the repository.
-	Arn string `pulumi:"arn"`
-	// Encryption configuration for the repository. See Encryption Configuration below.
+	Arn                      string                                 `pulumi:"arn"`
 	EncryptionConfigurations []GetRepositoryEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
+	Id                          string                                    `pulumi:"id"`
 	ImageScanningConfigurations []GetRepositoryImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
-	// The tag mutability setting for the repository.
-	ImageTagMutability string `pulumi:"imageTagMutability"`
-	Name               string `pulumi:"name"`
-	RegistryId         string `pulumi:"registryId"`
-	// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// Map of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ImageTagMutability          string                                    `pulumi:"imageTagMutability"`
+	Name                        string                                    `pulumi:"name"`
+	RegistryId                  string                                    `pulumi:"registryId"`
+	RepositoryUrl               string                                    `pulumi:"repositoryUrl"`
+	Tags                        map[string]string                         `pulumi:"tags"`
 }
 
 func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryResultOutput {
@@ -91,12 +55,9 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
-	// Name of the ECR Repository.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Registry ID where the repository was created.
+	Name       pulumi.StringInput    `pulumi:"name"`
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupRepositoryOutputArgs) ElementType() reflect.Type {
@@ -118,12 +79,10 @@ func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(
 	return o
 }
 
-// Full ARN of the repository.
 func (o LookupRepositoryResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Encryption configuration for the repository. See Encryption Configuration below.
 func (o LookupRepositoryResultOutput) EncryptionConfigurations() GetRepositoryEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryEncryptionConfiguration {
 		return v.EncryptionConfigurations
@@ -135,14 +94,12 @@ func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
 func (o LookupRepositoryResultOutput) ImageScanningConfigurations() GetRepositoryImageScanningConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryImageScanningConfiguration {
 		return v.ImageScanningConfigurations
 	}).(GetRepositoryImageScanningConfigurationArrayOutput)
 }
 
-// The tag mutability setting for the repository.
 func (o LookupRepositoryResultOutput) ImageTagMutability() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.ImageTagMutability }).(pulumi.StringOutput)
 }
@@ -155,12 +112,10 @@ func (o LookupRepositoryResultOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 func (o LookupRepositoryResultOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource.
 func (o LookupRepositoryResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

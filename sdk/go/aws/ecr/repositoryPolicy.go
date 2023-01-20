@@ -11,88 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Container Registry Repository Policy.
-//
-// Note that currently only one policy may be applied to a repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ecr.NewRepository(ctx, "foo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecr.NewRepositoryPolicy(ctx, "foopolicy", &ecr.RepositoryPolicyArgs{
-//				Repository: foo.Name,
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	    "Version": "2008-10-17",
-//	    "Statement": [
-//	        {
-//	            "Sid": "new policy",
-//	            "Effect": "Allow",
-//	            "Principal": "*",
-//	            "Action": [
-//	                "ecr:GetDownloadUrlForLayer",
-//	                "ecr:BatchGetImage",
-//	                "ecr:BatchCheckLayerAvailability",
-//	                "ecr:PutImage",
-//	                "ecr:InitiateLayerUpload",
-//	                "ecr:UploadLayerPart",
-//	                "ecr:CompleteLayerUpload",
-//	                "ecr:DescribeRepositories",
-//	                "ecr:GetRepositoryPolicy",
-//	                "ecr:ListImages",
-//	                "ecr:DeleteRepository",
-//	                "ecr:BatchDeleteImage",
-//	                "ecr:SetRepositoryPolicy",
-//	                "ecr:DeleteRepositoryPolicy"
-//	            ]
-//	        }
-//	    ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ECR Repository Policy can be imported using the repository name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
-//
-// ```
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The registry ID where the repository was created.
+	Policy     pulumi.StringOutput `pulumi:"policy"`
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
-	// Name of the repository to apply the policy.
 	Repository pulumi.StringOutput `pulumi:"repository"`
 }
 
@@ -131,20 +54,14 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryPolicy resources.
 type repositoryPolicyState struct {
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
-	// The registry ID where the repository was created.
-	RegistryId *string `pulumi:"registryId"`
-	// Name of the repository to apply the policy.
-	Repository *string `pulumi:"repository"`
+	Policy     interface{} `pulumi:"policy"`
+	RegistryId *string     `pulumi:"registryId"`
+	Repository *string     `pulumi:"repository"`
 }
 
 type RepositoryPolicyState struct {
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
-	// The registry ID where the repository was created.
+	Policy     pulumi.Input
 	RegistryId pulumi.StringPtrInput
-	// Name of the repository to apply the policy.
 	Repository pulumi.StringPtrInput
 }
 
@@ -153,17 +70,13 @@ func (RepositoryPolicyState) ElementType() reflect.Type {
 }
 
 type repositoryPolicyArgs struct {
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
-	// Name of the repository to apply the policy.
-	Repository string `pulumi:"repository"`
+	Policy     interface{} `pulumi:"policy"`
+	Repository string      `pulumi:"repository"`
 }
 
 // The set of arguments for constructing a RepositoryPolicy resource.
 type RepositoryPolicyArgs struct {
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
-	// Name of the repository to apply the policy.
+	Policy     pulumi.Input
 	Repository pulumi.StringInput
 }
 
@@ -254,17 +167,14 @@ func (o RepositoryPolicyOutput) ToRepositoryPolicyOutputWithContext(ctx context.
 	return o
 }
 
-// The policy document. This is a JSON formatted string.
 func (o RepositoryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The registry ID where the repository was created.
 func (o RepositoryPolicyOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// Name of the repository to apply the policy.
 func (o RepositoryPolicyOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Repository }).(pulumi.StringOutput)
 }

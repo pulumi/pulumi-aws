@@ -11,82 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create an EventBridge resource policy to support cross-account events.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
-//
-// ## Example Usage
-// ### Account Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("DevAccountAccess"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"events:PutEvents",
-//						},
-//						Resources: []string{
-//							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "AWS",
-//								Identifiers: []string{
-//									"123456789012",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-//				Policy:       *pulumi.String(testPolicyDocument.Json),
-//				EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// EventBridge permissions can be imported using the `event_bus_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-//
-// ```
 type EventBusPolicy struct {
 	pulumi.CustomResourceState
 
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
-	// The text of the policy.
-	Policy pulumi.StringOutput `pulumi:"policy"`
+	Policy       pulumi.StringOutput    `pulumi:"policy"`
 }
 
 // NewEventBusPolicy registers a new resource with the given unique name, arguments, and options.
@@ -121,17 +50,13 @@ func GetEventBusPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventBusPolicy resources.
 type eventBusPolicyState struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
-	// The text of the policy.
-	Policy *string `pulumi:"policy"`
+	Policy       *string `pulumi:"policy"`
 }
 
 type EventBusPolicyState struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
-	// The text of the policy.
-	Policy pulumi.StringPtrInput
+	Policy       pulumi.StringPtrInput
 }
 
 func (EventBusPolicyState) ElementType() reflect.Type {
@@ -139,18 +64,14 @@ func (EventBusPolicyState) ElementType() reflect.Type {
 }
 
 type eventBusPolicyArgs struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName *string `pulumi:"eventBusName"`
-	// The text of the policy.
-	Policy string `pulumi:"policy"`
+	Policy       string  `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a EventBusPolicy resource.
 type EventBusPolicyArgs struct {
-	// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 	EventBusName pulumi.StringPtrInput
-	// The text of the policy.
-	Policy pulumi.StringInput
+	Policy       pulumi.StringInput
 }
 
 func (EventBusPolicyArgs) ElementType() reflect.Type {
@@ -240,12 +161,10 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
 func (o EventBusPolicyOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }
 
-// The text of the policy.
 func (o EventBusPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

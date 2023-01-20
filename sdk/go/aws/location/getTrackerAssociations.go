@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about Location Service Tracker Associations.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.GetTrackerAssociations(ctx, &location.GetTrackerAssociationsArgs{
-//				TrackerName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetTrackerAssociations(ctx *pulumi.Context, args *GetTrackerAssociationsArgs, opts ...pulumi.InvokeOption) (*GetTrackerAssociationsResult, error) {
 	var rv GetTrackerAssociationsResult
 	err := ctx.Invoke("aws:location/getTrackerAssociations:getTrackerAssociations", args, &rv, opts...)
@@ -49,13 +21,11 @@ func GetTrackerAssociations(ctx *pulumi.Context, args *GetTrackerAssociationsArg
 
 // A collection of arguments for invoking getTrackerAssociations.
 type GetTrackerAssociationsArgs struct {
-	// Name of the tracker resource associated with a geofence collection.
 	TrackerName string `pulumi:"trackerName"`
 }
 
 // A collection of values returned by getTrackerAssociations.
 type GetTrackerAssociationsResult struct {
-	// List of geofence collection ARNs associated to the tracker resource.
 	ConsumerArns []string `pulumi:"consumerArns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
@@ -77,7 +47,6 @@ func GetTrackerAssociationsOutput(ctx *pulumi.Context, args GetTrackerAssociatio
 
 // A collection of arguments for invoking getTrackerAssociations.
 type GetTrackerAssociationsOutputArgs struct {
-	// Name of the tracker resource associated with a geofence collection.
 	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
 
@@ -100,7 +69,6 @@ func (o GetTrackerAssociationsResultOutput) ToGetTrackerAssociationsResultOutput
 	return o
 }
 
-// List of geofence collection ARNs associated to the tracker resource.
 func (o GetTrackerAssociationsResultOutput) ConsumerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTrackerAssociationsResult) []string { return v.ConsumerArns }).(pulumi.StringArrayOutput)
 }

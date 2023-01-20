@@ -11,51 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Direct Connect Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Direct Connect Gateways can be imported using the `gateway id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
-//
-// ```
 type Gateway struct {
 	pulumi.CustomResourceState
 
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
-	// The name of the connection.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// AWS Account ID of the gateway.
+	AmazonSideAsn  pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	Name           pulumi.StringOutput `pulumi:"name"`
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 }
 
@@ -91,20 +51,14 @@ func GetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gateway resources.
 type gatewayState struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
-	// The name of the connection.
-	Name *string `pulumi:"name"`
-	// AWS Account ID of the gateway.
+	AmazonSideAsn  *string `pulumi:"amazonSideAsn"`
+	Name           *string `pulumi:"name"`
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 }
 
 type GatewayState struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn pulumi.StringPtrInput
-	// The name of the connection.
-	Name pulumi.StringPtrInput
-	// AWS Account ID of the gateway.
+	AmazonSideAsn  pulumi.StringPtrInput
+	Name           pulumi.StringPtrInput
 	OwnerAccountId pulumi.StringPtrInput
 }
 
@@ -113,18 +67,14 @@ func (GatewayState) ElementType() reflect.Type {
 }
 
 type gatewayArgs struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-	AmazonSideAsn string `pulumi:"amazonSideAsn"`
-	// The name of the connection.
-	Name *string `pulumi:"name"`
+	AmazonSideAsn string  `pulumi:"amazonSideAsn"`
+	Name          *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
-	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 	AmazonSideAsn pulumi.StringInput
-	// The name of the connection.
-	Name pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -214,17 +164,14 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 	return o
 }
 
-// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 func (o GatewayOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
 }
 
-// The name of the connection.
 func (o GatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// AWS Account ID of the gateway.
 func (o GatewayOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }

@@ -11,70 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-//				HashKey: pulumi.String("id"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("id"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
-//				ShardCount: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewKinesisStreamingDestination(ctx, "exampleKinesisStreamingDestination", &dynamodb.KinesisStreamingDestinationArgs{
-//				StreamArn: exampleStream.Arn,
-//				TableName: exampleTable.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
-//
-// ```
 type KinesisStreamingDestination struct {
 	pulumi.CustomResourceState
 
-	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
@@ -113,18 +53,12 @@ func GetKinesisStreamingDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KinesisStreamingDestination resources.
 type kinesisStreamingDestinationState struct {
-	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn *string `pulumi:"streamArn"`
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName *string `pulumi:"tableName"`
 }
 
 type KinesisStreamingDestinationState struct {
-	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringPtrInput
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName pulumi.StringPtrInput
 }
 
@@ -133,19 +67,13 @@ func (KinesisStreamingDestinationState) ElementType() reflect.Type {
 }
 
 type kinesisStreamingDestinationArgs struct {
-	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn string `pulumi:"streamArn"`
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a KinesisStreamingDestination resource.
 type KinesisStreamingDestinationArgs struct {
-	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringInput
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName pulumi.StringInput
 }
 
@@ -236,13 +164,10 @@ func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationOutputWi
 	return o
 }
 
-// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 func (o KinesisStreamingDestinationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }
 
-// The name of the DynamoDB table. There
-// can only be one Kinesis streaming destination for a given DynamoDB table.
 func (o KinesisStreamingDestinationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

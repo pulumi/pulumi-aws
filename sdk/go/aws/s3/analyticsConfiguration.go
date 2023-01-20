@@ -11,107 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
-//
-// ## Example Usage
-// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			analytics, err := s3.NewBucketV2(ctx, "analytics", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.Bucket,
-//				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
-//					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
-//						Destination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{
-//							S3BucketDestination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{
-//								BucketArn: analytics.Arn,
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Add analytics configuration with S3 object filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.Bucket,
-//				Filter: &s3.AnalyticsConfigurationFilterArgs{
-//					Prefix: pulumi.String("documents/"),
-//					Tags: pulumi.StringMap{
-//						"priority": pulumi.String("high"),
-//						"class":    pulumi.String("blue"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-//
-// ```
 type AnalyticsConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket this analytics configuration is associated with.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter AnalyticsConfigurationFilterPtrOutput `pulumi:"filter"`
-	// Unique identifier of the analytics configuration for the bucket.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration for the analytics data export (documented below).
+	Bucket               pulumi.StringOutput                                 `pulumi:"bucket"`
+	Filter               AnalyticsConfigurationFilterPtrOutput               `pulumi:"filter"`
+	Name                 pulumi.StringOutput                                 `pulumi:"name"`
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrOutput `pulumi:"storageClassAnalysis"`
 }
 
@@ -147,24 +52,16 @@ func GetAnalyticsConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsConfiguration resources.
 type analyticsConfigurationState struct {
-	// The name of the bucket this analytics configuration is associated with.
-	Bucket *string `pulumi:"bucket"`
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
-	// Unique identifier of the analytics configuration for the bucket.
-	Name *string `pulumi:"name"`
-	// Configuration for the analytics data export (documented below).
+	Bucket               *string                                     `pulumi:"bucket"`
+	Filter               *AnalyticsConfigurationFilter               `pulumi:"filter"`
+	Name                 *string                                     `pulumi:"name"`
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
 
 type AnalyticsConfigurationState struct {
-	// The name of the bucket this analytics configuration is associated with.
-	Bucket pulumi.StringPtrInput
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter AnalyticsConfigurationFilterPtrInput
-	// Unique identifier of the analytics configuration for the bucket.
-	Name pulumi.StringPtrInput
-	// Configuration for the analytics data export (documented below).
+	Bucket               pulumi.StringPtrInput
+	Filter               AnalyticsConfigurationFilterPtrInput
+	Name                 pulumi.StringPtrInput
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
 
@@ -173,25 +70,17 @@ func (AnalyticsConfigurationState) ElementType() reflect.Type {
 }
 
 type analyticsConfigurationArgs struct {
-	// The name of the bucket this analytics configuration is associated with.
-	Bucket string `pulumi:"bucket"`
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
-	// Unique identifier of the analytics configuration for the bucket.
-	Name *string `pulumi:"name"`
-	// Configuration for the analytics data export (documented below).
+	Bucket               string                                      `pulumi:"bucket"`
+	Filter               *AnalyticsConfigurationFilter               `pulumi:"filter"`
+	Name                 *string                                     `pulumi:"name"`
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
 
 // The set of arguments for constructing a AnalyticsConfiguration resource.
 type AnalyticsConfigurationArgs struct {
-	// The name of the bucket this analytics configuration is associated with.
-	Bucket pulumi.StringInput
-	// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-	Filter AnalyticsConfigurationFilterPtrInput
-	// Unique identifier of the analytics configuration for the bucket.
-	Name pulumi.StringPtrInput
-	// Configuration for the analytics data export (documented below).
+	Bucket               pulumi.StringInput
+	Filter               AnalyticsConfigurationFilterPtrInput
+	Name                 pulumi.StringPtrInput
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
 
@@ -282,22 +171,18 @@ func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationOutputWithContext(
 	return o
 }
 
-// The name of the bucket this analytics configuration is associated with.
 func (o AnalyticsConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
 func (o AnalyticsConfigurationOutput) Filter() AnalyticsConfigurationFilterPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) AnalyticsConfigurationFilterPtrOutput { return v.Filter }).(AnalyticsConfigurationFilterPtrOutput)
 }
 
-// Unique identifier of the analytics configuration for the bucket.
 func (o AnalyticsConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for the analytics data export (documented below).
 func (o AnalyticsConfigurationOutput) StorageClassAnalysis() AnalyticsConfigurationStorageClassAnalysisPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
 		return v.StorageClassAnalysis

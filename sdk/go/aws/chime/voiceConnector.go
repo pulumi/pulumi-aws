@@ -11,55 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewVoiceConnector(ctx, "test", &chime.VoiceConnectorArgs{
-//				AwsRegion:         pulumi.String("us-east-1"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Configuration Recorder can be imported using the name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-//
-// ```
 type VoiceConnector struct {
 	pulumi.CustomResourceState
 
-	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-	AwsRegion pulumi.StringPtrOutput `pulumi:"awsRegion"`
-	// The name of the Amazon Chime Voice Connector.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The outbound host name for the Amazon Chime Voice Connector.
-	OutboundHostName pulumi.StringOutput `pulumi:"outboundHostName"`
-	// When enabled, requires encryption for the Amazon Chime Voice Connector.
-	RequireEncryption pulumi.BoolOutput `pulumi:"requireEncryption"`
+	AwsRegion         pulumi.StringPtrOutput `pulumi:"awsRegion"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	OutboundHostName  pulumi.StringOutput    `pulumi:"outboundHostName"`
+	RequireEncryption pulumi.BoolOutput      `pulumi:"requireEncryption"`
 }
 
 // NewVoiceConnector registers a new resource with the given unique name, arguments, and options.
@@ -94,24 +52,16 @@ func GetVoiceConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnector resources.
 type voiceConnectorState struct {
-	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-	AwsRegion *string `pulumi:"awsRegion"`
-	// The name of the Amazon Chime Voice Connector.
-	Name *string `pulumi:"name"`
-	// The outbound host name for the Amazon Chime Voice Connector.
-	OutboundHostName *string `pulumi:"outboundHostName"`
-	// When enabled, requires encryption for the Amazon Chime Voice Connector.
-	RequireEncryption *bool `pulumi:"requireEncryption"`
+	AwsRegion         *string `pulumi:"awsRegion"`
+	Name              *string `pulumi:"name"`
+	OutboundHostName  *string `pulumi:"outboundHostName"`
+	RequireEncryption *bool   `pulumi:"requireEncryption"`
 }
 
 type VoiceConnectorState struct {
-	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-	AwsRegion pulumi.StringPtrInput
-	// The name of the Amazon Chime Voice Connector.
-	Name pulumi.StringPtrInput
-	// The outbound host name for the Amazon Chime Voice Connector.
-	OutboundHostName pulumi.StringPtrInput
-	// When enabled, requires encryption for the Amazon Chime Voice Connector.
+	AwsRegion         pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	OutboundHostName  pulumi.StringPtrInput
 	RequireEncryption pulumi.BoolPtrInput
 }
 
@@ -120,21 +70,15 @@ func (VoiceConnectorState) ElementType() reflect.Type {
 }
 
 type voiceConnectorArgs struct {
-	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-	AwsRegion *string `pulumi:"awsRegion"`
-	// The name of the Amazon Chime Voice Connector.
-	Name *string `pulumi:"name"`
-	// When enabled, requires encryption for the Amazon Chime Voice Connector.
-	RequireEncryption bool `pulumi:"requireEncryption"`
+	AwsRegion         *string `pulumi:"awsRegion"`
+	Name              *string `pulumi:"name"`
+	RequireEncryption bool    `pulumi:"requireEncryption"`
 }
 
 // The set of arguments for constructing a VoiceConnector resource.
 type VoiceConnectorArgs struct {
-	// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-	AwsRegion pulumi.StringPtrInput
-	// The name of the Amazon Chime Voice Connector.
-	Name pulumi.StringPtrInput
-	// When enabled, requires encryption for the Amazon Chime Voice Connector.
+	AwsRegion         pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	RequireEncryption pulumi.BoolInput
 }
 
@@ -225,22 +169,18 @@ func (o VoiceConnectorOutput) ToVoiceConnectorOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
 func (o VoiceConnectorOutput) AwsRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VoiceConnector) pulumi.StringPtrOutput { return v.AwsRegion }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Amazon Chime Voice Connector.
 func (o VoiceConnectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The outbound host name for the Amazon Chime Voice Connector.
 func (o VoiceConnectorOutput) OutboundHostName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnector) pulumi.StringOutput { return v.OutboundHostName }).(pulumi.StringOutput)
 }
 
-// When enabled, requires encryption for the Amazon Chime Voice Connector.
 func (o VoiceConnectorOutput) RequireEncryption() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VoiceConnector) pulumi.BoolOutput { return v.RequireEncryption }).(pulumi.BoolOutput)
 }

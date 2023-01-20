@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
 func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs, opts ...pulumi.InvokeOption) (*GetManagedPrefixListsResult, error) {
 	var rv GetManagedPrefixListsResult
 	err := ctx.Invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, &rv, opts...)
@@ -22,19 +21,15 @@ func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs,
 
 // A collection of arguments for invoking getManagedPrefixLists.
 type GetManagedPrefixListsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetManagedPrefixListsFilter `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired .
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string             `pulumi:"tags"`
 }
 
 // A collection of values returned by getManagedPrefixLists.
 type GetManagedPrefixListsResult struct {
 	Filters []GetManagedPrefixListsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the managed prefix list ids found.
+	Id   string            `pulumi:"id"`
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -54,11 +49,8 @@ func GetManagedPrefixListsOutput(ctx *pulumi.Context, args GetManagedPrefixLists
 
 // A collection of arguments for invoking getManagedPrefixLists.
 type GetManagedPrefixListsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetManagedPrefixListsFilterArrayInput `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired .
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags    pulumi.StringMapInput                 `pulumi:"tags"`
 }
 
 func (GetManagedPrefixListsOutputArgs) ElementType() reflect.Type {
@@ -89,7 +81,6 @@ func (o GetManagedPrefixListsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedPrefixListsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the managed prefix list ids found.
 func (o GetManagedPrefixListsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetManagedPrefixListsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

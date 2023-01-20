@@ -11,51 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates a CodeCommit Approval Rule Template with a Repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecommit.NewApprovalRuleTemplateAssociation(ctx, "example", &codecommit.ApprovalRuleTemplateAssociationArgs{
-//				ApprovalRuleTemplateName: pulumi.Any(aws_codecommit_approval_rule_template.Example.Name),
-//				RepositoryName:           pulumi.Any(aws_codecommit_repository.Example.Repository_name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
-//
-// ```
 type ApprovalRuleTemplateAssociation struct {
 	pulumi.CustomResourceState
 
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringOutput `pulumi:"approvalRuleTemplateName"`
-	// The name of the repository that you want to associate with the template.
-	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
+	RepositoryName           pulumi.StringOutput `pulumi:"repositoryName"`
 }
 
 // NewApprovalRuleTemplateAssociation registers a new resource with the given unique name, arguments, and options.
@@ -93,17 +53,13 @@ func GetApprovalRuleTemplateAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApprovalRuleTemplateAssociation resources.
 type approvalRuleTemplateAssociationState struct {
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName *string `pulumi:"approvalRuleTemplateName"`
-	// The name of the repository that you want to associate with the template.
-	RepositoryName *string `pulumi:"repositoryName"`
+	RepositoryName           *string `pulumi:"repositoryName"`
 }
 
 type ApprovalRuleTemplateAssociationState struct {
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringPtrInput
-	// The name of the repository that you want to associate with the template.
-	RepositoryName pulumi.StringPtrInput
+	RepositoryName           pulumi.StringPtrInput
 }
 
 func (ApprovalRuleTemplateAssociationState) ElementType() reflect.Type {
@@ -111,18 +67,14 @@ func (ApprovalRuleTemplateAssociationState) ElementType() reflect.Type {
 }
 
 type approvalRuleTemplateAssociationArgs struct {
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName string `pulumi:"approvalRuleTemplateName"`
-	// The name of the repository that you want to associate with the template.
-	RepositoryName string `pulumi:"repositoryName"`
+	RepositoryName           string `pulumi:"repositoryName"`
 }
 
 // The set of arguments for constructing a ApprovalRuleTemplateAssociation resource.
 type ApprovalRuleTemplateAssociationArgs struct {
-	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringInput
-	// The name of the repository that you want to associate with the template.
-	RepositoryName pulumi.StringInput
+	RepositoryName           pulumi.StringInput
 }
 
 func (ApprovalRuleTemplateAssociationArgs) ElementType() reflect.Type {
@@ -212,12 +164,10 @@ func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociation
 	return o
 }
 
-// The name for the approval rule template.
 func (o ApprovalRuleTemplateAssociationOutput) ApprovalRuleTemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) pulumi.StringOutput { return v.ApprovalRuleTemplateName }).(pulumi.StringOutput)
 }
 
-// The name of the repository that you want to associate with the template.
 func (o ApprovalRuleTemplateAssociationOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) pulumi.StringOutput { return v.RepositoryName }).(pulumi.StringOutput)
 }

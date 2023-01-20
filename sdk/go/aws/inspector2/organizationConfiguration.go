@@ -11,48 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Inspector V2 Organization Configuration.
-//
-// > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
-//
-// > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewOrganizationConfiguration(ctx, "example", &inspector2.OrganizationConfigurationArgs{
-//				AutoEnable: &inspector2.OrganizationConfigurationAutoEnableArgs{
-//					Ec2: pulumi.Bool(true),
-//					Ecr: pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for auto enabling. See below.
-	AutoEnable OrganizationConfigurationAutoEnableOutput `pulumi:"autoEnable"`
-	// Whether your configuration reached the max account limit.
-	MaxAccountLimitReached pulumi.BoolOutput `pulumi:"maxAccountLimitReached"`
+	AutoEnable             OrganizationConfigurationAutoEnableOutput `pulumi:"autoEnable"`
+	MaxAccountLimitReached pulumi.BoolOutput                         `pulumi:"maxAccountLimitReached"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -87,16 +50,12 @@ func GetOrganizationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationConfiguration resources.
 type organizationConfigurationState struct {
-	// Configuration block for auto enabling. See below.
-	AutoEnable *OrganizationConfigurationAutoEnable `pulumi:"autoEnable"`
-	// Whether your configuration reached the max account limit.
-	MaxAccountLimitReached *bool `pulumi:"maxAccountLimitReached"`
+	AutoEnable             *OrganizationConfigurationAutoEnable `pulumi:"autoEnable"`
+	MaxAccountLimitReached *bool                                `pulumi:"maxAccountLimitReached"`
 }
 
 type OrganizationConfigurationState struct {
-	// Configuration block for auto enabling. See below.
-	AutoEnable OrganizationConfigurationAutoEnablePtrInput
-	// Whether your configuration reached the max account limit.
+	AutoEnable             OrganizationConfigurationAutoEnablePtrInput
 	MaxAccountLimitReached pulumi.BoolPtrInput
 }
 
@@ -105,13 +64,11 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 }
 
 type organizationConfigurationArgs struct {
-	// Configuration block for auto enabling. See below.
 	AutoEnable OrganizationConfigurationAutoEnable `pulumi:"autoEnable"`
 }
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
 type OrganizationConfigurationArgs struct {
-	// Configuration block for auto enabling. See below.
 	AutoEnable OrganizationConfigurationAutoEnableInput
 }
 
@@ -202,12 +159,10 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithCo
 	return o
 }
 
-// Configuration block for auto enabling. See below.
 func (o OrganizationConfigurationOutput) AutoEnable() OrganizationConfigurationAutoEnableOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfigurationAutoEnableOutput { return v.AutoEnable }).(OrganizationConfigurationAutoEnableOutput)
 }
 
-// Whether your configuration reached the max account limit.
 func (o OrganizationConfigurationOutput) MaxAccountLimitReached() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.MaxAccountLimitReached }).(pulumi.BoolOutput)
 }

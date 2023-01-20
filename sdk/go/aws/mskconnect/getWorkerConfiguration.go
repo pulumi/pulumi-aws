@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an Amazon MSK Connect Worker Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.LookupWorkerConfiguration(ctx, &mskconnect.LookupWorkerConfigurationArgs{
-//				Name: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupWorkerConfiguration(ctx *pulumi.Context, args *LookupWorkerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWorkerConfigurationResult, error) {
 	var rv LookupWorkerConfigurationResult
 	err := ctx.Invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args, &rv, opts...)
@@ -48,22 +21,17 @@ func LookupWorkerConfiguration(ctx *pulumi.Context, args *LookupWorkerConfigurat
 
 // A collection of arguments for invoking getWorkerConfiguration.
 type LookupWorkerConfigurationArgs struct {
-	// Name of the worker configuration.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getWorkerConfiguration.
 type LookupWorkerConfigurationResult struct {
-	// the ARN of the worker configuration.
-	Arn string `pulumi:"arn"`
-	// a summary description of the worker configuration.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// an ID of the latest successfully created revision of the worker configuration.
-	LatestRevision int    `pulumi:"latestRevision"`
-	Name           string `pulumi:"name"`
-	// contents of connect-distributed.properties file.
+	Id                    string `pulumi:"id"`
+	LatestRevision        int    `pulumi:"latestRevision"`
+	Name                  string `pulumi:"name"`
 	PropertiesFileContent string `pulumi:"propertiesFileContent"`
 }
 
@@ -82,7 +50,6 @@ func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfi
 
 // A collection of arguments for invoking getWorkerConfiguration.
 type LookupWorkerConfigurationOutputArgs struct {
-	// Name of the worker configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -105,12 +72,10 @@ func (o LookupWorkerConfigurationResultOutput) ToLookupWorkerConfigurationResult
 	return o
 }
 
-// the ARN of the worker configuration.
 func (o LookupWorkerConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// a summary description of the worker configuration.
 func (o LookupWorkerConfigurationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -120,7 +85,6 @@ func (o LookupWorkerConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// an ID of the latest successfully created revision of the worker configuration.
 func (o LookupWorkerConfigurationResultOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) int { return v.LatestRevision }).(pulumi.IntOutput)
 }
@@ -129,7 +93,6 @@ func (o LookupWorkerConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// contents of connect-distributed.properties file.
 func (o LookupWorkerConfigurationResultOutput) PropertiesFileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.PropertiesFileContent }).(pulumi.StringOutput)
 }

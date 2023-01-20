@@ -11,69 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Human Task UI resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewHumanTaskUI(ctx, "example", &sagemaker.HumanTaskUIArgs{
-//				HumanTaskUiName: pulumi.String("example"),
-//				UiTemplate: &sagemaker.HumanTaskUIUiTemplateArgs{
-//					Content: readFileOrPanic("sagemaker-human-task-ui-template.html"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
-//
-// ```
 type HumanTaskUI struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the Human Task UI.
-	HumanTaskUiName pulumi.StringOutput `pulumi:"humanTaskUiName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Liquid template for the worker user interface. See UI Template below.
-	UiTemplate HumanTaskUIUiTemplateOutput `pulumi:"uiTemplate"`
+	Arn             pulumi.StringOutput         `pulumi:"arn"`
+	HumanTaskUiName pulumi.StringOutput         `pulumi:"humanTaskUiName"`
+	Tags            pulumi.StringMapOutput      `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput      `pulumi:"tagsAll"`
+	UiTemplate      HumanTaskUIUiTemplateOutput `pulumi:"uiTemplate"`
 }
 
 // NewHumanTaskUI registers a new resource with the given unique name, arguments, and options.
@@ -111,29 +56,19 @@ func GetHumanTaskUI(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HumanTaskUI resources.
 type humanTaskUIState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-	Arn *string `pulumi:"arn"`
-	// The name of the Human Task UI.
-	HumanTaskUiName *string `pulumi:"humanTaskUiName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Liquid template for the worker user interface. See UI Template below.
-	UiTemplate *HumanTaskUIUiTemplate `pulumi:"uiTemplate"`
+	Arn             *string                `pulumi:"arn"`
+	HumanTaskUiName *string                `pulumi:"humanTaskUiName"`
+	Tags            map[string]string      `pulumi:"tags"`
+	TagsAll         map[string]string      `pulumi:"tagsAll"`
+	UiTemplate      *HumanTaskUIUiTemplate `pulumi:"uiTemplate"`
 }
 
 type HumanTaskUIState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-	Arn pulumi.StringPtrInput
-	// The name of the Human Task UI.
+	Arn             pulumi.StringPtrInput
 	HumanTaskUiName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The Liquid template for the worker user interface. See UI Template below.
-	UiTemplate HumanTaskUIUiTemplatePtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	UiTemplate      HumanTaskUIUiTemplatePtrInput
 }
 
 func (HumanTaskUIState) ElementType() reflect.Type {
@@ -141,22 +76,16 @@ func (HumanTaskUIState) ElementType() reflect.Type {
 }
 
 type humanTaskUIArgs struct {
-	// The name of the Human Task UI.
-	HumanTaskUiName string `pulumi:"humanTaskUiName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The Liquid template for the worker user interface. See UI Template below.
-	UiTemplate HumanTaskUIUiTemplate `pulumi:"uiTemplate"`
+	HumanTaskUiName string                `pulumi:"humanTaskUiName"`
+	Tags            map[string]string     `pulumi:"tags"`
+	UiTemplate      HumanTaskUIUiTemplate `pulumi:"uiTemplate"`
 }
 
 // The set of arguments for constructing a HumanTaskUI resource.
 type HumanTaskUIArgs struct {
-	// The name of the Human Task UI.
 	HumanTaskUiName pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The Liquid template for the worker user interface. See UI Template below.
-	UiTemplate HumanTaskUIUiTemplateInput
+	Tags            pulumi.StringMapInput
+	UiTemplate      HumanTaskUIUiTemplateInput
 }
 
 func (HumanTaskUIArgs) ElementType() reflect.Type {
@@ -246,27 +175,22 @@ func (o HumanTaskUIOutput) ToHumanTaskUIOutputWithContext(ctx context.Context) H
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
 func (o HumanTaskUIOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the Human Task UI.
 func (o HumanTaskUIOutput) HumanTaskUiName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringOutput { return v.HumanTaskUiName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HumanTaskUIOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HumanTaskUIOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HumanTaskUI) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Liquid template for the worker user interface. See UI Template below.
 func (o HumanTaskUIOutput) UiTemplate() HumanTaskUIUiTemplateOutput {
 	return o.ApplyT(func(v *HumanTaskUI) HumanTaskUIUiTemplateOutput { return v.UiTemplate }).(HumanTaskUIUiTemplateOutput)
 }

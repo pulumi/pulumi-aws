@@ -11,72 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an individual Transfer Family resource tag. This resource should only be used in cases where Transfer Family resources are created outside the provider (e.g., Servers without AWS Management Console) or the tag key has the `aws:` prefix.
-//
-// > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `transfer.Server` and `transfer.Tag` to manage tags of the same server will cause a perpetual difference where the `transfer.Server` resource will try to remove the tag being added by the `transfer.Tag` resource.
-//
-// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "zoneId", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
-//				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "hostname", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:customHostname"),
-//				Value:       pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_transfer_tag` can be imported by using the Transfer Family resource identifier and key, separated by a comma (`,`), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
-//
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// Tag name.
-	Key pulumi.StringOutput `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+	Key         pulumi.StringOutput `pulumi:"key"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// Tag value.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value       pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -117,21 +57,15 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// Tag name.
-	Key *string `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+	Key         *string `pulumi:"key"`
 	ResourceArn *string `pulumi:"resourceArn"`
-	// Tag value.
-	Value *string `pulumi:"value"`
+	Value       *string `pulumi:"value"`
 }
 
 type TagState struct {
-	// Tag name.
-	Key pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+	Key         pulumi.StringPtrInput
 	ResourceArn pulumi.StringPtrInput
-	// Tag value.
-	Value pulumi.StringPtrInput
+	Value       pulumi.StringPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -139,22 +73,16 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// Tag name.
-	Key string `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+	Key         string `pulumi:"key"`
 	ResourceArn string `pulumi:"resourceArn"`
-	// Tag value.
-	Value string `pulumi:"value"`
+	Value       string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// Tag name.
-	Key pulumi.StringInput
-	// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+	Key         pulumi.StringInput
 	ResourceArn pulumi.StringInput
-	// Tag value.
-	Value pulumi.StringInput
+	Value       pulumi.StringInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -244,17 +172,14 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// Tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Transfer Family resource to tag.
 func (o TagOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// Tag value.
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

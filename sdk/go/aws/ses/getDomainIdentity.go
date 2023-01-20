@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve the SES domain identity
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupDomainIdentity(ctx, &ses.LookupDomainIdentityArgs{
-//				Domain: "example.com",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, opts ...pulumi.InvokeOption) (*LookupDomainIdentityResult, error) {
 	var rv LookupDomainIdentityResult
 	err := ctx.Invoke("aws:ses/getDomainIdentity:getDomainIdentity", args, &rv, opts...)
@@ -48,19 +21,15 @@ func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, o
 
 // A collection of arguments for invoking getDomainIdentity.
 type LookupDomainIdentityArgs struct {
-	// Name of the domain
 	Domain string `pulumi:"domain"`
 }
 
 // A collection of values returned by getDomainIdentity.
 type LookupDomainIdentityResult struct {
-	// ARN of the domain identity.
-	Arn string `pulumi:"arn"`
-	// Name of the domain
+	Arn    string `pulumi:"arn"`
 	Domain string `pulumi:"domain"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
+	Id                string `pulumi:"id"`
 	VerificationToken string `pulumi:"verificationToken"`
 }
 
@@ -79,7 +48,6 @@ func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOu
 
 // A collection of arguments for invoking getDomainIdentity.
 type LookupDomainIdentityOutputArgs struct {
-	// Name of the domain
 	Domain pulumi.StringInput `pulumi:"domain"`
 }
 
@@ -102,12 +70,10 @@ func (o LookupDomainIdentityResultOutput) ToLookupDomainIdentityResultOutputWith
 	return o
 }
 
-// ARN of the domain identity.
 func (o LookupDomainIdentityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the domain
 func (o LookupDomainIdentityResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -117,7 +83,6 @@ func (o LookupDomainIdentityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
 func (o LookupDomainIdentityResultOutput) VerificationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.VerificationToken }).(pulumi.StringOutput)
 }

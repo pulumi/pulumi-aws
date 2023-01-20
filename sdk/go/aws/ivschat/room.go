@@ -10,111 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS IVS (Interactive Video) Chat Room.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivschat"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivschat.NewRoom(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Usage with Logging Configuration to S3 Bucket
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivschat"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				BucketPrefix: pulumi.String("tf-ivschat-logging-bucket-"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleLoggingConfiguration, err := ivschat.NewLoggingConfiguration(ctx, "exampleLoggingConfiguration", &ivschat.LoggingConfigurationArgs{
-//				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
-//					S3: &ivschat.LoggingConfigurationDestinationConfigurationS3Args{
-//						BucketName: exampleBucketV2.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ivschat.NewRoom(ctx, "exampleRoom", &ivschat.RoomArgs{
-//				LoggingConfigurationIdentifiers: pulumi.StringArray{
-//					exampleLoggingConfiguration.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
-//
-// ```
 type Room struct {
 	pulumi.CustomResourceState
 
-	// ARN of the Room.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// List of Logging Configuration
-	// ARNs to attach to the room.
-	LoggingConfigurationIdentifiers pulumi.StringArrayOutput `pulumi:"loggingConfigurationIdentifiers"`
-	// Maximum number of characters in a single
-	// message. Messages are expected to be UTF-8 encoded and this limit applies
-	// specifically to rune/code-point count, not number of bytes.
-	MaximumMessageLength pulumi.IntOutput `pulumi:"maximumMessageLength"`
-	// Maximum number of messages per
-	// second that can be sent to the room (by all clients).
-	MaximumMessageRatePerSecond pulumi.IntOutput `pulumi:"maximumMessageRatePerSecond"`
-	// Configuration information for optional
-	// review of messages.
-	MessageReviewHandler RoomMessageReviewHandlerPtrOutput `pulumi:"messageReviewHandler"`
-	// Room name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                             pulumi.StringOutput               `pulumi:"arn"`
+	LoggingConfigurationIdentifiers pulumi.StringArrayOutput          `pulumi:"loggingConfigurationIdentifiers"`
+	MaximumMessageLength            pulumi.IntOutput                  `pulumi:"maximumMessageLength"`
+	MaximumMessageRatePerSecond     pulumi.IntOutput                  `pulumi:"maximumMessageRatePerSecond"`
+	MessageReviewHandler            RoomMessageReviewHandlerPtrOutput `pulumi:"messageReviewHandler"`
+	Name                            pulumi.StringOutput               `pulumi:"name"`
+	Tags                            pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                         pulumi.StringMapOutput            `pulumi:"tagsAll"`
 }
 
 // NewRoom registers a new resource with the given unique name, arguments, and options.
@@ -146,51 +52,25 @@ func GetRoom(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Room resources.
 type roomState struct {
-	// ARN of the Room.
-	Arn *string `pulumi:"arn"`
-	// List of Logging Configuration
-	// ARNs to attach to the room.
-	LoggingConfigurationIdentifiers []string `pulumi:"loggingConfigurationIdentifiers"`
-	// Maximum number of characters in a single
-	// message. Messages are expected to be UTF-8 encoded and this limit applies
-	// specifically to rune/code-point count, not number of bytes.
-	MaximumMessageLength *int `pulumi:"maximumMessageLength"`
-	// Maximum number of messages per
-	// second that can be sent to the room (by all clients).
-	MaximumMessageRatePerSecond *int `pulumi:"maximumMessageRatePerSecond"`
-	// Configuration information for optional
-	// review of messages.
-	MessageReviewHandler *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
-	// Room name.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                             *string                   `pulumi:"arn"`
+	LoggingConfigurationIdentifiers []string                  `pulumi:"loggingConfigurationIdentifiers"`
+	MaximumMessageLength            *int                      `pulumi:"maximumMessageLength"`
+	MaximumMessageRatePerSecond     *int                      `pulumi:"maximumMessageRatePerSecond"`
+	MessageReviewHandler            *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
+	Name                            *string                   `pulumi:"name"`
+	Tags                            map[string]string         `pulumi:"tags"`
+	TagsAll                         map[string]string         `pulumi:"tagsAll"`
 }
 
 type RoomState struct {
-	// ARN of the Room.
-	Arn pulumi.StringPtrInput
-	// List of Logging Configuration
-	// ARNs to attach to the room.
+	Arn                             pulumi.StringPtrInput
 	LoggingConfigurationIdentifiers pulumi.StringArrayInput
-	// Maximum number of characters in a single
-	// message. Messages are expected to be UTF-8 encoded and this limit applies
-	// specifically to rune/code-point count, not number of bytes.
-	MaximumMessageLength pulumi.IntPtrInput
-	// Maximum number of messages per
-	// second that can be sent to the room (by all clients).
-	MaximumMessageRatePerSecond pulumi.IntPtrInput
-	// Configuration information for optional
-	// review of messages.
-	MessageReviewHandler RoomMessageReviewHandlerPtrInput
-	// Room name.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	MaximumMessageLength            pulumi.IntPtrInput
+	MaximumMessageRatePerSecond     pulumi.IntPtrInput
+	MessageReviewHandler            RoomMessageReviewHandlerPtrInput
+	Name                            pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
 }
 
 func (RoomState) ElementType() reflect.Type {
@@ -198,44 +78,22 @@ func (RoomState) ElementType() reflect.Type {
 }
 
 type roomArgs struct {
-	// List of Logging Configuration
-	// ARNs to attach to the room.
-	LoggingConfigurationIdentifiers []string `pulumi:"loggingConfigurationIdentifiers"`
-	// Maximum number of characters in a single
-	// message. Messages are expected to be UTF-8 encoded and this limit applies
-	// specifically to rune/code-point count, not number of bytes.
-	MaximumMessageLength *int `pulumi:"maximumMessageLength"`
-	// Maximum number of messages per
-	// second that can be sent to the room (by all clients).
-	MaximumMessageRatePerSecond *int `pulumi:"maximumMessageRatePerSecond"`
-	// Configuration information for optional
-	// review of messages.
-	MessageReviewHandler *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
-	// Room name.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	LoggingConfigurationIdentifiers []string                  `pulumi:"loggingConfigurationIdentifiers"`
+	MaximumMessageLength            *int                      `pulumi:"maximumMessageLength"`
+	MaximumMessageRatePerSecond     *int                      `pulumi:"maximumMessageRatePerSecond"`
+	MessageReviewHandler            *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
+	Name                            *string                   `pulumi:"name"`
+	Tags                            map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Room resource.
 type RoomArgs struct {
-	// List of Logging Configuration
-	// ARNs to attach to the room.
 	LoggingConfigurationIdentifiers pulumi.StringArrayInput
-	// Maximum number of characters in a single
-	// message. Messages are expected to be UTF-8 encoded and this limit applies
-	// specifically to rune/code-point count, not number of bytes.
-	MaximumMessageLength pulumi.IntPtrInput
-	// Maximum number of messages per
-	// second that can be sent to the room (by all clients).
-	MaximumMessageRatePerSecond pulumi.IntPtrInput
-	// Configuration information for optional
-	// review of messages.
-	MessageReviewHandler RoomMessageReviewHandlerPtrInput
-	// Room name.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	MaximumMessageLength            pulumi.IntPtrInput
+	MaximumMessageRatePerSecond     pulumi.IntPtrInput
+	MessageReviewHandler            RoomMessageReviewHandlerPtrInput
+	Name                            pulumi.StringPtrInput
+	Tags                            pulumi.StringMapInput
 }
 
 func (RoomArgs) ElementType() reflect.Type {
@@ -325,47 +183,34 @@ func (o RoomOutput) ToRoomOutputWithContext(ctx context.Context) RoomOutput {
 	return o
 }
 
-// ARN of the Room.
 func (o RoomOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Room) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of Logging Configuration
-// ARNs to attach to the room.
 func (o RoomOutput) LoggingConfigurationIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Room) pulumi.StringArrayOutput { return v.LoggingConfigurationIdentifiers }).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of characters in a single
-// message. Messages are expected to be UTF-8 encoded and this limit applies
-// specifically to rune/code-point count, not number of bytes.
 func (o RoomOutput) MaximumMessageLength() pulumi.IntOutput {
 	return o.ApplyT(func(v *Room) pulumi.IntOutput { return v.MaximumMessageLength }).(pulumi.IntOutput)
 }
 
-// Maximum number of messages per
-// second that can be sent to the room (by all clients).
 func (o RoomOutput) MaximumMessageRatePerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *Room) pulumi.IntOutput { return v.MaximumMessageRatePerSecond }).(pulumi.IntOutput)
 }
 
-// Configuration information for optional
-// review of messages.
 func (o RoomOutput) MessageReviewHandler() RoomMessageReviewHandlerPtrOutput {
 	return o.ApplyT(func(v *Room) RoomMessageReviewHandlerPtrOutput { return v.MessageReviewHandler }).(RoomMessageReviewHandlerPtrOutput)
 }
 
-// Room name.
 func (o RoomOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Room) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RoomOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Room) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RoomOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Room) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,9 +11,7 @@ import (
 )
 
 type OrganizationConfigurationAutoEnable struct {
-	// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ec2 bool `pulumi:"ec2"`
-	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ecr bool `pulumi:"ecr"`
 }
 
@@ -29,9 +27,7 @@ type OrganizationConfigurationAutoEnableInput interface {
 }
 
 type OrganizationConfigurationAutoEnableArgs struct {
-	// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ec2 pulumi.BoolInput `pulumi:"ec2"`
-	// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 	Ecr pulumi.BoolInput `pulumi:"ecr"`
 }
 
@@ -112,12 +108,10 @@ func (o OrganizationConfigurationAutoEnableOutput) ToOrganizationConfigurationAu
 	}).(OrganizationConfigurationAutoEnablePtrOutput)
 }
 
-// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnableOutput) Ec2() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) bool { return v.Ec2 }).(pulumi.BoolOutput)
 }
 
-// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnableOutput) Ecr() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) bool { return v.Ecr }).(pulumi.BoolOutput)
 }
@@ -146,7 +140,6 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Elem() OrganizationConfigu
 	}).(OrganizationConfigurationAutoEnableOutput)
 }
 
-// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnablePtrOutput) Ec2() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Ec2() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
 func (o OrganizationConfigurationAutoEnablePtrOutput) Ecr() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
 		if v == nil {

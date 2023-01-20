@@ -10,40 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the instance IDs of SSM managed instances.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.GetInstances(ctx, &ssm.GetInstancesArgs{
-//				Filters: []ssm.GetInstancesFilter{
-//					{
-//						Name: "PlatformTypes",
-//						Values: []string{
-//							"Linux",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:ssm/getInstances:getInstances", args, &rv, opts...)
@@ -55,7 +21,6 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
 }
 
@@ -63,8 +28,7 @@ type GetInstancesArgs struct {
 type GetInstancesResult struct {
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of instance IDs of the matched SSM managed instances.
+	Id  string   `pulumi:"id"`
 	Ids []string `pulumi:"ids"`
 }
 
@@ -83,7 +47,6 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 
 // A collection of arguments for invoking getInstances.
 type GetInstancesOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
 }
 
@@ -115,7 +78,6 @@ func (o GetInstancesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of instance IDs of the matched SSM managed instances.
 func (o GetInstancesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -11,62 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Location Tracker Association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGeofenceCollection, err := location.NewGeofenceCollection(ctx, "exampleGeofenceCollection", &location.GeofenceCollectionArgs{
-//				CollectionName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTracker, err := location.NewTracker(ctx, "exampleTracker", &location.TrackerArgs{
-//				TrackerName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = location.NewTrackerAssociation(ctx, "exampleTrackerAssociation", &location.TrackerAssociationArgs{
-//				ConsumerArn: exampleGeofenceCollection.CollectionArn,
-//				TrackerName: exampleTracker.TrackerName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-//
-// ```
 type TrackerAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
 	ConsumerArn pulumi.StringOutput `pulumi:"consumerArn"`
-	// The name of the tracker resource to be associated with a geofence collection.
 	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
 }
 
@@ -105,16 +53,12 @@ func GetTrackerAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrackerAssociation resources.
 type trackerAssociationState struct {
-	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
 	ConsumerArn *string `pulumi:"consumerArn"`
-	// The name of the tracker resource to be associated with a geofence collection.
 	TrackerName *string `pulumi:"trackerName"`
 }
 
 type TrackerAssociationState struct {
-	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
 	ConsumerArn pulumi.StringPtrInput
-	// The name of the tracker resource to be associated with a geofence collection.
 	TrackerName pulumi.StringPtrInput
 }
 
@@ -123,17 +67,13 @@ func (TrackerAssociationState) ElementType() reflect.Type {
 }
 
 type trackerAssociationArgs struct {
-	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
 	ConsumerArn string `pulumi:"consumerArn"`
-	// The name of the tracker resource to be associated with a geofence collection.
 	TrackerName string `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a TrackerAssociation resource.
 type TrackerAssociationArgs struct {
-	// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
 	ConsumerArn pulumi.StringInput
-	// The name of the tracker resource to be associated with a geofence collection.
 	TrackerName pulumi.StringInput
 }
 
@@ -224,12 +164,10 @@ func (o TrackerAssociationOutput) ToTrackerAssociationOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
 func (o TrackerAssociationOutput) ConsumerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrackerAssociation) pulumi.StringOutput { return v.ConsumerArn }).(pulumi.StringOutput)
 }
 
-// The name of the tracker resource to be associated with a geofence collection.
 func (o TrackerAssociationOutput) TrackerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrackerAssociation) pulumi.StringOutput { return v.TrackerName }).(pulumi.StringOutput)
 }

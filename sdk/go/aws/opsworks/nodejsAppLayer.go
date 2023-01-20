@@ -11,81 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an OpsWorks NodeJS application layer resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewNodejsAppLayer(ctx, "app", &opsworks.NodejsAppLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type NodejsAppLayer struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps pulumi.BoolPtrOutput `pulumi:"autoAssignElasticIps"`
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps pulumi.BoolPtrOutput `pulumi:"autoAssignPublicIps"`
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             pulumi.BoolPtrOutput                           `pulumi:"autoHealing"`
-	CloudwatchConfiguration NodejsAppLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes  pulumi.StringArrayOutput                       `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes     pulumi.StringArrayOutput                       `pulumi:"customDeployRecipes"`
-	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn pulumi.StringPtrOutput `pulumi:"customInstanceProfileArn"`
-	// Custom JSON attributes to apply to the layer.
-	CustomJson pulumi.StringPtrOutput `pulumi:"customJson"`
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds pulumi.StringArrayOutput `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes     pulumi.StringArrayOutput `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes  pulumi.StringArrayOutput `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes  pulumi.StringArrayOutput `pulumi:"customUndeployRecipes"`
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown pulumi.BoolPtrOutput `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes NodejsAppLayerEbsVolumeArrayOutput `pulumi:"ebsVolumes"`
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer pulumi.StringPtrOutput `pulumi:"elasticLoadBalancer"`
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot pulumi.BoolPtrOutput `pulumi:"installUpdatesOnBoot"`
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrOutput                      `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    NodejsAppLayerLoadBasedAutoScalingOutput `pulumi:"loadBasedAutoScaling"`
-	// A human-readable name for the layer.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The version of NodeJS to use. Defaults to "0.10.38".
-	NodejsVersion pulumi.StringPtrOutput `pulumi:"nodejsVersion"`
-	// ID of the stack the layer will belong to.
-	StackId pulumi.StringOutput `pulumi:"stackId"`
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
+	Arn                      pulumi.StringOutput                            `pulumi:"arn"`
+	AutoAssignElasticIps     pulumi.BoolPtrOutput                           `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      pulumi.BoolPtrOutput                           `pulumi:"autoAssignPublicIps"`
+	AutoHealing              pulumi.BoolPtrOutput                           `pulumi:"autoHealing"`
+	CloudwatchConfiguration  NodejsAppLayerCloudwatchConfigurationPtrOutput `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes   pulumi.StringArrayOutput                       `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes      pulumi.StringArrayOutput                       `pulumi:"customDeployRecipes"`
+	CustomInstanceProfileArn pulumi.StringPtrOutput                         `pulumi:"customInstanceProfileArn"`
+	CustomJson               pulumi.StringPtrOutput                         `pulumi:"customJson"`
+	CustomSecurityGroupIds   pulumi.StringArrayOutput                       `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes       pulumi.StringArrayOutput                       `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes    pulumi.StringArrayOutput                       `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes    pulumi.StringArrayOutput                       `pulumi:"customUndeployRecipes"`
+	DrainElbOnShutdown       pulumi.BoolPtrOutput                           `pulumi:"drainElbOnShutdown"`
+	EbsVolumes               NodejsAppLayerEbsVolumeArrayOutput             `pulumi:"ebsVolumes"`
+	ElasticLoadBalancer      pulumi.StringPtrOutput                         `pulumi:"elasticLoadBalancer"`
+	InstallUpdatesOnBoot     pulumi.BoolPtrOutput                           `pulumi:"installUpdatesOnBoot"`
+	InstanceShutdownTimeout  pulumi.IntPtrOutput                            `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling     NodejsAppLayerLoadBasedAutoScalingOutput       `pulumi:"loadBasedAutoScaling"`
+	Name                     pulumi.StringOutput                            `pulumi:"name"`
+	NodejsVersion            pulumi.StringPtrOutput                         `pulumi:"nodejsVersion"`
+	StackId                  pulumi.StringOutput                            `pulumi:"stackId"`
+	SystemPackages           pulumi.StringArrayOutput                       `pulumi:"systemPackages"`
+	Tags                     pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput                         `pulumi:"tagsAll"`
+	UseEbsOptimizedInstances pulumi.BoolPtrOutput                           `pulumi:"useEbsOptimizedInstances"`
 }
 
 // NewNodejsAppLayer registers a new resource with the given unique name, arguments, and options.
@@ -120,98 +74,60 @@ func GetNodejsAppLayer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NodejsAppLayer resources.
 type nodejsAppLayerState struct {
-	// The Amazon Resource Name(ARN) of the layer.
-	Arn *string `pulumi:"arn"`
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             *bool                                  `pulumi:"autoHealing"`
-	CloudwatchConfiguration *NodejsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
-	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
-	// Custom JSON attributes to apply to the layer.
-	CustomJson *string `pulumi:"customJson"`
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes []NodejsAppLayerEbsVolume `pulumi:"ebsVolumes"`
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int                                `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    *NodejsAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
-	// A human-readable name for the layer.
-	Name *string `pulumi:"name"`
-	// The version of NodeJS to use. Defaults to "0.10.38".
-	NodejsVersion *string `pulumi:"nodejsVersion"`
-	// ID of the stack the layer will belong to.
-	StackId *string `pulumi:"stackId"`
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages []string `pulumi:"systemPackages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
+	Arn                      *string                                `pulumi:"arn"`
+	AutoAssignElasticIps     *bool                                  `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      *bool                                  `pulumi:"autoAssignPublicIps"`
+	AutoHealing              *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration  *NodejsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes   []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes      []string                               `pulumi:"customDeployRecipes"`
+	CustomInstanceProfileArn *string                                `pulumi:"customInstanceProfileArn"`
+	CustomJson               *string                                `pulumi:"customJson"`
+	CustomSecurityGroupIds   []string                               `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes       []string                               `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes    []string                               `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes    []string                               `pulumi:"customUndeployRecipes"`
+	DrainElbOnShutdown       *bool                                  `pulumi:"drainElbOnShutdown"`
+	EbsVolumes               []NodejsAppLayerEbsVolume              `pulumi:"ebsVolumes"`
+	ElasticLoadBalancer      *string                                `pulumi:"elasticLoadBalancer"`
+	InstallUpdatesOnBoot     *bool                                  `pulumi:"installUpdatesOnBoot"`
+	InstanceShutdownTimeout  *int                                   `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling     *NodejsAppLayerLoadBasedAutoScaling    `pulumi:"loadBasedAutoScaling"`
+	Name                     *string                                `pulumi:"name"`
+	NodejsVersion            *string                                `pulumi:"nodejsVersion"`
+	StackId                  *string                                `pulumi:"stackId"`
+	SystemPackages           []string                               `pulumi:"systemPackages"`
+	Tags                     map[string]string                      `pulumi:"tags"`
+	TagsAll                  map[string]string                      `pulumi:"tagsAll"`
+	UseEbsOptimizedInstances *bool                                  `pulumi:"useEbsOptimizedInstances"`
 }
 
 type NodejsAppLayerState struct {
-	// The Amazon Resource Name(ARN) of the layer.
-	Arn pulumi.StringPtrInput
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps pulumi.BoolPtrInput
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps pulumi.BoolPtrInput
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             pulumi.BoolPtrInput
-	CloudwatchConfiguration NodejsAppLayerCloudwatchConfigurationPtrInput
-	CustomConfigureRecipes  pulumi.StringArrayInput
-	CustomDeployRecipes     pulumi.StringArrayInput
-	// The ARN of an IAM profile that will be used for the layer's instances.
+	Arn                      pulumi.StringPtrInput
+	AutoAssignElasticIps     pulumi.BoolPtrInput
+	AutoAssignPublicIps      pulumi.BoolPtrInput
+	AutoHealing              pulumi.BoolPtrInput
+	CloudwatchConfiguration  NodejsAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes   pulumi.StringArrayInput
+	CustomDeployRecipes      pulumi.StringArrayInput
 	CustomInstanceProfileArn pulumi.StringPtrInput
-	// Custom JSON attributes to apply to the layer.
-	CustomJson pulumi.StringPtrInput
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes     pulumi.StringArrayInput
-	CustomShutdownRecipes  pulumi.StringArrayInput
-	CustomUndeployRecipes  pulumi.StringArrayInput
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes NodejsAppLayerEbsVolumeArrayInput
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer pulumi.StringPtrInput
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot pulumi.BoolPtrInput
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrInput
-	LoadBasedAutoScaling    NodejsAppLayerLoadBasedAutoScalingPtrInput
-	// A human-readable name for the layer.
-	Name pulumi.StringPtrInput
-	// The version of NodeJS to use. Defaults to "0.10.38".
-	NodejsVersion pulumi.StringPtrInput
-	// ID of the stack the layer will belong to.
-	StackId pulumi.StringPtrInput
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Whether to use EBS-optimized instances.
+	CustomJson               pulumi.StringPtrInput
+	CustomSecurityGroupIds   pulumi.StringArrayInput
+	CustomSetupRecipes       pulumi.StringArrayInput
+	CustomShutdownRecipes    pulumi.StringArrayInput
+	CustomUndeployRecipes    pulumi.StringArrayInput
+	DrainElbOnShutdown       pulumi.BoolPtrInput
+	EbsVolumes               NodejsAppLayerEbsVolumeArrayInput
+	ElasticLoadBalancer      pulumi.StringPtrInput
+	InstallUpdatesOnBoot     pulumi.BoolPtrInput
+	InstanceShutdownTimeout  pulumi.IntPtrInput
+	LoadBasedAutoScaling     NodejsAppLayerLoadBasedAutoScalingPtrInput
+	Name                     pulumi.StringPtrInput
+	NodejsVersion            pulumi.StringPtrInput
+	StackId                  pulumi.StringPtrInput
+	SystemPackages           pulumi.StringArrayInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
 
@@ -220,91 +136,57 @@ func (NodejsAppLayerState) ElementType() reflect.Type {
 }
 
 type nodejsAppLayerArgs struct {
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps *bool `pulumi:"autoAssignElasticIps"`
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps *bool `pulumi:"autoAssignPublicIps"`
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             *bool                                  `pulumi:"autoHealing"`
-	CloudwatchConfiguration *NodejsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
-	CustomConfigureRecipes  []string                               `pulumi:"customConfigureRecipes"`
-	CustomDeployRecipes     []string                               `pulumi:"customDeployRecipes"`
-	// The ARN of an IAM profile that will be used for the layer's instances.
-	CustomInstanceProfileArn *string `pulumi:"customInstanceProfileArn"`
-	// Custom JSON attributes to apply to the layer.
-	CustomJson *string `pulumi:"customJson"`
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds []string `pulumi:"customSecurityGroupIds"`
-	CustomSetupRecipes     []string `pulumi:"customSetupRecipes"`
-	CustomShutdownRecipes  []string `pulumi:"customShutdownRecipes"`
-	CustomUndeployRecipes  []string `pulumi:"customUndeployRecipes"`
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown *bool `pulumi:"drainElbOnShutdown"`
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes []NodejsAppLayerEbsVolume `pulumi:"ebsVolumes"`
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer *string `pulumi:"elasticLoadBalancer"`
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot *bool `pulumi:"installUpdatesOnBoot"`
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout *int                                `pulumi:"instanceShutdownTimeout"`
-	LoadBasedAutoScaling    *NodejsAppLayerLoadBasedAutoScaling `pulumi:"loadBasedAutoScaling"`
-	// A human-readable name for the layer.
-	Name *string `pulumi:"name"`
-	// The version of NodeJS to use. Defaults to "0.10.38".
-	NodejsVersion *string `pulumi:"nodejsVersion"`
-	// ID of the stack the layer will belong to.
-	StackId string `pulumi:"stackId"`
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages []string `pulumi:"systemPackages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Whether to use EBS-optimized instances.
-	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
+	AutoAssignElasticIps     *bool                                  `pulumi:"autoAssignElasticIps"`
+	AutoAssignPublicIps      *bool                                  `pulumi:"autoAssignPublicIps"`
+	AutoHealing              *bool                                  `pulumi:"autoHealing"`
+	CloudwatchConfiguration  *NodejsAppLayerCloudwatchConfiguration `pulumi:"cloudwatchConfiguration"`
+	CustomConfigureRecipes   []string                               `pulumi:"customConfigureRecipes"`
+	CustomDeployRecipes      []string                               `pulumi:"customDeployRecipes"`
+	CustomInstanceProfileArn *string                                `pulumi:"customInstanceProfileArn"`
+	CustomJson               *string                                `pulumi:"customJson"`
+	CustomSecurityGroupIds   []string                               `pulumi:"customSecurityGroupIds"`
+	CustomSetupRecipes       []string                               `pulumi:"customSetupRecipes"`
+	CustomShutdownRecipes    []string                               `pulumi:"customShutdownRecipes"`
+	CustomUndeployRecipes    []string                               `pulumi:"customUndeployRecipes"`
+	DrainElbOnShutdown       *bool                                  `pulumi:"drainElbOnShutdown"`
+	EbsVolumes               []NodejsAppLayerEbsVolume              `pulumi:"ebsVolumes"`
+	ElasticLoadBalancer      *string                                `pulumi:"elasticLoadBalancer"`
+	InstallUpdatesOnBoot     *bool                                  `pulumi:"installUpdatesOnBoot"`
+	InstanceShutdownTimeout  *int                                   `pulumi:"instanceShutdownTimeout"`
+	LoadBasedAutoScaling     *NodejsAppLayerLoadBasedAutoScaling    `pulumi:"loadBasedAutoScaling"`
+	Name                     *string                                `pulumi:"name"`
+	NodejsVersion            *string                                `pulumi:"nodejsVersion"`
+	StackId                  string                                 `pulumi:"stackId"`
+	SystemPackages           []string                               `pulumi:"systemPackages"`
+	Tags                     map[string]string                      `pulumi:"tags"`
+	UseEbsOptimizedInstances *bool                                  `pulumi:"useEbsOptimizedInstances"`
 }
 
 // The set of arguments for constructing a NodejsAppLayer resource.
 type NodejsAppLayerArgs struct {
-	// Whether to automatically assign an elastic IP address to the layer's instances.
-	AutoAssignElasticIps pulumi.BoolPtrInput
-	// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-	AutoAssignPublicIps pulumi.BoolPtrInput
-	// Whether to enable auto-healing for the layer.
-	AutoHealing             pulumi.BoolPtrInput
-	CloudwatchConfiguration NodejsAppLayerCloudwatchConfigurationPtrInput
-	CustomConfigureRecipes  pulumi.StringArrayInput
-	CustomDeployRecipes     pulumi.StringArrayInput
-	// The ARN of an IAM profile that will be used for the layer's instances.
+	AutoAssignElasticIps     pulumi.BoolPtrInput
+	AutoAssignPublicIps      pulumi.BoolPtrInput
+	AutoHealing              pulumi.BoolPtrInput
+	CloudwatchConfiguration  NodejsAppLayerCloudwatchConfigurationPtrInput
+	CustomConfigureRecipes   pulumi.StringArrayInput
+	CustomDeployRecipes      pulumi.StringArrayInput
 	CustomInstanceProfileArn pulumi.StringPtrInput
-	// Custom JSON attributes to apply to the layer.
-	CustomJson pulumi.StringPtrInput
-	// Ids for a set of security groups to apply to the layer's instances.
-	CustomSecurityGroupIds pulumi.StringArrayInput
-	CustomSetupRecipes     pulumi.StringArrayInput
-	CustomShutdownRecipes  pulumi.StringArrayInput
-	CustomUndeployRecipes  pulumi.StringArrayInput
-	// Whether to enable Elastic Load Balancing connection draining.
-	DrainElbOnShutdown pulumi.BoolPtrInput
-	// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-	EbsVolumes NodejsAppLayerEbsVolumeArrayInput
-	// Name of an Elastic Load Balancer to attach to this layer
-	ElasticLoadBalancer pulumi.StringPtrInput
-	// Whether to install OS and package updates on each instance when it boots.
-	InstallUpdatesOnBoot pulumi.BoolPtrInput
-	// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-	InstanceShutdownTimeout pulumi.IntPtrInput
-	LoadBasedAutoScaling    NodejsAppLayerLoadBasedAutoScalingPtrInput
-	// A human-readable name for the layer.
-	Name pulumi.StringPtrInput
-	// The version of NodeJS to use. Defaults to "0.10.38".
-	NodejsVersion pulumi.StringPtrInput
-	// ID of the stack the layer will belong to.
-	StackId pulumi.StringInput
-	// Names of a set of system packages to install on the layer's instances.
-	SystemPackages pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Whether to use EBS-optimized instances.
+	CustomJson               pulumi.StringPtrInput
+	CustomSecurityGroupIds   pulumi.StringArrayInput
+	CustomSetupRecipes       pulumi.StringArrayInput
+	CustomShutdownRecipes    pulumi.StringArrayInput
+	CustomUndeployRecipes    pulumi.StringArrayInput
+	DrainElbOnShutdown       pulumi.BoolPtrInput
+	EbsVolumes               NodejsAppLayerEbsVolumeArrayInput
+	ElasticLoadBalancer      pulumi.StringPtrInput
+	InstallUpdatesOnBoot     pulumi.BoolPtrInput
+	InstanceShutdownTimeout  pulumi.IntPtrInput
+	LoadBasedAutoScaling     NodejsAppLayerLoadBasedAutoScalingPtrInput
+	Name                     pulumi.StringPtrInput
+	NodejsVersion            pulumi.StringPtrInput
+	StackId                  pulumi.StringInput
+	SystemPackages           pulumi.StringArrayInput
+	Tags                     pulumi.StringMapInput
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
 
@@ -395,22 +277,18 @@ func (o NodejsAppLayerOutput) ToNodejsAppLayerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name(ARN) of the layer.
 func (o NodejsAppLayerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether to automatically assign an elastic IP address to the layer's instances.
 func (o NodejsAppLayerOutput) AutoAssignElasticIps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.BoolPtrOutput { return v.AutoAssignElasticIps }).(pulumi.BoolPtrOutput)
 }
 
-// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
 func (o NodejsAppLayerOutput) AutoAssignPublicIps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.BoolPtrOutput { return v.AutoAssignPublicIps }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable auto-healing for the layer.
 func (o NodejsAppLayerOutput) AutoHealing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.BoolPtrOutput { return v.AutoHealing }).(pulumi.BoolPtrOutput)
 }
@@ -429,17 +307,14 @@ func (o NodejsAppLayerOutput) CustomDeployRecipes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringArrayOutput { return v.CustomDeployRecipes }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of an IAM profile that will be used for the layer's instances.
 func (o NodejsAppLayerOutput) CustomInstanceProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringPtrOutput { return v.CustomInstanceProfileArn }).(pulumi.StringPtrOutput)
 }
 
-// Custom JSON attributes to apply to the layer.
 func (o NodejsAppLayerOutput) CustomJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringPtrOutput { return v.CustomJson }).(pulumi.StringPtrOutput)
 }
 
-// Ids for a set of security groups to apply to the layer's instances.
 func (o NodejsAppLayerOutput) CustomSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringArrayOutput { return v.CustomSecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -456,27 +331,22 @@ func (o NodejsAppLayerOutput) CustomUndeployRecipes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringArrayOutput { return v.CustomUndeployRecipes }).(pulumi.StringArrayOutput)
 }
 
-// Whether to enable Elastic Load Balancing connection draining.
 func (o NodejsAppLayerOutput) DrainElbOnShutdown() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.BoolPtrOutput { return v.DrainElbOnShutdown }).(pulumi.BoolPtrOutput)
 }
 
-// `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
 func (o NodejsAppLayerOutput) EbsVolumes() NodejsAppLayerEbsVolumeArrayOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) NodejsAppLayerEbsVolumeArrayOutput { return v.EbsVolumes }).(NodejsAppLayerEbsVolumeArrayOutput)
 }
 
-// Name of an Elastic Load Balancer to attach to this layer
 func (o NodejsAppLayerOutput) ElasticLoadBalancer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringPtrOutput { return v.ElasticLoadBalancer }).(pulumi.StringPtrOutput)
 }
 
-// Whether to install OS and package updates on each instance when it boots.
 func (o NodejsAppLayerOutput) InstallUpdatesOnBoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.BoolPtrOutput { return v.InstallUpdatesOnBoot }).(pulumi.BoolPtrOutput)
 }
 
-// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
 func (o NodejsAppLayerOutput) InstanceShutdownTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.IntPtrOutput { return v.InstanceShutdownTimeout }).(pulumi.IntPtrOutput)
 }
@@ -485,37 +355,30 @@ func (o NodejsAppLayerOutput) LoadBasedAutoScaling() NodejsAppLayerLoadBasedAuto
 	return o.ApplyT(func(v *NodejsAppLayer) NodejsAppLayerLoadBasedAutoScalingOutput { return v.LoadBasedAutoScaling }).(NodejsAppLayerLoadBasedAutoScalingOutput)
 }
 
-// A human-readable name for the layer.
 func (o NodejsAppLayerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of NodeJS to use. Defaults to "0.10.38".
 func (o NodejsAppLayerOutput) NodejsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringPtrOutput { return v.NodejsVersion }).(pulumi.StringPtrOutput)
 }
 
-// ID of the stack the layer will belong to.
 func (o NodejsAppLayerOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
 
-// Names of a set of system packages to install on the layer's instances.
 func (o NodejsAppLayerOutput) SystemPackages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringArrayOutput { return v.SystemPackages }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NodejsAppLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NodejsAppLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Whether to use EBS-optimized instances.
 func (o NodejsAppLayerOutput) UseEbsOptimizedInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NodejsAppLayer) pulumi.BoolPtrOutput { return v.UseEbsOptimizedInstances }).(pulumi.BoolPtrOutput)
 }

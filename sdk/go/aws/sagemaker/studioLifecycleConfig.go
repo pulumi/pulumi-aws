@@ -11,34 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Studio Lifecycle Config resource.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// SageMaker Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
-//
-// ```
 type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
-	StudioLifecycleConfigAppType pulumi.StringOutput `pulumi:"studioLifecycleConfigAppType"`
-	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-	StudioLifecycleConfigContent pulumi.StringOutput `pulumi:"studioLifecycleConfigContent"`
-	// The name of the Studio Lifecycle Configuration to create.
-	StudioLifecycleConfigName pulumi.StringOutput `pulumi:"studioLifecycleConfigName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                          pulumi.StringOutput    `pulumi:"arn"`
+	StudioLifecycleConfigAppType pulumi.StringOutput    `pulumi:"studioLifecycleConfigAppType"`
+	StudioLifecycleConfigContent pulumi.StringOutput    `pulumi:"studioLifecycleConfigContent"`
+	StudioLifecycleConfigName    pulumi.StringOutput    `pulumi:"studioLifecycleConfigName"`
+	Tags                         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewStudioLifecycleConfig registers a new resource with the given unique name, arguments, and options.
@@ -79,33 +60,21 @@ func GetStudioLifecycleConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StudioLifecycleConfig resources.
 type studioLifecycleConfigState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-	Arn *string `pulumi:"arn"`
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
-	StudioLifecycleConfigAppType *string `pulumi:"studioLifecycleConfigAppType"`
-	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-	StudioLifecycleConfigContent *string `pulumi:"studioLifecycleConfigContent"`
-	// The name of the Studio Lifecycle Configuration to create.
-	StudioLifecycleConfigName *string `pulumi:"studioLifecycleConfigName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                          *string           `pulumi:"arn"`
+	StudioLifecycleConfigAppType *string           `pulumi:"studioLifecycleConfigAppType"`
+	StudioLifecycleConfigContent *string           `pulumi:"studioLifecycleConfigContent"`
+	StudioLifecycleConfigName    *string           `pulumi:"studioLifecycleConfigName"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TagsAll                      map[string]string `pulumi:"tagsAll"`
 }
 
 type StudioLifecycleConfigState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
-	Arn pulumi.StringPtrInput
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+	Arn                          pulumi.StringPtrInput
 	StudioLifecycleConfigAppType pulumi.StringPtrInput
-	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringPtrInput
-	// The name of the Studio Lifecycle Configuration to create.
-	StudioLifecycleConfigName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	StudioLifecycleConfigName    pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
 }
 
 func (StudioLifecycleConfigState) ElementType() reflect.Type {
@@ -113,26 +82,18 @@ func (StudioLifecycleConfigState) ElementType() reflect.Type {
 }
 
 type studioLifecycleConfigArgs struct {
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
-	StudioLifecycleConfigAppType string `pulumi:"studioLifecycleConfigAppType"`
-	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
-	StudioLifecycleConfigContent string `pulumi:"studioLifecycleConfigContent"`
-	// The name of the Studio Lifecycle Configuration to create.
-	StudioLifecycleConfigName string `pulumi:"studioLifecycleConfigName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	StudioLifecycleConfigAppType string            `pulumi:"studioLifecycleConfigAppType"`
+	StudioLifecycleConfigContent string            `pulumi:"studioLifecycleConfigContent"`
+	StudioLifecycleConfigName    string            `pulumi:"studioLifecycleConfigName"`
+	Tags                         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StudioLifecycleConfig resource.
 type StudioLifecycleConfigArgs struct {
-	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringInput
-	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringInput
-	// The name of the Studio Lifecycle Configuration to create.
-	StudioLifecycleConfigName pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	StudioLifecycleConfigName    pulumi.StringInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (StudioLifecycleConfigArgs) ElementType() reflect.Type {
@@ -222,32 +183,26 @@ func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 func (o StudioLifecycleConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
 func (o StudioLifecycleConfigOutput) StudioLifecycleConfigAppType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigAppType }).(pulumi.StringOutput)
 }
 
-// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
 func (o StudioLifecycleConfigOutput) StudioLifecycleConfigContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigContent }).(pulumi.StringOutput)
 }
 
-// The name of the Studio Lifecycle Configuration to create.
 func (o StudioLifecycleConfigOutput) StudioLifecycleConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o StudioLifecycleConfigOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StudioLifecycleConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

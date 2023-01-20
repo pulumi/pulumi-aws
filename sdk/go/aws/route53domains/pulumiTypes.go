@@ -11,34 +11,20 @@ import (
 )
 
 type RegisteredDomainAdminContact struct {
-	// First line of the contact's address.
-	AddressLine1 *string `pulumi:"addressLine1"`
-	// Second line of contact's address, if any.
-	AddressLine2 *string `pulumi:"addressLine2"`
-	// The city of the contact's address.
-	City *string `pulumi:"city"`
-	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-	ContactType *string `pulumi:"contactType"`
-	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-	CountryCode *string `pulumi:"countryCode"`
-	// Email address of the contact.
-	Email *string `pulumi:"email"`
-	// A key-value map of parameters required by certain top-level domains.
-	ExtraParams map[string]string `pulumi:"extraParams"`
-	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	Fax *string `pulumi:"fax"`
-	// First name of contact.
-	FirstName *string `pulumi:"firstName"`
-	// Last name of contact.
-	LastName *string `pulumi:"lastName"`
-	// Name of the organization for contact types other than `PERSON`.
-	OrganizationName *string `pulumi:"organizationName"`
-	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// The state or province of the contact's city.
-	State *string `pulumi:"state"`
-	// The zip or postal code of the contact's address.
-	ZipCode *string `pulumi:"zipCode"`
+	AddressLine1     *string           `pulumi:"addressLine1"`
+	AddressLine2     *string           `pulumi:"addressLine2"`
+	City             *string           `pulumi:"city"`
+	ContactType      *string           `pulumi:"contactType"`
+	CountryCode      *string           `pulumi:"countryCode"`
+	Email            *string           `pulumi:"email"`
+	ExtraParams      map[string]string `pulumi:"extraParams"`
+	Fax              *string           `pulumi:"fax"`
+	FirstName        *string           `pulumi:"firstName"`
+	LastName         *string           `pulumi:"lastName"`
+	OrganizationName *string           `pulumi:"organizationName"`
+	PhoneNumber      *string           `pulumi:"phoneNumber"`
+	State            *string           `pulumi:"state"`
+	ZipCode          *string           `pulumi:"zipCode"`
 }
 
 // RegisteredDomainAdminContactInput is an input type that accepts RegisteredDomainAdminContactArgs and RegisteredDomainAdminContactOutput values.
@@ -53,34 +39,20 @@ type RegisteredDomainAdminContactInput interface {
 }
 
 type RegisteredDomainAdminContactArgs struct {
-	// First line of the contact's address.
-	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
-	// Second line of contact's address, if any.
-	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
-	// The city of the contact's address.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-	ContactType pulumi.StringPtrInput `pulumi:"contactType"`
-	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
-	// Email address of the contact.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// A key-value map of parameters required by certain top-level domains.
-	ExtraParams pulumi.StringMapInput `pulumi:"extraParams"`
-	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	Fax pulumi.StringPtrInput `pulumi:"fax"`
-	// First name of contact.
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name of contact.
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
-	// Name of the organization for contact types other than `PERSON`.
+	AddressLine1     pulumi.StringPtrInput `pulumi:"addressLine1"`
+	AddressLine2     pulumi.StringPtrInput `pulumi:"addressLine2"`
+	City             pulumi.StringPtrInput `pulumi:"city"`
+	ContactType      pulumi.StringPtrInput `pulumi:"contactType"`
+	CountryCode      pulumi.StringPtrInput `pulumi:"countryCode"`
+	Email            pulumi.StringPtrInput `pulumi:"email"`
+	ExtraParams      pulumi.StringMapInput `pulumi:"extraParams"`
+	Fax              pulumi.StringPtrInput `pulumi:"fax"`
+	FirstName        pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName         pulumi.StringPtrInput `pulumi:"lastName"`
 	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
-	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
-	// The state or province of the contact's city.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The zip or postal code of the contact's address.
-	ZipCode pulumi.StringPtrInput `pulumi:"zipCode"`
+	PhoneNumber      pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	State            pulumi.StringPtrInput `pulumi:"state"`
+	ZipCode          pulumi.StringPtrInput `pulumi:"zipCode"`
 }
 
 func (RegisteredDomainAdminContactArgs) ElementType() reflect.Type {
@@ -160,72 +132,58 @@ func (o RegisteredDomainAdminContactOutput) ToRegisteredDomainAdminContactPtrOut
 	}).(RegisteredDomainAdminContactPtrOutput)
 }
 
-// First line of the contact's address.
 func (o RegisteredDomainAdminContactOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
 }
 
-// Second line of contact's address, if any.
 func (o RegisteredDomainAdminContactOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
 }
 
-// The city of the contact's address.
 func (o RegisteredDomainAdminContactOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
 func (o RegisteredDomainAdminContactOutput) ContactType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.ContactType }).(pulumi.StringPtrOutput)
 }
 
-// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
 func (o RegisteredDomainAdminContactOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
-// Email address of the contact.
 func (o RegisteredDomainAdminContactOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// A key-value map of parameters required by certain top-level domains.
 func (o RegisteredDomainAdminContactOutput) ExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) map[string]string { return v.ExtraParams }).(pulumi.StringMapOutput)
 }
 
-// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainAdminContactOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.Fax }).(pulumi.StringPtrOutput)
 }
 
-// First name of contact.
 func (o RegisteredDomainAdminContactOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name of contact.
 func (o RegisteredDomainAdminContactOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the organization for contact types other than `PERSON`.
 func (o RegisteredDomainAdminContactOutput) OrganizationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainAdminContactOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// The state or province of the contact's city.
 func (o RegisteredDomainAdminContactOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The zip or postal code of the contact's address.
 func (o RegisteredDomainAdminContactOutput) ZipCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainAdminContact) *string { return v.ZipCode }).(pulumi.StringPtrOutput)
 }
@@ -254,7 +212,6 @@ func (o RegisteredDomainAdminContactPtrOutput) Elem() RegisteredDomainAdminConta
 	}).(RegisteredDomainAdminContactOutput)
 }
 
-// First line of the contact's address.
 func (o RegisteredDomainAdminContactPtrOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -264,7 +221,6 @@ func (o RegisteredDomainAdminContactPtrOutput) AddressLine1() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Second line of contact's address, if any.
 func (o RegisteredDomainAdminContactPtrOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -274,7 +230,6 @@ func (o RegisteredDomainAdminContactPtrOutput) AddressLine2() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city of the contact's address.
 func (o RegisteredDomainAdminContactPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -284,7 +239,6 @@ func (o RegisteredDomainAdminContactPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
 func (o RegisteredDomainAdminContactPtrOutput) ContactType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -294,7 +248,6 @@ func (o RegisteredDomainAdminContactPtrOutput) ContactType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
 func (o RegisteredDomainAdminContactPtrOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -304,7 +257,6 @@ func (o RegisteredDomainAdminContactPtrOutput) CountryCode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email address of the contact.
 func (o RegisteredDomainAdminContactPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -314,7 +266,6 @@ func (o RegisteredDomainAdminContactPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value map of parameters required by certain top-level domains.
 func (o RegisteredDomainAdminContactPtrOutput) ExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) map[string]string {
 		if v == nil {
@@ -324,7 +275,6 @@ func (o RegisteredDomainAdminContactPtrOutput) ExtraParams() pulumi.StringMapOut
 	}).(pulumi.StringMapOutput)
 }
 
-// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainAdminContactPtrOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -334,7 +284,6 @@ func (o RegisteredDomainAdminContactPtrOutput) Fax() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name of contact.
 func (o RegisteredDomainAdminContactPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -344,7 +293,6 @@ func (o RegisteredDomainAdminContactPtrOutput) FirstName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name of contact.
 func (o RegisteredDomainAdminContactPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -354,7 +302,6 @@ func (o RegisteredDomainAdminContactPtrOutput) LastName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the organization for contact types other than `PERSON`.
 func (o RegisteredDomainAdminContactPtrOutput) OrganizationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -364,7 +311,6 @@ func (o RegisteredDomainAdminContactPtrOutput) OrganizationName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainAdminContactPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -374,7 +320,6 @@ func (o RegisteredDomainAdminContactPtrOutput) PhoneNumber() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province of the contact's city.
 func (o RegisteredDomainAdminContactPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -384,7 +329,6 @@ func (o RegisteredDomainAdminContactPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The zip or postal code of the contact's address.
 func (o RegisteredDomainAdminContactPtrOutput) ZipCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainAdminContact) *string {
 		if v == nil {
@@ -395,10 +339,8 @@ func (o RegisteredDomainAdminContactPtrOutput) ZipCode() pulumi.StringPtrOutput 
 }
 
 type RegisteredDomainNameServer struct {
-	// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
 	GlueIps []string `pulumi:"glueIps"`
-	// The fully qualified host name of the name server.
-	Name string `pulumi:"name"`
+	Name    string   `pulumi:"name"`
 }
 
 // RegisteredDomainNameServerInput is an input type that accepts RegisteredDomainNameServerArgs and RegisteredDomainNameServerOutput values.
@@ -413,10 +355,8 @@ type RegisteredDomainNameServerInput interface {
 }
 
 type RegisteredDomainNameServerArgs struct {
-	// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
 	GlueIps pulumi.StringArrayInput `pulumi:"glueIps"`
-	// The fully qualified host name of the name server.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name    pulumi.StringInput      `pulumi:"name"`
 }
 
 func (RegisteredDomainNameServerArgs) ElementType() reflect.Type {
@@ -470,12 +410,10 @@ func (o RegisteredDomainNameServerOutput) ToRegisteredDomainNameServerOutputWith
 	return o
 }
 
-// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
 func (o RegisteredDomainNameServerOutput) GlueIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegisteredDomainNameServer) []string { return v.GlueIps }).(pulumi.StringArrayOutput)
 }
 
-// The fully qualified host name of the name server.
 func (o RegisteredDomainNameServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RegisteredDomainNameServer) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -501,34 +439,20 @@ func (o RegisteredDomainNameServerArrayOutput) Index(i pulumi.IntInput) Register
 }
 
 type RegisteredDomainRegistrantContact struct {
-	// First line of the contact's address.
-	AddressLine1 *string `pulumi:"addressLine1"`
-	// Second line of contact's address, if any.
-	AddressLine2 *string `pulumi:"addressLine2"`
-	// The city of the contact's address.
-	City *string `pulumi:"city"`
-	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-	ContactType *string `pulumi:"contactType"`
-	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-	CountryCode *string `pulumi:"countryCode"`
-	// Email address of the contact.
-	Email *string `pulumi:"email"`
-	// A key-value map of parameters required by certain top-level domains.
-	ExtraParams map[string]string `pulumi:"extraParams"`
-	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	Fax *string `pulumi:"fax"`
-	// First name of contact.
-	FirstName *string `pulumi:"firstName"`
-	// Last name of contact.
-	LastName *string `pulumi:"lastName"`
-	// Name of the organization for contact types other than `PERSON`.
-	OrganizationName *string `pulumi:"organizationName"`
-	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// The state or province of the contact's city.
-	State *string `pulumi:"state"`
-	// The zip or postal code of the contact's address.
-	ZipCode *string `pulumi:"zipCode"`
+	AddressLine1     *string           `pulumi:"addressLine1"`
+	AddressLine2     *string           `pulumi:"addressLine2"`
+	City             *string           `pulumi:"city"`
+	ContactType      *string           `pulumi:"contactType"`
+	CountryCode      *string           `pulumi:"countryCode"`
+	Email            *string           `pulumi:"email"`
+	ExtraParams      map[string]string `pulumi:"extraParams"`
+	Fax              *string           `pulumi:"fax"`
+	FirstName        *string           `pulumi:"firstName"`
+	LastName         *string           `pulumi:"lastName"`
+	OrganizationName *string           `pulumi:"organizationName"`
+	PhoneNumber      *string           `pulumi:"phoneNumber"`
+	State            *string           `pulumi:"state"`
+	ZipCode          *string           `pulumi:"zipCode"`
 }
 
 // RegisteredDomainRegistrantContactInput is an input type that accepts RegisteredDomainRegistrantContactArgs and RegisteredDomainRegistrantContactOutput values.
@@ -543,34 +467,20 @@ type RegisteredDomainRegistrantContactInput interface {
 }
 
 type RegisteredDomainRegistrantContactArgs struct {
-	// First line of the contact's address.
-	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
-	// Second line of contact's address, if any.
-	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
-	// The city of the contact's address.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-	ContactType pulumi.StringPtrInput `pulumi:"contactType"`
-	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
-	// Email address of the contact.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// A key-value map of parameters required by certain top-level domains.
-	ExtraParams pulumi.StringMapInput `pulumi:"extraParams"`
-	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	Fax pulumi.StringPtrInput `pulumi:"fax"`
-	// First name of contact.
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name of contact.
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
-	// Name of the organization for contact types other than `PERSON`.
+	AddressLine1     pulumi.StringPtrInput `pulumi:"addressLine1"`
+	AddressLine2     pulumi.StringPtrInput `pulumi:"addressLine2"`
+	City             pulumi.StringPtrInput `pulumi:"city"`
+	ContactType      pulumi.StringPtrInput `pulumi:"contactType"`
+	CountryCode      pulumi.StringPtrInput `pulumi:"countryCode"`
+	Email            pulumi.StringPtrInput `pulumi:"email"`
+	ExtraParams      pulumi.StringMapInput `pulumi:"extraParams"`
+	Fax              pulumi.StringPtrInput `pulumi:"fax"`
+	FirstName        pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName         pulumi.StringPtrInput `pulumi:"lastName"`
 	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
-	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
-	// The state or province of the contact's city.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The zip or postal code of the contact's address.
-	ZipCode pulumi.StringPtrInput `pulumi:"zipCode"`
+	PhoneNumber      pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	State            pulumi.StringPtrInput `pulumi:"state"`
+	ZipCode          pulumi.StringPtrInput `pulumi:"zipCode"`
 }
 
 func (RegisteredDomainRegistrantContactArgs) ElementType() reflect.Type {
@@ -650,72 +560,58 @@ func (o RegisteredDomainRegistrantContactOutput) ToRegisteredDomainRegistrantCon
 	}).(RegisteredDomainRegistrantContactPtrOutput)
 }
 
-// First line of the contact's address.
 func (o RegisteredDomainRegistrantContactOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
 }
 
-// Second line of contact's address, if any.
 func (o RegisteredDomainRegistrantContactOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
 }
 
-// The city of the contact's address.
 func (o RegisteredDomainRegistrantContactOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
 func (o RegisteredDomainRegistrantContactOutput) ContactType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.ContactType }).(pulumi.StringPtrOutput)
 }
 
-// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
 func (o RegisteredDomainRegistrantContactOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
-// Email address of the contact.
 func (o RegisteredDomainRegistrantContactOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// A key-value map of parameters required by certain top-level domains.
 func (o RegisteredDomainRegistrantContactOutput) ExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) map[string]string { return v.ExtraParams }).(pulumi.StringMapOutput)
 }
 
-// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainRegistrantContactOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.Fax }).(pulumi.StringPtrOutput)
 }
 
-// First name of contact.
 func (o RegisteredDomainRegistrantContactOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name of contact.
 func (o RegisteredDomainRegistrantContactOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the organization for contact types other than `PERSON`.
 func (o RegisteredDomainRegistrantContactOutput) OrganizationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainRegistrantContactOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// The state or province of the contact's city.
 func (o RegisteredDomainRegistrantContactOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The zip or postal code of the contact's address.
 func (o RegisteredDomainRegistrantContactOutput) ZipCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainRegistrantContact) *string { return v.ZipCode }).(pulumi.StringPtrOutput)
 }
@@ -744,7 +640,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) Elem() RegisteredDomainRegis
 	}).(RegisteredDomainRegistrantContactOutput)
 }
 
-// First line of the contact's address.
 func (o RegisteredDomainRegistrantContactPtrOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -754,7 +649,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) AddressLine1() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Second line of contact's address, if any.
 func (o RegisteredDomainRegistrantContactPtrOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -764,7 +658,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) AddressLine2() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city of the contact's address.
 func (o RegisteredDomainRegistrantContactPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -774,7 +667,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) City() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
 func (o RegisteredDomainRegistrantContactPtrOutput) ContactType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -784,7 +676,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) ContactType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
 func (o RegisteredDomainRegistrantContactPtrOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -794,7 +685,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) CountryCode() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email address of the contact.
 func (o RegisteredDomainRegistrantContactPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -804,7 +694,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) Email() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value map of parameters required by certain top-level domains.
 func (o RegisteredDomainRegistrantContactPtrOutput) ExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) map[string]string {
 		if v == nil {
@@ -814,7 +703,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) ExtraParams() pulumi.StringM
 	}).(pulumi.StringMapOutput)
 }
 
-// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainRegistrantContactPtrOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -824,7 +712,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) Fax() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name of contact.
 func (o RegisteredDomainRegistrantContactPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -834,7 +721,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) FirstName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name of contact.
 func (o RegisteredDomainRegistrantContactPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -844,7 +730,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) LastName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the organization for contact types other than `PERSON`.
 func (o RegisteredDomainRegistrantContactPtrOutput) OrganizationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -854,7 +739,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) OrganizationName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainRegistrantContactPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -864,7 +748,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) PhoneNumber() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province of the contact's city.
 func (o RegisteredDomainRegistrantContactPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -874,7 +757,6 @@ func (o RegisteredDomainRegistrantContactPtrOutput) State() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The zip or postal code of the contact's address.
 func (o RegisteredDomainRegistrantContactPtrOutput) ZipCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainRegistrantContact) *string {
 		if v == nil {
@@ -885,34 +767,20 @@ func (o RegisteredDomainRegistrantContactPtrOutput) ZipCode() pulumi.StringPtrOu
 }
 
 type RegisteredDomainTechContact struct {
-	// First line of the contact's address.
-	AddressLine1 *string `pulumi:"addressLine1"`
-	// Second line of contact's address, if any.
-	AddressLine2 *string `pulumi:"addressLine2"`
-	// The city of the contact's address.
-	City *string `pulumi:"city"`
-	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-	ContactType *string `pulumi:"contactType"`
-	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-	CountryCode *string `pulumi:"countryCode"`
-	// Email address of the contact.
-	Email *string `pulumi:"email"`
-	// A key-value map of parameters required by certain top-level domains.
-	ExtraParams map[string]string `pulumi:"extraParams"`
-	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	Fax *string `pulumi:"fax"`
-	// First name of contact.
-	FirstName *string `pulumi:"firstName"`
-	// Last name of contact.
-	LastName *string `pulumi:"lastName"`
-	// Name of the organization for contact types other than `PERSON`.
-	OrganizationName *string `pulumi:"organizationName"`
-	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	PhoneNumber *string `pulumi:"phoneNumber"`
-	// The state or province of the contact's city.
-	State *string `pulumi:"state"`
-	// The zip or postal code of the contact's address.
-	ZipCode *string `pulumi:"zipCode"`
+	AddressLine1     *string           `pulumi:"addressLine1"`
+	AddressLine2     *string           `pulumi:"addressLine2"`
+	City             *string           `pulumi:"city"`
+	ContactType      *string           `pulumi:"contactType"`
+	CountryCode      *string           `pulumi:"countryCode"`
+	Email            *string           `pulumi:"email"`
+	ExtraParams      map[string]string `pulumi:"extraParams"`
+	Fax              *string           `pulumi:"fax"`
+	FirstName        *string           `pulumi:"firstName"`
+	LastName         *string           `pulumi:"lastName"`
+	OrganizationName *string           `pulumi:"organizationName"`
+	PhoneNumber      *string           `pulumi:"phoneNumber"`
+	State            *string           `pulumi:"state"`
+	ZipCode          *string           `pulumi:"zipCode"`
 }
 
 // RegisteredDomainTechContactInput is an input type that accepts RegisteredDomainTechContactArgs and RegisteredDomainTechContactOutput values.
@@ -927,34 +795,20 @@ type RegisteredDomainTechContactInput interface {
 }
 
 type RegisteredDomainTechContactArgs struct {
-	// First line of the contact's address.
-	AddressLine1 pulumi.StringPtrInput `pulumi:"addressLine1"`
-	// Second line of contact's address, if any.
-	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
-	// The city of the contact's address.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-	ContactType pulumi.StringPtrInput `pulumi:"contactType"`
-	// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
-	// Email address of the contact.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// A key-value map of parameters required by certain top-level domains.
-	ExtraParams pulumi.StringMapInput `pulumi:"extraParams"`
-	// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	Fax pulumi.StringPtrInput `pulumi:"fax"`
-	// First name of contact.
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name of contact.
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
-	// Name of the organization for contact types other than `PERSON`.
+	AddressLine1     pulumi.StringPtrInput `pulumi:"addressLine1"`
+	AddressLine2     pulumi.StringPtrInput `pulumi:"addressLine2"`
+	City             pulumi.StringPtrInput `pulumi:"city"`
+	ContactType      pulumi.StringPtrInput `pulumi:"contactType"`
+	CountryCode      pulumi.StringPtrInput `pulumi:"countryCode"`
+	Email            pulumi.StringPtrInput `pulumi:"email"`
+	ExtraParams      pulumi.StringMapInput `pulumi:"extraParams"`
+	Fax              pulumi.StringPtrInput `pulumi:"fax"`
+	FirstName        pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName         pulumi.StringPtrInput `pulumi:"lastName"`
 	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
-	// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
-	// The state or province of the contact's city.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The zip or postal code of the contact's address.
-	ZipCode pulumi.StringPtrInput `pulumi:"zipCode"`
+	PhoneNumber      pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	State            pulumi.StringPtrInput `pulumi:"state"`
+	ZipCode          pulumi.StringPtrInput `pulumi:"zipCode"`
 }
 
 func (RegisteredDomainTechContactArgs) ElementType() reflect.Type {
@@ -1034,72 +888,58 @@ func (o RegisteredDomainTechContactOutput) ToRegisteredDomainTechContactPtrOutpu
 	}).(RegisteredDomainTechContactPtrOutput)
 }
 
-// First line of the contact's address.
 func (o RegisteredDomainTechContactOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.AddressLine1 }).(pulumi.StringPtrOutput)
 }
 
-// Second line of contact's address, if any.
 func (o RegisteredDomainTechContactOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
 }
 
-// The city of the contact's address.
 func (o RegisteredDomainTechContactOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
 func (o RegisteredDomainTechContactOutput) ContactType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.ContactType }).(pulumi.StringPtrOutput)
 }
 
-// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
 func (o RegisteredDomainTechContactOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
-// Email address of the contact.
 func (o RegisteredDomainTechContactOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// A key-value map of parameters required by certain top-level domains.
 func (o RegisteredDomainTechContactOutput) ExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) map[string]string { return v.ExtraParams }).(pulumi.StringMapOutput)
 }
 
-// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainTechContactOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.Fax }).(pulumi.StringPtrOutput)
 }
 
-// First name of contact.
 func (o RegisteredDomainTechContactOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name of contact.
 func (o RegisteredDomainTechContactOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the organization for contact types other than `PERSON`.
 func (o RegisteredDomainTechContactOutput) OrganizationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainTechContactOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
 
-// The state or province of the contact's city.
 func (o RegisteredDomainTechContactOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The zip or postal code of the contact's address.
 func (o RegisteredDomainTechContactOutput) ZipCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegisteredDomainTechContact) *string { return v.ZipCode }).(pulumi.StringPtrOutput)
 }
@@ -1128,7 +968,6 @@ func (o RegisteredDomainTechContactPtrOutput) Elem() RegisteredDomainTechContact
 	}).(RegisteredDomainTechContactOutput)
 }
 
-// First line of the contact's address.
 func (o RegisteredDomainTechContactPtrOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1138,7 +977,6 @@ func (o RegisteredDomainTechContactPtrOutput) AddressLine1() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Second line of contact's address, if any.
 func (o RegisteredDomainTechContactPtrOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1148,7 +986,6 @@ func (o RegisteredDomainTechContactPtrOutput) AddressLine2() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city of the contact's address.
 func (o RegisteredDomainTechContactPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1158,7 +995,6 @@ func (o RegisteredDomainTechContactPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
 func (o RegisteredDomainTechContactPtrOutput) ContactType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1168,7 +1004,6 @@ func (o RegisteredDomainTechContactPtrOutput) ContactType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
 func (o RegisteredDomainTechContactPtrOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1178,7 +1013,6 @@ func (o RegisteredDomainTechContactPtrOutput) CountryCode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email address of the contact.
 func (o RegisteredDomainTechContactPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1188,7 +1022,6 @@ func (o RegisteredDomainTechContactPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value map of parameters required by certain top-level domains.
 func (o RegisteredDomainTechContactPtrOutput) ExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) map[string]string {
 		if v == nil {
@@ -1198,7 +1031,6 @@ func (o RegisteredDomainTechContactPtrOutput) ExtraParams() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainTechContactPtrOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1208,7 +1040,6 @@ func (o RegisteredDomainTechContactPtrOutput) Fax() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name of contact.
 func (o RegisteredDomainTechContactPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1218,7 +1049,6 @@ func (o RegisteredDomainTechContactPtrOutput) FirstName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name of contact.
 func (o RegisteredDomainTechContactPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1228,7 +1058,6 @@ func (o RegisteredDomainTechContactPtrOutput) LastName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the organization for contact types other than `PERSON`.
 func (o RegisteredDomainTechContactPtrOutput) OrganizationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1238,7 +1067,6 @@ func (o RegisteredDomainTechContactPtrOutput) OrganizationName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
 func (o RegisteredDomainTechContactPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1248,7 +1076,6 @@ func (o RegisteredDomainTechContactPtrOutput) PhoneNumber() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province of the contact's city.
 func (o RegisteredDomainTechContactPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {
@@ -1258,7 +1085,6 @@ func (o RegisteredDomainTechContactPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The zip or postal code of the contact's address.
 func (o RegisteredDomainTechContactPtrOutput) ZipCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomainTechContact) *string {
 		if v == nil {

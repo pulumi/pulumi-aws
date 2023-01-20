@@ -11,62 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an API Gateway Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
-//				Description: pulumi.String("This is my API for demonstration purposes"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID(),
-//				ParentId: myDemoAPI.RootResourceId,
-//				PathPart: pulumi.String("mydemoresource"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
-//
-// ```
 type Resource struct {
 	pulumi.CustomResourceState
 
-	// ID of the parent API resource
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
-	// Complete path for this API resource, including all parent paths.
-	Path pulumi.StringOutput `pulumi:"path"`
-	// Last path segment of this API resource.
+	Path     pulumi.StringOutput `pulumi:"path"`
 	PathPart pulumi.StringOutput `pulumi:"pathPart"`
-	// ID of the associated REST API
-	RestApi pulumi.StringOutput `pulumi:"restApi"`
+	RestApi  pulumi.StringOutput `pulumi:"restApi"`
 }
 
 // NewResource registers a new resource with the given unique name, arguments, and options.
@@ -107,25 +58,17 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
-	// ID of the parent API resource
-	ParentId *string `pulumi:"parentId"`
-	// Complete path for this API resource, including all parent paths.
-	Path *string `pulumi:"path"`
-	// Last path segment of this API resource.
-	PathPart *string `pulumi:"pathPart"`
-	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	ParentId *string     `pulumi:"parentId"`
+	Path     *string     `pulumi:"path"`
+	PathPart *string     `pulumi:"pathPart"`
+	RestApi  interface{} `pulumi:"restApi"`
 }
 
 type ResourceState struct {
-	// ID of the parent API resource
 	ParentId pulumi.StringPtrInput
-	// Complete path for this API resource, including all parent paths.
-	Path pulumi.StringPtrInput
-	// Last path segment of this API resource.
+	Path     pulumi.StringPtrInput
 	PathPart pulumi.StringPtrInput
-	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi  pulumi.Input
 }
 
 func (ResourceState) ElementType() reflect.Type {
@@ -133,22 +76,16 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
-	// ID of the parent API resource
-	ParentId string `pulumi:"parentId"`
-	// Last path segment of this API resource.
-	PathPart string `pulumi:"pathPart"`
-	// ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	ParentId string      `pulumi:"parentId"`
+	PathPart string      `pulumi:"pathPart"`
+	RestApi  interface{} `pulumi:"restApi"`
 }
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
-	// ID of the parent API resource
 	ParentId pulumi.StringInput
-	// Last path segment of this API resource.
 	PathPart pulumi.StringInput
-	// ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi  pulumi.Input
 }
 
 func (ResourceArgs) ElementType() reflect.Type {
@@ -238,22 +175,18 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
-// ID of the parent API resource
 func (o ResourceOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
 }
 
-// Complete path for this API resource, including all parent paths.
 func (o ResourceOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
 }
 
-// Last path segment of this API resource.
 func (o ResourceOutput) PathPart() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.PathPart }).(pulumi.StringOutput)
 }
 
-// ID of the associated REST API
 func (o ResourceOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }

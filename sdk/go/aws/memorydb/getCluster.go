@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a MemoryDB Cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.LookupCluster(ctx, &memorydb.LookupClusterArgs{
-//				Name: "my-cluster",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:memorydb/getCluster:getCluster", args, &rv, opts...)
@@ -48,67 +21,39 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterArgs struct {
-	// Name of the cluster.
-	Name string `pulumi:"name"`
-	// Map of tags assigned to the cluster.
+	Name string            `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	// Name of the Access Control List associated with the cluster.
-	AclName string `pulumi:"aclName"`
-	// ARN of the cluster.
-	Arn string `pulumi:"arn"`
-	// True when the cluster allows automatic minor version upgrades.
-	// * `clusterEndpoint`
+	AclName                 string                      `pulumi:"aclName"`
+	Arn                     string                      `pulumi:"arn"`
 	AutoMinorVersionUpgrade bool                        `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        []GetClusterClusterEndpoint `pulumi:"clusterEndpoints"`
-	// True when data tiering is enabled.
-	DataTiering bool `pulumi:"dataTiering"`
-	// Description for the cluster.
-	Description string `pulumi:"description"`
-	// Patch version number of the Redis engine used by the cluster.
-	EnginePatchVersion string `pulumi:"enginePatchVersion"`
-	// Version number of the Redis engine used by the cluster.
-	EngineVersion string `pulumi:"engineVersion"`
-	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
-	FinalSnapshotName string `pulumi:"finalSnapshotName"`
+	DataTiering             bool                        `pulumi:"dataTiering"`
+	Description             string                      `pulumi:"description"`
+	EnginePatchVersion      string                      `pulumi:"enginePatchVersion"`
+	EngineVersion           string                      `pulumi:"engineVersion"`
+	FinalSnapshotName       string                      `pulumi:"finalSnapshotName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the KMS key used to encrypt the cluster at rest.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
-	MaintenanceWindow string `pulumi:"maintenanceWindow"`
-	// Name of this node.
-	// * `endpoint`
-	Name string `pulumi:"name"`
-	// Compute and memory capacity of the nodes in the cluster.
-	NodeType string `pulumi:"nodeType"`
-	// The number of replicas to apply to each shard.
-	NumReplicasPerShard int `pulumi:"numReplicasPerShard"`
-	// Number of shards in the cluster.
-	NumShards int `pulumi:"numShards"`
-	// The name of the parameter group associated with the cluster.
-	ParameterGroupName string `pulumi:"parameterGroupName"`
-	// Port number that this node is listening on.
-	Port int `pulumi:"port"`
-	// Set of VPC Security Group ID-s associated with this cluster.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Set of shards in this cluster.
-	Shards []GetClusterShard `pulumi:"shards"`
-	// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
-	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
-	// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
-	SnapshotWindow string `pulumi:"snapshotWindow"`
-	// ARN of the SNS topic to which cluster notifications are sent.
-	// * `subnetGroupName` -The name of the subnet group used for the cluster.
-	SnsTopicArn     string `pulumi:"snsTopicArn"`
-	SubnetGroupName string `pulumi:"subnetGroupName"`
-	// Map of tags assigned to the cluster.
-	Tags map[string]string `pulumi:"tags"`
-	// When true, in-transit encryption is enabled for the cluster.
-	TlsEnabled bool `pulumi:"tlsEnabled"`
+	Id                     string            `pulumi:"id"`
+	KmsKeyArn              string            `pulumi:"kmsKeyArn"`
+	MaintenanceWindow      string            `pulumi:"maintenanceWindow"`
+	Name                   string            `pulumi:"name"`
+	NodeType               string            `pulumi:"nodeType"`
+	NumReplicasPerShard    int               `pulumi:"numReplicasPerShard"`
+	NumShards              int               `pulumi:"numShards"`
+	ParameterGroupName     string            `pulumi:"parameterGroupName"`
+	Port                   int               `pulumi:"port"`
+	SecurityGroupIds       []string          `pulumi:"securityGroupIds"`
+	Shards                 []GetClusterShard `pulumi:"shards"`
+	SnapshotRetentionLimit int               `pulumi:"snapshotRetentionLimit"`
+	SnapshotWindow         string            `pulumi:"snapshotWindow"`
+	SnsTopicArn            string            `pulumi:"snsTopicArn"`
+	SubnetGroupName        string            `pulumi:"subnetGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
+	TlsEnabled             bool              `pulumi:"tlsEnabled"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -126,9 +71,7 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 
 // A collection of arguments for invoking getCluster.
 type LookupClusterOutputArgs struct {
-	// Name of the cluster.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Map of tags assigned to the cluster.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -151,18 +94,14 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
-// Name of the Access Control List associated with the cluster.
 func (o LookupClusterResultOutput) AclName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.AclName }).(pulumi.StringOutput)
 }
 
-// ARN of the cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// True when the cluster allows automatic minor version upgrades.
-// * `clusterEndpoint`
 func (o LookupClusterResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
@@ -171,27 +110,22 @@ func (o LookupClusterResultOutput) ClusterEndpoints() GetClusterClusterEndpointA
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterEndpoint { return v.ClusterEndpoints }).(GetClusterClusterEndpointArrayOutput)
 }
 
-// True when data tiering is enabled.
 func (o LookupClusterResultOutput) DataTiering() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.DataTiering }).(pulumi.BoolOutput)
 }
 
-// Description for the cluster.
 func (o LookupClusterResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Patch version number of the Redis engine used by the cluster.
 func (o LookupClusterResultOutput) EnginePatchVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.EnginePatchVersion }).(pulumi.StringOutput)
 }
 
-// Version number of the Redis engine used by the cluster.
 func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 func (o LookupClusterResultOutput) FinalSnapshotName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.FinalSnapshotName }).(pulumi.StringOutput)
 }
@@ -201,69 +135,54 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the KMS key used to encrypt the cluster at rest.
 func (o LookupClusterResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
 func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// Name of this node.
-// * `endpoint`
 func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Compute and memory capacity of the nodes in the cluster.
 func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
 }
 
-// The number of replicas to apply to each shard.
 func (o LookupClusterResultOutput) NumReplicasPerShard() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumReplicasPerShard }).(pulumi.IntOutput)
 }
 
-// Number of shards in the cluster.
 func (o LookupClusterResultOutput) NumShards() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumShards }).(pulumi.IntOutput)
 }
 
-// The name of the parameter group associated with the cluster.
 func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ParameterGroupName }).(pulumi.StringOutput)
 }
 
-// Port number that this node is listening on.
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Set of VPC Security Group ID-s associated with this cluster.
 func (o LookupClusterResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Set of shards in this cluster.
 func (o LookupClusterResultOutput) Shards() GetClusterShardArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterShard { return v.Shards }).(GetClusterShardArrayOutput)
 }
 
-// The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
 func (o LookupClusterResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }
 
-// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
 func (o LookupClusterResultOutput) SnapshotWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SnapshotWindow }).(pulumi.StringOutput)
 }
 
-// ARN of the SNS topic to which cluster notifications are sent.
-// * `subnetGroupName` -The name of the subnet group used for the cluster.
 func (o LookupClusterResultOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
@@ -272,12 +191,10 @@ func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SubnetGroupName }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the cluster.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// When true, in-transit encryption is enabled for the cluster.
 func (o LookupClusterResultOutput) TlsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.TlsEnabled }).(pulumi.BoolOutput)
 }

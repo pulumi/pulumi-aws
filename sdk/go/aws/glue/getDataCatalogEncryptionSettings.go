@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCatalogEncryptionSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataCatalogEncryptionSettingsResult, error) {
 	var rv LookupDataCatalogEncryptionSettingsResult
 	err := ctx.Invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args, &rv, opts...)
@@ -22,14 +21,12 @@ func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCa
 
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsArgs struct {
-	// ID of the Data Catalog. This is typically the AWS account ID.
 	CatalogId string `pulumi:"catalogId"`
 }
 
 // A collection of values returned by getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsResult struct {
-	CatalogId string `pulumi:"catalogId"`
-	// The security configuration to set. see Data Catalog Encryption Settings.
+	CatalogId                     string                                                         `pulumi:"catalogId"`
 	DataCatalogEncryptionSettings []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting `pulumi:"dataCatalogEncryptionSettings"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -50,7 +47,6 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 
 // A collection of arguments for invoking getDataCatalogEncryptionSettings.
 type LookupDataCatalogEncryptionSettingsOutputArgs struct {
-	// ID of the Data Catalog. This is typically the AWS account ID.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 }
 
@@ -77,7 +73,6 @@ func (o LookupDataCatalogEncryptionSettingsResultOutput) CatalogId() pulumi.Stri
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// The security configuration to set. see Data Catalog Encryption Settings.
 func (o LookupDataCatalogEncryptionSettingsResultOutput) DataCatalogEncryptionSettings() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting {
 		return v.DataCatalogEncryptionSettings

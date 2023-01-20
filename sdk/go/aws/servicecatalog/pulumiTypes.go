@@ -11,18 +11,12 @@ import (
 )
 
 type ProductProvisioningArtifactParameters struct {
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description *string `pulumi:"description"`
-	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-	DisableTemplateValidation *bool `pulumi:"disableTemplateValidation"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-	Name *string `pulumi:"name"`
-	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
-	// Template source as URL of the CloudFormation template in Amazon S3.
-	TemplateUrl *string `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-	Type *string `pulumi:"type"`
+	Description               *string `pulumi:"description"`
+	DisableTemplateValidation *bool   `pulumi:"disableTemplateValidation"`
+	Name                      *string `pulumi:"name"`
+	TemplatePhysicalId        *string `pulumi:"templatePhysicalId"`
+	TemplateUrl               *string `pulumi:"templateUrl"`
+	Type                      *string `pulumi:"type"`
 }
 
 // ProductProvisioningArtifactParametersInput is an input type that accepts ProductProvisioningArtifactParametersArgs and ProductProvisioningArtifactParametersOutput values.
@@ -37,18 +31,12 @@ type ProductProvisioningArtifactParametersInput interface {
 }
 
 type ProductProvisioningArtifactParametersArgs struct {
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-	DisableTemplateValidation pulumi.BoolPtrInput `pulumi:"disableTemplateValidation"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-	TemplatePhysicalId pulumi.StringPtrInput `pulumi:"templatePhysicalId"`
-	// Template source as URL of the CloudFormation template in Amazon S3.
-	TemplateUrl pulumi.StringPtrInput `pulumi:"templateUrl"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Description               pulumi.StringPtrInput `pulumi:"description"`
+	DisableTemplateValidation pulumi.BoolPtrInput   `pulumi:"disableTemplateValidation"`
+	Name                      pulumi.StringPtrInput `pulumi:"name"`
+	TemplatePhysicalId        pulumi.StringPtrInput `pulumi:"templatePhysicalId"`
+	TemplateUrl               pulumi.StringPtrInput `pulumi:"templateUrl"`
+	Type                      pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ProductProvisioningArtifactParametersArgs) ElementType() reflect.Type {
@@ -128,32 +116,26 @@ func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifa
 	}).(ProductProvisioningArtifactParametersPtrOutput)
 }
 
-// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
 func (o ProductProvisioningArtifactParametersOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
 func (o ProductProvisioningArtifactParametersOutput) DisableTemplateValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *bool { return v.DisableTemplateValidation }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
 func (o ProductProvisioningArtifactParametersOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 func (o ProductProvisioningArtifactParametersOutput) TemplatePhysicalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.TemplatePhysicalId }).(pulumi.StringPtrOutput)
 }
 
-// Template source as URL of the CloudFormation template in Amazon S3.
 func (o ProductProvisioningArtifactParametersOutput) TemplateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }
 
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 func (o ProductProvisioningArtifactParametersOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -182,7 +164,6 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Elem() ProductProvisioni
 	}).(ProductProvisioningArtifactParametersOutput)
 }
 
-// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
 func (o ProductProvisioningArtifactParametersPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
 		if v == nil {
@@ -192,7 +173,6 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Description() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
 func (o ProductProvisioningArtifactParametersPtrOutput) DisableTemplateValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *bool {
 		if v == nil {
@@ -202,7 +182,6 @@ func (o ProductProvisioningArtifactParametersPtrOutput) DisableTemplateValidatio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
 func (o ProductProvisioningArtifactParametersPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
 		if v == nil {
@@ -212,7 +191,6 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Name() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 func (o ProductProvisioningArtifactParametersPtrOutput) TemplatePhysicalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
 		if v == nil {
@@ -222,7 +200,6 @@ func (o ProductProvisioningArtifactParametersPtrOutput) TemplatePhysicalId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Template source as URL of the CloudFormation template in Amazon S3.
 func (o ProductProvisioningArtifactParametersPtrOutput) TemplateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
 		if v == nil {
@@ -232,7 +209,6 @@ func (o ProductProvisioningArtifactParametersPtrOutput) TemplateUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
 		if v == nil {
@@ -243,12 +219,9 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrO
 }
 
 type ProvisionedProductOutputType struct {
-	// The description of the output.
 	Description *string `pulumi:"description"`
-	// Parameter key.
-	Key *string `pulumi:"key"`
-	// Parameter value.
-	Value *string `pulumi:"value"`
+	Key         *string `pulumi:"key"`
+	Value       *string `pulumi:"value"`
 }
 
 // ProvisionedProductOutputTypeInput is an input type that accepts ProvisionedProductOutputTypeArgs and ProvisionedProductOutputTypeOutput values.
@@ -263,12 +236,9 @@ type ProvisionedProductOutputTypeInput interface {
 }
 
 type ProvisionedProductOutputTypeArgs struct {
-	// The description of the output.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Parameter key.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Parameter value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ProvisionedProductOutputTypeArgs) ElementType() reflect.Type {
@@ -322,17 +292,14 @@ func (o ProvisionedProductOutputTypeOutput) ToProvisionedProductOutputTypeOutput
 	return o
 }
 
-// The description of the output.
 func (o ProvisionedProductOutputTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Parameter key.
 func (o ProvisionedProductOutputTypeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Parameter value.
 func (o ProvisionedProductOutputTypeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductOutputType) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -358,12 +325,9 @@ func (o ProvisionedProductOutputTypeArrayOutput) Index(i pulumi.IntInput) Provis
 }
 
 type ProvisionedProductProvisioningParameter struct {
-	// Parameter key.
-	Key string `pulumi:"key"`
-	// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
-	UsePreviousValue *bool `pulumi:"usePreviousValue"`
-	// Parameter value.
-	Value *string `pulumi:"value"`
+	Key              string  `pulumi:"key"`
+	UsePreviousValue *bool   `pulumi:"usePreviousValue"`
+	Value            *string `pulumi:"value"`
 }
 
 // ProvisionedProductProvisioningParameterInput is an input type that accepts ProvisionedProductProvisioningParameterArgs and ProvisionedProductProvisioningParameterOutput values.
@@ -378,12 +342,9 @@ type ProvisionedProductProvisioningParameterInput interface {
 }
 
 type ProvisionedProductProvisioningParameterArgs struct {
-	// Parameter key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
-	UsePreviousValue pulumi.BoolPtrInput `pulumi:"usePreviousValue"`
-	// Parameter value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Key              pulumi.StringInput    `pulumi:"key"`
+	UsePreviousValue pulumi.BoolPtrInput   `pulumi:"usePreviousValue"`
+	Value            pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ProvisionedProductProvisioningParameterArgs) ElementType() reflect.Type {
@@ -437,17 +398,14 @@ func (o ProvisionedProductProvisioningParameterOutput) ToProvisionedProductProvi
 	return o
 }
 
-// Parameter key.
 func (o ProvisionedProductProvisioningParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ProvisionedProductProvisioningParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
 func (o ProvisionedProductProvisioningParameterOutput) UsePreviousValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductProvisioningParameter) *bool { return v.UsePreviousValue }).(pulumi.BoolPtrOutput)
 }
 
-// Parameter value.
 func (o ProvisionedProductProvisioningParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductProvisioningParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -473,18 +431,12 @@ func (o ProvisionedProductProvisioningParameterArrayOutput) Index(i pulumi.IntIn
 }
 
 type ProvisionedProductStackSetProvisioningPreferences struct {
-	// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
-	Accounts []string `pulumi:"accounts"`
-	// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
-	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
-	// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
-	FailureTolerancePercentage *int `pulumi:"failureTolerancePercentage"`
-	// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
-	MaxConcurrencyCount *int `pulumi:"maxConcurrencyCount"`
-	// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
-	MaxConcurrencyPercentage *int `pulumi:"maxConcurrencyPercentage"`
-	// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
-	Regions []string `pulumi:"regions"`
+	Accounts                   []string `pulumi:"accounts"`
+	FailureToleranceCount      *int     `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage *int     `pulumi:"failureTolerancePercentage"`
+	MaxConcurrencyCount        *int     `pulumi:"maxConcurrencyCount"`
+	MaxConcurrencyPercentage   *int     `pulumi:"maxConcurrencyPercentage"`
+	Regions                    []string `pulumi:"regions"`
 }
 
 // ProvisionedProductStackSetProvisioningPreferencesInput is an input type that accepts ProvisionedProductStackSetProvisioningPreferencesArgs and ProvisionedProductStackSetProvisioningPreferencesOutput values.
@@ -499,18 +451,12 @@ type ProvisionedProductStackSetProvisioningPreferencesInput interface {
 }
 
 type ProvisionedProductStackSetProvisioningPreferencesArgs struct {
-	// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
-	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
-	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
-	// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
-	FailureTolerancePercentage pulumi.IntPtrInput `pulumi:"failureTolerancePercentage"`
-	// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
-	MaxConcurrencyCount pulumi.IntPtrInput `pulumi:"maxConcurrencyCount"`
-	// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
-	MaxConcurrencyPercentage pulumi.IntPtrInput `pulumi:"maxConcurrencyPercentage"`
-	// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
-	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	Accounts                   pulumi.StringArrayInput `pulumi:"accounts"`
+	FailureToleranceCount      pulumi.IntPtrInput      `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage pulumi.IntPtrInput      `pulumi:"failureTolerancePercentage"`
+	MaxConcurrencyCount        pulumi.IntPtrInput      `pulumi:"maxConcurrencyCount"`
+	MaxConcurrencyPercentage   pulumi.IntPtrInput      `pulumi:"maxConcurrencyPercentage"`
+	Regions                    pulumi.StringArrayInput `pulumi:"regions"`
 }
 
 func (ProvisionedProductStackSetProvisioningPreferencesArgs) ElementType() reflect.Type {
@@ -590,32 +536,26 @@ func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedPr
 	}).(ProvisionedProductStackSetProvisioningPreferencesPtrOutput)
 }
 
-// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
 func (o ProvisionedProductStackSetProvisioningPreferencesOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
 func (o ProvisionedProductStackSetProvisioningPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
 }
 
-// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
 func (o ProvisionedProductStackSetProvisioningPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
 func (o ProvisionedProductStackSetProvisioningPreferencesOutput) MaxConcurrencyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.MaxConcurrencyCount }).(pulumi.IntPtrOutput)
 }
 
-// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
 func (o ProvisionedProductStackSetProvisioningPreferencesOutput) MaxConcurrencyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.MaxConcurrencyPercentage }).(pulumi.IntPtrOutput)
 }
 
-// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
 func (o ProvisionedProductStackSetProvisioningPreferencesOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -644,7 +584,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Elem() Provi
 	}).(ProvisionedProductStackSetProvisioningPreferencesOutput)
 }
 
-// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) []string {
 		if v == nil {
@@ -654,7 +593,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Accounts() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
 		if v == nil {
@@ -664,7 +602,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) FailureToler
 	}).(pulumi.IntPtrOutput)
 }
 
-// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
 		if v == nil {
@@ -674,7 +611,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) FailureToler
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) MaxConcurrencyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
 		if v == nil {
@@ -684,7 +620,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) MaxConcurren
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) MaxConcurrencyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
 		if v == nil {
@@ -694,7 +629,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) MaxConcurren
 	}).(pulumi.IntPtrOutput)
 }
 
-// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) []string {
 		if v == nil {
@@ -705,16 +639,11 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Regions() pu
 }
 
 type ServiceActionDefinition struct {
-	// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
 	AssumeRole *string `pulumi:"assumeRole"`
-	// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
-	Name string `pulumi:"name"`
-	// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+	Name       string  `pulumi:"name"`
 	Parameters *string `pulumi:"parameters"`
-	// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
-	Type *string `pulumi:"type"`
-	// SSM document version. For example, `1`.
-	Version string `pulumi:"version"`
+	Type       *string `pulumi:"type"`
+	Version    string  `pulumi:"version"`
 }
 
 // ServiceActionDefinitionInput is an input type that accepts ServiceActionDefinitionArgs and ServiceActionDefinitionOutput values.
@@ -729,16 +658,11 @@ type ServiceActionDefinitionInput interface {
 }
 
 type ServiceActionDefinitionArgs struct {
-	// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
 	AssumeRole pulumi.StringPtrInput `pulumi:"assumeRole"`
-	// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
+	Name       pulumi.StringInput    `pulumi:"name"`
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
-	// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// SSM document version. For example, `1`.
-	Version pulumi.StringInput `pulumi:"version"`
+	Type       pulumi.StringPtrInput `pulumi:"type"`
+	Version    pulumi.StringInput    `pulumi:"version"`
 }
 
 func (ServiceActionDefinitionArgs) ElementType() reflect.Type {
@@ -818,27 +742,22 @@ func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutputWithCon
 	}).(ServiceActionDefinitionPtrOutput)
 }
 
-// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
 func (o ServiceActionDefinitionOutput) AssumeRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceActionDefinition) *string { return v.AssumeRole }).(pulumi.StringPtrOutput)
 }
 
-// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
 func (o ServiceActionDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceActionDefinition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
 func (o ServiceActionDefinitionOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceActionDefinition) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
 
-// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
 func (o ServiceActionDefinitionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceActionDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// SSM document version. For example, `1`.
 func (o ServiceActionDefinitionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceActionDefinition) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -867,7 +786,6 @@ func (o ServiceActionDefinitionPtrOutput) Elem() ServiceActionDefinitionOutput {
 	}).(ServiceActionDefinitionOutput)
 }
 
-// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
 func (o ServiceActionDefinitionPtrOutput) AssumeRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceActionDefinition) *string {
 		if v == nil {
@@ -877,7 +795,6 @@ func (o ServiceActionDefinitionPtrOutput) AssumeRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
 func (o ServiceActionDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceActionDefinition) *string {
 		if v == nil {
@@ -887,7 +804,6 @@ func (o ServiceActionDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
 func (o ServiceActionDefinitionPtrOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceActionDefinition) *string {
 		if v == nil {
@@ -897,7 +813,6 @@ func (o ServiceActionDefinitionPtrOutput) Parameters() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
 func (o ServiceActionDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceActionDefinition) *string {
 		if v == nil {
@@ -907,7 +822,6 @@ func (o ServiceActionDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSM document version. For example, `1`.
 func (o ServiceActionDefinitionPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceActionDefinition) *string {
 		if v == nil {
@@ -918,14 +832,10 @@ func (o ServiceActionDefinitionPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type GetLaunchPathsSummary struct {
-	// Block for constraints on the portfolio-product relationship. See details below.
 	ConstraintSummaries []GetLaunchPathsSummaryConstraintSummary `pulumi:"constraintSummaries"`
-	// Name of the portfolio to which the path was assigned.
-	Name string `pulumi:"name"`
-	// Identifier of the product path.
-	PathId string `pulumi:"pathId"`
-	// Tags associated with this product path.
-	Tags map[string]string `pulumi:"tags"`
+	Name                string                                   `pulumi:"name"`
+	PathId              string                                   `pulumi:"pathId"`
+	Tags                map[string]string                        `pulumi:"tags"`
 }
 
 // GetLaunchPathsSummaryInput is an input type that accepts GetLaunchPathsSummaryArgs and GetLaunchPathsSummaryOutput values.
@@ -940,14 +850,10 @@ type GetLaunchPathsSummaryInput interface {
 }
 
 type GetLaunchPathsSummaryArgs struct {
-	// Block for constraints on the portfolio-product relationship. See details below.
 	ConstraintSummaries GetLaunchPathsSummaryConstraintSummaryArrayInput `pulumi:"constraintSummaries"`
-	// Name of the portfolio to which the path was assigned.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Identifier of the product path.
-	PathId pulumi.StringInput `pulumi:"pathId"`
-	// Tags associated with this product path.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Name                pulumi.StringInput                               `pulumi:"name"`
+	PathId              pulumi.StringInput                               `pulumi:"pathId"`
+	Tags                pulumi.StringMapInput                            `pulumi:"tags"`
 }
 
 func (GetLaunchPathsSummaryArgs) ElementType() reflect.Type {
@@ -1001,22 +907,18 @@ func (o GetLaunchPathsSummaryOutput) ToGetLaunchPathsSummaryOutputWithContext(ct
 	return o
 }
 
-// Block for constraints on the portfolio-product relationship. See details below.
 func (o GetLaunchPathsSummaryOutput) ConstraintSummaries() GetLaunchPathsSummaryConstraintSummaryArrayOutput {
 	return o.ApplyT(func(v GetLaunchPathsSummary) []GetLaunchPathsSummaryConstraintSummary { return v.ConstraintSummaries }).(GetLaunchPathsSummaryConstraintSummaryArrayOutput)
 }
 
-// Name of the portfolio to which the path was assigned.
 func (o GetLaunchPathsSummaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchPathsSummary) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Identifier of the product path.
 func (o GetLaunchPathsSummaryOutput) PathId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchPathsSummary) string { return v.PathId }).(pulumi.StringOutput)
 }
 
-// Tags associated with this product path.
 func (o GetLaunchPathsSummaryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetLaunchPathsSummary) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -1042,10 +944,8 @@ func (o GetLaunchPathsSummaryArrayOutput) Index(i pulumi.IntInput) GetLaunchPath
 }
 
 type GetLaunchPathsSummaryConstraintSummary struct {
-	// Description of the constraint.
 	Description string `pulumi:"description"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type string `pulumi:"type"`
+	Type        string `pulumi:"type"`
 }
 
 // GetLaunchPathsSummaryConstraintSummaryInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArgs and GetLaunchPathsSummaryConstraintSummaryOutput values.
@@ -1060,10 +960,8 @@ type GetLaunchPathsSummaryConstraintSummaryInput interface {
 }
 
 type GetLaunchPathsSummaryConstraintSummaryArgs struct {
-	// Description of the constraint.
 	Description pulumi.StringInput `pulumi:"description"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type        pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetLaunchPathsSummaryConstraintSummaryArgs) ElementType() reflect.Type {
@@ -1117,12 +1015,10 @@ func (o GetLaunchPathsSummaryConstraintSummaryOutput) ToGetLaunchPathsSummaryCon
 	return o
 }
 
-// Description of the constraint.
 func (o GetLaunchPathsSummaryConstraintSummaryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
 func (o GetLaunchPathsSummaryConstraintSummaryOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1148,17 +1044,12 @@ func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetPortfolioConstraintsDetail struct {
-	// Identifier of the constraint.
 	ConstraintId string `pulumi:"constraintId"`
-	// Description of the constraint.
-	Description string `pulumi:"description"`
-	Owner       string `pulumi:"owner"`
-	// Portfolio identifier.
-	PortfolioId string `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId string `pulumi:"productId"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type string `pulumi:"type"`
+	Description  string `pulumi:"description"`
+	Owner        string `pulumi:"owner"`
+	PortfolioId  string `pulumi:"portfolioId"`
+	ProductId    string `pulumi:"productId"`
+	Type         string `pulumi:"type"`
 }
 
 // GetPortfolioConstraintsDetailInput is an input type that accepts GetPortfolioConstraintsDetailArgs and GetPortfolioConstraintsDetailOutput values.
@@ -1173,17 +1064,12 @@ type GetPortfolioConstraintsDetailInput interface {
 }
 
 type GetPortfolioConstraintsDetailArgs struct {
-	// Identifier of the constraint.
 	ConstraintId pulumi.StringInput `pulumi:"constraintId"`
-	// Description of the constraint.
-	Description pulumi.StringInput `pulumi:"description"`
-	Owner       pulumi.StringInput `pulumi:"owner"`
-	// Portfolio identifier.
-	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId pulumi.StringInput `pulumi:"productId"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Description  pulumi.StringInput `pulumi:"description"`
+	Owner        pulumi.StringInput `pulumi:"owner"`
+	PortfolioId  pulumi.StringInput `pulumi:"portfolioId"`
+	ProductId    pulumi.StringInput `pulumi:"productId"`
+	Type         pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetPortfolioConstraintsDetailArgs) ElementType() reflect.Type {
@@ -1237,12 +1123,10 @@ func (o GetPortfolioConstraintsDetailOutput) ToGetPortfolioConstraintsDetailOutp
 	return o
 }
 
-// Identifier of the constraint.
 func (o GetPortfolioConstraintsDetailOutput) ConstraintId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.ConstraintId }).(pulumi.StringOutput)
 }
 
-// Description of the constraint.
 func (o GetPortfolioConstraintsDetailOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -1251,17 +1135,14 @@ func (o GetPortfolioConstraintsDetailOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Portfolio identifier.
 func (o GetPortfolioConstraintsDetailOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
-// Product identifier.
 func (o GetPortfolioConstraintsDetailOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.ProductId }).(pulumi.StringOutput)
 }
 
-// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
 func (o GetPortfolioConstraintsDetailOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Type }).(pulumi.StringOutput)
 }

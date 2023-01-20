@@ -10,50 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ec2.getVpcIamPools` provides details about IPAM pools.
-//
-// This resource can prove useful when IPAM pools are created in another root
-// module and you need the pool ids as input variables. For example, pools
-// can be shared via RAM and used to create vpcs with CIDRs from that pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetVpcIamPools(ctx, &ec2.GetVpcIamPoolsArgs{
-//				Filters: []ec2.GetVpcIamPoolsFilter{
-//					{
-//						Name: "description",
-//						Values: []string{
-//							"*test*",
-//						},
-//					},
-//					{
-//						Name: "address-family",
-//						Values: []string{
-//							"ipv4",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVpcIamPools(ctx *pulumi.Context, args *GetVpcIamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolsResult, error) {
 	var rv GetVpcIamPoolsResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPools:getVpcIamPools", args, &rv, opts...)
@@ -65,7 +21,6 @@ func GetVpcIamPools(ctx *pulumi.Context, args *GetVpcIamPoolsArgs, opts ...pulum
 
 // A collection of arguments for invoking getVpcIamPools.
 type GetVpcIamPoolsArgs struct {
-	// Custom filter block as described below.
 	Filters []GetVpcIamPoolsFilter `pulumi:"filters"`
 }
 
@@ -73,8 +28,7 @@ type GetVpcIamPoolsArgs struct {
 type GetVpcIamPoolsResult struct {
 	Filters []GetVpcIamPoolsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of IPAM pools and their attributes. See below for details
+	Id        string                   `pulumi:"id"`
 	IpamPools []GetVpcIamPoolsIpamPool `pulumi:"ipamPools"`
 }
 
@@ -93,7 +47,6 @@ func GetVpcIamPoolsOutput(ctx *pulumi.Context, args GetVpcIamPoolsOutputArgs, op
 
 // A collection of arguments for invoking getVpcIamPools.
 type GetVpcIamPoolsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetVpcIamPoolsFilterArrayInput `pulumi:"filters"`
 }
 
@@ -125,7 +78,6 @@ func (o GetVpcIamPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of IPAM pools and their attributes. See below for details
 func (o GetVpcIamPoolsResultOutput) IpamPools() GetVpcIamPoolsIpamPoolArrayOutput {
 	return o.ApplyT(func(v GetVpcIamPoolsResult) []GetVpcIamPoolsIpamPool { return v.IpamPools }).(GetVpcIamPoolsIpamPoolArrayOutput)
 }

@@ -11,64 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Executes a Redshift Data Statement.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftdata"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//				Database:          pulumi.Any(aws_redshift_cluster.Example.Database_name),
-//				DbUser:            pulumi.Any(aws_redshift_cluster.Example.Master_username),
-//				Sql:               pulumi.String("CREATE GROUP group_name;"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Redshift Data Statements can be imported using the `id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:redshiftdata/statement:Statement example example
-//
-// ```
 type Statement struct {
 	pulumi.CustomResourceState
 
-	// The cluster identifier.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The name of the database.
-	Database pulumi.StringOutput `pulumi:"database"`
-	// The database user name.
-	DbUser     pulumi.StringPtrOutput        `pulumi:"dbUser"`
-	Parameters StatementParameterArrayOutput `pulumi:"parameters"`
-	// The name or ARN of the secret that enables access to the database.
-	SecretArn pulumi.StringPtrOutput `pulumi:"secretArn"`
-	// The SQL statement text to run.
-	Sql pulumi.StringOutput `pulumi:"sql"`
-	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-	StatementName pulumi.StringPtrOutput `pulumi:"statementName"`
-	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-	WithEvent pulumi.BoolPtrOutput `pulumi:"withEvent"`
+	ClusterIdentifier pulumi.StringPtrOutput        `pulumi:"clusterIdentifier"`
+	Database          pulumi.StringOutput           `pulumi:"database"`
+	DbUser            pulumi.StringPtrOutput        `pulumi:"dbUser"`
+	Parameters        StatementParameterArrayOutput `pulumi:"parameters"`
+	SecretArn         pulumi.StringPtrOutput        `pulumi:"secretArn"`
+	Sql               pulumi.StringOutput           `pulumi:"sql"`
+	StatementName     pulumi.StringPtrOutput        `pulumi:"statementName"`
+	WithEvent         pulumi.BoolPtrOutput          `pulumi:"withEvent"`
+	WorkgroupName     pulumi.StringPtrOutput        `pulumi:"workgroupName"`
 }
 
 // NewStatement registers a new resource with the given unique name, arguments, and options.
@@ -78,9 +32,6 @@ func NewStatement(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
-	}
 	if args.Database == nil {
 		return nil, errors.New("invalid value for required argument 'Database'")
 	}
@@ -109,39 +60,27 @@ func GetStatement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Statement resources.
 type statementState struct {
-	// The cluster identifier.
-	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The name of the database.
-	Database *string `pulumi:"database"`
-	// The database user name.
-	DbUser     *string              `pulumi:"dbUser"`
-	Parameters []StatementParameter `pulumi:"parameters"`
-	// The name or ARN of the secret that enables access to the database.
-	SecretArn *string `pulumi:"secretArn"`
-	// The SQL statement text to run.
-	Sql *string `pulumi:"sql"`
-	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-	StatementName *string `pulumi:"statementName"`
-	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-	WithEvent *bool `pulumi:"withEvent"`
+	ClusterIdentifier *string              `pulumi:"clusterIdentifier"`
+	Database          *string              `pulumi:"database"`
+	DbUser            *string              `pulumi:"dbUser"`
+	Parameters        []StatementParameter `pulumi:"parameters"`
+	SecretArn         *string              `pulumi:"secretArn"`
+	Sql               *string              `pulumi:"sql"`
+	StatementName     *string              `pulumi:"statementName"`
+	WithEvent         *bool                `pulumi:"withEvent"`
+	WorkgroupName     *string              `pulumi:"workgroupName"`
 }
 
 type StatementState struct {
-	// The cluster identifier.
 	ClusterIdentifier pulumi.StringPtrInput
-	// The name of the database.
-	Database pulumi.StringPtrInput
-	// The database user name.
-	DbUser     pulumi.StringPtrInput
-	Parameters StatementParameterArrayInput
-	// The name or ARN of the secret that enables access to the database.
-	SecretArn pulumi.StringPtrInput
-	// The SQL statement text to run.
-	Sql pulumi.StringPtrInput
-	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-	StatementName pulumi.StringPtrInput
-	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-	WithEvent pulumi.BoolPtrInput
+	Database          pulumi.StringPtrInput
+	DbUser            pulumi.StringPtrInput
+	Parameters        StatementParameterArrayInput
+	SecretArn         pulumi.StringPtrInput
+	Sql               pulumi.StringPtrInput
+	StatementName     pulumi.StringPtrInput
+	WithEvent         pulumi.BoolPtrInput
+	WorkgroupName     pulumi.StringPtrInput
 }
 
 func (StatementState) ElementType() reflect.Type {
@@ -149,40 +88,28 @@ func (StatementState) ElementType() reflect.Type {
 }
 
 type statementArgs struct {
-	// The cluster identifier.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The name of the database.
-	Database string `pulumi:"database"`
-	// The database user name.
-	DbUser     *string              `pulumi:"dbUser"`
-	Parameters []StatementParameter `pulumi:"parameters"`
-	// The name or ARN of the secret that enables access to the database.
-	SecretArn *string `pulumi:"secretArn"`
-	// The SQL statement text to run.
-	Sql string `pulumi:"sql"`
-	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-	StatementName *string `pulumi:"statementName"`
-	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-	WithEvent *bool `pulumi:"withEvent"`
+	ClusterIdentifier *string              `pulumi:"clusterIdentifier"`
+	Database          string               `pulumi:"database"`
+	DbUser            *string              `pulumi:"dbUser"`
+	Parameters        []StatementParameter `pulumi:"parameters"`
+	SecretArn         *string              `pulumi:"secretArn"`
+	Sql               string               `pulumi:"sql"`
+	StatementName     *string              `pulumi:"statementName"`
+	WithEvent         *bool                `pulumi:"withEvent"`
+	WorkgroupName     *string              `pulumi:"workgroupName"`
 }
 
 // The set of arguments for constructing a Statement resource.
 type StatementArgs struct {
-	// The cluster identifier.
-	ClusterIdentifier pulumi.StringInput
-	// The name of the database.
-	Database pulumi.StringInput
-	// The database user name.
-	DbUser     pulumi.StringPtrInput
-	Parameters StatementParameterArrayInput
-	// The name or ARN of the secret that enables access to the database.
-	SecretArn pulumi.StringPtrInput
-	// The SQL statement text to run.
-	Sql pulumi.StringInput
-	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-	StatementName pulumi.StringPtrInput
-	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-	WithEvent pulumi.BoolPtrInput
+	ClusterIdentifier pulumi.StringPtrInput
+	Database          pulumi.StringInput
+	DbUser            pulumi.StringPtrInput
+	Parameters        StatementParameterArrayInput
+	SecretArn         pulumi.StringPtrInput
+	Sql               pulumi.StringInput
+	StatementName     pulumi.StringPtrInput
+	WithEvent         pulumi.BoolPtrInput
+	WorkgroupName     pulumi.StringPtrInput
 }
 
 func (StatementArgs) ElementType() reflect.Type {
@@ -272,17 +199,14 @@ func (o StatementOutput) ToStatementOutputWithContext(ctx context.Context) State
 	return o
 }
 
-// The cluster identifier.
-func (o StatementOutput) ClusterIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
+func (o StatementOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Statement) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The name of the database.
 func (o StatementOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// The database user name.
 func (o StatementOutput) DbUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Statement) pulumi.StringPtrOutput { return v.DbUser }).(pulumi.StringPtrOutput)
 }
@@ -291,24 +215,24 @@ func (o StatementOutput) Parameters() StatementParameterArrayOutput {
 	return o.ApplyT(func(v *Statement) StatementParameterArrayOutput { return v.Parameters }).(StatementParameterArrayOutput)
 }
 
-// The name or ARN of the secret that enables access to the database.
 func (o StatementOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Statement) pulumi.StringPtrOutput { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-// The SQL statement text to run.
 func (o StatementOutput) Sql() pulumi.StringOutput {
 	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.Sql }).(pulumi.StringOutput)
 }
 
-// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 func (o StatementOutput) StatementName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Statement) pulumi.StringPtrOutput { return v.StatementName }).(pulumi.StringPtrOutput)
 }
 
-// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
 func (o StatementOutput) WithEvent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Statement) pulumi.BoolPtrOutput { return v.WithEvent }).(pulumi.BoolPtrOutput)
+}
+
+func (o StatementOutput) WorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Statement) pulumi.StringPtrOutput { return v.WorkgroupName }).(pulumi.StringPtrOutput)
 }
 
 type StatementArrayOutput struct{ *pulumi.OutputState }

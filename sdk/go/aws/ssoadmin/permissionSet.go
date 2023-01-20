@@ -11,40 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Single Sign-On (SSO) Permission Set resource
-//
-// > **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-//
-// ## Import
-//
-// SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-//
-// ```
 type PermissionSet struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The description of the Permission Set.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// The name of the Permission Set.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The relay state URL used to redirect users within the application during the federation authentication process.
-	RelayState pulumi.StringPtrOutput `pulumi:"relayState"`
-	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	CreatedDate     pulumi.StringOutput    `pulumi:"createdDate"`
+	Description     pulumi.StringPtrOutput `pulumi:"description"`
+	InstanceArn     pulumi.StringOutput    `pulumi:"instanceArn"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	RelayState      pulumi.StringPtrOutput `pulumi:"relayState"`
 	SessionDuration pulumi.StringPtrOutput `pulumi:"sessionDuration"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewPermissionSet registers a new resource with the given unique name, arguments, and options.
@@ -79,45 +57,27 @@ func GetPermissionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PermissionSet resources.
 type permissionSetState struct {
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	Arn *string `pulumi:"arn"`
-	// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreatedDate *string `pulumi:"createdDate"`
-	// The description of the Permission Set.
-	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn *string `pulumi:"instanceArn"`
-	// The name of the Permission Set.
-	Name *string `pulumi:"name"`
-	// The relay state URL used to redirect users within the application during the federation authentication process.
-	RelayState *string `pulumi:"relayState"`
-	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
-	SessionDuration *string `pulumi:"sessionDuration"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string           `pulumi:"arn"`
+	CreatedDate     *string           `pulumi:"createdDate"`
+	Description     *string           `pulumi:"description"`
+	InstanceArn     *string           `pulumi:"instanceArn"`
+	Name            *string           `pulumi:"name"`
+	RelayState      *string           `pulumi:"relayState"`
+	SessionDuration *string           `pulumi:"sessionDuration"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 type PermissionSetState struct {
-	// The Amazon Resource Name (ARN) of the Permission Set.
-	Arn pulumi.StringPtrInput
-	// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreatedDate pulumi.StringPtrInput
-	// The description of the Permission Set.
-	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringPtrInput
-	// The name of the Permission Set.
-	Name pulumi.StringPtrInput
-	// The relay state URL used to redirect users within the application during the federation authentication process.
-	RelayState pulumi.StringPtrInput
-	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+	Arn             pulumi.StringPtrInput
+	CreatedDate     pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
+	InstanceArn     pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	RelayState      pulumi.StringPtrInput
 	SessionDuration pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (PermissionSetState) ElementType() reflect.Type {
@@ -125,34 +85,22 @@ func (PermissionSetState) ElementType() reflect.Type {
 }
 
 type permissionSetArgs struct {
-	// The description of the Permission Set.
-	Description *string `pulumi:"description"`
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn string `pulumi:"instanceArn"`
-	// The name of the Permission Set.
-	Name *string `pulumi:"name"`
-	// The relay state URL used to redirect users within the application during the federation authentication process.
-	RelayState *string `pulumi:"relayState"`
-	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
-	SessionDuration *string `pulumi:"sessionDuration"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description     *string           `pulumi:"description"`
+	InstanceArn     string            `pulumi:"instanceArn"`
+	Name            *string           `pulumi:"name"`
+	RelayState      *string           `pulumi:"relayState"`
+	SessionDuration *string           `pulumi:"sessionDuration"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PermissionSet resource.
 type PermissionSetArgs struct {
-	// The description of the Permission Set.
-	Description pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-	InstanceArn pulumi.StringInput
-	// The name of the Permission Set.
-	Name pulumi.StringPtrInput
-	// The relay state URL used to redirect users within the application during the federation authentication process.
-	RelayState pulumi.StringPtrInput
-	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
+	Description     pulumi.StringPtrInput
+	InstanceArn     pulumi.StringInput
+	Name            pulumi.StringPtrInput
+	RelayState      pulumi.StringPtrInput
 	SessionDuration pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags            pulumi.StringMapInput
 }
 
 func (PermissionSetArgs) ElementType() reflect.Type {
@@ -242,47 +190,38 @@ func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Permission Set.
 func (o PermissionSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o PermissionSetOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The description of the Permission Set.
 func (o PermissionSetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
 func (o PermissionSetOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// The name of the Permission Set.
 func (o PermissionSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The relay state URL used to redirect users within the application during the federation authentication process.
 func (o PermissionSetOutput) RelayState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.RelayState }).(pulumi.StringPtrOutput)
 }
 
-// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
 func (o PermissionSetOutput) SessionDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.SessionDuration }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PermissionSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PermissionSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

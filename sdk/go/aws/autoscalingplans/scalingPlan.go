@@ -11,35 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Auto Scaling scaling plan.
-// More information can be found in the [AWS Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html).
-//
-// > **NOTE:** The AWS Auto Scaling service uses an AWS IAM service-linked role to manage predictive scaling of Amazon EC2 Auto Scaling groups. The service attempts to automatically create this role the first time a scaling plan with predictive scaling enabled is created.
-// An `iam.ServiceLinkedRole` resource can be used to manually manage this role.
-// See the [AWS documentation](https://docs.aws.amazon.com/autoscaling/plans/userguide/aws-auto-scaling-service-linked-roles.html#create-service-linked-role-manual) for more details.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Auto Scaling scaling plans can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
-//
-// ```
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSourceOutput `pulumi:"applicationSource"`
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSourceOutput       `pulumi:"applicationSource"`
+	Name                pulumi.StringOutput                      `pulumi:"name"`
 	ScalingInstructions ScalingPlanScalingInstructionArrayOutput `pulumi:"scalingInstructions"`
-	// The version number of the scaling plan. This value is always 1.
-	ScalingPlanVersion pulumi.IntOutput `pulumi:"scalingPlanVersion"`
+	ScalingPlanVersion  pulumi.IntOutput                         `pulumi:"scalingPlanVersion"`
 }
 
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
@@ -77,25 +55,17 @@ func GetScalingPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScalingPlan resources.
 type scalingPlanState struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource *ScalingPlanApplicationSource `pulumi:"applicationSource"`
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name *string `pulumi:"name"`
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   *ScalingPlanApplicationSource   `pulumi:"applicationSource"`
+	Name                *string                         `pulumi:"name"`
 	ScalingInstructions []ScalingPlanScalingInstruction `pulumi:"scalingInstructions"`
-	// The version number of the scaling plan. This value is always 1.
-	ScalingPlanVersion *int `pulumi:"scalingPlanVersion"`
+	ScalingPlanVersion  *int                            `pulumi:"scalingPlanVersion"`
 }
 
 type ScalingPlanState struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSourcePtrInput
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name pulumi.StringPtrInput
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSourcePtrInput
+	Name                pulumi.StringPtrInput
 	ScalingInstructions ScalingPlanScalingInstructionArrayInput
-	// The version number of the scaling plan. This value is always 1.
-	ScalingPlanVersion pulumi.IntPtrInput
+	ScalingPlanVersion  pulumi.IntPtrInput
 }
 
 func (ScalingPlanState) ElementType() reflect.Type {
@@ -103,21 +73,15 @@ func (ScalingPlanState) ElementType() reflect.Type {
 }
 
 type scalingPlanArgs struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSource `pulumi:"applicationSource"`
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name *string `pulumi:"name"`
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSource    `pulumi:"applicationSource"`
+	Name                *string                         `pulumi:"name"`
 	ScalingInstructions []ScalingPlanScalingInstruction `pulumi:"scalingInstructions"`
 }
 
 // The set of arguments for constructing a ScalingPlan resource.
 type ScalingPlanArgs struct {
-	// CloudFormation stack or set of tags. You can create one scaling plan per application source.
-	ApplicationSource ScalingPlanApplicationSourceInput
-	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-	Name pulumi.StringPtrInput
-	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+	ApplicationSource   ScalingPlanApplicationSourceInput
+	Name                pulumi.StringPtrInput
 	ScalingInstructions ScalingPlanScalingInstructionArrayInput
 }
 
@@ -208,22 +172,18 @@ func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// CloudFormation stack or set of tags. You can create one scaling plan per application source.
 func (o ScalingPlanOutput) ApplicationSource() ScalingPlanApplicationSourceOutput {
 	return o.ApplyT(func(v *ScalingPlan) ScalingPlanApplicationSourceOutput { return v.ApplicationSource }).(ScalingPlanApplicationSourceOutput)
 }
 
-// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 func (o ScalingPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 func (o ScalingPlanOutput) ScalingInstructions() ScalingPlanScalingInstructionArrayOutput {
 	return o.ApplyT(func(v *ScalingPlan) ScalingPlanScalingInstructionArrayOutput { return v.ScalingInstructions }).(ScalingPlanScalingInstructionArrayOutput)
 }
 
-// The version number of the scaling plan. This value is always 1.
 func (o ScalingPlanOutput) ScalingPlanVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.IntOutput { return v.ScalingPlanVersion }).(pulumi.IntOutput)
 }

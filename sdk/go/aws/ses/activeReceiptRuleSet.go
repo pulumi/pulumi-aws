@@ -11,39 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to designate the active SES receipt rule set
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewActiveReceiptRuleSet(ctx, "main", &ses.ActiveReceiptRuleSetArgs{
-//				RuleSetName: pulumi.String("primary-rules"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ActiveReceiptRuleSet struct {
 	pulumi.CustomResourceState
 
-	// The SES receipt rule set ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the rule set
+	Arn         pulumi.StringOutput `pulumi:"arn"`
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 }
 
@@ -79,16 +50,12 @@ func GetActiveReceiptRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActiveReceiptRuleSet resources.
 type activeReceiptRuleSetState struct {
-	// The SES receipt rule set ARN.
-	Arn *string `pulumi:"arn"`
-	// The name of the rule set
+	Arn         *string `pulumi:"arn"`
 	RuleSetName *string `pulumi:"ruleSetName"`
 }
 
 type ActiveReceiptRuleSetState struct {
-	// The SES receipt rule set ARN.
-	Arn pulumi.StringPtrInput
-	// The name of the rule set
+	Arn         pulumi.StringPtrInput
 	RuleSetName pulumi.StringPtrInput
 }
 
@@ -97,13 +64,11 @@ func (ActiveReceiptRuleSetState) ElementType() reflect.Type {
 }
 
 type activeReceiptRuleSetArgs struct {
-	// The name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a ActiveReceiptRuleSet resource.
 type ActiveReceiptRuleSetArgs struct {
-	// The name of the rule set
 	RuleSetName pulumi.StringInput
 }
 
@@ -194,12 +159,10 @@ func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetOutputWithContext(ctx 
 	return o
 }
 
-// The SES receipt rule set ARN.
 func (o ActiveReceiptRuleSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveReceiptRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the rule set
 func (o ActiveReceiptRuleSetOutput) RuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActiveReceiptRuleSet) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
 }

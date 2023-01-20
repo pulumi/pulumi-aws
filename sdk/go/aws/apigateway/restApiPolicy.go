@@ -11,81 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an API Gateway REST API Policy.
-//
-// > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
-//				RestApiId: testRestApi.ID(),
-//				Policy: testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "AWS": "*"
-//	      },
-//	      "Action": "execute-api:Invoke",
-//	      "Resource": "%v",
-//	      "Condition": {
-//	        "IpAddress": {
-//	          "aws:SourceIp": "123.123.123.123/32"
-//	        }
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `, executionArn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
-//
-// ```
 type RestApiPolicy struct {
 	pulumi.CustomResourceState
 
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// ID of the REST API.
+	Policy    pulumi.StringOutput `pulumi:"policy"`
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -124,16 +53,12 @@ func GetRestApiPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestApiPolicy resources.
 type restApiPolicyState struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy *string `pulumi:"policy"`
-	// ID of the REST API.
+	Policy    *string `pulumi:"policy"`
 	RestApiId *string `pulumi:"restApiId"`
 }
 
 type RestApiPolicyState struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy pulumi.StringPtrInput
-	// ID of the REST API.
+	Policy    pulumi.StringPtrInput
 	RestApiId pulumi.StringPtrInput
 }
 
@@ -142,17 +67,13 @@ func (RestApiPolicyState) ElementType() reflect.Type {
 }
 
 type restApiPolicyArgs struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy string `pulumi:"policy"`
-	// ID of the REST API.
+	Policy    string `pulumi:"policy"`
 	RestApiId string `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a RestApiPolicy resource.
 type RestApiPolicyArgs struct {
-	// JSON formatted policy document that controls access to the API Gateway.
-	Policy pulumi.StringInput
-	// ID of the REST API.
+	Policy    pulumi.StringInput
 	RestApiId pulumi.StringInput
 }
 
@@ -243,12 +164,10 @@ func (o RestApiPolicyOutput) ToRestApiPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
-// JSON formatted policy document that controls access to the API Gateway.
 func (o RestApiPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// ID of the REST API.
 func (o RestApiPolicyOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }

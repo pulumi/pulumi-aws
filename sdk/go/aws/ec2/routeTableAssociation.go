@@ -11,87 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create an association between a route table and a subnet or a route table and an
-// internet gateway or virtual private gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
-//				SubnetId:     pulumi.Any(aws_subnet.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewRouteTableAssociation(ctx, "routeTableAssociation", &ec2.RouteTableAssociationArgs{
-//				GatewayId:    pulumi.Any(aws_internet_gateway.Foo.Id),
-//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association. EC2 Route Table Associations can be imported using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example with EC2 Subnets
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
-//
-// ```
-//
-//	For example with EC2 Internet Gateways
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
-//
-// ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
-	// The ID of the routing table to associate with.
-	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	GatewayId    pulumi.StringPtrOutput `pulumi:"gatewayId"`
+	RouteTableId pulumi.StringOutput    `pulumi:"routeTableId"`
+	SubnetId     pulumi.StringPtrOutput `pulumi:"subnetId"`
 }
 
 // NewRouteTableAssociation registers a new resource with the given unique name, arguments, and options.
@@ -126,21 +51,15 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type routeTableAssociationState struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId *string `pulumi:"gatewayId"`
-	// The ID of the routing table to associate with.
+	GatewayId    *string `pulumi:"gatewayId"`
 	RouteTableId *string `pulumi:"routeTableId"`
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId *string `pulumi:"subnetId"`
+	SubnetId     *string `pulumi:"subnetId"`
 }
 
 type RouteTableAssociationState struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId pulumi.StringPtrInput
-	// The ID of the routing table to associate with.
+	GatewayId    pulumi.StringPtrInput
 	RouteTableId pulumi.StringPtrInput
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId pulumi.StringPtrInput
+	SubnetId     pulumi.StringPtrInput
 }
 
 func (RouteTableAssociationState) ElementType() reflect.Type {
@@ -148,22 +67,16 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type routeTableAssociationArgs struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId *string `pulumi:"gatewayId"`
-	// The ID of the routing table to associate with.
-	RouteTableId string `pulumi:"routeTableId"`
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId *string `pulumi:"subnetId"`
+	GatewayId    *string `pulumi:"gatewayId"`
+	RouteTableId string  `pulumi:"routeTableId"`
+	SubnetId     *string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
-	// The gateway ID to create an association. Conflicts with `subnetId`.
-	GatewayId pulumi.StringPtrInput
-	// The ID of the routing table to associate with.
+	GatewayId    pulumi.StringPtrInput
 	RouteTableId pulumi.StringInput
-	// The subnet ID to create an association. Conflicts with `gatewayId`.
-	SubnetId pulumi.StringPtrInput
+	SubnetId     pulumi.StringPtrInput
 }
 
 func (RouteTableAssociationArgs) ElementType() reflect.Type {
@@ -253,17 +166,14 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ct
 	return o
 }
 
-// The gateway ID to create an association. Conflicts with `subnetId`.
 func (o RouteTableAssociationOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringPtrOutput { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the routing table to associate with.
 func (o RouteTableAssociationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-// The subnet ID to create an association. Conflicts with `gatewayId`.
 func (o RouteTableAssociationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
 }

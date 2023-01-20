@@ -11,13 +11,10 @@ import (
 )
 
 type ResourceSetResource struct {
-	ComponentId *string `pulumi:"componentId"`
-	// Component for DNS/Routing Control Readiness Checks.
+	ComponentId       *string                               `pulumi:"componentId"`
 	DnsTargetResource *ResourceSetResourceDnsTargetResource `pulumi:"dnsTargetResource"`
-	// Recovery group ARN or cell ARN that contains this resource set.
-	ReadinessScopes []string `pulumi:"readinessScopes"`
-	// ARN of the resource.
-	ResourceArn *string `pulumi:"resourceArn"`
+	ReadinessScopes   []string                              `pulumi:"readinessScopes"`
+	ResourceArn       *string                               `pulumi:"resourceArn"`
 }
 
 // ResourceSetResourceInput is an input type that accepts ResourceSetResourceArgs and ResourceSetResourceOutput values.
@@ -32,13 +29,10 @@ type ResourceSetResourceInput interface {
 }
 
 type ResourceSetResourceArgs struct {
-	ComponentId pulumi.StringPtrInput `pulumi:"componentId"`
-	// Component for DNS/Routing Control Readiness Checks.
+	ComponentId       pulumi.StringPtrInput                        `pulumi:"componentId"`
 	DnsTargetResource ResourceSetResourceDnsTargetResourcePtrInput `pulumi:"dnsTargetResource"`
-	// Recovery group ARN or cell ARN that contains this resource set.
-	ReadinessScopes pulumi.StringArrayInput `pulumi:"readinessScopes"`
-	// ARN of the resource.
-	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
+	ReadinessScopes   pulumi.StringArrayInput                      `pulumi:"readinessScopes"`
+	ResourceArn       pulumi.StringPtrInput                        `pulumi:"resourceArn"`
 }
 
 func (ResourceSetResourceArgs) ElementType() reflect.Type {
@@ -96,17 +90,14 @@ func (o ResourceSetResourceOutput) ComponentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *string { return v.ComponentId }).(pulumi.StringPtrOutput)
 }
 
-// Component for DNS/Routing Control Readiness Checks.
 func (o ResourceSetResourceOutput) DnsTargetResource() ResourceSetResourceDnsTargetResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *ResourceSetResourceDnsTargetResource { return v.DnsTargetResource }).(ResourceSetResourceDnsTargetResourcePtrOutput)
 }
 
-// Recovery group ARN or cell ARN that contains this resource set.
 func (o ResourceSetResourceOutput) ReadinessScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetResource) []string { return v.ReadinessScopes }).(pulumi.StringArrayOutput)
 }
 
-// ARN of the resource.
 func (o ResourceSetResourceOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
@@ -132,15 +123,10 @@ func (o ResourceSetResourceArrayOutput) Index(i pulumi.IntInput) ResourceSetReso
 }
 
 type ResourceSetResourceDnsTargetResource struct {
-	// Domain name that is targeted.
-	DomainName string `pulumi:"domainName"`
-	// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-	HostedZoneArn *string `pulumi:"hostedZoneArn"`
-	// Resource record set ID that is targeted.
-	RecordSetId *string `pulumi:"recordSetId"`
-	// Type of DNS Record of target resource.
-	RecordType *string `pulumi:"recordType"`
-	// Target resource the R53 record specified with the above params points to.
+	DomainName     string                                              `pulumi:"domainName"`
+	HostedZoneArn  *string                                             `pulumi:"hostedZoneArn"`
+	RecordSetId    *string                                             `pulumi:"recordSetId"`
+	RecordType     *string                                             `pulumi:"recordType"`
 	TargetResource *ResourceSetResourceDnsTargetResourceTargetResource `pulumi:"targetResource"`
 }
 
@@ -156,15 +142,10 @@ type ResourceSetResourceDnsTargetResourceInput interface {
 }
 
 type ResourceSetResourceDnsTargetResourceArgs struct {
-	// Domain name that is targeted.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-	HostedZoneArn pulumi.StringPtrInput `pulumi:"hostedZoneArn"`
-	// Resource record set ID that is targeted.
-	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
-	// Type of DNS Record of target resource.
-	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
-	// Target resource the R53 record specified with the above params points to.
+	DomainName     pulumi.StringInput                                         `pulumi:"domainName"`
+	HostedZoneArn  pulumi.StringPtrInput                                      `pulumi:"hostedZoneArn"`
+	RecordSetId    pulumi.StringPtrInput                                      `pulumi:"recordSetId"`
+	RecordType     pulumi.StringPtrInput                                      `pulumi:"recordType"`
 	TargetResource ResourceSetResourceDnsTargetResourceTargetResourcePtrInput `pulumi:"targetResource"`
 }
 
@@ -245,27 +226,22 @@ func (o ResourceSetResourceDnsTargetResourceOutput) ToResourceSetResourceDnsTarg
 	}).(ResourceSetResourceDnsTargetResourcePtrOutput)
 }
 
-// Domain name that is targeted.
 func (o ResourceSetResourceDnsTargetResourceOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
 func (o ResourceSetResourceDnsTargetResourceOutput) HostedZoneArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *string { return v.HostedZoneArn }).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
 func (o ResourceSetResourceDnsTargetResourceOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
 
-// Type of DNS Record of target resource.
 func (o ResourceSetResourceDnsTargetResourceOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
-// Target resource the R53 record specified with the above params points to.
 func (o ResourceSetResourceDnsTargetResourceOutput) TargetResource() ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *ResourceSetResourceDnsTargetResourceTargetResource {
 		return v.TargetResource
@@ -296,7 +272,6 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) Elem() ResourceSetResourc
 	}).(ResourceSetResourceDnsTargetResourceOutput)
 }
 
-// Domain name that is targeted.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *string {
 		if v == nil {
@@ -306,7 +281,6 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) DomainName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) HostedZoneArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *string {
 		if v == nil {
@@ -316,7 +290,6 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) HostedZoneArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *string {
 		if v == nil {
@@ -326,7 +299,6 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) RecordSetId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of DNS Record of target resource.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *string {
 		if v == nil {
@@ -336,7 +308,6 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) RecordType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target resource the R53 record specified with the above params points to.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) TargetResource() ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *ResourceSetResourceDnsTargetResourceTargetResource {
 		if v == nil {
@@ -347,9 +318,7 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) TargetResource() Resource
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResource struct {
-	// NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
 	NlbResource *ResourceSetResourceDnsTargetResourceTargetResourceNlbResource `pulumi:"nlbResource"`
-	// Route53 resource a DNS Target Resource record points to.
 	R53Resource *ResourceSetResourceDnsTargetResourceTargetResourceR53Resource `pulumi:"r53Resource"`
 }
 
@@ -365,9 +334,7 @@ type ResourceSetResourceDnsTargetResourceTargetResourceInput interface {
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResourceArgs struct {
-	// NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
 	NlbResource ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrInput `pulumi:"nlbResource"`
-	// Route53 resource a DNS Target Resource record points to.
 	R53Resource ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrInput `pulumi:"r53Resource"`
 }
 
@@ -448,14 +415,12 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceOutput) ToResourceSetR
 	}).(ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput)
 }
 
-// NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceOutput) NlbResource() ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResource) *ResourceSetResourceDnsTargetResourceTargetResourceNlbResource {
 		return v.NlbResource
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput)
 }
 
-// Route53 resource a DNS Target Resource record points to.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceOutput) R53Resource() ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResource) *ResourceSetResourceDnsTargetResourceTargetResourceR53Resource {
 		return v.R53Resource
@@ -486,7 +451,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) Elem() Reso
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceOutput)
 }
 
-// NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
 func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) NlbResource() ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResourceTargetResource) *ResourceSetResourceDnsTargetResourceTargetResourceNlbResource {
 		if v == nil {
@@ -496,7 +460,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) NlbResource
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput)
 }
 
-// Route53 resource a DNS Target Resource record points to.
 func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) R53Resource() ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResourceTargetResource) *ResourceSetResourceDnsTargetResourceTargetResourceR53Resource {
 		if v == nil {
@@ -507,7 +470,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) R53Resource
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResourceNlbResource struct {
-	// NLB resource ARN.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -523,7 +485,6 @@ type ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceInput interfac
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs struct {
-	// NLB resource ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -604,7 +565,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput) ToR
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput)
 }
 
-// NLB resource ARN.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResourceNlbResource) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -633,7 +593,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) 
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput)
 }
 
-// NLB resource ARN.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResourceTargetResourceNlbResource) *string {
 		if v == nil {
@@ -644,9 +603,7 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) 
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResourceR53Resource struct {
-	// Domain name that is targeted.
-	DomainName *string `pulumi:"domainName"`
-	// Resource record set ID that is targeted.
+	DomainName  *string `pulumi:"domainName"`
 	RecordSetId *string `pulumi:"recordSetId"`
 }
 
@@ -662,9 +619,7 @@ type ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceInput interfac
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs struct {
-	// Domain name that is targeted.
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// Resource record set ID that is targeted.
+	DomainName  pulumi.StringPtrInput `pulumi:"domainName"`
 	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
 }
 
@@ -745,12 +700,10 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) ToR
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput)
 }
 
-// Domain name that is targeted.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
@@ -779,7 +732,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) 
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput)
 }
 
-// Domain name that is targeted.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string {
 		if v == nil {
@@ -789,7 +741,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string {
 		if v == nil {

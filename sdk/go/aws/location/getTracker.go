@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Location Service Tracker.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupTracker(ctx, &location.LookupTrackerArgs{
-//				TrackerName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.InvokeOption) (*LookupTrackerResult, error) {
 	var rv LookupTrackerResult
 	err := ctx.Invoke("aws:location/getTracker:getTracker", args, &rv, opts...)
@@ -48,31 +21,22 @@ func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getTracker.
 type LookupTrackerArgs struct {
-	// Key-value map of resource tags for the tracker.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the tracker resource.
-	TrackerName string `pulumi:"trackerName"`
+	Tags        map[string]string `pulumi:"tags"`
+	TrackerName string            `pulumi:"trackerName"`
 }
 
 // A collection of values returned by getTracker.
 type LookupTrackerResult struct {
-	// Timestamp for when the tracker resource was created in ISO 8601 format.
-	CreateTime string `pulumi:"createTime"`
-	// Optional description for the tracker resource.
+	CreateTime  string `pulumi:"createTime"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	// Position filtering method of the tracker resource.
-	PositionFiltering string `pulumi:"positionFiltering"`
-	// Key-value map of resource tags for the tracker.
-	Tags map[string]string `pulumi:"tags"`
-	// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
-	TrackerArn  string `pulumi:"trackerArn"`
-	TrackerName string `pulumi:"trackerName"`
-	// Timestamp for when the tracker resource was last updated in ISO 8601 format.
-	UpdateTime string `pulumi:"updateTime"`
+	Id                string            `pulumi:"id"`
+	KmsKeyId          string            `pulumi:"kmsKeyId"`
+	PositionFiltering string            `pulumi:"positionFiltering"`
+	Tags              map[string]string `pulumi:"tags"`
+	TrackerArn        string            `pulumi:"trackerArn"`
+	TrackerName       string            `pulumi:"trackerName"`
+	UpdateTime        string            `pulumi:"updateTime"`
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
@@ -90,10 +54,8 @@ func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts
 
 // A collection of arguments for invoking getTracker.
 type LookupTrackerOutputArgs struct {
-	// Key-value map of resource tags for the tracker.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Name of the tracker resource.
-	TrackerName pulumi.StringInput `pulumi:"trackerName"`
+	Tags        pulumi.StringMapInput `pulumi:"tags"`
+	TrackerName pulumi.StringInput    `pulumi:"trackerName"`
 }
 
 func (LookupTrackerOutputArgs) ElementType() reflect.Type {
@@ -115,12 +77,10 @@ func (o LookupTrackerResultOutput) ToLookupTrackerResultOutputWithContext(ctx co
 	return o
 }
 
-// Timestamp for when the tracker resource was created in ISO 8601 format.
 func (o LookupTrackerResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// Optional description for the tracker resource.
 func (o LookupTrackerResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -130,22 +90,18 @@ func (o LookupTrackerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
 func (o LookupTrackerResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Position filtering method of the tracker resource.
 func (o LookupTrackerResultOutput) PositionFiltering() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.PositionFiltering }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the tracker.
 func (o LookupTrackerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupTrackerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
 func (o LookupTrackerResultOutput) TrackerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.TrackerArn }).(pulumi.StringOutput)
 }
@@ -154,7 +110,6 @@ func (o LookupTrackerResultOutput) TrackerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.TrackerName }).(pulumi.StringOutput)
 }
 
-// Timestamp for when the tracker resource was last updated in ISO 8601 format.
 func (o LookupTrackerResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }

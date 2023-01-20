@@ -11,65 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Project resource.
-//
-//	> Note: If you are trying to use SageMaker projects with SageMaker studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `true`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewProject(ctx, "example", &sagemaker.ProjectArgs{
-//				ProjectName: pulumi.String("example"),
-//				ServiceCatalogProvisioningDetails: &sagemaker.ProjectServiceCatalogProvisioningDetailsArgs{
-//					ProductId: pulumi.Any(aws_servicecatalog_product.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// SageMaker Projects can be imported using the `project_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/project:Project example example
-//
-// ```
 type Project struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Project.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description for the project.
-	ProjectDescription pulumi.StringPtrOutput `pulumi:"projectDescription"`
-	// The ID of the project.
-	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// The name of the Project.
-	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+	Arn                               pulumi.StringOutput                            `pulumi:"arn"`
+	ProjectDescription                pulumi.StringPtrOutput                         `pulumi:"projectDescription"`
+	ProjectId                         pulumi.StringOutput                            `pulumi:"projectId"`
+	ProjectName                       pulumi.StringOutput                            `pulumi:"projectName"`
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsOutput `pulumi:"serviceCatalogProvisioningDetails"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags                              pulumi.StringMapOutput                         `pulumi:"tags"`
+	TagsAll                           pulumi.StringMapOutput                         `pulumi:"tagsAll"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -107,37 +58,23 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Project.
-	Arn *string `pulumi:"arn"`
-	// A description for the project.
-	ProjectDescription *string `pulumi:"projectDescription"`
-	// The ID of the project.
-	ProjectId *string `pulumi:"projectId"`
-	// The name of the Project.
-	ProjectName *string `pulumi:"projectName"`
-	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+	Arn                               *string                                   `pulumi:"arn"`
+	ProjectDescription                *string                                   `pulumi:"projectDescription"`
+	ProjectId                         *string                                   `pulumi:"projectId"`
+	ProjectName                       *string                                   `pulumi:"projectName"`
 	ServiceCatalogProvisioningDetails *ProjectServiceCatalogProvisioningDetails `pulumi:"serviceCatalogProvisioningDetails"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags                              map[string]string                         `pulumi:"tags"`
+	TagsAll                           map[string]string                         `pulumi:"tagsAll"`
 }
 
 type ProjectState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Project.
-	Arn pulumi.StringPtrInput
-	// A description for the project.
-	ProjectDescription pulumi.StringPtrInput
-	// The ID of the project.
-	ProjectId pulumi.StringPtrInput
-	// The name of the Project.
-	ProjectName pulumi.StringPtrInput
-	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+	Arn                               pulumi.StringPtrInput
+	ProjectDescription                pulumi.StringPtrInput
+	ProjectId                         pulumi.StringPtrInput
+	ProjectName                       pulumi.StringPtrInput
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags                              pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -145,26 +82,18 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// A description for the project.
-	ProjectDescription *string `pulumi:"projectDescription"`
-	// The name of the Project.
-	ProjectName string `pulumi:"projectName"`
-	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+	ProjectDescription                *string                                  `pulumi:"projectDescription"`
+	ProjectName                       string                                   `pulumi:"projectName"`
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetails `pulumi:"serviceCatalogProvisioningDetails"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                              map[string]string                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// A description for the project.
-	ProjectDescription pulumi.StringPtrInput
-	// The name of the Project.
-	ProjectName pulumi.StringInput
-	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+	ProjectDescription                pulumi.StringPtrInput
+	ProjectName                       pulumi.StringInput
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                              pulumi.StringMapInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -254,39 +183,32 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Project.
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description for the project.
 func (o ProjectOutput) ProjectDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProjectDescription }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the project.
 func (o ProjectOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// The name of the Project.
 func (o ProjectOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 func (o ProjectOutput) ServiceCatalogProvisioningDetails() ProjectServiceCatalogProvisioningDetailsOutput {
 	return o.ApplyT(func(v *Project) ProjectServiceCatalogProvisioningDetailsOutput {
 		return v.ServiceCatalogProvisioningDetails
 	}).(ProjectServiceCatalogProvisioningDetailsOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProjectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -11,167 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppSync Function.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Schema: pulumi.String(fmt.Sprintf(`type Mutation {
-//	  putPost(id: ID!, title: String!): Post
-//	}
-//
-//	type Post {
-//	  id: ID!
-//	  title: String!
-//	}
-//
-//	type Query {
-//	  singlePost(id: ID!): Post
-//	}
-//
-//	schema {
-//	  query: Query
-//	  mutation: Mutation
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDataSource, err := appsync.NewDataSource(ctx, "exampleDataSource", &appsync.DataSourceArgs{
-//				ApiId: exampleGraphQLApi.ID(),
-//				Name:  pulumi.String("example"),
-//				Type:  pulumi.String("HTTP"),
-//				HttpConfig: &appsync.DataSourceHttpConfigArgs{
-//					Endpoint: pulumi.String("http://example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewFunction(ctx, "exampleFunction", &appsync.FunctionArgs{
-//				ApiId:      exampleGraphQLApi.ID(),
-//				DataSource: exampleDataSource.Name,
-//				Name:       pulumi.String("example"),
-//				RequestMappingTemplate: pulumi.String(fmt.Sprintf(`{
-//	    "version": "2018-05-29",
-//	    "method": "GET",
-//	    "resourcePath": "/",
-//	    "params":{
-//	        "headers": $utils.http.copyheaders($ctx.request.headers)
-//	    }
-//	}
-//
-// `)),
-//
-//				ResponseMappingTemplate: pulumi.String(fmt.Sprintf("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n")),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With Code
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
-//				ApiId:      pulumi.Any(aws_appsync_graphql_api.Example.Id),
-//				DataSource: pulumi.Any(aws_appsync_datasource.Example.Name),
-//				Name:       pulumi.String("example"),
-//				Code:       readFileOrPanic("some-code-dir"),
-//				Runtime: &appsync.FunctionRuntimeArgs{
-//					Name:           pulumi.String("APPSYNC_JS"),
-//					RuntimeVersion: pulumi.String("1.0.0"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
-//
-// ```
 type Function struct {
 	pulumi.CustomResourceState
 
-	// ID of the associated AppSync API.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// ARN of the Function object.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-	Code pulumi.StringPtrOutput `pulumi:"code"`
-	// Function data source name.
-	DataSource pulumi.StringOutput `pulumi:"dataSource"`
-	// Function description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Unique ID representing the Function object.
-	FunctionId pulumi.StringOutput `pulumi:"functionId"`
-	// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
-	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate pulumi.StringPtrOutput `pulumi:"requestMappingTemplate"`
-	// Function response mapping template.
-	ResponseMappingTemplate pulumi.StringPtrOutput `pulumi:"responseMappingTemplate"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-	Runtime FunctionRuntimePtrOutput `pulumi:"runtime"`
-	// Describes a Sync configuration for a resolver. See Sync Config.
-	SyncConfig FunctionSyncConfigPtrOutput `pulumi:"syncConfig"`
+	ApiId                   pulumi.StringOutput         `pulumi:"apiId"`
+	Arn                     pulumi.StringOutput         `pulumi:"arn"`
+	Code                    pulumi.StringPtrOutput      `pulumi:"code"`
+	DataSource              pulumi.StringOutput         `pulumi:"dataSource"`
+	Description             pulumi.StringPtrOutput      `pulumi:"description"`
+	FunctionId              pulumi.StringOutput         `pulumi:"functionId"`
+	FunctionVersion         pulumi.StringOutput         `pulumi:"functionVersion"`
+	MaxBatchSize            pulumi.IntPtrOutput         `pulumi:"maxBatchSize"`
+	Name                    pulumi.StringOutput         `pulumi:"name"`
+	RequestMappingTemplate  pulumi.StringPtrOutput      `pulumi:"requestMappingTemplate"`
+	ResponseMappingTemplate pulumi.StringPtrOutput      `pulumi:"responseMappingTemplate"`
+	Runtime                 FunctionRuntimePtrOutput    `pulumi:"runtime"`
+	SyncConfig              FunctionSyncConfigPtrOutput `pulumi:"syncConfig"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -209,61 +64,35 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	// ID of the associated AppSync API.
-	ApiId *string `pulumi:"apiId"`
-	// ARN of the Function object.
-	Arn *string `pulumi:"arn"`
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-	Code *string `pulumi:"code"`
-	// Function data source name.
-	DataSource *string `pulumi:"dataSource"`
-	// Function description.
-	Description *string `pulumi:"description"`
-	// Unique ID representing the Function object.
-	FunctionId *string `pulumi:"functionId"`
-	// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-	FunctionVersion *string `pulumi:"functionVersion"`
-	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name *string `pulumi:"name"`
-	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
-	// Function response mapping template.
-	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-	Runtime *FunctionRuntime `pulumi:"runtime"`
-	// Describes a Sync configuration for a resolver. See Sync Config.
-	SyncConfig *FunctionSyncConfig `pulumi:"syncConfig"`
+	ApiId                   *string             `pulumi:"apiId"`
+	Arn                     *string             `pulumi:"arn"`
+	Code                    *string             `pulumi:"code"`
+	DataSource              *string             `pulumi:"dataSource"`
+	Description             *string             `pulumi:"description"`
+	FunctionId              *string             `pulumi:"functionId"`
+	FunctionVersion         *string             `pulumi:"functionVersion"`
+	MaxBatchSize            *int                `pulumi:"maxBatchSize"`
+	Name                    *string             `pulumi:"name"`
+	RequestMappingTemplate  *string             `pulumi:"requestMappingTemplate"`
+	ResponseMappingTemplate *string             `pulumi:"responseMappingTemplate"`
+	Runtime                 *FunctionRuntime    `pulumi:"runtime"`
+	SyncConfig              *FunctionSyncConfig `pulumi:"syncConfig"`
 }
 
 type FunctionState struct {
-	// ID of the associated AppSync API.
-	ApiId pulumi.StringPtrInput
-	// ARN of the Function object.
-	Arn pulumi.StringPtrInput
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-	Code pulumi.StringPtrInput
-	// Function data source name.
-	DataSource pulumi.StringPtrInput
-	// Function description.
-	Description pulumi.StringPtrInput
-	// Unique ID representing the Function object.
-	FunctionId pulumi.StringPtrInput
-	// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-	FunctionVersion pulumi.StringPtrInput
-	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-	MaxBatchSize pulumi.IntPtrInput
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name pulumi.StringPtrInput
-	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate pulumi.StringPtrInput
-	// Function response mapping template.
+	ApiId                   pulumi.StringPtrInput
+	Arn                     pulumi.StringPtrInput
+	Code                    pulumi.StringPtrInput
+	DataSource              pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	FunctionId              pulumi.StringPtrInput
+	FunctionVersion         pulumi.StringPtrInput
+	MaxBatchSize            pulumi.IntPtrInput
+	Name                    pulumi.StringPtrInput
+	RequestMappingTemplate  pulumi.StringPtrInput
 	ResponseMappingTemplate pulumi.StringPtrInput
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-	Runtime FunctionRuntimePtrInput
-	// Describes a Sync configuration for a resolver. See Sync Config.
-	SyncConfig FunctionSyncConfigPtrInput
+	Runtime                 FunctionRuntimePtrInput
+	SyncConfig              FunctionSyncConfigPtrInput
 }
 
 func (FunctionState) ElementType() reflect.Type {
@@ -271,54 +100,32 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// ID of the associated AppSync API.
-	ApiId string `pulumi:"apiId"`
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-	Code *string `pulumi:"code"`
-	// Function data source name.
-	DataSource string `pulumi:"dataSource"`
-	// Function description.
-	Description *string `pulumi:"description"`
-	// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-	FunctionVersion *string `pulumi:"functionVersion"`
-	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name *string `pulumi:"name"`
-	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
-	// Function response mapping template.
-	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-	Runtime *FunctionRuntime `pulumi:"runtime"`
-	// Describes a Sync configuration for a resolver. See Sync Config.
-	SyncConfig *FunctionSyncConfig `pulumi:"syncConfig"`
+	ApiId                   string              `pulumi:"apiId"`
+	Code                    *string             `pulumi:"code"`
+	DataSource              string              `pulumi:"dataSource"`
+	Description             *string             `pulumi:"description"`
+	FunctionVersion         *string             `pulumi:"functionVersion"`
+	MaxBatchSize            *int                `pulumi:"maxBatchSize"`
+	Name                    *string             `pulumi:"name"`
+	RequestMappingTemplate  *string             `pulumi:"requestMappingTemplate"`
+	ResponseMappingTemplate *string             `pulumi:"responseMappingTemplate"`
+	Runtime                 *FunctionRuntime    `pulumi:"runtime"`
+	SyncConfig              *FunctionSyncConfig `pulumi:"syncConfig"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// ID of the associated AppSync API.
-	ApiId pulumi.StringInput
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-	Code pulumi.StringPtrInput
-	// Function data source name.
-	DataSource pulumi.StringInput
-	// Function description.
-	Description pulumi.StringPtrInput
-	// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-	FunctionVersion pulumi.StringPtrInput
-	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-	MaxBatchSize pulumi.IntPtrInput
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-	Name pulumi.StringPtrInput
-	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-	RequestMappingTemplate pulumi.StringPtrInput
-	// Function response mapping template.
+	ApiId                   pulumi.StringInput
+	Code                    pulumi.StringPtrInput
+	DataSource              pulumi.StringInput
+	Description             pulumi.StringPtrInput
+	FunctionVersion         pulumi.StringPtrInput
+	MaxBatchSize            pulumi.IntPtrInput
+	Name                    pulumi.StringPtrInput
+	RequestMappingTemplate  pulumi.StringPtrInput
 	ResponseMappingTemplate pulumi.StringPtrInput
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-	Runtime FunctionRuntimePtrInput
-	// Describes a Sync configuration for a resolver. See Sync Config.
-	SyncConfig FunctionSyncConfigPtrInput
+	Runtime                 FunctionRuntimePtrInput
+	SyncConfig              FunctionSyncConfigPtrInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {
@@ -408,67 +215,54 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
-// ID of the associated AppSync API.
 func (o FunctionOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// ARN of the Function object.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 func (o FunctionOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Function data source name.
 func (o FunctionOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// Function description.
 func (o FunctionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Unique ID representing the Function object.
 func (o FunctionOutput) FunctionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionId }).(pulumi.StringOutput)
 }
 
-// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
 func (o FunctionOutput) FunctionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionVersion }).(pulumi.StringOutput)
 }
 
-// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 func (o FunctionOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 func (o FunctionOutput) RequestMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.RequestMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Function response mapping template.
 func (o FunctionOutput) ResponseMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.ResponseMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
 func (o FunctionOutput) Runtime() FunctionRuntimePtrOutput {
 	return o.ApplyT(func(v *Function) FunctionRuntimePtrOutput { return v.Runtime }).(FunctionRuntimePtrOutput)
 }
 
-// Describes a Sync configuration for a resolver. See Sync Config.
 func (o FunctionOutput) SyncConfig() FunctionSyncConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSyncConfigPtrOutput { return v.SyncConfig }).(FunctionSyncConfigPtrOutput)
 }

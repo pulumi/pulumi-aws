@@ -10,70 +10,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Container Registry Repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
-//				ImageScanningConfiguration: &ecr.RepositoryImageScanningConfigurationArgs{
-//					ScanOnPush: pulumi.Bool(true),
-//				},
-//				ImageTagMutability: pulumi.String("MUTABLE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ECR Repositories can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ecr/repository:Repository service test-service
-//
-// ```
 type Repository struct {
 	pulumi.CustomResourceState
 
-	// Full ARN of the repository.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Encryption configuration for the repository. See below for schema.
-	EncryptionConfigurations RepositoryEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
-	// If `true`, will delete the repository even if it contains images.
-	// Defaults to `false`.
-	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
-	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	Arn                        pulumi.StringOutput                           `pulumi:"arn"`
+	EncryptionConfigurations   RepositoryEncryptionConfigurationArrayOutput  `pulumi:"encryptionConfigurations"`
+	ForceDelete                pulumi.BoolPtrOutput                          `pulumi:"forceDelete"`
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability pulumi.StringPtrOutput `pulumi:"imageTagMutability"`
-	// Name of the repository.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The registry ID where the repository was created.
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
-	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ImageTagMutability         pulumi.StringPtrOutput                        `pulumi:"imageTagMutability"`
+	Name                       pulumi.StringOutput                           `pulumi:"name"`
+	RegistryId                 pulumi.StringOutput                           `pulumi:"registryId"`
+	RepositoryUrl              pulumi.StringOutput                           `pulumi:"repositoryUrl"`
+	Tags                       pulumi.StringMapOutput                        `pulumi:"tags"`
+	TagsAll                    pulumi.StringMapOutput                        `pulumi:"tagsAll"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -105,51 +54,29 @@ func GetRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Repository resources.
 type repositoryState struct {
-	// Full ARN of the repository.
-	Arn *string `pulumi:"arn"`
-	// Encryption configuration for the repository. See below for schema.
-	EncryptionConfigurations []RepositoryEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// If `true`, will delete the repository even if it contains images.
-	// Defaults to `false`.
-	ForceDelete *bool `pulumi:"forceDelete"`
-	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	Arn                        *string                               `pulumi:"arn"`
+	EncryptionConfigurations   []RepositoryEncryptionConfiguration   `pulumi:"encryptionConfigurations"`
+	ForceDelete                *bool                                 `pulumi:"forceDelete"`
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability *string `pulumi:"imageTagMutability"`
-	// Name of the repository.
-	Name *string `pulumi:"name"`
-	// The registry ID where the repository was created.
-	RegistryId *string `pulumi:"registryId"`
-	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl *string `pulumi:"repositoryUrl"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	ImageTagMutability         *string                               `pulumi:"imageTagMutability"`
+	Name                       *string                               `pulumi:"name"`
+	RegistryId                 *string                               `pulumi:"registryId"`
+	RepositoryUrl              *string                               `pulumi:"repositoryUrl"`
+	Tags                       map[string]string                     `pulumi:"tags"`
+	TagsAll                    map[string]string                     `pulumi:"tagsAll"`
 }
 
 type RepositoryState struct {
-	// Full ARN of the repository.
-	Arn pulumi.StringPtrInput
-	// Encryption configuration for the repository. See below for schema.
-	EncryptionConfigurations RepositoryEncryptionConfigurationArrayInput
-	// If `true`, will delete the repository even if it contains images.
-	// Defaults to `false`.
-	ForceDelete pulumi.BoolPtrInput
-	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	Arn                        pulumi.StringPtrInput
+	EncryptionConfigurations   RepositoryEncryptionConfigurationArrayInput
+	ForceDelete                pulumi.BoolPtrInput
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability pulumi.StringPtrInput
-	// Name of the repository.
-	Name pulumi.StringPtrInput
-	// The registry ID where the repository was created.
-	RegistryId pulumi.StringPtrInput
-	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ImageTagMutability         pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	RegistryId                 pulumi.StringPtrInput
+	RepositoryUrl              pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TagsAll                    pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {
@@ -157,36 +84,22 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	// Encryption configuration for the repository. See below for schema.
-	EncryptionConfigurations []RepositoryEncryptionConfiguration `pulumi:"encryptionConfigurations"`
-	// If `true`, will delete the repository even if it contains images.
-	// Defaults to `false`.
-	ForceDelete *bool `pulumi:"forceDelete"`
-	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	EncryptionConfigurations   []RepositoryEncryptionConfiguration   `pulumi:"encryptionConfigurations"`
+	ForceDelete                *bool                                 `pulumi:"forceDelete"`
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability *string `pulumi:"imageTagMutability"`
-	// Name of the repository.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ImageTagMutability         *string                               `pulumi:"imageTagMutability"`
+	Name                       *string                               `pulumi:"name"`
+	Tags                       map[string]string                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	// Encryption configuration for the repository. See below for schema.
-	EncryptionConfigurations RepositoryEncryptionConfigurationArrayInput
-	// If `true`, will delete the repository even if it contains images.
-	// Defaults to `false`.
-	ForceDelete pulumi.BoolPtrInput
-	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+	EncryptionConfigurations   RepositoryEncryptionConfigurationArrayInput
+	ForceDelete                pulumi.BoolPtrInput
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
-	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-	ImageTagMutability pulumi.StringPtrInput
-	// Name of the repository.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ImageTagMutability         pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -276,53 +189,42 @@ func (o RepositoryOutput) ToRepositoryOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
-// Full ARN of the repository.
 func (o RepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Encryption configuration for the repository. See below for schema.
 func (o RepositoryOutput) EncryptionConfigurations() RepositoryEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *Repository) RepositoryEncryptionConfigurationArrayOutput { return v.EncryptionConfigurations }).(RepositoryEncryptionConfigurationArrayOutput)
 }
 
-// If `true`, will delete the repository even if it contains images.
-// Defaults to `false`.
 func (o RepositoryOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 func (o RepositoryOutput) ImageScanningConfiguration() RepositoryImageScanningConfigurationPtrOutput {
 	return o.ApplyT(func(v *Repository) RepositoryImageScanningConfigurationPtrOutput { return v.ImageScanningConfiguration }).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
 func (o RepositoryOutput) ImageTagMutability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.ImageTagMutability }).(pulumi.StringPtrOutput)
 }
 
-// Name of the repository.
 func (o RepositoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The registry ID where the repository was created.
 func (o RepositoryOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 func (o RepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringOutput { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RepositoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RepositoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Repository) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

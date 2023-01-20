@@ -10,36 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a Lambda Layer Version.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			layerName := cfg.Require("layerName")
-//			_, err := lambda.LookupLayerVersion(ctx, &lambda.LookupLayerVersionArgs{
-//				LayerName: layerName,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts ...pulumi.InvokeOption) (*LookupLayerVersionResult, error) {
 	var rv LookupLayerVersionResult
 	err := ctx.Invoke("aws:lambda/getLayerVersion:getLayerVersion", args, &rv, opts...)
@@ -51,47 +21,31 @@ func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts 
 
 // A collection of arguments for invoking getLayerVersion.
 type LookupLayerVersionArgs struct {
-	// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
 	CompatibleArchitecture *string `pulumi:"compatibleArchitecture"`
-	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
-	// Name of the lambda layer.
-	LayerName string `pulumi:"layerName"`
-	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
-	Version *int `pulumi:"version"`
+	CompatibleRuntime      *string `pulumi:"compatibleRuntime"`
+	LayerName              string  `pulumi:"layerName"`
+	Version                *int    `pulumi:"version"`
 }
 
 // A collection of values returned by getLayerVersion.
 type LookupLayerVersionResult struct {
-	// ARN of the Lambda Layer with version.
-	Arn                    string  `pulumi:"arn"`
-	CompatibleArchitecture *string `pulumi:"compatibleArchitecture"`
-	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
+	Arn                     string   `pulumi:"arn"`
+	CompatibleArchitecture  *string  `pulumi:"compatibleArchitecture"`
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
 	CompatibleRuntime       *string  `pulumi:"compatibleRuntime"`
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
-	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
-	// Date this resource was created.
-	CreatedDate string `pulumi:"createdDate"`
-	// Description of the specific Lambda Layer version.
-	Description string `pulumi:"description"`
+	CompatibleRuntimes      []string `pulumi:"compatibleRuntimes"`
+	CreatedDate             string   `pulumi:"createdDate"`
+	Description             string   `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the Lambda Layer without version.
-	LayerArn  string `pulumi:"layerArn"`
-	LayerName string `pulumi:"layerName"`
-	// License info associated with the specific Lambda Layer version.
-	LicenseInfo string `pulumi:"licenseInfo"`
-	// ARN of a signing job.
-	SigningJobArn string `pulumi:"signingJobArn"`
-	// The ARN for a signing profile version.
+	Id                       string `pulumi:"id"`
+	LayerArn                 string `pulumi:"layerArn"`
+	LayerName                string `pulumi:"layerName"`
+	LicenseInfo              string `pulumi:"licenseInfo"`
+	SigningJobArn            string `pulumi:"signingJobArn"`
 	SigningProfileVersionArn string `pulumi:"signingProfileVersionArn"`
-	// Base64-encoded representation of raw SHA-256 sum of the zip file.
-	SourceCodeHash string `pulumi:"sourceCodeHash"`
-	// Size in bytes of the function .zip file.
-	SourceCodeSize int `pulumi:"sourceCodeSize"`
-	// This Lamba Layer version.
-	Version int `pulumi:"version"`
+	SourceCodeHash           string `pulumi:"sourceCodeHash"`
+	SourceCodeSize           int    `pulumi:"sourceCodeSize"`
+	Version                  int    `pulumi:"version"`
 }
 
 func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutputArgs, opts ...pulumi.InvokeOption) LookupLayerVersionResultOutput {
@@ -109,14 +63,10 @@ func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutput
 
 // A collection of arguments for invoking getLayerVersion.
 type LookupLayerVersionOutputArgs struct {
-	// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
 	CompatibleArchitecture pulumi.StringPtrInput `pulumi:"compatibleArchitecture"`
-	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
-	CompatibleRuntime pulumi.StringPtrInput `pulumi:"compatibleRuntime"`
-	// Name of the lambda layer.
-	LayerName pulumi.StringInput `pulumi:"layerName"`
-	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
-	Version pulumi.IntPtrInput `pulumi:"version"`
+	CompatibleRuntime      pulumi.StringPtrInput `pulumi:"compatibleRuntime"`
+	LayerName              pulumi.StringInput    `pulumi:"layerName"`
+	Version                pulumi.IntPtrInput    `pulumi:"version"`
 }
 
 func (LookupLayerVersionOutputArgs) ElementType() reflect.Type {
@@ -138,7 +88,6 @@ func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutputWithCont
 	return o
 }
 
-// ARN of the Lambda Layer with version.
 func (o LookupLayerVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -147,7 +96,6 @@ func (o LookupLayerVersionResultOutput) CompatibleArchitecture() pulumi.StringPt
 	return o.ApplyT(func(v LookupLayerVersionResult) *string { return v.CompatibleArchitecture }).(pulumi.StringPtrOutput)
 }
 
-// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
 func (o LookupLayerVersionResultOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) []string { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
 }
@@ -156,17 +104,14 @@ func (o LookupLayerVersionResultOutput) CompatibleRuntime() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupLayerVersionResult) *string { return v.CompatibleRuntime }).(pulumi.StringPtrOutput)
 }
 
-// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
 func (o LookupLayerVersionResultOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) []string { return v.CompatibleRuntimes }).(pulumi.StringArrayOutput)
 }
 
-// Date this resource was created.
 func (o LookupLayerVersionResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the specific Lambda Layer version.
 func (o LookupLayerVersionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -176,7 +121,6 @@ func (o LookupLayerVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the Lambda Layer without version.
 func (o LookupLayerVersionResultOutput) LayerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.LayerArn }).(pulumi.StringOutput)
 }
@@ -185,32 +129,26 @@ func (o LookupLayerVersionResultOutput) LayerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.LayerName }).(pulumi.StringOutput)
 }
 
-// License info associated with the specific Lambda Layer version.
 func (o LookupLayerVersionResultOutput) LicenseInfo() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.LicenseInfo }).(pulumi.StringOutput)
 }
 
-// ARN of a signing job.
 func (o LookupLayerVersionResultOutput) SigningJobArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SigningJobArn }).(pulumi.StringOutput)
 }
 
-// The ARN for a signing profile version.
 func (o LookupLayerVersionResultOutput) SigningProfileVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
 }
 
-// Base64-encoded representation of raw SHA-256 sum of the zip file.
 func (o LookupLayerVersionResultOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.SourceCodeHash }).(pulumi.StringOutput)
 }
 
-// Size in bytes of the function .zip file.
 func (o LookupLayerVersionResultOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) int { return v.SourceCodeSize }).(pulumi.IntOutput)
 }
 
-// This Lamba Layer version.
 func (o LookupLayerVersionResultOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) int { return v.Version }).(pulumi.IntOutput)
 }

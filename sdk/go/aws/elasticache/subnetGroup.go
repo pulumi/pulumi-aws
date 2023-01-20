@@ -11,84 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ElastiCache Subnet Group resource.
-//
-// > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
-// ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
-// ElastiCache Security Group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooVpc, err := ec2.NewVpc(ctx, "fooVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooSubnet, err := ec2.NewSubnet(ctx, "fooSubnet", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
-//				CidrBlock:        pulumi.String("10.0.0.0/24"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("tf-test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					fooSubnet.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ElastiCache Subnet Groups can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
-//
-// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of VPC Subnet IDs for the cache subnet group
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn         pulumi.StringOutput      `pulumi:"arn"`
+	Description pulumi.StringOutput      `pulumi:"description"`
+	Name        pulumi.StringOutput      `pulumi:"name"`
+	SubnetIds   pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags        pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -126,31 +57,21 @@ func GetSubnetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubnetGroup resources.
 type subnetGroupState struct {
-	Arn *string `pulumi:"arn"`
-	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-	Name *string `pulumi:"name"`
-	// List of VPC Subnet IDs for the cache subnet group
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	SubnetIds   []string          `pulumi:"subnetIds"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type SubnetGroupState struct {
-	Arn pulumi.StringPtrInput
-	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-	Name pulumi.StringPtrInput
-	// List of VPC Subnet IDs for the cache subnet group
-	SubnetIds pulumi.StringArrayInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	SubnetIds   pulumi.StringArrayInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -158,26 +79,18 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
-	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-	Name *string `pulumi:"name"`
-	// List of VPC Subnet IDs for the cache subnet group
-	SubnetIds []string `pulumi:"subnetIds"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	SubnetIds   []string          `pulumi:"subnetIds"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
-	// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// Name for the cache subnet group. ElastiCache converts this name to lowercase.
-	Name pulumi.StringPtrInput
-	// List of VPC Subnet IDs for the cache subnet group
-	SubnetIds pulumi.StringArrayInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	SubnetIds   pulumi.StringArrayInput
+	Tags        pulumi.StringMapInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -271,27 +184,22 @@ func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description for the cache subnet group. Defaults to "Managed by Pulumi".
 func (o SubnetGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name for the cache subnet group. ElastiCache converts this name to lowercase.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of VPC Subnet IDs for the cache subnet group
 func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SubnetGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

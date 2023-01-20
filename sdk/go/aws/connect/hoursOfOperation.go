@@ -11,98 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Hours of Operation resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewHoursOfOperation(ctx, "test", &connect.HoursOfOperationArgs{
-//				Configs: connect.HoursOfOperationConfigArray{
-//					&connect.HoursOfOperationConfigArgs{
-//						Day: pulumi.String("MONDAY"),
-//						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
-//							Hours:   pulumi.Int(23),
-//							Minutes: pulumi.Int(8),
-//						},
-//						StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
-//							Hours:   pulumi.Int(8),
-//							Minutes: pulumi.Int(0),
-//						},
-//					},
-//					&connect.HoursOfOperationConfigArgs{
-//						Day: pulumi.String("TUESDAY"),
-//						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
-//							Hours:   pulumi.Int(21),
-//							Minutes: pulumi.Int(0),
-//						},
-//						StartTime: &connect.HoursOfOperationConfigStartTimeArgs{
-//							Hours:   pulumi.Int(9),
-//							Minutes: pulumi.Int(0),
-//						},
-//					},
-//				},
-//				Description: pulumi.String("Monday office hours"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Hours of Operation"),
-//				},
-//				TimeZone: pulumi.String("EST"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
-// ```
 type HoursOfOperation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-	Configs HoursOfOperationConfigArrayOutput `pulumi:"configs"`
-	// Specifies the description of the Hours of Operation.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
+	Arn         pulumi.StringOutput               `pulumi:"arn"`
+	Configs     HoursOfOperationConfigArrayOutput `pulumi:"configs"`
+	Description pulumi.StringPtrOutput            `pulumi:"description"`
 	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn pulumi.StringOutput `pulumi:"hoursOfOperationArn"`
-	// The identifier for the hours of operation.
-	HoursOfOperationId pulumi.StringOutput `pulumi:"hoursOfOperationId"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Specifies the name of the Hours of Operation.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specifies the time zone of the Hours of Operation.
-	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
+	HoursOfOperationArn pulumi.StringOutput    `pulumi:"hoursOfOperationArn"`
+	HoursOfOperationId  pulumi.StringOutput    `pulumi:"hoursOfOperationId"`
+	InstanceId          pulumi.StringOutput    `pulumi:"instanceId"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TimeZone            pulumi.StringOutput    `pulumi:"timeZone"`
 }
 
 // NewHoursOfOperation registers a new resource with the given unique name, arguments, and options.
@@ -143,53 +65,31 @@ func GetHoursOfOperation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HoursOfOperation resources.
 type hoursOfOperationState struct {
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
-	Arn *string `pulumi:"arn"`
-	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-	Configs []HoursOfOperationConfig `pulumi:"configs"`
-	// Specifies the description of the Hours of Operation.
-	Description *string `pulumi:"description"`
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
+	Arn         *string                  `pulumi:"arn"`
+	Configs     []HoursOfOperationConfig `pulumi:"configs"`
+	Description *string                  `pulumi:"description"`
 	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn *string `pulumi:"hoursOfOperationArn"`
-	// The identifier for the hours of operation.
-	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Specifies the name of the Hours of Operation.
-	Name *string `pulumi:"name"`
-	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specifies the time zone of the Hours of Operation.
-	TimeZone *string `pulumi:"timeZone"`
+	HoursOfOperationArn *string           `pulumi:"hoursOfOperationArn"`
+	HoursOfOperationId  *string           `pulumi:"hoursOfOperationId"`
+	InstanceId          *string           `pulumi:"instanceId"`
+	Name                *string           `pulumi:"name"`
+	Tags                map[string]string `pulumi:"tags"`
+	TagsAll             map[string]string `pulumi:"tagsAll"`
+	TimeZone            *string           `pulumi:"timeZone"`
 }
 
 type HoursOfOperationState struct {
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
-	Arn pulumi.StringPtrInput
-	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-	Configs HoursOfOperationConfigArrayInput
-	// Specifies the description of the Hours of Operation.
+	Arn         pulumi.StringPtrInput
+	Configs     HoursOfOperationConfigArrayInput
 	Description pulumi.StringPtrInput
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
 	// Deprecated: use 'arn' attribute instead
 	HoursOfOperationArn pulumi.StringPtrInput
-	// The identifier for the hours of operation.
-	HoursOfOperationId pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// Specifies the name of the Hours of Operation.
-	Name pulumi.StringPtrInput
-	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Specifies the time zone of the Hours of Operation.
-	TimeZone pulumi.StringPtrInput
+	HoursOfOperationId  pulumi.StringPtrInput
+	InstanceId          pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
+	TimeZone            pulumi.StringPtrInput
 }
 
 func (HoursOfOperationState) ElementType() reflect.Type {
@@ -197,34 +97,22 @@ func (HoursOfOperationState) ElementType() reflect.Type {
 }
 
 type hoursOfOperationArgs struct {
-	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-	Configs []HoursOfOperationConfig `pulumi:"configs"`
-	// Specifies the description of the Hours of Operation.
-	Description *string `pulumi:"description"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Specifies the name of the Hours of Operation.
-	Name *string `pulumi:"name"`
-	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the time zone of the Hours of Operation.
-	TimeZone string `pulumi:"timeZone"`
+	Configs     []HoursOfOperationConfig `pulumi:"configs"`
+	Description *string                  `pulumi:"description"`
+	InstanceId  string                   `pulumi:"instanceId"`
+	Name        *string                  `pulumi:"name"`
+	Tags        map[string]string        `pulumi:"tags"`
+	TimeZone    string                   `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a HoursOfOperation resource.
 type HoursOfOperationArgs struct {
-	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-	Configs HoursOfOperationConfigArrayInput
-	// Specifies the description of the Hours of Operation.
+	Configs     HoursOfOperationConfigArrayInput
 	Description pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// Specifies the name of the Hours of Operation.
-	Name pulumi.StringPtrInput
-	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Specifies the time zone of the Hours of Operation.
-	TimeZone pulumi.StringInput
+	InstanceId  pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TimeZone    pulumi.StringInput
 }
 
 func (HoursOfOperationArgs) ElementType() reflect.Type {
@@ -314,54 +202,43 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Hours of Operation.
 func (o HoursOfOperationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 func (o HoursOfOperationOutput) Configs() HoursOfOperationConfigArrayOutput {
 	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationConfigArrayOutput { return v.Configs }).(HoursOfOperationConfigArrayOutput)
 }
 
-// Specifies the description of the Hours of Operation.
 func (o HoursOfOperationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-//
 // Deprecated: use 'arn' attribute instead
 func (o HoursOfOperationOutput) HoursOfOperationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.HoursOfOperationArn }).(pulumi.StringOutput)
 }
 
-// The identifier for the hours of operation.
 func (o HoursOfOperationOutput) HoursOfOperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.HoursOfOperationId }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o HoursOfOperationOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Hours of Operation.
 func (o HoursOfOperationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HoursOfOperationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HoursOfOperationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specifies the time zone of the Hours of Operation.
 func (o HoursOfOperationOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
 }

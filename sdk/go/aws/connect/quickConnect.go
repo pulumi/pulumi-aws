@@ -11,75 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Connect Quick Connect resource. For more information see
-// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQuickConnect(ctx, "test", &connect.QuickConnectArgs{
-//				Description: pulumi.String("quick connect phone number"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				QuickConnectConfig: &connect.QuickConnectQuickConnectConfigArgs{
-//					PhoneConfigs: connect.QuickConnectQuickConnectConfigPhoneConfigArray{
-//						&connect.QuickConnectQuickConnectConfigPhoneConfigArgs{
-//							PhoneNumber: pulumi.String("+12345678912"),
-//						},
-//					},
-//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Quick Connect"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Amazon Connect Quick Connects can be imported using the `instance_id` and `quick_connect_id` separated by a colon (`:`), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
-// ```
 type QuickConnect struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Quick Connect.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the description of the Quick Connect.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// Specifies the name of the Quick Connect.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
+	Arn                pulumi.StringOutput                  `pulumi:"arn"`
+	Description        pulumi.StringPtrOutput               `pulumi:"description"`
+	InstanceId         pulumi.StringOutput                  `pulumi:"instanceId"`
+	Name               pulumi.StringOutput                  `pulumi:"name"`
 	QuickConnectConfig QuickConnectQuickConnectConfigOutput `pulumi:"quickConnectConfig"`
-	// The identifier for the Quick Connect.
-	QuickConnectId pulumi.StringOutput `pulumi:"quickConnectId"`
-	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	QuickConnectId     pulumi.StringOutput                  `pulumi:"quickConnectId"`
+	Tags               pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput               `pulumi:"tagsAll"`
 }
 
 // NewQuickConnect registers a new resource with the given unique name, arguments, and options.
@@ -117,41 +59,25 @@ func GetQuickConnect(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QuickConnect resources.
 type quickConnectState struct {
-	// The Amazon Resource Name (ARN) of the Quick Connect.
-	Arn *string `pulumi:"arn"`
-	// Specifies the description of the Quick Connect.
-	Description *string `pulumi:"description"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId *string `pulumi:"instanceId"`
-	// Specifies the name of the Quick Connect.
-	Name *string `pulumi:"name"`
-	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
+	Arn                *string                         `pulumi:"arn"`
+	Description        *string                         `pulumi:"description"`
+	InstanceId         *string                         `pulumi:"instanceId"`
+	Name               *string                         `pulumi:"name"`
 	QuickConnectConfig *QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
-	// The identifier for the Quick Connect.
-	QuickConnectId *string `pulumi:"quickConnectId"`
-	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	QuickConnectId     *string                         `pulumi:"quickConnectId"`
+	Tags               map[string]string               `pulumi:"tags"`
+	TagsAll            map[string]string               `pulumi:"tagsAll"`
 }
 
 type QuickConnectState struct {
-	// The Amazon Resource Name (ARN) of the Quick Connect.
-	Arn pulumi.StringPtrInput
-	// Specifies the description of the Quick Connect.
-	Description pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringPtrInput
-	// Specifies the name of the Quick Connect.
-	Name pulumi.StringPtrInput
-	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
+	Arn                pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	InstanceId         pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	QuickConnectConfig QuickConnectQuickConnectConfigPtrInput
-	// The identifier for the Quick Connect.
-	QuickConnectId pulumi.StringPtrInput
-	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	QuickConnectId     pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (QuickConnectState) ElementType() reflect.Type {
@@ -159,30 +85,20 @@ func (QuickConnectState) ElementType() reflect.Type {
 }
 
 type quickConnectArgs struct {
-	// Specifies the description of the Quick Connect.
-	Description *string `pulumi:"description"`
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId string `pulumi:"instanceId"`
-	// Specifies the name of the Quick Connect.
-	Name *string `pulumi:"name"`
-	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
+	Description        *string                        `pulumi:"description"`
+	InstanceId         string                         `pulumi:"instanceId"`
+	Name               *string                        `pulumi:"name"`
 	QuickConnectConfig QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
-	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags               map[string]string              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QuickConnect resource.
 type QuickConnectArgs struct {
-	// Specifies the description of the Quick Connect.
-	Description pulumi.StringPtrInput
-	// Specifies the identifier of the hosting Amazon Connect Instance.
-	InstanceId pulumi.StringInput
-	// Specifies the name of the Quick Connect.
-	Name pulumi.StringPtrInput
-	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
+	Description        pulumi.StringPtrInput
+	InstanceId         pulumi.StringInput
+	Name               pulumi.StringPtrInput
 	QuickConnectConfig QuickConnectQuickConnectConfigInput
-	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (QuickConnectArgs) ElementType() reflect.Type {
@@ -272,42 +188,34 @@ func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Quick Connect.
 func (o QuickConnectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Quick Connect.
 func (o QuickConnectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier of the hosting Amazon Connect Instance.
 func (o QuickConnectOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Quick Connect.
 func (o QuickConnectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 func (o QuickConnectOutput) QuickConnectConfig() QuickConnectQuickConnectConfigOutput {
 	return o.ApplyT(func(v *QuickConnect) QuickConnectQuickConnectConfigOutput { return v.QuickConnectConfig }).(QuickConnectQuickConnectConfigOutput)
 }
 
-// The identifier for the Quick Connect.
 func (o QuickConnectOutput) QuickConnectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.QuickConnectId }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o QuickConnectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o QuickConnectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -10,116 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a VPC DHCP Options resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptions(ctx, "dnsResolver", &ec2.VpcDhcpOptionsArgs{
-//				DomainNameServers: pulumi.StringArray{
-//					pulumi.String("8.8.8.8"),
-//					pulumi.String("8.8.4.4"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// Full usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptions(ctx, "foo", &ec2.VpcDhcpOptionsArgs{
-//				DomainName: pulumi.String("service.consul"),
-//				DomainNameServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//					pulumi.String("10.0.0.2"),
-//				},
-//				NetbiosNameServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//				},
-//				NetbiosNodeType: pulumi.String("2"),
-//				NtpServers: pulumi.StringArray{
-//					pulumi.String("127.0.0.1"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo-name"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Remarks
-//
-// * Notice that all arguments are optional but you have to specify at least one argument.
-// * `domainNameServers`, `netbiosNameServers`, `ntpServers` are limited by AWS to maximum four servers only.
-// * To actually use the DHCP Options Set you need to associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`.
-// * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
-// * In most cases unless you're configuring your own DNS you'll want to set `domainNameServers` to `AmazonProvidedDNS`.
-//
-// ## Import
-//
-// VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
-//
-// ```
 type VpcDhcpOptions struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the DHCP Options Set.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-	DomainNameServers pulumi.StringArrayOutput `pulumi:"domainNameServers"`
-	// List of NETBIOS name servers.
+	Arn                pulumi.StringOutput      `pulumi:"arn"`
+	DomainName         pulumi.StringPtrOutput   `pulumi:"domainName"`
+	DomainNameServers  pulumi.StringArrayOutput `pulumi:"domainNameServers"`
 	NetbiosNameServers pulumi.StringArrayOutput `pulumi:"netbiosNameServers"`
-	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType pulumi.StringPtrOutput `pulumi:"netbiosNodeType"`
-	// List of NTP servers to configure.
-	NtpServers pulumi.StringArrayOutput `pulumi:"ntpServers"`
-	// The ID of the AWS account that owns the DHCP options set.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	NetbiosNodeType    pulumi.StringPtrOutput   `pulumi:"netbiosNodeType"`
+	NtpServers         pulumi.StringArrayOutput `pulumi:"ntpServers"`
+	OwnerId            pulumi.StringOutput      `pulumi:"ownerId"`
+	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewVpcDhcpOptions registers a new resource with the given unique name, arguments, and options.
@@ -151,45 +53,27 @@ func GetVpcDhcpOptions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcDhcpOptions resources.
 type vpcDhcpOptionsState struct {
-	// The ARN of the DHCP Options Set.
-	Arn *string `pulumi:"arn"`
-	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-	DomainName *string `pulumi:"domainName"`
-	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-	DomainNameServers []string `pulumi:"domainNameServers"`
-	// List of NETBIOS name servers.
-	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
-	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
-	// List of NTP servers to configure.
-	NtpServers []string `pulumi:"ntpServers"`
-	// The ID of the AWS account that owns the DHCP options set.
-	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                *string           `pulumi:"arn"`
+	DomainName         *string           `pulumi:"domainName"`
+	DomainNameServers  []string          `pulumi:"domainNameServers"`
+	NetbiosNameServers []string          `pulumi:"netbiosNameServers"`
+	NetbiosNodeType    *string           `pulumi:"netbiosNodeType"`
+	NtpServers         []string          `pulumi:"ntpServers"`
+	OwnerId            *string           `pulumi:"ownerId"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcDhcpOptionsState struct {
-	// The ARN of the DHCP Options Set.
-	Arn pulumi.StringPtrInput
-	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-	DomainName pulumi.StringPtrInput
-	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-	DomainNameServers pulumi.StringArrayInput
-	// List of NETBIOS name servers.
+	Arn                pulumi.StringPtrInput
+	DomainName         pulumi.StringPtrInput
+	DomainNameServers  pulumi.StringArrayInput
 	NetbiosNameServers pulumi.StringArrayInput
-	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType pulumi.StringPtrInput
-	// List of NTP servers to configure.
-	NtpServers pulumi.StringArrayInput
-	// The ID of the AWS account that owns the DHCP options set.
-	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	NetbiosNodeType    pulumi.StringPtrInput
+	NtpServers         pulumi.StringArrayInput
+	OwnerId            pulumi.StringPtrInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (VpcDhcpOptionsState) ElementType() reflect.Type {
@@ -197,34 +81,22 @@ func (VpcDhcpOptionsState) ElementType() reflect.Type {
 }
 
 type vpcDhcpOptionsArgs struct {
-	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-	DomainName *string `pulumi:"domainName"`
-	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-	DomainNameServers []string `pulumi:"domainNameServers"`
-	// List of NETBIOS name servers.
-	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
-	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
-	// List of NTP servers to configure.
-	NtpServers []string `pulumi:"ntpServers"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DomainName         *string           `pulumi:"domainName"`
+	DomainNameServers  []string          `pulumi:"domainNameServers"`
+	NetbiosNameServers []string          `pulumi:"netbiosNameServers"`
+	NetbiosNodeType    *string           `pulumi:"netbiosNodeType"`
+	NtpServers         []string          `pulumi:"ntpServers"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcDhcpOptions resource.
 type VpcDhcpOptionsArgs struct {
-	// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
-	DomainName pulumi.StringPtrInput
-	// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
-	DomainNameServers pulumi.StringArrayInput
-	// List of NETBIOS name servers.
+	DomainName         pulumi.StringPtrInput
+	DomainNameServers  pulumi.StringArrayInput
 	NetbiosNameServers pulumi.StringArrayInput
-	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType pulumi.StringPtrInput
-	// List of NTP servers to configure.
-	NtpServers pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	NetbiosNodeType    pulumi.StringPtrInput
+	NtpServers         pulumi.StringArrayInput
+	Tags               pulumi.StringMapInput
 }
 
 func (VpcDhcpOptionsArgs) ElementType() reflect.Type {
@@ -314,47 +186,38 @@ func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ARN of the DHCP Options Set.
 func (o VpcDhcpOptionsOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
 func (o VpcDhcpOptionsOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
 func (o VpcDhcpOptionsOutput) DomainNameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringArrayOutput { return v.DomainNameServers }).(pulumi.StringArrayOutput)
 }
 
-// List of NETBIOS name servers.
 func (o VpcDhcpOptionsOutput) NetbiosNameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringArrayOutput { return v.NetbiosNameServers }).(pulumi.StringArrayOutput)
 }
 
-// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 func (o VpcDhcpOptionsOutput) NetbiosNodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringPtrOutput { return v.NetbiosNodeType }).(pulumi.StringPtrOutput)
 }
 
-// List of NTP servers to configure.
 func (o VpcDhcpOptionsOutput) NtpServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringArrayOutput { return v.NtpServers }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the AWS account that owns the DHCP options set.
 func (o VpcDhcpOptionsOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcDhcpOptionsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcDhcpOptionsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcDhcpOptions) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

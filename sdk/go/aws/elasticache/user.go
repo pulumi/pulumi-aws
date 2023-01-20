@@ -11,69 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ElastiCache user resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//				UserId:   pulumi.String("testUserId"),
-//				UserName: pulumi.String("testUserName"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ElastiCache users can be imported using the `user_id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:elasticache/user:User my_user userId1
-//
-// ```
 type User struct {
 	pulumi.CustomResourceState
 
-	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-	AccessString pulumi.StringOutput `pulumi:"accessString"`
-	// The ARN of the created ElastiCache User.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The current supported value is `REDIS`.
-	Engine pulumi.StringOutput `pulumi:"engine"`
-	// Indicates a password is not required for this user.
-	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
-	// Passwords used for this user. You can create up to two passwords for each user.
-	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
-	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the user.
-	UserId pulumi.StringOutput `pulumi:"userId"`
-	// The username of the user.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	AccessString       pulumi.StringOutput      `pulumi:"accessString"`
+	Arn                pulumi.StringOutput      `pulumi:"arn"`
+	Engine             pulumi.StringOutput      `pulumi:"engine"`
+	NoPasswordRequired pulumi.BoolPtrOutput     `pulumi:"noPasswordRequired"`
+	Passwords          pulumi.StringArrayOutput `pulumi:"passwords"`
+	Tags               pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	UserId             pulumi.StringOutput      `pulumi:"userId"`
+	UserName           pulumi.StringOutput      `pulumi:"userName"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -124,43 +73,27 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-	AccessString *string `pulumi:"accessString"`
-	// The ARN of the created ElastiCache User.
-	Arn *string `pulumi:"arn"`
-	// The current supported value is `REDIS`.
-	Engine *string `pulumi:"engine"`
-	// Indicates a password is not required for this user.
-	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
-	// Passwords used for this user. You can create up to two passwords for each user.
-	Passwords []string `pulumi:"passwords"`
-	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the user.
-	UserId *string `pulumi:"userId"`
-	// The username of the user.
-	UserName *string `pulumi:"userName"`
+	AccessString       *string           `pulumi:"accessString"`
+	Arn                *string           `pulumi:"arn"`
+	Engine             *string           `pulumi:"engine"`
+	NoPasswordRequired *bool             `pulumi:"noPasswordRequired"`
+	Passwords          []string          `pulumi:"passwords"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
+	UserId             *string           `pulumi:"userId"`
+	UserName           *string           `pulumi:"userName"`
 }
 
 type UserState struct {
-	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-	AccessString pulumi.StringPtrInput
-	// The ARN of the created ElastiCache User.
-	Arn pulumi.StringPtrInput
-	// The current supported value is `REDIS`.
-	Engine pulumi.StringPtrInput
-	// Indicates a password is not required for this user.
+	AccessString       pulumi.StringPtrInput
+	Arn                pulumi.StringPtrInput
+	Engine             pulumi.StringPtrInput
 	NoPasswordRequired pulumi.BoolPtrInput
-	// Passwords used for this user. You can create up to two passwords for each user.
-	Passwords pulumi.StringArrayInput
-	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
-	// The ID of the user.
-	UserId pulumi.StringPtrInput
-	// The username of the user.
-	UserName pulumi.StringPtrInput
+	Passwords          pulumi.StringArrayInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
+	UserId             pulumi.StringPtrInput
+	UserName           pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -168,42 +101,26 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-	AccessString string `pulumi:"accessString"`
-	// The ARN of the created ElastiCache User.
-	Arn *string `pulumi:"arn"`
-	// The current supported value is `REDIS`.
-	Engine string `pulumi:"engine"`
-	// Indicates a password is not required for this user.
-	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
-	// Passwords used for this user. You can create up to two passwords for each user.
-	Passwords []string `pulumi:"passwords"`
-	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the user.
-	UserId string `pulumi:"userId"`
-	// The username of the user.
-	UserName string `pulumi:"userName"`
+	AccessString       string            `pulumi:"accessString"`
+	Arn                *string           `pulumi:"arn"`
+	Engine             string            `pulumi:"engine"`
+	NoPasswordRequired *bool             `pulumi:"noPasswordRequired"`
+	Passwords          []string          `pulumi:"passwords"`
+	Tags               map[string]string `pulumi:"tags"`
+	UserId             string            `pulumi:"userId"`
+	UserName           string            `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-	AccessString pulumi.StringInput
-	// The ARN of the created ElastiCache User.
-	Arn pulumi.StringPtrInput
-	// The current supported value is `REDIS`.
-	Engine pulumi.StringInput
-	// Indicates a password is not required for this user.
+	AccessString       pulumi.StringInput
+	Arn                pulumi.StringPtrInput
+	Engine             pulumi.StringInput
 	NoPasswordRequired pulumi.BoolPtrInput
-	// Passwords used for this user. You can create up to two passwords for each user.
-	Passwords pulumi.StringArrayInput
-	// A list of tags to be added to this resource. A tag is a key-value pair.
-	Tags pulumi.StringMapInput
-	// The ID of the user.
-	UserId pulumi.StringInput
-	// The username of the user.
-	UserName pulumi.StringInput
+	Passwords          pulumi.StringArrayInput
+	Tags               pulumi.StringMapInput
+	UserId             pulumi.StringInput
+	UserName           pulumi.StringInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -293,32 +210,26 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 func (o UserOutput) AccessString() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AccessString }).(pulumi.StringOutput)
 }
 
-// The ARN of the created ElastiCache User.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The current supported value is `REDIS`.
 func (o UserOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Indicates a password is not required for this user.
 func (o UserOutput) NoPasswordRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.BoolPtrOutput { return v.NoPasswordRequired }).(pulumi.BoolPtrOutput)
 }
 
-// Passwords used for this user. You can create up to two passwords for each user.
 func (o UserOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.Passwords }).(pulumi.StringArrayOutput)
 }
 
-// A list of tags to be added to this resource. A tag is a key-value pair.
 func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -327,12 +238,10 @@ func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the user.
 func (o UserOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
 }
 
-// The username of the user.
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an RDS subnet group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.LookupSubnetGroup(ctx, &rds.LookupSubnetGroupArgs{
-//				Name: "my-test-database-subnet-group",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupSubnetGroupResult, error) {
 	var rv LookupSubnetGroupResult
 	err := ctx.Invoke("aws:rds/getSubnetGroup:getSubnetGroup", args, &rv, opts...)
@@ -48,27 +21,20 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 
 // A collection of arguments for invoking getSubnetGroup.
 type LookupSubnetGroupArgs struct {
-	// Name of the RDS database subnet group.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getSubnetGroup.
 type LookupSubnetGroupResult struct {
-	// ARN for the DB subnet group.
-	Arn string `pulumi:"arn"`
-	// Provides the description of the DB subnet group.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// Provides the status of the DB subnet group.
-	Status string `pulumi:"status"`
-	// Contains a list of subnet identifiers.
-	SubnetIds []string `pulumi:"subnetIds"`
-	// The network type of the DB subnet group.
+	Id                    string   `pulumi:"id"`
+	Name                  string   `pulumi:"name"`
+	Status                string   `pulumi:"status"`
+	SubnetIds             []string `pulumi:"subnetIds"`
 	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
-	// Provides the VPC ID of the DB subnet group.
-	VpcId string `pulumi:"vpcId"`
+	VpcId                 string   `pulumi:"vpcId"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
@@ -86,7 +52,6 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 
 // A collection of arguments for invoking getSubnetGroup.
 type LookupSubnetGroupOutputArgs struct {
-	// Name of the RDS database subnet group.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -109,12 +74,10 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 	return o
 }
 
-// ARN for the DB subnet group.
 func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Provides the description of the DB subnet group.
 func (o LookupSubnetGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -128,22 +91,18 @@ func (o LookupSubnetGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provides the status of the DB subnet group.
 func (o LookupSubnetGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Contains a list of subnet identifiers.
 func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The network type of the DB subnet group.
 func (o LookupSubnetGroupResultOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
 }
 
-// Provides the VPC ID of the DB subnet group.
 func (o LookupSubnetGroupResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
 }

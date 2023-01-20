@@ -11,9 +11,7 @@ import (
 )
 
 type FeatureEvaluationRule struct {
-	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
 	Name *string `pulumi:"name"`
-	// This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
 	Type *string `pulumi:"type"`
 }
 
@@ -29,9 +27,7 @@ type FeatureEvaluationRuleInput interface {
 }
 
 type FeatureEvaluationRuleArgs struct {
-	// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -86,12 +82,10 @@ func (o FeatureEvaluationRuleOutput) ToFeatureEvaluationRuleOutputWithContext(ct
 	return o
 }
 
-// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
 func (o FeatureEvaluationRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureEvaluationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
 func (o FeatureEvaluationRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureEvaluationRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -117,9 +111,7 @@ func (o FeatureEvaluationRuleArrayOutput) Index(i pulumi.IntInput) FeatureEvalua
 }
 
 type FeatureVariation struct {
-	// The name of the variation. Minimum length of `1`. Maximum length of `127`.
-	Name string `pulumi:"name"`
-	// A block that specifies the value assigned to this variation. Detailed below
+	Name  string                `pulumi:"name"`
 	Value FeatureVariationValue `pulumi:"value"`
 }
 
@@ -135,9 +127,7 @@ type FeatureVariationInput interface {
 }
 
 type FeatureVariationArgs struct {
-	// The name of the variation. Minimum length of `1`. Maximum length of `127`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// A block that specifies the value assigned to this variation. Detailed below
+	Name  pulumi.StringInput         `pulumi:"name"`
 	Value FeatureVariationValueInput `pulumi:"value"`
 }
 
@@ -192,12 +182,10 @@ func (o FeatureVariationOutput) ToFeatureVariationOutputWithContext(ctx context.
 	return o
 }
 
-// The name of the variation. Minimum length of `1`. Maximum length of `127`.
 func (o FeatureVariationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FeatureVariation) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A block that specifies the value assigned to this variation. Detailed below
 func (o FeatureVariationOutput) Value() FeatureVariationValueOutput {
 	return o.ApplyT(func(v FeatureVariation) FeatureVariationValue { return v.Value }).(FeatureVariationValueOutput)
 }
@@ -223,13 +211,9 @@ func (o FeatureVariationArrayOutput) Index(i pulumi.IntInput) FeatureVariationOu
 }
 
 type FeatureVariationValue struct {
-	// If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-	BoolValue *string `pulumi:"boolValue"`
-	// If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+	BoolValue   *string `pulumi:"boolValue"`
 	DoubleValue *string `pulumi:"doubleValue"`
-	// If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-	LongValue *string `pulumi:"longValue"`
-	// If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+	LongValue   *string `pulumi:"longValue"`
 	StringValue *string `pulumi:"stringValue"`
 }
 
@@ -245,13 +229,9 @@ type FeatureVariationValueInput interface {
 }
 
 type FeatureVariationValueArgs struct {
-	// If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-	BoolValue pulumi.StringPtrInput `pulumi:"boolValue"`
-	// If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+	BoolValue   pulumi.StringPtrInput `pulumi:"boolValue"`
 	DoubleValue pulumi.StringPtrInput `pulumi:"doubleValue"`
-	// If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-	LongValue pulumi.StringPtrInput `pulumi:"longValue"`
-	// If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+	LongValue   pulumi.StringPtrInput `pulumi:"longValue"`
 	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
@@ -281,31 +261,25 @@ func (o FeatureVariationValueOutput) ToFeatureVariationValueOutputWithContext(ct
 	return o
 }
 
-// If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
 func (o FeatureVariationValueOutput) BoolValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureVariationValue) *string { return v.BoolValue }).(pulumi.StringPtrOutput)
 }
 
-// If this feature uses the double integer variation type, this field contains the double integer value of this variation.
 func (o FeatureVariationValueOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureVariationValue) *string { return v.DoubleValue }).(pulumi.StringPtrOutput)
 }
 
-// If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
 func (o FeatureVariationValueOutput) LongValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureVariationValue) *string { return v.LongValue }).(pulumi.StringPtrOutput)
 }
 
-// If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
 func (o FeatureVariationValueOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureVariationValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
 type ProjectDataDelivery struct {
-	// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
 	CloudwatchLogs *ProjectDataDeliveryCloudwatchLogs `pulumi:"cloudwatchLogs"`
-	// A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
-	S3Destination *ProjectDataDeliveryS3Destination `pulumi:"s3Destination"`
+	S3Destination  *ProjectDataDeliveryS3Destination  `pulumi:"s3Destination"`
 }
 
 // ProjectDataDeliveryInput is an input type that accepts ProjectDataDeliveryArgs and ProjectDataDeliveryOutput values.
@@ -320,10 +294,8 @@ type ProjectDataDeliveryInput interface {
 }
 
 type ProjectDataDeliveryArgs struct {
-	// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
 	CloudwatchLogs ProjectDataDeliveryCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
-	// A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
-	S3Destination ProjectDataDeliveryS3DestinationPtrInput `pulumi:"s3Destination"`
+	S3Destination  ProjectDataDeliveryS3DestinationPtrInput  `pulumi:"s3Destination"`
 }
 
 func (ProjectDataDeliveryArgs) ElementType() reflect.Type {
@@ -403,12 +375,10 @@ func (o ProjectDataDeliveryOutput) ToProjectDataDeliveryPtrOutputWithContext(ctx
 	}).(ProjectDataDeliveryPtrOutput)
 }
 
-// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
 func (o ProjectDataDeliveryOutput) CloudwatchLogs() ProjectDataDeliveryCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v ProjectDataDelivery) *ProjectDataDeliveryCloudwatchLogs { return v.CloudwatchLogs }).(ProjectDataDeliveryCloudwatchLogsPtrOutput)
 }
 
-// A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
 func (o ProjectDataDeliveryOutput) S3Destination() ProjectDataDeliveryS3DestinationPtrOutput {
 	return o.ApplyT(func(v ProjectDataDelivery) *ProjectDataDeliveryS3Destination { return v.S3Destination }).(ProjectDataDeliveryS3DestinationPtrOutput)
 }
@@ -437,7 +407,6 @@ func (o ProjectDataDeliveryPtrOutput) Elem() ProjectDataDeliveryOutput {
 	}).(ProjectDataDeliveryOutput)
 }
 
-// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
 func (o ProjectDataDeliveryPtrOutput) CloudwatchLogs() ProjectDataDeliveryCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDelivery) *ProjectDataDeliveryCloudwatchLogs {
 		if v == nil {
@@ -447,7 +416,6 @@ func (o ProjectDataDeliveryPtrOutput) CloudwatchLogs() ProjectDataDeliveryCloudw
 	}).(ProjectDataDeliveryCloudwatchLogsPtrOutput)
 }
 
-// A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
 func (o ProjectDataDeliveryPtrOutput) S3Destination() ProjectDataDeliveryS3DestinationPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDelivery) *ProjectDataDeliveryS3Destination {
 		if v == nil {
@@ -458,7 +426,6 @@ func (o ProjectDataDeliveryPtrOutput) S3Destination() ProjectDataDeliveryS3Desti
 }
 
 type ProjectDataDeliveryCloudwatchLogs struct {
-	// The name of the log group where the project stores evaluation events.
 	LogGroup *string `pulumi:"logGroup"`
 }
 
@@ -474,7 +441,6 @@ type ProjectDataDeliveryCloudwatchLogsInput interface {
 }
 
 type ProjectDataDeliveryCloudwatchLogsArgs struct {
-	// The name of the log group where the project stores evaluation events.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
 }
 
@@ -555,7 +521,6 @@ func (o ProjectDataDeliveryCloudwatchLogsOutput) ToProjectDataDeliveryCloudwatch
 	}).(ProjectDataDeliveryCloudwatchLogsPtrOutput)
 }
 
-// The name of the log group where the project stores evaluation events.
 func (o ProjectDataDeliveryCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -584,7 +549,6 @@ func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) Elem() ProjectDataDeliveryCl
 	}).(ProjectDataDeliveryCloudwatchLogsOutput)
 }
 
-// The name of the log group where the project stores evaluation events.
 func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryCloudwatchLogs) *string {
 		if v == nil {
@@ -595,9 +559,7 @@ func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrO
 }
 
 type ProjectDataDeliveryS3Destination struct {
-	// The name of the bucket in which Evidently stores evaluation events.
 	Bucket *string `pulumi:"bucket"`
-	// The bucket prefix in which Evidently stores evaluation events.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -613,9 +575,7 @@ type ProjectDataDeliveryS3DestinationInput interface {
 }
 
 type ProjectDataDeliveryS3DestinationArgs struct {
-	// The name of the bucket in which Evidently stores evaluation events.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The bucket prefix in which Evidently stores evaluation events.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -696,12 +656,10 @@ func (o ProjectDataDeliveryS3DestinationOutput) ToProjectDataDeliveryS3Destinati
 	}).(ProjectDataDeliveryS3DestinationPtrOutput)
 }
 
-// The name of the bucket in which Evidently stores evaluation events.
 func (o ProjectDataDeliveryS3DestinationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryS3Destination) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The bucket prefix in which Evidently stores evaluation events.
 func (o ProjectDataDeliveryS3DestinationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryS3Destination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -730,7 +688,6 @@ func (o ProjectDataDeliveryS3DestinationPtrOutput) Elem() ProjectDataDeliveryS3D
 	}).(ProjectDataDeliveryS3DestinationOutput)
 }
 
-// The name of the bucket in which Evidently stores evaluation events.
 func (o ProjectDataDeliveryS3DestinationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryS3Destination) *string {
 		if v == nil {
@@ -740,7 +697,6 @@ func (o ProjectDataDeliveryS3DestinationPtrOutput) Bucket() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The bucket prefix in which Evidently stores evaluation events.
 func (o ProjectDataDeliveryS3DestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryS3Destination) *string {
 		if v == nil {

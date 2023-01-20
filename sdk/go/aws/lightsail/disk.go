@@ -11,78 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Lightsail Disk resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDisk(ctx, "test", &lightsail.DiskArgs{
-//				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/disk:Disk test test
-//
-// ```
 type Disk struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Lightsail load balancer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Availability Zone in which to create your disk.
-	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
-	// The timestamp when the load balancer was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The name of the Lightsail load balancer.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The instance port the load balancer will connect.
-	SizeInGb pulumi.IntOutput `pulumi:"sizeInGb"`
-	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode pulumi.StringOutput `pulumi:"supportCode"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn              pulumi.StringOutput    `pulumi:"arn"`
+	AvailabilityZone pulumi.StringOutput    `pulumi:"availabilityZone"`
+	CreatedAt        pulumi.StringOutput    `pulumi:"createdAt"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	SizeInGb         pulumi.IntOutput       `pulumi:"sizeInGb"`
+	SupportCode      pulumi.StringOutput    `pulumi:"supportCode"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDisk registers a new resource with the given unique name, arguments, and options.
@@ -120,41 +59,25 @@ func GetDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Disk resources.
 type diskState struct {
-	// The ARN of the Lightsail load balancer.
-	Arn *string `pulumi:"arn"`
-	// The Availability Zone in which to create your disk.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The timestamp when the load balancer was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// The name of the Lightsail load balancer.
-	Name *string `pulumi:"name"`
-	// The instance port the load balancer will connect.
-	SizeInGb *int `pulumi:"sizeInGb"`
-	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode *string `pulumi:"supportCode"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn              *string           `pulumi:"arn"`
+	AvailabilityZone *string           `pulumi:"availabilityZone"`
+	CreatedAt        *string           `pulumi:"createdAt"`
+	Name             *string           `pulumi:"name"`
+	SizeInGb         *int              `pulumi:"sizeInGb"`
+	SupportCode      *string           `pulumi:"supportCode"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type DiskState struct {
-	// The ARN of the Lightsail load balancer.
-	Arn pulumi.StringPtrInput
-	// The Availability Zone in which to create your disk.
+	Arn              pulumi.StringPtrInput
 	AvailabilityZone pulumi.StringPtrInput
-	// The timestamp when the load balancer was created.
-	CreatedAt pulumi.StringPtrInput
-	// The name of the Lightsail load balancer.
-	Name pulumi.StringPtrInput
-	// The instance port the load balancer will connect.
-	SizeInGb pulumi.IntPtrInput
-	// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-	SupportCode pulumi.StringPtrInput
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	CreatedAt        pulumi.StringPtrInput
+	Name             pulumi.StringPtrInput
+	SizeInGb         pulumi.IntPtrInput
+	SupportCode      pulumi.StringPtrInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (DiskState) ElementType() reflect.Type {
@@ -162,26 +85,18 @@ func (DiskState) ElementType() reflect.Type {
 }
 
 type diskArgs struct {
-	// The Availability Zone in which to create your disk.
-	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The name of the Lightsail load balancer.
-	Name *string `pulumi:"name"`
-	// The instance port the load balancer will connect.
-	SizeInGb int `pulumi:"sizeInGb"`
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AvailabilityZone string            `pulumi:"availabilityZone"`
+	Name             *string           `pulumi:"name"`
+	SizeInGb         int               `pulumi:"sizeInGb"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
-	// The Availability Zone in which to create your disk.
 	AvailabilityZone pulumi.StringInput
-	// The name of the Lightsail load balancer.
-	Name pulumi.StringPtrInput
-	// The instance port the load balancer will connect.
-	SizeInGb pulumi.IntInput
-	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name             pulumi.StringPtrInput
+	SizeInGb         pulumi.IntInput
+	Tags             pulumi.StringMapInput
 }
 
 func (DiskArgs) ElementType() reflect.Type {
@@ -271,42 +186,34 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
-// The ARN of the Lightsail load balancer.
 func (o DiskOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Availability Zone in which to create your disk.
 func (o DiskOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The timestamp when the load balancer was created.
 func (o DiskOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The name of the Lightsail load balancer.
 func (o DiskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The instance port the load balancer will connect.
 func (o DiskOutput) SizeInGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Disk) pulumi.IntOutput { return v.SizeInGb }).(pulumi.IntOutput)
 }
 
-// The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 func (o DiskOutput) SupportCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.SupportCode }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DiskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DiskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

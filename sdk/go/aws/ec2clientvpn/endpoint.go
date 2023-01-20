@@ -11,104 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
-// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
-//
-// > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `securityGroups` argument and a Client VPN endpoint resource with a `securityGroupIds` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
-//				Description:          pulumi.String("clientvpn-example"),
-//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
-//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
-//				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
-//					&ec2clientvpn.EndpointAuthenticationOptionArgs{
-//						Type:                    pulumi.String("certificate-authentication"),
-//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Root_cert.Arn),
-//					},
-//				},
-//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
-//					Enabled:             pulumi.Bool(true),
-//					CloudwatchLogGroup:  pulumi.Any(aws_cloudwatch_log_group.Lg.Name),
-//					CloudwatchLogStream: pulumi.Any(aws_cloudwatch_log_stream.Ls.Name),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
-//
-// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Client VPN endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionArrayOutput `pulumi:"authenticationOptions"`
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock pulumi.StringOutput `pulumi:"clientCidrBlock"`
-	// The options for managing connection authorization for new client connections.
-	ClientConnectOptions EndpointClientConnectOptionsOutput `pulumi:"clientConnectOptions"`
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
-	ClientLoginBannerOptions EndpointClientLoginBannerOptionsOutput `pulumi:"clientLoginBannerOptions"`
-	// Information about the client connection logging options.
-	ConnectionLogOptions EndpointConnectionLogOptionsOutput `pulumi:"connectionLogOptions"`
-	// A brief description of the Client VPN endpoint.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The DNS name to be used by clients when establishing their VPN session.
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
-	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
-	SelfServicePortal pulumi.StringPtrOutput `pulumi:"selfServicePortal"`
-	// The ARN of the ACM server certificate.
-	ServerCertificateArn pulumi.StringOutput `pulumi:"serverCertificateArn"`
-	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
-	SessionTimeoutHours pulumi.IntPtrOutput `pulumi:"sessionTimeoutHours"`
-	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-	SplitTunnel pulumi.BoolPtrOutput `pulumi:"splitTunnel"`
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
+	Arn                      pulumi.StringOutput                     `pulumi:"arn"`
+	AuthenticationOptions    EndpointAuthenticationOptionArrayOutput `pulumi:"authenticationOptions"`
+	ClientCidrBlock          pulumi.StringOutput                     `pulumi:"clientCidrBlock"`
+	ClientConnectOptions     EndpointClientConnectOptionsOutput      `pulumi:"clientConnectOptions"`
+	ClientLoginBannerOptions EndpointClientLoginBannerOptionsOutput  `pulumi:"clientLoginBannerOptions"`
+	ConnectionLogOptions     EndpointConnectionLogOptionsOutput      `pulumi:"connectionLogOptions"`
+	Description              pulumi.StringPtrOutput                  `pulumi:"description"`
+	DnsName                  pulumi.StringOutput                     `pulumi:"dnsName"`
+	DnsServers               pulumi.StringArrayOutput                `pulumi:"dnsServers"`
+	SecurityGroupIds         pulumi.StringArrayOutput                `pulumi:"securityGroupIds"`
+	SelfServicePortal        pulumi.StringPtrOutput                  `pulumi:"selfServicePortal"`
+	ServerCertificateArn     pulumi.StringOutput                     `pulumi:"serverCertificateArn"`
+	SessionTimeoutHours      pulumi.IntPtrOutput                     `pulumi:"sessionTimeoutHours"`
+	SplitTunnel              pulumi.BoolPtrOutput                    `pulumi:"splitTunnel"`
 	// Deprecated: This attribute has been deprecated.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The transport protocol to be used by the VPN session. Default value is `udp`.
+	Status            pulumi.StringOutput    `pulumi:"status"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
 	TransportProtocol pulumi.StringPtrOutput `pulumi:"transportProtocol"`
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
-	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
-	VpnPort pulumi.IntPtrOutput `pulumi:"vpnPort"`
+	VpcId             pulumi.StringOutput    `pulumi:"vpcId"`
+	VpnPort           pulumi.IntPtrOutput    `pulumi:"vpnPort"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -152,93 +78,51 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
-	// The ARN of the Client VPN endpoint.
-	Arn *string `pulumi:"arn"`
-	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
-	// The options for managing connection authorization for new client connections.
-	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	Arn                      *string                           `pulumi:"arn"`
+	AuthenticationOptions    []EndpointAuthenticationOption    `pulumi:"authenticationOptions"`
+	ClientCidrBlock          *string                           `pulumi:"clientCidrBlock"`
+	ClientConnectOptions     *EndpointClientConnectOptions     `pulumi:"clientConnectOptions"`
 	ClientLoginBannerOptions *EndpointClientLoginBannerOptions `pulumi:"clientLoginBannerOptions"`
-	// Information about the client connection logging options.
-	ConnectionLogOptions *EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
-	// A brief description of the Client VPN endpoint.
-	Description *string `pulumi:"description"`
-	// The DNS name to be used by clients when establishing their VPN session.
-	DnsName *string `pulumi:"dnsName"`
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
-	DnsServers []string `pulumi:"dnsServers"`
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
-	SelfServicePortal *string `pulumi:"selfServicePortal"`
-	// The ARN of the ACM server certificate.
-	ServerCertificateArn *string `pulumi:"serverCertificateArn"`
-	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
-	SessionTimeoutHours *int `pulumi:"sessionTimeoutHours"`
-	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-	SplitTunnel *bool `pulumi:"splitTunnel"`
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
+	ConnectionLogOptions     *EndpointConnectionLogOptions     `pulumi:"connectionLogOptions"`
+	Description              *string                           `pulumi:"description"`
+	DnsName                  *string                           `pulumi:"dnsName"`
+	DnsServers               []string                          `pulumi:"dnsServers"`
+	SecurityGroupIds         []string                          `pulumi:"securityGroupIds"`
+	SelfServicePortal        *string                           `pulumi:"selfServicePortal"`
+	ServerCertificateArn     *string                           `pulumi:"serverCertificateArn"`
+	SessionTimeoutHours      *int                              `pulumi:"sessionTimeoutHours"`
+	SplitTunnel              *bool                             `pulumi:"splitTunnel"`
 	// Deprecated: This attribute has been deprecated.
-	Status *string `pulumi:"status"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The transport protocol to be used by the VPN session. Default value is `udp`.
-	TransportProtocol *string `pulumi:"transportProtocol"`
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
-	VpcId *string `pulumi:"vpcId"`
-	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
-	VpnPort *int `pulumi:"vpnPort"`
+	Status            *string           `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
+	TransportProtocol *string           `pulumi:"transportProtocol"`
+	VpcId             *string           `pulumi:"vpcId"`
+	VpnPort           *int              `pulumi:"vpnPort"`
 }
 
 type EndpointState struct {
-	// The ARN of the Client VPN endpoint.
-	Arn pulumi.StringPtrInput
-	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionArrayInput
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock pulumi.StringPtrInput
-	// The options for managing connection authorization for new client connections.
-	ClientConnectOptions EndpointClientConnectOptionsPtrInput
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	Arn                      pulumi.StringPtrInput
+	AuthenticationOptions    EndpointAuthenticationOptionArrayInput
+	ClientCidrBlock          pulumi.StringPtrInput
+	ClientConnectOptions     EndpointClientConnectOptionsPtrInput
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsPtrInput
-	// Information about the client connection logging options.
-	ConnectionLogOptions EndpointConnectionLogOptionsPtrInput
-	// A brief description of the Client VPN endpoint.
-	Description pulumi.StringPtrInput
-	// The DNS name to be used by clients when establishing their VPN session.
-	DnsName pulumi.StringPtrInput
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
-	DnsServers pulumi.StringArrayInput
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
-	SecurityGroupIds pulumi.StringArrayInput
-	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
-	SelfServicePortal pulumi.StringPtrInput
-	// The ARN of the ACM server certificate.
-	ServerCertificateArn pulumi.StringPtrInput
-	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
-	SessionTimeoutHours pulumi.IntPtrInput
-	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-	SplitTunnel pulumi.BoolPtrInput
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
+	ConnectionLogOptions     EndpointConnectionLogOptionsPtrInput
+	Description              pulumi.StringPtrInput
+	DnsName                  pulumi.StringPtrInput
+	DnsServers               pulumi.StringArrayInput
+	SecurityGroupIds         pulumi.StringArrayInput
+	SelfServicePortal        pulumi.StringPtrInput
+	ServerCertificateArn     pulumi.StringPtrInput
+	SessionTimeoutHours      pulumi.IntPtrInput
+	SplitTunnel              pulumi.BoolPtrInput
 	// Deprecated: This attribute has been deprecated.
-	Status pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The transport protocol to be used by the VPN session. Default value is `udp`.
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 	TransportProtocol pulumi.StringPtrInput
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
-	VpcId pulumi.StringPtrInput
-	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
-	VpnPort pulumi.IntPtrInput
+	VpcId             pulumi.StringPtrInput
+	VpnPort           pulumi.IntPtrInput
 }
 
 func (EndpointState) ElementType() reflect.Type {
@@ -246,74 +130,42 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions []EndpointAuthenticationOption `pulumi:"authenticationOptions"`
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock string `pulumi:"clientCidrBlock"`
-	// The options for managing connection authorization for new client connections.
-	ClientConnectOptions *EndpointClientConnectOptions `pulumi:"clientConnectOptions"`
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	AuthenticationOptions    []EndpointAuthenticationOption    `pulumi:"authenticationOptions"`
+	ClientCidrBlock          string                            `pulumi:"clientCidrBlock"`
+	ClientConnectOptions     *EndpointClientConnectOptions     `pulumi:"clientConnectOptions"`
 	ClientLoginBannerOptions *EndpointClientLoginBannerOptions `pulumi:"clientLoginBannerOptions"`
-	// Information about the client connection logging options.
-	ConnectionLogOptions EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
-	// A brief description of the Client VPN endpoint.
-	Description *string `pulumi:"description"`
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
-	DnsServers []string `pulumi:"dnsServers"`
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
-	SelfServicePortal *string `pulumi:"selfServicePortal"`
-	// The ARN of the ACM server certificate.
-	ServerCertificateArn string `pulumi:"serverCertificateArn"`
-	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
-	SessionTimeoutHours *int `pulumi:"sessionTimeoutHours"`
-	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-	SplitTunnel *bool `pulumi:"splitTunnel"`
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The transport protocol to be used by the VPN session. Default value is `udp`.
-	TransportProtocol *string `pulumi:"transportProtocol"`
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
-	VpcId *string `pulumi:"vpcId"`
-	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
-	VpnPort *int `pulumi:"vpnPort"`
+	ConnectionLogOptions     EndpointConnectionLogOptions      `pulumi:"connectionLogOptions"`
+	Description              *string                           `pulumi:"description"`
+	DnsServers               []string                          `pulumi:"dnsServers"`
+	SecurityGroupIds         []string                          `pulumi:"securityGroupIds"`
+	SelfServicePortal        *string                           `pulumi:"selfServicePortal"`
+	ServerCertificateArn     string                            `pulumi:"serverCertificateArn"`
+	SessionTimeoutHours      *int                              `pulumi:"sessionTimeoutHours"`
+	SplitTunnel              *bool                             `pulumi:"splitTunnel"`
+	Tags                     map[string]string                 `pulumi:"tags"`
+	TransportProtocol        *string                           `pulumi:"transportProtocol"`
+	VpcId                    *string                           `pulumi:"vpcId"`
+	VpnPort                  *int                              `pulumi:"vpnPort"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// Information about the authentication method to be used to authenticate clients.
-	AuthenticationOptions EndpointAuthenticationOptionArrayInput
-	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
-	ClientCidrBlock pulumi.StringInput
-	// The options for managing connection authorization for new client connections.
-	ClientConnectOptions EndpointClientConnectOptionsPtrInput
-	// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
+	AuthenticationOptions    EndpointAuthenticationOptionArrayInput
+	ClientCidrBlock          pulumi.StringInput
+	ClientConnectOptions     EndpointClientConnectOptionsPtrInput
 	ClientLoginBannerOptions EndpointClientLoginBannerOptionsPtrInput
-	// Information about the client connection logging options.
-	ConnectionLogOptions EndpointConnectionLogOptionsInput
-	// A brief description of the Client VPN endpoint.
-	Description pulumi.StringPtrInput
-	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
-	DnsServers pulumi.StringArrayInput
-	// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
-	SecurityGroupIds pulumi.StringArrayInput
-	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
-	SelfServicePortal pulumi.StringPtrInput
-	// The ARN of the ACM server certificate.
-	ServerCertificateArn pulumi.StringInput
-	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
-	SessionTimeoutHours pulumi.IntPtrInput
-	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
-	SplitTunnel pulumi.BoolPtrInput
-	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The transport protocol to be used by the VPN session. Default value is `udp`.
-	TransportProtocol pulumi.StringPtrInput
-	// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
-	VpcId pulumi.StringPtrInput
-	// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
-	VpnPort pulumi.IntPtrInput
+	ConnectionLogOptions     EndpointConnectionLogOptionsInput
+	Description              pulumi.StringPtrInput
+	DnsServers               pulumi.StringArrayInput
+	SecurityGroupIds         pulumi.StringArrayInput
+	SelfServicePortal        pulumi.StringPtrInput
+	ServerCertificateArn     pulumi.StringInput
+	SessionTimeoutHours      pulumi.IntPtrInput
+	SplitTunnel              pulumi.BoolPtrInput
+	Tags                     pulumi.StringMapInput
+	TransportProtocol        pulumi.StringPtrInput
+	VpcId                    pulumi.StringPtrInput
+	VpnPort                  pulumi.IntPtrInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -403,104 +255,83 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
-// The ARN of the Client VPN endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Information about the authentication method to be used to authenticate clients.
 func (o EndpointOutput) AuthenticationOptions() EndpointAuthenticationOptionArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointAuthenticationOptionArrayOutput { return v.AuthenticationOptions }).(EndpointAuthenticationOptionArrayOutput)
 }
 
-// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
 func (o EndpointOutput) ClientCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ClientCidrBlock }).(pulumi.StringOutput)
 }
 
-// The options for managing connection authorization for new client connections.
 func (o EndpointOutput) ClientConnectOptions() EndpointClientConnectOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointClientConnectOptionsOutput { return v.ClientConnectOptions }).(EndpointClientConnectOptionsOutput)
 }
 
-// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
 func (o EndpointOutput) ClientLoginBannerOptions() EndpointClientLoginBannerOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointClientLoginBannerOptionsOutput { return v.ClientLoginBannerOptions }).(EndpointClientLoginBannerOptionsOutput)
 }
 
-// Information about the client connection logging options.
 func (o EndpointOutput) ConnectionLogOptions() EndpointConnectionLogOptionsOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointConnectionLogOptionsOutput { return v.ConnectionLogOptions }).(EndpointConnectionLogOptionsOutput)
 }
 
-// A brief description of the Client VPN endpoint.
 func (o EndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The DNS name to be used by clients when establishing their VPN session.
 func (o EndpointOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
 func (o EndpointOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
 func (o EndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 func (o EndpointOutput) SelfServicePortal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.SelfServicePortal }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the ACM server certificate.
 func (o EndpointOutput) ServerCertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ServerCertificateArn }).(pulumi.StringOutput)
 }
 
-// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
 func (o EndpointOutput) SessionTimeoutHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.IntPtrOutput { return v.SessionTimeoutHours }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 func (o EndpointOutput) SplitTunnel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.SplitTunnel }).(pulumi.BoolPtrOutput)
 }
 
-// **Deprecated** The current state of the Client VPN endpoint.
-//
 // Deprecated: This attribute has been deprecated.
 func (o EndpointOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The transport protocol to be used by the VPN session. Default value is `udp`.
 func (o EndpointOutput) TransportProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.TransportProtocol }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
 func (o EndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
 func (o EndpointOutput) VpnPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.IntPtrOutput { return v.VpnPort }).(pulumi.IntPtrOutput)
 }

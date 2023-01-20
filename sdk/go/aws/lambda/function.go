@@ -11,416 +11,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
-//
-// For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
-//
-// > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
-//
-// > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
-//
-// ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "lambda.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs16.x"),
-//				Environment: &lambda.FunctionEnvironmentArgs{
-//					Variables: pulumi.StringMap{
-//						"foo": pulumi.String("bar"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Lambda Layers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLayerVersion, err := lambda.NewLayerVersion(ctx, "exampleLayerVersion", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "exampleFunction", &lambda.FunctionArgs{
-//				Layers: pulumi.StringArray{
-//					exampleLayerVersion.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Lambda Ephemeral Storage
-//
-// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "lambda.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
-//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
-//				Role:    iamForLambda.Arn,
-//				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs14.x"),
-//				EphemeralStorage: &lambda.FunctionEphemeralStorageArgs{
-//					Size: pulumi.Int(10240),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Lambda File Systems
-//
-// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			efsForLambda, err := efs.NewFileSystem(ctx, "efsForLambda", &efs.FileSystemArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("efs_for_lambda"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			alpha, err := efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
-//				FileSystemId: efsForLambda.ID(),
-//				SubnetId:     pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Sg_for_lambda.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			accessPointForLambda, err := efs.NewAccessPoint(ctx, "accessPointForLambda", &efs.AccessPointArgs{
-//				FileSystemId: efsForLambda.ID(),
-//				RootDirectory: &efs.AccessPointRootDirectoryArgs{
-//					Path: pulumi.String("/lambda"),
-//					CreationInfo: &efs.AccessPointRootDirectoryCreationInfoArgs{
-//						OwnerGid:    pulumi.Int(1000),
-//						OwnerUid:    pulumi.Int(1000),
-//						Permissions: pulumi.String("777"),
-//					},
-//				},
-//				PosixUser: &efs.AccessPointPosixUserArgs{
-//					Gid: pulumi.Int(1000),
-//					Uid: pulumi.Int(1000),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
-//				FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{
-//					Arn:            accessPointForLambda.Arn,
-//					LocalMountPath: pulumi.String("/mnt/efs"),
-//				},
-//				VpcConfig: &lambda.FunctionVpcConfigArgs{
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Subnet_for_lambda.Id,
-//					},
-//					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Sg_for_lambda.Id,
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				alpha,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Lambda retries
-//
-// Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
-// ## CloudWatch Logging and Permissions
-//
-// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lambdaFunctionName := "lambda_function_name"
-//			if param := cfg.Get("lambdaFunctionName"); param != "" {
-//				lambdaFunctionName = param
-//			}
-//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				RetentionInDays: pulumi.Int(14),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			lambdaLogging, err := iam.NewPolicy(ctx, "lambdaLogging", &iam.PolicyArgs{
-//				Path:        pulumi.String("/"),
-//				Description: pulumi.String("IAM policy for logging from a lambda"),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "logs:CreateLogGroup",
-//	        "logs:CreateLogStream",
-//	        "logs:PutLogEvents"
-//	      ],
-//	      "Resource": "arn:aws:logs:*:*:*",
-//	      "Effect": "Allow"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			lambdaLogs, err := iam.NewRolePolicyAttachment(ctx, "lambdaLogs", &iam.RolePolicyAttachmentArgs{
-//				Role:      pulumi.Any(aws_iam_role.Iam_for_lambda.Name),
-//				PolicyArn: lambdaLogging.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "testLambda", nil, pulumi.DependsOn([]pulumi.Resource{
-//				lambdaLogs,
-//				example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Specifying the Deployment Package
-//
-// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
-//
-// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
-//
-// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
-//
-// ## Import
-//
-// Lambda Functions can be imported using the `function_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
-//
-// ```
 type Function struct {
 	pulumi.CustomResourceState
 
-	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures pulumi.StringArrayOutput `pulumi:"architectures"`
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	Code pulumi.ArchiveOutput `pulumi:"code"`
-	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-	CodeSigningConfigArn pulumi.StringPtrOutput `pulumi:"codeSigningConfigArn"`
-	// Configuration block. Detailed below.
-	DeadLetterConfig FunctionDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
-	// Description of what your Lambda Function does.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Configuration block. Detailed below.
-	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
-	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-	EphemeralStorage FunctionEphemeralStorageOutput `pulumi:"ephemeralStorage"`
-	// Configuration block. Detailed below.
-	FileSystemConfig FunctionFileSystemConfigPtrOutput `pulumi:"fileSystemConfig"`
-	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
-	Handler pulumi.StringPtrOutput `pulumi:"handler"`
-	// Configuration block. Detailed below.
-	ImageConfig FunctionImageConfigPtrOutput `pulumi:"imageConfig"`
-	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	ImageUri pulumi.StringPtrOutput `pulumi:"imageUri"`
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	InvokeArn pulumi.StringOutput `pulumi:"invokeArn"`
-	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
-	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Date this resource was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-	Layers pulumi.StringArrayOutput `pulumi:"layers"`
-	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
-	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
-	// Unique name for your Lambda Function.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
-	PackageType pulumi.StringPtrOutput `pulumi:"packageType"`
-	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
-	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
-	QualifiedArn pulumi.StringOutput `pulumi:"qualifiedArn"`
-	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	QualifiedInvokeArn pulumi.StringOutput `pulumi:"qualifiedInvokeArn"`
-	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
-	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
-	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-	Runtime pulumi.StringPtrOutput `pulumi:"runtime"`
-	// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket pulumi.StringPtrOutput `pulumi:"s3Bucket"`
-	// S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3Key pulumi.StringPtrOutput `pulumi:"s3Key"`
-	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3ObjectVersion pulumi.StringPtrOutput `pulumi:"s3ObjectVersion"`
-	// ARN of the signing job.
-	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
-	// ARN of the signing profile version.
-	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
-	// Snap start settings block. Detailed below.
-	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
-	// Size in bytes of the function .zip file.
-	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
-	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
-	// Configuration block. Detailed below.
-	TracingConfig FunctionTracingConfigOutput `pulumi:"tracingConfig"`
-	// Latest published version of your Lambda Function.
-	// * `vpc_config.vpc_id` - ID of the VPC.
-	Version pulumi.StringOutput `pulumi:"version"`
-	// Configuration block. Detailed below.
-	VpcConfig FunctionVpcConfigPtrOutput `pulumi:"vpcConfig"`
+	Architectures                pulumi.StringArrayOutput          `pulumi:"architectures"`
+	Arn                          pulumi.StringOutput               `pulumi:"arn"`
+	Code                         pulumi.ArchiveOutput              `pulumi:"code"`
+	CodeSigningConfigArn         pulumi.StringPtrOutput            `pulumi:"codeSigningConfigArn"`
+	DeadLetterConfig             FunctionDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
+	Description                  pulumi.StringPtrOutput            `pulumi:"description"`
+	Environment                  FunctionEnvironmentPtrOutput      `pulumi:"environment"`
+	EphemeralStorage             FunctionEphemeralStorageOutput    `pulumi:"ephemeralStorage"`
+	FileSystemConfig             FunctionFileSystemConfigPtrOutput `pulumi:"fileSystemConfig"`
+	Handler                      pulumi.StringPtrOutput            `pulumi:"handler"`
+	ImageConfig                  FunctionImageConfigPtrOutput      `pulumi:"imageConfig"`
+	ImageUri                     pulumi.StringPtrOutput            `pulumi:"imageUri"`
+	InvokeArn                    pulumi.StringOutput               `pulumi:"invokeArn"`
+	KmsKeyArn                    pulumi.StringPtrOutput            `pulumi:"kmsKeyArn"`
+	LastModified                 pulumi.StringOutput               `pulumi:"lastModified"`
+	Layers                       pulumi.StringArrayOutput          `pulumi:"layers"`
+	MemorySize                   pulumi.IntPtrOutput               `pulumi:"memorySize"`
+	Name                         pulumi.StringOutput               `pulumi:"name"`
+	PackageType                  pulumi.StringPtrOutput            `pulumi:"packageType"`
+	Publish                      pulumi.BoolPtrOutput              `pulumi:"publish"`
+	QualifiedArn                 pulumi.StringOutput               `pulumi:"qualifiedArn"`
+	QualifiedInvokeArn           pulumi.StringOutput               `pulumi:"qualifiedInvokeArn"`
+	ReservedConcurrentExecutions pulumi.IntPtrOutput               `pulumi:"reservedConcurrentExecutions"`
+	Role                         pulumi.StringOutput               `pulumi:"role"`
+	Runtime                      pulumi.StringPtrOutput            `pulumi:"runtime"`
+	S3Bucket                     pulumi.StringPtrOutput            `pulumi:"s3Bucket"`
+	S3Key                        pulumi.StringPtrOutput            `pulumi:"s3Key"`
+	S3ObjectVersion              pulumi.StringPtrOutput            `pulumi:"s3ObjectVersion"`
+	SigningJobArn                pulumi.StringOutput               `pulumi:"signingJobArn"`
+	SigningProfileVersionArn     pulumi.StringOutput               `pulumi:"signingProfileVersionArn"`
+	SnapStart                    FunctionSnapStartPtrOutput        `pulumi:"snapStart"`
+	SourceCodeHash               pulumi.StringOutput               `pulumi:"sourceCodeHash"`
+	SourceCodeSize               pulumi.IntOutput                  `pulumi:"sourceCodeSize"`
+	Tags                         pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	Timeout                      pulumi.IntPtrOutput               `pulumi:"timeout"`
+	TracingConfig                FunctionTracingConfigOutput       `pulumi:"tracingConfig"`
+	Version                      pulumi.StringOutput               `pulumi:"version"`
+	VpcConfig                    FunctionVpcConfigPtrOutput        `pulumi:"vpcConfig"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -455,169 +87,87 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures []string `pulumi:"architectures"`
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-	Arn *string `pulumi:"arn"`
-	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	Code pulumi.Archive `pulumi:"code"`
-	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
-	// Configuration block. Detailed below.
-	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
-	// Description of what your Lambda Function does.
-	Description *string `pulumi:"description"`
-	// Configuration block. Detailed below.
-	Environment *FunctionEnvironment `pulumi:"environment"`
-	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// Configuration block. Detailed below.
-	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
-	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
-	Handler *string `pulumi:"handler"`
-	// Configuration block. Detailed below.
-	ImageConfig *FunctionImageConfig `pulumi:"imageConfig"`
-	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	ImageUri *string `pulumi:"imageUri"`
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	InvokeArn *string `pulumi:"invokeArn"`
-	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Date this resource was last modified.
-	LastModified *string `pulumi:"lastModified"`
-	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-	Layers []string `pulumi:"layers"`
-	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
-	MemorySize *int `pulumi:"memorySize"`
-	// Unique name for your Lambda Function.
-	Name *string `pulumi:"name"`
-	// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
-	PackageType *string `pulumi:"packageType"`
-	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-	Publish *bool `pulumi:"publish"`
-	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
-	QualifiedArn *string `pulumi:"qualifiedArn"`
-	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	QualifiedInvokeArn *string `pulumi:"qualifiedInvokeArn"`
-	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
-	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
-	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
-	Role *string `pulumi:"role"`
-	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-	Runtime *string `pulumi:"runtime"`
-	// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket *string `pulumi:"s3Bucket"`
-	// S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3Key *string `pulumi:"s3Key"`
-	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
-	// ARN of the signing job.
-	SigningJobArn *string `pulumi:"signingJobArn"`
-	// ARN of the signing profile version.
-	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
-	// Snap start settings block. Detailed below.
-	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash *string `pulumi:"sourceCodeHash"`
-	// Size in bytes of the function .zip file.
-	SourceCodeSize *int `pulumi:"sourceCodeSize"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
-	Timeout *int `pulumi:"timeout"`
-	// Configuration block. Detailed below.
-	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
-	// Latest published version of your Lambda Function.
-	// * `vpc_config.vpc_id` - ID of the VPC.
-	Version *string `pulumi:"version"`
-	// Configuration block. Detailed below.
-	VpcConfig *FunctionVpcConfig `pulumi:"vpcConfig"`
+	Architectures                []string                  `pulumi:"architectures"`
+	Arn                          *string                   `pulumi:"arn"`
+	Code                         pulumi.Archive            `pulumi:"code"`
+	CodeSigningConfigArn         *string                   `pulumi:"codeSigningConfigArn"`
+	DeadLetterConfig             *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
+	Description                  *string                   `pulumi:"description"`
+	Environment                  *FunctionEnvironment      `pulumi:"environment"`
+	EphemeralStorage             *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
+	FileSystemConfig             *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
+	Handler                      *string                   `pulumi:"handler"`
+	ImageConfig                  *FunctionImageConfig      `pulumi:"imageConfig"`
+	ImageUri                     *string                   `pulumi:"imageUri"`
+	InvokeArn                    *string                   `pulumi:"invokeArn"`
+	KmsKeyArn                    *string                   `pulumi:"kmsKeyArn"`
+	LastModified                 *string                   `pulumi:"lastModified"`
+	Layers                       []string                  `pulumi:"layers"`
+	MemorySize                   *int                      `pulumi:"memorySize"`
+	Name                         *string                   `pulumi:"name"`
+	PackageType                  *string                   `pulumi:"packageType"`
+	Publish                      *bool                     `pulumi:"publish"`
+	QualifiedArn                 *string                   `pulumi:"qualifiedArn"`
+	QualifiedInvokeArn           *string                   `pulumi:"qualifiedInvokeArn"`
+	ReservedConcurrentExecutions *int                      `pulumi:"reservedConcurrentExecutions"`
+	Role                         *string                   `pulumi:"role"`
+	Runtime                      *string                   `pulumi:"runtime"`
+	S3Bucket                     *string                   `pulumi:"s3Bucket"`
+	S3Key                        *string                   `pulumi:"s3Key"`
+	S3ObjectVersion              *string                   `pulumi:"s3ObjectVersion"`
+	SigningJobArn                *string                   `pulumi:"signingJobArn"`
+	SigningProfileVersionArn     *string                   `pulumi:"signingProfileVersionArn"`
+	SnapStart                    *FunctionSnapStart        `pulumi:"snapStart"`
+	SourceCodeHash               *string                   `pulumi:"sourceCodeHash"`
+	SourceCodeSize               *int                      `pulumi:"sourceCodeSize"`
+	Tags                         map[string]string         `pulumi:"tags"`
+	TagsAll                      map[string]string         `pulumi:"tagsAll"`
+	Timeout                      *int                      `pulumi:"timeout"`
+	TracingConfig                *FunctionTracingConfig    `pulumi:"tracingConfig"`
+	Version                      *string                   `pulumi:"version"`
+	VpcConfig                    *FunctionVpcConfig        `pulumi:"vpcConfig"`
 }
 
 type FunctionState struct {
-	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-	Arn pulumi.StringPtrInput
-	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	Code pulumi.ArchiveInput
-	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-	CodeSigningConfigArn pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	DeadLetterConfig FunctionDeadLetterConfigPtrInput
-	// Description of what your Lambda Function does.
-	Description pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	Environment FunctionEnvironmentPtrInput
-	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-	EphemeralStorage FunctionEphemeralStoragePtrInput
-	// Configuration block. Detailed below.
-	FileSystemConfig FunctionFileSystemConfigPtrInput
-	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
-	Handler pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	ImageConfig FunctionImageConfigPtrInput
-	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	ImageUri pulumi.StringPtrInput
-	// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	InvokeArn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
-	KmsKeyArn pulumi.StringPtrInput
-	// Date this resource was last modified.
-	LastModified pulumi.StringPtrInput
-	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-	Layers pulumi.StringArrayInput
-	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
-	MemorySize pulumi.IntPtrInput
-	// Unique name for your Lambda Function.
-	Name pulumi.StringPtrInput
-	// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
-	PackageType pulumi.StringPtrInput
-	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-	Publish pulumi.BoolPtrInput
-	// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
-	QualifiedArn pulumi.StringPtrInput
-	// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-	QualifiedInvokeArn pulumi.StringPtrInput
-	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+	Architectures                pulumi.StringArrayInput
+	Arn                          pulumi.StringPtrInput
+	Code                         pulumi.ArchiveInput
+	CodeSigningConfigArn         pulumi.StringPtrInput
+	DeadLetterConfig             FunctionDeadLetterConfigPtrInput
+	Description                  pulumi.StringPtrInput
+	Environment                  FunctionEnvironmentPtrInput
+	EphemeralStorage             FunctionEphemeralStoragePtrInput
+	FileSystemConfig             FunctionFileSystemConfigPtrInput
+	Handler                      pulumi.StringPtrInput
+	ImageConfig                  FunctionImageConfigPtrInput
+	ImageUri                     pulumi.StringPtrInput
+	InvokeArn                    pulumi.StringPtrInput
+	KmsKeyArn                    pulumi.StringPtrInput
+	LastModified                 pulumi.StringPtrInput
+	Layers                       pulumi.StringArrayInput
+	MemorySize                   pulumi.IntPtrInput
+	Name                         pulumi.StringPtrInput
+	PackageType                  pulumi.StringPtrInput
+	Publish                      pulumi.BoolPtrInput
+	QualifiedArn                 pulumi.StringPtrInput
+	QualifiedInvokeArn           pulumi.StringPtrInput
 	ReservedConcurrentExecutions pulumi.IntPtrInput
-	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
-	Role pulumi.StringPtrInput
-	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-	Runtime pulumi.StringPtrInput
-	// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket pulumi.StringPtrInput
-	// S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3Key pulumi.StringPtrInput
-	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3ObjectVersion pulumi.StringPtrInput
-	// ARN of the signing job.
-	SigningJobArn pulumi.StringPtrInput
-	// ARN of the signing profile version.
-	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
-	SigningProfileVersionArn pulumi.StringPtrInput
-	// Snap start settings block. Detailed below.
-	SnapStart FunctionSnapStartPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash pulumi.StringPtrInput
-	// Size in bytes of the function .zip file.
-	SourceCodeSize pulumi.IntPtrInput
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
-	Timeout pulumi.IntPtrInput
-	// Configuration block. Detailed below.
-	TracingConfig FunctionTracingConfigPtrInput
-	// Latest published version of your Lambda Function.
-	// * `vpc_config.vpc_id` - ID of the VPC.
-	Version pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	VpcConfig FunctionVpcConfigPtrInput
+	Role                         pulumi.StringPtrInput
+	Runtime                      pulumi.StringPtrInput
+	S3Bucket                     pulumi.StringPtrInput
+	S3Key                        pulumi.StringPtrInput
+	S3ObjectVersion              pulumi.StringPtrInput
+	SigningJobArn                pulumi.StringPtrInput
+	SigningProfileVersionArn     pulumi.StringPtrInput
+	SnapStart                    FunctionSnapStartPtrInput
+	SourceCodeHash               pulumi.StringPtrInput
+	SourceCodeSize               pulumi.IntPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
+	Timeout                      pulumi.IntPtrInput
+	TracingConfig                FunctionTracingConfigPtrInput
+	Version                      pulumi.StringPtrInput
+	VpcConfig                    FunctionVpcConfigPtrInput
 }
 
 func (FunctionState) ElementType() reflect.Type {
@@ -625,126 +175,68 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures []string `pulumi:"architectures"`
-	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	Code pulumi.Archive `pulumi:"code"`
-	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-	CodeSigningConfigArn *string `pulumi:"codeSigningConfigArn"`
-	// Configuration block. Detailed below.
-	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
-	// Description of what your Lambda Function does.
-	Description *string `pulumi:"description"`
-	// Configuration block. Detailed below.
-	Environment *FunctionEnvironment `pulumi:"environment"`
-	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// Configuration block. Detailed below.
-	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
-	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
-	Handler *string `pulumi:"handler"`
-	// Configuration block. Detailed below.
-	ImageConfig *FunctionImageConfig `pulumi:"imageConfig"`
-	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	ImageUri *string `pulumi:"imageUri"`
-	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-	Layers []string `pulumi:"layers"`
-	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
-	MemorySize *int `pulumi:"memorySize"`
-	// Unique name for your Lambda Function.
-	Name *string `pulumi:"name"`
-	// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
-	PackageType *string `pulumi:"packageType"`
-	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-	Publish *bool `pulumi:"publish"`
-	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
-	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
-	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
-	Role string `pulumi:"role"`
-	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-	Runtime *string `pulumi:"runtime"`
-	// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket *string `pulumi:"s3Bucket"`
-	// S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3Key *string `pulumi:"s3Key"`
-	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
-	// Snap start settings block. Detailed below.
-	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash *string `pulumi:"sourceCodeHash"`
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
-	Timeout *int `pulumi:"timeout"`
-	// Configuration block. Detailed below.
-	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
-	// Configuration block. Detailed below.
-	VpcConfig *FunctionVpcConfig `pulumi:"vpcConfig"`
+	Architectures                []string                  `pulumi:"architectures"`
+	Code                         pulumi.Archive            `pulumi:"code"`
+	CodeSigningConfigArn         *string                   `pulumi:"codeSigningConfigArn"`
+	DeadLetterConfig             *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
+	Description                  *string                   `pulumi:"description"`
+	Environment                  *FunctionEnvironment      `pulumi:"environment"`
+	EphemeralStorage             *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
+	FileSystemConfig             *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
+	Handler                      *string                   `pulumi:"handler"`
+	ImageConfig                  *FunctionImageConfig      `pulumi:"imageConfig"`
+	ImageUri                     *string                   `pulumi:"imageUri"`
+	KmsKeyArn                    *string                   `pulumi:"kmsKeyArn"`
+	Layers                       []string                  `pulumi:"layers"`
+	MemorySize                   *int                      `pulumi:"memorySize"`
+	Name                         *string                   `pulumi:"name"`
+	PackageType                  *string                   `pulumi:"packageType"`
+	Publish                      *bool                     `pulumi:"publish"`
+	ReservedConcurrentExecutions *int                      `pulumi:"reservedConcurrentExecutions"`
+	Role                         string                    `pulumi:"role"`
+	Runtime                      *string                   `pulumi:"runtime"`
+	S3Bucket                     *string                   `pulumi:"s3Bucket"`
+	S3Key                        *string                   `pulumi:"s3Key"`
+	S3ObjectVersion              *string                   `pulumi:"s3ObjectVersion"`
+	SnapStart                    *FunctionSnapStart        `pulumi:"snapStart"`
+	SourceCodeHash               *string                   `pulumi:"sourceCodeHash"`
+	Tags                         map[string]string         `pulumi:"tags"`
+	Timeout                      *int                      `pulumi:"timeout"`
+	TracingConfig                *FunctionTracingConfig    `pulumi:"tracingConfig"`
+	VpcConfig                    *FunctionVpcConfig        `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures pulumi.StringArrayInput
-	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	Code pulumi.ArchiveInput
-	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-	CodeSigningConfigArn pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	DeadLetterConfig FunctionDeadLetterConfigPtrInput
-	// Description of what your Lambda Function does.
-	Description pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	Environment FunctionEnvironmentPtrInput
-	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
-	EphemeralStorage FunctionEphemeralStoragePtrInput
-	// Configuration block. Detailed below.
-	FileSystemConfig FunctionFileSystemConfigPtrInput
-	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
-	Handler pulumi.StringPtrInput
-	// Configuration block. Detailed below.
-	ImageConfig FunctionImageConfigPtrInput
-	// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
-	ImageUri pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
-	KmsKeyArn pulumi.StringPtrInput
-	// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
-	Layers pulumi.StringArrayInput
-	// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
-	MemorySize pulumi.IntPtrInput
-	// Unique name for your Lambda Function.
-	Name pulumi.StringPtrInput
-	// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
-	PackageType pulumi.StringPtrInput
-	// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
-	Publish pulumi.BoolPtrInput
-	// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+	Architectures                pulumi.StringArrayInput
+	Code                         pulumi.ArchiveInput
+	CodeSigningConfigArn         pulumi.StringPtrInput
+	DeadLetterConfig             FunctionDeadLetterConfigPtrInput
+	Description                  pulumi.StringPtrInput
+	Environment                  FunctionEnvironmentPtrInput
+	EphemeralStorage             FunctionEphemeralStoragePtrInput
+	FileSystemConfig             FunctionFileSystemConfigPtrInput
+	Handler                      pulumi.StringPtrInput
+	ImageConfig                  FunctionImageConfigPtrInput
+	ImageUri                     pulumi.StringPtrInput
+	KmsKeyArn                    pulumi.StringPtrInput
+	Layers                       pulumi.StringArrayInput
+	MemorySize                   pulumi.IntPtrInput
+	Name                         pulumi.StringPtrInput
+	PackageType                  pulumi.StringPtrInput
+	Publish                      pulumi.BoolPtrInput
 	ReservedConcurrentExecutions pulumi.IntPtrInput
-	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
-	Role pulumi.StringInput
-	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
-	Runtime pulumi.StringPtrInput
-	// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-	S3Bucket pulumi.StringPtrInput
-	// S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3Key pulumi.StringPtrInput
-	// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
-	S3ObjectVersion pulumi.StringPtrInput
-	// Snap start settings block. Detailed below.
-	SnapStart FunctionSnapStartPtrInput
-	// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
-	SourceCodeHash pulumi.StringPtrInput
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
-	Timeout pulumi.IntPtrInput
-	// Configuration block. Detailed below.
-	TracingConfig FunctionTracingConfigPtrInput
-	// Configuration block. Detailed below.
-	VpcConfig FunctionVpcConfigPtrInput
+	Role                         pulumi.StringInput
+	Runtime                      pulumi.StringPtrInput
+	S3Bucket                     pulumi.StringPtrInput
+	S3Key                        pulumi.StringPtrInput
+	S3ObjectVersion              pulumi.StringPtrInput
+	SnapStart                    FunctionSnapStartPtrInput
+	SourceCodeHash               pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	Timeout                      pulumi.IntPtrInput
+	TracingConfig                FunctionTracingConfigPtrInput
+	VpcConfig                    FunctionVpcConfigPtrInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {
@@ -834,199 +326,158 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
-// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
 func (o FunctionOutput) Architectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Architectures }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
 func (o FunctionOutput) Code() pulumi.ArchiveOutput {
 	return o.ApplyT(func(v *Function) pulumi.ArchiveOutput { return v.Code }).(pulumi.ArchiveOutput)
 }
 
-// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
 func (o FunctionOutput) CodeSigningConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.CodeSigningConfigArn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block. Detailed below.
 func (o FunctionOutput) DeadLetterConfig() FunctionDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionDeadLetterConfigPtrOutput { return v.DeadLetterConfig }).(FunctionDeadLetterConfigPtrOutput)
 }
 
-// Description of what your Lambda Function does.
 func (o FunctionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block. Detailed below.
 func (o FunctionOutput) Environment() FunctionEnvironmentPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionEnvironmentPtrOutput { return v.Environment }).(FunctionEnvironmentPtrOutput)
 }
 
-// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
 func (o FunctionOutput) EphemeralStorage() FunctionEphemeralStorageOutput {
 	return o.ApplyT(func(v *Function) FunctionEphemeralStorageOutput { return v.EphemeralStorage }).(FunctionEphemeralStorageOutput)
 }
 
-// Configuration block. Detailed below.
 func (o FunctionOutput) FileSystemConfig() FunctionFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionFileSystemConfigPtrOutput { return v.FileSystemConfig }).(FunctionFileSystemConfigPtrOutput)
 }
 
-// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
 func (o FunctionOutput) Handler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Handler }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block. Detailed below.
 func (o FunctionOutput) ImageConfig() FunctionImageConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionImageConfigPtrOutput { return v.ImageConfig }).(FunctionImageConfigPtrOutput)
 }
 
-// ECR image URI containing the function's deployment package. Conflicts with `filename`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
 func (o FunctionOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.ImageUri }).(pulumi.StringPtrOutput)
 }
 
-// ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 func (o FunctionOutput) InvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.InvokeArn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
 func (o FunctionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Date this resource was last modified.
 func (o FunctionOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 func (o FunctionOutput) Layers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Layers }).(pulumi.StringArrayOutput)
 }
 
-// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 func (o FunctionOutput) MemorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.MemorySize }).(pulumi.IntPtrOutput)
 }
 
-// Unique name for your Lambda Function.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
 func (o FunctionOutput) PackageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.PackageType }).(pulumi.StringPtrOutput)
 }
 
-// Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
 func (o FunctionOutput) Publish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
 }
 
-// ARN identifying your Lambda Function Version (if versioning is enabled via `publish = true`).
 func (o FunctionOutput) QualifiedArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedArn }).(pulumi.StringOutput)
 }
 
-// Qualified ARN (ARN with lambda version number) to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
 func (o FunctionOutput) QualifiedInvokeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.QualifiedInvokeArn }).(pulumi.StringOutput)
 }
 
-// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
 func (o FunctionOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.ReservedConcurrentExecutions }).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 func (o FunctionOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 func (o FunctionOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
-// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `imageUri`. This bucket must reside in the same AWS region where you are creating the Lambda function.
 func (o FunctionOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }
 
-// S3 key of an object containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 func (o FunctionOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.S3Key }).(pulumi.StringPtrOutput)
 }
 
-// Object version containing the function's deployment package. Conflicts with `filename` and `imageUri`.
 func (o FunctionOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the signing job.
 func (o FunctionOutput) SigningJobArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningJobArn }).(pulumi.StringOutput)
 }
 
-// ARN of the signing profile version.
-// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 func (o FunctionOutput) SigningProfileVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
 }
 
-// Snap start settings block. Detailed below.
 func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
-// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 func (o FunctionOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
 }
 
-// Size in bytes of the function .zip file.
 func (o FunctionOutput) SourceCodeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntOutput { return v.SourceCodeSize }).(pulumi.IntOutput)
 }
 
-// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FunctionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FunctionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 func (o FunctionOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// Configuration block. Detailed below.
 func (o FunctionOutput) TracingConfig() FunctionTracingConfigOutput {
 	return o.ApplyT(func(v *Function) FunctionTracingConfigOutput { return v.TracingConfig }).(FunctionTracingConfigOutput)
 }
 
-// Latest published version of your Lambda Function.
-// * `vpc_config.vpc_id` - ID of the VPC.
 func (o FunctionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }
 
-// Configuration block. Detailed below.
 func (o FunctionOutput) VpcConfig() FunctionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionVpcConfigPtrOutput { return v.VpcConfig }).(FunctionVpcConfigPtrOutput)
 }

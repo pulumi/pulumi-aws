@@ -11,12 +11,9 @@ import (
 )
 
 type EnvironmentLastUpdated struct {
-	// The Created At date of the MWAA Environment
-	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt *string                       `pulumi:"createdAt"`
 	Errors    []EnvironmentLastUpdatedError `pulumi:"errors"`
-	// The status of the Amazon MWAA Environment
-	Status *string `pulumi:"status"`
+	Status    *string                       `pulumi:"status"`
 }
 
 // EnvironmentLastUpdatedInput is an input type that accepts EnvironmentLastUpdatedArgs and EnvironmentLastUpdatedOutput values.
@@ -31,12 +28,9 @@ type EnvironmentLastUpdatedInput interface {
 }
 
 type EnvironmentLastUpdatedArgs struct {
-	// The Created At date of the MWAA Environment
-	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt pulumi.StringPtrInput                 `pulumi:"createdAt"`
 	Errors    EnvironmentLastUpdatedErrorArrayInput `pulumi:"errors"`
-	// The status of the Amazon MWAA Environment
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status    pulumi.StringPtrInput                 `pulumi:"status"`
 }
 
 func (EnvironmentLastUpdatedArgs) ElementType() reflect.Type {
@@ -90,8 +84,6 @@ func (o EnvironmentLastUpdatedOutput) ToEnvironmentLastUpdatedOutputWithContext(
 	return o
 }
 
-// The Created At date of the MWAA Environment
-// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 func (o EnvironmentLastUpdatedOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLastUpdated) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -100,7 +92,6 @@ func (o EnvironmentLastUpdatedOutput) Errors() EnvironmentLastUpdatedErrorArrayO
 	return o.ApplyT(func(v EnvironmentLastUpdated) []EnvironmentLastUpdatedError { return v.Errors }).(EnvironmentLastUpdatedErrorArrayOutput)
 }
 
-// The status of the Amazon MWAA Environment
 func (o EnvironmentLastUpdatedOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLastUpdated) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -226,16 +217,11 @@ func (o EnvironmentLastUpdatedErrorArrayOutput) Index(i pulumi.IntInput) Environ
 }
 
 type EnvironmentLoggingConfiguration struct {
-	// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 	DagProcessingLogs *EnvironmentLoggingConfigurationDagProcessingLogs `pulumi:"dagProcessingLogs"`
-	// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-	SchedulerLogs *EnvironmentLoggingConfigurationSchedulerLogs `pulumi:"schedulerLogs"`
-	// Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-	TaskLogs *EnvironmentLoggingConfigurationTaskLogs `pulumi:"taskLogs"`
-	// Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-	WebserverLogs *EnvironmentLoggingConfigurationWebserverLogs `pulumi:"webserverLogs"`
-	// Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-	WorkerLogs *EnvironmentLoggingConfigurationWorkerLogs `pulumi:"workerLogs"`
+	SchedulerLogs     *EnvironmentLoggingConfigurationSchedulerLogs     `pulumi:"schedulerLogs"`
+	TaskLogs          *EnvironmentLoggingConfigurationTaskLogs          `pulumi:"taskLogs"`
+	WebserverLogs     *EnvironmentLoggingConfigurationWebserverLogs     `pulumi:"webserverLogs"`
+	WorkerLogs        *EnvironmentLoggingConfigurationWorkerLogs        `pulumi:"workerLogs"`
 }
 
 // EnvironmentLoggingConfigurationInput is an input type that accepts EnvironmentLoggingConfigurationArgs and EnvironmentLoggingConfigurationOutput values.
@@ -250,16 +236,11 @@ type EnvironmentLoggingConfigurationInput interface {
 }
 
 type EnvironmentLoggingConfigurationArgs struct {
-	// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 	DagProcessingLogs EnvironmentLoggingConfigurationDagProcessingLogsPtrInput `pulumi:"dagProcessingLogs"`
-	// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-	SchedulerLogs EnvironmentLoggingConfigurationSchedulerLogsPtrInput `pulumi:"schedulerLogs"`
-	// Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-	TaskLogs EnvironmentLoggingConfigurationTaskLogsPtrInput `pulumi:"taskLogs"`
-	// Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-	WebserverLogs EnvironmentLoggingConfigurationWebserverLogsPtrInput `pulumi:"webserverLogs"`
-	// Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
-	WorkerLogs EnvironmentLoggingConfigurationWorkerLogsPtrInput `pulumi:"workerLogs"`
+	SchedulerLogs     EnvironmentLoggingConfigurationSchedulerLogsPtrInput     `pulumi:"schedulerLogs"`
+	TaskLogs          EnvironmentLoggingConfigurationTaskLogsPtrInput          `pulumi:"taskLogs"`
+	WebserverLogs     EnvironmentLoggingConfigurationWebserverLogsPtrInput     `pulumi:"webserverLogs"`
+	WorkerLogs        EnvironmentLoggingConfigurationWorkerLogsPtrInput        `pulumi:"workerLogs"`
 }
 
 func (EnvironmentLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -339,33 +320,28 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 	}).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
-// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationOutput) DagProcessingLogs() EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationDagProcessingLogs {
 		return v.DagProcessingLogs
 	}).(EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput)
 }
 
-// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationOutput) SchedulerLogs() EnvironmentLoggingConfigurationSchedulerLogsPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationSchedulerLogs {
 		return v.SchedulerLogs
 	}).(EnvironmentLoggingConfigurationSchedulerLogsPtrOutput)
 }
 
-// Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
 func (o EnvironmentLoggingConfigurationOutput) TaskLogs() EnvironmentLoggingConfigurationTaskLogsPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationTaskLogs { return v.TaskLogs }).(EnvironmentLoggingConfigurationTaskLogsPtrOutput)
 }
 
-// Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationOutput) WebserverLogs() EnvironmentLoggingConfigurationWebserverLogsPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationWebserverLogs {
 		return v.WebserverLogs
 	}).(EnvironmentLoggingConfigurationWebserverLogsPtrOutput)
 }
 
-// Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationOutput) WorkerLogs() EnvironmentLoggingConfigurationWorkerLogsPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationWorkerLogs {
 		return v.WorkerLogs
@@ -396,7 +372,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfi
 	}).(EnvironmentLoggingConfigurationOutput)
 }
 
-// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationDagProcessingLogs {
 		if v == nil {
@@ -406,7 +381,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() Environmen
 	}).(EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput)
 }
 
-// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentLoggingConfigurationSchedulerLogsPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationSchedulerLogs {
 		if v == nil {
@@ -416,7 +390,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentLog
 	}).(EnvironmentLoggingConfigurationSchedulerLogsPtrOutput)
 }
 
-// Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
 func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentLoggingConfigurationTaskLogsPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationTaskLogs {
 		if v == nil {
@@ -426,7 +399,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentLoggingC
 	}).(EnvironmentLoggingConfigurationTaskLogsPtrOutput)
 }
 
-// Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentLoggingConfigurationWebserverLogsPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationWebserverLogs {
 		if v == nil {
@@ -436,7 +408,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentLog
 	}).(EnvironmentLoggingConfigurationWebserverLogsPtrOutput)
 }
 
-// Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
 func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentLoggingConfigurationWorkerLogsPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentLoggingConfigurationWorkerLogs {
 		if v == nil {
@@ -448,10 +419,8 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentLoggin
 
 type EnvironmentLoggingConfigurationDagProcessingLogs struct {
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled *bool `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel *string `pulumi:"logLevel"`
+	Enabled               *bool   `pulumi:"enabled"`
+	LogLevel              *string `pulumi:"logLevel"`
 }
 
 // EnvironmentLoggingConfigurationDagProcessingLogsInput is an input type that accepts EnvironmentLoggingConfigurationDagProcessingLogsArgs and EnvironmentLoggingConfigurationDagProcessingLogsOutput values.
@@ -467,10 +436,8 @@ type EnvironmentLoggingConfigurationDagProcessingLogsInput interface {
 
 type EnvironmentLoggingConfigurationDagProcessingLogsArgs struct {
 	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
+	LogLevel              pulumi.StringPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentLoggingConfigurationDagProcessingLogsArgs) ElementType() reflect.Type {
@@ -554,12 +521,10 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) CloudWatchLogGro
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationDagProcessingLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationDagProcessingLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationDagProcessingLogs) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
@@ -597,7 +562,6 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) CloudWatchLog
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationDagProcessingLogs) *bool {
 		if v == nil {
@@ -607,7 +571,6 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationDagProcessingLogs) *string {
 		if v == nil {
@@ -619,10 +582,8 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) LogLevel() pu
 
 type EnvironmentLoggingConfigurationSchedulerLogs struct {
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled *bool `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel *string `pulumi:"logLevel"`
+	Enabled               *bool   `pulumi:"enabled"`
+	LogLevel              *string `pulumi:"logLevel"`
 }
 
 // EnvironmentLoggingConfigurationSchedulerLogsInput is an input type that accepts EnvironmentLoggingConfigurationSchedulerLogsArgs and EnvironmentLoggingConfigurationSchedulerLogsOutput values.
@@ -638,10 +599,8 @@ type EnvironmentLoggingConfigurationSchedulerLogsInput interface {
 
 type EnvironmentLoggingConfigurationSchedulerLogsArgs struct {
 	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
+	LogLevel              pulumi.StringPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentLoggingConfigurationSchedulerLogsArgs) ElementType() reflect.Type {
@@ -725,12 +684,10 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) CloudWatchLogGroupAr
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationSchedulerLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationSchedulerLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationSchedulerLogs) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
@@ -768,7 +725,6 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) CloudWatchLogGrou
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationSchedulerLogs) *bool {
 		if v == nil {
@@ -778,7 +734,6 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationSchedulerLogs) *string {
 		if v == nil {
@@ -790,10 +745,8 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) LogLevel() pulumi
 
 type EnvironmentLoggingConfigurationTaskLogs struct {
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled *bool `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel *string `pulumi:"logLevel"`
+	Enabled               *bool   `pulumi:"enabled"`
+	LogLevel              *string `pulumi:"logLevel"`
 }
 
 // EnvironmentLoggingConfigurationTaskLogsInput is an input type that accepts EnvironmentLoggingConfigurationTaskLogsArgs and EnvironmentLoggingConfigurationTaskLogsOutput values.
@@ -809,10 +762,8 @@ type EnvironmentLoggingConfigurationTaskLogsInput interface {
 
 type EnvironmentLoggingConfigurationTaskLogsArgs struct {
 	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
+	LogLevel              pulumi.StringPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentLoggingConfigurationTaskLogsArgs) ElementType() reflect.Type {
@@ -896,12 +847,10 @@ func (o EnvironmentLoggingConfigurationTaskLogsOutput) CloudWatchLogGroupArn() p
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationTaskLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationTaskLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationTaskLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationTaskLogsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationTaskLogs) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
@@ -939,7 +888,6 @@ func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) CloudWatchLogGroupArn(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationTaskLogs) *bool {
 		if v == nil {
@@ -949,7 +897,6 @@ func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) Enabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationTaskLogs) *string {
 		if v == nil {
@@ -961,10 +908,8 @@ func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) LogLevel() pulumi.Stri
 
 type EnvironmentLoggingConfigurationWebserverLogs struct {
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled *bool `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel *string `pulumi:"logLevel"`
+	Enabled               *bool   `pulumi:"enabled"`
+	LogLevel              *string `pulumi:"logLevel"`
 }
 
 // EnvironmentLoggingConfigurationWebserverLogsInput is an input type that accepts EnvironmentLoggingConfigurationWebserverLogsArgs and EnvironmentLoggingConfigurationWebserverLogsOutput values.
@@ -980,10 +925,8 @@ type EnvironmentLoggingConfigurationWebserverLogsInput interface {
 
 type EnvironmentLoggingConfigurationWebserverLogsArgs struct {
 	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
+	LogLevel              pulumi.StringPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentLoggingConfigurationWebserverLogsArgs) ElementType() reflect.Type {
@@ -1067,12 +1010,10 @@ func (o EnvironmentLoggingConfigurationWebserverLogsOutput) CloudWatchLogGroupAr
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWebserverLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationWebserverLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWebserverLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationWebserverLogsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWebserverLogs) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
@@ -1110,7 +1051,6 @@ func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) CloudWatchLogGrou
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationWebserverLogs) *bool {
 		if v == nil {
@@ -1120,7 +1060,6 @@ func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationWebserverLogs) *string {
 		if v == nil {
@@ -1132,10 +1071,8 @@ func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) LogLevel() pulumi
 
 type EnvironmentLoggingConfigurationWorkerLogs struct {
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled *bool `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel *string `pulumi:"logLevel"`
+	Enabled               *bool   `pulumi:"enabled"`
+	LogLevel              *string `pulumi:"logLevel"`
 }
 
 // EnvironmentLoggingConfigurationWorkerLogsInput is an input type that accepts EnvironmentLoggingConfigurationWorkerLogsArgs and EnvironmentLoggingConfigurationWorkerLogsOutput values.
@@ -1151,10 +1088,8 @@ type EnvironmentLoggingConfigurationWorkerLogsInput interface {
 
 type EnvironmentLoggingConfigurationWorkerLogsArgs struct {
 	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
-	// Enabling or disabling the collection of logs
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
+	LogLevel              pulumi.StringPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentLoggingConfigurationWorkerLogsArgs) ElementType() reflect.Type {
@@ -1238,12 +1173,10 @@ func (o EnvironmentLoggingConfigurationWorkerLogsOutput) CloudWatchLogGroupArn()
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWorkerLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationWorkerLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWorkerLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationWorkerLogsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWorkerLogs) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
@@ -1281,7 +1214,6 @@ func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) CloudWatchLogGroupAr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enabling or disabling the collection of logs
 func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationWorkerLogs) *bool {
 		if v == nil {
@@ -1291,7 +1223,6 @@ func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
 func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationWorkerLogs) *string {
 		if v == nil {
@@ -1302,10 +1233,8 @@ func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) LogLevel() pulumi.St
 }
 
 type EnvironmentNetworkConfiguration struct {
-	// Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
 }
 
 // EnvironmentNetworkConfigurationInput is an input type that accepts EnvironmentNetworkConfigurationArgs and EnvironmentNetworkConfigurationOutput values.
@@ -1320,10 +1249,8 @@ type EnvironmentNetworkConfigurationInput interface {
 }
 
 type EnvironmentNetworkConfigurationArgs struct {
-	// Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (EnvironmentNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -1403,12 +1330,10 @@ func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfiguration
 	}).(EnvironmentNetworkConfigurationPtrOutput)
 }
 
-// Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
 func (o EnvironmentNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
 func (o EnvironmentNetworkConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1437,7 +1362,6 @@ func (o EnvironmentNetworkConfigurationPtrOutput) Elem() EnvironmentNetworkConfi
 	}).(EnvironmentNetworkConfigurationOutput)
 }
 
-// Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
 func (o EnvironmentNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) []string {
 		if v == nil {
@@ -1447,7 +1371,6 @@ func (o EnvironmentNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
 func (o EnvironmentNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) []string {
 		if v == nil {

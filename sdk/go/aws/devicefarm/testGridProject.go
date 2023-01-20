@@ -10,34 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS Device Farm Test Grid Projects.
-//
-// > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
-//
-// ## Import
-//
-// # DeviceFarm Test Grid Projects can be imported by their arn
-//
-// ```sh
-//
-//	$ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
-// ```
 type TestGridProject struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this Test Grid Project.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Human-readable description of the project.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the Selenium testing project.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
-	VpcConfig TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
+	Arn         pulumi.StringOutput               `pulumi:"arn"`
+	Description pulumi.StringPtrOutput            `pulumi:"description"`
+	Name        pulumi.StringOutput               `pulumi:"name"`
+	Tags        pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	VpcConfig   TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewTestGridProject registers a new resource with the given unique name, arguments, and options.
@@ -69,33 +50,21 @@ func GetTestGridProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TestGridProject resources.
 type testGridProjectState struct {
-	// The Amazon Resource Name of this Test Grid Project.
-	Arn *string `pulumi:"arn"`
-	// Human-readable description of the project.
-	Description *string `pulumi:"description"`
-	// The name of the Selenium testing project.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
-	VpcConfig *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
+	Arn         *string                   `pulumi:"arn"`
+	Description *string                   `pulumi:"description"`
+	Name        *string                   `pulumi:"name"`
+	Tags        map[string]string         `pulumi:"tags"`
+	TagsAll     map[string]string         `pulumi:"tagsAll"`
+	VpcConfig   *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
 type TestGridProjectState struct {
-	// The Amazon Resource Name of this Test Grid Project.
-	Arn pulumi.StringPtrInput
-	// Human-readable description of the project.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The name of the Selenium testing project.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
-	VpcConfig TestGridProjectVpcConfigPtrInput
+	Name        pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
+	VpcConfig   TestGridProjectVpcConfigPtrInput
 }
 
 func (TestGridProjectState) ElementType() reflect.Type {
@@ -103,26 +72,18 @@ func (TestGridProjectState) ElementType() reflect.Type {
 }
 
 type testGridProjectArgs struct {
-	// Human-readable description of the project.
-	Description *string `pulumi:"description"`
-	// The name of the Selenium testing project.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
-	VpcConfig *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
+	Description *string                   `pulumi:"description"`
+	Name        *string                   `pulumi:"name"`
+	Tags        map[string]string         `pulumi:"tags"`
+	VpcConfig   *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a TestGridProject resource.
 type TestGridProjectArgs struct {
-	// Human-readable description of the project.
 	Description pulumi.StringPtrInput
-	// The name of the Selenium testing project.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
-	VpcConfig TestGridProjectVpcConfigPtrInput
+	Name        pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	VpcConfig   TestGridProjectVpcConfigPtrInput
 }
 
 func (TestGridProjectArgs) ElementType() reflect.Type {
@@ -212,32 +173,26 @@ func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name of this Test Grid Project.
 func (o TestGridProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Human-readable description of the project.
 func (o TestGridProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Selenium testing project.
 func (o TestGridProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TestGridProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TestGridProjectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VPC security groups and subnets that are attached to a project. See VPC Config below.
 func (o TestGridProjectOutput) VpcConfig() TestGridProjectVpcConfigPtrOutput {
 	return o.ApplyT(func(v *TestGridProject) TestGridProjectVpcConfigPtrOutput { return v.VpcConfig }).(TestGridProjectVpcConfigPtrOutput)
 }

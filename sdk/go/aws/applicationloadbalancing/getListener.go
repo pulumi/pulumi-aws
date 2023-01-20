@@ -10,54 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
-//
-// Provides information about a Load Balancer Listener.
-//
-// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			listenerArn := cfg.Require("listenerArn")
-//			_, err := lb.LookupListener(ctx, &lb.LookupListenerArgs{
-//				Arn: pulumi.StringRef(listenerArn),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			selected, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-//				Name: pulumi.StringRef("default-public"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.LookupListener(ctx, &lb.LookupListenerArgs{
-//				LoadBalancerArn: pulumi.StringRef(selected.Arn),
-//				Port:            pulumi.IntRef(443),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // Deprecated: aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	var rv LookupListenerResult
@@ -70,13 +22,10 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 
 // A collection of arguments for invoking getListener.
 type LookupListenerArgs struct {
-	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-	Arn *string `pulumi:"arn"`
-	// ARN of the load balancer. Required if `arn` is not set.
-	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// Port of the listener. Required if `arn` is not set.
-	Port *int              `pulumi:"port"`
-	Tags map[string]string `pulumi:"tags"`
+	Arn             *string           `pulumi:"arn"`
+	LoadBalancerArn *string           `pulumi:"loadBalancerArn"`
+	Port            *int              `pulumi:"port"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getListener.
@@ -109,13 +58,10 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 
 // A collection of arguments for invoking getListener.
 type LookupListenerOutputArgs struct {
-	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// ARN of the load balancer. Required if `arn` is not set.
+	Arn             pulumi.StringPtrInput `pulumi:"arn"`
 	LoadBalancerArn pulumi.StringPtrInput `pulumi:"loadBalancerArn"`
-	// Port of the listener. Required if `arn` is not set.
-	Port pulumi.IntPtrInput    `pulumi:"port"`
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Port            pulumi.IntPtrInput    `pulumi:"port"`
+	Tags            pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupListenerOutputArgs) ElementType() reflect.Type {

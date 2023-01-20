@@ -11,100 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM role inline policy.
-//
-// > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `inlinePolicy` argument. When using that argument and this resource, both will attempt to manage the role's inline policies and the provider will show a permanent difference.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "ec2.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"ec2:Describe*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = iam.NewRolePolicy(ctx, "testPolicy", &iam.RolePolicyArgs{
-//				Role:   testRole.ID(),
-//				Policy: pulumi.String(json1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
-//
-// ```
 type RolePolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the role policy. If omitted, this provider will
-	// assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
+	Name       pulumi.StringOutput    `pulumi:"name"`
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
-	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The name of the IAM role to attach to the policy.
-	Role pulumi.StringOutput `pulumi:"role"`
+	Policy     pulumi.StringOutput    `pulumi:"policy"`
+	Role       pulumi.StringOutput    `pulumi:"role"`
 }
 
 // NewRolePolicy registers a new resource with the given unique name, arguments, and options.
@@ -142,29 +55,17 @@ func GetRolePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RolePolicy resources.
 type rolePolicyState struct {
-	// The name of the role policy. If omitted, this provider will
-	// assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-	Policy interface{} `pulumi:"policy"`
-	// The name of the IAM role to attach to the policy.
-	Role interface{} `pulumi:"role"`
+	Name       *string     `pulumi:"name"`
+	NamePrefix *string     `pulumi:"namePrefix"`
+	Policy     interface{} `pulumi:"policy"`
+	Role       interface{} `pulumi:"role"`
 }
 
 type RolePolicyState struct {
-	// The name of the role policy. If omitted, this provider will
-	// assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-	Policy pulumi.Input
-	// The name of the IAM role to attach to the policy.
-	Role pulumi.Input
+	Policy     pulumi.Input
+	Role       pulumi.Input
 }
 
 func (RolePolicyState) ElementType() reflect.Type {
@@ -172,30 +73,18 @@ func (RolePolicyState) ElementType() reflect.Type {
 }
 
 type rolePolicyArgs struct {
-	// The name of the role policy. If omitted, this provider will
-	// assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-	Policy interface{} `pulumi:"policy"`
-	// The name of the IAM role to attach to the policy.
-	Role interface{} `pulumi:"role"`
+	Name       *string     `pulumi:"name"`
+	NamePrefix *string     `pulumi:"namePrefix"`
+	Policy     interface{} `pulumi:"policy"`
+	Role       interface{} `pulumi:"role"`
 }
 
 // The set of arguments for constructing a RolePolicy resource.
 type RolePolicyArgs struct {
-	// The name of the role policy. If omitted, this provider will
-	// assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified
-	// prefix. Conflicts with `name`.
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
-	Policy pulumi.Input
-	// The name of the IAM role to attach to the policy.
-	Role pulumi.Input
+	Policy     pulumi.Input
+	Role       pulumi.Input
 }
 
 func (RolePolicyArgs) ElementType() reflect.Type {
@@ -285,24 +174,18 @@ func (o RolePolicyOutput) ToRolePolicyOutputWithContext(ctx context.Context) Rol
 	return o
 }
 
-// The name of the role policy. If omitted, this provider will
-// assign a random, unique name.
 func (o RolePolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RolePolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified
-// prefix. Conflicts with `name`.
 func (o RolePolicyOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RolePolicy) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
-// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
 func (o RolePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RolePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The name of the IAM role to attach to the policy.
 func (o RolePolicyOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *RolePolicy) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

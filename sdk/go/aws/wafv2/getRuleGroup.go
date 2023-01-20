@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves the summary of a WAFv2 Rule Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.LookupRuleGroup(ctx, &wafv2.LookupRuleGroupArgs{
-//				Name:  "some-rule-group",
-//				Scope: "REGIONAL",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pulumi.InvokeOption) (*LookupRuleGroupResult, error) {
 	var rv LookupRuleGroupResult
 	err := ctx.Invoke("aws:wafv2/getRuleGroup:getRuleGroup", args, &rv, opts...)
@@ -49,17 +21,13 @@ func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pul
 
 // A collection of arguments for invoking getRuleGroup.
 type LookupRuleGroupArgs struct {
-	// Name of the WAFv2 Rule Group.
-	Name string `pulumi:"name"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+	Name  string `pulumi:"name"`
 	Scope string `pulumi:"scope"`
 }
 
 // A collection of values returned by getRuleGroup.
 type LookupRuleGroupResult struct {
-	// ARN of the entity.
-	Arn string `pulumi:"arn"`
-	// Description of the rule group that helps with identification.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id    string `pulumi:"id"`
@@ -82,9 +50,7 @@ func LookupRuleGroupOutput(ctx *pulumi.Context, args LookupRuleGroupOutputArgs, 
 
 // A collection of arguments for invoking getRuleGroup.
 type LookupRuleGroupOutputArgs struct {
-	// Name of the WAFv2 Rule Group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
@@ -107,12 +73,10 @@ func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutputWithContext(ct
 	return o
 }
 
-// ARN of the entity.
 func (o LookupRuleGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the rule group that helps with identification.
 func (o LookupRuleGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRuleGroupResult) string { return v.Description }).(pulumi.StringOutput)
 }

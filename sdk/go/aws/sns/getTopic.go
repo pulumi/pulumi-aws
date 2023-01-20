@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARN of a topic in AWS Simple Notification
-// Service (SNS). By using this data source, you can reference SNS topics
-// without having to hard code the ARNs as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.LookupTopic(ctx, &sns.LookupTopicArgs{
-//				Name: "an_example_topic",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
 	err := ctx.Invoke("aws:sns/getTopic:getTopic", args, &rv, opts...)
@@ -50,13 +21,11 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getTopic.
 type LookupTopicArgs struct {
-	// Friendly name of the topic to match.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getTopic.
 type LookupTopicResult struct {
-	// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -78,7 +47,6 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 
 // A collection of arguments for invoking getTopic.
 type LookupTopicOutputArgs struct {
-	// Friendly name of the topic to match.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -101,7 +69,6 @@ func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx contex
 	return o
 }
 
-// ARN of the found topic, suitable for referencing in other resources that support SNS topics.
 func (o LookupTopicResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Arn }).(pulumi.StringOutput)
 }

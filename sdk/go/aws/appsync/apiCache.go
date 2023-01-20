@@ -11,67 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppSync API Cache.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewApiCache(ctx, "exampleApiCache", &appsync.ApiCacheArgs{
-//				ApiId:              exampleGraphQLApi.ID(),
-//				ApiCachingBehavior: pulumi.String("FULL_REQUEST_CACHING"),
-//				Type:               pulumi.String("LARGE"),
-//				Ttl:                pulumi.Int(900),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-//
-// ```
 type ApiCache struct {
 	pulumi.CustomResourceState
 
-	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-	ApiCachingBehavior pulumi.StringOutput `pulumi:"apiCachingBehavior"`
-	// GraphQL API ID.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// At-rest encryption flag for cache. You cannot update this setting after creation.
-	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
-	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
+	ApiCachingBehavior       pulumi.StringOutput  `pulumi:"apiCachingBehavior"`
+	ApiId                    pulumi.StringOutput  `pulumi:"apiId"`
+	AtRestEncryptionEnabled  pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
 	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
-	// TTL in seconds for cache entries.
-	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Ttl                      pulumi.IntOutput     `pulumi:"ttl"`
+	Type                     pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewApiCache registers a new resource with the given unique name, arguments, and options.
@@ -115,33 +63,21 @@ func GetApiCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiCache resources.
 type apiCacheState struct {
-	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-	ApiCachingBehavior *string `pulumi:"apiCachingBehavior"`
-	// GraphQL API ID.
-	ApiId *string `pulumi:"apiId"`
-	// At-rest encryption flag for cache. You cannot update this setting after creation.
-	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
-	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
-	// TTL in seconds for cache entries.
-	Ttl *int `pulumi:"ttl"`
-	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-	Type *string `pulumi:"type"`
+	ApiCachingBehavior       *string `pulumi:"apiCachingBehavior"`
+	ApiId                    *string `pulumi:"apiId"`
+	AtRestEncryptionEnabled  *bool   `pulumi:"atRestEncryptionEnabled"`
+	TransitEncryptionEnabled *bool   `pulumi:"transitEncryptionEnabled"`
+	Ttl                      *int    `pulumi:"ttl"`
+	Type                     *string `pulumi:"type"`
 }
 
 type ApiCacheState struct {
-	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-	ApiCachingBehavior pulumi.StringPtrInput
-	// GraphQL API ID.
-	ApiId pulumi.StringPtrInput
-	// At-rest encryption flag for cache. You cannot update this setting after creation.
-	AtRestEncryptionEnabled pulumi.BoolPtrInput
-	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
+	ApiCachingBehavior       pulumi.StringPtrInput
+	ApiId                    pulumi.StringPtrInput
+	AtRestEncryptionEnabled  pulumi.BoolPtrInput
 	TransitEncryptionEnabled pulumi.BoolPtrInput
-	// TTL in seconds for cache entries.
-	Ttl pulumi.IntPtrInput
-	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-	Type pulumi.StringPtrInput
+	Ttl                      pulumi.IntPtrInput
+	Type                     pulumi.StringPtrInput
 }
 
 func (ApiCacheState) ElementType() reflect.Type {
@@ -149,34 +85,22 @@ func (ApiCacheState) ElementType() reflect.Type {
 }
 
 type apiCacheArgs struct {
-	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-	ApiCachingBehavior string `pulumi:"apiCachingBehavior"`
-	// GraphQL API ID.
-	ApiId string `pulumi:"apiId"`
-	// At-rest encryption flag for cache. You cannot update this setting after creation.
-	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
-	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
-	// TTL in seconds for cache entries.
-	Ttl int `pulumi:"ttl"`
-	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-	Type string `pulumi:"type"`
+	ApiCachingBehavior       string `pulumi:"apiCachingBehavior"`
+	ApiId                    string `pulumi:"apiId"`
+	AtRestEncryptionEnabled  *bool  `pulumi:"atRestEncryptionEnabled"`
+	TransitEncryptionEnabled *bool  `pulumi:"transitEncryptionEnabled"`
+	Ttl                      int    `pulumi:"ttl"`
+	Type                     string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ApiCache resource.
 type ApiCacheArgs struct {
-	// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-	ApiCachingBehavior pulumi.StringInput
-	// GraphQL API ID.
-	ApiId pulumi.StringInput
-	// At-rest encryption flag for cache. You cannot update this setting after creation.
-	AtRestEncryptionEnabled pulumi.BoolPtrInput
-	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
+	ApiCachingBehavior       pulumi.StringInput
+	ApiId                    pulumi.StringInput
+	AtRestEncryptionEnabled  pulumi.BoolPtrInput
 	TransitEncryptionEnabled pulumi.BoolPtrInput
-	// TTL in seconds for cache entries.
-	Ttl pulumi.IntInput
-	// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-	Type pulumi.StringInput
+	Ttl                      pulumi.IntInput
+	Type                     pulumi.StringInput
 }
 
 func (ApiCacheArgs) ElementType() reflect.Type {
@@ -266,32 +190,26 @@ func (o ApiCacheOutput) ToApiCacheOutputWithContext(ctx context.Context) ApiCach
 	return o
 }
 
-// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
 func (o ApiCacheOutput) ApiCachingBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.ApiCachingBehavior }).(pulumi.StringOutput)
 }
 
-// GraphQL API ID.
 func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// At-rest encryption flag for cache. You cannot update this setting after creation.
 func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 func (o ApiCacheOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// TTL in seconds for cache entries.
 func (o ApiCacheOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
 }
 
-// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
 func (o ApiCacheOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

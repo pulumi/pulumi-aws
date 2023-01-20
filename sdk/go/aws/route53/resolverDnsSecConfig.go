@@ -11,62 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Route 53 Resolver DNSSEC config resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.0.0.0/16"),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverDnsSecConfig(ctx, "exampleResolverDnsSecConfig", &route53.ResolverDnsSecConfigArgs{
-//				ResourceId: exampleVpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-//	Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
-//
-// ```
 type ResolverDnsSecConfig struct {
 	pulumi.CustomResourceState
 
-	// The ARN for a configuration for DNSSEC validation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
+	Arn              pulumi.StringOutput `pulumi:"arn"`
+	OwnerId          pulumi.StringOutput `pulumi:"ownerId"`
+	ResourceId       pulumi.StringOutput `pulumi:"resourceId"`
 	ValidationStatus pulumi.StringOutput `pulumi:"validationStatus"`
 }
 
@@ -102,24 +52,16 @@ func GetResolverDnsSecConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverDnsSecConfig resources.
 type resolverDnsSecConfigState struct {
-	// The ARN for a configuration for DNSSEC validation.
-	Arn *string `pulumi:"arn"`
-	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-	OwnerId *string `pulumi:"ownerId"`
-	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-	ResourceId *string `pulumi:"resourceId"`
-	// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
+	Arn              *string `pulumi:"arn"`
+	OwnerId          *string `pulumi:"ownerId"`
+	ResourceId       *string `pulumi:"resourceId"`
 	ValidationStatus *string `pulumi:"validationStatus"`
 }
 
 type ResolverDnsSecConfigState struct {
-	// The ARN for a configuration for DNSSEC validation.
-	Arn pulumi.StringPtrInput
-	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-	OwnerId pulumi.StringPtrInput
-	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-	ResourceId pulumi.StringPtrInput
-	// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
+	Arn              pulumi.StringPtrInput
+	OwnerId          pulumi.StringPtrInput
+	ResourceId       pulumi.StringPtrInput
 	ValidationStatus pulumi.StringPtrInput
 }
 
@@ -128,13 +70,11 @@ func (ResolverDnsSecConfigState) ElementType() reflect.Type {
 }
 
 type resolverDnsSecConfigArgs struct {
-	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 	ResourceId string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverDnsSecConfig resource.
 type ResolverDnsSecConfigArgs struct {
-	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 	ResourceId pulumi.StringInput
 }
 
@@ -225,22 +165,18 @@ func (o ResolverDnsSecConfigOutput) ToResolverDnsSecConfigOutputWithContext(ctx 
 	return o
 }
 
-// The ARN for a configuration for DNSSEC validation.
 func (o ResolverDnsSecConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverDnsSecConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 func (o ResolverDnsSecConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverDnsSecConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 func (o ResolverDnsSecConfigOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverDnsSecConfig) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
 func (o ResolverDnsSecConfigOutput) ValidationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverDnsSecConfig) pulumi.StringOutput { return v.ValidationStatus }).(pulumi.StringOutput)
 }

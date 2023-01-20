@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides access to an AppConfig Environment.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.LookupEnvironment(ctx, &appconfig.LookupEnvironmentArgs{
-//				ApplicationId: "b5d5gpj",
-//				EnvironmentId: "qrbb1c1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
 	err := ctx.Invoke("aws:appconfig/getEnvironment:getEnvironment", args, &rv, opts...)
@@ -50,33 +21,23 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 
 // A collection of arguments for invoking getEnvironment.
 type LookupEnvironmentArgs struct {
-	// ID of the AppConfig Application to which this Environment belongs.
-	ApplicationId string `pulumi:"applicationId"`
-	// ID of the AppConfig Environment.
-	EnvironmentId string `pulumi:"environmentId"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationId string            `pulumi:"applicationId"`
+	EnvironmentId string            `pulumi:"environmentId"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getEnvironment.
 type LookupEnvironmentResult struct {
 	ApplicationId string `pulumi:"applicationId"`
-	// ARN of the environment.
-	Arn string `pulumi:"arn"`
-	// Name of the environment.
+	Arn           string `pulumi:"arn"`
 	Description   string `pulumi:"description"`
 	EnvironmentId string `pulumi:"environmentId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of Amazon CloudWatch alarms to monitor during the deployment process.
+	Id       string                  `pulumi:"id"`
 	Monitors []GetEnvironmentMonitor `pulumi:"monitors"`
-	// Name of the environment.
-	Name string `pulumi:"name"`
-	// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-	// or `ROLLED_BACK`.
-	State string `pulumi:"state"`
-	// Map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Name     string                  `pulumi:"name"`
+	State    string                  `pulumi:"state"`
+	Tags     map[string]string       `pulumi:"tags"`
 }
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
@@ -94,12 +55,9 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 
 // A collection of arguments for invoking getEnvironment.
 type LookupEnvironmentOutputArgs struct {
-	// ID of the AppConfig Application to which this Environment belongs.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// ID of the AppConfig Environment.
-	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
-	// Map of tags for the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	ApplicationId pulumi.StringInput    `pulumi:"applicationId"`
+	EnvironmentId pulumi.StringInput    `pulumi:"environmentId"`
+	Tags          pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {
@@ -125,12 +83,10 @@ func (o LookupEnvironmentResultOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// ARN of the environment.
 func (o LookupEnvironmentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the environment.
 func (o LookupEnvironmentResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -144,23 +100,18 @@ func (o LookupEnvironmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of Amazon CloudWatch alarms to monitor during the deployment process.
 func (o LookupEnvironmentResultOutput) Monitors() GetEnvironmentMonitorArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) []GetEnvironmentMonitor { return v.Monitors }).(GetEnvironmentMonitorArrayOutput)
 }
 
-// Name of the environment.
 func (o LookupEnvironmentResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-// or `ROLLED_BACK`.
 func (o LookupEnvironmentResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Map of tags for the resource.
 func (o LookupEnvironmentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

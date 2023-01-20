@@ -10,10 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
-// Profile IDs to another resource.
-//
-// ## Example Usage
 func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfilesArgs, opts ...pulumi.InvokeOption) (*GetConfigurationProfilesResult, error) {
 	var rv GetConfigurationProfilesResult
 	err := ctx.Invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, &rv, opts...)
@@ -25,14 +21,12 @@ func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfile
 
 // A collection of arguments for invoking getConfigurationProfiles.
 type GetConfigurationProfilesArgs struct {
-	// ID of the AppConfig Application.
 	ApplicationId string `pulumi:"applicationId"`
 }
 
 // A collection of values returned by getConfigurationProfiles.
 type GetConfigurationProfilesResult struct {
-	ApplicationId string `pulumi:"applicationId"`
-	// Set of Configuration Profile IDs associated with the AppConfig Application.
+	ApplicationId           string   `pulumi:"applicationId"`
 	ConfigurationProfileIds []string `pulumi:"configurationProfileIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -53,7 +47,6 @@ func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationPr
 
 // A collection of arguments for invoking getConfigurationProfiles.
 type GetConfigurationProfilesOutputArgs struct {
-	// ID of the AppConfig Application.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 }
 
@@ -80,7 +73,6 @@ func (o GetConfigurationProfilesResultOutput) ApplicationId() pulumi.StringOutpu
 	return o.ApplyT(func(v GetConfigurationProfilesResult) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Set of Configuration Profile IDs associated with the AppConfig Application.
 func (o GetConfigurationProfilesResultOutput) ConfigurationProfileIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConfigurationProfilesResult) []string { return v.ConfigurationProfileIds }).(pulumi.StringArrayOutput)
 }

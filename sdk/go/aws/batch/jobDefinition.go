@@ -11,191 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Batch Job Definition resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-//				ContainerProperties: pulumi.String(fmt.Sprintf(`{
-//		"command": ["ls", "-la"],
-//		"image": "busybox",
-//		"resourceRequirements": [
-//	    {"type": "VCPU", "value": "0.25"},
-//	    {"type": "MEMORY", "value": "512"}
-//	  ],
-//		"volumes": [
-//	      {
-//	        "host": {
-//	          "sourcePath": "/tmp"
-//	        },
-//	        "name": "tmp"
-//	      }
-//	    ],
-//		"environment": [
-//			{"name": "VARNAME", "value": "VARVAL"}
-//		],
-//		"mountPoints": [
-//			{
-//	          "sourceVolume": "tmp",
-//	          "containerPath": "/tmp",
-//	          "readOnly": false
-//	        }
-//		],
-//	    "ulimits": [
-//	      {
-//	        "hardLimit": 1024,
-//	        "name": "nofile",
-//	        "softLimit": 1024
-//	      }
-//	    ]
-//	}
-//
-// `)),
-//
-//				Type: pulumi.String("container"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Fargate Platform Capability
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"ecs-tasks.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecsTaskExecutionRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRolePolicy.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ecsTaskExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
-//				Role:      ecsTaskExecutionRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-//				Type: pulumi.String("container"),
-//				PlatformCapabilities: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//				},
-//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "command": ["echo", "test"],
-//	  "image": "busybox",
-//	  "fargatePlatformConfiguration": {
-//	    "platformVersion": "LATEST"
-//	  },
-//	  "resourceRequirements": [
-//	    {"type": "VCPU", "value": "0.25"},
-//	    {"type": "MEMORY", "value": "512"}
-//	  ],
-//	  "executionRoleArn": "%v"
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Batch Job Definition can be imported using the `arn`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
-//
-// ```
 type JobDefinition struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of the job definition.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-	ContainerProperties pulumi.StringPtrOutput `pulumi:"containerProperties"`
-	// Specifies the name of the job definition.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the parameter substitution placeholders to set in the job definition.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-	PlatformCapabilities pulumi.StringArrayOutput `pulumi:"platformCapabilities"`
-	// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-	PropagateTags pulumi.BoolPtrOutput `pulumi:"propagateTags"`
-	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-	// Maximum number of `retryStrategy` is `1`.  Defined below.
-	RetryStrategy JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
-	// The revision of the job definition.
-	Revision pulumi.IntOutput `pulumi:"revision"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
-	// The type of job definition. Must be `container`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Arn                  pulumi.StringOutput                 `pulumi:"arn"`
+	ContainerProperties  pulumi.StringPtrOutput              `pulumi:"containerProperties"`
+	Name                 pulumi.StringOutput                 `pulumi:"name"`
+	Parameters           pulumi.StringMapOutput              `pulumi:"parameters"`
+	PlatformCapabilities pulumi.StringArrayOutput            `pulumi:"platformCapabilities"`
+	PropagateTags        pulumi.BoolPtrOutput                `pulumi:"propagateTags"`
+	RetryStrategy        JobDefinitionRetryStrategyPtrOutput `pulumi:"retryStrategy"`
+	Revision             pulumi.IntOutput                    `pulumi:"revision"`
+	Tags                 pulumi.StringMapOutput              `pulumi:"tags"`
+	TagsAll              pulumi.StringMapOutput              `pulumi:"tagsAll"`
+	Timeout              JobDefinitionTimeoutPtrOutput       `pulumi:"timeout"`
+	Type                 pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -230,61 +60,33 @@ func GetJobDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobDefinition resources.
 type jobDefinitionState struct {
-	// The Amazon Resource Name of the job definition.
-	Arn *string `pulumi:"arn"`
-	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-	ContainerProperties *string `pulumi:"containerProperties"`
-	// Specifies the name of the job definition.
-	Name *string `pulumi:"name"`
-	// Specifies the parameter substitution placeholders to set in the job definition.
-	Parameters map[string]string `pulumi:"parameters"`
-	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-	PlatformCapabilities []string `pulumi:"platformCapabilities"`
-	// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-	PropagateTags *bool `pulumi:"propagateTags"`
-	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-	// Maximum number of `retryStrategy` is `1`.  Defined below.
-	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
-	// The revision of the job definition.
-	Revision *int `pulumi:"revision"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
-	// The type of job definition. Must be `container`.
-	Type *string `pulumi:"type"`
+	Arn                  *string                     `pulumi:"arn"`
+	ContainerProperties  *string                     `pulumi:"containerProperties"`
+	Name                 *string                     `pulumi:"name"`
+	Parameters           map[string]string           `pulumi:"parameters"`
+	PlatformCapabilities []string                    `pulumi:"platformCapabilities"`
+	PropagateTags        *bool                       `pulumi:"propagateTags"`
+	RetryStrategy        *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
+	Revision             *int                        `pulumi:"revision"`
+	Tags                 map[string]string           `pulumi:"tags"`
+	TagsAll              map[string]string           `pulumi:"tagsAll"`
+	Timeout              *JobDefinitionTimeout       `pulumi:"timeout"`
+	Type                 *string                     `pulumi:"type"`
 }
 
 type JobDefinitionState struct {
-	// The Amazon Resource Name of the job definition.
-	Arn pulumi.StringPtrInput
-	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-	ContainerProperties pulumi.StringPtrInput
-	// Specifies the name of the job definition.
-	Name pulumi.StringPtrInput
-	// Specifies the parameter substitution placeholders to set in the job definition.
-	Parameters pulumi.StringMapInput
-	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+	Arn                  pulumi.StringPtrInput
+	ContainerProperties  pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Parameters           pulumi.StringMapInput
 	PlatformCapabilities pulumi.StringArrayInput
-	// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-	PropagateTags pulumi.BoolPtrInput
-	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-	// Maximum number of `retryStrategy` is `1`.  Defined below.
-	RetryStrategy JobDefinitionRetryStrategyPtrInput
-	// The revision of the job definition.
-	Revision pulumi.IntPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-	Timeout JobDefinitionTimeoutPtrInput
-	// The type of job definition. Must be `container`.
-	Type pulumi.StringPtrInput
+	PropagateTags        pulumi.BoolPtrInput
+	RetryStrategy        JobDefinitionRetryStrategyPtrInput
+	Revision             pulumi.IntPtrInput
+	Tags                 pulumi.StringMapInput
+	TagsAll              pulumi.StringMapInput
+	Timeout              JobDefinitionTimeoutPtrInput
+	Type                 pulumi.StringPtrInput
 }
 
 func (JobDefinitionState) ElementType() reflect.Type {
@@ -292,50 +94,28 @@ func (JobDefinitionState) ElementType() reflect.Type {
 }
 
 type jobDefinitionArgs struct {
-	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-	ContainerProperties *string `pulumi:"containerProperties"`
-	// Specifies the name of the job definition.
-	Name *string `pulumi:"name"`
-	// Specifies the parameter substitution placeholders to set in the job definition.
-	Parameters map[string]string `pulumi:"parameters"`
-	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-	PlatformCapabilities []string `pulumi:"platformCapabilities"`
-	// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-	PropagateTags *bool `pulumi:"propagateTags"`
-	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-	// Maximum number of `retryStrategy` is `1`.  Defined below.
-	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
-	// The type of job definition. Must be `container`.
-	Type string `pulumi:"type"`
+	ContainerProperties  *string                     `pulumi:"containerProperties"`
+	Name                 *string                     `pulumi:"name"`
+	Parameters           map[string]string           `pulumi:"parameters"`
+	PlatformCapabilities []string                    `pulumi:"platformCapabilities"`
+	PropagateTags        *bool                       `pulumi:"propagateTags"`
+	RetryStrategy        *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
+	Tags                 map[string]string           `pulumi:"tags"`
+	Timeout              *JobDefinitionTimeout       `pulumi:"timeout"`
+	Type                 string                      `pulumi:"type"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
-	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-	ContainerProperties pulumi.StringPtrInput
-	// Specifies the name of the job definition.
-	Name pulumi.StringPtrInput
-	// Specifies the parameter substitution placeholders to set in the job definition.
-	Parameters pulumi.StringMapInput
-	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
+	ContainerProperties  pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	Parameters           pulumi.StringMapInput
 	PlatformCapabilities pulumi.StringArrayInput
-	// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-	PropagateTags pulumi.BoolPtrInput
-	// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-	// Maximum number of `retryStrategy` is `1`.  Defined below.
-	RetryStrategy JobDefinitionRetryStrategyPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-	Timeout JobDefinitionTimeoutPtrInput
-	// The type of job definition. Must be `container`.
-	Type pulumi.StringInput
+	PropagateTags        pulumi.BoolPtrInput
+	RetryStrategy        JobDefinitionRetryStrategyPtrInput
+	Tags                 pulumi.StringMapInput
+	Timeout              JobDefinitionTimeoutPtrInput
+	Type                 pulumi.StringInput
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {
@@ -425,64 +205,50 @@ func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name of the job definition.
 func (o JobDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-// provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
 func (o JobDefinitionOutput) ContainerProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.ContainerProperties }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the job definition.
 func (o JobDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the parameter substitution placeholders to set in the job definition.
 func (o JobDefinitionOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
 func (o JobDefinitionOutput) PlatformCapabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringArrayOutput { return v.PlatformCapabilities }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
 func (o JobDefinitionOutput) PropagateTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.BoolPtrOutput { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-// Maximum number of `retryStrategy` is `1`.  Defined below.
 func (o JobDefinitionOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionRetryStrategyPtrOutput { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
 }
 
-// The revision of the job definition.
 func (o JobDefinitionOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o JobDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o JobDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionTimeoutPtrOutput { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
 }
 
-// The type of job definition. Must be `container`.
 func (o JobDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

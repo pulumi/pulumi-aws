@@ -11,114 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a FSx ONTAP Volume.
-// See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
-//				JunctionPath:             pulumi.String("/test"),
-//				SizeInMegabytes:          pulumi.Int(1024),
-//				StorageEfficiencyEnabled: pulumi.Bool(true),
-//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Using Tiering Policy
-//
-// Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
-//				JunctionPath:             pulumi.String("/test"),
-//				SizeInMegabytes:          pulumi.Int(1024),
-//				StorageEfficiencyEnabled: pulumi.Bool(true),
-//				StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
-//				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
-//					Name:          pulumi.String("AUTO"),
-//					CoolingPeriod: pulumi.Int(31),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// FSx ONTAP volume can be imported using the `id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
-//
-// ```
 type OntapVolume struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the volune.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Describes the file system for the volume, e.g. `fs-12345679`
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
-	FlexcacheEndpointType pulumi.StringOutput `pulumi:"flexcacheEndpointType"`
-	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath pulumi.StringOutput `pulumi:"junctionPath"`
-	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-	OntapVolumeType pulumi.StringOutput `pulumi:"ontapVolumeType"`
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
-	SecurityStyle pulumi.StringPtrOutput `pulumi:"securityStyle"`
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes pulumi.IntOutput `pulumi:"sizeInMegabytes"`
-	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-	StorageEfficiencyEnabled pulumi.BoolOutput `pulumi:"storageEfficiencyEnabled"`
-	// Specifies the storage virtual machine in which to create the volume.
-	StorageVirtualMachineId pulumi.StringOutput `pulumi:"storageVirtualMachineId"`
-	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll       pulumi.StringMapOutput            `pulumi:"tagsAll"`
-	TieringPolicy OntapVolumeTieringPolicyPtrOutput `pulumi:"tieringPolicy"`
-	// The Volume's UUID (universally unique identifier).
-	Uuid pulumi.StringOutput `pulumi:"uuid"`
-	// The type of volume, currently the only valid value is `ONTAP`.
-	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
+	Arn                      pulumi.StringOutput               `pulumi:"arn"`
+	FileSystemId             pulumi.StringOutput               `pulumi:"fileSystemId"`
+	FlexcacheEndpointType    pulumi.StringOutput               `pulumi:"flexcacheEndpointType"`
+	JunctionPath             pulumi.StringOutput               `pulumi:"junctionPath"`
+	Name                     pulumi.StringOutput               `pulumi:"name"`
+	OntapVolumeType          pulumi.StringOutput               `pulumi:"ontapVolumeType"`
+	SecurityStyle            pulumi.StringPtrOutput            `pulumi:"securityStyle"`
+	SizeInMegabytes          pulumi.IntOutput                  `pulumi:"sizeInMegabytes"`
+	StorageEfficiencyEnabled pulumi.BoolOutput                 `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  pulumi.StringOutput               `pulumi:"storageVirtualMachineId"`
+	Tags                     pulumi.StringMapOutput            `pulumi:"tags"`
+	TagsAll                  pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	TieringPolicy            OntapVolumeTieringPolicyPtrOutput `pulumi:"tieringPolicy"`
+	Uuid                     pulumi.StringOutput               `pulumi:"uuid"`
+	VolumeType               pulumi.StringPtrOutput            `pulumi:"volumeType"`
 }
 
 // NewOntapVolume registers a new resource with the given unique name, arguments, and options.
@@ -162,67 +72,39 @@ func GetOntapVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OntapVolume resources.
 type ontapVolumeState struct {
-	// Amazon Resource Name of the volune.
-	Arn *string `pulumi:"arn"`
-	// Describes the file system for the volume, e.g. `fs-12345679`
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
-	FlexcacheEndpointType *string `pulumi:"flexcacheEndpointType"`
-	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath *string `pulumi:"junctionPath"`
-	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
-	Name *string `pulumi:"name"`
-	// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-	OntapVolumeType *string `pulumi:"ontapVolumeType"`
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
-	SecurityStyle *string `pulumi:"securityStyle"`
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes *int `pulumi:"sizeInMegabytes"`
-	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-	StorageEfficiencyEnabled *bool `pulumi:"storageEfficiencyEnabled"`
-	// Specifies the storage virtual machine in which to create the volume.
-	StorageVirtualMachineId *string `pulumi:"storageVirtualMachineId"`
-	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll       map[string]string         `pulumi:"tagsAll"`
-	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
-	// The Volume's UUID (universally unique identifier).
-	Uuid *string `pulumi:"uuid"`
-	// The type of volume, currently the only valid value is `ONTAP`.
-	VolumeType *string `pulumi:"volumeType"`
+	Arn                      *string                   `pulumi:"arn"`
+	FileSystemId             *string                   `pulumi:"fileSystemId"`
+	FlexcacheEndpointType    *string                   `pulumi:"flexcacheEndpointType"`
+	JunctionPath             *string                   `pulumi:"junctionPath"`
+	Name                     *string                   `pulumi:"name"`
+	OntapVolumeType          *string                   `pulumi:"ontapVolumeType"`
+	SecurityStyle            *string                   `pulumi:"securityStyle"`
+	SizeInMegabytes          *int                      `pulumi:"sizeInMegabytes"`
+	StorageEfficiencyEnabled *bool                     `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  *string                   `pulumi:"storageVirtualMachineId"`
+	Tags                     map[string]string         `pulumi:"tags"`
+	TagsAll                  map[string]string         `pulumi:"tagsAll"`
+	TieringPolicy            *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
+	Uuid                     *string                   `pulumi:"uuid"`
+	VolumeType               *string                   `pulumi:"volumeType"`
 }
 
 type OntapVolumeState struct {
-	// Amazon Resource Name of the volune.
-	Arn pulumi.StringPtrInput
-	// Describes the file system for the volume, e.g. `fs-12345679`
-	FileSystemId pulumi.StringPtrInput
-	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
-	FlexcacheEndpointType pulumi.StringPtrInput
-	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath pulumi.StringPtrInput
-	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
-	Name pulumi.StringPtrInput
-	// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-	OntapVolumeType pulumi.StringPtrInput
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
-	SecurityStyle pulumi.StringPtrInput
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes pulumi.IntPtrInput
-	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+	Arn                      pulumi.StringPtrInput
+	FileSystemId             pulumi.StringPtrInput
+	FlexcacheEndpointType    pulumi.StringPtrInput
+	JunctionPath             pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	OntapVolumeType          pulumi.StringPtrInput
+	SecurityStyle            pulumi.StringPtrInput
+	SizeInMegabytes          pulumi.IntPtrInput
 	StorageEfficiencyEnabled pulumi.BoolPtrInput
-	// Specifies the storage virtual machine in which to create the volume.
-	StorageVirtualMachineId pulumi.StringPtrInput
-	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll       pulumi.StringMapInput
-	TieringPolicy OntapVolumeTieringPolicyPtrInput
-	// The Volume's UUID (universally unique identifier).
-	Uuid pulumi.StringPtrInput
-	// The type of volume, currently the only valid value is `ONTAP`.
-	VolumeType pulumi.StringPtrInput
+	StorageVirtualMachineId  pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	TagsAll                  pulumi.StringMapInput
+	TieringPolicy            OntapVolumeTieringPolicyPtrInput
+	Uuid                     pulumi.StringPtrInput
+	VolumeType               pulumi.StringPtrInput
 }
 
 func (OntapVolumeState) ElementType() reflect.Type {
@@ -230,44 +112,28 @@ func (OntapVolumeState) ElementType() reflect.Type {
 }
 
 type ontapVolumeArgs struct {
-	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath string `pulumi:"junctionPath"`
-	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
-	Name *string `pulumi:"name"`
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
-	SecurityStyle *string `pulumi:"securityStyle"`
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes int `pulumi:"sizeInMegabytes"`
-	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-	StorageEfficiencyEnabled bool `pulumi:"storageEfficiencyEnabled"`
-	// Specifies the storage virtual machine in which to create the volume.
-	StorageVirtualMachineId string `pulumi:"storageVirtualMachineId"`
-	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags          map[string]string         `pulumi:"tags"`
-	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
-	// The type of volume, currently the only valid value is `ONTAP`.
-	VolumeType *string `pulumi:"volumeType"`
+	JunctionPath             string                    `pulumi:"junctionPath"`
+	Name                     *string                   `pulumi:"name"`
+	SecurityStyle            *string                   `pulumi:"securityStyle"`
+	SizeInMegabytes          int                       `pulumi:"sizeInMegabytes"`
+	StorageEfficiencyEnabled bool                      `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  string                    `pulumi:"storageVirtualMachineId"`
+	Tags                     map[string]string         `pulumi:"tags"`
+	TieringPolicy            *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
+	VolumeType               *string                   `pulumi:"volumeType"`
 }
 
 // The set of arguments for constructing a OntapVolume resource.
 type OntapVolumeArgs struct {
-	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
-	JunctionPath pulumi.StringInput
-	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
-	Name pulumi.StringPtrInput
-	// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
-	SecurityStyle pulumi.StringPtrInput
-	// Specifies the size of the volume, in megabytes (MB), that you are creating.
-	SizeInMegabytes pulumi.IntInput
-	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+	JunctionPath             pulumi.StringInput
+	Name                     pulumi.StringPtrInput
+	SecurityStyle            pulumi.StringPtrInput
+	SizeInMegabytes          pulumi.IntInput
 	StorageEfficiencyEnabled pulumi.BoolInput
-	// Specifies the storage virtual machine in which to create the volume.
-	StorageVirtualMachineId pulumi.StringInput
-	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags          pulumi.StringMapInput
-	TieringPolicy OntapVolumeTieringPolicyPtrInput
-	// The type of volume, currently the only valid value is `ONTAP`.
-	VolumeType pulumi.StringPtrInput
+	StorageVirtualMachineId  pulumi.StringInput
+	Tags                     pulumi.StringMapInput
+	TieringPolicy            OntapVolumeTieringPolicyPtrInput
+	VolumeType               pulumi.StringPtrInput
 }
 
 func (OntapVolumeArgs) ElementType() reflect.Type {
@@ -357,62 +223,50 @@ func (o OntapVolumeOutput) ToOntapVolumeOutputWithContext(ctx context.Context) O
 	return o
 }
 
-// Amazon Resource Name of the volune.
 func (o OntapVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Describes the file system for the volume, e.g. `fs-12345679`
 func (o OntapVolumeOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
 func (o OntapVolumeOutput) FlexcacheEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.FlexcacheEndpointType }).(pulumi.StringOutput)
 }
 
-// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
 func (o OntapVolumeOutput) JunctionPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.JunctionPath }).(pulumi.StringOutput)
 }
 
-// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 func (o OntapVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
 func (o OntapVolumeOutput) OntapVolumeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.OntapVolumeType }).(pulumi.StringOutput)
 }
 
-// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
 func (o OntapVolumeOutput) SecurityStyle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.SecurityStyle }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the size of the volume, in megabytes (MB), that you are creating.
 func (o OntapVolumeOutput) SizeInMegabytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.IntOutput { return v.SizeInMegabytes }).(pulumi.IntOutput)
 }
 
-// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 func (o OntapVolumeOutput) StorageEfficiencyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.BoolOutput { return v.StorageEfficiencyEnabled }).(pulumi.BoolOutput)
 }
 
-// Specifies the storage virtual machine in which to create the volume.
 func (o OntapVolumeOutput) StorageVirtualMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.StorageVirtualMachineId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OntapVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OntapVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -421,12 +275,10 @@ func (o OntapVolumeOutput) TieringPolicy() OntapVolumeTieringPolicyPtrOutput {
 	return o.ApplyT(func(v *OntapVolume) OntapVolumeTieringPolicyPtrOutput { return v.TieringPolicy }).(OntapVolumeTieringPolicyPtrOutput)
 }
 
-// The Volume's UUID (universally unique identifier).
 func (o OntapVolumeOutput) Uuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
 }
 
-// The type of volume, currently the only valid value is `ONTAP`.
 func (o OntapVolumeOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringPtrOutput { return v.VolumeType }).(pulumi.StringPtrOutput)
 }

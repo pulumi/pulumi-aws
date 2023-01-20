@@ -11,83 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a Lightsail disk to a Lightsail Instance
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testDisk, err := lightsail.NewDisk(ctx, "testDisk", &lightsail.DiskArgs{
-//				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDisk_attachment(ctx, "testDisk_attachment", &lightsail.Disk_attachmentArgs{
-//				DiskName:     testDisk.Name,
-//				InstanceName: testInstance.Name,
-//				DiskPath:     pulumi.String("/dev/xvdf"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
-//
-// ```
 type Disk_attachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the Lightsail Disk.
-	DiskName pulumi.StringOutput `pulumi:"diskName"`
-	// The disk path to expose to the instance.
-	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
-	// The name of the Lightsail Instance to attach to.
+	DiskName     pulumi.StringOutput `pulumi:"diskName"`
+	DiskPath     pulumi.StringOutput `pulumi:"diskPath"`
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 }
 
@@ -129,20 +57,14 @@ func GetDisk_attachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Disk_attachment resources.
 type disk_attachmentState struct {
-	// The name of the Lightsail Disk.
-	DiskName *string `pulumi:"diskName"`
-	// The disk path to expose to the instance.
-	DiskPath *string `pulumi:"diskPath"`
-	// The name of the Lightsail Instance to attach to.
+	DiskName     *string `pulumi:"diskName"`
+	DiskPath     *string `pulumi:"diskPath"`
 	InstanceName *string `pulumi:"instanceName"`
 }
 
 type Disk_attachmentState struct {
-	// The name of the Lightsail Disk.
-	DiskName pulumi.StringPtrInput
-	// The disk path to expose to the instance.
-	DiskPath pulumi.StringPtrInput
-	// The name of the Lightsail Instance to attach to.
+	DiskName     pulumi.StringPtrInput
+	DiskPath     pulumi.StringPtrInput
 	InstanceName pulumi.StringPtrInput
 }
 
@@ -151,21 +73,15 @@ func (Disk_attachmentState) ElementType() reflect.Type {
 }
 
 type disk_attachmentArgs struct {
-	// The name of the Lightsail Disk.
-	DiskName string `pulumi:"diskName"`
-	// The disk path to expose to the instance.
-	DiskPath string `pulumi:"diskPath"`
-	// The name of the Lightsail Instance to attach to.
+	DiskName     string `pulumi:"diskName"`
+	DiskPath     string `pulumi:"diskPath"`
 	InstanceName string `pulumi:"instanceName"`
 }
 
 // The set of arguments for constructing a Disk_attachment resource.
 type Disk_attachmentArgs struct {
-	// The name of the Lightsail Disk.
-	DiskName pulumi.StringInput
-	// The disk path to expose to the instance.
-	DiskPath pulumi.StringInput
-	// The name of the Lightsail Instance to attach to.
+	DiskName     pulumi.StringInput
+	DiskPath     pulumi.StringInput
 	InstanceName pulumi.StringInput
 }
 
@@ -256,17 +172,14 @@ func (o Disk_attachmentOutput) ToDisk_attachmentOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the Lightsail Disk.
 func (o Disk_attachmentOutput) DiskName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.DiskName }).(pulumi.StringOutput)
 }
 
-// The disk path to expose to the instance.
 func (o Disk_attachmentOutput) DiskPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.DiskPath }).(pulumi.StringOutput)
 }
 
-// The name of the Lightsail Instance to attach to.
 func (o Disk_attachmentOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Disk_attachment) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }

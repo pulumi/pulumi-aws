@@ -11,62 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a site in a global network.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkmanager.NewSite(ctx, "exampleSite", &networkmanager.SiteArgs{
-//				GlobalNetworkId: exampleGlobalNetwork.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_networkmanager_site` can be imported using the site ARN, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
-//
-// ```
 type Site struct {
 	pulumi.CustomResourceState
 
-	// Site Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the Site.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ID of the Global Network to create the site in.
-	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// The site location as documented below.
-	Location SiteLocationPtrOutput `pulumi:"location"`
-	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn             pulumi.StringOutput    `pulumi:"arn"`
+	Description     pulumi.StringPtrOutput `pulumi:"description"`
+	GlobalNetworkId pulumi.StringOutput    `pulumi:"globalNetworkId"`
+	Location        SiteLocationPtrOutput  `pulumi:"location"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSite registers a new resource with the given unique name, arguments, and options.
@@ -101,33 +54,21 @@ func GetSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Site resources.
 type siteState struct {
-	// Site Amazon Resource Name (ARN)
-	Arn *string `pulumi:"arn"`
-	// Description of the Site.
-	Description *string `pulumi:"description"`
-	// The ID of the Global Network to create the site in.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// The site location as documented below.
-	Location *SiteLocation `pulumi:"location"`
-	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn             *string           `pulumi:"arn"`
+	Description     *string           `pulumi:"description"`
+	GlobalNetworkId *string           `pulumi:"globalNetworkId"`
+	Location        *SiteLocation     `pulumi:"location"`
+	Tags            map[string]string `pulumi:"tags"`
+	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 type SiteState struct {
-	// Site Amazon Resource Name (ARN)
-	Arn pulumi.StringPtrInput
-	// Description of the Site.
-	Description pulumi.StringPtrInput
-	// The ID of the Global Network to create the site in.
+	Arn             pulumi.StringPtrInput
+	Description     pulumi.StringPtrInput
 	GlobalNetworkId pulumi.StringPtrInput
-	// The site location as documented below.
-	Location SiteLocationPtrInput
-	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Location        SiteLocationPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
 }
 
 func (SiteState) ElementType() reflect.Type {
@@ -135,26 +76,18 @@ func (SiteState) ElementType() reflect.Type {
 }
 
 type siteArgs struct {
-	// Description of the Site.
-	Description *string `pulumi:"description"`
-	// The ID of the Global Network to create the site in.
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// The site location as documented below.
-	Location *SiteLocation `pulumi:"location"`
-	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description     *string           `pulumi:"description"`
+	GlobalNetworkId string            `pulumi:"globalNetworkId"`
+	Location        *SiteLocation     `pulumi:"location"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Site resource.
 type SiteArgs struct {
-	// Description of the Site.
-	Description pulumi.StringPtrInput
-	// The ID of the Global Network to create the site in.
+	Description     pulumi.StringPtrInput
 	GlobalNetworkId pulumi.StringInput
-	// The site location as documented below.
-	Location SiteLocationPtrInput
-	// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Location        SiteLocationPtrInput
+	Tags            pulumi.StringMapInput
 }
 
 func (SiteArgs) ElementType() reflect.Type {
@@ -244,32 +177,26 @@ func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 	return o
 }
 
-// Site Amazon Resource Name (ARN)
 func (o SiteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the Site.
 func (o SiteOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Global Network to create the site in.
 func (o SiteOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// The site location as documented below.
 func (o SiteOutput) Location() SiteLocationPtrOutput {
 	return o.ApplyT(func(v *Site) SiteLocationPtrOutput { return v.Location }).(SiteLocationPtrOutput)
 }
 
-// Key-value tags for the Site. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SiteOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SiteOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Site) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an Amazon MSK Connect custom plugin.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.LookupCustomPlugin(ctx, &mskconnect.LookupCustomPluginArgs{
-//				Name: "example-debezium-1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomPlugin(ctx *pulumi.Context, args *LookupCustomPluginArgs, opts ...pulumi.InvokeOption) (*LookupCustomPluginResult, error) {
 	var rv LookupCustomPluginResult
 	err := ctx.Invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", args, &rv, opts...)
@@ -48,23 +21,18 @@ func LookupCustomPlugin(ctx *pulumi.Context, args *LookupCustomPluginArgs, opts 
 
 // A collection of arguments for invoking getCustomPlugin.
 type LookupCustomPluginArgs struct {
-	// Name of the custom plugin.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getCustomPlugin.
 type LookupCustomPluginResult struct {
-	// the ARN of the custom plugin.
-	Arn string `pulumi:"arn"`
-	// a summary description of the custom plugin.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// an ID of the latest successfully created revision of the custom plugin.
+	Id             string `pulumi:"id"`
 	LatestRevision int    `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
-	// the state of the custom plugin.
-	State string `pulumi:"state"`
+	State          string `pulumi:"state"`
 }
 
 func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPluginResultOutput {
@@ -82,7 +50,6 @@ func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutput
 
 // A collection of arguments for invoking getCustomPlugin.
 type LookupCustomPluginOutputArgs struct {
-	// Name of the custom plugin.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -105,12 +72,10 @@ func (o LookupCustomPluginResultOutput) ToLookupCustomPluginResultOutputWithCont
 	return o
 }
 
-// the ARN of the custom plugin.
 func (o LookupCustomPluginResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// a summary description of the custom plugin.
 func (o LookupCustomPluginResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -120,7 +85,6 @@ func (o LookupCustomPluginResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// an ID of the latest successfully created revision of the custom plugin.
 func (o LookupCustomPluginResultOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) int { return v.LatestRevision }).(pulumi.IntOutput)
 }
@@ -129,7 +93,6 @@ func (o LookupCustomPluginResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the state of the custom plugin.
 func (o LookupCustomPluginResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.State }).(pulumi.StringOutput)
 }

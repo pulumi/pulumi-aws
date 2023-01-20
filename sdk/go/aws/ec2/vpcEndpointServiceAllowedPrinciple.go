@@ -11,53 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to allow a principal to discover a VPC endpoint service.
-//
-// > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-// both a standalone VPC Endpoint Service Allowed Principal resource
-// and a VPC Endpoint Service resource with an `allowedPrincipals` attribute. Do not use the same principal ARN in both
-// a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-// and will overwrite the association.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcEndpointServiceAllowedPrinciple(ctx, "allowMeToFoo", &ec2.VpcEndpointServiceAllowedPrincipleArgs{
-//				VpcEndpointServiceId: pulumi.Any(aws_vpc_endpoint_service.Foo.Id),
-//				PrincipalArn:         *pulumi.String(current.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type VpcEndpointServiceAllowedPrinciple struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the principal to allow permissions.
-	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         pulumi.StringOutput `pulumi:"principalArn"`
 	VpcEndpointServiceId pulumi.StringOutput `pulumi:"vpcEndpointServiceId"`
 }
 
@@ -96,16 +53,12 @@ func GetVpcEndpointServiceAllowedPrinciple(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointServiceAllowedPrinciple resources.
 type vpcEndpointServiceAllowedPrincipleState struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn *string `pulumi:"principalArn"`
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         *string `pulumi:"principalArn"`
 	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
 }
 
 type VpcEndpointServiceAllowedPrincipleState struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn pulumi.StringPtrInput
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         pulumi.StringPtrInput
 	VpcEndpointServiceId pulumi.StringPtrInput
 }
 
@@ -114,17 +67,13 @@ func (VpcEndpointServiceAllowedPrincipleState) ElementType() reflect.Type {
 }
 
 type vpcEndpointServiceAllowedPrincipleArgs struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn string `pulumi:"principalArn"`
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         string `pulumi:"principalArn"`
 	VpcEndpointServiceId string `pulumi:"vpcEndpointServiceId"`
 }
 
 // The set of arguments for constructing a VpcEndpointServiceAllowedPrinciple resource.
 type VpcEndpointServiceAllowedPrincipleArgs struct {
-	// The ARN of the principal to allow permissions.
-	PrincipalArn pulumi.StringInput
-	// The ID of the VPC endpoint service to allow permission.
+	PrincipalArn         pulumi.StringInput
 	VpcEndpointServiceId pulumi.StringInput
 }
 
@@ -215,12 +164,10 @@ func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPri
 	return o
 }
 
-// The ARN of the principal to allow permissions.
 func (o VpcEndpointServiceAllowedPrincipleOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC endpoint service to allow permission.
 func (o VpcEndpointServiceAllowedPrincipleOutput) VpcEndpointServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.VpcEndpointServiceId }).(pulumi.StringOutput)
 }

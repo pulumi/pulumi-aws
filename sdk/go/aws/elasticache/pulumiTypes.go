@@ -11,13 +11,11 @@ import (
 )
 
 type ClusterCacheNode struct {
-	Address *string `pulumi:"address"`
-	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+	Address          *string `pulumi:"address"`
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	Id               *string `pulumi:"id"`
 	OutpostArn       *string `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
-	Port *int `pulumi:"port"`
+	Port             *int    `pulumi:"port"`
 }
 
 // ClusterCacheNodeInput is an input type that accepts ClusterCacheNodeArgs and ClusterCacheNodeOutput values.
@@ -32,13 +30,11 @@ type ClusterCacheNodeInput interface {
 }
 
 type ClusterCacheNodeArgs struct {
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+	Address          pulumi.StringPtrInput `pulumi:"address"`
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringPtrInput `pulumi:"id"`
 	OutpostArn       pulumi.StringPtrInput `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Port             pulumi.IntPtrInput    `pulumi:"port"`
 }
 
 func (ClusterCacheNodeArgs) ElementType() reflect.Type {
@@ -96,7 +92,6 @@ func (o ClusterCacheNodeOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 func (o ClusterCacheNodeOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -109,7 +104,6 @@ func (o ClusterCacheNodeOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *string { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
-// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
 func (o ClusterCacheNodeOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCacheNode) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -135,14 +129,10 @@ func (o ClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) ClusterCacheNodeOu
 }
 
 type ClusterLogDeliveryConfiguration struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination string `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     string `pulumi:"destination"`
 	DestinationType string `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat string `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType string `pulumi:"logType"`
+	LogFormat       string `pulumi:"logFormat"`
+	LogType         string `pulumi:"logType"`
 }
 
 // ClusterLogDeliveryConfigurationInput is an input type that accepts ClusterLogDeliveryConfigurationArgs and ClusterLogDeliveryConfigurationOutput values.
@@ -157,14 +147,10 @@ type ClusterLogDeliveryConfigurationInput interface {
 }
 
 type ClusterLogDeliveryConfigurationArgs struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination pulumi.StringInput `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     pulumi.StringInput `pulumi:"destination"`
 	DestinationType pulumi.StringInput `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat pulumi.StringInput `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType pulumi.StringInput `pulumi:"logType"`
+	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
+	LogType         pulumi.StringInput `pulumi:"logType"`
 }
 
 func (ClusterLogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -218,22 +204,18 @@ func (o ClusterLogDeliveryConfigurationOutput) ToClusterLogDeliveryConfiguration
 	return o
 }
 
-// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
 func (o ClusterLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
 func (o ClusterLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
 }
 
-// Valid values are `json` or `text`
 func (o ClusterLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
 func (o ClusterLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
 }
@@ -259,10 +241,8 @@ func (o ClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) Clu
 }
 
 type GlobalReplicationGroupGlobalNodeGroup struct {
-	// The ID of the global node group.
 	GlobalNodeGroupId *string `pulumi:"globalNodeGroupId"`
-	// The keyspace for this node group.
-	Slots *string `pulumi:"slots"`
+	Slots             *string `pulumi:"slots"`
 }
 
 // GlobalReplicationGroupGlobalNodeGroupInput is an input type that accepts GlobalReplicationGroupGlobalNodeGroupArgs and GlobalReplicationGroupGlobalNodeGroupOutput values.
@@ -277,10 +257,8 @@ type GlobalReplicationGroupGlobalNodeGroupInput interface {
 }
 
 type GlobalReplicationGroupGlobalNodeGroupArgs struct {
-	// The ID of the global node group.
 	GlobalNodeGroupId pulumi.StringPtrInput `pulumi:"globalNodeGroupId"`
-	// The keyspace for this node group.
-	Slots pulumi.StringPtrInput `pulumi:"slots"`
+	Slots             pulumi.StringPtrInput `pulumi:"slots"`
 }
 
 func (GlobalReplicationGroupGlobalNodeGroupArgs) ElementType() reflect.Type {
@@ -334,12 +312,10 @@ func (o GlobalReplicationGroupGlobalNodeGroupOutput) ToGlobalReplicationGroupGlo
 	return o
 }
 
-// The ID of the global node group.
 func (o GlobalReplicationGroupGlobalNodeGroupOutput) GlobalNodeGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupGlobalNodeGroup) *string { return v.GlobalNodeGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The keyspace for this node group.
 func (o GlobalReplicationGroupGlobalNodeGroupOutput) Slots() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupGlobalNodeGroup) *string { return v.Slots }).(pulumi.StringPtrOutput)
 }
@@ -365,9 +341,7 @@ func (o GlobalReplicationGroupGlobalNodeGroupArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ParameterGroupParameter struct {
-	// The name of the ElastiCache parameter.
-	Name string `pulumi:"name"`
-	// The value of the ElastiCache parameter.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -383,9 +357,7 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	// The name of the ElastiCache parameter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the ElastiCache parameter.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -440,12 +412,10 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
-// The name of the ElastiCache parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the ElastiCache parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -471,12 +441,8 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type ReplicationGroupClusterMode struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-	//
 	// Deprecated: Use root-level num_node_groups instead
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	//
 	// Deprecated: Use root-level replicas_per_node_group instead
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 }
@@ -493,12 +459,8 @@ type ReplicationGroupClusterModeInput interface {
 }
 
 type ReplicationGroupClusterModeArgs struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-	//
 	// Deprecated: Use root-level num_node_groups instead
 	NumNodeGroups pulumi.IntPtrInput `pulumi:"numNodeGroups"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	//
 	// Deprecated: Use root-level replicas_per_node_group instead
 	ReplicasPerNodeGroup pulumi.IntPtrInput `pulumi:"replicasPerNodeGroup"`
 }
@@ -580,15 +542,11 @@ func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutpu
 	}).(ReplicationGroupClusterModePtrOutput)
 }
 
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-//
 // Deprecated: Use root-level num_node_groups instead
 func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
 }
 
-// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-//
 // Deprecated: Use root-level replicas_per_node_group instead
 func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
@@ -618,8 +576,6 @@ func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterMode
 	}).(ReplicationGroupClusterModeOutput)
 }
 
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-//
 // Deprecated: Use root-level num_node_groups instead
 func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
@@ -630,8 +586,6 @@ func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-//
 // Deprecated: Use root-level replicas_per_node_group instead
 func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
@@ -643,14 +597,10 @@ func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntP
 }
 
 type ReplicationGroupLogDeliveryConfiguration struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination string `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     string `pulumi:"destination"`
 	DestinationType string `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat string `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType string `pulumi:"logType"`
+	LogFormat       string `pulumi:"logFormat"`
+	LogType         string `pulumi:"logType"`
 }
 
 // ReplicationGroupLogDeliveryConfigurationInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationArgs and ReplicationGroupLogDeliveryConfigurationOutput values.
@@ -665,14 +615,10 @@ type ReplicationGroupLogDeliveryConfigurationInput interface {
 }
 
 type ReplicationGroupLogDeliveryConfigurationArgs struct {
-	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-	Destination pulumi.StringInput `pulumi:"destination"`
-	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	Destination     pulumi.StringInput `pulumi:"destination"`
 	DestinationType pulumi.StringInput `pulumi:"destinationType"`
-	// Valid values are `json` or `text`
-	LogFormat pulumi.StringInput `pulumi:"logFormat"`
-	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-	LogType pulumi.StringInput `pulumi:"logType"`
+	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
+	LogType         pulumi.StringInput `pulumi:"logType"`
 }
 
 func (ReplicationGroupLogDeliveryConfigurationArgs) ElementType() reflect.Type {
@@ -726,22 +672,18 @@ func (o ReplicationGroupLogDeliveryConfigurationOutput) ToReplicationGroupLogDel
 	return o
 }
 
-// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
 func (o ReplicationGroupLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
 func (o ReplicationGroupLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
 }
 
-// Valid values are `json` or `text`
 func (o ReplicationGroupLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
 func (o ReplicationGroupLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
 }
@@ -767,14 +709,11 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetClusterCacheNode struct {
-	Address string `pulumi:"address"`
-	// Availability Zone for the cache cluster.
+	Address          string `pulumi:"address"`
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	Id               string `pulumi:"id"`
 	OutpostArn       string `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will
-	// accept connections.
-	Port int `pulumi:"port"`
+	Port             int    `pulumi:"port"`
 }
 
 // GetClusterCacheNodeInput is an input type that accepts GetClusterCacheNodeArgs and GetClusterCacheNodeOutput values.
@@ -789,14 +728,11 @@ type GetClusterCacheNodeInput interface {
 }
 
 type GetClusterCacheNodeArgs struct {
-	Address pulumi.StringInput `pulumi:"address"`
-	// Availability Zone for the cache cluster.
+	Address          pulumi.StringInput `pulumi:"address"`
 	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
 	Id               pulumi.StringInput `pulumi:"id"`
 	OutpostArn       pulumi.StringInput `pulumi:"outpostArn"`
-	// The port number on which each of the cache nodes will
-	// accept connections.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port             pulumi.IntInput    `pulumi:"port"`
 }
 
 func (GetClusterCacheNodeArgs) ElementType() reflect.Type {
@@ -854,7 +790,6 @@ func (o GetClusterCacheNodeOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// Availability Zone for the cache cluster.
 func (o GetClusterCacheNodeOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -867,8 +802,6 @@ func (o GetClusterCacheNodeOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
-// The port number on which each of the cache nodes will
-// accept connections.
 func (o GetClusterCacheNodeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetClusterCacheNode) int { return v.Port }).(pulumi.IntOutput)
 }

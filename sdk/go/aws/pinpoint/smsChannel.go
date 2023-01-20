@@ -11,62 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint SMS Channel resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewSmsChannel(ctx, "sms", &pinpoint.SmsChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Pinpoint SMS Channel can be imported using the `application-id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-//
-// ```
 type SmsChannel struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Promotional messages per second that can be sent.
-	PromotionalMessagesPerSecond pulumi.IntOutput `pulumi:"promotionalMessagesPerSecond"`
-	// Sender identifier of your messages.
-	SenderId pulumi.StringPtrOutput `pulumi:"senderId"`
-	// The Short Code registered with the phone provider.
-	ShortCode pulumi.StringPtrOutput `pulumi:"shortCode"`
-	// Transactional messages per second that can be sent.
-	TransactionalMessagesPerSecond pulumi.IntOutput `pulumi:"transactionalMessagesPerSecond"`
+	ApplicationId                  pulumi.StringOutput    `pulumi:"applicationId"`
+	Enabled                        pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	PromotionalMessagesPerSecond   pulumi.IntOutput       `pulumi:"promotionalMessagesPerSecond"`
+	SenderId                       pulumi.StringPtrOutput `pulumi:"senderId"`
+	ShortCode                      pulumi.StringPtrOutput `pulumi:"shortCode"`
+	TransactionalMessagesPerSecond pulumi.IntOutput       `pulumi:"transactionalMessagesPerSecond"`
 }
 
 // NewSmsChannel registers a new resource with the given unique name, arguments, and options.
@@ -101,32 +54,20 @@ func GetSmsChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SmsChannel resources.
 type smsChannelState struct {
-	// The application ID.
-	ApplicationId *string `pulumi:"applicationId"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Promotional messages per second that can be sent.
-	PromotionalMessagesPerSecond *int `pulumi:"promotionalMessagesPerSecond"`
-	// Sender identifier of your messages.
-	SenderId *string `pulumi:"senderId"`
-	// The Short Code registered with the phone provider.
-	ShortCode *string `pulumi:"shortCode"`
-	// Transactional messages per second that can be sent.
-	TransactionalMessagesPerSecond *int `pulumi:"transactionalMessagesPerSecond"`
+	ApplicationId                  *string `pulumi:"applicationId"`
+	Enabled                        *bool   `pulumi:"enabled"`
+	PromotionalMessagesPerSecond   *int    `pulumi:"promotionalMessagesPerSecond"`
+	SenderId                       *string `pulumi:"senderId"`
+	ShortCode                      *string `pulumi:"shortCode"`
+	TransactionalMessagesPerSecond *int    `pulumi:"transactionalMessagesPerSecond"`
 }
 
 type SmsChannelState struct {
-	// The application ID.
-	ApplicationId pulumi.StringPtrInput
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Promotional messages per second that can be sent.
-	PromotionalMessagesPerSecond pulumi.IntPtrInput
-	// Sender identifier of your messages.
-	SenderId pulumi.StringPtrInput
-	// The Short Code registered with the phone provider.
-	ShortCode pulumi.StringPtrInput
-	// Transactional messages per second that can be sent.
+	ApplicationId                  pulumi.StringPtrInput
+	Enabled                        pulumi.BoolPtrInput
+	PromotionalMessagesPerSecond   pulumi.IntPtrInput
+	SenderId                       pulumi.StringPtrInput
+	ShortCode                      pulumi.StringPtrInput
 	TransactionalMessagesPerSecond pulumi.IntPtrInput
 }
 
@@ -135,26 +76,18 @@ func (SmsChannelState) ElementType() reflect.Type {
 }
 
 type smsChannelArgs struct {
-	// The application ID.
-	ApplicationId string `pulumi:"applicationId"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Sender identifier of your messages.
-	SenderId *string `pulumi:"senderId"`
-	// The Short Code registered with the phone provider.
-	ShortCode *string `pulumi:"shortCode"`
+	ApplicationId string  `pulumi:"applicationId"`
+	Enabled       *bool   `pulumi:"enabled"`
+	SenderId      *string `pulumi:"senderId"`
+	ShortCode     *string `pulumi:"shortCode"`
 }
 
 // The set of arguments for constructing a SmsChannel resource.
 type SmsChannelArgs struct {
-	// The application ID.
 	ApplicationId pulumi.StringInput
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// Sender identifier of your messages.
-	SenderId pulumi.StringPtrInput
-	// The Short Code registered with the phone provider.
-	ShortCode pulumi.StringPtrInput
+	Enabled       pulumi.BoolPtrInput
+	SenderId      pulumi.StringPtrInput
+	ShortCode     pulumi.StringPtrInput
 }
 
 func (SmsChannelArgs) ElementType() reflect.Type {
@@ -244,32 +177,26 @@ func (o SmsChannelOutput) ToSmsChannelOutputWithContext(ctx context.Context) Sms
 	return o
 }
 
-// The application ID.
 func (o SmsChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Whether the channel is enabled or disabled. Defaults to `true`.
 func (o SmsChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Promotional messages per second that can be sent.
 func (o SmsChannelOutput) PromotionalMessagesPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.IntOutput { return v.PromotionalMessagesPerSecond }).(pulumi.IntOutput)
 }
 
-// Sender identifier of your messages.
 func (o SmsChannelOutput) SenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringPtrOutput { return v.SenderId }).(pulumi.StringPtrOutput)
 }
 
-// The Short Code registered with the phone provider.
 func (o SmsChannelOutput) ShortCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.StringPtrOutput { return v.ShortCode }).(pulumi.StringPtrOutput)
 }
 
-// Transactional messages per second that can be sent.
 func (o SmsChannelOutput) TransactionalMessagesPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *SmsChannel) pulumi.IntOutput { return v.TransactionalMessagesPerSecond }).(pulumi.IntOutput)
 }

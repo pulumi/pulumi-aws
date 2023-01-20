@@ -10,63 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific Amazon Connect User Hierarchy Group.
-//
-// ## Example Usage
-//
-// By `name`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupUserHierarchyGroup(ctx, &connect.LookupUserHierarchyGroupArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//				Name:       pulumi.StringRef("Example"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// By `hierarchyGroupId`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.LookupUserHierarchyGroup(ctx, &connect.LookupUserHierarchyGroupArgs{
-//				HierarchyGroupId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-//				InstanceId:       "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUserHierarchyGroup(ctx *pulumi.Context, args *LookupUserHierarchyGroupArgs, opts ...pulumi.InvokeOption) (*LookupUserHierarchyGroupResult, error) {
 	var rv LookupUserHierarchyGroupResult
 	err := ctx.Invoke("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args, &rv, opts...)
@@ -78,32 +21,23 @@ func LookupUserHierarchyGroup(ctx *pulumi.Context, args *LookupUserHierarchyGrou
 
 // A collection of arguments for invoking getUserHierarchyGroup.
 type LookupUserHierarchyGroupArgs struct {
-	// Returns information on a specific hierarchy group by hierarchy group id
-	HierarchyGroupId *string `pulumi:"hierarchyGroupId"`
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId string `pulumi:"instanceId"`
-	// Returns information on a specific hierarchy group by name
-	Name *string `pulumi:"name"`
-	// Map of tags to assign to the hierarchy group.
-	Tags map[string]string `pulumi:"tags"`
+	HierarchyGroupId *string           `pulumi:"hierarchyGroupId"`
+	InstanceId       string            `pulumi:"instanceId"`
+	Name             *string           `pulumi:"name"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getUserHierarchyGroup.
 type LookupUserHierarchyGroupResult struct {
-	// ARN of the hierarchy group.
-	Arn              string `pulumi:"arn"`
-	HierarchyGroupId string `pulumi:"hierarchyGroupId"`
-	// Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
-	HierarchyPaths []GetUserHierarchyGroupHierarchyPath `pulumi:"hierarchyPaths"`
+	Arn              string                               `pulumi:"arn"`
+	HierarchyGroupId string                               `pulumi:"hierarchyGroupId"`
+	HierarchyPaths   []GetUserHierarchyGroupHierarchyPath `pulumi:"hierarchyPaths"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	InstanceId string `pulumi:"instanceId"`
-	// Identifier of the level in the hierarchy group.
-	LevelId string `pulumi:"levelId"`
-	// Name of the hierarchy group.
-	Name string `pulumi:"name"`
-	// Map of tags to assign to the hierarchy group.
-	Tags map[string]string `pulumi:"tags"`
+	Id         string            `pulumi:"id"`
+	InstanceId string            `pulumi:"instanceId"`
+	LevelId    string            `pulumi:"levelId"`
+	Name       string            `pulumi:"name"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarchyGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserHierarchyGroupResultOutput {
@@ -121,14 +55,10 @@ func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarch
 
 // A collection of arguments for invoking getUserHierarchyGroup.
 type LookupUserHierarchyGroupOutputArgs struct {
-	// Returns information on a specific hierarchy group by hierarchy group id
 	HierarchyGroupId pulumi.StringPtrInput `pulumi:"hierarchyGroupId"`
-	// Reference to the hosting Amazon Connect Instance
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Returns information on a specific hierarchy group by name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Map of tags to assign to the hierarchy group.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	InstanceId       pulumi.StringInput    `pulumi:"instanceId"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	Tags             pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupUserHierarchyGroupOutputArgs) ElementType() reflect.Type {
@@ -150,7 +80,6 @@ func (o LookupUserHierarchyGroupResultOutput) ToLookupUserHierarchyGroupResultOu
 	return o
 }
 
-// ARN of the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -159,7 +88,6 @@ func (o LookupUserHierarchyGroupResultOutput) HierarchyGroupId() pulumi.StringOu
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.HierarchyGroupId }).(pulumi.StringOutput)
 }
 
-// Block that contains information about the levels in the hierarchy group. The `hierarchyPath` block is documented below.
 func (o LookupUserHierarchyGroupResultOutput) HierarchyPaths() GetUserHierarchyGroupHierarchyPathArrayOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) []GetUserHierarchyGroupHierarchyPath { return v.HierarchyPaths }).(GetUserHierarchyGroupHierarchyPathArrayOutput)
 }
@@ -173,17 +101,14 @@ func (o LookupUserHierarchyGroupResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// Identifier of the level in the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) LevelId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.LevelId }).(pulumi.StringOutput)
 }
 
-// Name of the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

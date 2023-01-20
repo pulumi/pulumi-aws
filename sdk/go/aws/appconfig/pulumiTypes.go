@@ -11,10 +11,8 @@ import (
 )
 
 type ConfigurationProfileValidator struct {
-	// Either the JSON Schema content or the ARN of an AWS Lambda function.
 	Content *string `pulumi:"content"`
-	// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
-	Type string `pulumi:"type"`
+	Type    string  `pulumi:"type"`
 }
 
 // ConfigurationProfileValidatorInput is an input type that accepts ConfigurationProfileValidatorArgs and ConfigurationProfileValidatorOutput values.
@@ -29,10 +27,8 @@ type ConfigurationProfileValidatorInput interface {
 }
 
 type ConfigurationProfileValidatorArgs struct {
-	// Either the JSON Schema content or the ARN of an AWS Lambda function.
 	Content pulumi.StringPtrInput `pulumi:"content"`
-	// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type    pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ConfigurationProfileValidatorArgs) ElementType() reflect.Type {
@@ -86,12 +82,10 @@ func (o ConfigurationProfileValidatorOutput) ToConfigurationProfileValidatorOutp
 	return o
 }
 
-// Either the JSON Schema content or the ARN of an AWS Lambda function.
 func (o ConfigurationProfileValidatorOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileValidator) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
 func (o ConfigurationProfileValidatorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProfileValidator) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -117,9 +111,7 @@ func (o ConfigurationProfileValidatorArrayOutput) Index(i pulumi.IntInput) Confi
 }
 
 type EnvironmentMonitor struct {
-	// ARN of the Amazon CloudWatch alarm.
-	AlarmArn string `pulumi:"alarmArn"`
-	// ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
+	AlarmArn     string  `pulumi:"alarmArn"`
 	AlarmRoleArn *string `pulumi:"alarmRoleArn"`
 }
 
@@ -135,9 +127,7 @@ type EnvironmentMonitorInput interface {
 }
 
 type EnvironmentMonitorArgs struct {
-	// ARN of the Amazon CloudWatch alarm.
-	AlarmArn pulumi.StringInput `pulumi:"alarmArn"`
-	// ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
+	AlarmArn     pulumi.StringInput    `pulumi:"alarmArn"`
 	AlarmRoleArn pulumi.StringPtrInput `pulumi:"alarmRoleArn"`
 }
 
@@ -192,12 +182,10 @@ func (o EnvironmentMonitorOutput) ToEnvironmentMonitorOutputWithContext(ctx cont
 	return o
 }
 
-// ARN of the Amazon CloudWatch alarm.
 func (o EnvironmentMonitorOutput) AlarmArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentMonitor) string { return v.AlarmArn }).(pulumi.StringOutput)
 }
 
-// ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
 func (o EnvironmentMonitorOutput) AlarmRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentMonitor) *string { return v.AlarmRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -223,7 +211,6 @@ func (o EnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) EnvironmentMonit
 }
 
 type EventIntegrationEventFilter struct {
-	// Source of the events.
 	Source string `pulumi:"source"`
 }
 
@@ -239,7 +226,6 @@ type EventIntegrationEventFilterInput interface {
 }
 
 type EventIntegrationEventFilterArgs struct {
-	// Source of the events.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -320,7 +306,6 @@ func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutpu
 	}).(EventIntegrationEventFilterPtrOutput)
 }
 
-// Source of the events.
 func (o EventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -349,7 +334,6 @@ func (o EventIntegrationEventFilterPtrOutput) Elem() EventIntegrationEventFilter
 	}).(EventIntegrationEventFilterOutput)
 }
 
-// Source of the events.
 func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventIntegrationEventFilter) *string {
 		if v == nil {
@@ -360,10 +344,8 @@ func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 }
 
 type ExtensionActionPoint struct {
-	// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
 	Actions []ExtensionActionPointAction `pulumi:"actions"`
-	// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-	Point string `pulumi:"point"`
+	Point   string                       `pulumi:"point"`
 }
 
 // ExtensionActionPointInput is an input type that accepts ExtensionActionPointArgs and ExtensionActionPointOutput values.
@@ -378,10 +360,8 @@ type ExtensionActionPointInput interface {
 }
 
 type ExtensionActionPointArgs struct {
-	// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
 	Actions ExtensionActionPointActionArrayInput `pulumi:"actions"`
-	// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-	Point pulumi.StringInput `pulumi:"point"`
+	Point   pulumi.StringInput                   `pulumi:"point"`
 }
 
 func (ExtensionActionPointArgs) ElementType() reflect.Type {
@@ -435,12 +415,10 @@ func (o ExtensionActionPointOutput) ToExtensionActionPointOutputWithContext(ctx 
 	return o
 }
 
-// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
 func (o ExtensionActionPointOutput) Actions() ExtensionActionPointActionArrayOutput {
 	return o.ApplyT(func(v ExtensionActionPoint) []ExtensionActionPointAction { return v.Actions }).(ExtensionActionPointActionArrayOutput)
 }
 
-// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
 func (o ExtensionActionPointOutput) Point() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPoint) string { return v.Point }).(pulumi.StringOutput)
 }
@@ -466,14 +444,10 @@ func (o ExtensionActionPointArrayOutput) Index(i pulumi.IntInput) ExtensionActio
 }
 
 type ExtensionActionPointAction struct {
-	// Information about the action.
 	Description *string `pulumi:"description"`
-	// The action name.
-	Name string `pulumi:"name"`
-	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-	RoleArn string `pulumi:"roleArn"`
-	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-	Uri string `pulumi:"uri"`
+	Name        string  `pulumi:"name"`
+	RoleArn     string  `pulumi:"roleArn"`
+	Uri         string  `pulumi:"uri"`
 }
 
 // ExtensionActionPointActionInput is an input type that accepts ExtensionActionPointActionArgs and ExtensionActionPointActionOutput values.
@@ -488,14 +462,10 @@ type ExtensionActionPointActionInput interface {
 }
 
 type ExtensionActionPointActionArgs struct {
-	// Information about the action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The action name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	RoleArn     pulumi.StringInput    `pulumi:"roleArn"`
+	Uri         pulumi.StringInput    `pulumi:"uri"`
 }
 
 func (ExtensionActionPointActionArgs) ElementType() reflect.Type {
@@ -549,22 +519,18 @@ func (o ExtensionActionPointActionOutput) ToExtensionActionPointActionOutputWith
 	return o
 }
 
-// Information about the action.
 func (o ExtensionActionPointActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The action name.
 func (o ExtensionActionPointActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
 func (o ExtensionActionPointActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 func (o ExtensionActionPointActionOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -590,12 +556,9 @@ func (o ExtensionActionPointActionArrayOutput) Index(i pulumi.IntInput) Extensio
 }
 
 type ExtensionParameter struct {
-	// Information about the parameter.
 	Description *string `pulumi:"description"`
-	// The parameter name.
-	Name string `pulumi:"name"`
-	// Determines if a parameter value must be specified in the extension association.
-	Required *bool `pulumi:"required"`
+	Name        string  `pulumi:"name"`
+	Required    *bool   `pulumi:"required"`
 }
 
 // ExtensionParameterInput is an input type that accepts ExtensionParameterArgs and ExtensionParameterOutput values.
@@ -610,12 +573,9 @@ type ExtensionParameterInput interface {
 }
 
 type ExtensionParameterArgs struct {
-	// Information about the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The parameter name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Determines if a parameter value must be specified in the extension association.
-	Required pulumi.BoolPtrInput `pulumi:"required"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	Required    pulumi.BoolPtrInput   `pulumi:"required"`
 }
 
 func (ExtensionParameterArgs) ElementType() reflect.Type {
@@ -669,17 +629,14 @@ func (o ExtensionParameterOutput) ToExtensionParameterOutputWithContext(ctx cont
 	return o
 }
 
-// Information about the parameter.
 func (o ExtensionParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The parameter name.
 func (o ExtensionParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines if a parameter value must be specified in the extension association.
 func (o ExtensionParameterOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExtensionParameter) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
@@ -705,10 +662,8 @@ func (o ExtensionParameterArrayOutput) Index(i pulumi.IntInput) ExtensionParamet
 }
 
 type GetConfigurationProfileValidator struct {
-	// Either the JSON Schema content or the ARN of an AWS Lambda function.
 	Content string `pulumi:"content"`
-	// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-	Type string `pulumi:"type"`
+	Type    string `pulumi:"type"`
 }
 
 // GetConfigurationProfileValidatorInput is an input type that accepts GetConfigurationProfileValidatorArgs and GetConfigurationProfileValidatorOutput values.
@@ -723,10 +678,8 @@ type GetConfigurationProfileValidatorInput interface {
 }
 
 type GetConfigurationProfileValidatorArgs struct {
-	// Either the JSON Schema content or the ARN of an AWS Lambda function.
 	Content pulumi.StringInput `pulumi:"content"`
-	// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type    pulumi.StringInput `pulumi:"type"`
 }
 
 func (GetConfigurationProfileValidatorArgs) ElementType() reflect.Type {
@@ -780,12 +733,10 @@ func (o GetConfigurationProfileValidatorOutput) ToGetConfigurationProfileValidat
 	return o
 }
 
-// Either the JSON Schema content or the ARN of an AWS Lambda function.
 func (o GetConfigurationProfileValidatorOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProfileValidator) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
 func (o GetConfigurationProfileValidatorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProfileValidator) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -811,9 +762,7 @@ func (o GetConfigurationProfileValidatorArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetEnvironmentMonitor struct {
-	// ARN of the Amazon CloudWatch alarm.
-	AlarmArn string `pulumi:"alarmArn"`
-	// ARN of an IAM role for AWS AppConfig to monitor.
+	AlarmArn     string `pulumi:"alarmArn"`
 	AlarmRoleArn string `pulumi:"alarmRoleArn"`
 }
 
@@ -829,9 +778,7 @@ type GetEnvironmentMonitorInput interface {
 }
 
 type GetEnvironmentMonitorArgs struct {
-	// ARN of the Amazon CloudWatch alarm.
-	AlarmArn pulumi.StringInput `pulumi:"alarmArn"`
-	// ARN of an IAM role for AWS AppConfig to monitor.
+	AlarmArn     pulumi.StringInput `pulumi:"alarmArn"`
 	AlarmRoleArn pulumi.StringInput `pulumi:"alarmRoleArn"`
 }
 
@@ -886,12 +833,10 @@ func (o GetEnvironmentMonitorOutput) ToGetEnvironmentMonitorOutputWithContext(ct
 	return o
 }
 
-// ARN of the Amazon CloudWatch alarm.
 func (o GetEnvironmentMonitorOutput) AlarmArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentMonitor) string { return v.AlarmArn }).(pulumi.StringOutput)
 }
 
-// ARN of an IAM role for AWS AppConfig to monitor.
 func (o GetEnvironmentMonitorOutput) AlarmRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentMonitor) string { return v.AlarmRoleArn }).(pulumi.StringOutput)
 }

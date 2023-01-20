@@ -11,465 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a revision of an ECS task definition to be used in `ecs.Service`.
-//
-// ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]interface{}{
-//				map[string]interface{}{
-//					"name":      "first",
-//					"image":     "service-first",
-//					"cpu":       10,
-//					"memory":    512,
-//					"essential": true,
-//					"portMappings": []map[string]interface{}{
-//						map[string]interface{}{
-//							"containerPort": 80,
-//							"hostPort":      80,
-//						},
-//					},
-//				},
-//				map[string]interface{}{
-//					"name":      "second",
-//					"image":     "service-second",
-//					"cpu":       10,
-//					"memory":    256,
-//					"essential": true,
-//					"portMappings": []map[string]interface{}{
-//						map[string]interface{}{
-//							"containerPort": 443,
-//							"hostPort":      443,
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: pulumi.String(json0),
-//				Volumes: ecs.TaskDefinitionVolumeArray{
-//					&ecs.TaskDefinitionVolumeArgs{
-//						Name:     pulumi.String("service-storage"),
-//						HostPath: pulumi.String("/ecs/service-storage"),
-//					},
-//				},
-//				PlacementConstraints: ecs.TaskDefinitionPlacementConstraintArray{
-//					&ecs.TaskDefinitionPlacementConstraintArgs{
-//						Type:       pulumi.String("memberOf"),
-//						Expression: pulumi.String("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With AppMesh Proxy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
-//				ProxyConfiguration: &ecs.TaskDefinitionProxyConfigurationArgs{
-//					Type:          pulumi.String("APPMESH"),
-//					ContainerName: pulumi.String("applicationContainerName"),
-//					Properties: pulumi.StringMap{
-//						"AppPorts":         pulumi.String("8080"),
-//						"EgressIgnoredIPs": pulumi.String("169.254.170.2,169.254.169.254"),
-//						"IgnoredUID":       pulumi.String("1337"),
-//						"ProxyEgressPort":  pulumi.String("15001"),
-//						"ProxyIngressPort": pulumi.String("15000"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Using `dockerVolumeConfiguration`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
-//				Volumes: ecs.TaskDefinitionVolumeArray{
-//					&ecs.TaskDefinitionVolumeArgs{
-//						Name: pulumi.String("service-storage"),
-//						DockerVolumeConfiguration: &ecs.TaskDefinitionVolumeDockerVolumeConfigurationArgs{
-//							Scope:         pulumi.String("shared"),
-//							Autoprovision: pulumi.Bool(true),
-//							Driver:        pulumi.String("local"),
-//							DriverOpts: pulumi.StringMap{
-//								"type":   pulumi.String("nfs"),
-//								"device": pulumi.String(fmt.Sprintf("%v:/", aws_efs_file_system.Fs.Dns_name)),
-//								"o":      pulumi.String(fmt.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", aws_efs_file_system.Fs.Dns_name)),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Using `efsVolumeConfiguration`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
-//				Volumes: ecs.TaskDefinitionVolumeArray{
-//					&ecs.TaskDefinitionVolumeArgs{
-//						Name: pulumi.String("service-storage"),
-//						EfsVolumeConfiguration: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs{
-//							FileSystemId:          pulumi.Any(aws_efs_file_system.Fs.Id),
-//							RootDirectory:         pulumi.String("/opt/data"),
-//							TransitEncryption:     pulumi.String("ENABLED"),
-//							TransitEncryptionPort: pulumi.Int(2999),
-//							AuthorizationConfig: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{
-//								AccessPointId: pulumi.Any(aws_efs_access_point.Test.Id),
-//								Iam:           pulumi.String("ENABLED"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Using `fsxWindowsFileServerVolumeConfiguration`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"io/ioutil"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := ioutil.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"username": "admin",
-//				"password": aws_directory_service_directory.Test.Password,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			test, err := secretsmanager.NewSecretVersion(ctx, "test", &secretsmanager.SecretVersionArgs{
-//				SecretId:     pulumi.Any(aws_secretsmanager_secret.Test.Id),
-//				SecretString: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("service"),
-//				ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
-//				Volumes: ecs.TaskDefinitionVolumeArray{
-//					&ecs.TaskDefinitionVolumeArgs{
-//						Name: pulumi.String("service-storage"),
-//						FsxWindowsFileServerVolumeConfiguration: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{
-//							FileSystemId:  pulumi.Any(aws_fsx_windows_file_system.Test.Id),
-//							RootDirectory: pulumi.String("\\data"),
-//							AuthorizationConfig: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{
-//								CredentialsParameter: test.Arn,
-//								Domain:               pulumi.Any(aws_directory_service_directory.Test.Name),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Using `containerDefinitions` and `inferenceAccelerator`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//	  {
-//	    "cpu": 10,
-//	    "command": ["sleep", "10"],
-//	    "entryPoint": ["/"],
-//	    "environment": [
-//	      {"name": "VARNAME", "value": "VARVAL"}
-//	    ],
-//	    "essential": true,
-//	    "image": "jenkins",
-//	    "memory": 128,
-//	    "name": "jenkins",
-//	    "portMappings": [
-//	      {
-//	        "containerPort": 80,
-//	        "hostPort": 8080
-//	      }
-//	    ],
-//	        "resourceRequirements":[
-//	            {
-//	                "type":"InferenceAccelerator",
-//	                "value":"device_1"
-//	            }
-//	        ]
-//	  }
-//
-// ]
-//
-// `)),
-//
-//				Family: pulumi.String("test"),
-//				InferenceAccelerators: ecs.TaskDefinitionInferenceAcceleratorArray{
-//					&ecs.TaskDefinitionInferenceAcceleratorArgs{
-//						DeviceName: pulumi.String("device_1"),
-//						DeviceType: pulumi.String("eia1.medium"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Example Using `runtimePlatform` and `fargate`
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//	  {
-//	    "name": "iis",
-//	    "image": "mcr.microsoft.com/windows/servercore/iis",
-//	    "cpu": 1024,
-//	    "memory": 2048,
-//	    "essential": true
-//	  }
-//
-// ]
-//
-// `)),
-//
-//				Cpu:         pulumi.String("1024"),
-//				Family:      pulumi.String("test"),
-//				Memory:      pulumi.String("2048"),
-//				NetworkMode: pulumi.String("awsvpc"),
-//				RequiresCompatibilities: pulumi.StringArray{
-//					pulumi.String("FARGATE"),
-//				},
-//				RuntimePlatform: &ecs.TaskDefinitionRuntimePlatformArgs{
-//					CpuArchitecture:       pulumi.String("X86_64"),
-//					OperatingSystemFamily: pulumi.String("WINDOWS_SERVER_2019_CORE"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
-//
-// ```sh
-//
-//	$ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
-//
-// ```
 type TaskDefinition struct {
 	pulumi.CustomResourceState
 
-	// Full ARN of the Task Definition (including both `family` and `revision`).
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
-	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
-	// A unique name for your task definition.
-	Family pulumi.StringOutput `pulumi:"family"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-	IpcMode pulumi.StringPtrOutput `pulumi:"ipcMode"`
-	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Memory pulumi.StringPtrOutput `pulumi:"memory"`
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-	NetworkMode pulumi.StringOutput `pulumi:"networkMode"`
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-	PidMode pulumi.StringPtrOutput `pulumi:"pidMode"`
-	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
-	PlacementConstraints TaskDefinitionPlacementConstraintArrayOutput `pulumi:"placementConstraints"`
-	// Configuration block for the App Mesh proxy. Detailed below.
-	ProxyConfiguration TaskDefinitionProxyConfigurationPtrOutput `pulumi:"proxyConfiguration"`
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
-	// Revision of the task in a particular family.
-	Revision pulumi.IntOutput `pulumi:"revision"`
-	// Configuration block for runtimePlatform that containers in your task may use.
-	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
-	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
-	// Configuration block for volumes that containers in your task may use. Detailed below.
-	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
+	Arn                     pulumi.StringOutput                           `pulumi:"arn"`
+	ContainerDefinitions    pulumi.StringOutput                           `pulumi:"containerDefinitions"`
+	Cpu                     pulumi.StringPtrOutput                        `pulumi:"cpu"`
+	EphemeralStorage        TaskDefinitionEphemeralStoragePtrOutput       `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn        pulumi.StringPtrOutput                        `pulumi:"executionRoleArn"`
+	Family                  pulumi.StringOutput                           `pulumi:"family"`
+	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
+	IpcMode                 pulumi.StringPtrOutput                        `pulumi:"ipcMode"`
+	Memory                  pulumi.StringPtrOutput                        `pulumi:"memory"`
+	NetworkMode             pulumi.StringOutput                           `pulumi:"networkMode"`
+	PidMode                 pulumi.StringPtrOutput                        `pulumi:"pidMode"`
+	PlacementConstraints    TaskDefinitionPlacementConstraintArrayOutput  `pulumi:"placementConstraints"`
+	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrOutput     `pulumi:"proxyConfiguration"`
+	RequiresCompatibilities pulumi.StringArrayOutput                      `pulumi:"requiresCompatibilities"`
+	Revision                pulumi.IntOutput                              `pulumi:"revision"`
+	RuntimePlatform         TaskDefinitionRuntimePlatformPtrOutput        `pulumi:"runtimePlatform"`
+	SkipDestroy             pulumi.BoolPtrOutput                          `pulumi:"skipDestroy"`
+	Tags                    pulumi.StringMapOutput                        `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                        `pulumi:"tagsAll"`
+	TaskRoleArn             pulumi.StringPtrOutput                        `pulumi:"taskRoleArn"`
+	Volumes                 TaskDefinitionVolumeArrayOutput               `pulumi:"volumes"`
 }
 
 // NewTaskDefinition registers a new resource with the given unique name, arguments, and options.
@@ -507,93 +72,51 @@ func GetTaskDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TaskDefinition resources.
 type taskDefinitionState struct {
-	// Full ARN of the Task Definition (including both `family` and `revision`).
-	Arn *string `pulumi:"arn"`
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-	ContainerDefinitions *string `pulumi:"containerDefinitions"`
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Cpu *string `pulumi:"cpu"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// A unique name for your task definition.
-	Family *string `pulumi:"family"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-	IpcMode *string `pulumi:"ipcMode"`
-	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Memory *string `pulumi:"memory"`
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-	NetworkMode *string `pulumi:"networkMode"`
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-	PidMode *string `pulumi:"pidMode"`
-	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
-	PlacementConstraints []TaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
-	// Configuration block for the App Mesh proxy. Detailed below.
-	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
-	// Revision of the task in a particular family.
-	Revision *int `pulumi:"revision"`
-	// Configuration block for runtimePlatform that containers in your task may use.
-	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
-	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn *string `pulumi:"taskRoleArn"`
-	// Configuration block for volumes that containers in your task may use. Detailed below.
-	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
+	Arn                     *string                              `pulumi:"arn"`
+	ContainerDefinitions    *string                              `pulumi:"containerDefinitions"`
+	Cpu                     *string                              `pulumi:"cpu"`
+	EphemeralStorage        *TaskDefinitionEphemeralStorage      `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn        *string                              `pulumi:"executionRoleArn"`
+	Family                  *string                              `pulumi:"family"`
+	InferenceAccelerators   []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
+	IpcMode                 *string                              `pulumi:"ipcMode"`
+	Memory                  *string                              `pulumi:"memory"`
+	NetworkMode             *string                              `pulumi:"networkMode"`
+	PidMode                 *string                              `pulumi:"pidMode"`
+	PlacementConstraints    []TaskDefinitionPlacementConstraint  `pulumi:"placementConstraints"`
+	ProxyConfiguration      *TaskDefinitionProxyConfiguration    `pulumi:"proxyConfiguration"`
+	RequiresCompatibilities []string                             `pulumi:"requiresCompatibilities"`
+	Revision                *int                                 `pulumi:"revision"`
+	RuntimePlatform         *TaskDefinitionRuntimePlatform       `pulumi:"runtimePlatform"`
+	SkipDestroy             *bool                                `pulumi:"skipDestroy"`
+	Tags                    map[string]string                    `pulumi:"tags"`
+	TagsAll                 map[string]string                    `pulumi:"tagsAll"`
+	TaskRoleArn             *string                              `pulumi:"taskRoleArn"`
+	Volumes                 []TaskDefinitionVolume               `pulumi:"volumes"`
 }
 
 type TaskDefinitionState struct {
-	// Full ARN of the Task Definition (including both `family` and `revision`).
-	Arn pulumi.StringPtrInput
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-	ContainerDefinitions pulumi.StringPtrInput
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Cpu pulumi.StringPtrInput
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
-	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// A unique name for your task definition.
-	Family pulumi.StringPtrInput
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-	IpcMode pulumi.StringPtrInput
-	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Memory pulumi.StringPtrInput
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-	NetworkMode pulumi.StringPtrInput
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-	PidMode pulumi.StringPtrInput
-	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
-	PlacementConstraints TaskDefinitionPlacementConstraintArrayInput
-	// Configuration block for the App Mesh proxy. Detailed below.
-	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+	Arn                     pulumi.StringPtrInput
+	ContainerDefinitions    pulumi.StringPtrInput
+	Cpu                     pulumi.StringPtrInput
+	EphemeralStorage        TaskDefinitionEphemeralStoragePtrInput
+	ExecutionRoleArn        pulumi.StringPtrInput
+	Family                  pulumi.StringPtrInput
+	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayInput
+	IpcMode                 pulumi.StringPtrInput
+	Memory                  pulumi.StringPtrInput
+	NetworkMode             pulumi.StringPtrInput
+	PidMode                 pulumi.StringPtrInput
+	PlacementConstraints    TaskDefinitionPlacementConstraintArrayInput
+	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrInput
 	RequiresCompatibilities pulumi.StringArrayInput
-	// Revision of the task in a particular family.
-	Revision pulumi.IntPtrInput
-	// Configuration block for runtimePlatform that containers in your task may use.
-	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
-	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-	SkipDestroy pulumi.BoolPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn pulumi.StringPtrInput
-	// Configuration block for volumes that containers in your task may use. Detailed below.
-	Volumes TaskDefinitionVolumeArrayInput
+	Revision                pulumi.IntPtrInput
+	RuntimePlatform         TaskDefinitionRuntimePlatformPtrInput
+	SkipDestroy             pulumi.BoolPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
+	TaskRoleArn             pulumi.StringPtrInput
+	Volumes                 TaskDefinitionVolumeArrayInput
 }
 
 func (TaskDefinitionState) ElementType() reflect.Type {
@@ -601,82 +124,46 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 }
 
 type taskDefinitionArgs struct {
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-	ContainerDefinitions string `pulumi:"containerDefinitions"`
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Cpu *string `pulumi:"cpu"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// A unique name for your task definition.
-	Family string `pulumi:"family"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-	IpcMode *string `pulumi:"ipcMode"`
-	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Memory *string `pulumi:"memory"`
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-	NetworkMode *string `pulumi:"networkMode"`
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-	PidMode *string `pulumi:"pidMode"`
-	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
-	PlacementConstraints []TaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
-	// Configuration block for the App Mesh proxy. Detailed below.
-	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
-	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
-	// Configuration block for runtimePlatform that containers in your task may use.
-	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
-	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-	SkipDestroy *bool `pulumi:"skipDestroy"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn *string `pulumi:"taskRoleArn"`
-	// Configuration block for volumes that containers in your task may use. Detailed below.
-	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
+	ContainerDefinitions    string                               `pulumi:"containerDefinitions"`
+	Cpu                     *string                              `pulumi:"cpu"`
+	EphemeralStorage        *TaskDefinitionEphemeralStorage      `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn        *string                              `pulumi:"executionRoleArn"`
+	Family                  string                               `pulumi:"family"`
+	InferenceAccelerators   []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
+	IpcMode                 *string                              `pulumi:"ipcMode"`
+	Memory                  *string                              `pulumi:"memory"`
+	NetworkMode             *string                              `pulumi:"networkMode"`
+	PidMode                 *string                              `pulumi:"pidMode"`
+	PlacementConstraints    []TaskDefinitionPlacementConstraint  `pulumi:"placementConstraints"`
+	ProxyConfiguration      *TaskDefinitionProxyConfiguration    `pulumi:"proxyConfiguration"`
+	RequiresCompatibilities []string                             `pulumi:"requiresCompatibilities"`
+	RuntimePlatform         *TaskDefinitionRuntimePlatform       `pulumi:"runtimePlatform"`
+	SkipDestroy             *bool                                `pulumi:"skipDestroy"`
+	Tags                    map[string]string                    `pulumi:"tags"`
+	TaskRoleArn             *string                              `pulumi:"taskRoleArn"`
+	Volumes                 []TaskDefinitionVolume               `pulumi:"volumes"`
 }
 
 // The set of arguments for constructing a TaskDefinition resource.
 type TaskDefinitionArgs struct {
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
-	ContainerDefinitions pulumi.StringInput
-	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Cpu pulumi.StringPtrInput
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
-	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
-	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-	ExecutionRoleArn pulumi.StringPtrInput
-	// A unique name for your task definition.
-	Family pulumi.StringInput
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
-	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
-	IpcMode pulumi.StringPtrInput
-	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
-	Memory pulumi.StringPtrInput
-	// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
-	NetworkMode pulumi.StringPtrInput
-	// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
-	PidMode pulumi.StringPtrInput
-	// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
-	PlacementConstraints TaskDefinitionPlacementConstraintArrayInput
-	// Configuration block for the App Mesh proxy. Detailed below.
-	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
-	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+	ContainerDefinitions    pulumi.StringInput
+	Cpu                     pulumi.StringPtrInput
+	EphemeralStorage        TaskDefinitionEphemeralStoragePtrInput
+	ExecutionRoleArn        pulumi.StringPtrInput
+	Family                  pulumi.StringInput
+	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayInput
+	IpcMode                 pulumi.StringPtrInput
+	Memory                  pulumi.StringPtrInput
+	NetworkMode             pulumi.StringPtrInput
+	PidMode                 pulumi.StringPtrInput
+	PlacementConstraints    TaskDefinitionPlacementConstraintArrayInput
+	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrInput
 	RequiresCompatibilities pulumi.StringArrayInput
-	// Configuration block for runtimePlatform that containers in your task may use.
-	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
-	// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
-	SkipDestroy pulumi.BoolPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-	TaskRoleArn pulumi.StringPtrInput
-	// Configuration block for volumes that containers in your task may use. Detailed below.
-	Volumes TaskDefinitionVolumeArrayInput
+	RuntimePlatform         TaskDefinitionRuntimePlatformPtrInput
+	SkipDestroy             pulumi.BoolPtrInput
+	Tags                    pulumi.StringMapInput
+	TaskRoleArn             pulumi.StringPtrInput
+	Volumes                 TaskDefinitionVolumeArrayInput
 }
 
 func (TaskDefinitionArgs) ElementType() reflect.Type {
@@ -766,107 +253,86 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Full ARN of the Task Definition (including both `family` and `revision`).
 func (o TaskDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 func (o TaskDefinitionOutput) ContainerDefinitions() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.ContainerDefinitions }).(pulumi.StringOutput)
 }
 
-// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 func (o TaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
-// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 func (o TaskDefinitionOutput) EphemeralStorage() TaskDefinitionEphemeralStoragePtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionEphemeralStoragePtrOutput { return v.EphemeralStorage }).(TaskDefinitionEphemeralStoragePtrOutput)
 }
 
-// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 func (o TaskDefinitionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A unique name for your task definition.
 func (o TaskDefinitionOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// Configuration block(s) with Inference Accelerators settings. Detailed below.
 func (o TaskDefinitionOutput) InferenceAccelerators() TaskDefinitionInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionInferenceAcceleratorArrayOutput { return v.InferenceAccelerators }).(TaskDefinitionInferenceAcceleratorArrayOutput)
 }
 
-// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 func (o TaskDefinitionOutput) IpcMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.IpcMode }).(pulumi.StringPtrOutput)
 }
 
-// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 func (o TaskDefinitionOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Memory }).(pulumi.StringPtrOutput)
 }
 
-// Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
 func (o TaskDefinitionOutput) NetworkMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.NetworkMode }).(pulumi.StringOutput)
 }
 
-// Process namespace to use for the containers in the task. The valid values are `host` and `task`.
 func (o TaskDefinitionOutput) PidMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.PidMode }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
 func (o TaskDefinitionOutput) PlacementConstraints() TaskDefinitionPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionPlacementConstraintArrayOutput { return v.PlacementConstraints }).(TaskDefinitionPlacementConstraintArrayOutput)
 }
 
-// Configuration block for the App Mesh proxy. Detailed below.
 func (o TaskDefinitionOutput) ProxyConfiguration() TaskDefinitionProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionProxyConfigurationPtrOutput { return v.ProxyConfiguration }).(TaskDefinitionProxyConfigurationPtrOutput)
 }
 
-// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringArrayOutput { return v.RequiresCompatibilities }).(pulumi.StringArrayOutput)
 }
 
-// Revision of the task in a particular family.
 func (o TaskDefinitionOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
 }
 
-// Configuration block for runtimePlatform that containers in your task may use.
 func (o TaskDefinitionOutput) RuntimePlatform() TaskDefinitionRuntimePlatformPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionRuntimePlatformPtrOutput { return v.RuntimePlatform }).(TaskDefinitionRuntimePlatformPtrOutput)
 }
 
-// Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
 func (o TaskDefinitionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TaskDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TaskDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 func (o TaskDefinitionOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for volumes that containers in your task may use. Detailed below.
 func (o TaskDefinitionOutput) Volumes() TaskDefinitionVolumeArrayOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionVolumeArrayOutput { return v.Volumes }).(TaskDefinitionVolumeArrayOutput)
 }

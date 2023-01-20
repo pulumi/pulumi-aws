@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve the active SES email identity
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupEmailIdentity(ctx, &ses.LookupEmailIdentityArgs{
-//				Email: "awesome@example.com",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityResult, error) {
 	var rv LookupEmailIdentityResult
 	err := ctx.Invoke("aws:ses/getEmailIdentity:getEmailIdentity", args, &rv, opts...)
@@ -48,15 +21,12 @@ func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opt
 
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityArgs struct {
-	// Email identity.
 	Email string `pulumi:"email"`
 }
 
 // A collection of values returned by getEmailIdentity.
 type LookupEmailIdentityResult struct {
-	// The ARN of the email identity.
-	Arn string `pulumi:"arn"`
-	// Email identity.
+	Arn   string `pulumi:"arn"`
 	Email string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -77,7 +47,6 @@ func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutp
 
 // A collection of arguments for invoking getEmailIdentity.
 type LookupEmailIdentityOutputArgs struct {
-	// Email identity.
 	Email pulumi.StringInput `pulumi:"email"`
 }
 
@@ -100,12 +69,10 @@ func (o LookupEmailIdentityResultOutput) ToLookupEmailIdentityResultOutputWithCo
 	return o
 }
 
-// The ARN of the email identity.
 func (o LookupEmailIdentityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Email identity.
 func (o LookupEmailIdentityResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Email }).(pulumi.StringOutput)
 }

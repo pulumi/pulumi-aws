@@ -11,77 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Lex Intent resource. For more information see
-// [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-//
-// ## Import
-//
-// Intents can be imported using their name.
-//
-// ```sh
-//
-//	$ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
-//
-// ```
 type Intent struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Lex intent.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Checksum identifying the version of the intent that was created. The checksum is not
-	// included as an argument because the resource will add it automatically when updating the intent.
-	Checksum pulumi.StringOutput `pulumi:"checksum"`
-	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
-	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
-	// mutually exclusive. You can specify only one. Attributes are documented under statement.
-	ConclusionStatement IntentConclusionStatementPtrOutput `pulumi:"conclusionStatement"`
-	// Prompts the user to confirm the intent. This question should
-	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
-	// or neither. Attributes are documented under prompt.
-	ConfirmationPrompt IntentConfirmationPromptPtrOutput `pulumi:"confirmationPrompt"`
-	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to `false`.
-	CreateVersion pulumi.BoolPtrOutput `pulumi:"createVersion"`
-	// The date when the intent version was created.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// A description of the bot. Must be less than or equal to 200 characters in length.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies a Lambda function to invoke for each user input. You can
-	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-	DialogCodeHook IntentDialogCodeHookPtrOutput `pulumi:"dialogCodeHook"`
-	// Amazon Lex uses this prompt to solicit additional activity after
-	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
-	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-	FollowUpPrompt IntentFollowUpPromptPtrOutput `pulumi:"followUpPrompt"`
-	// Describes how the intent is fulfilled. For example, after a
-	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-	FulfillmentActivity IntentFulfillmentActivityOutput `pulumi:"fulfillmentActivity"`
-	// The date when the $LATEST version of this intent was updated.
-	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
-	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A unique identifier for the built-in intent to base this
-	// intent on. To find the signature for an intent, see
-	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-	// in the Alexa Skills Kit.
-	ParentIntentSignature pulumi.StringPtrOutput `pulumi:"parentIntentSignature"`
-	// If the user answers "no" to the question defined in the prompt field,
-	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-	// documented below under statement.
-	RejectionStatement IntentRejectionStatementPtrOutput `pulumi:"rejectionStatement"`
-	// If you know a specific pattern with which users might respond to
-	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-	SampleUtterances pulumi.StringArrayOutput `pulumi:"sampleUtterances"`
-	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
-	// from the user using prompts defined in the slots. Attributes are documented under slot.
-	Slots IntentSlotArrayOutput `pulumi:"slots"`
-	// The version of the bot.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Arn                   pulumi.StringOutput                `pulumi:"arn"`
+	Checksum              pulumi.StringOutput                `pulumi:"checksum"`
+	ConclusionStatement   IntentConclusionStatementPtrOutput `pulumi:"conclusionStatement"`
+	ConfirmationPrompt    IntentConfirmationPromptPtrOutput  `pulumi:"confirmationPrompt"`
+	CreateVersion         pulumi.BoolPtrOutput               `pulumi:"createVersion"`
+	CreatedDate           pulumi.StringOutput                `pulumi:"createdDate"`
+	Description           pulumi.StringPtrOutput             `pulumi:"description"`
+	DialogCodeHook        IntentDialogCodeHookPtrOutput      `pulumi:"dialogCodeHook"`
+	FollowUpPrompt        IntentFollowUpPromptPtrOutput      `pulumi:"followUpPrompt"`
+	FulfillmentActivity   IntentFulfillmentActivityOutput    `pulumi:"fulfillmentActivity"`
+	LastUpdatedDate       pulumi.StringOutput                `pulumi:"lastUpdatedDate"`
+	Name                  pulumi.StringOutput                `pulumi:"name"`
+	ParentIntentSignature pulumi.StringPtrOutput             `pulumi:"parentIntentSignature"`
+	RejectionStatement    IntentRejectionStatementPtrOutput  `pulumi:"rejectionStatement"`
+	SampleUtterances      pulumi.StringArrayOutput           `pulumi:"sampleUtterances"`
+	Slots                 IntentSlotArrayOutput              `pulumi:"slots"`
+	Version               pulumi.StringOutput                `pulumi:"version"`
 }
 
 // NewIntent registers a new resource with the given unique name, arguments, and options.
@@ -116,121 +65,43 @@ func GetIntent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Intent resources.
 type intentState struct {
-	// The ARN of the Lex intent.
-	Arn *string `pulumi:"arn"`
-	// Checksum identifying the version of the intent that was created. The checksum is not
-	// included as an argument because the resource will add it automatically when updating the intent.
-	Checksum *string `pulumi:"checksum"`
-	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
-	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
-	// mutually exclusive. You can specify only one. Attributes are documented under statement.
-	ConclusionStatement *IntentConclusionStatement `pulumi:"conclusionStatement"`
-	// Prompts the user to confirm the intent. This question should
-	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
-	// or neither. Attributes are documented under prompt.
-	ConfirmationPrompt *IntentConfirmationPrompt `pulumi:"confirmationPrompt"`
-	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to `false`.
-	CreateVersion *bool `pulumi:"createVersion"`
-	// The date when the intent version was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// A description of the bot. Must be less than or equal to 200 characters in length.
-	Description *string `pulumi:"description"`
-	// Specifies a Lambda function to invoke for each user input. You can
-	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-	DialogCodeHook *IntentDialogCodeHook `pulumi:"dialogCodeHook"`
-	// Amazon Lex uses this prompt to solicit additional activity after
-	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
-	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-	FollowUpPrompt *IntentFollowUpPrompt `pulumi:"followUpPrompt"`
-	// Describes how the intent is fulfilled. For example, after a
-	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-	FulfillmentActivity *IntentFulfillmentActivity `pulumi:"fulfillmentActivity"`
-	// The date when the $LATEST version of this intent was updated.
-	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
-	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
-	Name *string `pulumi:"name"`
-	// A unique identifier for the built-in intent to base this
-	// intent on. To find the signature for an intent, see
-	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-	// in the Alexa Skills Kit.
-	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
-	// If the user answers "no" to the question defined in the prompt field,
-	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-	// documented below under statement.
-	RejectionStatement *IntentRejectionStatement `pulumi:"rejectionStatement"`
-	// If you know a specific pattern with which users might respond to
-	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-	SampleUtterances []string `pulumi:"sampleUtterances"`
-	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
-	// from the user using prompts defined in the slots. Attributes are documented under slot.
-	Slots []IntentSlot `pulumi:"slots"`
-	// The version of the bot.
-	Version *string `pulumi:"version"`
+	Arn                   *string                    `pulumi:"arn"`
+	Checksum              *string                    `pulumi:"checksum"`
+	ConclusionStatement   *IntentConclusionStatement `pulumi:"conclusionStatement"`
+	ConfirmationPrompt    *IntentConfirmationPrompt  `pulumi:"confirmationPrompt"`
+	CreateVersion         *bool                      `pulumi:"createVersion"`
+	CreatedDate           *string                    `pulumi:"createdDate"`
+	Description           *string                    `pulumi:"description"`
+	DialogCodeHook        *IntentDialogCodeHook      `pulumi:"dialogCodeHook"`
+	FollowUpPrompt        *IntentFollowUpPrompt      `pulumi:"followUpPrompt"`
+	FulfillmentActivity   *IntentFulfillmentActivity `pulumi:"fulfillmentActivity"`
+	LastUpdatedDate       *string                    `pulumi:"lastUpdatedDate"`
+	Name                  *string                    `pulumi:"name"`
+	ParentIntentSignature *string                    `pulumi:"parentIntentSignature"`
+	RejectionStatement    *IntentRejectionStatement  `pulumi:"rejectionStatement"`
+	SampleUtterances      []string                   `pulumi:"sampleUtterances"`
+	Slots                 []IntentSlot               `pulumi:"slots"`
+	Version               *string                    `pulumi:"version"`
 }
 
 type IntentState struct {
-	// The ARN of the Lex intent.
-	Arn pulumi.StringPtrInput
-	// Checksum identifying the version of the intent that was created. The checksum is not
-	// included as an argument because the resource will add it automatically when updating the intent.
-	Checksum pulumi.StringPtrInput
-	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
-	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
-	// mutually exclusive. You can specify only one. Attributes are documented under statement.
-	ConclusionStatement IntentConclusionStatementPtrInput
-	// Prompts the user to confirm the intent. This question should
-	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
-	// or neither. Attributes are documented under prompt.
-	ConfirmationPrompt IntentConfirmationPromptPtrInput
-	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to `false`.
-	CreateVersion pulumi.BoolPtrInput
-	// The date when the intent version was created.
-	CreatedDate pulumi.StringPtrInput
-	// A description of the bot. Must be less than or equal to 200 characters in length.
-	Description pulumi.StringPtrInput
-	// Specifies a Lambda function to invoke for each user input. You can
-	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-	DialogCodeHook IntentDialogCodeHookPtrInput
-	// Amazon Lex uses this prompt to solicit additional activity after
-	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
-	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-	FollowUpPrompt IntentFollowUpPromptPtrInput
-	// Describes how the intent is fulfilled. For example, after a
-	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-	FulfillmentActivity IntentFulfillmentActivityPtrInput
-	// The date when the $LATEST version of this intent was updated.
-	LastUpdatedDate pulumi.StringPtrInput
-	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
-	Name pulumi.StringPtrInput
-	// A unique identifier for the built-in intent to base this
-	// intent on. To find the signature for an intent, see
-	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-	// in the Alexa Skills Kit.
+	Arn                   pulumi.StringPtrInput
+	Checksum              pulumi.StringPtrInput
+	ConclusionStatement   IntentConclusionStatementPtrInput
+	ConfirmationPrompt    IntentConfirmationPromptPtrInput
+	CreateVersion         pulumi.BoolPtrInput
+	CreatedDate           pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	DialogCodeHook        IntentDialogCodeHookPtrInput
+	FollowUpPrompt        IntentFollowUpPromptPtrInput
+	FulfillmentActivity   IntentFulfillmentActivityPtrInput
+	LastUpdatedDate       pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
 	ParentIntentSignature pulumi.StringPtrInput
-	// If the user answers "no" to the question defined in the prompt field,
-	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-	// documented below under statement.
-	RejectionStatement IntentRejectionStatementPtrInput
-	// If you know a specific pattern with which users might respond to
-	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-	SampleUtterances pulumi.StringArrayInput
-	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
-	// from the user using prompts defined in the slots. Attributes are documented under slot.
-	Slots IntentSlotArrayInput
-	// The version of the bot.
-	Version pulumi.StringPtrInput
+	RejectionStatement    IntentRejectionStatementPtrInput
+	SampleUtterances      pulumi.StringArrayInput
+	Slots                 IntentSlotArrayInput
+	Version               pulumi.StringPtrInput
 }
 
 func (IntentState) ElementType() reflect.Type {
@@ -238,100 +109,34 @@ func (IntentState) ElementType() reflect.Type {
 }
 
 type intentArgs struct {
-	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
-	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
-	// mutually exclusive. You can specify only one. Attributes are documented under statement.
-	ConclusionStatement *IntentConclusionStatement `pulumi:"conclusionStatement"`
-	// Prompts the user to confirm the intent. This question should
-	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
-	// or neither. Attributes are documented under prompt.
-	ConfirmationPrompt *IntentConfirmationPrompt `pulumi:"confirmationPrompt"`
-	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to `false`.
-	CreateVersion *bool `pulumi:"createVersion"`
-	// A description of the bot. Must be less than or equal to 200 characters in length.
-	Description *string `pulumi:"description"`
-	// Specifies a Lambda function to invoke for each user input. You can
-	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-	DialogCodeHook *IntentDialogCodeHook `pulumi:"dialogCodeHook"`
-	// Amazon Lex uses this prompt to solicit additional activity after
-	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
-	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-	FollowUpPrompt *IntentFollowUpPrompt `pulumi:"followUpPrompt"`
-	// Describes how the intent is fulfilled. For example, after a
-	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-	FulfillmentActivity IntentFulfillmentActivity `pulumi:"fulfillmentActivity"`
-	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
-	Name *string `pulumi:"name"`
-	// A unique identifier for the built-in intent to base this
-	// intent on. To find the signature for an intent, see
-	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-	// in the Alexa Skills Kit.
-	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
-	// If the user answers "no" to the question defined in the prompt field,
-	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-	// documented below under statement.
-	RejectionStatement *IntentRejectionStatement `pulumi:"rejectionStatement"`
-	// If you know a specific pattern with which users might respond to
-	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-	SampleUtterances []string `pulumi:"sampleUtterances"`
-	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
-	// from the user using prompts defined in the slots. Attributes are documented under slot.
-	Slots []IntentSlot `pulumi:"slots"`
+	ConclusionStatement   *IntentConclusionStatement `pulumi:"conclusionStatement"`
+	ConfirmationPrompt    *IntentConfirmationPrompt  `pulumi:"confirmationPrompt"`
+	CreateVersion         *bool                      `pulumi:"createVersion"`
+	Description           *string                    `pulumi:"description"`
+	DialogCodeHook        *IntentDialogCodeHook      `pulumi:"dialogCodeHook"`
+	FollowUpPrompt        *IntentFollowUpPrompt      `pulumi:"followUpPrompt"`
+	FulfillmentActivity   IntentFulfillmentActivity  `pulumi:"fulfillmentActivity"`
+	Name                  *string                    `pulumi:"name"`
+	ParentIntentSignature *string                    `pulumi:"parentIntentSignature"`
+	RejectionStatement    *IntentRejectionStatement  `pulumi:"rejectionStatement"`
+	SampleUtterances      []string                   `pulumi:"sampleUtterances"`
+	Slots                 []IntentSlot               `pulumi:"slots"`
 }
 
 // The set of arguments for constructing a Intent resource.
 type IntentArgs struct {
-	// The statement that you want Amazon Lex to convey to the user
-	// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-	// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
-	// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
-	// mutually exclusive. You can specify only one. Attributes are documented under statement.
-	ConclusionStatement IntentConclusionStatementPtrInput
-	// Prompts the user to confirm the intent. This question should
-	// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
-	// or neither. Attributes are documented under prompt.
-	ConfirmationPrompt IntentConfirmationPromptPtrInput
-	// Determines if a new slot type version is created when the initial
-	// resource is created and on each update. Defaults to `false`.
-	CreateVersion pulumi.BoolPtrInput
-	// A description of the bot. Must be less than or equal to 200 characters in length.
-	Description pulumi.StringPtrInput
-	// Specifies a Lambda function to invoke for each user input. You can
-	// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-	DialogCodeHook IntentDialogCodeHookPtrInput
-	// Amazon Lex uses this prompt to solicit additional activity after
-	// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-	// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
-	// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-	FollowUpPrompt IntentFollowUpPromptPtrInput
-	// Describes how the intent is fulfilled. For example, after a
-	// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-	// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-	FulfillmentActivity IntentFulfillmentActivityInput
-	// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
-	Name pulumi.StringPtrInput
-	// A unique identifier for the built-in intent to base this
-	// intent on. To find the signature for an intent, see
-	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-	// in the Alexa Skills Kit.
+	ConclusionStatement   IntentConclusionStatementPtrInput
+	ConfirmationPrompt    IntentConfirmationPromptPtrInput
+	CreateVersion         pulumi.BoolPtrInput
+	Description           pulumi.StringPtrInput
+	DialogCodeHook        IntentDialogCodeHookPtrInput
+	FollowUpPrompt        IntentFollowUpPromptPtrInput
+	FulfillmentActivity   IntentFulfillmentActivityInput
+	Name                  pulumi.StringPtrInput
 	ParentIntentSignature pulumi.StringPtrInput
-	// If the user answers "no" to the question defined in the prompt field,
-	// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-	// documented below under statement.
-	RejectionStatement IntentRejectionStatementPtrInput
-	// If you know a specific pattern with which users might respond to
-	// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-	// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-	SampleUtterances pulumi.StringArrayInput
-	// An list of intent slots. At runtime, Amazon Lex elicits required slot values
-	// from the user using prompts defined in the slots. Attributes are documented under slot.
-	Slots IntentSlotArrayInput
+	RejectionStatement    IntentRejectionStatementPtrInput
+	SampleUtterances      pulumi.StringArrayInput
+	Slots                 IntentSlotArrayInput
 }
 
 func (IntentArgs) ElementType() reflect.Type {
@@ -421,109 +226,70 @@ func (o IntentOutput) ToIntentOutputWithContext(ctx context.Context) IntentOutpu
 	return o
 }
 
-// The ARN of the Lex intent.
 func (o IntentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Checksum identifying the version of the intent that was created. The checksum is not
-// included as an argument because the resource will add it automatically when updating the intent.
 func (o IntentOutput) Checksum() pulumi.StringOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Checksum }).(pulumi.StringOutput)
 }
 
-// The statement that you want Amazon Lex to convey to the user
-// after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-// you provide a Lambda function in the `fulfillmentActivity`. If you return the intent to the client
-// application, you can't specify this element. The `followUpPrompt` and `conclusionStatement` are
-// mutually exclusive. You can specify only one. Attributes are documented under statement.
 func (o IntentOutput) ConclusionStatement() IntentConclusionStatementPtrOutput {
 	return o.ApplyT(func(v *Intent) IntentConclusionStatementPtrOutput { return v.ConclusionStatement }).(IntentConclusionStatementPtrOutput)
 }
 
-// Prompts the user to confirm the intent. This question should
-// have a yes or no answer. You you must provide both the `rejectionStatement` and `confirmationPrompt`,
-// or neither. Attributes are documented under prompt.
 func (o IntentOutput) ConfirmationPrompt() IntentConfirmationPromptPtrOutput {
 	return o.ApplyT(func(v *Intent) IntentConfirmationPromptPtrOutput { return v.ConfirmationPrompt }).(IntentConfirmationPromptPtrOutput)
 }
 
-// Determines if a new slot type version is created when the initial
-// resource is created and on each update. Defaults to `false`.
 func (o IntentOutput) CreateVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Intent) pulumi.BoolPtrOutput { return v.CreateVersion }).(pulumi.BoolPtrOutput)
 }
 
-// The date when the intent version was created.
 func (o IntentOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// A description of the bot. Must be less than or equal to 200 characters in length.
 func (o IntentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a Lambda function to invoke for each user input. You can
-// invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
 func (o IntentOutput) DialogCodeHook() IntentDialogCodeHookPtrOutput {
 	return o.ApplyT(func(v *Intent) IntentDialogCodeHookPtrOutput { return v.DialogCodeHook }).(IntentDialogCodeHookPtrOutput)
 }
 
-// Amazon Lex uses this prompt to solicit additional activity after
-// fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-// user to order a drink. The `followUpPrompt` field and the `conclusionStatement` field are mutually
-// exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
 func (o IntentOutput) FollowUpPrompt() IntentFollowUpPromptPtrOutput {
 	return o.ApplyT(func(v *Intent) IntentFollowUpPromptPtrOutput { return v.FollowUpPrompt }).(IntentFollowUpPromptPtrOutput)
 }
 
-// Describes how the intent is fulfilled. For example, after a
-// user provides all of the information for a pizza order, `fulfillmentActivity` defines how the bot
-// places an order with a local pizza store. Attributes are documented under fulfillment_activity.
 func (o IntentOutput) FulfillmentActivity() IntentFulfillmentActivityOutput {
 	return o.ApplyT(func(v *Intent) IntentFulfillmentActivityOutput { return v.FulfillmentActivity }).(IntentFulfillmentActivityOutput)
 }
 
-// The date when the $LATEST version of this intent was updated.
 func (o IntentOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
 }
 
-// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
 func (o IntentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the built-in intent to base this
-// intent on. To find the signature for an intent, see
-// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-// in the Alexa Skills Kit.
 func (o IntentOutput) ParentIntentSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringPtrOutput { return v.ParentIntentSignature }).(pulumi.StringPtrOutput)
 }
 
-// If the user answers "no" to the question defined in the prompt field,
-// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-// documented below under statement.
 func (o IntentOutput) RejectionStatement() IntentRejectionStatementPtrOutput {
 	return o.ApplyT(func(v *Intent) IntentRejectionStatementPtrOutput { return v.RejectionStatement }).(IntentRejectionStatementPtrOutput)
 }
 
-// If you know a specific pattern with which users might respond to
-// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
 func (o IntentOutput) SampleUtterances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringArrayOutput { return v.SampleUtterances }).(pulumi.StringArrayOutput)
 }
 
-// An list of intent slots. At runtime, Amazon Lex elicits required slot values
-// from the user using prompts defined in the slots. Attributes are documented under slot.
 func (o IntentOutput) Slots() IntentSlotArrayOutput {
 	return o.ApplyT(func(v *Intent) IntentSlotArrayOutput { return v.Slots }).(IntentSlotArrayOutput)
 }
 
-// The version of the bot.
 func (o IntentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Intent) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

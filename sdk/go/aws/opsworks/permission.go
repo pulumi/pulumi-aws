@@ -11,50 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an OpsWorks permission resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewPermission(ctx, "myStackPermission", &opsworks.PermissionArgs{
-//				AllowSsh:  pulumi.Bool(true),
-//				AllowSudo: pulumi.Bool(true),
-//				Level:     pulumi.String("iam_only"),
-//				UserArn:   pulumi.Any(aws_iam_user.User.Arn),
-//				StackId:   pulumi.Any(aws_opsworks_stack.Stack.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Permission struct {
 	pulumi.CustomResourceState
 
-	// Whether the user is allowed to use SSH to communicate with the instance
-	AllowSsh pulumi.BoolOutput `pulumi:"allowSsh"`
-	// Whether the user is allowed to use sudo to elevate privileges
-	AllowSudo pulumi.BoolOutput `pulumi:"allowSudo"`
-	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-	Level pulumi.StringOutput `pulumi:"level"`
-	// The stack to set the permissions for
-	StackId pulumi.StringOutput `pulumi:"stackId"`
-	// The user's IAM ARN to set permissions for
-	UserArn pulumi.StringOutput `pulumi:"userArn"`
+	AllowSsh  pulumi.BoolOutput   `pulumi:"allowSsh"`
+	AllowSudo pulumi.BoolOutput   `pulumi:"allowSudo"`
+	Level     pulumi.StringOutput `pulumi:"level"`
+	StackId   pulumi.StringOutput `pulumi:"stackId"`
+	UserArn   pulumi.StringOutput `pulumi:"userArn"`
 }
 
 // NewPermission registers a new resource with the given unique name, arguments, and options.
@@ -89,29 +53,19 @@ func GetPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Permission resources.
 type permissionState struct {
-	// Whether the user is allowed to use SSH to communicate with the instance
-	AllowSsh *bool `pulumi:"allowSsh"`
-	// Whether the user is allowed to use sudo to elevate privileges
-	AllowSudo *bool `pulumi:"allowSudo"`
-	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-	Level *string `pulumi:"level"`
-	// The stack to set the permissions for
-	StackId *string `pulumi:"stackId"`
-	// The user's IAM ARN to set permissions for
-	UserArn *string `pulumi:"userArn"`
+	AllowSsh  *bool   `pulumi:"allowSsh"`
+	AllowSudo *bool   `pulumi:"allowSudo"`
+	Level     *string `pulumi:"level"`
+	StackId   *string `pulumi:"stackId"`
+	UserArn   *string `pulumi:"userArn"`
 }
 
 type PermissionState struct {
-	// Whether the user is allowed to use SSH to communicate with the instance
-	AllowSsh pulumi.BoolPtrInput
-	// Whether the user is allowed to use sudo to elevate privileges
+	AllowSsh  pulumi.BoolPtrInput
 	AllowSudo pulumi.BoolPtrInput
-	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-	Level pulumi.StringPtrInput
-	// The stack to set the permissions for
-	StackId pulumi.StringPtrInput
-	// The user's IAM ARN to set permissions for
-	UserArn pulumi.StringPtrInput
+	Level     pulumi.StringPtrInput
+	StackId   pulumi.StringPtrInput
+	UserArn   pulumi.StringPtrInput
 }
 
 func (PermissionState) ElementType() reflect.Type {
@@ -119,30 +73,20 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	// Whether the user is allowed to use SSH to communicate with the instance
-	AllowSsh *bool `pulumi:"allowSsh"`
-	// Whether the user is allowed to use sudo to elevate privileges
-	AllowSudo *bool `pulumi:"allowSudo"`
-	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-	Level *string `pulumi:"level"`
-	// The stack to set the permissions for
-	StackId *string `pulumi:"stackId"`
-	// The user's IAM ARN to set permissions for
-	UserArn string `pulumi:"userArn"`
+	AllowSsh  *bool   `pulumi:"allowSsh"`
+	AllowSudo *bool   `pulumi:"allowSudo"`
+	Level     *string `pulumi:"level"`
+	StackId   *string `pulumi:"stackId"`
+	UserArn   string  `pulumi:"userArn"`
 }
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	// Whether the user is allowed to use SSH to communicate with the instance
-	AllowSsh pulumi.BoolPtrInput
-	// Whether the user is allowed to use sudo to elevate privileges
+	AllowSsh  pulumi.BoolPtrInput
 	AllowSudo pulumi.BoolPtrInput
-	// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-	Level pulumi.StringPtrInput
-	// The stack to set the permissions for
-	StackId pulumi.StringPtrInput
-	// The user's IAM ARN to set permissions for
-	UserArn pulumi.StringInput
+	Level     pulumi.StringPtrInput
+	StackId   pulumi.StringPtrInput
+	UserArn   pulumi.StringInput
 }
 
 func (PermissionArgs) ElementType() reflect.Type {
@@ -232,27 +176,22 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
-// Whether the user is allowed to use SSH to communicate with the instance
 func (o PermissionOutput) AllowSsh() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Permission) pulumi.BoolOutput { return v.AllowSsh }).(pulumi.BoolOutput)
 }
 
-// Whether the user is allowed to use sudo to elevate privileges
 func (o PermissionOutput) AllowSudo() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Permission) pulumi.BoolOutput { return v.AllowSudo }).(pulumi.BoolOutput)
 }
 
-// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
 func (o PermissionOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Level }).(pulumi.StringOutput)
 }
 
-// The stack to set the permissions for
 func (o PermissionOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }
 
-// The user's IAM ARN to set permissions for
 func (o PermissionOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.UserArn }).(pulumi.StringOutput)
 }

@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the metadata KMS custom key store.
-// By using this data source, you can reference KMS custom key store
-// without having to hard code the ID as input.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.LookupCustomKeyStore(ctx, &kms.LookupCustomKeyStoreArgs{
-//				CustomKeyStoreName: pulumi.StringRef("my_cloudhsm"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCustomKeyStore(ctx *pulumi.Context, args *LookupCustomKeyStoreArgs, opts ...pulumi.InvokeOption) (*LookupCustomKeyStoreResult, error) {
 	var rv LookupCustomKeyStoreResult
 	err := ctx.Invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", args, &rv, opts...)
@@ -50,24 +21,19 @@ func LookupCustomKeyStore(ctx *pulumi.Context, args *LookupCustomKeyStoreArgs, o
 
 // A collection of arguments for invoking getCustomKeyStore.
 type LookupCustomKeyStoreArgs struct {
-	// The ID for the custom key store.
-	CustomKeyStoreId *string `pulumi:"customKeyStoreId"`
-	// The user-specified friendly name for the custom key store.
+	CustomKeyStoreId   *string `pulumi:"customKeyStoreId"`
 	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
 }
 
 // A collection of values returned by getCustomKeyStore.
 type LookupCustomKeyStoreResult struct {
-	CloudHsmClusterId string `pulumi:"cloudHsmClusterId"`
-	// Indicates whether the custom key store is connected to its CloudHSM cluster.
-	ConnectionState string `pulumi:"connectionState"`
-	// The date and time when the custom key store was created.
+	CloudHsmClusterId  string `pulumi:"cloudHsmClusterId"`
+	ConnectionState    string `pulumi:"connectionState"`
 	CreationDate       string `pulumi:"creationDate"`
 	CustomKeyStoreId   string `pulumi:"customKeyStoreId"`
 	CustomKeyStoreName string `pulumi:"customKeyStoreName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The trust anchor certificate of the associated CloudHSM cluster.
+	Id                     string `pulumi:"id"`
 	TrustAnchorCertificate string `pulumi:"trustAnchorCertificate"`
 }
 
@@ -86,9 +52,7 @@ func LookupCustomKeyStoreOutput(ctx *pulumi.Context, args LookupCustomKeyStoreOu
 
 // A collection of arguments for invoking getCustomKeyStore.
 type LookupCustomKeyStoreOutputArgs struct {
-	// The ID for the custom key store.
-	CustomKeyStoreId pulumi.StringPtrInput `pulumi:"customKeyStoreId"`
-	// The user-specified friendly name for the custom key store.
+	CustomKeyStoreId   pulumi.StringPtrInput `pulumi:"customKeyStoreId"`
 	CustomKeyStoreName pulumi.StringPtrInput `pulumi:"customKeyStoreName"`
 }
 
@@ -115,12 +79,10 @@ func (o LookupCustomKeyStoreResultOutput) CloudHsmClusterId() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.CloudHsmClusterId }).(pulumi.StringOutput)
 }
 
-// Indicates whether the custom key store is connected to its CloudHSM cluster.
 func (o LookupCustomKeyStoreResultOutput) ConnectionState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.ConnectionState }).(pulumi.StringOutput)
 }
 
-// The date and time when the custom key store was created.
 func (o LookupCustomKeyStoreResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.CreationDate }).(pulumi.StringOutput)
 }
@@ -138,7 +100,6 @@ func (o LookupCustomKeyStoreResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The trust anchor certificate of the associated CloudHSM cluster.
 func (o LookupCustomKeyStoreResultOutput) TrustAnchorCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.TrustAnchorCertificate }).(pulumi.StringOutput)
 }

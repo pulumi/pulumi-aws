@@ -11,9 +11,7 @@ import (
 )
 
 type VoiceConnectorGroupConnector struct {
-	// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-	Priority int `pulumi:"priority"`
-	// The Amazon Chime Voice Connector ID.
+	Priority         int    `pulumi:"priority"`
 	VoiceConnectorId string `pulumi:"voiceConnectorId"`
 }
 
@@ -29,9 +27,7 @@ type VoiceConnectorGroupConnectorInput interface {
 }
 
 type VoiceConnectorGroupConnectorArgs struct {
-	// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// The Amazon Chime Voice Connector ID.
+	Priority         pulumi.IntInput    `pulumi:"priority"`
 	VoiceConnectorId pulumi.StringInput `pulumi:"voiceConnectorId"`
 }
 
@@ -86,12 +82,10 @@ func (o VoiceConnectorGroupConnectorOutput) ToVoiceConnectorGroupConnectorOutput
 	return o
 }
 
-// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
 func (o VoiceConnectorGroupConnectorOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v VoiceConnectorGroupConnector) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The Amazon Chime Voice Connector ID.
 func (o VoiceConnectorGroupConnectorOutput) VoiceConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorGroupConnector) string { return v.VoiceConnectorId }).(pulumi.StringOutput)
 }
@@ -117,16 +111,11 @@ func (o VoiceConnectorGroupConnectorArrayOutput) Index(i pulumi.IntInput) VoiceC
 }
 
 type VoiceConnectorOrganizationRoute struct {
-	// The FQDN or IP address to contact for origination traffic.
-	Host string `pulumi:"host"`
-	// The designated origination route port. Defaults to `5060`.
-	Port *int `pulumi:"port"`
-	// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-	Priority int `pulumi:"priority"`
-	// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+	Host     string `pulumi:"host"`
+	Port     *int   `pulumi:"port"`
+	Priority int    `pulumi:"priority"`
 	Protocol string `pulumi:"protocol"`
-	// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-	Weight int `pulumi:"weight"`
+	Weight   int    `pulumi:"weight"`
 }
 
 // VoiceConnectorOrganizationRouteInput is an input type that accepts VoiceConnectorOrganizationRouteArgs and VoiceConnectorOrganizationRouteOutput values.
@@ -141,16 +130,11 @@ type VoiceConnectorOrganizationRouteInput interface {
 }
 
 type VoiceConnectorOrganizationRouteArgs struct {
-	// The FQDN or IP address to contact for origination traffic.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The designated origination route port. Defaults to `5060`.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntPtrInput `pulumi:"port"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-	Weight pulumi.IntInput `pulumi:"weight"`
+	Weight   pulumi.IntInput    `pulumi:"weight"`
 }
 
 func (VoiceConnectorOrganizationRouteArgs) ElementType() reflect.Type {
@@ -204,27 +188,22 @@ func (o VoiceConnectorOrganizationRouteOutput) ToVoiceConnectorOrganizationRoute
 	return o
 }
 
-// The FQDN or IP address to contact for origination traffic.
 func (o VoiceConnectorOrganizationRouteOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorOrganizationRoute) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The designated origination route port. Defaults to `5060`.
 func (o VoiceConnectorOrganizationRouteOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VoiceConnectorOrganizationRoute) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
 func (o VoiceConnectorOrganizationRouteOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v VoiceConnectorOrganizationRoute) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
 func (o VoiceConnectorOrganizationRouteOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorOrganizationRoute) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
 func (o VoiceConnectorOrganizationRouteOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v VoiceConnectorOrganizationRoute) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -250,9 +229,7 @@ func (o VoiceConnectorOrganizationRouteArrayOutput) Index(i pulumi.IntInput) Voi
 }
 
 type VoiceConnectorTerminationCredentialsCredential struct {
-	// RFC2617 compliant password associated with the SIP credentials.
 	Password string `pulumi:"password"`
-	// RFC2617 compliant username associated with the SIP credentials.
 	Username string `pulumi:"username"`
 }
 
@@ -268,9 +245,7 @@ type VoiceConnectorTerminationCredentialsCredentialInput interface {
 }
 
 type VoiceConnectorTerminationCredentialsCredentialArgs struct {
-	// RFC2617 compliant password associated with the SIP credentials.
 	Password pulumi.StringInput `pulumi:"password"`
-	// RFC2617 compliant username associated with the SIP credentials.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -325,12 +300,10 @@ func (o VoiceConnectorTerminationCredentialsCredentialOutput) ToVoiceConnectorTe
 	return o
 }
 
-// RFC2617 compliant password associated with the SIP credentials.
 func (o VoiceConnectorTerminationCredentialsCredentialOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorTerminationCredentialsCredential) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// RFC2617 compliant username associated with the SIP credentials.
 func (o VoiceConnectorTerminationCredentialsCredentialOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceConnectorTerminationCredentialsCredential) string { return v.Username }).(pulumi.StringOutput)
 }

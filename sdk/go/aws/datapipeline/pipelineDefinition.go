@@ -11,114 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DataPipeline Pipeline Definition resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datapipeline"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datapipeline.NewPipeline(ctx, "default", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datapipeline.NewPipelineDefinition(ctx, "example", &datapipeline.PipelineDefinitionArgs{
-//				PipelineId: _default.ID(),
-//				PipelineObjects: datapipeline.PipelineDefinitionPipelineObjectArray{
-//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("Default"),
-//						Name: pulumi.String("Default"),
-//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("workerGroup"),
-//								StringValue: pulumi.String("workerGroup"),
-//							},
-//						},
-//					},
-//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("Schedule"),
-//						Name: pulumi.String("Schedule"),
-//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("startDateTime"),
-//								StringValue: pulumi.String("2012-12-12T00:00:00"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("type"),
-//								StringValue: pulumi.String("Schedule"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("period"),
-//								StringValue: pulumi.String("1 hour"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("endDateTime"),
-//								StringValue: pulumi.String("2012-12-21T18:00:00"),
-//							},
-//						},
-//					},
-//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("SayHello"),
-//						Name: pulumi.String("SayHello"),
-//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("type"),
-//								StringValue: pulumi.String("ShellCommandActivity"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("command"),
-//								StringValue: pulumi.String("echo hello"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("parent"),
-//								StringValue: pulumi.String("Default"),
-//							},
-//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-//								Key:         pulumi.String("schedule"),
-//								StringValue: pulumi.String("Schedule"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
-//
-// ```
 type PipelineDefinition struct {
 	pulumi.CustomResourceState
 
-	// Configuration block for the parameter objects used in the pipeline definition. See below
 	ParameterObjects PipelineDefinitionParameterObjectArrayOutput `pulumi:"parameterObjects"`
-	// Configuration block for the parameter values used in the pipeline definition. See below
-	ParameterValues PipelineDefinitionParameterValueArrayOutput `pulumi:"parameterValues"`
-	// ID of the pipeline.
-	PipelineId pulumi.StringOutput `pulumi:"pipelineId"`
-	// Configuration block for the objects that define the pipeline. See below
-	PipelineObjects PipelineDefinitionPipelineObjectArrayOutput `pulumi:"pipelineObjects"`
+	ParameterValues  PipelineDefinitionParameterValueArrayOutput  `pulumi:"parameterValues"`
+	PipelineId       pulumi.StringOutput                          `pulumi:"pipelineId"`
+	PipelineObjects  PipelineDefinitionPipelineObjectArrayOutput  `pulumi:"pipelineObjects"`
 }
 
 // NewPipelineDefinition registers a new resource with the given unique name, arguments, and options.
@@ -156,25 +55,17 @@ func GetPipelineDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PipelineDefinition resources.
 type pipelineDefinitionState struct {
-	// Configuration block for the parameter objects used in the pipeline definition. See below
 	ParameterObjects []PipelineDefinitionParameterObject `pulumi:"parameterObjects"`
-	// Configuration block for the parameter values used in the pipeline definition. See below
-	ParameterValues []PipelineDefinitionParameterValue `pulumi:"parameterValues"`
-	// ID of the pipeline.
-	PipelineId *string `pulumi:"pipelineId"`
-	// Configuration block for the objects that define the pipeline. See below
-	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
+	ParameterValues  []PipelineDefinitionParameterValue  `pulumi:"parameterValues"`
+	PipelineId       *string                             `pulumi:"pipelineId"`
+	PipelineObjects  []PipelineDefinitionPipelineObject  `pulumi:"pipelineObjects"`
 }
 
 type PipelineDefinitionState struct {
-	// Configuration block for the parameter objects used in the pipeline definition. See below
 	ParameterObjects PipelineDefinitionParameterObjectArrayInput
-	// Configuration block for the parameter values used in the pipeline definition. See below
-	ParameterValues PipelineDefinitionParameterValueArrayInput
-	// ID of the pipeline.
-	PipelineId pulumi.StringPtrInput
-	// Configuration block for the objects that define the pipeline. See below
-	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
+	ParameterValues  PipelineDefinitionParameterValueArrayInput
+	PipelineId       pulumi.StringPtrInput
+	PipelineObjects  PipelineDefinitionPipelineObjectArrayInput
 }
 
 func (PipelineDefinitionState) ElementType() reflect.Type {
@@ -182,26 +73,18 @@ func (PipelineDefinitionState) ElementType() reflect.Type {
 }
 
 type pipelineDefinitionArgs struct {
-	// Configuration block for the parameter objects used in the pipeline definition. See below
 	ParameterObjects []PipelineDefinitionParameterObject `pulumi:"parameterObjects"`
-	// Configuration block for the parameter values used in the pipeline definition. See below
-	ParameterValues []PipelineDefinitionParameterValue `pulumi:"parameterValues"`
-	// ID of the pipeline.
-	PipelineId string `pulumi:"pipelineId"`
-	// Configuration block for the objects that define the pipeline. See below
-	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
+	ParameterValues  []PipelineDefinitionParameterValue  `pulumi:"parameterValues"`
+	PipelineId       string                              `pulumi:"pipelineId"`
+	PipelineObjects  []PipelineDefinitionPipelineObject  `pulumi:"pipelineObjects"`
 }
 
 // The set of arguments for constructing a PipelineDefinition resource.
 type PipelineDefinitionArgs struct {
-	// Configuration block for the parameter objects used in the pipeline definition. See below
 	ParameterObjects PipelineDefinitionParameterObjectArrayInput
-	// Configuration block for the parameter values used in the pipeline definition. See below
-	ParameterValues PipelineDefinitionParameterValueArrayInput
-	// ID of the pipeline.
-	PipelineId pulumi.StringInput
-	// Configuration block for the objects that define the pipeline. See below
-	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
+	ParameterValues  PipelineDefinitionParameterValueArrayInput
+	PipelineId       pulumi.StringInput
+	PipelineObjects  PipelineDefinitionPipelineObjectArrayInput
 }
 
 func (PipelineDefinitionArgs) ElementType() reflect.Type {
@@ -291,22 +174,18 @@ func (o PipelineDefinitionOutput) ToPipelineDefinitionOutputWithContext(ctx cont
 	return o
 }
 
-// Configuration block for the parameter objects used in the pipeline definition. See below
 func (o PipelineDefinitionOutput) ParameterObjects() PipelineDefinitionParameterObjectArrayOutput {
 	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinitionParameterObjectArrayOutput { return v.ParameterObjects }).(PipelineDefinitionParameterObjectArrayOutput)
 }
 
-// Configuration block for the parameter values used in the pipeline definition. See below
 func (o PipelineDefinitionOutput) ParameterValues() PipelineDefinitionParameterValueArrayOutput {
 	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinitionParameterValueArrayOutput { return v.ParameterValues }).(PipelineDefinitionParameterValueArrayOutput)
 }
 
-// ID of the pipeline.
 func (o PipelineDefinitionOutput) PipelineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PipelineDefinition) pulumi.StringOutput { return v.PipelineId }).(pulumi.StringOutput)
 }
 
-// Configuration block for the objects that define the pipeline. See below
 func (o PipelineDefinitionOutput) PipelineObjects() PipelineDefinitionPipelineObjectArrayOutput {
 	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinitionPipelineObjectArrayOutput { return v.PipelineObjects }).(PipelineDefinitionPipelineObjectArrayOutput)
 }

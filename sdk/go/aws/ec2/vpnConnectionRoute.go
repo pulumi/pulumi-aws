@@ -11,70 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a static route between a VPN connection and a customer gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
-//				VpcId: vpc.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			main, err := ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-//				VpnGatewayId:      vpnGateway.ID(),
-//				CustomerGatewayId: customerGateway.ID(),
-//				Type:              pulumi.String("ipsec.1"),
-//				StaticRoutesOnly:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpnConnectionRoute(ctx, "office", &ec2.VpnConnectionRouteArgs{
-//				DestinationCidrBlock: pulumi.String("192.168.10.0/24"),
-//				VpnConnectionId:      main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type VpnConnectionRoute struct {
 	pulumi.CustomResourceState
 
-	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
-	// The ID of the VPN connection.
-	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
+	VpnConnectionId      pulumi.StringOutput `pulumi:"vpnConnectionId"`
 }
 
 // NewVpnConnectionRoute registers a new resource with the given unique name, arguments, and options.
@@ -112,17 +53,13 @@ func GetVpnConnectionRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpnConnectionRoute resources.
 type vpnConnectionRouteState struct {
-	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	// The ID of the VPN connection.
-	VpnConnectionId *string `pulumi:"vpnConnectionId"`
+	VpnConnectionId      *string `pulumi:"vpnConnectionId"`
 }
 
 type VpnConnectionRouteState struct {
-	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringPtrInput
-	// The ID of the VPN connection.
-	VpnConnectionId pulumi.StringPtrInput
+	VpnConnectionId      pulumi.StringPtrInput
 }
 
 func (VpnConnectionRouteState) ElementType() reflect.Type {
@@ -130,18 +67,14 @@ func (VpnConnectionRouteState) ElementType() reflect.Type {
 }
 
 type vpnConnectionRouteArgs struct {
-	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
-	// The ID of the VPN connection.
-	VpnConnectionId string `pulumi:"vpnConnectionId"`
+	VpnConnectionId      string `pulumi:"vpnConnectionId"`
 }
 
 // The set of arguments for constructing a VpnConnectionRoute resource.
 type VpnConnectionRouteArgs struct {
-	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringInput
-	// The ID of the VPN connection.
-	VpnConnectionId pulumi.StringInput
+	VpnConnectionId      pulumi.StringInput
 }
 
 func (VpnConnectionRouteArgs) ElementType() reflect.Type {
@@ -231,12 +164,10 @@ func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutputWithContext(ctx cont
 	return o
 }
 
-// The CIDR block associated with the local subnet of the customer network.
 func (o VpnConnectionRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnectionRoute) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
 }
 
-// The ID of the VPN connection.
 func (o VpnConnectionRouteOutput) VpnConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnectionRoute) pulumi.StringOutput { return v.VpnConnectionId }).(pulumi.StringOutput)
 }

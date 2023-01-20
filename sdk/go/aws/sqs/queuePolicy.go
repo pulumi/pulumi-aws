@@ -11,80 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to set a policy of an SQS Queue
-// while referencing ARN of the queue within the policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			queue, err := sqs.NewQueue(ctx, "queue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-//				QueueUrl: queue.ID(),
-//				Policy: queue.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Id": "sqspolicy",
-//	  "Statement": [
-//	    {
-//	      "Sid": "First",
-//	      "Effect": "Allow",
-//	      "Principal": "*",
-//	      "Action": "sqs:SendMessage",
-//	      "Resource": "%v",
-//	      "Condition": {
-//	        "ArnEquals": {
-//	          "aws:SourceArn": "%v"
-//	        }
-//	      }
-//	    }
-//	  ]
-//	}
-//
-// `, arn, aws_sns_topic.Example.Arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// SQS Queue Policies can be imported using the queue URL, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
-//
-// ```
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
-	// The JSON policy for the SQS queue.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// The URL of the SQS Queue to which to attach the policy
+	Policy   pulumi.StringOutput `pulumi:"policy"`
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
 }
 
@@ -123,16 +53,12 @@ func GetQueuePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueuePolicy resources.
 type queuePolicyState struct {
-	// The JSON policy for the SQS queue.
-	Policy interface{} `pulumi:"policy"`
-	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl *string `pulumi:"queueUrl"`
+	Policy   interface{} `pulumi:"policy"`
+	QueueUrl *string     `pulumi:"queueUrl"`
 }
 
 type QueuePolicyState struct {
-	// The JSON policy for the SQS queue.
-	Policy pulumi.Input
-	// The URL of the SQS Queue to which to attach the policy
+	Policy   pulumi.Input
 	QueueUrl pulumi.StringPtrInput
 }
 
@@ -141,17 +67,13 @@ func (QueuePolicyState) ElementType() reflect.Type {
 }
 
 type queuePolicyArgs struct {
-	// The JSON policy for the SQS queue.
-	Policy interface{} `pulumi:"policy"`
-	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl string `pulumi:"queueUrl"`
+	Policy   interface{} `pulumi:"policy"`
+	QueueUrl string      `pulumi:"queueUrl"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
-	// The JSON policy for the SQS queue.
-	Policy pulumi.Input
-	// The URL of the SQS Queue to which to attach the policy
+	Policy   pulumi.Input
 	QueueUrl pulumi.StringInput
 }
 
@@ -242,12 +164,10 @@ func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) Q
 	return o
 }
 
-// The JSON policy for the SQS queue.
 func (o QueuePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// The URL of the SQS Queue to which to attach the policy
 func (o QueuePolicyOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
 }

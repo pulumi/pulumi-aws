@@ -11,65 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			mybucket, err := s3.NewBucketV2(ctx, "mybucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAccelerateConfigurationV2(ctx, "example", &s3.BucketAccelerateConfigurationV2Args{
-//				Bucket: mybucket.Bucket,
-//				Status: pulumi.String("Enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
-//
-// ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
-//
-// ```
 type BucketAccelerateConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	Bucket              pulumi.StringOutput    `pulumi:"bucket"`
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status              pulumi.StringOutput    `pulumi:"status"`
 }
 
 // NewBucketAccelerateConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -107,21 +54,15 @@ func GetBucketAccelerateConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketAccelerateConfigurationV2 resources.
 type bucketAccelerateConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	Bucket              *string `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status *string `pulumi:"status"`
+	Status              *string `pulumi:"status"`
 }
 
 type BucketAccelerateConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
+	Bucket              pulumi.StringPtrInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status pulumi.StringPtrInput
+	Status              pulumi.StringPtrInput
 }
 
 func (BucketAccelerateConfigurationV2State) ElementType() reflect.Type {
@@ -129,22 +70,16 @@ func (BucketAccelerateConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketAccelerateConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
+	Bucket              string  `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status string `pulumi:"status"`
+	Status              string  `pulumi:"status"`
 }
 
 // The set of arguments for constructing a BucketAccelerateConfigurationV2 resource.
 type BucketAccelerateConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
+	Bucket              pulumi.StringInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-	Status pulumi.StringInput
+	Status              pulumi.StringInput
 }
 
 func (BucketAccelerateConfigurationV2Args) ElementType() reflect.Type {
@@ -234,17 +169,14 @@ func (o BucketAccelerateConfigurationV2Output) ToBucketAccelerateConfigurationV2
 	return o
 }
 
-// The name of the bucket.
 func (o BucketAccelerateConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
 func (o BucketAccelerateConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
 func (o BucketAccelerateConfigurationV2Output) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationV2) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

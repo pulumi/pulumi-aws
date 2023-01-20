@@ -11,119 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint Email Channel resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "pinpoint.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewEmailChannel(ctx, "email", &pinpoint.EmailChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				FromAddress:   pulumi.String("user@example.com"),
-//				RoleArn:       role.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ses.NewDomainIdentity(ctx, "identity", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-//				Role: role.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": {
-//	    "Action": [
-//	      "mobileanalytics:PutEvents",
-//	      "mobileanalytics:PutItems"
-//	    ],
-//	    "Effect": "Allow",
-//	    "Resource": [
-//	      "*"
-//	    ]
-//	  }
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Pinpoint Email Channel can be imported using the `application-id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-//
-// ```
 type EmailChannel struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-	ConfigurationSet pulumi.StringPtrOutput `pulumi:"configurationSet"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-	FromAddress pulumi.StringOutput `pulumi:"fromAddress"`
-	// The ARN of an identity verified with SES.
-	Identity pulumi.StringOutput `pulumi:"identity"`
-	// Messages per second that can be sent.
-	MessagesPerSecond pulumi.IntOutput `pulumi:"messagesPerSecond"`
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	ApplicationId     pulumi.StringOutput    `pulumi:"applicationId"`
+	ConfigurationSet  pulumi.StringPtrOutput `pulumi:"configurationSet"`
+	Enabled           pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	FromAddress       pulumi.StringOutput    `pulumi:"fromAddress"`
+	Identity          pulumi.StringOutput    `pulumi:"identity"`
+	MessagesPerSecond pulumi.IntOutput       `pulumi:"messagesPerSecond"`
+	RoleArn           pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
 
 // NewEmailChannel registers a new resource with the given unique name, arguments, and options.
@@ -164,37 +61,23 @@ func GetEmailChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailChannel resources.
 type emailChannelState struct {
-	// The application ID.
-	ApplicationId *string `pulumi:"applicationId"`
-	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-	ConfigurationSet *string `pulumi:"configurationSet"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-	FromAddress *string `pulumi:"fromAddress"`
-	// The ARN of an identity verified with SES.
-	Identity *string `pulumi:"identity"`
-	// Messages per second that can be sent.
-	MessagesPerSecond *int `pulumi:"messagesPerSecond"`
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn *string `pulumi:"roleArn"`
+	ApplicationId     *string `pulumi:"applicationId"`
+	ConfigurationSet  *string `pulumi:"configurationSet"`
+	Enabled           *bool   `pulumi:"enabled"`
+	FromAddress       *string `pulumi:"fromAddress"`
+	Identity          *string `pulumi:"identity"`
+	MessagesPerSecond *int    `pulumi:"messagesPerSecond"`
+	RoleArn           *string `pulumi:"roleArn"`
 }
 
 type EmailChannelState struct {
-	// The application ID.
-	ApplicationId pulumi.StringPtrInput
-	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-	ConfigurationSet pulumi.StringPtrInput
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-	FromAddress pulumi.StringPtrInput
-	// The ARN of an identity verified with SES.
-	Identity pulumi.StringPtrInput
-	// Messages per second that can be sent.
+	ApplicationId     pulumi.StringPtrInput
+	ConfigurationSet  pulumi.StringPtrInput
+	Enabled           pulumi.BoolPtrInput
+	FromAddress       pulumi.StringPtrInput
+	Identity          pulumi.StringPtrInput
 	MessagesPerSecond pulumi.IntPtrInput
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn pulumi.StringPtrInput
+	RoleArn           pulumi.StringPtrInput
 }
 
 func (EmailChannelState) ElementType() reflect.Type {
@@ -202,34 +85,22 @@ func (EmailChannelState) ElementType() reflect.Type {
 }
 
 type emailChannelArgs struct {
-	// The application ID.
-	ApplicationId string `pulumi:"applicationId"`
-	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+	ApplicationId    string  `pulumi:"applicationId"`
 	ConfigurationSet *string `pulumi:"configurationSet"`
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-	FromAddress string `pulumi:"fromAddress"`
-	// The ARN of an identity verified with SES.
-	Identity string `pulumi:"identity"`
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn *string `pulumi:"roleArn"`
+	Enabled          *bool   `pulumi:"enabled"`
+	FromAddress      string  `pulumi:"fromAddress"`
+	Identity         string  `pulumi:"identity"`
+	RoleArn          *string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a EmailChannel resource.
 type EmailChannelArgs struct {
-	// The application ID.
-	ApplicationId pulumi.StringInput
-	// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+	ApplicationId    pulumi.StringInput
 	ConfigurationSet pulumi.StringPtrInput
-	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
-	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-	FromAddress pulumi.StringInput
-	// The ARN of an identity verified with SES.
-	Identity pulumi.StringInput
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-	RoleArn pulumi.StringPtrInput
+	Enabled          pulumi.BoolPtrInput
+	FromAddress      pulumi.StringInput
+	Identity         pulumi.StringInput
+	RoleArn          pulumi.StringPtrInput
 }
 
 func (EmailChannelArgs) ElementType() reflect.Type {
@@ -319,37 +190,30 @@ func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The application ID.
 func (o EmailChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
 func (o EmailChannelOutput) ConfigurationSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringPtrOutput { return v.ConfigurationSet }).(pulumi.StringPtrOutput)
 }
 
-// Whether the channel is enabled or disabled. Defaults to `true`.
 func (o EmailChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
 func (o EmailChannelOutput) FromAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.FromAddress }).(pulumi.StringOutput)
 }
 
-// The ARN of an identity verified with SES.
 func (o EmailChannelOutput) Identity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.Identity }).(pulumi.StringOutput)
 }
 
-// Messages per second that can be sent.
 func (o EmailChannelOutput) MessagesPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.IntOutput { return v.MessagesPerSecond }).(pulumi.IntOutput)
 }
 
-// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 func (o EmailChannelOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

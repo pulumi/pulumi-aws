@@ -11,62 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Outposts Endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3outposts.NewEndpoint(ctx, "example", &s3outposts.EndpointArgs{
-//				OutpostId:       pulumi.Any(data.Aws_outposts_outpost.Example.Id),
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
-//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 Outposts Endpoints can be imported using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
-//
-// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the endpoint.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// VPC CIDR block of the endpoint.
-	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
-	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+	Arn               pulumi.StringOutput                 `pulumi:"arn"`
+	CidrBlock         pulumi.StringOutput                 `pulumi:"cidrBlock"`
+	CreationTime      pulumi.StringOutput                 `pulumi:"creationTime"`
 	NetworkInterfaces EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
-	// Identifier of the EC2 Subnet.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	OutpostId         pulumi.StringOutput                 `pulumi:"outpostId"`
+	SecurityGroupId   pulumi.StringOutput                 `pulumi:"securityGroupId"`
+	SubnetId          pulumi.StringOutput                 `pulumi:"subnetId"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -107,37 +61,23 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
-	// Amazon Resource Name (ARN) of the endpoint.
-	Arn *string `pulumi:"arn"`
-	// VPC CIDR block of the endpoint.
-	CidrBlock *string `pulumi:"cidrBlock"`
-	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationTime *string `pulumi:"creationTime"`
-	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+	Arn               *string                    `pulumi:"arn"`
+	CidrBlock         *string                    `pulumi:"cidrBlock"`
+	CreationTime      *string                    `pulumi:"creationTime"`
 	NetworkInterfaces []EndpointNetworkInterface `pulumi:"networkInterfaces"`
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId *string `pulumi:"outpostId"`
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// Identifier of the EC2 Subnet.
-	SubnetId *string `pulumi:"subnetId"`
+	OutpostId         *string                    `pulumi:"outpostId"`
+	SecurityGroupId   *string                    `pulumi:"securityGroupId"`
+	SubnetId          *string                    `pulumi:"subnetId"`
 }
 
 type EndpointState struct {
-	// Amazon Resource Name (ARN) of the endpoint.
-	Arn pulumi.StringPtrInput
-	// VPC CIDR block of the endpoint.
-	CidrBlock pulumi.StringPtrInput
-	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	CreationTime pulumi.StringPtrInput
-	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+	Arn               pulumi.StringPtrInput
+	CidrBlock         pulumi.StringPtrInput
+	CreationTime      pulumi.StringPtrInput
 	NetworkInterfaces EndpointNetworkInterfaceArrayInput
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId pulumi.StringPtrInput
-	// Identifier of the EC2 Security Group.
-	SecurityGroupId pulumi.StringPtrInput
-	// Identifier of the EC2 Subnet.
-	SubnetId pulumi.StringPtrInput
+	OutpostId         pulumi.StringPtrInput
+	SecurityGroupId   pulumi.StringPtrInput
+	SubnetId          pulumi.StringPtrInput
 }
 
 func (EndpointState) ElementType() reflect.Type {
@@ -145,22 +85,16 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId string `pulumi:"outpostId"`
-	// Identifier of the EC2 Security Group.
+	OutpostId       string `pulumi:"outpostId"`
 	SecurityGroupId string `pulumi:"securityGroupId"`
-	// Identifier of the EC2 Subnet.
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId        string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// Identifier of the Outpost to contain this endpoint.
-	OutpostId pulumi.StringInput
-	// Identifier of the EC2 Security Group.
+	OutpostId       pulumi.StringInput
 	SecurityGroupId pulumi.StringInput
-	// Identifier of the EC2 Subnet.
-	SubnetId pulumi.StringInput
+	SubnetId        pulumi.StringInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -250,37 +184,30 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
-// Amazon Resource Name (ARN) of the endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// VPC CIDR block of the endpoint.
 func (o EndpointOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
-// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o EndpointOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 func (o EndpointOutput) NetworkInterfaces() EndpointNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(EndpointNetworkInterfaceArrayOutput)
 }
 
-// Identifier of the Outpost to contain this endpoint.
 func (o EndpointOutput) OutpostId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.OutpostId }).(pulumi.StringOutput)
 }
 
-// Identifier of the EC2 Security Group.
 func (o EndpointOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
-// Identifier of the EC2 Subnet.
 func (o EndpointOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

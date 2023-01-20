@@ -11,93 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Managed Grafana workspace license association resource.
-//
-// ## Example Usage
-// ### Basic configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "sts:AssumeRole",
-//						"Effect": "Allow",
-//						"Sid":    "",
-//						"Principal": map[string]interface{}{
-//							"Service": "grafana.amazonaws.com",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
-//				AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
-//				AuthenticationProviders: pulumi.StringArray{
-//					pulumi.String("SAML"),
-//				},
-//				PermissionType: pulumi.String("SERVICE_MANAGED"),
-//				RoleArn:        assume.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = grafana.NewLicenseAssociation(ctx, "exampleLicenseAssociation", &grafana.LicenseAssociationArgs{
-//				LicenseType: pulumi.String("ENTERPRISE_FREE_TRIAL"),
-//				WorkspaceId: exampleWorkspace.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Grafana workspace license association can be imported using the workspace's `id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
-//
-// ```
 type LicenseAssociation struct {
 	pulumi.CustomResourceState
 
-	// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
 	FreeTrialExpiration pulumi.StringOutput `pulumi:"freeTrialExpiration"`
-	// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-	LicenseExpiration pulumi.StringOutput `pulumi:"licenseExpiration"`
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
-	// The workspace id.
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	LicenseExpiration   pulumi.StringOutput `pulumi:"licenseExpiration"`
+	LicenseType         pulumi.StringOutput `pulumi:"licenseType"`
+	WorkspaceId         pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
 // NewLicenseAssociation registers a new resource with the given unique name, arguments, and options.
@@ -135,25 +55,17 @@ func GetLicenseAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LicenseAssociation resources.
 type licenseAssociationState struct {
-	// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
 	FreeTrialExpiration *string `pulumi:"freeTrialExpiration"`
-	// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-	LicenseExpiration *string `pulumi:"licenseExpiration"`
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-	LicenseType *string `pulumi:"licenseType"`
-	// The workspace id.
-	WorkspaceId *string `pulumi:"workspaceId"`
+	LicenseExpiration   *string `pulumi:"licenseExpiration"`
+	LicenseType         *string `pulumi:"licenseType"`
+	WorkspaceId         *string `pulumi:"workspaceId"`
 }
 
 type LicenseAssociationState struct {
-	// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
 	FreeTrialExpiration pulumi.StringPtrInput
-	// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-	LicenseExpiration pulumi.StringPtrInput
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-	LicenseType pulumi.StringPtrInput
-	// The workspace id.
-	WorkspaceId pulumi.StringPtrInput
+	LicenseExpiration   pulumi.StringPtrInput
+	LicenseType         pulumi.StringPtrInput
+	WorkspaceId         pulumi.StringPtrInput
 }
 
 func (LicenseAssociationState) ElementType() reflect.Type {
@@ -161,17 +73,13 @@ func (LicenseAssociationState) ElementType() reflect.Type {
 }
 
 type licenseAssociationArgs struct {
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType string `pulumi:"licenseType"`
-	// The workspace id.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a LicenseAssociation resource.
 type LicenseAssociationArgs struct {
-	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringInput
-	// The workspace id.
 	WorkspaceId pulumi.StringInput
 }
 
@@ -262,22 +170,18 @@ func (o LicenseAssociationOutput) ToLicenseAssociationOutputWithContext(ctx cont
 	return o
 }
 
-// If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
 func (o LicenseAssociationOutput) FreeTrialExpiration() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.FreeTrialExpiration }).(pulumi.StringOutput)
 }
 
-// If `licenseType` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
 func (o LicenseAssociationOutput) LicenseExpiration() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.LicenseExpiration }).(pulumi.StringOutput)
 }
 
-// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 func (o LicenseAssociationOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
 }
 
-// The workspace id.
 func (o LicenseAssociationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

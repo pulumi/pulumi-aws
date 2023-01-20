@@ -10,58 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EventBridge Custom Schema Registry resource.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
-//				Description: pulumi.String("A custom schema registry"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// # EventBridge schema registries can be imported using the `name`, e.g., console
-//
-// ```sh
-//
-//	$ pulumi import aws:schemas/registry:Registry test my_own_registry
-//
-// ```
 type Registry struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the discoverer. Maximum of 256 characters.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -93,29 +49,19 @@ func GetRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registry resources.
 type registryState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn *string `pulumi:"arn"`
-	// The description of the discoverer. Maximum of 256 characters.
-	Description *string `pulumi:"description"`
-	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type RegistryState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
-	Arn pulumi.StringPtrInput
-	// The description of the discoverer. Maximum of 256 characters.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (RegistryState) ElementType() reflect.Type {
@@ -123,22 +69,16 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
-	// The description of the discoverer. Maximum of 256 characters.
-	Description *string `pulumi:"description"`
-	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
-	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
-	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name        pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -228,27 +168,22 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the discoverer.
 func (o RegistryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the discoverer. Maximum of 256 characters.
 func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
 func (o RegistryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RegistryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RegistryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

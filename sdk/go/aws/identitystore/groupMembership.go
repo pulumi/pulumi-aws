@@ -11,28 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS IdentityStore Group Membership.
-//
-// ## Import
-//
-// `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-//
-// ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
-	// The identifier for a group in the Identity Store.
-	GroupId pulumi.StringOutput `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         pulumi.StringOutput `pulumi:"groupId"`
 	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
-	// The identifier for a user in the Identity Store.
-	MemberId pulumi.StringOutput `pulumi:"memberId"`
-	// The identifier of the newly created group membership in the Identity Store.
-	MembershipId pulumi.StringOutput `pulumi:"membershipId"`
+	MemberId        pulumi.StringOutput `pulumi:"memberId"`
+	MembershipId    pulumi.StringOutput `pulumi:"membershipId"`
 }
 
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
@@ -73,25 +58,17 @@ func GetGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type groupMembershipState struct {
-	// The identifier for a group in the Identity Store.
-	GroupId *string `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         *string `pulumi:"groupId"`
 	IdentityStoreId *string `pulumi:"identityStoreId"`
-	// The identifier for a user in the Identity Store.
-	MemberId *string `pulumi:"memberId"`
-	// The identifier of the newly created group membership in the Identity Store.
-	MembershipId *string `pulumi:"membershipId"`
+	MemberId        *string `pulumi:"memberId"`
+	MembershipId    *string `pulumi:"membershipId"`
 }
 
 type GroupMembershipState struct {
-	// The identifier for a group in the Identity Store.
-	GroupId pulumi.StringPtrInput
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         pulumi.StringPtrInput
 	IdentityStoreId pulumi.StringPtrInput
-	// The identifier for a user in the Identity Store.
-	MemberId pulumi.StringPtrInput
-	// The identifier of the newly created group membership in the Identity Store.
-	MembershipId pulumi.StringPtrInput
+	MemberId        pulumi.StringPtrInput
+	MembershipId    pulumi.StringPtrInput
 }
 
 func (GroupMembershipState) ElementType() reflect.Type {
@@ -99,22 +76,16 @@ func (GroupMembershipState) ElementType() reflect.Type {
 }
 
 type groupMembershipArgs struct {
-	// The identifier for a group in the Identity Store.
-	GroupId string `pulumi:"groupId"`
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         string `pulumi:"groupId"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
-	// The identifier for a user in the Identity Store.
-	MemberId string `pulumi:"memberId"`
+	MemberId        string `pulumi:"memberId"`
 }
 
 // The set of arguments for constructing a GroupMembership resource.
 type GroupMembershipArgs struct {
-	// The identifier for a group in the Identity Store.
-	GroupId pulumi.StringInput
-	// Identity Store ID associated with the Single Sign-On Instance.
+	GroupId         pulumi.StringInput
 	IdentityStoreId pulumi.StringInput
-	// The identifier for a user in the Identity Store.
-	MemberId pulumi.StringInput
+	MemberId        pulumi.StringInput
 }
 
 func (GroupMembershipArgs) ElementType() reflect.Type {
@@ -204,22 +175,18 @@ func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Co
 	return o
 }
 
-// The identifier for a group in the Identity Store.
 func (o GroupMembershipOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
-// Identity Store ID associated with the Single Sign-On Instance.
 func (o GroupMembershipOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }
 
-// The identifier for a user in the Identity Store.
 func (o GroupMembershipOutput) MemberId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
 }
 
-// The identifier of the newly created group membership in the Identity Store.
 func (o GroupMembershipOutput) MembershipId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MembershipId }).(pulumi.StringOutput)
 }

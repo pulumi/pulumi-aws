@@ -10,61 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DAX Parameter Group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dax"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dax.NewParameterGroup(ctx, "example", &dax.ParameterGroupArgs{
-//				Parameters: dax.ParameterGroupParameterArray{
-//					&dax.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("query-ttl-millis"),
-//						Value: pulumi.String("100000"),
-//					},
-//					&dax.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("record-ttl-millis"),
-//						Value: pulumi.String("100000"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// DAX Parameter Group can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
-//
-// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// A description of the parameter group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the parameter group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The parameters of the parameter group.
-	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	Description pulumi.StringPtrOutput             `pulumi:"description"`
+	Name        pulumi.StringOutput                `pulumi:"name"`
+	Parameters  ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -96,21 +47,15 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
-	// A description of the parameter group.
-	Description *string `pulumi:"description"`
-	// The name of the parameter group.
-	Name *string `pulumi:"name"`
-	// The parameters of the parameter group.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	Description *string                   `pulumi:"description"`
+	Name        *string                   `pulumi:"name"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
 }
 
 type ParameterGroupState struct {
-	// A description of the parameter group.
 	Description pulumi.StringPtrInput
-	// The name of the parameter group.
-	Name pulumi.StringPtrInput
-	// The parameters of the parameter group.
-	Parameters ParameterGroupParameterArrayInput
+	Name        pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -118,22 +63,16 @@ func (ParameterGroupState) ElementType() reflect.Type {
 }
 
 type parameterGroupArgs struct {
-	// A description of the parameter group.
-	Description *string `pulumi:"description"`
-	// The name of the parameter group.
-	Name *string `pulumi:"name"`
-	// The parameters of the parameter group.
-	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	Description *string                   `pulumi:"description"`
+	Name        *string                   `pulumi:"name"`
+	Parameters  []ParameterGroupParameter `pulumi:"parameters"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
 type ParameterGroupArgs struct {
-	// A description of the parameter group.
 	Description pulumi.StringPtrInput
-	// The name of the parameter group.
-	Name pulumi.StringPtrInput
-	// The parameters of the parameter group.
-	Parameters ParameterGroupParameterArrayInput
+	Name        pulumi.StringPtrInput
+	Parameters  ParameterGroupParameterArrayInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {
@@ -223,17 +162,14 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A description of the parameter group.
 func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the parameter group.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameters of the parameter group.
 func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }

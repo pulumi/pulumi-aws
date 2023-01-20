@@ -11,138 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
-//
-// ## Example Usage
-// ### Database Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLfTag, err := lakeformation.NewLfTag(ctx, "exampleLfTag", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("right"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("abbey"),
-//					pulumi.String("village"),
-//					pulumi.String("luffield"),
-//					pulumi.String("woodcote"),
-//					pulumi.String("copse"),
-//					pulumi.String("chapel"),
-//					pulumi.String("stowe"),
-//					pulumi.String("club"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation.ResourceLfTagsArgs{
-//				Database: &lakeformation.ResourceLfTagsDatabaseArgs{
-//					Name: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				},
-//				LfTags: lakeformation.ResourceLfTagsLfTagArray{
-//					&lakeformation.ResourceLfTagsLfTagArgs{
-//						Key:   exampleLfTag.Key,
-//						Value: pulumi.String("stowe"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Multiple Tags Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewLfTag(ctx, "exampleLfTag", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("right"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("abbey"),
-//					pulumi.String("village"),
-//					pulumi.String("luffield"),
-//					pulumi.String("woodcote"),
-//					pulumi.String("copse"),
-//					pulumi.String("chapel"),
-//					pulumi.String("stowe"),
-//					pulumi.String("club"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewLfTag(ctx, "example2", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("left"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("farm"),
-//					pulumi.String("theloop"),
-//					pulumi.String("aintree"),
-//					pulumi.String("brooklands"),
-//					pulumi.String("maggotts"),
-//					pulumi.String("becketts"),
-//					pulumi.String("vale"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lakeformation.NewResourceLfTags(ctx, "exampleResourceLfTags", &lakeformation.ResourceLfTagsArgs{
-//				Database: &lakeformation.ResourceLfTagsDatabaseArgs{
-//					Name: pulumi.Any(aws_glue_catalog_database.Example.Name),
-//				},
-//				LfTags: lakeformation.ResourceLfTagsLfTagArray{
-//					&lakeformation.ResourceLfTagsLfTagArgs{
-//						Key:   pulumi.String("right"),
-//						Value: pulumi.String("luffield"),
-//					},
-//					&lakeformation.ResourceLfTagsLfTagArgs{
-//						Key:   pulumi.String("left"),
-//						Value: pulumi.String("aintree"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ResourceLfTags struct {
 	pulumi.CustomResourceState
 
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Configuration block for a database resource. See below.
-	Database ResourceLfTagsDatabaseOutput `pulumi:"database"`
-	// Set of LF-tags to attach to the resource. See below.
-	LfTags ResourceLfTagsLfTagArrayOutput `pulumi:"lfTags"`
-	// Configuration block for a table resource. See below.
-	Table ResourceLfTagsTableOutput `pulumi:"table"`
-	// Configuration block for a table with columns resource. See below.
+	CatalogId        pulumi.StringOutput                  `pulumi:"catalogId"`
+	Database         ResourceLfTagsDatabaseOutput         `pulumi:"database"`
+	LfTags           ResourceLfTagsLfTagArrayOutput       `pulumi:"lfTags"`
+	Table            ResourceLfTagsTableOutput            `pulumi:"table"`
 	TableWithColumns ResourceLfTagsTableWithColumnsOutput `pulumi:"tableWithColumns"`
 }
 
@@ -178,28 +53,18 @@ func GetResourceLfTags(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceLfTags resources.
 type resourceLfTagsState struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-	CatalogId *string `pulumi:"catalogId"`
-	// Configuration block for a database resource. See below.
-	Database *ResourceLfTagsDatabase `pulumi:"database"`
-	// Set of LF-tags to attach to the resource. See below.
-	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
-	// Configuration block for a table resource. See below.
-	Table *ResourceLfTagsTable `pulumi:"table"`
-	// Configuration block for a table with columns resource. See below.
+	CatalogId        *string                         `pulumi:"catalogId"`
+	Database         *ResourceLfTagsDatabase         `pulumi:"database"`
+	LfTags           []ResourceLfTagsLfTag           `pulumi:"lfTags"`
+	Table            *ResourceLfTagsTable            `pulumi:"table"`
 	TableWithColumns *ResourceLfTagsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
 type ResourceLfTagsState struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-	CatalogId pulumi.StringPtrInput
-	// Configuration block for a database resource. See below.
-	Database ResourceLfTagsDatabasePtrInput
-	// Set of LF-tags to attach to the resource. See below.
-	LfTags ResourceLfTagsLfTagArrayInput
-	// Configuration block for a table resource. See below.
-	Table ResourceLfTagsTablePtrInput
-	// Configuration block for a table with columns resource. See below.
+	CatalogId        pulumi.StringPtrInput
+	Database         ResourceLfTagsDatabasePtrInput
+	LfTags           ResourceLfTagsLfTagArrayInput
+	Table            ResourceLfTagsTablePtrInput
 	TableWithColumns ResourceLfTagsTableWithColumnsPtrInput
 }
 
@@ -208,29 +73,19 @@ func (ResourceLfTagsState) ElementType() reflect.Type {
 }
 
 type resourceLfTagsArgs struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-	CatalogId *string `pulumi:"catalogId"`
-	// Configuration block for a database resource. See below.
-	Database *ResourceLfTagsDatabase `pulumi:"database"`
-	// Set of LF-tags to attach to the resource. See below.
-	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
-	// Configuration block for a table resource. See below.
-	Table *ResourceLfTagsTable `pulumi:"table"`
-	// Configuration block for a table with columns resource. See below.
+	CatalogId        *string                         `pulumi:"catalogId"`
+	Database         *ResourceLfTagsDatabase         `pulumi:"database"`
+	LfTags           []ResourceLfTagsLfTag           `pulumi:"lfTags"`
+	Table            *ResourceLfTagsTable            `pulumi:"table"`
 	TableWithColumns *ResourceLfTagsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
 // The set of arguments for constructing a ResourceLfTags resource.
 type ResourceLfTagsArgs struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
-	CatalogId pulumi.StringPtrInput
-	// Configuration block for a database resource. See below.
-	Database ResourceLfTagsDatabasePtrInput
-	// Set of LF-tags to attach to the resource. See below.
-	LfTags ResourceLfTagsLfTagArrayInput
-	// Configuration block for a table resource. See below.
-	Table ResourceLfTagsTablePtrInput
-	// Configuration block for a table with columns resource. See below.
+	CatalogId        pulumi.StringPtrInput
+	Database         ResourceLfTagsDatabasePtrInput
+	LfTags           ResourceLfTagsLfTagArrayInput
+	Table            ResourceLfTagsTablePtrInput
 	TableWithColumns ResourceLfTagsTableWithColumnsPtrInput
 }
 
@@ -321,27 +176,22 @@ func (o ResourceLfTagsOutput) ToResourceLfTagsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o ResourceLfTagsOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceLfTags) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Configuration block for a database resource. See below.
 func (o ResourceLfTagsOutput) Database() ResourceLfTagsDatabaseOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsDatabaseOutput { return v.Database }).(ResourceLfTagsDatabaseOutput)
 }
 
-// Set of LF-tags to attach to the resource. See below.
 func (o ResourceLfTagsOutput) LfTags() ResourceLfTagsLfTagArrayOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsLfTagArrayOutput { return v.LfTags }).(ResourceLfTagsLfTagArrayOutput)
 }
 
-// Configuration block for a table resource. See below.
 func (o ResourceLfTagsOutput) Table() ResourceLfTagsTableOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTableOutput { return v.Table }).(ResourceLfTagsTableOutput)
 }
 
-// Configuration block for a table with columns resource. See below.
 func (o ResourceLfTagsOutput) TableWithColumns() ResourceLfTagsTableWithColumnsOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTableWithColumnsOutput { return v.TableWithColumns }).(ResourceLfTagsTableWithColumnsOutput)
 }

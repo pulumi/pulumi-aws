@@ -11,206 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
-//
-// > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificateSigningRequest` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				PermanentDeletionTimeInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Short-lived certificate
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				UsageMode: pulumi.String("SHORT_LIVED_CERTIFICATE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Enable Certificate Revocation List
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			acmpcaBucketAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketAcl"),
-//							pulumi.String("s3:GetBucketLocation"),
-//							pulumi.String("s3:PutObject"),
-//							pulumi.String("s3:PutObjectAcl"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleBucketV2.Arn,
-//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/*", arn), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("acm-pca.amazonaws.com"),
-//								},
-//								Type: pulumi.String("Service"),
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &acmpcaBucketAccess.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//				RevocationConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationArgs{
-//					CrlConfiguration: &acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{
-//						CustomCname:      pulumi.String("crl.example.com"),
-//						Enabled:          pulumi.Bool(true),
-//						ExpirationInDays: pulumi.Int(7),
-//						S3BucketName:     exampleBucketV2.ID(),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-//
-// ```
 type CertificateAuthority struct {
 	pulumi.CustomResourceState
 
-	// ARN of the certificate authority.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-	Certificate pulumi.StringOutput `pulumi:"certificate"`
-	// Nested argument containing algorithms and certificate subject information. Defined below.
+	Arn                               pulumi.StringOutput                                         `pulumi:"arn"`
+	Certificate                       pulumi.StringOutput                                         `pulumi:"certificate"`
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfigurationOutput `pulumi:"certificateAuthorityConfiguration"`
-	// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-	CertificateChain pulumi.StringOutput `pulumi:"certificateChain"`
-	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-	CertificateSigningRequest pulumi.StringOutput `pulumi:"certificateSigningRequest"`
-	// Boolean value that specifies whether a custom OCSP responder is enabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotAfter pulumi.StringOutput `pulumi:"notAfter"`
-	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotBefore pulumi.StringOutput `pulumi:"notBefore"`
-	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-	PermanentDeletionTimeInDays pulumi.IntPtrOutput `pulumi:"permanentDeletionTimeInDays"`
-	// Nested argument containing revocation configuration. Defined below.
-	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrOutput `pulumi:"revocationConfiguration"`
-	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-	Serial pulumi.StringOutput `pulumi:"serial"`
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
+	CertificateChain                  pulumi.StringOutput                                         `pulumi:"certificateChain"`
+	CertificateSigningRequest         pulumi.StringOutput                                         `pulumi:"certificateSigningRequest"`
+	Enabled                           pulumi.BoolPtrOutput                                        `pulumi:"enabled"`
+	NotAfter                          pulumi.StringOutput                                         `pulumi:"notAfter"`
+	NotBefore                         pulumi.StringOutput                                         `pulumi:"notBefore"`
+	PermanentDeletionTimeInDays       pulumi.IntPtrOutput                                         `pulumi:"permanentDeletionTimeInDays"`
+	RevocationConfiguration           CertificateAuthorityRevocationConfigurationPtrOutput        `pulumi:"revocationConfiguration"`
+	Serial                            pulumi.StringOutput                                         `pulumi:"serial"`
 	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-	UsageMode pulumi.StringOutput `pulumi:"usageMode"`
+	Status    pulumi.StringOutput    `pulumi:"status"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type      pulumi.StringPtrOutput `pulumi:"type"`
+	UsageMode pulumi.StringOutput    `pulumi:"usageMode"`
 }
 
 // NewCertificateAuthority registers a new resource with the given unique name, arguments, and options.
@@ -245,76 +65,42 @@ func GetCertificateAuthority(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateAuthority resources.
 type certificateAuthorityState struct {
-	// ARN of the certificate authority.
-	Arn *string `pulumi:"arn"`
-	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-	Certificate *string `pulumi:"certificate"`
-	// Nested argument containing algorithms and certificate subject information. Defined below.
+	Arn                               *string                                                `pulumi:"arn"`
+	Certificate                       *string                                                `pulumi:"certificate"`
 	CertificateAuthorityConfiguration *CertificateAuthorityCertificateAuthorityConfiguration `pulumi:"certificateAuthorityConfiguration"`
-	// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-	CertificateChain *string `pulumi:"certificateChain"`
-	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
-	// Boolean value that specifies whether a custom OCSP responder is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotAfter *string `pulumi:"notAfter"`
-	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotBefore *string `pulumi:"notBefore"`
-	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-	PermanentDeletionTimeInDays *int `pulumi:"permanentDeletionTimeInDays"`
-	// Nested argument containing revocation configuration. Defined below.
-	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
-	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-	Serial *string `pulumi:"serial"`
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
+	CertificateChain                  *string                                                `pulumi:"certificateChain"`
+	CertificateSigningRequest         *string                                                `pulumi:"certificateSigningRequest"`
+	Enabled                           *bool                                                  `pulumi:"enabled"`
+	NotAfter                          *string                                                `pulumi:"notAfter"`
+	NotBefore                         *string                                                `pulumi:"notBefore"`
+	PermanentDeletionTimeInDays       *int                                                   `pulumi:"permanentDeletionTimeInDays"`
+	RevocationConfiguration           *CertificateAuthorityRevocationConfiguration           `pulumi:"revocationConfiguration"`
+	Serial                            *string                                                `pulumi:"serial"`
 	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status *string `pulumi:"status"`
-	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-	Type *string `pulumi:"type"`
-	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-	UsageMode *string `pulumi:"usageMode"`
+	Status    *string           `pulumi:"status"`
+	Tags      map[string]string `pulumi:"tags"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
+	Type      *string           `pulumi:"type"`
+	UsageMode *string           `pulumi:"usageMode"`
 }
 
 type CertificateAuthorityState struct {
-	// ARN of the certificate authority.
-	Arn pulumi.StringPtrInput
-	// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-	Certificate pulumi.StringPtrInput
-	// Nested argument containing algorithms and certificate subject information. Defined below.
+	Arn                               pulumi.StringPtrInput
+	Certificate                       pulumi.StringPtrInput
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfigurationPtrInput
-	// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-	CertificateChain pulumi.StringPtrInput
-	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-	CertificateSigningRequest pulumi.StringPtrInput
-	// Boolean value that specifies whether a custom OCSP responder is enabled.
-	Enabled pulumi.BoolPtrInput
-	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotAfter pulumi.StringPtrInput
-	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-	NotBefore pulumi.StringPtrInput
-	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-	PermanentDeletionTimeInDays pulumi.IntPtrInput
-	// Nested argument containing revocation configuration. Defined below.
-	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
-	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-	Serial pulumi.StringPtrInput
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
+	CertificateChain                  pulumi.StringPtrInput
+	CertificateSigningRequest         pulumi.StringPtrInput
+	Enabled                           pulumi.BoolPtrInput
+	NotAfter                          pulumi.StringPtrInput
+	NotBefore                         pulumi.StringPtrInput
+	PermanentDeletionTimeInDays       pulumi.IntPtrInput
+	RevocationConfiguration           CertificateAuthorityRevocationConfigurationPtrInput
+	Serial                            pulumi.StringPtrInput
 	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status pulumi.StringPtrInput
-	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-	Type pulumi.StringPtrInput
-	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
+	Status    pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
+	Type      pulumi.StringPtrInput
 	UsageMode pulumi.StringPtrInput
 }
 
@@ -323,38 +109,24 @@ func (CertificateAuthorityState) ElementType() reflect.Type {
 }
 
 type certificateAuthorityArgs struct {
-	// Nested argument containing algorithms and certificate subject information. Defined below.
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfiguration `pulumi:"certificateAuthorityConfiguration"`
-	// Boolean value that specifies whether a custom OCSP responder is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-	PermanentDeletionTimeInDays *int `pulumi:"permanentDeletionTimeInDays"`
-	// Nested argument containing revocation configuration. Defined below.
-	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
-	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-	Type *string `pulumi:"type"`
-	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-	UsageMode *string `pulumi:"usageMode"`
+	Enabled                           *bool                                                 `pulumi:"enabled"`
+	PermanentDeletionTimeInDays       *int                                                  `pulumi:"permanentDeletionTimeInDays"`
+	RevocationConfiguration           *CertificateAuthorityRevocationConfiguration          `pulumi:"revocationConfiguration"`
+	Tags                              map[string]string                                     `pulumi:"tags"`
+	Type                              *string                                               `pulumi:"type"`
+	UsageMode                         *string                                               `pulumi:"usageMode"`
 }
 
 // The set of arguments for constructing a CertificateAuthority resource.
 type CertificateAuthorityArgs struct {
-	// Nested argument containing algorithms and certificate subject information. Defined below.
 	CertificateAuthorityConfiguration CertificateAuthorityCertificateAuthorityConfigurationInput
-	// Boolean value that specifies whether a custom OCSP responder is enabled.
-	Enabled pulumi.BoolPtrInput
-	// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-	PermanentDeletionTimeInDays pulumi.IntPtrInput
-	// Nested argument containing revocation configuration. Defined below.
-	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
-	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-	Type pulumi.StringPtrInput
-	// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-	UsageMode pulumi.StringPtrInput
+	Enabled                           pulumi.BoolPtrInput
+	PermanentDeletionTimeInDays       pulumi.IntPtrInput
+	RevocationConfiguration           CertificateAuthorityRevocationConfigurationPtrInput
+	Tags                              pulumi.StringMapInput
+	Type                              pulumi.StringPtrInput
+	UsageMode                         pulumi.StringPtrInput
 }
 
 func (CertificateAuthorityArgs) ElementType() reflect.Type {
@@ -444,88 +216,71 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the certificate authority.
 func (o CertificateAuthorityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
 func (o CertificateAuthorityOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// Nested argument containing algorithms and certificate subject information. Defined below.
 func (o CertificateAuthorityOutput) CertificateAuthorityConfiguration() CertificateAuthorityCertificateAuthorityConfigurationOutput {
 	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthorityCertificateAuthorityConfigurationOutput {
 		return v.CertificateAuthorityConfiguration
 	}).(CertificateAuthorityCertificateAuthorityConfigurationOutput)
 }
 
-// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
 func (o CertificateAuthorityOutput) CertificateChain() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
-// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
 func (o CertificateAuthorityOutput) CertificateSigningRequest() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.CertificateSigningRequest }).(pulumi.StringOutput)
 }
 
-// Boolean value that specifies whether a custom OCSP responder is enabled.
 func (o CertificateAuthorityOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 func (o CertificateAuthorityOutput) NotAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.NotAfter }).(pulumi.StringOutput)
 }
 
-// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 func (o CertificateAuthorityOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.NotBefore }).(pulumi.StringOutput)
 }
 
-// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
 func (o CertificateAuthorityOutput) PermanentDeletionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.IntPtrOutput { return v.PermanentDeletionTimeInDays }).(pulumi.IntPtrOutput)
 }
 
-// Nested argument containing revocation configuration. Defined below.
 func (o CertificateAuthorityOutput) RevocationConfiguration() CertificateAuthorityRevocationConfigurationPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) CertificateAuthorityRevocationConfigurationPtrOutput {
 		return v.RevocationConfiguration
 	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
 }
 
-// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 func (o CertificateAuthorityOutput) Serial() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Serial }).(pulumi.StringOutput)
 }
 
-// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-//
 // Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
 func (o CertificateAuthorityOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateAuthorityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CertificateAuthorityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 func (o CertificateAuthorityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
 func (o CertificateAuthorityOutput) UsageMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.UsageMode }).(pulumi.StringOutput)
 }

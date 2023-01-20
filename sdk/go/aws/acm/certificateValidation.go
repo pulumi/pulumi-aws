@@ -11,126 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource represents a successful validation of an ACM certificate in concert
-// with other resources.
-//
-// Most commonly, this resource is used together with `route53.Record` and
-// `acm.Certificate` to request a DNS validated certificate,
-// deploy the required validation records and wait for validation to complete.
-//
-// > **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-//
-// ## Example Usage
-// ### DNS Validation with Route 53
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//	        exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", &acm.CertificateArgs{
-//	            DomainName:       pulumi.String("example.com"),
-//	            ValidationMethod: pulumi.String("DNS"),
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        exampleZone, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-//	            Name:        pulumi.StringRef("example.com"),
-//	            PrivateZone: pulumi.BoolRef(false),
-//	        }, nil)
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        domainValidationOption := exampleCertificate.DomainValidationOptions.ApplyT(func(options []acm.CertificateDomainValidationOption) interface{} {
-//	            return options[0]
-//	        })
-//
-//	        certValidation, err := route53.NewRecord(ctx, "certValidation", &route53.RecordArgs{
-//	            Name: domainValidationOption.ApplyT(func(option interface{}) string {
-//	                return *option.(acm.CertificateDomainValidationOption).ResourceRecordName
-//	            }).(pulumi.StringOutput),
-//	            Type: domainValidationOption.ApplyT(func(option interface{}) string {
-//	                return *option.(acm.CertificateDomainValidationOption).ResourceRecordType
-//	            }).(pulumi.StringOutput),
-//	            Records: pulumi.StringArray{
-//	                domainValidationOption.ApplyT(func(option interface{}) string {
-//	                    return *option.(acm.CertificateDomainValidationOption).ResourceRecordValue
-//	                }).(pulumi.StringOutput),
-//	            },
-//	            Ttl:    pulumi.Int(10 * 60),
-//	            ZoneId: pulumi.String(exampleZone.ZoneId),
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        certCertificateValidation, err := acm.NewCertificateValidation(ctx, "cert", &acm.CertificateValidationArgs{
-//	            CertificateArn: exampleCertificate.Arn,
-//	            ValidationRecordFqdns: pulumi.StringArray{
-//	                certValidation.Fqdn,
-//	            },
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        ctx.Export("certificateArn", certCertificateValidation.CertificateArn)
-//
-//	        return nil
-//	    })
-//	}
-//
-// ```
-// ### Email Validation
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//	        exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", &acm.CertificateArgs{
-//	            DomainName: pulumi.String("example.com"),
-//	            ValidationMethod: pulumi.String("EMAIL"),
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//
-//	        _, err = acm.NewCertificateValidation(ctx, "exampleCertificateValidation", &acm.CertificateValidationArgs{
-//	            CertificateArn: exampleCertificate.Arn,
-//	        })
-//	        if err != nil {
-//	            return err
-//	        }
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// {{% //examples %}}
 type CertificateValidation struct {
 	pulumi.CustomResourceState
 
-	// ARN of the certificate that is being validated.
-	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
-	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+	CertificateArn        pulumi.StringOutput      `pulumi:"certificateArn"`
 	ValidationRecordFqdns pulumi.StringArrayOutput `pulumi:"validationRecordFqdns"`
 }
 
@@ -166,16 +50,12 @@ func GetCertificateValidation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CertificateValidation resources.
 type certificateValidationState struct {
-	// ARN of the certificate that is being validated.
-	CertificateArn *string `pulumi:"certificateArn"`
-	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+	CertificateArn        *string  `pulumi:"certificateArn"`
 	ValidationRecordFqdns []string `pulumi:"validationRecordFqdns"`
 }
 
 type CertificateValidationState struct {
-	// ARN of the certificate that is being validated.
-	CertificateArn pulumi.StringPtrInput
-	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+	CertificateArn        pulumi.StringPtrInput
 	ValidationRecordFqdns pulumi.StringArrayInput
 }
 
@@ -184,17 +64,13 @@ func (CertificateValidationState) ElementType() reflect.Type {
 }
 
 type certificateValidationArgs struct {
-	// ARN of the certificate that is being validated.
-	CertificateArn string `pulumi:"certificateArn"`
-	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+	CertificateArn        string   `pulumi:"certificateArn"`
 	ValidationRecordFqdns []string `pulumi:"validationRecordFqdns"`
 }
 
 // The set of arguments for constructing a CertificateValidation resource.
 type CertificateValidationArgs struct {
-	// ARN of the certificate that is being validated.
-	CertificateArn pulumi.StringInput
-	// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
+	CertificateArn        pulumi.StringInput
 	ValidationRecordFqdns pulumi.StringArrayInput
 }
 
@@ -285,12 +161,10 @@ func (o CertificateValidationOutput) ToCertificateValidationOutputWithContext(ct
 	return o
 }
 
-// ARN of the certificate that is being validated.
 func (o CertificateValidationOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateValidation) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
 func (o CertificateValidationOutput) ValidationRecordFqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertificateValidation) pulumi.StringArrayOutput { return v.ValidationRecordFqdns }).(pulumi.StringArrayOutput)
 }

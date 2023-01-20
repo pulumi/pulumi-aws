@@ -10,59 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about CodeStar Connection.
-//
-// ## Example Usage
-// ### By ARN
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codestarconnections.LookupConnection(ctx, &codestarconnections.LookupConnectionArgs{
-//				Arn: pulumi.StringRef(aws_codestarconnections_connection.Example.Arn),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### By Name
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codestarconnections.LookupConnection(ctx, &codestarconnections.LookupConnectionArgs{
-//				Name: pulumi.StringRef(aws_codestarconnections_connection.Example.Name),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
 	var rv LookupConnectionResult
 	err := ctx.Invoke("aws:codestarconnections/getConnection:getConnection", args, &rv, opts...)
@@ -74,29 +21,21 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionArgs struct {
-	// CodeStar Connection ARN.
-	Arn *string `pulumi:"arn"`
-	// CodeStar Connection name.
-	Name *string `pulumi:"name"`
-	// Map of key-value resource tags to associate with the resource.
+	Arn  *string           `pulumi:"arn"`
+	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConnection.
 type LookupConnectionResult struct {
-	Arn string `pulumi:"arn"`
-	// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+	Arn              string `pulumi:"arn"`
 	ConnectionStatus string `pulumi:"connectionStatus"`
-	// ARN of the host associated with the connection.
-	HostArn string `pulumi:"hostArn"`
+	HostArn          string `pulumi:"hostArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Name of the CodeStar Connection. The name is unique in the calling AWS account.
-	Name string `pulumi:"name"`
-	// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `hostArn` instead.
-	ProviderType string `pulumi:"providerType"`
-	// Map of key-value resource tags to associate with the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id           string            `pulumi:"id"`
+	Name         string            `pulumi:"name"`
+	ProviderType string            `pulumi:"providerType"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
@@ -114,11 +53,8 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 
 // A collection of arguments for invoking getConnection.
 type LookupConnectionOutputArgs struct {
-	// CodeStar Connection ARN.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// CodeStar Connection name.
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Map of key-value resource tags to associate with the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -145,12 +81,10 @@ func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 func (o LookupConnectionResultOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
-// ARN of the host associated with the connection.
 func (o LookupConnectionResultOutput) HostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.HostArn }).(pulumi.StringOutput)
 }
@@ -160,17 +94,14 @@ func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the CodeStar Connection. The name is unique in the calling AWS account.
 func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket` and `GitHub`. For connections to a GitHub Enterprise Server instance, you must create an codestarconnections.Host resource and use `hostArn` instead.
 func (o LookupConnectionResultOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderType }).(pulumi.StringOutput)
 }
 
-// Map of key-value resource tags to associate with the resource.
 func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -11,27 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SNS topic policy resource
-//
-// > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-//
-// ## Import
-//
-// SNS Topic Policy can be imported using the topic ARN, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
-//
-// ```
 type TopicPolicy struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the SNS topic
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The AWS Account ID of the SNS topic owner
-	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The fully-formed AWS policy as JSON.
+	Arn    pulumi.StringOutput `pulumi:"arn"`
+	Owner  pulumi.StringOutput `pulumi:"owner"`
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -70,20 +54,14 @@ func GetTopicPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TopicPolicy resources.
 type topicPolicyState struct {
-	// The ARN of the SNS topic
-	Arn *string `pulumi:"arn"`
-	// The AWS Account ID of the SNS topic owner
-	Owner *string `pulumi:"owner"`
-	// The fully-formed AWS policy as JSON.
+	Arn    *string `pulumi:"arn"`
+	Owner  *string `pulumi:"owner"`
 	Policy *string `pulumi:"policy"`
 }
 
 type TopicPolicyState struct {
-	// The ARN of the SNS topic
-	Arn pulumi.StringPtrInput
-	// The AWS Account ID of the SNS topic owner
-	Owner pulumi.StringPtrInput
-	// The fully-formed AWS policy as JSON.
+	Arn    pulumi.StringPtrInput
+	Owner  pulumi.StringPtrInput
 	Policy pulumi.StringPtrInput
 }
 
@@ -92,17 +70,13 @@ func (TopicPolicyState) ElementType() reflect.Type {
 }
 
 type topicPolicyArgs struct {
-	// The ARN of the SNS topic
-	Arn string `pulumi:"arn"`
-	// The fully-formed AWS policy as JSON.
+	Arn    string `pulumi:"arn"`
 	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a TopicPolicy resource.
 type TopicPolicyArgs struct {
-	// The ARN of the SNS topic
-	Arn pulumi.StringInput
-	// The fully-formed AWS policy as JSON.
+	Arn    pulumi.StringInput
 	Policy pulumi.StringInput
 }
 
@@ -193,17 +167,14 @@ func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// The ARN of the SNS topic
 func (o TopicPolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The AWS Account ID of the SNS topic owner
 func (o TopicPolicyOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The fully-formed AWS policy as JSON.
 func (o TopicPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

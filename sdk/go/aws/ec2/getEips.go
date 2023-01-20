@@ -10,39 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a list of Elastic IPs in a region.
-//
-// ## Example Usage
-//
-// The following shows outputing all Elastic IPs with the a specific tag value.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.GetEips(ctx, &ec2.GetEipsArgs{
-//				Tags: map[string]interface{}{
-//					"Env": "dev",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("allocationIds", example.AllocationIds)
-//			ctx.Export("publicIps", example.PublicIps)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption) (*GetEipsResult, error) {
 	var rv GetEipsResult
 	err := ctx.Invoke("aws:ec2/getEips:getEips", args, &rv, opts...)
@@ -54,20 +21,16 @@ func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getEips.
 type GetEipsArgs struct {
-	// Custom filter block as described below.
-	Filters []GetEipsFilter `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
-	Tags map[string]string `pulumi:"tags"`
+	Filters []GetEipsFilter   `pulumi:"filters"`
+	Tags    map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getEips.
 type GetEipsResult struct {
-	// List of all the allocation IDs for address for use with EC2-VPC.
 	AllocationIds []string        `pulumi:"allocationIds"`
 	Filters       []GetEipsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// List of all the Elastic IP addresses.
+	Id        string            `pulumi:"id"`
 	PublicIps []string          `pulumi:"publicIps"`
 	Tags      map[string]string `pulumi:"tags"`
 }
@@ -87,10 +50,8 @@ func GetEipsOutput(ctx *pulumi.Context, args GetEipsOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getEips.
 type GetEipsOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetEipsFilterArrayInput `pulumi:"filters"`
-	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags    pulumi.StringMapInput   `pulumi:"tags"`
 }
 
 func (GetEipsOutputArgs) ElementType() reflect.Type {
@@ -112,7 +73,6 @@ func (o GetEipsResultOutput) ToGetEipsResultOutputWithContext(ctx context.Contex
 	return o
 }
 
-// List of all the allocation IDs for address for use with EC2-VPC.
 func (o GetEipsResultOutput) AllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEipsResult) []string { return v.AllocationIds }).(pulumi.StringArrayOutput)
 }
@@ -126,7 +86,6 @@ func (o GetEipsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEipsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of all the Elastic IP addresses.
 func (o GetEipsResultOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEipsResult) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }

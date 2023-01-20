@@ -11,53 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie2.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &macie2.OrganizationAdminAccountArgs{
-//				AdminAccountId: pulumi.String("ID OF THE ADMIN ACCOUNT"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
-//
-// ```
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
 }
 
@@ -93,12 +49,10 @@ func GetOrganizationAdminAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationAdminAccount resources.
 type organizationAdminAccountState struct {
-	// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
 	AdminAccountId *string `pulumi:"adminAccountId"`
 }
 
 type OrganizationAdminAccountState struct {
-	// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
 	AdminAccountId pulumi.StringPtrInput
 }
 
@@ -107,13 +61,11 @@ func (OrganizationAdminAccountState) ElementType() reflect.Type {
 }
 
 type organizationAdminAccountArgs struct {
-	// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
 	AdminAccountId string `pulumi:"adminAccountId"`
 }
 
 // The set of arguments for constructing a OrganizationAdminAccount resource.
 type OrganizationAdminAccountArgs struct {
-	// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
 	AdminAccountId pulumi.StringInput
 }
 
@@ -204,7 +156,6 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithCont
 	return o
 }
 
-// The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
 func (o OrganizationAdminAccountOutput) AdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.AdminAccountId }).(pulumi.StringOutput)
 }

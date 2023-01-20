@@ -11,64 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a domain entry resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDomain(ctx, "testDomain", &lightsail.DomainArgs{
-//				DomainName: pulumi.String("mydomain.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDomainEntry(ctx, "testDomainEntry", &lightsail.DomainEntryArgs{
-//				DomainName: pulumi.Any(aws_lightsail_domain.Domain_test.Domain_name),
-//				Type:       pulumi.String("A"),
-//				Target:     pulumi.String("127.0.0.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/domainEntry:DomainEntry example www_mydomain.com_A_127.0.0.1
-//
-// ```
 type DomainEntry struct {
 	pulumi.CustomResourceState
 
-	// The name of the Lightsail domain in which to create the entry
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// If the entry should be an alias Defaults to `false`
-	IsAlias pulumi.BoolPtrOutput `pulumi:"isAlias"`
-	// Name of the entry record
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Target of the domain entry
-	Target pulumi.StringOutput `pulumi:"target"`
-	// Type of record
-	Type pulumi.StringOutput `pulumi:"type"`
+	DomainName pulumi.StringOutput  `pulumi:"domainName"`
+	IsAlias    pulumi.BoolPtrOutput `pulumi:"isAlias"`
+	Name       pulumi.StringOutput  `pulumi:"name"`
+	Target     pulumi.StringOutput  `pulumi:"target"`
+	Type       pulumi.StringOutput  `pulumi:"type"`
 }
 
 // NewDomainEntry registers a new resource with the given unique name, arguments, and options.
@@ -109,29 +59,19 @@ func GetDomainEntry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainEntry resources.
 type domainEntryState struct {
-	// The name of the Lightsail domain in which to create the entry
 	DomainName *string `pulumi:"domainName"`
-	// If the entry should be an alias Defaults to `false`
-	IsAlias *bool `pulumi:"isAlias"`
-	// Name of the entry record
-	Name *string `pulumi:"name"`
-	// Target of the domain entry
-	Target *string `pulumi:"target"`
-	// Type of record
-	Type *string `pulumi:"type"`
+	IsAlias    *bool   `pulumi:"isAlias"`
+	Name       *string `pulumi:"name"`
+	Target     *string `pulumi:"target"`
+	Type       *string `pulumi:"type"`
 }
 
 type DomainEntryState struct {
-	// The name of the Lightsail domain in which to create the entry
 	DomainName pulumi.StringPtrInput
-	// If the entry should be an alias Defaults to `false`
-	IsAlias pulumi.BoolPtrInput
-	// Name of the entry record
-	Name pulumi.StringPtrInput
-	// Target of the domain entry
-	Target pulumi.StringPtrInput
-	// Type of record
-	Type pulumi.StringPtrInput
+	IsAlias    pulumi.BoolPtrInput
+	Name       pulumi.StringPtrInput
+	Target     pulumi.StringPtrInput
+	Type       pulumi.StringPtrInput
 }
 
 func (DomainEntryState) ElementType() reflect.Type {
@@ -139,30 +79,20 @@ func (DomainEntryState) ElementType() reflect.Type {
 }
 
 type domainEntryArgs struct {
-	// The name of the Lightsail domain in which to create the entry
-	DomainName string `pulumi:"domainName"`
-	// If the entry should be an alias Defaults to `false`
-	IsAlias *bool `pulumi:"isAlias"`
-	// Name of the entry record
-	Name *string `pulumi:"name"`
-	// Target of the domain entry
-	Target string `pulumi:"target"`
-	// Type of record
-	Type string `pulumi:"type"`
+	DomainName string  `pulumi:"domainName"`
+	IsAlias    *bool   `pulumi:"isAlias"`
+	Name       *string `pulumi:"name"`
+	Target     string  `pulumi:"target"`
+	Type       string  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DomainEntry resource.
 type DomainEntryArgs struct {
-	// The name of the Lightsail domain in which to create the entry
 	DomainName pulumi.StringInput
-	// If the entry should be an alias Defaults to `false`
-	IsAlias pulumi.BoolPtrInput
-	// Name of the entry record
-	Name pulumi.StringPtrInput
-	// Target of the domain entry
-	Target pulumi.StringInput
-	// Type of record
-	Type pulumi.StringInput
+	IsAlias    pulumi.BoolPtrInput
+	Name       pulumi.StringPtrInput
+	Target     pulumi.StringInput
+	Type       pulumi.StringInput
 }
 
 func (DomainEntryArgs) ElementType() reflect.Type {
@@ -252,27 +182,22 @@ func (o DomainEntryOutput) ToDomainEntryOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// The name of the Lightsail domain in which to create the entry
 func (o DomainEntryOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// If the entry should be an alias Defaults to `false`
 func (o DomainEntryOutput) IsAlias() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.BoolPtrOutput { return v.IsAlias }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the entry record
 func (o DomainEntryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Target of the domain entry
 func (o DomainEntryOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }
 
-// Type of record
 func (o DomainEntryOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

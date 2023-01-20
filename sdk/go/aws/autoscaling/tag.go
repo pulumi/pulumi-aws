@@ -11,28 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
-//
-// > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
-//
-// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
-//
-// ## Import
-//
-// `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-//
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTagOutput `pulumi:"tag"`
+	Tag                  TagTagOutput        `pulumi:"tag"`
 }
 
 // NewTag registers a new resource with the given unique name, arguments, and options.
@@ -70,17 +53,13 @@ func GetTag(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Tag resources.
 type tagState struct {
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// Tag to create. The `tag` block is documented below.
-	Tag *TagTag `pulumi:"tag"`
+	Tag                  *TagTag `pulumi:"tag"`
 }
 
 type TagState struct {
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringPtrInput
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTagPtrInput
+	Tag                  TagTagPtrInput
 }
 
 func (TagState) ElementType() reflect.Type {
@@ -88,18 +67,14 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTag `pulumi:"tag"`
+	Tag                  TagTag `pulumi:"tag"`
 }
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
-	// Name of the Autoscaling Group to apply the tag to.
 	AutoscalingGroupName pulumi.StringInput
-	// Tag to create. The `tag` block is documented below.
-	Tag TagTagInput
+	Tag                  TagTagInput
 }
 
 func (TagArgs) ElementType() reflect.Type {
@@ -189,12 +164,10 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-// Name of the Autoscaling Group to apply the tag to.
 func (o TagOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// Tag to create. The `tag` block is documented below.
 func (o TagOutput) Tag() TagTagOutput {
 	return o.ApplyT(func(v *Tag) TagTagOutput { return v.Tag }).(TagTagOutput)
 }

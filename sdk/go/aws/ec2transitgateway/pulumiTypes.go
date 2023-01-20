@@ -11,9 +11,7 @@ import (
 )
 
 type GetAttachmentFilter struct {
-	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-	Name string `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -29,9 +27,7 @@ type GetAttachmentFilterInput interface {
 }
 
 type GetAttachmentFilterArgs struct {
-	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -86,12 +82,10 @@ func (o GetAttachmentFilterOutput) ToGetAttachmentFilterOutputWithContext(ctx co
 	return o
 }
 
-// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 func (o GetAttachmentFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of one or more values for the filter.
 func (o GetAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -117,9 +111,7 @@ func (o GetAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetAttachmentFi
 }
 
 type GetConnectFilter struct {
-	// Name of the filter.
-	Name string `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -135,9 +127,7 @@ type GetConnectFilterInput interface {
 }
 
 type GetConnectFilterArgs struct {
-	// Name of the filter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -192,12 +182,10 @@ func (o GetConnectFilterOutput) ToGetConnectFilterOutputWithContext(ctx context.
 	return o
 }
 
-// Name of the filter.
 func (o GetConnectFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of one or more values for the filter.
 func (o GetConnectFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConnectFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -223,9 +211,7 @@ func (o GetConnectFilterArrayOutput) Index(i pulumi.IntInput) GetConnectFilterOu
 }
 
 type GetConnectPeerFilter struct {
-	// Name of the filter.
-	Name string `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -241,9 +227,7 @@ type GetConnectPeerFilterInput interface {
 }
 
 type GetConnectPeerFilterArgs struct {
-	// Name of the filter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -298,12 +282,10 @@ func (o GetConnectPeerFilterOutput) ToGetConnectPeerFilterOutputWithContext(ctx 
 	return o
 }
 
-// Name of the filter.
 func (o GetConnectPeerFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectPeerFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of one or more values for the filter.
 func (o GetConnectPeerFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConnectPeerFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -329,9 +311,7 @@ func (o GetConnectPeerFilterArrayOutput) Index(i pulumi.IntInput) GetConnectPeer
 }
 
 type GetDirectConnectGatewayAttachmentFilter struct {
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -347,9 +327,7 @@ type GetDirectConnectGatewayAttachmentFilterInput interface {
 }
 
 type GetDirectConnectGatewayAttachmentFilterArgs struct {
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -404,12 +382,10 @@ func (o GetDirectConnectGatewayAttachmentFilterOutput) ToGetDirectConnectGateway
 	return o
 }
 
-// Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 func (o GetDirectConnectGatewayAttachmentFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetDirectConnectGatewayAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -435,9 +411,7 @@ func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetMulticastDomainAssociationType struct {
-	// The ID of the subnet associated with the transit gateway multicast domain.
-	SubnetId string `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
+	SubnetId                   string `pulumi:"subnetId"`
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 }
 
@@ -453,9 +427,7 @@ type GetMulticastDomainAssociationTypeInput interface {
 }
 
 type GetMulticastDomainAssociationTypeArgs struct {
-	// The ID of the subnet associated with the transit gateway multicast domain.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
+	SubnetId                   pulumi.StringInput `pulumi:"subnetId"`
 	TransitGatewayAttachmentId pulumi.StringInput `pulumi:"transitGatewayAttachmentId"`
 }
 
@@ -510,12 +482,10 @@ func (o GetMulticastDomainAssociationTypeOutput) ToGetMulticastDomainAssociation
 	return o
 }
 
-// The ID of the subnet associated with the transit gateway multicast domain.
 func (o GetMulticastDomainAssociationTypeOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMulticastDomainAssociationType) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway attachment.
 func (o GetMulticastDomainAssociationTypeOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMulticastDomainAssociationType) string { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
@@ -541,9 +511,7 @@ func (o GetMulticastDomainAssociationTypeArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetMulticastDomainFilter struct {
-	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -559,9 +527,7 @@ type GetMulticastDomainFilterInput interface {
 }
 
 type GetMulticastDomainFilterArgs struct {
-	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -616,12 +582,10 @@ func (o GetMulticastDomainFilterOutput) ToGetMulticastDomainFilterOutputWithCont
 	return o
 }
 
-// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
 func (o GetMulticastDomainFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMulticastDomainFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
 func (o GetMulticastDomainFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetMulticastDomainFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -647,9 +611,7 @@ func (o GetMulticastDomainFilterArrayOutput) Index(i pulumi.IntInput) GetMultica
 }
 
 type GetMulticastDomainMember struct {
-	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress string `pulumi:"groupIpAddress"`
-	// The group members' network interface ID.
+	GroupIpAddress     string `pulumi:"groupIpAddress"`
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
@@ -665,9 +627,7 @@ type GetMulticastDomainMemberInput interface {
 }
 
 type GetMulticastDomainMemberArgs struct {
-	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress pulumi.StringInput `pulumi:"groupIpAddress"`
-	// The group members' network interface ID.
+	GroupIpAddress     pulumi.StringInput `pulumi:"groupIpAddress"`
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
@@ -722,12 +682,10 @@ func (o GetMulticastDomainMemberOutput) ToGetMulticastDomainMemberOutputWithCont
 	return o
 }
 
-// The IP address assigned to the transit gateway multicast group.
 func (o GetMulticastDomainMemberOutput) GroupIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMulticastDomainMember) string { return v.GroupIpAddress }).(pulumi.StringOutput)
 }
 
-// The group members' network interface ID.
 func (o GetMulticastDomainMemberOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMulticastDomainMember) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -753,9 +711,7 @@ func (o GetMulticastDomainMemberArrayOutput) Index(i pulumi.IntInput) GetMultica
 }
 
 type GetMulticastDomainSource struct {
-	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress string `pulumi:"groupIpAddress"`
-	// The group members' network interface ID.
+	GroupIpAddress     string `pulumi:"groupIpAddress"`
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
@@ -771,9 +727,7 @@ type GetMulticastDomainSourceInput interface {
 }
 
 type GetMulticastDomainSourceArgs struct {
-	// The IP address assigned to the transit gateway multicast group.
-	GroupIpAddress pulumi.StringInput `pulumi:"groupIpAddress"`
-	// The group members' network interface ID.
+	GroupIpAddress     pulumi.StringInput `pulumi:"groupIpAddress"`
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
@@ -828,12 +782,10 @@ func (o GetMulticastDomainSourceOutput) ToGetMulticastDomainSourceOutputWithCont
 	return o
 }
 
-// The IP address assigned to the transit gateway multicast group.
 func (o GetMulticastDomainSourceOutput) GroupIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMulticastDomainSource) string { return v.GroupIpAddress }).(pulumi.StringOutput)
 }
 
-// The group members' network interface ID.
 func (o GetMulticastDomainSourceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMulticastDomainSource) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -859,11 +811,7 @@ func (o GetMulticastDomainSourceArrayOutput) Index(i pulumi.IntInput) GetMultica
 }
 
 type GetPeeringAttachmentFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -879,11 +827,7 @@ type GetPeeringAttachmentFilterInput interface {
 }
 
 type GetPeeringAttachmentFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -938,14 +882,10 @@ func (o GetPeeringAttachmentFilterOutput) ToGetPeeringAttachmentFilterOutputWith
 	return o
 }
 
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
 func (o GetPeeringAttachmentFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPeeringAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given field.
-// An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
 func (o GetPeeringAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPeeringAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -971,9 +911,7 @@ func (o GetPeeringAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetPeeri
 }
 
 type GetRouteTableFilter struct {
-	// Name of the filter.
-	Name string `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -989,9 +927,7 @@ type GetRouteTableFilterInput interface {
 }
 
 type GetRouteTableFilterArgs struct {
-	// Name of the filter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1046,12 +982,10 @@ func (o GetRouteTableFilterOutput) ToGetRouteTableFilterOutputWithContext(ctx co
 	return o
 }
 
-// Name of the filter.
 func (o GetRouteTableFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of one or more values for the filter.
 func (o GetRouteTableFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTableFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1077,9 +1011,7 @@ func (o GetRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableFi
 }
 
 type GetTransitGatewayFilter struct {
-	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
-	Name string `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1095,9 +1027,7 @@ type GetTransitGatewayFilterInput interface {
 }
 
 type GetTransitGatewayFilterArgs struct {
-	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1152,12 +1082,10 @@ func (o GetTransitGatewayFilterOutput) ToGetTransitGatewayFilterOutputWithContex
 	return o
 }
 
-// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
 func (o GetTransitGatewayFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTransitGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of one or more values for the filter.
 func (o GetTransitGatewayFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTransitGatewayFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1183,9 +1111,7 @@ func (o GetTransitGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetTransitG
 }
 
 type GetVpcAttachmentFilter struct {
-	// Name of the filter.
-	Name string `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1201,9 +1127,7 @@ type GetVpcAttachmentFilterInput interface {
 }
 
 type GetVpcAttachmentFilterArgs struct {
-	// Name of the filter.
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1258,12 +1182,10 @@ func (o GetVpcAttachmentFilterOutput) ToGetVpcAttachmentFilterOutputWithContext(
 	return o
 }
 
-// Name of the filter.
 func (o GetVpcAttachmentFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of one or more values for the filter.
 func (o GetVpcAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1289,9 +1211,7 @@ func (o GetVpcAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpcAttach
 }
 
 type GetVpcAttachmentsFilter struct {
-	// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-	Name string `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1307,9 +1227,7 @@ type GetVpcAttachmentsFilterInput interface {
 }
 
 type GetVpcAttachmentsFilterArgs struct {
-	// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of one or more values for the filter.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1364,12 +1282,10 @@ func (o GetVpcAttachmentsFilterOutput) ToGetVpcAttachmentsFilterOutputWithContex
 	return o
 }
 
-// Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
 func (o GetVpcAttachmentsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcAttachmentsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of one or more values for the filter.
 func (o GetVpcAttachmentsFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcAttachmentsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1395,9 +1311,7 @@ func (o GetVpcAttachmentsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcAttac
 }
 
 type GetVpnAttachmentFilter struct {
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1413,9 +1327,7 @@ type GetVpnAttachmentFilterInput interface {
 }
 
 type GetVpnAttachmentFilterArgs struct {
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Name   pulumi.StringInput      `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1470,12 +1382,10 @@ func (o GetVpnAttachmentFilterOutput) ToGetVpnAttachmentFilterOutputWithContext(
 	return o
 }
 
-// Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 func (o GetVpnAttachmentFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpnAttachmentFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetVpnAttachmentFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpnAttachmentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

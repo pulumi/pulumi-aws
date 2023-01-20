@@ -10,60 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Elemental MediaConvert Queue.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediaconvert"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediaconvert.NewQueue(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Media Convert Queue can be imported via the queue name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
-//
-// ```
 type Queue struct {
 	pulumi.CustomResourceState
 
-	// The Arn of the queue
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the queue
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A unique identifier describing the queue
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-	PricingPlan pulumi.StringPtrOutput `pulumi:"pricingPlan"`
-	// A detail pricing plan of the  reserved queue. See below.
+	Arn                     pulumi.StringOutput                `pulumi:"arn"`
+	Description             pulumi.StringPtrOutput             `pulumi:"description"`
+	Name                    pulumi.StringOutput                `pulumi:"name"`
+	PricingPlan             pulumi.StringPtrOutput             `pulumi:"pricingPlan"`
 	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Status                  pulumi.StringPtrOutput             `pulumi:"status"`
+	Tags                    pulumi.StringMapOutput             `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput             `pulumi:"tagsAll"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -95,41 +52,25 @@ func GetQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
-	// The Arn of the queue
-	Arn *string `pulumi:"arn"`
-	// A description of the queue
-	Description *string `pulumi:"description"`
-	// A unique identifier describing the queue
-	Name *string `pulumi:"name"`
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-	PricingPlan *string `pulumi:"pricingPlan"`
-	// A detail pricing plan of the  reserved queue. See below.
+	Arn                     *string                       `pulumi:"arn"`
+	Description             *string                       `pulumi:"description"`
+	Name                    *string                       `pulumi:"name"`
+	PricingPlan             *string                       `pulumi:"pricingPlan"`
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Status                  *string                       `pulumi:"status"`
+	Tags                    map[string]string             `pulumi:"tags"`
+	TagsAll                 map[string]string             `pulumi:"tagsAll"`
 }
 
 type QueueState struct {
-	// The Arn of the queue
-	Arn pulumi.StringPtrInput
-	// A description of the queue
-	Description pulumi.StringPtrInput
-	// A unique identifier describing the queue
-	Name pulumi.StringPtrInput
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-	PricingPlan pulumi.StringPtrInput
-	// A detail pricing plan of the  reserved queue. See below.
+	Arn                     pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	PricingPlan             pulumi.StringPtrInput
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Status                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (QueueState) ElementType() reflect.Type {
@@ -137,34 +78,22 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
-	// A description of the queue
-	Description *string `pulumi:"description"`
-	// A unique identifier describing the queue
-	Name *string `pulumi:"name"`
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-	PricingPlan *string `pulumi:"pricingPlan"`
-	// A detail pricing plan of the  reserved queue. See below.
+	Description             *string                       `pulumi:"description"`
+	Name                    *string                       `pulumi:"name"`
+	PricingPlan             *string                       `pulumi:"pricingPlan"`
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Status                  *string                       `pulumi:"status"`
+	Tags                    map[string]string             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
-	// A description of the queue
-	Description pulumi.StringPtrInput
-	// A unique identifier describing the queue
-	Name pulumi.StringPtrInput
-	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-	PricingPlan pulumi.StringPtrInput
-	// A detail pricing plan of the  reserved queue. See below.
+	Description             pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	PricingPlan             pulumi.StringPtrInput
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
-	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
-	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Status                  pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -254,42 +183,34 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
-// The Arn of the queue
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the queue
 func (o QueueOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A unique identifier describing the queue
 func (o QueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 func (o QueueOutput) PricingPlan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.PricingPlan }).(pulumi.StringPtrOutput)
 }
 
-// A detail pricing plan of the  reserved queue. See below.
 func (o QueueOutput) ReservationPlanSettings() QueueReservationPlanSettingsOutput {
 	return o.ApplyT(func(v *Queue) QueueReservationPlanSettingsOutput { return v.ReservationPlanSettings }).(QueueReservationPlanSettingsOutput)
 }
 
-// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
 func (o QueueOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o QueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o QueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

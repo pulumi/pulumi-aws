@@ -11,99 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a Managed IAM Policy to an IAM role
-//
-// > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-//
-// > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": "sts:AssumeRole",
-//	      "Principal": {
-//	        "Service": "ec2.amazonaws.com"
-//	      },
-//	      "Effect": "Allow",
-//	      "Sid": ""
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-//				Description: pulumi.String("A test policy"),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Action": [
-//	        "ec2:Describe*"
-//	      ],
-//	      "Effect": "Allow",
-//	      "Resource": "*"
-//	    }
-//	  ]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "test-attach", &iam.RolePolicyAttachmentArgs{
-//				Role:      role.Name,
-//				PolicyArn: policy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
-//
-// ```sh
-//
-//	$ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
-// ```
 type RolePolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
-	// The name of the IAM role to which the policy should be applied
-	Role pulumi.StringOutput `pulumi:"role"`
+	Role      pulumi.StringOutput `pulumi:"role"`
 }
 
 // NewRolePolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -141,17 +53,13 @@ func GetRolePolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RolePolicyAttachment resources.
 type rolePolicyAttachmentState struct {
-	// The ARN of the policy you want to apply
-	PolicyArn *string `pulumi:"policyArn"`
-	// The name of the IAM role to which the policy should be applied
-	Role interface{} `pulumi:"role"`
+	PolicyArn *string     `pulumi:"policyArn"`
+	Role      interface{} `pulumi:"role"`
 }
 
 type RolePolicyAttachmentState struct {
-	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringPtrInput
-	// The name of the IAM role to which the policy should be applied
-	Role pulumi.Input
+	Role      pulumi.Input
 }
 
 func (RolePolicyAttachmentState) ElementType() reflect.Type {
@@ -159,18 +67,14 @@ func (RolePolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type rolePolicyAttachmentArgs struct {
-	// The ARN of the policy you want to apply
-	PolicyArn string `pulumi:"policyArn"`
-	// The name of the IAM role to which the policy should be applied
-	Role interface{} `pulumi:"role"`
+	PolicyArn string      `pulumi:"policyArn"`
+	Role      interface{} `pulumi:"role"`
 }
 
 // The set of arguments for constructing a RolePolicyAttachment resource.
 type RolePolicyAttachmentArgs struct {
-	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringInput
-	// The name of the IAM role to which the policy should be applied
-	Role pulumi.Input
+	Role      pulumi.Input
 }
 
 func (RolePolicyAttachmentArgs) ElementType() reflect.Type {
@@ -260,12 +164,10 @@ func (o RolePolicyAttachmentOutput) ToRolePolicyAttachmentOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the policy you want to apply
 func (o RolePolicyAttachmentOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RolePolicyAttachment) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
-// The name of the IAM role to which the policy should be applied
 func (o RolePolicyAttachmentOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *RolePolicyAttachment) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }

@@ -11,65 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-//				MulticastSupport: pulumi.String("enable"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "exampleVpcAttachment", &ec2transitgateway.VpcAttachmentArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
-//				},
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMulticastDomain, err := ec2transitgateway.NewMulticastDomain(ctx, "exampleMulticastDomain", &ec2transitgateway.MulticastDomainArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "exampleMulticastDomainAssociation", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        pulumi.Any(aws_subnet.Example.Id),
-//				TransitGatewayAttachmentId:      exampleVpcAttachment.ID(),
-//				TransitGatewayMulticastDomainId: exampleMulticastDomain.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type MulticastDomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway multicast domain.
+	SubnetId                        pulumi.StringOutput `pulumi:"subnetId"`
+	TransitGatewayAttachmentId      pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayMulticastDomainId pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainId"`
 }
 
@@ -111,20 +57,14 @@ func GetMulticastDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MulticastDomainAssociation resources.
 type multicastDomainAssociationState struct {
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway multicast domain.
+	SubnetId                        *string `pulumi:"subnetId"`
+	TransitGatewayAttachmentId      *string `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayMulticastDomainId *string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 type MulticastDomainAssociationState struct {
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId pulumi.StringPtrInput
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// The ID of the transit gateway multicast domain.
+	SubnetId                        pulumi.StringPtrInput
+	TransitGatewayAttachmentId      pulumi.StringPtrInput
 	TransitGatewayMulticastDomainId pulumi.StringPtrInput
 }
 
@@ -133,21 +73,15 @@ func (MulticastDomainAssociationState) ElementType() reflect.Type {
 }
 
 type multicastDomainAssociationArgs struct {
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId string `pulumi:"subnetId"`
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway multicast domain.
+	SubnetId                        string `pulumi:"subnetId"`
+	TransitGatewayAttachmentId      string `pulumi:"transitGatewayAttachmentId"`
 	TransitGatewayMulticastDomainId string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 // The set of arguments for constructing a MulticastDomainAssociation resource.
 type MulticastDomainAssociationArgs struct {
-	// The ID of the subnet to associate with the transit gateway multicast domain.
-	SubnetId pulumi.StringInput
-	// The ID of the transit gateway attachment.
-	TransitGatewayAttachmentId pulumi.StringInput
-	// The ID of the transit gateway multicast domain.
+	SubnetId                        pulumi.StringInput
+	TransitGatewayAttachmentId      pulumi.StringInput
 	TransitGatewayMulticastDomainId pulumi.StringInput
 }
 
@@ -238,17 +172,14 @@ func (o MulticastDomainAssociationOutput) ToMulticastDomainAssociationOutputWith
 	return o
 }
 
-// The ID of the subnet to associate with the transit gateway multicast domain.
 func (o MulticastDomainAssociationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway attachment.
 func (o MulticastDomainAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway multicast domain.
 func (o MulticastDomainAssociationOutput) TransitGatewayMulticastDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastDomainAssociation) pulumi.StringOutput { return v.TransitGatewayMulticastDomainId }).(pulumi.StringOutput)
 }

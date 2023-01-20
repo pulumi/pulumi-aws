@@ -11,159 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Athena data catalog.
-//
-// More information about Athena and Athena data catalogs can be found in the [Athena User Guide](https://docs.aws.amazon.com/athena/latest/ug/what-is.html).
-//
-// > **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-//				Description: pulumi.String("Example Athena data catalog"),
-//				Parameters: pulumi.StringMap{
-//					"function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-athena-data-catalog"),
-//				},
-//				Type: pulumi.String("LAMBDA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Hive based Data Catalog
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-//				Description: pulumi.String("Hive based Data Catalog"),
-//				Parameters: pulumi.StringMap{
-//					"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function"),
-//				},
-//				Type: pulumi.String("HIVE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Glue based Data Catalog
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-//				Description: pulumi.String("Glue based Data Catalog"),
-//				Parameters: pulumi.StringMap{
-//					"catalog-id": pulumi.String("123456789012"),
-//				},
-//				Type: pulumi.String("GLUE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Lambda based Data Catalog
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := athena.NewDataCatalog(ctx, "example", &athena.DataCatalogArgs{
-//				Description: pulumi.String("Lambda based Data Catalog"),
-//				Parameters: pulumi.StringMap{
-//					"metadata-function": pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1"),
-//					"record-function":   pulumi.String("arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2"),
-//				},
-//				Type: pulumi.String("LAMBDA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Data catalogs can be imported using their `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
-//
-// ```
 type DataCatalog struct {
 	pulumi.CustomResourceState
 
-	// ARN of the data catalog.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the data catalog.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Description pulumi.StringOutput    `pulumi:"description"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Parameters  pulumi.StringMapOutput `pulumi:"parameters"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDataCatalog registers a new resource with the given unique name, arguments, and options.
@@ -204,37 +61,23 @@ func GetDataCatalog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCatalog resources.
 type dataCatalogState struct {
-	// ARN of the data catalog.
-	Arn *string `pulumi:"arn"`
-	// Description of the data catalog.
-	Description *string `pulumi:"description"`
-	// Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name *string `pulumi:"name"`
-	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type *string `pulumi:"type"`
+	Arn         *string           `pulumi:"arn"`
+	Description *string           `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Parameters  map[string]string `pulumi:"parameters"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
+	Type        *string           `pulumi:"type"`
 }
 
 type DataCatalogState struct {
-	// ARN of the data catalog.
-	Arn pulumi.StringPtrInput
-	// Description of the data catalog.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name pulumi.StringPtrInput
-	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-	Parameters pulumi.StringMapInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Parameters  pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
+	Type        pulumi.StringPtrInput
 }
 
 func (DataCatalogState) ElementType() reflect.Type {
@@ -242,30 +85,20 @@ func (DataCatalogState) ElementType() reflect.Type {
 }
 
 type dataCatalogArgs struct {
-	// Description of the data catalog.
-	Description string `pulumi:"description"`
-	// Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name *string `pulumi:"name"`
-	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type string `pulumi:"type"`
+	Description string            `pulumi:"description"`
+	Name        *string           `pulumi:"name"`
+	Parameters  map[string]string `pulumi:"parameters"`
+	Tags        map[string]string `pulumi:"tags"`
+	Type        string            `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataCatalog resource.
 type DataCatalogArgs struct {
-	// Description of the data catalog.
 	Description pulumi.StringInput
-	// Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
-	Name pulumi.StringPtrInput
-	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
-	Parameters pulumi.StringMapInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
-	Type pulumi.StringInput
+	Name        pulumi.StringPtrInput
+	Parameters  pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	Type        pulumi.StringInput
 }
 
 func (DataCatalogArgs) ElementType() reflect.Type {
@@ -355,37 +188,30 @@ func (o DataCatalogOutput) ToDataCatalogOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// ARN of the data catalog.
 func (o DataCatalogOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the data catalog.
 func (o DataCatalogOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 func (o DataCatalogOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 func (o DataCatalogOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DataCatalogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataCatalogOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
 func (o DataCatalogOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

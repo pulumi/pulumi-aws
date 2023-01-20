@@ -11,95 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a VPC Endpoint connection notification resource.
-// Connection notifications notify subscribers of VPC Endpoint events.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			topic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
-//				Policy: pulumi.String(fmt.Sprintf(`{
-//	    "Version":"2012-10-17",
-//	    "Statement":[{
-//	        "Effect": "Allow",
-//	        "Principal": {
-//	            "Service": "vpce.amazonaws.com"
-//	        },
-//	        "Action": "SNS:Publish",
-//	        "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
-//	    }]
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "fooVpcEndpointService", &ec2.VpcEndpointServiceArgs{
-//				AcceptanceRequired: pulumi.Bool(false),
-//				NetworkLoadBalancerArns: pulumi.StringArray{
-//					aws_lb.Test.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcEndpointConnectionNotification(ctx, "fooVpcEndpointConnectionNotification", &ec2.VpcEndpointConnectionNotificationArgs{
-//				VpcEndpointServiceId:      fooVpcEndpointService.ID(),
-//				ConnectionNotificationArn: topic.Arn,
-//				ConnectionEvents: pulumi.StringArray{
-//					pulumi.String("Accept"),
-//					pulumi.String("Reject"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
-//
-// ```
 type VpcEndpointConnectionNotification struct {
 	pulumi.CustomResourceState
 
-	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-	ConnectionEvents pulumi.StringArrayOutput `pulumi:"connectionEvents"`
-	// The ARN of the SNS topic for the notifications.
-	ConnectionNotificationArn pulumi.StringOutput `pulumi:"connectionNotificationArn"`
-	// The type of notification.
-	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
-	// The state of the notification.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The ID of the VPC Endpoint to receive notifications for.
-	VpcEndpointId pulumi.StringPtrOutput `pulumi:"vpcEndpointId"`
-	// The ID of the VPC Endpoint Service to receive notifications for.
-	VpcEndpointServiceId pulumi.StringPtrOutput `pulumi:"vpcEndpointServiceId"`
+	ConnectionEvents          pulumi.StringArrayOutput `pulumi:"connectionEvents"`
+	ConnectionNotificationArn pulumi.StringOutput      `pulumi:"connectionNotificationArn"`
+	NotificationType          pulumi.StringOutput      `pulumi:"notificationType"`
+	State                     pulumi.StringOutput      `pulumi:"state"`
+	VpcEndpointId             pulumi.StringPtrOutput   `pulumi:"vpcEndpointId"`
+	VpcEndpointServiceId      pulumi.StringPtrOutput   `pulumi:"vpcEndpointServiceId"`
 }
 
 // NewVpcEndpointConnectionNotification registers a new resource with the given unique name, arguments, and options.
@@ -137,33 +57,21 @@ func GetVpcEndpointConnectionNotification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointConnectionNotification resources.
 type vpcEndpointConnectionNotificationState struct {
-	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-	ConnectionEvents []string `pulumi:"connectionEvents"`
-	// The ARN of the SNS topic for the notifications.
-	ConnectionNotificationArn *string `pulumi:"connectionNotificationArn"`
-	// The type of notification.
-	NotificationType *string `pulumi:"notificationType"`
-	// The state of the notification.
-	State *string `pulumi:"state"`
-	// The ID of the VPC Endpoint to receive notifications for.
-	VpcEndpointId *string `pulumi:"vpcEndpointId"`
-	// The ID of the VPC Endpoint Service to receive notifications for.
-	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
+	ConnectionEvents          []string `pulumi:"connectionEvents"`
+	ConnectionNotificationArn *string  `pulumi:"connectionNotificationArn"`
+	NotificationType          *string  `pulumi:"notificationType"`
+	State                     *string  `pulumi:"state"`
+	VpcEndpointId             *string  `pulumi:"vpcEndpointId"`
+	VpcEndpointServiceId      *string  `pulumi:"vpcEndpointServiceId"`
 }
 
 type VpcEndpointConnectionNotificationState struct {
-	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-	ConnectionEvents pulumi.StringArrayInput
-	// The ARN of the SNS topic for the notifications.
+	ConnectionEvents          pulumi.StringArrayInput
 	ConnectionNotificationArn pulumi.StringPtrInput
-	// The type of notification.
-	NotificationType pulumi.StringPtrInput
-	// The state of the notification.
-	State pulumi.StringPtrInput
-	// The ID of the VPC Endpoint to receive notifications for.
-	VpcEndpointId pulumi.StringPtrInput
-	// The ID of the VPC Endpoint Service to receive notifications for.
-	VpcEndpointServiceId pulumi.StringPtrInput
+	NotificationType          pulumi.StringPtrInput
+	State                     pulumi.StringPtrInput
+	VpcEndpointId             pulumi.StringPtrInput
+	VpcEndpointServiceId      pulumi.StringPtrInput
 }
 
 func (VpcEndpointConnectionNotificationState) ElementType() reflect.Type {
@@ -171,26 +79,18 @@ func (VpcEndpointConnectionNotificationState) ElementType() reflect.Type {
 }
 
 type vpcEndpointConnectionNotificationArgs struct {
-	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-	ConnectionEvents []string `pulumi:"connectionEvents"`
-	// The ARN of the SNS topic for the notifications.
-	ConnectionNotificationArn string `pulumi:"connectionNotificationArn"`
-	// The ID of the VPC Endpoint to receive notifications for.
-	VpcEndpointId *string `pulumi:"vpcEndpointId"`
-	// The ID of the VPC Endpoint Service to receive notifications for.
-	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
+	ConnectionEvents          []string `pulumi:"connectionEvents"`
+	ConnectionNotificationArn string   `pulumi:"connectionNotificationArn"`
+	VpcEndpointId             *string  `pulumi:"vpcEndpointId"`
+	VpcEndpointServiceId      *string  `pulumi:"vpcEndpointServiceId"`
 }
 
 // The set of arguments for constructing a VpcEndpointConnectionNotification resource.
 type VpcEndpointConnectionNotificationArgs struct {
-	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-	ConnectionEvents pulumi.StringArrayInput
-	// The ARN of the SNS topic for the notifications.
+	ConnectionEvents          pulumi.StringArrayInput
 	ConnectionNotificationArn pulumi.StringInput
-	// The ID of the VPC Endpoint to receive notifications for.
-	VpcEndpointId pulumi.StringPtrInput
-	// The ID of the VPC Endpoint Service to receive notifications for.
-	VpcEndpointServiceId pulumi.StringPtrInput
+	VpcEndpointId             pulumi.StringPtrInput
+	VpcEndpointServiceId      pulumi.StringPtrInput
 }
 
 func (VpcEndpointConnectionNotificationArgs) ElementType() reflect.Type {
@@ -280,32 +180,26 @@ func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotifica
 	return o
 }
 
-// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
 func (o VpcEndpointConnectionNotificationOutput) ConnectionEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringArrayOutput { return v.ConnectionEvents }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the SNS topic for the notifications.
 func (o VpcEndpointConnectionNotificationOutput) ConnectionNotificationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringOutput { return v.ConnectionNotificationArn }).(pulumi.StringOutput)
 }
 
-// The type of notification.
 func (o VpcEndpointConnectionNotificationOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// The state of the notification.
 func (o VpcEndpointConnectionNotificationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC Endpoint to receive notifications for.
 func (o VpcEndpointConnectionNotificationOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringPtrOutput { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC Endpoint Service to receive notifications for.
 func (o VpcEndpointConnectionNotificationOutput) VpcEndpointServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringPtrOutput { return v.VpcEndpointServiceId }).(pulumi.StringPtrOutput)
 }

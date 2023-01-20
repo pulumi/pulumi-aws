@@ -10,41 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS RDS (Relational Database) Clusters.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.GetClusters(ctx, &rds.GetClustersArgs{
-//				Filters: []rds.GetClustersFilter{
-//					{
-//						Name: "engine",
-//						Values: []string{
-//							"aurora-postgresql",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetClusters(ctx *pulumi.Context, args *GetClustersArgs, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
 	var rv GetClustersResult
 	err := ctx.Invoke("aws:rds/getClusters:getClusters", args, &rv, opts...)
@@ -56,15 +21,12 @@ func GetClusters(ctx *pulumi.Context, args *GetClustersArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getClusters.
 type GetClustersArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetClustersFilter `pulumi:"filters"`
 }
 
 // A collection of values returned by getClusters.
 type GetClustersResult struct {
-	// Set of cluster ARNs of the matched RDS clusters.
-	ClusterArns []string `pulumi:"clusterArns"`
-	// Set of ARNs of cluster identifiers of the matched RDS clusters.
+	ClusterArns        []string            `pulumi:"clusterArns"`
 	ClusterIdentifiers []string            `pulumi:"clusterIdentifiers"`
 	Filters            []GetClustersFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
@@ -86,7 +48,6 @@ func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...
 
 // A collection of arguments for invoking getClusters.
 type GetClustersOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters GetClustersFilterArrayInput `pulumi:"filters"`
 }
 
@@ -109,12 +70,10 @@ func (o GetClustersResultOutput) ToGetClustersResultOutputWithContext(ctx contex
 	return o
 }
 
-// Set of cluster ARNs of the matched RDS clusters.
 func (o GetClustersResultOutput) ClusterArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClustersResult) []string { return v.ClusterArns }).(pulumi.StringArrayOutput)
 }
 
-// Set of ARNs of cluster identifiers of the matched RDS clusters.
 func (o GetClustersResultOutput) ClusterIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClustersResult) []string { return v.ClusterIdentifiers }).(pulumi.StringArrayOutput)
 }

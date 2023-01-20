@@ -11,80 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Object Lambda Access Point.
-// An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucketV2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3control.NewObjectLambdaAccessPoint(ctx, "exampleObjectLambdaAccessPoint", &s3control.ObjectLambdaAccessPointArgs{
-//				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
-//					SupportingAccessPoint: exampleAccessPoint.Arn,
-//					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
-//						&s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{
-//							Actions: pulumi.StringArray{
-//								pulumi.String("GetObject"),
-//							},
-//							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
-//								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
-//									FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
-//
-// ```
 type ObjectLambdaAccessPoint struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+	AccountId     pulumi.StringOutput                        `pulumi:"accountId"`
+	Arn           pulumi.StringOutput                        `pulumi:"arn"`
 	Configuration ObjectLambdaAccessPointConfigurationOutput `pulumi:"configuration"`
-	// The name for this Object Lambda Access Point.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name          pulumi.StringOutput                        `pulumi:"name"`
 }
 
 // NewObjectLambdaAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -119,25 +52,17 @@ func GetObjectLambdaAccessPoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectLambdaAccessPoint resources.
 type objectLambdaAccessPointState struct {
-	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId *string `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
-	Arn *string `pulumi:"arn"`
-	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+	AccountId     *string                               `pulumi:"accountId"`
+	Arn           *string                               `pulumi:"arn"`
 	Configuration *ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
-	// The name for this Object Lambda Access Point.
-	Name *string `pulumi:"name"`
+	Name          *string                               `pulumi:"name"`
 }
 
 type ObjectLambdaAccessPointState struct {
-	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
-	Arn pulumi.StringPtrInput
-	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+	AccountId     pulumi.StringPtrInput
+	Arn           pulumi.StringPtrInput
 	Configuration ObjectLambdaAccessPointConfigurationPtrInput
-	// The name for this Object Lambda Access Point.
-	Name pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointState) ElementType() reflect.Type {
@@ -145,22 +70,16 @@ func (ObjectLambdaAccessPointState) ElementType() reflect.Type {
 }
 
 type objectLambdaAccessPointArgs struct {
-	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId *string `pulumi:"accountId"`
-	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+	AccountId     *string                              `pulumi:"accountId"`
 	Configuration ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
-	// The name for this Object Lambda Access Point.
-	Name *string `pulumi:"name"`
+	Name          *string                              `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ObjectLambdaAccessPoint resource.
 type ObjectLambdaAccessPointArgs struct {
-	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-	AccountId pulumi.StringPtrInput
-	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+	AccountId     pulumi.StringPtrInput
 	Configuration ObjectLambdaAccessPointConfigurationInput
-	// The name for this Object Lambda Access Point.
-	Name pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointArgs) ElementType() reflect.Type {
@@ -250,22 +169,18 @@ func (o ObjectLambdaAccessPointOutput) ToObjectLambdaAccessPointOutputWithContex
 	return o
 }
 
-// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o ObjectLambdaAccessPointOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Object Lambda Access Point.
 func (o ObjectLambdaAccessPointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
 func (o ObjectLambdaAccessPointOutput) Configuration() ObjectLambdaAccessPointConfigurationOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) ObjectLambdaAccessPointConfigurationOutput { return v.Configuration }).(ObjectLambdaAccessPointConfigurationOutput)
 }
 
-// The name for this Object Lambda Access Point.
 func (o ObjectLambdaAccessPointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

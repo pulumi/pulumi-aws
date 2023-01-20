@@ -10,44 +10,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an EventBridge Rule resource.
-//
-// > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Import
-//
-// EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
-//
-// ```
 type EventRule struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the rule.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the rule.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
-	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
-	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
-	// Whether the rule should be enabled (defaults to `true`).
-	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
-	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+	Arn                pulumi.StringOutput    `pulumi:"arn"`
+	Description        pulumi.StringPtrOutput `pulumi:"description"`
+	EventBusName       pulumi.StringPtrOutput `pulumi:"eventBusName"`
+	EventPattern       pulumi.StringPtrOutput `pulumi:"eventPattern"`
+	IsEnabled          pulumi.BoolPtrOutput   `pulumi:"isEnabled"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	NamePrefix         pulumi.StringOutput    `pulumi:"namePrefix"`
+	RoleArn            pulumi.StringPtrOutput `pulumi:"roleArn"`
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewEventRule registers a new resource with the given unique name, arguments, and options.
@@ -79,53 +55,31 @@ func GetEventRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventRule resources.
 type eventRuleState struct {
-	// The Amazon Resource Name (ARN) of the rule.
-	Arn *string `pulumi:"arn"`
-	// The description of the rule.
-	Description *string `pulumi:"description"`
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
-	EventBusName *string `pulumi:"eventBusName"`
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
-	EventPattern *string `pulumi:"eventPattern"`
-	// Whether the rule should be enabled (defaults to `true`).
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
-	RoleArn *string `pulumi:"roleArn"`
-	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                *string           `pulumi:"arn"`
+	Description        *string           `pulumi:"description"`
+	EventBusName       *string           `pulumi:"eventBusName"`
+	EventPattern       *string           `pulumi:"eventPattern"`
+	IsEnabled          *bool             `pulumi:"isEnabled"`
+	Name               *string           `pulumi:"name"`
+	NamePrefix         *string           `pulumi:"namePrefix"`
+	RoleArn            *string           `pulumi:"roleArn"`
+	ScheduleExpression *string           `pulumi:"scheduleExpression"`
+	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 }
 
 type EventRuleState struct {
-	// The Amazon Resource Name (ARN) of the rule.
-	Arn pulumi.StringPtrInput
-	// The description of the rule.
-	Description pulumi.StringPtrInput
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
-	EventBusName pulumi.StringPtrInput
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
-	EventPattern pulumi.StringPtrInput
-	// Whether the rule should be enabled (defaults to `true`).
-	IsEnabled pulumi.BoolPtrInput
-	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
-	RoleArn pulumi.StringPtrInput
-	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+	Arn                pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	EventBusName       pulumi.StringPtrInput
+	EventPattern       pulumi.StringPtrInput
+	IsEnabled          pulumi.BoolPtrInput
+	Name               pulumi.StringPtrInput
+	NamePrefix         pulumi.StringPtrInput
+	RoleArn            pulumi.StringPtrInput
 	ScheduleExpression pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (EventRuleState) ElementType() reflect.Type {
@@ -133,46 +87,28 @@ func (EventRuleState) ElementType() reflect.Type {
 }
 
 type eventRuleArgs struct {
-	// The description of the rule.
-	Description *string `pulumi:"description"`
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
-	EventBusName *string `pulumi:"eventBusName"`
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
-	EventPattern *string `pulumi:"eventPattern"`
-	// Whether the rule should be enabled (defaults to `true`).
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
-	RoleArn *string `pulumi:"roleArn"`
-	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description        *string           `pulumi:"description"`
+	EventBusName       *string           `pulumi:"eventBusName"`
+	EventPattern       *string           `pulumi:"eventPattern"`
+	IsEnabled          *bool             `pulumi:"isEnabled"`
+	Name               *string           `pulumi:"name"`
+	NamePrefix         *string           `pulumi:"namePrefix"`
+	RoleArn            *string           `pulumi:"roleArn"`
+	ScheduleExpression *string           `pulumi:"scheduleExpression"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventRule resource.
 type EventRuleArgs struct {
-	// The description of the rule.
-	Description pulumi.StringPtrInput
-	// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
-	EventBusName pulumi.StringPtrInput
-	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
-	EventPattern pulumi.StringPtrInput
-	// Whether the rule should be enabled (defaults to `true`).
-	IsEnabled pulumi.BoolPtrInput
-	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
-	RoleArn pulumi.StringPtrInput
-	// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
+	Description        pulumi.StringPtrInput
+	EventBusName       pulumi.StringPtrInput
+	EventPattern       pulumi.StringPtrInput
+	IsEnabled          pulumi.BoolPtrInput
+	Name               pulumi.StringPtrInput
+	NamePrefix         pulumi.StringPtrInput
+	RoleArn            pulumi.StringPtrInput
 	ScheduleExpression pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (EventRuleArgs) ElementType() reflect.Type {
@@ -262,57 +198,46 @@ func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) Event
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the rule.
 func (o EventRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the rule.
 func (o EventRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The event bus to associate with this rule. If you omit this, the `default` event bus is used.
 func (o EventRuleOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }
 
-// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
 func (o EventRuleOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
-// Whether the rule should be enabled (defaults to `true`).
 func (o EventRuleOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o EventRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o EventRuleOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 func (o EventRuleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 func (o EventRuleOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EventRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

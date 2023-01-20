@@ -10,40 +10,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// WorkLink can be imported using the ARN, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
-//
-// ```
 type Fleet struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the created WorkLink Fleet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-	AuditStreamArn pulumi.StringPtrOutput `pulumi:"auditStreamArn"`
-	// The identifier used by users to sign in to the Amazon WorkLink app.
-	CompanyCode pulumi.StringOutput `pulumi:"companyCode"`
-	// The time that the fleet was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-	DeviceCaCertificate pulumi.StringPtrOutput `pulumi:"deviceCaCertificate"`
-	// The name of the fleet.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-	IdentityProvider FleetIdentityProviderPtrOutput `pulumi:"identityProvider"`
-	// The time that the fleet was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// A region-unique name for the AMI.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-	Network FleetNetworkPtrOutput `pulumi:"network"`
-	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-	OptimizeForEndUserLocation pulumi.BoolPtrOutput `pulumi:"optimizeForEndUserLocation"`
+	Arn                        pulumi.StringOutput            `pulumi:"arn"`
+	AuditStreamArn             pulumi.StringPtrOutput         `pulumi:"auditStreamArn"`
+	CompanyCode                pulumi.StringOutput            `pulumi:"companyCode"`
+	CreatedTime                pulumi.StringOutput            `pulumi:"createdTime"`
+	DeviceCaCertificate        pulumi.StringPtrOutput         `pulumi:"deviceCaCertificate"`
+	DisplayName                pulumi.StringPtrOutput         `pulumi:"displayName"`
+	IdentityProvider           FleetIdentityProviderPtrOutput `pulumi:"identityProvider"`
+	LastUpdatedTime            pulumi.StringOutput            `pulumi:"lastUpdatedTime"`
+	Name                       pulumi.StringOutput            `pulumi:"name"`
+	Network                    FleetNetworkPtrOutput          `pulumi:"network"`
+	OptimizeForEndUserLocation pulumi.BoolPtrOutput           `pulumi:"optimizeForEndUserLocation"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -75,52 +55,30 @@ func GetFleet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Fleet resources.
 type fleetState struct {
-	// The ARN of the created WorkLink Fleet.
-	Arn *string `pulumi:"arn"`
-	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-	AuditStreamArn *string `pulumi:"auditStreamArn"`
-	// The identifier used by users to sign in to the Amazon WorkLink app.
-	CompanyCode *string `pulumi:"companyCode"`
-	// The time that the fleet was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-	DeviceCaCertificate *string `pulumi:"deviceCaCertificate"`
-	// The name of the fleet.
-	DisplayName *string `pulumi:"displayName"`
-	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-	IdentityProvider *FleetIdentityProvider `pulumi:"identityProvider"`
-	// The time that the fleet was last updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// A region-unique name for the AMI.
-	Name *string `pulumi:"name"`
-	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-	Network *FleetNetwork `pulumi:"network"`
-	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-	OptimizeForEndUserLocation *bool `pulumi:"optimizeForEndUserLocation"`
+	Arn                        *string                `pulumi:"arn"`
+	AuditStreamArn             *string                `pulumi:"auditStreamArn"`
+	CompanyCode                *string                `pulumi:"companyCode"`
+	CreatedTime                *string                `pulumi:"createdTime"`
+	DeviceCaCertificate        *string                `pulumi:"deviceCaCertificate"`
+	DisplayName                *string                `pulumi:"displayName"`
+	IdentityProvider           *FleetIdentityProvider `pulumi:"identityProvider"`
+	LastUpdatedTime            *string                `pulumi:"lastUpdatedTime"`
+	Name                       *string                `pulumi:"name"`
+	Network                    *FleetNetwork          `pulumi:"network"`
+	OptimizeForEndUserLocation *bool                  `pulumi:"optimizeForEndUserLocation"`
 }
 
 type FleetState struct {
-	// The ARN of the created WorkLink Fleet.
-	Arn pulumi.StringPtrInput
-	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-	AuditStreamArn pulumi.StringPtrInput
-	// The identifier used by users to sign in to the Amazon WorkLink app.
-	CompanyCode pulumi.StringPtrInput
-	// The time that the fleet was created.
-	CreatedTime pulumi.StringPtrInput
-	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-	DeviceCaCertificate pulumi.StringPtrInput
-	// The name of the fleet.
-	DisplayName pulumi.StringPtrInput
-	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-	IdentityProvider FleetIdentityProviderPtrInput
-	// The time that the fleet was last updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// A region-unique name for the AMI.
-	Name pulumi.StringPtrInput
-	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-	Network FleetNetworkPtrInput
-	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	Arn                        pulumi.StringPtrInput
+	AuditStreamArn             pulumi.StringPtrInput
+	CompanyCode                pulumi.StringPtrInput
+	CreatedTime                pulumi.StringPtrInput
+	DeviceCaCertificate        pulumi.StringPtrInput
+	DisplayName                pulumi.StringPtrInput
+	IdentityProvider           FleetIdentityProviderPtrInput
+	LastUpdatedTime            pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	Network                    FleetNetworkPtrInput
 	OptimizeForEndUserLocation pulumi.BoolPtrInput
 }
 
@@ -129,37 +87,23 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-	AuditStreamArn *string `pulumi:"auditStreamArn"`
-	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-	DeviceCaCertificate *string `pulumi:"deviceCaCertificate"`
-	// The name of the fleet.
-	DisplayName *string `pulumi:"displayName"`
-	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-	IdentityProvider *FleetIdentityProvider `pulumi:"identityProvider"`
-	// A region-unique name for the AMI.
-	Name *string `pulumi:"name"`
-	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-	Network *FleetNetwork `pulumi:"network"`
-	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-	OptimizeForEndUserLocation *bool `pulumi:"optimizeForEndUserLocation"`
+	AuditStreamArn             *string                `pulumi:"auditStreamArn"`
+	DeviceCaCertificate        *string                `pulumi:"deviceCaCertificate"`
+	DisplayName                *string                `pulumi:"displayName"`
+	IdentityProvider           *FleetIdentityProvider `pulumi:"identityProvider"`
+	Name                       *string                `pulumi:"name"`
+	Network                    *FleetNetwork          `pulumi:"network"`
+	OptimizeForEndUserLocation *bool                  `pulumi:"optimizeForEndUserLocation"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-	AuditStreamArn pulumi.StringPtrInput
-	// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-	DeviceCaCertificate pulumi.StringPtrInput
-	// The name of the fleet.
-	DisplayName pulumi.StringPtrInput
-	// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-	IdentityProvider FleetIdentityProviderPtrInput
-	// A region-unique name for the AMI.
-	Name pulumi.StringPtrInput
-	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-	Network FleetNetworkPtrInput
-	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	AuditStreamArn             pulumi.StringPtrInput
+	DeviceCaCertificate        pulumi.StringPtrInput
+	DisplayName                pulumi.StringPtrInput
+	IdentityProvider           FleetIdentityProviderPtrInput
+	Name                       pulumi.StringPtrInput
+	Network                    FleetNetworkPtrInput
 	OptimizeForEndUserLocation pulumi.BoolPtrInput
 }
 
@@ -250,57 +194,46 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
-// The ARN of the created WorkLink Fleet.
 func (o FleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
 func (o FleetOutput) AuditStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.AuditStreamArn }).(pulumi.StringPtrOutput)
 }
 
-// The identifier used by users to sign in to the Amazon WorkLink app.
 func (o FleetOutput) CompanyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.CompanyCode }).(pulumi.StringOutput)
 }
 
-// The time that the fleet was created.
 func (o FleetOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
 func (o FleetOutput) DeviceCaCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.DeviceCaCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The name of the fleet.
 func (o FleetOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
 func (o FleetOutput) IdentityProvider() FleetIdentityProviderPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetIdentityProviderPtrOutput { return v.IdentityProvider }).(FleetIdentityProviderPtrOutput)
 }
 
-// The time that the fleet was last updated.
 func (o FleetOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
-// A region-unique name for the AMI.
 func (o FleetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 func (o FleetOutput) Network() FleetNetworkPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetNetworkPtrOutput { return v.Network }).(FleetNetworkPtrOutput)
 }
 
-// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
 func (o FleetOutput) OptimizeForEndUserLocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.BoolPtrOutput { return v.OptimizeForEndUserLocation }).(pulumi.BoolPtrOutput)
 }

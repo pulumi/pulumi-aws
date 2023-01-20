@@ -11,157 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
-//
-// > **NOTE:** This resource **does not enable** Object Lock for **new** buckets. It configures a default retention period for objects placed in the specified bucket.
-// Thus, to **enable** Object Lock for a **new** bucket, see the Using object lock configuration section in  the `s3.BucketV2` resource or the Object Lock configuration for a new bucket example below.
-// If you want to **enable** Object Lock for an **existing** bucket, contact AWS Support and see the Object Lock configuration for an existing bucket example below.
-//
-// ## Example Usage
-// ### Object Lock configuration for a new bucket
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-//				ObjectLockEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectLockConfigurationV2(ctx, "exampleBucketObjectLockConfigurationV2", &s3.BucketObjectLockConfigurationV2Args{
-//				Bucket: exampleBucketV2.Bucket,
-//				Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
-//					DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
-//						Mode: pulumi.String("COMPLIANCE"),
-//						Days: pulumi.Int(5),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Object Lock configuration for an existing bucket
-//
-// This is a multistep process that requires AWS Support intervention.
-//
-//  1. Enable versioning on your S3 bucket, if you have not already done so.
-//     Doing so will generate an "Object Lock token" in the back-end.
-//
-// <!-- markdownlint-disable MD029 -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-//				Bucket: exampleBucketV2.Bucket,
-//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-//					Status: pulumi.String("Enabled"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!-- markdownlint-disable MD029 -->
-//
-//  2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
-//     Notice the `objectLockEnabled` argument does not need to be specified as it defaults to `Enabled`.
-//
-// <!-- markdownlint-disable MD029 -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketObjectLockConfigurationV2(ctx, "example", &s3.BucketObjectLockConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
-//				Rule: &s3.BucketObjectLockConfigurationV2RuleArgs{
-//					DefaultRetention: &s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{
-//						Mode: pulumi.String("COMPLIANCE"),
-//						Days: pulumi.Int(5),
-//					},
-//				},
-//				Token: pulumi.String("NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w=="),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!-- markdownlint-disable MD029 -->
-//
-// ## Import
-//
-// S3 bucket Object Lock configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket Object Lock configuration resource should be imported using the `bucket` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
-//
-// ```
-//
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket Object Lock configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
-//
-// ```
 type BucketObjectLockConfigurationV2 struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-	ObjectLockEnabled pulumi.StringPtrOutput `pulumi:"objectLockEnabled"`
-	// Configuration block for specifying the Object Lock rule for the specified object detailed below.
-	Rule BucketObjectLockConfigurationV2RulePtrOutput `pulumi:"rule"`
-	// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-	// The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
-	Token pulumi.StringPtrOutput `pulumi:"token"`
+	Bucket              pulumi.StringOutput                          `pulumi:"bucket"`
+	ExpectedBucketOwner pulumi.StringPtrOutput                       `pulumi:"expectedBucketOwner"`
+	ObjectLockEnabled   pulumi.StringPtrOutput                       `pulumi:"objectLockEnabled"`
+	Rule                BucketObjectLockConfigurationV2RulePtrOutput `pulumi:"rule"`
+	Token               pulumi.StringPtrOutput                       `pulumi:"token"`
 }
 
 // NewBucketObjectLockConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -203,31 +60,19 @@ func GetBucketObjectLockConfigurationV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketObjectLockConfigurationV2 resources.
 type bucketObjectLockConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket *string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
-	// Configuration block for specifying the Object Lock rule for the specified object detailed below.
-	Rule *BucketObjectLockConfigurationV2Rule `pulumi:"rule"`
-	// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-	// The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
-	Token *string `pulumi:"token"`
+	Bucket              *string                              `pulumi:"bucket"`
+	ExpectedBucketOwner *string                              `pulumi:"expectedBucketOwner"`
+	ObjectLockEnabled   *string                              `pulumi:"objectLockEnabled"`
+	Rule                *BucketObjectLockConfigurationV2Rule `pulumi:"rule"`
+	Token               *string                              `pulumi:"token"`
 }
 
 type BucketObjectLockConfigurationV2State struct {
-	// The name of the bucket.
-	Bucket pulumi.StringPtrInput
-	// The account ID of the expected bucket owner.
+	Bucket              pulumi.StringPtrInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-	ObjectLockEnabled pulumi.StringPtrInput
-	// Configuration block for specifying the Object Lock rule for the specified object detailed below.
-	Rule BucketObjectLockConfigurationV2RulePtrInput
-	// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-	// The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
-	Token pulumi.StringPtrInput
+	ObjectLockEnabled   pulumi.StringPtrInput
+	Rule                BucketObjectLockConfigurationV2RulePtrInput
+	Token               pulumi.StringPtrInput
 }
 
 func (BucketObjectLockConfigurationV2State) ElementType() reflect.Type {
@@ -235,32 +80,20 @@ func (BucketObjectLockConfigurationV2State) ElementType() reflect.Type {
 }
 
 type bucketObjectLockConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket string `pulumi:"bucket"`
-	// The account ID of the expected bucket owner.
-	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
-	// Configuration block for specifying the Object Lock rule for the specified object detailed below.
-	Rule *BucketObjectLockConfigurationV2Rule `pulumi:"rule"`
-	// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-	// The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
-	Token *string `pulumi:"token"`
+	Bucket              string                               `pulumi:"bucket"`
+	ExpectedBucketOwner *string                              `pulumi:"expectedBucketOwner"`
+	ObjectLockEnabled   *string                              `pulumi:"objectLockEnabled"`
+	Rule                *BucketObjectLockConfigurationV2Rule `pulumi:"rule"`
+	Token               *string                              `pulumi:"token"`
 }
 
 // The set of arguments for constructing a BucketObjectLockConfigurationV2 resource.
 type BucketObjectLockConfigurationV2Args struct {
-	// The name of the bucket.
-	Bucket pulumi.StringInput
-	// The account ID of the expected bucket owner.
+	Bucket              pulumi.StringInput
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-	ObjectLockEnabled pulumi.StringPtrInput
-	// Configuration block for specifying the Object Lock rule for the specified object detailed below.
-	Rule BucketObjectLockConfigurationV2RulePtrInput
-	// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-	// The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
-	Token pulumi.StringPtrInput
+	ObjectLockEnabled   pulumi.StringPtrInput
+	Rule                BucketObjectLockConfigurationV2RulePtrInput
+	Token               pulumi.StringPtrInput
 }
 
 func (BucketObjectLockConfigurationV2Args) ElementType() reflect.Type {
@@ -350,28 +183,22 @@ func (o BucketObjectLockConfigurationV2Output) ToBucketObjectLockConfigurationV2
 	return o
 }
 
-// The name of the bucket.
 func (o BucketObjectLockConfigurationV2Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfigurationV2) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The account ID of the expected bucket owner.
 func (o BucketObjectLockConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 func (o BucketObjectLockConfigurationV2Output) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfigurationV2) pulumi.StringPtrOutput { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for specifying the Object Lock rule for the specified object detailed below.
 func (o BucketObjectLockConfigurationV2Output) Rule() BucketObjectLockConfigurationV2RulePtrOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfigurationV2) BucketObjectLockConfigurationV2RulePtrOutput { return v.Rule }).(BucketObjectLockConfigurationV2RulePtrOutput)
 }
 
-// A token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-// The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
 func (o BucketObjectLockConfigurationV2Output) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfigurationV2) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)
 }

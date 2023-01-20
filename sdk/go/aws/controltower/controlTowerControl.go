@@ -11,25 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
-// [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
-//
-// ## Import
-//
-// Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
-//
-// ```
 type ControlTowerControl struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier pulumi.StringOutput `pulumi:"controlIdentifier"`
-	// The ARN of the organizational unit.
-	TargetIdentifier pulumi.StringOutput `pulumi:"targetIdentifier"`
+	TargetIdentifier  pulumi.StringOutput `pulumi:"targetIdentifier"`
 }
 
 // NewControlTowerControl registers a new resource with the given unique name, arguments, and options.
@@ -67,17 +53,13 @@ func GetControlTowerControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ControlTowerControl resources.
 type controlTowerControlState struct {
-	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier *string `pulumi:"controlIdentifier"`
-	// The ARN of the organizational unit.
-	TargetIdentifier *string `pulumi:"targetIdentifier"`
+	TargetIdentifier  *string `pulumi:"targetIdentifier"`
 }
 
 type ControlTowerControlState struct {
-	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier pulumi.StringPtrInput
-	// The ARN of the organizational unit.
-	TargetIdentifier pulumi.StringPtrInput
+	TargetIdentifier  pulumi.StringPtrInput
 }
 
 func (ControlTowerControlState) ElementType() reflect.Type {
@@ -85,18 +67,14 @@ func (ControlTowerControlState) ElementType() reflect.Type {
 }
 
 type controlTowerControlArgs struct {
-	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier string `pulumi:"controlIdentifier"`
-	// The ARN of the organizational unit.
-	TargetIdentifier string `pulumi:"targetIdentifier"`
+	TargetIdentifier  string `pulumi:"targetIdentifier"`
 }
 
 // The set of arguments for constructing a ControlTowerControl resource.
 type ControlTowerControlArgs struct {
-	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier pulumi.StringInput
-	// The ARN of the organizational unit.
-	TargetIdentifier pulumi.StringInput
+	TargetIdentifier  pulumi.StringInput
 }
 
 func (ControlTowerControlArgs) ElementType() reflect.Type {
@@ -186,12 +164,10 @@ func (o ControlTowerControlOutput) ToControlTowerControlOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 func (o ControlTowerControlOutput) ControlIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlTowerControl) pulumi.StringOutput { return v.ControlIdentifier }).(pulumi.StringOutput)
 }
 
-// The ARN of the organizational unit.
 func (o ControlTowerControlOutput) TargetIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlTowerControl) pulumi.StringOutput { return v.TargetIdentifier }).(pulumi.StringOutput)
 }

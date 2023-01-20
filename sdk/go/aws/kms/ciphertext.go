@@ -11,57 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
-// by using an AWS KMS customer master key. The value returned by this resource
-// is stable across every apply. For a changing ciphertext value each apply, see
-// the `kms.Ciphertext` data source.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			oauthConfig, err := kms.NewKey(ctx, "oauthConfig", &kms.KeyArgs{
-//				Description: pulumi.String("oauth config"),
-//				IsEnabled:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewCiphertext(ctx, "oauth", &kms.CiphertextArgs{
-//				KeyId:     oauthConfig.KeyId,
-//				Plaintext: pulumi.String(fmt.Sprintf("{\n  \"client_id\": \"e587dbae22222f55da22\",\n  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n}\n")),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Ciphertext struct {
 	pulumi.CustomResourceState
 
-	// Base64 encoded ciphertext
-	CiphertextBlob pulumi.StringOutput `pulumi:"ciphertextBlob"`
-	// An optional mapping that makes up the encryption context.
-	Context pulumi.StringMapOutput `pulumi:"context"`
-	// Globally unique key ID for the customer master key.
-	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext pulumi.StringOutput `pulumi:"plaintext"`
+	CiphertextBlob pulumi.StringOutput    `pulumi:"ciphertextBlob"`
+	Context        pulumi.StringMapOutput `pulumi:"context"`
+	KeyId          pulumi.StringOutput    `pulumi:"keyId"`
+	Plaintext      pulumi.StringOutput    `pulumi:"plaintext"`
 }
 
 // NewCiphertext registers a new resource with the given unique name, arguments, and options.
@@ -106,25 +62,17 @@ func GetCiphertext(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Ciphertext resources.
 type ciphertextState struct {
-	// Base64 encoded ciphertext
-	CiphertextBlob *string `pulumi:"ciphertextBlob"`
-	// An optional mapping that makes up the encryption context.
-	Context map[string]string `pulumi:"context"`
-	// Globally unique key ID for the customer master key.
-	KeyId *string `pulumi:"keyId"`
-	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext *string `pulumi:"plaintext"`
+	CiphertextBlob *string           `pulumi:"ciphertextBlob"`
+	Context        map[string]string `pulumi:"context"`
+	KeyId          *string           `pulumi:"keyId"`
+	Plaintext      *string           `pulumi:"plaintext"`
 }
 
 type CiphertextState struct {
-	// Base64 encoded ciphertext
 	CiphertextBlob pulumi.StringPtrInput
-	// An optional mapping that makes up the encryption context.
-	Context pulumi.StringMapInput
-	// Globally unique key ID for the customer master key.
-	KeyId pulumi.StringPtrInput
-	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext pulumi.StringPtrInput
+	Context        pulumi.StringMapInput
+	KeyId          pulumi.StringPtrInput
+	Plaintext      pulumi.StringPtrInput
 }
 
 func (CiphertextState) ElementType() reflect.Type {
@@ -132,21 +80,15 @@ func (CiphertextState) ElementType() reflect.Type {
 }
 
 type ciphertextArgs struct {
-	// An optional mapping that makes up the encryption context.
-	Context map[string]string `pulumi:"context"`
-	// Globally unique key ID for the customer master key.
-	KeyId string `pulumi:"keyId"`
-	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-	Plaintext string `pulumi:"plaintext"`
+	Context   map[string]string `pulumi:"context"`
+	KeyId     string            `pulumi:"keyId"`
+	Plaintext string            `pulumi:"plaintext"`
 }
 
 // The set of arguments for constructing a Ciphertext resource.
 type CiphertextArgs struct {
-	// An optional mapping that makes up the encryption context.
-	Context pulumi.StringMapInput
-	// Globally unique key ID for the customer master key.
-	KeyId pulumi.StringInput
-	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+	Context   pulumi.StringMapInput
+	KeyId     pulumi.StringInput
 	Plaintext pulumi.StringInput
 }
 
@@ -237,22 +179,18 @@ func (o CiphertextOutput) ToCiphertextOutputWithContext(ctx context.Context) Cip
 	return o
 }
 
-// Base64 encoded ciphertext
 func (o CiphertextOutput) CiphertextBlob() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.CiphertextBlob }).(pulumi.StringOutput)
 }
 
-// An optional mapping that makes up the encryption context.
 func (o CiphertextOutput) Context() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringMapOutput { return v.Context }).(pulumi.StringMapOutput)
 }
 
-// Globally unique key ID for the customer master key.
 func (o CiphertextOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
-// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 func (o CiphertextOutput) Plaintext() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ciphertext) pulumi.StringOutput { return v.Plaintext }).(pulumi.StringOutput)
 }

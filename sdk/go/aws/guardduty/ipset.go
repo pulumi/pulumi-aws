@@ -11,99 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage a GuardDuty IPSet.
-//
-// > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			myIPSet, err := s3.NewBucketObjectv2(ctx, "myIPSet", &s3.BucketObjectv2Args{
-//				Content: pulumi.String("10.0.0.0/8\n"),
-//				Bucket:  bucket.ID(),
-//				Key:     pulumi.String("MyIPSet"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewIPSet(ctx, "example", &guardduty.IPSetArgs{
-//				Activate:   pulumi.Bool(true),
-//				DetectorId: primary.ID(),
-//				Format:     pulumi.String("TXT"),
-//				Location: pulumi.All(myIPSet.Bucket, myIPSet.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					bucket := _args[0].(string)
-//					key := _args[1].(string)
-//					return fmt.Sprintf("https://s3.amazonaws.com/%v/%v", bucket, key), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-//
-// ```
 type IPSet struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether GuardDuty is to start using the uploaded IPSet.
-	Activate pulumi.BoolOutput `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The detector ID of the GuardDuty.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format pulumi.StringOutput `pulumi:"format"`
-	// The URI of the file that contains the IPSet.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The friendly name to identify the IPSet.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Activate   pulumi.BoolOutput      `pulumi:"activate"`
+	Arn        pulumi.StringOutput    `pulumi:"arn"`
+	DetectorId pulumi.StringOutput    `pulumi:"detectorId"`
+	Format     pulumi.StringOutput    `pulumi:"format"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
@@ -147,41 +65,25 @@ func GetIPSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IPSet resources.
 type ipsetState struct {
-	// Specifies whether GuardDuty is to start using the uploaded IPSet.
-	Activate *bool `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
-	Arn *string `pulumi:"arn"`
-	// The detector ID of the GuardDuty.
-	DetectorId *string `pulumi:"detectorId"`
-	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format *string `pulumi:"format"`
-	// The URI of the file that contains the IPSet.
-	Location *string `pulumi:"location"`
-	// The friendly name to identify the IPSet.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Activate   *bool             `pulumi:"activate"`
+	Arn        *string           `pulumi:"arn"`
+	DetectorId *string           `pulumi:"detectorId"`
+	Format     *string           `pulumi:"format"`
+	Location   *string           `pulumi:"location"`
+	Name       *string           `pulumi:"name"`
+	Tags       map[string]string `pulumi:"tags"`
+	TagsAll    map[string]string `pulumi:"tagsAll"`
 }
 
 type IPSetState struct {
-	// Specifies whether GuardDuty is to start using the uploaded IPSet.
-	Activate pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
-	Arn pulumi.StringPtrInput
-	// The detector ID of the GuardDuty.
+	Activate   pulumi.BoolPtrInput
+	Arn        pulumi.StringPtrInput
 	DetectorId pulumi.StringPtrInput
-	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format pulumi.StringPtrInput
-	// The URI of the file that contains the IPSet.
-	Location pulumi.StringPtrInput
-	// The friendly name to identify the IPSet.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Format     pulumi.StringPtrInput
+	Location   pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 }
 
 func (IPSetState) ElementType() reflect.Type {
@@ -189,34 +91,22 @@ func (IPSetState) ElementType() reflect.Type {
 }
 
 type ipsetArgs struct {
-	// Specifies whether GuardDuty is to start using the uploaded IPSet.
-	Activate bool `pulumi:"activate"`
-	// The detector ID of the GuardDuty.
-	DetectorId string `pulumi:"detectorId"`
-	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format string `pulumi:"format"`
-	// The URI of the file that contains the IPSet.
-	Location string `pulumi:"location"`
-	// The friendly name to identify the IPSet.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Activate   bool              `pulumi:"activate"`
+	DetectorId string            `pulumi:"detectorId"`
+	Format     string            `pulumi:"format"`
+	Location   string            `pulumi:"location"`
+	Name       *string           `pulumi:"name"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IPSet resource.
 type IPSetArgs struct {
-	// Specifies whether GuardDuty is to start using the uploaded IPSet.
-	Activate pulumi.BoolInput
-	// The detector ID of the GuardDuty.
+	Activate   pulumi.BoolInput
 	DetectorId pulumi.StringInput
-	// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-	Format pulumi.StringInput
-	// The URI of the file that contains the IPSet.
-	Location pulumi.StringInput
-	// The friendly name to identify the IPSet.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Format     pulumi.StringInput
+	Location   pulumi.StringInput
+	Name       pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
 }
 
 func (IPSetArgs) ElementType() reflect.Type {
@@ -306,42 +196,34 @@ func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return o
 }
 
-// Specifies whether GuardDuty is to start using the uploaded IPSet.
 func (o IPSetOutput) Activate() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the GuardDuty IPSet.
 func (o IPSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The detector ID of the GuardDuty.
 func (o IPSetOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
 func (o IPSetOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
-// The URI of the file that contains the IPSet.
 func (o IPSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The friendly name to identify the IPSet.
 func (o IPSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IPSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IPSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

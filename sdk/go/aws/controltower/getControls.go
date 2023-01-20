@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of Control Tower controls applied to an OU.
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
 	var rv GetControlsResult
 	err := ctx.Invoke("aws:controltower/getControls:getControls", args, &rv, opts...)
@@ -22,13 +21,11 @@ func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getControls.
 type GetControlsArgs struct {
-	// The ARN of the organizational unit.
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
 
 // A collection of values returned by getControls.
 type GetControlsResult struct {
-	// List of all the ARNs for the controls applied to the `targetIdentifier`.
 	EnabledControls []string `pulumi:"enabledControls"`
 	// The provider-assigned unique ID for this managed resource.
 	Id               string `pulumi:"id"`
@@ -50,7 +47,6 @@ func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...
 
 // A collection of arguments for invoking getControls.
 type GetControlsOutputArgs struct {
-	// The ARN of the organizational unit.
 	TargetIdentifier pulumi.StringInput `pulumi:"targetIdentifier"`
 }
 
@@ -73,7 +69,6 @@ func (o GetControlsResultOutput) ToGetControlsResultOutputWithContext(ctx contex
 	return o
 }
 
-// List of all the ARNs for the controls applied to the `targetIdentifier`.
 func (o GetControlsResultOutput) EnabledControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetControlsResult) []string { return v.EnabledControls }).(pulumi.StringArrayOutput)
 }

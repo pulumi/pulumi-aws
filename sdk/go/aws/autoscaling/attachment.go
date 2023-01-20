@@ -11,110 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Auto Scaling Attachment resource.
-//
-// > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-// both a standalone `autoscaling.Attachment` resource
-// (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
-// with `loadBalancers` and `targetGroupArns` defined in-line. These two methods are not
-// mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
-// `loadBalancers` or `targetGroupArns`, the `autoscaling.Group` resource must be configured
-// to ignore changes to the `loadBalancers` and `targetGroupArns` arguments.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Asg.Id),
-//				Elb:                  pulumi.Any(aws_elb.Bar.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Asg.Id),
-//				LbTargetGroupArn:     pulumi.Any(aws_lb_target_group.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## With An AutoScaling Group Resource
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			asg, err := autoscaling.NewGroup(ctx, "asg", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
-//				AutoscalingGroupName: asg.ID(),
-//				Elb:                  pulumi.Any(aws_elb.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Attachment struct {
 	pulumi.CustomResourceState
 
-	// ARN of an ALB Target Group.
-	//
 	// Deprecated: Use lb_target_group_arn instead
-	AlbTargetGroupArn pulumi.StringPtrOutput `pulumi:"albTargetGroupArn"`
-	// Name of ASG to associate with the ELB.
-	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
-	// Name of the ELB.
-	Elb pulumi.StringPtrOutput `pulumi:"elb"`
-	// ARN of a load balancer target group.
-	LbTargetGroupArn pulumi.StringPtrOutput `pulumi:"lbTargetGroupArn"`
+	AlbTargetGroupArn    pulumi.StringPtrOutput `pulumi:"albTargetGroupArn"`
+	AutoscalingGroupName pulumi.StringOutput    `pulumi:"autoscalingGroupName"`
+	Elb                  pulumi.StringPtrOutput `pulumi:"elb"`
+	LbTargetGroupArn     pulumi.StringPtrOutput `pulumi:"lbTargetGroupArn"`
 }
 
 // NewAttachment registers a new resource with the given unique name, arguments, and options.
@@ -149,29 +53,19 @@ func GetAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Attachment resources.
 type attachmentState struct {
-	// ARN of an ALB Target Group.
-	//
 	// Deprecated: Use lb_target_group_arn instead
-	AlbTargetGroupArn *string `pulumi:"albTargetGroupArn"`
-	// Name of ASG to associate with the ELB.
+	AlbTargetGroupArn    *string `pulumi:"albTargetGroupArn"`
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
-	// Name of the ELB.
-	Elb *string `pulumi:"elb"`
-	// ARN of a load balancer target group.
-	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
+	Elb                  *string `pulumi:"elb"`
+	LbTargetGroupArn     *string `pulumi:"lbTargetGroupArn"`
 }
 
 type AttachmentState struct {
-	// ARN of an ALB Target Group.
-	//
 	// Deprecated: Use lb_target_group_arn instead
-	AlbTargetGroupArn pulumi.StringPtrInput
-	// Name of ASG to associate with the ELB.
+	AlbTargetGroupArn    pulumi.StringPtrInput
 	AutoscalingGroupName pulumi.StringPtrInput
-	// Name of the ELB.
-	Elb pulumi.StringPtrInput
-	// ARN of a load balancer target group.
-	LbTargetGroupArn pulumi.StringPtrInput
+	Elb                  pulumi.StringPtrInput
+	LbTargetGroupArn     pulumi.StringPtrInput
 }
 
 func (AttachmentState) ElementType() reflect.Type {
@@ -179,30 +73,20 @@ func (AttachmentState) ElementType() reflect.Type {
 }
 
 type attachmentArgs struct {
-	// ARN of an ALB Target Group.
-	//
 	// Deprecated: Use lb_target_group_arn instead
-	AlbTargetGroupArn *string `pulumi:"albTargetGroupArn"`
-	// Name of ASG to associate with the ELB.
-	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
-	// Name of the ELB.
-	Elb *string `pulumi:"elb"`
-	// ARN of a load balancer target group.
-	LbTargetGroupArn *string `pulumi:"lbTargetGroupArn"`
+	AlbTargetGroupArn    *string `pulumi:"albTargetGroupArn"`
+	AutoscalingGroupName string  `pulumi:"autoscalingGroupName"`
+	Elb                  *string `pulumi:"elb"`
+	LbTargetGroupArn     *string `pulumi:"lbTargetGroupArn"`
 }
 
 // The set of arguments for constructing a Attachment resource.
 type AttachmentArgs struct {
-	// ARN of an ALB Target Group.
-	//
 	// Deprecated: Use lb_target_group_arn instead
-	AlbTargetGroupArn pulumi.StringPtrInput
-	// Name of ASG to associate with the ELB.
+	AlbTargetGroupArn    pulumi.StringPtrInput
 	AutoscalingGroupName pulumi.StringInput
-	// Name of the ELB.
-	Elb pulumi.StringPtrInput
-	// ARN of a load balancer target group.
-	LbTargetGroupArn pulumi.StringPtrInput
+	Elb                  pulumi.StringPtrInput
+	LbTargetGroupArn     pulumi.StringPtrInput
 }
 
 func (AttachmentArgs) ElementType() reflect.Type {
@@ -292,24 +176,19 @@ func (o AttachmentOutput) ToAttachmentOutputWithContext(ctx context.Context) Att
 	return o
 }
 
-// ARN of an ALB Target Group.
-//
 // Deprecated: Use lb_target_group_arn instead
 func (o AttachmentOutput) AlbTargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringPtrOutput { return v.AlbTargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of ASG to associate with the ELB.
 func (o AttachmentOutput) AutoscalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringOutput { return v.AutoscalingGroupName }).(pulumi.StringOutput)
 }
 
-// Name of the ELB.
 func (o AttachmentOutput) Elb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringPtrOutput { return v.Elb }).(pulumi.StringPtrOutput)
 }
 
-// ARN of a load balancer target group.
 func (o AttachmentOutput) LbTargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Attachment) pulumi.StringPtrOutput { return v.LbTargetGroupArn }).(pulumi.StringPtrOutput)
 }

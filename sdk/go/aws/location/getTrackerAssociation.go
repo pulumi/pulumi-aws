@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Location Service Tracker Association.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.LookupTrackerAssociation(ctx, &location.LookupTrackerAssociationArgs{
-//				ConsumerArn: "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
-//				TrackerName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTrackerAssociation(ctx *pulumi.Context, args *LookupTrackerAssociationArgs, opts ...pulumi.InvokeOption) (*LookupTrackerAssociationResult, error) {
 	var rv LookupTrackerAssociationResult
 	err := ctx.Invoke("aws:location/getTrackerAssociation:getTrackerAssociation", args, &rv, opts...)
@@ -50,9 +21,7 @@ func LookupTrackerAssociation(ctx *pulumi.Context, args *LookupTrackerAssociatio
 
 // A collection of arguments for invoking getTrackerAssociation.
 type LookupTrackerAssociationArgs struct {
-	// ARN of the geofence collection associated to tracker resource.
 	ConsumerArn string `pulumi:"consumerArn"`
-	// Name of the tracker resource associated with a geofence collection.
 	TrackerName string `pulumi:"trackerName"`
 }
 
@@ -79,9 +48,7 @@ func LookupTrackerAssociationOutput(ctx *pulumi.Context, args LookupTrackerAssoc
 
 // A collection of arguments for invoking getTrackerAssociation.
 type LookupTrackerAssociationOutputArgs struct {
-	// ARN of the geofence collection associated to tracker resource.
 	ConsumerArn pulumi.StringInput `pulumi:"consumerArn"`
-	// Name of the tracker resource associated with a geofence collection.
 	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
 

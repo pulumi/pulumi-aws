@@ -10,51 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-//
-// Provides information about a Load Balancer.
-//
-// This data source can prove useful when a module accepts an LB as an input
-// variable and needs to, for example, determine the security groups associated
-// with it, etc.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbArn := ""
-//			if param := cfg.Get("lbArn"); param != "" {
-//				lbArn = param
-//			}
-//			lbName := ""
-//			if param := cfg.Get("lbName"); param != "" {
-//				lbName = param
-//			}
-//			_, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-//				Arn:  pulumi.StringRef(lbArn),
-//				Name: pulumi.StringRef(lbName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // Deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
@@ -67,26 +22,24 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerArgs struct {
-	// Full ARN of the load balancer.
-	Arn *string `pulumi:"arn"`
-	// Unique name of the load balancer.
-	Name *string `pulumi:"name"`
-	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+	Arn  *string           `pulumi:"arn"`
+	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs               GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
-	Arn                      string                    `pulumi:"arn"`
-	ArnSuffix                string                    `pulumi:"arnSuffix"`
-	CustomerOwnedIpv4Pool    string                    `pulumi:"customerOwnedIpv4Pool"`
-	DesyncMitigationMode     string                    `pulumi:"desyncMitigationMode"`
-	DnsName                  string                    `pulumi:"dnsName"`
-	DropInvalidHeaderFields  bool                      `pulumi:"dropInvalidHeaderFields"`
-	EnableDeletionProtection bool                      `pulumi:"enableDeletionProtection"`
-	EnableHttp2              bool                      `pulumi:"enableHttp2"`
-	EnableWafFailOpen        bool                      `pulumi:"enableWafFailOpen"`
+	AccessLogs                   GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
+	Arn                          string                    `pulumi:"arn"`
+	ArnSuffix                    string                    `pulumi:"arnSuffix"`
+	CustomerOwnedIpv4Pool        string                    `pulumi:"customerOwnedIpv4Pool"`
+	DesyncMitigationMode         string                    `pulumi:"desyncMitigationMode"`
+	DnsName                      string                    `pulumi:"dnsName"`
+	DropInvalidHeaderFields      bool                      `pulumi:"dropInvalidHeaderFields"`
+	EnableCrossZoneLoadBalancing bool                      `pulumi:"enableCrossZoneLoadBalancing"`
+	EnableDeletionProtection     bool                      `pulumi:"enableDeletionProtection"`
+	EnableHttp2                  bool                      `pulumi:"enableHttp2"`
+	EnableWafFailOpen            bool                      `pulumi:"enableWafFailOpen"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                 string                         `pulumi:"id"`
 	IdleTimeout        int                            `pulumi:"idleTimeout"`
@@ -118,11 +71,8 @@ func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutput
 
 // A collection of arguments for invoking getLoadBalancer.
 type LookupLoadBalancerOutputArgs struct {
-	// Full ARN of the load balancer.
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// Unique name of the load balancer.
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -171,6 +121,10 @@ func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {
 
 func (o LookupLoadBalancerResultOutput) DropInvalidHeaderFields() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.DropInvalidHeaderFields }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) EnableCrossZoneLoadBalancing() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableCrossZoneLoadBalancing }).(pulumi.BoolOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) EnableDeletionProtection() pulumi.BoolOutput {

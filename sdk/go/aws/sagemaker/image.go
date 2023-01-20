@@ -11,62 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Image resource.
-//
-// ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewImage(ctx, "example", &sagemaker.ImageArgs{
-//				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// SageMaker Code Images can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/image:Image test_image my-code-repo
-//
-// ```
 type Image struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the image.
+	Arn         pulumi.StringOutput    `pulumi:"arn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The display name of the image. When the image is added to a domain (must be unique to the domain).
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The name of the image. Must be unique to your account.
-	ImageName pulumi.StringOutput `pulumi:"imageName"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ImageName   pulumi.StringOutput    `pulumi:"imageName"`
+	RoleArn     pulumi.StringOutput    `pulumi:"roleArn"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -104,37 +58,23 @@ func GetImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image.
-	Arn *string `pulumi:"arn"`
-	// The description of the image.
-	Description *string `pulumi:"description"`
-	// The display name of the image. When the image is added to a domain (must be unique to the domain).
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the image. Must be unique to your account.
-	ImageName *string `pulumi:"imageName"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-	RoleArn *string `pulumi:"roleArn"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn         *string           `pulumi:"arn"`
+	Description *string           `pulumi:"description"`
+	DisplayName *string           `pulumi:"displayName"`
+	ImageName   *string           `pulumi:"imageName"`
+	RoleArn     *string           `pulumi:"roleArn"`
+	Tags        map[string]string `pulumi:"tags"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type ImageState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image.
-	Arn pulumi.StringPtrInput
-	// The description of the image.
+	Arn         pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
-	// The display name of the image. When the image is added to a domain (must be unique to the domain).
 	DisplayName pulumi.StringPtrInput
-	// The name of the image. Must be unique to your account.
-	ImageName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-	RoleArn pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ImageName   pulumi.StringPtrInput
+	RoleArn     pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (ImageState) ElementType() reflect.Type {
@@ -142,30 +82,20 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// The description of the image.
-	Description *string `pulumi:"description"`
-	// The display name of the image. When the image is added to a domain (must be unique to the domain).
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the image. Must be unique to your account.
-	ImageName string `pulumi:"imageName"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-	RoleArn string `pulumi:"roleArn"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Description *string           `pulumi:"description"`
+	DisplayName *string           `pulumi:"displayName"`
+	ImageName   string            `pulumi:"imageName"`
+	RoleArn     string            `pulumi:"roleArn"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// The description of the image.
 	Description pulumi.StringPtrInput
-	// The display name of the image. When the image is added to a domain (must be unique to the domain).
 	DisplayName pulumi.StringPtrInput
-	// The name of the image. Must be unique to your account.
-	ImageName pulumi.StringInput
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-	RoleArn pulumi.StringInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ImageName   pulumi.StringInput
+	RoleArn     pulumi.StringInput
+	Tags        pulumi.StringMapInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {
@@ -255,37 +185,30 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Image.
 func (o ImageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the image.
 func (o ImageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the image. When the image is added to a domain (must be unique to the domain).
 func (o ImageOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the image. Must be unique to your account.
 func (o ImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
 func (o ImageOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ImageOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ImageOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

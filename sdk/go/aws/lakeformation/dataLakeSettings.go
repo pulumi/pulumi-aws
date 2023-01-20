@@ -10,98 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
-//
-// > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
-//
-// ## Example Usage
-// ### Data Lake Admins
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
-//				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Create Default Permissions
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
-//				Admins: pulumi.StringArray{
-//					aws_iam_user.Test.Arn,
-//					aws_iam_role.Test.Arn,
-//				},
-//				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
-//					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("SELECT"),
-//							pulumi.String("ALTER"),
-//							pulumi.String("DROP"),
-//						},
-//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
-//					},
-//				},
-//				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
-//					&lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("ALL"),
-//						},
-//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 
-	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-	Admins pulumi.StringArrayOutput `pulumi:"admins"`
-	// Identifier for the Data Catalog. By default, the account ID.
-	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
-	// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+	Admins                           pulumi.StringArrayOutput                                   `pulumi:"admins"`
+	CatalogId                        pulumi.StringPtrOutput                                     `pulumi:"catalogId"`
 	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput `pulumi:"createDatabaseDefaultPermissions"`
-	// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
-	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-	TrustedResourceOwners pulumi.StringArrayOutput `pulumi:"trustedResourceOwners"`
+	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionArrayOutput    `pulumi:"createTableDefaultPermissions"`
+	TrustedResourceOwners            pulumi.StringArrayOutput                                   `pulumi:"trustedResourceOwners"`
 }
 
 // NewDataLakeSettings registers a new resource with the given unique name, arguments, and options.
@@ -133,29 +49,19 @@ func GetDataLakeSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataLakeSettings resources.
 type dataLakeSettingsState struct {
-	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-	Admins []string `pulumi:"admins"`
-	// Identifier for the Data Catalog. By default, the account ID.
-	CatalogId *string `pulumi:"catalogId"`
-	// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+	Admins                           []string                                          `pulumi:"admins"`
+	CatalogId                        *string                                           `pulumi:"catalogId"`
 	CreateDatabaseDefaultPermissions []DataLakeSettingsCreateDatabaseDefaultPermission `pulumi:"createDatabaseDefaultPermissions"`
-	// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-	CreateTableDefaultPermissions []DataLakeSettingsCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
-	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
+	CreateTableDefaultPermissions    []DataLakeSettingsCreateTableDefaultPermission    `pulumi:"createTableDefaultPermissions"`
+	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
 }
 
 type DataLakeSettingsState struct {
-	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-	Admins pulumi.StringArrayInput
-	// Identifier for the Data Catalog. By default, the account ID.
-	CatalogId pulumi.StringPtrInput
-	// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+	Admins                           pulumi.StringArrayInput
+	CatalogId                        pulumi.StringPtrInput
 	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput
-	// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayInput
-	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-	TrustedResourceOwners pulumi.StringArrayInput
+	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionArrayInput
+	TrustedResourceOwners            pulumi.StringArrayInput
 }
 
 func (DataLakeSettingsState) ElementType() reflect.Type {
@@ -163,30 +69,20 @@ func (DataLakeSettingsState) ElementType() reflect.Type {
 }
 
 type dataLakeSettingsArgs struct {
-	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-	Admins []string `pulumi:"admins"`
-	// Identifier for the Data Catalog. By default, the account ID.
-	CatalogId *string `pulumi:"catalogId"`
-	// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+	Admins                           []string                                          `pulumi:"admins"`
+	CatalogId                        *string                                           `pulumi:"catalogId"`
 	CreateDatabaseDefaultPermissions []DataLakeSettingsCreateDatabaseDefaultPermission `pulumi:"createDatabaseDefaultPermissions"`
-	// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-	CreateTableDefaultPermissions []DataLakeSettingsCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
-	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
+	CreateTableDefaultPermissions    []DataLakeSettingsCreateTableDefaultPermission    `pulumi:"createTableDefaultPermissions"`
+	TrustedResourceOwners            []string                                          `pulumi:"trustedResourceOwners"`
 }
 
 // The set of arguments for constructing a DataLakeSettings resource.
 type DataLakeSettingsArgs struct {
-	// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-	Admins pulumi.StringArrayInput
-	// Identifier for the Data Catalog. By default, the account ID.
-	CatalogId pulumi.StringPtrInput
-	// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+	Admins                           pulumi.StringArrayInput
+	CatalogId                        pulumi.StringPtrInput
 	CreateDatabaseDefaultPermissions DataLakeSettingsCreateDatabaseDefaultPermissionArrayInput
-	// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayInput
-	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-	TrustedResourceOwners pulumi.StringArrayInput
+	CreateTableDefaultPermissions    DataLakeSettingsCreateTableDefaultPermissionArrayInput
+	TrustedResourceOwners            pulumi.StringArrayInput
 }
 
 func (DataLakeSettingsArgs) ElementType() reflect.Type {
@@ -276,31 +172,26 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.
 	return o
 }
 
-// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
 func (o DataLakeSettingsOutput) Admins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.Admins }).(pulumi.StringArrayOutput)
 }
 
-// Identifier for the Data Catalog. By default, the account ID.
 func (o DataLakeSettingsOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
 func (o DataLakeSettingsOutput) CreateDatabaseDefaultPermissions() DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput {
 		return v.CreateDatabaseDefaultPermissions
 	}).(DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput)
 }
 
-// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
 func (o DataLakeSettingsOutput) CreateTableDefaultPermissions() DataLakeSettingsCreateTableDefaultPermissionArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettingsCreateTableDefaultPermissionArrayOutput {
 		return v.CreateTableDefaultPermissions
 	}).(DataLakeSettingsCreateTableDefaultPermissionArrayOutput)
 }
 
-// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
 func (o DataLakeSettingsOutput) TrustedResourceOwners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.TrustedResourceOwners }).(pulumi.StringArrayOutput)
 }

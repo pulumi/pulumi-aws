@@ -11,99 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing a Roles Anywhere Profile.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rolesanywhere"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//							"sts:SetSourceIdentity",
-//						},
-//						"Principal": map[string]interface{}{
-//							"Service": "rolesanywhere.amazonaws.com",
-//						},
-//						"Effect": "Allow",
-//						"Sid":    "",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-//				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rolesanywhere.NewProfile(ctx, "testProfile", &rolesanywhere.ProfileArgs{
-//				RoleArns: pulumi.StringArray{
-//					testRole.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_rolesanywhere_profile` can be imported using its `id`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
-//
-// ```
 type Profile struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Profile
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
-	DurationSeconds pulumi.IntOutput `pulumi:"durationSeconds"`
-	// Whether or not the Profile is enabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// A list of managed policy ARNs that apply to the vended session credentials.
-	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
-	// The name of the Profile.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
-	RequireInstanceProperties pulumi.BoolPtrOutput `pulumi:"requireInstanceProperties"`
-	// A list of IAM roles that this profile can assume
-	RoleArns pulumi.StringArrayOutput `pulumi:"roleArns"`
-	// A session policy that applies to the trust boundary of the vended session credentials.
-	SessionPolicy pulumi.StringPtrOutput `pulumi:"sessionPolicy"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                       pulumi.StringOutput      `pulumi:"arn"`
+	DurationSeconds           pulumi.IntOutput         `pulumi:"durationSeconds"`
+	Enabled                   pulumi.BoolPtrOutput     `pulumi:"enabled"`
+	ManagedPolicyArns         pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
+	Name                      pulumi.StringOutput      `pulumi:"name"`
+	RequireInstanceProperties pulumi.BoolPtrOutput     `pulumi:"requireInstanceProperties"`
+	RoleArns                  pulumi.StringArrayOutput `pulumi:"roleArns"`
+	SessionPolicy             pulumi.StringPtrOutput   `pulumi:"sessionPolicy"`
+	Tags                      pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -138,49 +58,29 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
-	// Amazon Resource Name (ARN) of the Profile
-	Arn *string `pulumi:"arn"`
-	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
-	DurationSeconds *int `pulumi:"durationSeconds"`
-	// Whether or not the Profile is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// A list of managed policy ARNs that apply to the vended session credentials.
-	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
-	// The name of the Profile.
-	Name *string `pulumi:"name"`
-	// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
-	RequireInstanceProperties *bool `pulumi:"requireInstanceProperties"`
-	// A list of IAM roles that this profile can assume
-	RoleArns []string `pulumi:"roleArns"`
-	// A session policy that applies to the trust boundary of the vended session credentials.
-	SessionPolicy *string `pulumi:"sessionPolicy"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                       *string           `pulumi:"arn"`
+	DurationSeconds           *int              `pulumi:"durationSeconds"`
+	Enabled                   *bool             `pulumi:"enabled"`
+	ManagedPolicyArns         []string          `pulumi:"managedPolicyArns"`
+	Name                      *string           `pulumi:"name"`
+	RequireInstanceProperties *bool             `pulumi:"requireInstanceProperties"`
+	RoleArns                  []string          `pulumi:"roleArns"`
+	SessionPolicy             *string           `pulumi:"sessionPolicy"`
+	Tags                      map[string]string `pulumi:"tags"`
+	TagsAll                   map[string]string `pulumi:"tagsAll"`
 }
 
 type ProfileState struct {
-	// Amazon Resource Name (ARN) of the Profile
-	Arn pulumi.StringPtrInput
-	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
-	DurationSeconds pulumi.IntPtrInput
-	// Whether or not the Profile is enabled.
-	Enabled pulumi.BoolPtrInput
-	// A list of managed policy ARNs that apply to the vended session credentials.
-	ManagedPolicyArns pulumi.StringArrayInput
-	// The name of the Profile.
-	Name pulumi.StringPtrInput
-	// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
+	Arn                       pulumi.StringPtrInput
+	DurationSeconds           pulumi.IntPtrInput
+	Enabled                   pulumi.BoolPtrInput
+	ManagedPolicyArns         pulumi.StringArrayInput
+	Name                      pulumi.StringPtrInput
 	RequireInstanceProperties pulumi.BoolPtrInput
-	// A list of IAM roles that this profile can assume
-	RoleArns pulumi.StringArrayInput
-	// A session policy that applies to the trust boundary of the vended session credentials.
-	SessionPolicy pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	RoleArns                  pulumi.StringArrayInput
+	SessionPolicy             pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
 }
 
 func (ProfileState) ElementType() reflect.Type {
@@ -188,42 +88,26 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
-	DurationSeconds *int `pulumi:"durationSeconds"`
-	// Whether or not the Profile is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// A list of managed policy ARNs that apply to the vended session credentials.
-	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
-	// The name of the Profile.
-	Name *string `pulumi:"name"`
-	// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
-	RequireInstanceProperties *bool `pulumi:"requireInstanceProperties"`
-	// A list of IAM roles that this profile can assume
-	RoleArns []string `pulumi:"roleArns"`
-	// A session policy that applies to the trust boundary of the vended session credentials.
-	SessionPolicy *string `pulumi:"sessionPolicy"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	DurationSeconds           *int              `pulumi:"durationSeconds"`
+	Enabled                   *bool             `pulumi:"enabled"`
+	ManagedPolicyArns         []string          `pulumi:"managedPolicyArns"`
+	Name                      *string           `pulumi:"name"`
+	RequireInstanceProperties *bool             `pulumi:"requireInstanceProperties"`
+	RoleArns                  []string          `pulumi:"roleArns"`
+	SessionPolicy             *string           `pulumi:"sessionPolicy"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// The number of seconds the vended session credentials are valid for. Defaults to 3600.
-	DurationSeconds pulumi.IntPtrInput
-	// Whether or not the Profile is enabled.
-	Enabled pulumi.BoolPtrInput
-	// A list of managed policy ARNs that apply to the vended session credentials.
-	ManagedPolicyArns pulumi.StringArrayInput
-	// The name of the Profile.
-	Name pulumi.StringPtrInput
-	// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
+	DurationSeconds           pulumi.IntPtrInput
+	Enabled                   pulumi.BoolPtrInput
+	ManagedPolicyArns         pulumi.StringArrayInput
+	Name                      pulumi.StringPtrInput
 	RequireInstanceProperties pulumi.BoolPtrInput
-	// A list of IAM roles that this profile can assume
-	RoleArns pulumi.StringArrayInput
-	// A session policy that applies to the trust boundary of the vended session credentials.
-	SessionPolicy pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	RoleArns                  pulumi.StringArrayInput
+	SessionPolicy             pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -313,52 +197,42 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Profile
 func (o ProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The number of seconds the vended session credentials are valid for. Defaults to 3600.
 func (o ProfileOutput) DurationSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *Profile) pulumi.IntOutput { return v.DurationSeconds }).(pulumi.IntOutput)
 }
 
-// Whether or not the Profile is enabled.
 func (o ProfileOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of managed policy ARNs that apply to the vended session credentials.
 func (o ProfileOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Profile.
 func (o ProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
 func (o ProfileOutput) RequireInstanceProperties() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.BoolPtrOutput { return v.RequireInstanceProperties }).(pulumi.BoolPtrOutput)
 }
 
-// A list of IAM roles that this profile can assume
 func (o ProfileOutput) RoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.RoleArns }).(pulumi.StringArrayOutput)
 }
 
-// A session policy that applies to the trust boundary of the vended session credentials.
 func (o ProfileOutput) SessionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.SessionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

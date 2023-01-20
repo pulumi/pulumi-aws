@@ -11,134 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AWS Network Firewall Logging Configuration Resource
-//
-// ## Example Usage
-// ### Logging to S3
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-//							LogDestination: pulumi.StringMap{
-//								"bucketName": pulumi.Any(aws_s3_bucket.Example.Bucket),
-//								"prefix":     pulumi.String("/example"),
-//							},
-//							LogDestinationType: pulumi.String("S3"),
-//							LogType:            pulumi.String("FLOW"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Logging to CloudWatch
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-//							LogDestination: pulumi.StringMap{
-//								"logGroup": pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-//							},
-//							LogDestinationType: pulumi.String("CloudWatchLogs"),
-//							LogType:            pulumi.String("ALERT"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Logging to Kinesis Data Firehose
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-//							LogDestination: pulumi.StringMap{
-//								"deliveryStream": pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
-//							},
-//							LogDestinationType: pulumi.String("KinesisDataFirehose"),
-//							LogType:            pulumi.String("ALERT"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
-//
-// ```sh
-//
-//	$ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-//
-// ```
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
-	FirewallArn pulumi.StringOutput `pulumi:"firewallArn"`
-	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+	FirewallArn          pulumi.StringOutput                            `pulumi:"firewallArn"`
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
 }
 
@@ -177,16 +53,12 @@ func GetLoggingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoggingConfiguration resources.
 type loggingConfigurationState struct {
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
-	FirewallArn *string `pulumi:"firewallArn"`
-	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+	FirewallArn          *string                                   `pulumi:"firewallArn"`
 	LoggingConfiguration *LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
 }
 
 type LoggingConfigurationState struct {
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
-	FirewallArn pulumi.StringPtrInput
-	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+	FirewallArn          pulumi.StringPtrInput
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationPtrInput
 }
 
@@ -195,17 +67,13 @@ func (LoggingConfigurationState) ElementType() reflect.Type {
 }
 
 type loggingConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
-	FirewallArn string `pulumi:"firewallArn"`
-	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+	FirewallArn          string                                   `pulumi:"firewallArn"`
 	LoggingConfiguration LoggingConfigurationLoggingConfiguration `pulumi:"loggingConfiguration"`
 }
 
 // The set of arguments for constructing a LoggingConfiguration resource.
 type LoggingConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the Network Firewall firewall.
-	FirewallArn pulumi.StringInput
-	// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
+	FirewallArn          pulumi.StringInput
 	LoggingConfiguration LoggingConfigurationLoggingConfigurationInput
 }
 
@@ -296,12 +164,10 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Network Firewall firewall.
 func (o LoggingConfigurationOutput) FirewallArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) pulumi.StringOutput { return v.FirewallArn }).(pulumi.StringOutput)
 }
 
-// A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
 func (o LoggingConfigurationOutput) LoggingConfiguration() LoggingConfigurationLoggingConfigurationOutput {
 	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfigurationLoggingConfigurationOutput {
 		return v.LoggingConfiguration

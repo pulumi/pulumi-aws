@@ -11,16 +11,11 @@ import (
 )
 
 type ArchiveRuleFilter struct {
-	// Contains comparator.
 	Contains []string `pulumi:"contains"`
-	// Filter criteria.
-	Criteria string `pulumi:"criteria"`
-	// Equals comparator.
-	Eqs []string `pulumi:"eqs"`
-	// Boolean comparator.
-	Exists *string `pulumi:"exists"`
-	// Not Equals comparator.
-	Neqs []string `pulumi:"neqs"`
+	Criteria string   `pulumi:"criteria"`
+	Eqs      []string `pulumi:"eqs"`
+	Exists   *string  `pulumi:"exists"`
+	Neqs     []string `pulumi:"neqs"`
 }
 
 // ArchiveRuleFilterInput is an input type that accepts ArchiveRuleFilterArgs and ArchiveRuleFilterOutput values.
@@ -35,16 +30,11 @@ type ArchiveRuleFilterInput interface {
 }
 
 type ArchiveRuleFilterArgs struct {
-	// Contains comparator.
 	Contains pulumi.StringArrayInput `pulumi:"contains"`
-	// Filter criteria.
-	Criteria pulumi.StringInput `pulumi:"criteria"`
-	// Equals comparator.
-	Eqs pulumi.StringArrayInput `pulumi:"eqs"`
-	// Boolean comparator.
-	Exists pulumi.StringPtrInput `pulumi:"exists"`
-	// Not Equals comparator.
-	Neqs pulumi.StringArrayInput `pulumi:"neqs"`
+	Criteria pulumi.StringInput      `pulumi:"criteria"`
+	Eqs      pulumi.StringArrayInput `pulumi:"eqs"`
+	Exists   pulumi.StringPtrInput   `pulumi:"exists"`
+	Neqs     pulumi.StringArrayInput `pulumi:"neqs"`
 }
 
 func (ArchiveRuleFilterArgs) ElementType() reflect.Type {
@@ -98,27 +88,22 @@ func (o ArchiveRuleFilterOutput) ToArchiveRuleFilterOutputWithContext(ctx contex
 	return o
 }
 
-// Contains comparator.
 func (o ArchiveRuleFilterOutput) Contains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) []string { return v.Contains }).(pulumi.StringArrayOutput)
 }
 
-// Filter criteria.
 func (o ArchiveRuleFilterOutput) Criteria() pulumi.StringOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) string { return v.Criteria }).(pulumi.StringOutput)
 }
 
-// Equals comparator.
 func (o ArchiveRuleFilterOutput) Eqs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) []string { return v.Eqs }).(pulumi.StringArrayOutput)
 }
 
-// Boolean comparator.
 func (o ArchiveRuleFilterOutput) Exists() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) *string { return v.Exists }).(pulumi.StringPtrOutput)
 }
 
-// Not Equals comparator.
 func (o ArchiveRuleFilterOutput) Neqs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArchiveRuleFilter) []string { return v.Neqs }).(pulumi.StringArrayOutput)
 }

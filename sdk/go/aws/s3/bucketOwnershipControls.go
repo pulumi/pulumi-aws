@@ -11,57 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
-//
-// ```
 type BucketOwnershipControls struct {
 	pulumi.CustomResourceState
 
-	// The name of the bucket that you want to associate this access point with.
-	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRuleOutput `pulumi:"rule"`
+	Bucket pulumi.StringOutput               `pulumi:"bucket"`
+	Rule   BucketOwnershipControlsRuleOutput `pulumi:"rule"`
 }
 
 // NewBucketOwnershipControls registers a new resource with the given unique name, arguments, and options.
@@ -99,17 +53,13 @@ func GetBucketOwnershipControls(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketOwnershipControls resources.
 type bucketOwnershipControlsState struct {
-	// The name of the bucket that you want to associate this access point with.
-	Bucket *string `pulumi:"bucket"`
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule *BucketOwnershipControlsRule `pulumi:"rule"`
+	Bucket *string                      `pulumi:"bucket"`
+	Rule   *BucketOwnershipControlsRule `pulumi:"rule"`
 }
 
 type BucketOwnershipControlsState struct {
-	// The name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRulePtrInput
+	Rule   BucketOwnershipControlsRulePtrInput
 }
 
 func (BucketOwnershipControlsState) ElementType() reflect.Type {
@@ -117,18 +67,14 @@ func (BucketOwnershipControlsState) ElementType() reflect.Type {
 }
 
 type bucketOwnershipControlsArgs struct {
-	// The name of the bucket that you want to associate this access point with.
-	Bucket string `pulumi:"bucket"`
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRule `pulumi:"rule"`
+	Bucket string                      `pulumi:"bucket"`
+	Rule   BucketOwnershipControlsRule `pulumi:"rule"`
 }
 
 // The set of arguments for constructing a BucketOwnershipControls resource.
 type BucketOwnershipControlsArgs struct {
-	// The name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
-	// Configuration block(s) with Ownership Controls rules. Detailed below.
-	Rule BucketOwnershipControlsRuleInput
+	Rule   BucketOwnershipControlsRuleInput
 }
 
 func (BucketOwnershipControlsArgs) ElementType() reflect.Type {
@@ -218,12 +164,10 @@ func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContex
 	return o
 }
 
-// The name of the bucket that you want to associate this access point with.
 func (o BucketOwnershipControlsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Configuration block(s) with Ownership Controls rules. Detailed below.
 func (o BucketOwnershipControlsOutput) Rule() BucketOwnershipControlsRuleOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) BucketOwnershipControlsRuleOutput { return v.Rule }).(BucketOwnershipControlsRuleOutput)
 }

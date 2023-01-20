@@ -11,78 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "member", nil)
-//			if err != nil {
-//				return err
-//			}
-//			primaryDetector, err := guardduty.NewDetector(ctx, "primaryDetector", nil, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", nil, pulumi.Provider(aws.Member))
-//			if err != nil {
-//				return err
-//			}
-//			memberMember, err := guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
-//				AccountId:  memberDetector.AccountId,
-//				DetectorId: primaryDetector.ID(),
-//				Email:      pulumi.String("required@example.com"),
-//				Invite:     pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewInviteAccepter(ctx, "memberInviteAccepter", &guardduty.InviteAccepterArgs{
-//				DetectorId:      memberDetector.ID(),
-//				MasterAccountId: primaryDetector.AccountId,
-//			}, pulumi.Provider(aws.Member), pulumi.DependsOn([]pulumi.Resource{
-//				memberMember,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_guardduty_invite_accepter` can be imported using the member GuardDuty detector ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
-//
-// ```
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 
-	// The detector ID of the member GuardDuty account.
-	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// AWS account ID for primary account.
+	DetectorId      pulumi.StringOutput `pulumi:"detectorId"`
 	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
 }
 
@@ -121,16 +53,12 @@ func GetInviteAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InviteAccepter resources.
 type inviteAccepterState struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId *string `pulumi:"detectorId"`
-	// AWS account ID for primary account.
+	DetectorId      *string `pulumi:"detectorId"`
 	MasterAccountId *string `pulumi:"masterAccountId"`
 }
 
 type InviteAccepterState struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId pulumi.StringPtrInput
-	// AWS account ID for primary account.
+	DetectorId      pulumi.StringPtrInput
 	MasterAccountId pulumi.StringPtrInput
 }
 
@@ -139,17 +67,13 @@ func (InviteAccepterState) ElementType() reflect.Type {
 }
 
 type inviteAccepterArgs struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId string `pulumi:"detectorId"`
-	// AWS account ID for primary account.
+	DetectorId      string `pulumi:"detectorId"`
 	MasterAccountId string `pulumi:"masterAccountId"`
 }
 
 // The set of arguments for constructing a InviteAccepter resource.
 type InviteAccepterArgs struct {
-	// The detector ID of the member GuardDuty account.
-	DetectorId pulumi.StringInput
-	// AWS account ID for primary account.
+	DetectorId      pulumi.StringInput
 	MasterAccountId pulumi.StringInput
 }
 
@@ -240,12 +164,10 @@ func (o InviteAccepterOutput) ToInviteAccepterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The detector ID of the member GuardDuty account.
 func (o InviteAccepterOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// AWS account ID for primary account.
 func (o InviteAccepterOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InviteAccepter) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
 }

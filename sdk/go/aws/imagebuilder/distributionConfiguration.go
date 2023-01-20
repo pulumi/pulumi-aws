@@ -11,82 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Image Builder Distribution Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
-//				Distributions: imagebuilder.DistributionConfigurationDistributionArray{
-//					&imagebuilder.DistributionConfigurationDistributionArgs{
-//						AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
-//							AmiTags: pulumi.StringMap{
-//								"CostCenter": pulumi.String("IT"),
-//							},
-//							LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
-//								UserIds: pulumi.StringArray{
-//									pulumi.String("123456789012"),
-//								},
-//							},
-//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
-//						},
-//						LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
-//							&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
-//								LaunchTemplateId: pulumi.String("lt-0aaa1bcde2ff3456"),
-//							},
-//						},
-//						Region: pulumi.String("us-east-1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
-//
-// ```
 type DistributionConfiguration struct {
 	pulumi.CustomResourceState
 
-	// (Required) Amazon Resource Name (ARN) of the distribution configuration.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Date the distribution configuration was created.
-	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
-	// Date the distribution configuration was updated.
-	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
-	// Description of the container distribution configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One or more configuration blocks with distribution settings. Detailed below.
+	Arn           pulumi.StringOutput                              `pulumi:"arn"`
+	DateCreated   pulumi.StringOutput                              `pulumi:"dateCreated"`
+	DateUpdated   pulumi.StringOutput                              `pulumi:"dateUpdated"`
+	Description   pulumi.StringPtrOutput                           `pulumi:"description"`
 	Distributions DistributionConfigurationDistributionArrayOutput `pulumi:"distributions"`
-	// Name to apply to the distributed AMI.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Name          pulumi.StringOutput                              `pulumi:"name"`
+	Tags          pulumi.StringMapOutput                           `pulumi:"tags"`
+	TagsAll       pulumi.StringMapOutput                           `pulumi:"tagsAll"`
 }
 
 // NewDistributionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -121,41 +56,25 @@ func GetDistributionConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DistributionConfiguration resources.
 type distributionConfigurationState struct {
-	// (Required) Amazon Resource Name (ARN) of the distribution configuration.
-	Arn *string `pulumi:"arn"`
-	// Date the distribution configuration was created.
-	DateCreated *string `pulumi:"dateCreated"`
-	// Date the distribution configuration was updated.
-	DateUpdated *string `pulumi:"dateUpdated"`
-	// Description of the container distribution configuration.
-	Description *string `pulumi:"description"`
-	// One or more configuration blocks with distribution settings. Detailed below.
+	Arn           *string                                 `pulumi:"arn"`
+	DateCreated   *string                                 `pulumi:"dateCreated"`
+	DateUpdated   *string                                 `pulumi:"dateUpdated"`
+	Description   *string                                 `pulumi:"description"`
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
-	// Name to apply to the distributed AMI.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name          *string                                 `pulumi:"name"`
+	Tags          map[string]string                       `pulumi:"tags"`
+	TagsAll       map[string]string                       `pulumi:"tagsAll"`
 }
 
 type DistributionConfigurationState struct {
-	// (Required) Amazon Resource Name (ARN) of the distribution configuration.
-	Arn pulumi.StringPtrInput
-	// Date the distribution configuration was created.
-	DateCreated pulumi.StringPtrInput
-	// Date the distribution configuration was updated.
-	DateUpdated pulumi.StringPtrInput
-	// Description of the container distribution configuration.
-	Description pulumi.StringPtrInput
-	// One or more configuration blocks with distribution settings. Detailed below.
+	Arn           pulumi.StringPtrInput
+	DateCreated   pulumi.StringPtrInput
+	DateUpdated   pulumi.StringPtrInput
+	Description   pulumi.StringPtrInput
 	Distributions DistributionConfigurationDistributionArrayInput
-	// Name to apply to the distributed AMI.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Name          pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
+	TagsAll       pulumi.StringMapInput
 }
 
 func (DistributionConfigurationState) ElementType() reflect.Type {
@@ -163,26 +82,18 @@ func (DistributionConfigurationState) ElementType() reflect.Type {
 }
 
 type distributionConfigurationArgs struct {
-	// Description of the container distribution configuration.
-	Description *string `pulumi:"description"`
-	// One or more configuration blocks with distribution settings. Detailed below.
+	Description   *string                                 `pulumi:"description"`
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
-	// Name to apply to the distributed AMI.
-	Name *string `pulumi:"name"`
-	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Name          *string                                 `pulumi:"name"`
+	Tags          map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DistributionConfiguration resource.
 type DistributionConfigurationArgs struct {
-	// Description of the container distribution configuration.
-	Description pulumi.StringPtrInput
-	// One or more configuration blocks with distribution settings. Detailed below.
+	Description   pulumi.StringPtrInput
 	Distributions DistributionConfigurationDistributionArrayInput
-	// Name to apply to the distributed AMI.
-	Name pulumi.StringPtrInput
-	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Name          pulumi.StringPtrInput
+	Tags          pulumi.StringMapInput
 }
 
 func (DistributionConfigurationArgs) ElementType() reflect.Type {
@@ -272,44 +183,36 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithCo
 	return o
 }
 
-// (Required) Amazon Resource Name (ARN) of the distribution configuration.
 func (o DistributionConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Date the distribution configuration was created.
 func (o DistributionConfigurationOutput) DateCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.DateCreated }).(pulumi.StringOutput)
 }
 
-// Date the distribution configuration was updated.
 func (o DistributionConfigurationOutput) DateUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.DateUpdated }).(pulumi.StringOutput)
 }
 
-// Description of the container distribution configuration.
 func (o DistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// One or more configuration blocks with distribution settings. Detailed below.
 func (o DistributionConfigurationOutput) Distributions() DistributionConfigurationDistributionArrayOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) DistributionConfigurationDistributionArrayOutput {
 		return v.Distributions
 	}).(DistributionConfigurationDistributionArrayOutput)
 }
 
-// Name to apply to the distributed AMI.
 func (o DistributionConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DistributionConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DistributionConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

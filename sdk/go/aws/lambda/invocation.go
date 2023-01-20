@@ -11,77 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
-//
-// > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
-//
-// ## Example Usage
-// ### Dynamic Invocation Example Using Triggers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"crypto/sha1"
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func sha1Hash(input string) string {
-//		hash := sha1.Sum([]byte(input))
-//		return hex.EncodeToString(hash[:])
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]interface{}{
-//				aws_lambda_function.Example.Environment,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"key1": "value1",
-//				"key2": "value2",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
-//				FunctionName: pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
-//				Triggers: pulumi.StringMap{
-//					"redeployment": sha1Hash(json0),
-//				},
-//				Input: pulumi.String(json1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Invocation struct {
 	pulumi.CustomResourceState
 
-	// Name of the lambda function.
-	FunctionName pulumi.StringOutput `pulumi:"functionName"`
-	// JSON payload to the lambda function.
-	Input pulumi.StringOutput `pulumi:"input"`
-	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
-	// String result of the lambda function invocation.
-	Result pulumi.StringOutput `pulumi:"result"`
-	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
+	FunctionName pulumi.StringOutput    `pulumi:"functionName"`
+	Input        pulumi.StringOutput    `pulumi:"input"`
+	Qualifier    pulumi.StringPtrOutput `pulumi:"qualifier"`
+	Result       pulumi.StringOutput    `pulumi:"result"`
+	Triggers     pulumi.StringMapOutput `pulumi:"triggers"`
 }
 
 // NewInvocation registers a new resource with the given unique name, arguments, and options.
@@ -119,29 +56,19 @@ func GetInvocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Invocation resources.
 type invocationState struct {
-	// Name of the lambda function.
-	FunctionName *string `pulumi:"functionName"`
-	// JSON payload to the lambda function.
-	Input *string `pulumi:"input"`
-	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier *string `pulumi:"qualifier"`
-	// String result of the lambda function invocation.
-	Result *string `pulumi:"result"`
-	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-	Triggers map[string]string `pulumi:"triggers"`
+	FunctionName *string           `pulumi:"functionName"`
+	Input        *string           `pulumi:"input"`
+	Qualifier    *string           `pulumi:"qualifier"`
+	Result       *string           `pulumi:"result"`
+	Triggers     map[string]string `pulumi:"triggers"`
 }
 
 type InvocationState struct {
-	// Name of the lambda function.
 	FunctionName pulumi.StringPtrInput
-	// JSON payload to the lambda function.
-	Input pulumi.StringPtrInput
-	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier pulumi.StringPtrInput
-	// String result of the lambda function invocation.
-	Result pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-	Triggers pulumi.StringMapInput
+	Input        pulumi.StringPtrInput
+	Qualifier    pulumi.StringPtrInput
+	Result       pulumi.StringPtrInput
+	Triggers     pulumi.StringMapInput
 }
 
 func (InvocationState) ElementType() reflect.Type {
@@ -149,26 +76,18 @@ func (InvocationState) ElementType() reflect.Type {
 }
 
 type invocationArgs struct {
-	// Name of the lambda function.
-	FunctionName string `pulumi:"functionName"`
-	// JSON payload to the lambda function.
-	Input string `pulumi:"input"`
-	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier *string `pulumi:"qualifier"`
-	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-	Triggers map[string]string `pulumi:"triggers"`
+	FunctionName string            `pulumi:"functionName"`
+	Input        string            `pulumi:"input"`
+	Qualifier    *string           `pulumi:"qualifier"`
+	Triggers     map[string]string `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Invocation resource.
 type InvocationArgs struct {
-	// Name of the lambda function.
 	FunctionName pulumi.StringInput
-	// JSON payload to the lambda function.
-	Input pulumi.StringInput
-	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier pulumi.StringPtrInput
-	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-	Triggers pulumi.StringMapInput
+	Input        pulumi.StringInput
+	Qualifier    pulumi.StringPtrInput
+	Triggers     pulumi.StringMapInput
 }
 
 func (InvocationArgs) ElementType() reflect.Type {
@@ -258,27 +177,22 @@ func (o InvocationOutput) ToInvocationOutputWithContext(ctx context.Context) Inv
 	return o
 }
 
-// Name of the lambda function.
 func (o InvocationOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// JSON payload to the lambda function.
 func (o InvocationOutput) Input() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Input }).(pulumi.StringOutput)
 }
 
-// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 func (o InvocationOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
-// String result of the lambda function invocation.
 func (o InvocationOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Result }).(pulumi.StringOutput)
 }
 
-// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 func (o InvocationOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }

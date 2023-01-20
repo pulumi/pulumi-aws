@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides redshift cluster temporary credentials.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.GetClusterCredentials(ctx, &redshift.GetClusterCredentialsArgs{
-//				ClusterIdentifier: aws_redshift_cluster.Example.Cluster_identifier,
-//				DbUser:            aws_redshift_cluster.Example.Master_username,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetClusterCredentials(ctx *pulumi.Context, args *GetClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*GetClusterCredentialsResult, error) {
 	var rv GetClusterCredentialsResult
 	err := ctx.Invoke("aws:redshift/getClusterCredentials:getClusterCredentials", args, &rv, opts...)
@@ -49,18 +21,12 @@ func GetClusterCredentials(ctx *pulumi.Context, args *GetClusterCredentialsArgs,
 
 // A collection of arguments for invoking getClusterCredentials.
 type GetClusterCredentialsArgs struct {
-	// Create a database user with the name specified for the user named in `dbUser` if one does not exist.
-	AutoCreate *bool `pulumi:"autoCreate"`
-	// Unique identifier of the cluster that contains the database for which your are requesting credentials.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-	DbGroups []string `pulumi:"dbGroups"`
-	// Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
-	DbName *string `pulumi:"dbName"`
-	// Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
-	DbUser string `pulumi:"dbUser"`
-	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-	DurationSeconds *int `pulumi:"durationSeconds"`
+	AutoCreate        *bool    `pulumi:"autoCreate"`
+	ClusterIdentifier string   `pulumi:"clusterIdentifier"`
+	DbGroups          []string `pulumi:"dbGroups"`
+	DbName            *string  `pulumi:"dbName"`
+	DbUser            string   `pulumi:"dbUser"`
+	DurationSeconds   *int     `pulumi:"durationSeconds"`
 }
 
 // A collection of values returned by getClusterCredentials.
@@ -69,12 +35,10 @@ type GetClusterCredentialsResult struct {
 	ClusterIdentifier string   `pulumi:"clusterIdentifier"`
 	DbGroups          []string `pulumi:"dbGroups"`
 	DbName            *string  `pulumi:"dbName"`
-	// Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
-	DbPassword      string `pulumi:"dbPassword"`
-	DbUser          string `pulumi:"dbUser"`
-	DurationSeconds *int   `pulumi:"durationSeconds"`
-	// Date and time the password in `dbPassword` expires.
-	Expiration string `pulumi:"expiration"`
+	DbPassword        string   `pulumi:"dbPassword"`
+	DbUser            string   `pulumi:"dbUser"`
+	DurationSeconds   *int     `pulumi:"durationSeconds"`
+	Expiration        string   `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
@@ -94,18 +58,12 @@ func GetClusterCredentialsOutput(ctx *pulumi.Context, args GetClusterCredentials
 
 // A collection of arguments for invoking getClusterCredentials.
 type GetClusterCredentialsOutputArgs struct {
-	// Create a database user with the name specified for the user named in `dbUser` if one does not exist.
-	AutoCreate pulumi.BoolPtrInput `pulumi:"autoCreate"`
-	// Unique identifier of the cluster that contains the database for which your are requesting credentials.
-	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
-	// List of the names of existing database groups that the user named in `dbUser` will join for the current session, in addition to any group memberships for an existing user. If not specified, a new user is added only to `PUBLIC`.
-	DbGroups pulumi.StringArrayInput `pulumi:"dbGroups"`
-	// Name of a database that DbUser is authorized to log on to. If `dbName` is not specified, `dbUser` can log on to any existing database.
-	DbName pulumi.StringPtrInput `pulumi:"dbName"`
-	// Name of a database user. If a user name matching `dbUser` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `dbUser` doesn't exist in the database and `autoCreate` is `True`, a new user is created using the value for `dbUser` with `PUBLIC` permissions.  If a database user matching the value for `dbUser` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
-	DbUser pulumi.StringInput `pulumi:"dbUser"`
-	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
-	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	AutoCreate        pulumi.BoolPtrInput     `pulumi:"autoCreate"`
+	ClusterIdentifier pulumi.StringInput      `pulumi:"clusterIdentifier"`
+	DbGroups          pulumi.StringArrayInput `pulumi:"dbGroups"`
+	DbName            pulumi.StringPtrInput   `pulumi:"dbName"`
+	DbUser            pulumi.StringInput      `pulumi:"dbUser"`
+	DurationSeconds   pulumi.IntPtrInput      `pulumi:"durationSeconds"`
 }
 
 func (GetClusterCredentialsOutputArgs) ElementType() reflect.Type {
@@ -143,7 +101,6 @@ func (o GetClusterCredentialsResultOutput) DbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetClusterCredentialsResult) *string { return v.DbName }).(pulumi.StringPtrOutput)
 }
 
-// Temporary password that authorizes the user name returned by `dbUser` to log on to the database `dbName`.
 func (o GetClusterCredentialsResultOutput) DbPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.DbPassword }).(pulumi.StringOutput)
 }
@@ -156,7 +113,6 @@ func (o GetClusterCredentialsResultOutput) DurationSeconds() pulumi.IntPtrOutput
 	return o.ApplyT(func(v GetClusterCredentialsResult) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Date and time the password in `dbPassword` expires.
 func (o GetClusterCredentialsResultOutput) Expiration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.Expiration }).(pulumi.StringOutput)
 }

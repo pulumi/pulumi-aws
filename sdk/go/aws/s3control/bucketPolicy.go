@@ -11,73 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to manage an S3 Control Bucket Policy.
-//
-// > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `s3.BucketPolicy` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Id": "testBucketPolicy",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": "s3-outposts:PutBucketLifecycleConfiguration",
-//						"Effect": "Deny",
-//						"Principal": map[string]interface{}{
-//							"AWS": "*",
-//						},
-//						"Resource": aws_s3control_bucket.Example.Arn,
-//						"Sid":      "statement1",
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
-//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-//
-// ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// JSON string of the resource policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -116,16 +53,12 @@ func GetBucketPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketPolicy resources.
 type bucketPolicyState struct {
-	// Amazon Resource Name (ARN) of the bucket.
 	Bucket *string `pulumi:"bucket"`
-	// JSON string of the resource policy.
 	Policy *string `pulumi:"policy"`
 }
 
 type BucketPolicyState struct {
-	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringPtrInput
-	// JSON string of the resource policy.
 	Policy pulumi.StringPtrInput
 }
 
@@ -134,17 +67,13 @@ func (BucketPolicyState) ElementType() reflect.Type {
 }
 
 type bucketPolicyArgs struct {
-	// Amazon Resource Name (ARN) of the bucket.
 	Bucket string `pulumi:"bucket"`
-	// JSON string of the resource policy.
 	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a BucketPolicy resource.
 type BucketPolicyArgs struct {
-	// Amazon Resource Name (ARN) of the bucket.
 	Bucket pulumi.StringInput
-	// JSON string of the resource policy.
 	Policy pulumi.StringInput
 }
 
@@ -235,12 +164,10 @@ func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Amazon Resource Name (ARN) of the bucket.
 func (o BucketPolicyOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// JSON string of the resource policy.
 func (o BucketPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

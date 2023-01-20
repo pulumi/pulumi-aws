@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-//
-// ## Example Usage
-// ### Retrieve Secret Rotation Configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := secretsmanager.LookupSecretRotation(ctx, &secretsmanager.LookupSecretRotationArgs{
-//				SecretId: data.Aws_secretsmanager_secret.Example.Id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupSecretRotation(ctx *pulumi.Context, args *LookupSecretRotationArgs, opts ...pulumi.InvokeOption) (*LookupSecretRotationResult, error) {
 	var rv LookupSecretRotationResult
 	err := ctx.Invoke("aws:secretsmanager/getSecretRotation:getSecretRotation", args, &rv, opts...)
@@ -49,21 +21,17 @@ func LookupSecretRotation(ctx *pulumi.Context, args *LookupSecretRotationArgs, o
 
 // A collection of arguments for invoking getSecretRotation.
 type LookupSecretRotationArgs struct {
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId string `pulumi:"secretId"`
 }
 
 // A collection of values returned by getSecretRotation.
 type LookupSecretRotationResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the secret.
-	RotationEnabled bool `pulumi:"rotationEnabled"`
-	// Decrypted part of the protected secret information that was originally provided as a string.
-	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
-	// Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
-	RotationRules []GetSecretRotationRotationRule `pulumi:"rotationRules"`
-	SecretId      string                          `pulumi:"secretId"`
+	Id                string                          `pulumi:"id"`
+	RotationEnabled   bool                            `pulumi:"rotationEnabled"`
+	RotationLambdaArn string                          `pulumi:"rotationLambdaArn"`
+	RotationRules     []GetSecretRotationRotationRule `pulumi:"rotationRules"`
+	SecretId          string                          `pulumi:"secretId"`
 }
 
 func LookupSecretRotationOutput(ctx *pulumi.Context, args LookupSecretRotationOutputArgs, opts ...pulumi.InvokeOption) LookupSecretRotationResultOutput {
@@ -81,7 +49,6 @@ func LookupSecretRotationOutput(ctx *pulumi.Context, args LookupSecretRotationOu
 
 // A collection of arguments for invoking getSecretRotation.
 type LookupSecretRotationOutputArgs struct {
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 }
 
@@ -109,17 +76,14 @@ func (o LookupSecretRotationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the secret.
 func (o LookupSecretRotationResultOutput) RotationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
 }
 
-// Decrypted part of the protected secret information that was originally provided as a string.
 func (o LookupSecretRotationResultOutput) RotationLambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.RotationLambdaArn }).(pulumi.StringOutput)
 }
 
-// Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
 func (o LookupSecretRotationResultOutput) RotationRules() GetSecretRotationRotationRuleArrayOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) []GetSecretRotationRotationRule { return v.RotationRules }).(GetSecretRotationRotationRuleArrayOutput)
 }

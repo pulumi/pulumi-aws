@@ -11,83 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for enabling AWS Inspector V2 resource scans.
-//
-// > **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewEnabler(ctx, "example", &inspector2.EnablerArgs{
-//				AccountIds: pulumi.StringArray{
-//					pulumi.String("012345678901"),
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("EC2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### For the Calling Account
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector2.NewEnabler(ctx, "test", &inspector2.EnablerArgs{
-//				AccountIds: pulumi.StringArray{
-//					*pulumi.String(current.AccountId),
-//				},
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("ECR"),
-//					pulumi.String("EC2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Enabler struct {
 	pulumi.CustomResourceState
 
-	// Set of account IDs.
-	AccountIds pulumi.StringArrayOutput `pulumi:"accountIds"`
-	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+	AccountIds    pulumi.StringArrayOutput `pulumi:"accountIds"`
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
 }
 
@@ -126,16 +53,12 @@ func GetEnabler(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Enabler resources.
 type enablerState struct {
-	// Set of account IDs.
-	AccountIds []string `pulumi:"accountIds"`
-	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+	AccountIds    []string `pulumi:"accountIds"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
 type EnablerState struct {
-	// Set of account IDs.
-	AccountIds pulumi.StringArrayInput
-	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+	AccountIds    pulumi.StringArrayInput
 	ResourceTypes pulumi.StringArrayInput
 }
 
@@ -144,17 +67,13 @@ func (EnablerState) ElementType() reflect.Type {
 }
 
 type enablerArgs struct {
-	// Set of account IDs.
-	AccountIds []string `pulumi:"accountIds"`
-	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+	AccountIds    []string `pulumi:"accountIds"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
 // The set of arguments for constructing a Enabler resource.
 type EnablerArgs struct {
-	// Set of account IDs.
-	AccountIds pulumi.StringArrayInput
-	// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+	AccountIds    pulumi.StringArrayInput
 	ResourceTypes pulumi.StringArrayInput
 }
 
@@ -245,12 +164,10 @@ func (o EnablerOutput) ToEnablerOutputWithContext(ctx context.Context) EnablerOu
 	return o
 }
 
-// Set of account IDs.
 func (o EnablerOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
 func (o EnablerOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }

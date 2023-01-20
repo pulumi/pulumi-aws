@@ -11,70 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a new Amazon Redshift Serverless Namespace.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.NewNamespace(ctx, "example", &redshiftserverless.NamespaceArgs{
-//				NamespaceName: pulumi.String("concurrency-scaling"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:redshiftserverless/namespace:Namespace example example
-//
-// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// The password of the administrator for the first database created in the namespace.
-	AdminUserPassword pulumi.StringPtrOutput `pulumi:"adminUserPassword"`
-	// The username of the administrator for the first database created in the namespace.
-	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the first database created in the namespace.
-	DbName pulumi.StringOutput `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
-	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
-	// A list of IAM roles to associate with the namespace.
-	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-	LogExports pulumi.StringArrayOutput `pulumi:"logExports"`
-	// The Redshift Namespace ID.
-	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// The name of the namespace.
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AdminUserPassword pulumi.StringPtrOutput   `pulumi:"adminUserPassword"`
+	AdminUsername     pulumi.StringOutput      `pulumi:"adminUsername"`
+	Arn               pulumi.StringOutput      `pulumi:"arn"`
+	DbName            pulumi.StringOutput      `pulumi:"dbName"`
+	DefaultIamRoleArn pulumi.StringPtrOutput   `pulumi:"defaultIamRoleArn"`
+	IamRoles          pulumi.StringArrayOutput `pulumi:"iamRoles"`
+	KmsKeyId          pulumi.StringOutput      `pulumi:"kmsKeyId"`
+	LogExports        pulumi.StringArrayOutput `pulumi:"logExports"`
+	NamespaceId       pulumi.StringOutput      `pulumi:"namespaceId"`
+	NamespaceName     pulumi.StringOutput      `pulumi:"namespaceName"`
+	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput   `pulumi:"tagsAll"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -120,57 +71,33 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// The password of the administrator for the first database created in the namespace.
-	AdminUserPassword *string `pulumi:"adminUserPassword"`
-	// The username of the administrator for the first database created in the namespace.
-	AdminUsername *string `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-	Arn *string `pulumi:"arn"`
-	// The name of the first database created in the namespace.
-	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
-	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
-	// A list of IAM roles to associate with the namespace.
-	IamRoles []string `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-	LogExports []string `pulumi:"logExports"`
-	// The Redshift Namespace ID.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// The name of the namespace.
-	NamespaceName *string `pulumi:"namespaceName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AdminUserPassword *string           `pulumi:"adminUserPassword"`
+	AdminUsername     *string           `pulumi:"adminUsername"`
+	Arn               *string           `pulumi:"arn"`
+	DbName            *string           `pulumi:"dbName"`
+	DefaultIamRoleArn *string           `pulumi:"defaultIamRoleArn"`
+	IamRoles          []string          `pulumi:"iamRoles"`
+	KmsKeyId          *string           `pulumi:"kmsKeyId"`
+	LogExports        []string          `pulumi:"logExports"`
+	NamespaceId       *string           `pulumi:"namespaceId"`
+	NamespaceName     *string           `pulumi:"namespaceName"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 type NamespaceState struct {
-	// The password of the administrator for the first database created in the namespace.
 	AdminUserPassword pulumi.StringPtrInput
-	// The username of the administrator for the first database created in the namespace.
-	AdminUsername pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-	Arn pulumi.StringPtrInput
-	// The name of the first database created in the namespace.
-	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	AdminUsername     pulumi.StringPtrInput
+	Arn               pulumi.StringPtrInput
+	DbName            pulumi.StringPtrInput
 	DefaultIamRoleArn pulumi.StringPtrInput
-	// A list of IAM roles to associate with the namespace.
-	IamRoles pulumi.StringArrayInput
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-	KmsKeyId pulumi.StringPtrInput
-	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-	LogExports pulumi.StringArrayInput
-	// The Redshift Namespace ID.
-	NamespaceId pulumi.StringPtrInput
-	// The name of the namespace.
-	NamespaceName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	IamRoles          pulumi.StringArrayInput
+	KmsKeyId          pulumi.StringPtrInput
+	LogExports        pulumi.StringArrayInput
+	NamespaceId       pulumi.StringPtrInput
+	NamespaceName     pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -178,46 +105,28 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// The password of the administrator for the first database created in the namespace.
-	AdminUserPassword *string `pulumi:"adminUserPassword"`
-	// The username of the administrator for the first database created in the namespace.
-	AdminUsername *string `pulumi:"adminUsername"`
-	// The name of the first database created in the namespace.
-	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
-	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
-	// A list of IAM roles to associate with the namespace.
-	IamRoles []string `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-	LogExports []string `pulumi:"logExports"`
-	// The name of the namespace.
-	NamespaceName string `pulumi:"namespaceName"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	AdminUserPassword *string           `pulumi:"adminUserPassword"`
+	AdminUsername     *string           `pulumi:"adminUsername"`
+	DbName            *string           `pulumi:"dbName"`
+	DefaultIamRoleArn *string           `pulumi:"defaultIamRoleArn"`
+	IamRoles          []string          `pulumi:"iamRoles"`
+	KmsKeyId          *string           `pulumi:"kmsKeyId"`
+	LogExports        []string          `pulumi:"logExports"`
+	NamespaceName     string            `pulumi:"namespaceName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// The password of the administrator for the first database created in the namespace.
 	AdminUserPassword pulumi.StringPtrInput
-	// The username of the administrator for the first database created in the namespace.
-	AdminUsername pulumi.StringPtrInput
-	// The name of the first database created in the namespace.
-	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+	AdminUsername     pulumi.StringPtrInput
+	DbName            pulumi.StringPtrInput
 	DefaultIamRoleArn pulumi.StringPtrInput
-	// A list of IAM roles to associate with the namespace.
-	IamRoles pulumi.StringArrayInput
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-	KmsKeyId pulumi.StringPtrInput
-	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-	LogExports pulumi.StringArrayInput
-	// The name of the namespace.
-	NamespaceName pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	IamRoles          pulumi.StringArrayInput
+	KmsKeyId          pulumi.StringPtrInput
+	LogExports        pulumi.StringArrayInput
+	NamespaceName     pulumi.StringInput
+	Tags              pulumi.StringMapInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -307,62 +216,50 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
-// The password of the administrator for the first database created in the namespace.
 func (o NamespaceOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AdminUserPassword }).(pulumi.StringPtrOutput)
 }
 
-// The username of the administrator for the first database created in the namespace.
 func (o NamespaceOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
 func (o NamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the first database created in the namespace.
 func (o NamespaceOutput) DbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DbName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
 func (o NamespaceOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A list of IAM roles to associate with the namespace.
 func (o NamespaceOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringArrayOutput { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
 func (o NamespaceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 func (o NamespaceOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringArrayOutput { return v.LogExports }).(pulumi.StringArrayOutput)
 }
 
-// The Redshift Namespace ID.
 func (o NamespaceOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
-// The name of the namespace.
 func (o NamespaceOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

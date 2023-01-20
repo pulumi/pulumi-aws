@@ -11,86 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SQS Queue Redrive Allow Policy resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleQueue, err := sqs.NewQueue(ctx, "exampleQueue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			src, err := sqs.NewQueue(ctx, "src", &sqs.QueueArgs{
-//				RedrivePolicy: exampleQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"deadLetterTargetArn": arn,
-//						"maxReceiveCount":     4,
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sqs.NewRedriveAllowPolicy(ctx, "exampleRedriveAllowPolicy", &sqs.RedriveAllowPolicyArgs{
-//				QueueUrl: exampleQueue.ID(),
-//				RedriveAllowPolicy: src.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"redrivePermission": "byQueue",
-//						"sourceQueueArns": []string{
-//							arn,
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return pulumi.String(json1), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// SQS Queue Redrive Allow Policies can be imported using the queue URL, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
-//
-// ```
 type RedriveAllowPolicy struct {
 	pulumi.CustomResourceState
 
-	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
-	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+	QueueUrl           pulumi.StringOutput `pulumi:"queueUrl"`
 	RedriveAllowPolicy pulumi.StringOutput `pulumi:"redriveAllowPolicy"`
 }
 
@@ -129,16 +53,12 @@ func GetRedriveAllowPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RedriveAllowPolicy resources.
 type redriveAllowPolicyState struct {
-	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl *string `pulumi:"queueUrl"`
-	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+	QueueUrl           *string `pulumi:"queueUrl"`
 	RedriveAllowPolicy *string `pulumi:"redriveAllowPolicy"`
 }
 
 type RedriveAllowPolicyState struct {
-	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl pulumi.StringPtrInput
-	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+	QueueUrl           pulumi.StringPtrInput
 	RedriveAllowPolicy pulumi.StringPtrInput
 }
 
@@ -147,17 +67,13 @@ func (RedriveAllowPolicyState) ElementType() reflect.Type {
 }
 
 type redriveAllowPolicyArgs struct {
-	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl string `pulumi:"queueUrl"`
-	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+	QueueUrl           string `pulumi:"queueUrl"`
 	RedriveAllowPolicy string `pulumi:"redriveAllowPolicy"`
 }
 
 // The set of arguments for constructing a RedriveAllowPolicy resource.
 type RedriveAllowPolicyArgs struct {
-	// The URL of the SQS Queue to which to attach the policy
-	QueueUrl pulumi.StringInput
-	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
+	QueueUrl           pulumi.StringInput
 	RedriveAllowPolicy pulumi.StringInput
 }
 
@@ -248,12 +164,10 @@ func (o RedriveAllowPolicyOutput) ToRedriveAllowPolicyOutputWithContext(ctx cont
 	return o
 }
 
-// The URL of the SQS Queue to which to attach the policy
 func (o RedriveAllowPolicyOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *RedriveAllowPolicy) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
-// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
 func (o RedriveAllowPolicyOutput) RedriveAllowPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RedriveAllowPolicy) pulumi.StringOutput { return v.RedriveAllowPolicy }).(pulumi.StringOutput)
 }

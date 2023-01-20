@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve information about a Location Service Route Calculator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.GetRouteCalculator(ctx, &location.GetRouteCalculatorArgs{
-//				CalculatorName: "example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts ...pulumi.InvokeOption) (*GetRouteCalculatorResult, error) {
 	var rv GetRouteCalculatorResult
 	err := ctx.Invoke("aws:location/getRouteCalculator:getRouteCalculator", args, &rv, opts...)
@@ -48,29 +21,21 @@ func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts 
 
 // A collection of arguments for invoking getRouteCalculator.
 type GetRouteCalculatorArgs struct {
-	// Name of the route calculator resource.
-	CalculatorName string `pulumi:"calculatorName"`
-	// Key-value map of resource tags for the route calculator.
-	Tags map[string]string `pulumi:"tags"`
+	CalculatorName string            `pulumi:"calculatorName"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getRouteCalculator.
 type GetRouteCalculatorResult struct {
-	// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
 	CalculatorArn  string `pulumi:"calculatorArn"`
 	CalculatorName string `pulumi:"calculatorName"`
-	// Timestamp for when the route calculator resource was created in ISO 8601 format.
-	CreateTime string `pulumi:"createTime"`
-	// Data provider of traffic and road network data.
-	DataSource string `pulumi:"dataSource"`
-	// Optional description of the route calculator resource.
-	Description string `pulumi:"description"`
+	CreateTime     string `pulumi:"createTime"`
+	DataSource     string `pulumi:"dataSource"`
+	Description    string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Key-value map of resource tags for the route calculator.
-	Tags map[string]string `pulumi:"tags"`
-	// Timestamp for when the route calculator resource was last updated in ISO 8601 format.
-	UpdateTime string `pulumi:"updateTime"`
+	Id         string            `pulumi:"id"`
+	Tags       map[string]string `pulumi:"tags"`
+	UpdateTime string            `pulumi:"updateTime"`
 }
 
 func GetRouteCalculatorOutput(ctx *pulumi.Context, args GetRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) GetRouteCalculatorResultOutput {
@@ -88,10 +53,8 @@ func GetRouteCalculatorOutput(ctx *pulumi.Context, args GetRouteCalculatorOutput
 
 // A collection of arguments for invoking getRouteCalculator.
 type GetRouteCalculatorOutputArgs struct {
-	// Name of the route calculator resource.
-	CalculatorName pulumi.StringInput `pulumi:"calculatorName"`
-	// Key-value map of resource tags for the route calculator.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	CalculatorName pulumi.StringInput    `pulumi:"calculatorName"`
+	Tags           pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetRouteCalculatorOutputArgs) ElementType() reflect.Type {
@@ -113,7 +76,6 @@ func (o GetRouteCalculatorResultOutput) ToGetRouteCalculatorResultOutputWithCont
 	return o
 }
 
-// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
 func (o GetRouteCalculatorResultOutput) CalculatorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.CalculatorArn }).(pulumi.StringOutput)
 }
@@ -122,17 +84,14 @@ func (o GetRouteCalculatorResultOutput) CalculatorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.CalculatorName }).(pulumi.StringOutput)
 }
 
-// Timestamp for when the route calculator resource was created in ISO 8601 format.
 func (o GetRouteCalculatorResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// Data provider of traffic and road network data.
 func (o GetRouteCalculatorResultOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// Optional description of the route calculator resource.
 func (o GetRouteCalculatorResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -142,12 +101,10 @@ func (o GetRouteCalculatorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the route calculator.
 func (o GetRouteCalculatorResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Timestamp for when the route calculator resource was last updated in ISO 8601 format.
 func (o GetRouteCalculatorResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteCalculatorResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }

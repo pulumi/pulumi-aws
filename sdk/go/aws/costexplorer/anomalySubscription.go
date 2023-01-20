@@ -11,82 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CE Anomaly Subscription.
-//
-// ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testAnomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "testAnomalyMonitor", &costexplorer.AnomalyMonitorArgs{
-//				MonitorType:      pulumi.String("DIMENSIONAL"),
-//				MonitorDimension: pulumi.String("SERVICE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = costexplorer.NewAnomalySubscription(ctx, "testAnomalySubscription", &costexplorer.AnomalySubscriptionArgs{
-//				Threshold: pulumi.Float64(100),
-//				Frequency: pulumi.String("DAILY"),
-//				MonitorArnLists: pulumi.StringArray{
-//					testAnomalyMonitor.Arn,
-//				},
-//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
-//					&costexplorer.AnomalySubscriptionSubscriberArgs{
-//						Type:    pulumi.String("EMAIL"),
-//						Address: pulumi.String("abc@example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_ce_anomaly_subscription` can be imported using the `id`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
-//
-// ```
 type AnomalySubscription struct {
 	pulumi.CustomResourceState
 
-	// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// ARN of the anomaly subscription.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-	Frequency pulumi.StringOutput `pulumi:"frequency"`
-	// A list of cost anomaly monitors.
-	MonitorArnLists pulumi.StringArrayOutput `pulumi:"monitorArnLists"`
-	// The name for the subscription.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A subscriber configuration. Multiple subscribers can be defined.
-	Subscribers AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold pulumi.Float64Output `pulumi:"threshold"`
+	AccountId       pulumi.StringOutput                      `pulumi:"accountId"`
+	Arn             pulumi.StringOutput                      `pulumi:"arn"`
+	Frequency       pulumi.StringOutput                      `pulumi:"frequency"`
+	MonitorArnLists pulumi.StringArrayOutput                 `pulumi:"monitorArnLists"`
+	Name            pulumi.StringOutput                      `pulumi:"name"`
+	Subscribers     AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
+	Tags            pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	Threshold       pulumi.Float64Output                     `pulumi:"threshold"`
 }
 
 // NewAnomalySubscription registers a new resource with the given unique name, arguments, and options.
@@ -130,45 +66,27 @@ func GetAnomalySubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnomalySubscription resources.
 type anomalySubscriptionState struct {
-	// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-	AccountId *string `pulumi:"accountId"`
-	// ARN of the anomaly subscription.
-	Arn *string `pulumi:"arn"`
-	// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-	Frequency *string `pulumi:"frequency"`
-	// A list of cost anomaly monitors.
-	MonitorArnLists []string `pulumi:"monitorArnLists"`
-	// The name for the subscription.
-	Name *string `pulumi:"name"`
-	// A subscriber configuration. Multiple subscribers can be defined.
-	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold *float64 `pulumi:"threshold"`
+	AccountId       *string                         `pulumi:"accountId"`
+	Arn             *string                         `pulumi:"arn"`
+	Frequency       *string                         `pulumi:"frequency"`
+	MonitorArnLists []string                        `pulumi:"monitorArnLists"`
+	Name            *string                         `pulumi:"name"`
+	Subscribers     []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
+	Tags            map[string]string               `pulumi:"tags"`
+	TagsAll         map[string]string               `pulumi:"tagsAll"`
+	Threshold       *float64                        `pulumi:"threshold"`
 }
 
 type AnomalySubscriptionState struct {
-	// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-	AccountId pulumi.StringPtrInput
-	// ARN of the anomaly subscription.
-	Arn pulumi.StringPtrInput
-	// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-	Frequency pulumi.StringPtrInput
-	// A list of cost anomaly monitors.
+	AccountId       pulumi.StringPtrInput
+	Arn             pulumi.StringPtrInput
+	Frequency       pulumi.StringPtrInput
 	MonitorArnLists pulumi.StringArrayInput
-	// The name for the subscription.
-	Name pulumi.StringPtrInput
-	// A subscriber configuration. Multiple subscribers can be defined.
-	Subscribers AnomalySubscriptionSubscriberArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold pulumi.Float64PtrInput
+	Name            pulumi.StringPtrInput
+	Subscribers     AnomalySubscriptionSubscriberArrayInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	Threshold       pulumi.Float64PtrInput
 }
 
 func (AnomalySubscriptionState) ElementType() reflect.Type {
@@ -176,38 +94,24 @@ func (AnomalySubscriptionState) ElementType() reflect.Type {
 }
 
 type anomalySubscriptionArgs struct {
-	// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-	AccountId *string `pulumi:"accountId"`
-	// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-	Frequency string `pulumi:"frequency"`
-	// A list of cost anomaly monitors.
-	MonitorArnLists []string `pulumi:"monitorArnLists"`
-	// The name for the subscription.
-	Name *string `pulumi:"name"`
-	// A subscriber configuration. Multiple subscribers can be defined.
-	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold float64 `pulumi:"threshold"`
+	AccountId       *string                         `pulumi:"accountId"`
+	Frequency       string                          `pulumi:"frequency"`
+	MonitorArnLists []string                        `pulumi:"monitorArnLists"`
+	Name            *string                         `pulumi:"name"`
+	Subscribers     []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
+	Tags            map[string]string               `pulumi:"tags"`
+	Threshold       float64                         `pulumi:"threshold"`
 }
 
 // The set of arguments for constructing a AnomalySubscription resource.
 type AnomalySubscriptionArgs struct {
-	// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-	AccountId pulumi.StringPtrInput
-	// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-	Frequency pulumi.StringInput
-	// A list of cost anomaly monitors.
+	AccountId       pulumi.StringPtrInput
+	Frequency       pulumi.StringInput
 	MonitorArnLists pulumi.StringArrayInput
-	// The name for the subscription.
-	Name pulumi.StringPtrInput
-	// A subscriber configuration. Multiple subscribers can be defined.
-	Subscribers AnomalySubscriptionSubscriberArrayInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold pulumi.Float64Input
+	Name            pulumi.StringPtrInput
+	Subscribers     AnomalySubscriptionSubscriberArrayInput
+	Tags            pulumi.StringMapInput
+	Threshold       pulumi.Float64Input
 }
 
 func (AnomalySubscriptionArgs) ElementType() reflect.Type {
@@ -297,47 +201,38 @@ func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutputWithContext(ctx co
 	return o
 }
 
-// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
 func (o AnomalySubscriptionOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// ARN of the anomaly subscription.
 func (o AnomalySubscriptionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
 func (o AnomalySubscriptionOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.Frequency }).(pulumi.StringOutput)
 }
 
-// A list of cost anomaly monitors.
 func (o AnomalySubscriptionOutput) MonitorArnLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringArrayOutput { return v.MonitorArnLists }).(pulumi.StringArrayOutput)
 }
 
-// The name for the subscription.
 func (o AnomalySubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A subscriber configuration. Multiple subscribers can be defined.
 func (o AnomalySubscriptionOutput) Subscribers() AnomalySubscriptionSubscriberArrayOutput {
 	return o.ApplyT(func(v *AnomalySubscription) AnomalySubscriptionSubscriberArrayOutput { return v.Subscribers }).(AnomalySubscriptionSubscriberArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AnomalySubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AnomalySubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The dollar value that triggers a notification if the threshold is exceeded.
 func (o AnomalySubscriptionOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.Float64Output { return v.Threshold }).(pulumi.Float64Output)
 }

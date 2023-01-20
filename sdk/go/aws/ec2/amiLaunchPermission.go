@@ -11,114 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds a launch permission to an Amazon Machine Image (AMI).
-//
-// ## Example Usage
-// ### AWS Account ID
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-//				AccountId: pulumi.String("123456789012"),
-//				ImageId:   pulumi.String("ami-12345678"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Public Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-//				Group:   pulumi.String("all"),
-//				ImageId: pulumi.String("ami-12345678"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Organization Access
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := organizations.LookupOrganization(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-//				ImageId:         pulumi.String("ami-12345678"),
-//				OrganizationArn: *pulumi.String(current.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AMI Launch Permissions can be imported using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
-//
-// ```
 type AmiLaunchPermission struct {
 	pulumi.CustomResourceState
 
-	// AWS account ID for the launch permission.
-	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
-	// Name of the group for the launch permission. Valid values: `"all"`.
-	Group pulumi.StringPtrOutput `pulumi:"group"`
-	// ID of the AMI.
-	ImageId pulumi.StringOutput `pulumi:"imageId"`
-	// ARN of an organization for the launch permission.
-	OrganizationArn pulumi.StringPtrOutput `pulumi:"organizationArn"`
-	// ARN of an organizational unit for the launch permission.
+	AccountId             pulumi.StringPtrOutput `pulumi:"accountId"`
+	Group                 pulumi.StringPtrOutput `pulumi:"group"`
+	ImageId               pulumi.StringOutput    `pulumi:"imageId"`
+	OrganizationArn       pulumi.StringPtrOutput `pulumi:"organizationArn"`
 	OrganizationalUnitArn pulumi.StringPtrOutput `pulumi:"organizationalUnitArn"`
 }
 
@@ -154,28 +53,18 @@ func GetAmiLaunchPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AmiLaunchPermission resources.
 type amiLaunchPermissionState struct {
-	// AWS account ID for the launch permission.
-	AccountId *string `pulumi:"accountId"`
-	// Name of the group for the launch permission. Valid values: `"all"`.
-	Group *string `pulumi:"group"`
-	// ID of the AMI.
-	ImageId *string `pulumi:"imageId"`
-	// ARN of an organization for the launch permission.
-	OrganizationArn *string `pulumi:"organizationArn"`
-	// ARN of an organizational unit for the launch permission.
+	AccountId             *string `pulumi:"accountId"`
+	Group                 *string `pulumi:"group"`
+	ImageId               *string `pulumi:"imageId"`
+	OrganizationArn       *string `pulumi:"organizationArn"`
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
 }
 
 type AmiLaunchPermissionState struct {
-	// AWS account ID for the launch permission.
-	AccountId pulumi.StringPtrInput
-	// Name of the group for the launch permission. Valid values: `"all"`.
-	Group pulumi.StringPtrInput
-	// ID of the AMI.
-	ImageId pulumi.StringPtrInput
-	// ARN of an organization for the launch permission.
-	OrganizationArn pulumi.StringPtrInput
-	// ARN of an organizational unit for the launch permission.
+	AccountId             pulumi.StringPtrInput
+	Group                 pulumi.StringPtrInput
+	ImageId               pulumi.StringPtrInput
+	OrganizationArn       pulumi.StringPtrInput
 	OrganizationalUnitArn pulumi.StringPtrInput
 }
 
@@ -184,29 +73,19 @@ func (AmiLaunchPermissionState) ElementType() reflect.Type {
 }
 
 type amiLaunchPermissionArgs struct {
-	// AWS account ID for the launch permission.
-	AccountId *string `pulumi:"accountId"`
-	// Name of the group for the launch permission. Valid values: `"all"`.
-	Group *string `pulumi:"group"`
-	// ID of the AMI.
-	ImageId string `pulumi:"imageId"`
-	// ARN of an organization for the launch permission.
-	OrganizationArn *string `pulumi:"organizationArn"`
-	// ARN of an organizational unit for the launch permission.
+	AccountId             *string `pulumi:"accountId"`
+	Group                 *string `pulumi:"group"`
+	ImageId               string  `pulumi:"imageId"`
+	OrganizationArn       *string `pulumi:"organizationArn"`
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
 }
 
 // The set of arguments for constructing a AmiLaunchPermission resource.
 type AmiLaunchPermissionArgs struct {
-	// AWS account ID for the launch permission.
-	AccountId pulumi.StringPtrInput
-	// Name of the group for the launch permission. Valid values: `"all"`.
-	Group pulumi.StringPtrInput
-	// ID of the AMI.
-	ImageId pulumi.StringInput
-	// ARN of an organization for the launch permission.
-	OrganizationArn pulumi.StringPtrInput
-	// ARN of an organizational unit for the launch permission.
+	AccountId             pulumi.StringPtrInput
+	Group                 pulumi.StringPtrInput
+	ImageId               pulumi.StringInput
+	OrganizationArn       pulumi.StringPtrInput
 	OrganizationalUnitArn pulumi.StringPtrInput
 }
 
@@ -297,27 +176,22 @@ func (o AmiLaunchPermissionOutput) ToAmiLaunchPermissionOutputWithContext(ctx co
 	return o
 }
 
-// AWS account ID for the launch permission.
 func (o AmiLaunchPermissionOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the group for the launch permission. Valid values: `"all"`.
 func (o AmiLaunchPermissionOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringPtrOutput { return v.Group }).(pulumi.StringPtrOutput)
 }
 
-// ID of the AMI.
 func (o AmiLaunchPermissionOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringOutput { return v.ImageId }).(pulumi.StringOutput)
 }
 
-// ARN of an organization for the launch permission.
 func (o AmiLaunchPermissionOutput) OrganizationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringPtrOutput { return v.OrganizationArn }).(pulumi.StringPtrOutput)
 }
 
-// ARN of an organizational unit for the launch permission.
 func (o AmiLaunchPermissionOutput) OrganizationalUnitArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringPtrOutput { return v.OrganizationalUnitArn }).(pulumi.StringPtrOutput)
 }

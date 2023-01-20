@@ -11,7 +11,6 @@ import (
 )
 
 type FindingsFilterFindingCriteria struct {
-	// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
 	Criterions []FindingsFilterFindingCriteriaCriterion `pulumi:"criterions"`
 }
 
@@ -27,7 +26,6 @@ type FindingsFilterFindingCriteriaInput interface {
 }
 
 type FindingsFilterFindingCriteriaArgs struct {
-	// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
 	Criterions FindingsFilterFindingCriteriaCriterionArrayInput `pulumi:"criterions"`
 }
 
@@ -108,7 +106,6 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrO
 	}).(FindingsFilterFindingCriteriaPtrOutput)
 }
 
-// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
 func (o FindingsFilterFindingCriteriaOutput) Criterions() FindingsFilterFindingCriteriaCriterionArrayOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) []FindingsFilterFindingCriteriaCriterion { return v.Criterions }).(FindingsFilterFindingCriteriaCriterionArrayOutput)
 }
@@ -137,7 +134,6 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCrit
 	}).(FindingsFilterFindingCriteriaOutput)
 }
 
-// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
 func (o FindingsFilterFindingCriteriaPtrOutput) Criterions() FindingsFilterFindingCriteriaCriterionArrayOutput {
 	return o.ApplyT(func(v *FindingsFilterFindingCriteria) []FindingsFilterFindingCriteriaCriterion {
 		if v == nil {
@@ -148,22 +144,14 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Criterions() FindingsFilterFindi
 }
 
 type FindingsFilterFindingCriteriaCriterion struct {
-	// The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
 	EqExactMatches []string `pulumi:"eqExactMatches"`
-	// The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-	Eqs []string `pulumi:"eqs"`
-	// The name of the field to be evaluated.
-	Field string `pulumi:"field"`
-	// The value for the property is greater than the specified value.
-	Gt *string `pulumi:"gt"`
-	// The value for the property is greater than or equal to the specified value.
-	Gte *string `pulumi:"gte"`
-	// The value for the property is less than the specified value.
-	Lt *string `pulumi:"lt"`
-	// The value for the property is less than or equal to the specified value.
-	Lte *string `pulumi:"lte"`
-	// The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-	Neqs []string `pulumi:"neqs"`
+	Eqs            []string `pulumi:"eqs"`
+	Field          string   `pulumi:"field"`
+	Gt             *string  `pulumi:"gt"`
+	Gte            *string  `pulumi:"gte"`
+	Lt             *string  `pulumi:"lt"`
+	Lte            *string  `pulumi:"lte"`
+	Neqs           []string `pulumi:"neqs"`
 }
 
 // FindingsFilterFindingCriteriaCriterionInput is an input type that accepts FindingsFilterFindingCriteriaCriterionArgs and FindingsFilterFindingCriteriaCriterionOutput values.
@@ -178,22 +166,14 @@ type FindingsFilterFindingCriteriaCriterionInput interface {
 }
 
 type FindingsFilterFindingCriteriaCriterionArgs struct {
-	// The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
 	EqExactMatches pulumi.StringArrayInput `pulumi:"eqExactMatches"`
-	// The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-	Eqs pulumi.StringArrayInput `pulumi:"eqs"`
-	// The name of the field to be evaluated.
-	Field pulumi.StringInput `pulumi:"field"`
-	// The value for the property is greater than the specified value.
-	Gt pulumi.StringPtrInput `pulumi:"gt"`
-	// The value for the property is greater than or equal to the specified value.
-	Gte pulumi.StringPtrInput `pulumi:"gte"`
-	// The value for the property is less than the specified value.
-	Lt pulumi.StringPtrInput `pulumi:"lt"`
-	// The value for the property is less than or equal to the specified value.
-	Lte pulumi.StringPtrInput `pulumi:"lte"`
-	// The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-	Neqs pulumi.StringArrayInput `pulumi:"neqs"`
+	Eqs            pulumi.StringArrayInput `pulumi:"eqs"`
+	Field          pulumi.StringInput      `pulumi:"field"`
+	Gt             pulumi.StringPtrInput   `pulumi:"gt"`
+	Gte            pulumi.StringPtrInput   `pulumi:"gte"`
+	Lt             pulumi.StringPtrInput   `pulumi:"lt"`
+	Lte            pulumi.StringPtrInput   `pulumi:"lte"`
+	Neqs           pulumi.StringArrayInput `pulumi:"neqs"`
 }
 
 func (FindingsFilterFindingCriteriaCriterionArgs) ElementType() reflect.Type {
@@ -247,42 +227,34 @@ func (o FindingsFilterFindingCriteriaCriterionOutput) ToFindingsFilterFindingCri
 	return o
 }
 
-// The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
 func (o FindingsFilterFindingCriteriaCriterionOutput) EqExactMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) []string { return v.EqExactMatches }).(pulumi.StringArrayOutput)
 }
 
-// The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
 func (o FindingsFilterFindingCriteriaCriterionOutput) Eqs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) []string { return v.Eqs }).(pulumi.StringArrayOutput)
 }
 
-// The name of the field to be evaluated.
 func (o FindingsFilterFindingCriteriaCriterionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) string { return v.Field }).(pulumi.StringOutput)
 }
 
-// The value for the property is greater than the specified value.
 func (o FindingsFilterFindingCriteriaCriterionOutput) Gt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) *string { return v.Gt }).(pulumi.StringPtrOutput)
 }
 
-// The value for the property is greater than or equal to the specified value.
 func (o FindingsFilterFindingCriteriaCriterionOutput) Gte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) *string { return v.Gte }).(pulumi.StringPtrOutput)
 }
 
-// The value for the property is less than the specified value.
 func (o FindingsFilterFindingCriteriaCriterionOutput) Lt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) *string { return v.Lt }).(pulumi.StringPtrOutput)
 }
 
-// The value for the property is less than or equal to the specified value.
 func (o FindingsFilterFindingCriteriaCriterionOutput) Lte() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) *string { return v.Lte }).(pulumi.StringPtrOutput)
 }
 
-// The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
 func (o FindingsFilterFindingCriteriaCriterionOutput) Neqs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteriaCriterion) []string { return v.Neqs }).(pulumi.StringArrayOutput)
 }
@@ -308,12 +280,8 @@ func (o FindingsFilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInp
 }
 
 type S3BucketAssociationClassificationType struct {
-	// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-	// The only valid value is the default value, `FULL`.
 	Continuous *string `pulumi:"continuous"`
-	// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-	// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-	OneTime *string `pulumi:"oneTime"`
+	OneTime    *string `pulumi:"oneTime"`
 }
 
 // S3BucketAssociationClassificationTypeInput is an input type that accepts S3BucketAssociationClassificationTypeArgs and S3BucketAssociationClassificationTypeOutput values.
@@ -328,12 +296,8 @@ type S3BucketAssociationClassificationTypeInput interface {
 }
 
 type S3BucketAssociationClassificationTypeArgs struct {
-	// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-	// The only valid value is the default value, `FULL`.
 	Continuous pulumi.StringPtrInput `pulumi:"continuous"`
-	// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-	// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-	OneTime pulumi.StringPtrInput `pulumi:"oneTime"`
+	OneTime    pulumi.StringPtrInput `pulumi:"oneTime"`
 }
 
 func (S3BucketAssociationClassificationTypeArgs) ElementType() reflect.Type {
@@ -413,14 +377,10 @@ func (o S3BucketAssociationClassificationTypeOutput) ToS3BucketAssociationClassi
 	}).(S3BucketAssociationClassificationTypePtrOutput)
 }
 
-// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-// The only valid value is the default value, `FULL`.
 func (o S3BucketAssociationClassificationTypeOutput) Continuous() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v S3BucketAssociationClassificationType) *string { return v.Continuous }).(pulumi.StringPtrOutput)
 }
 
-// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
 func (o S3BucketAssociationClassificationTypeOutput) OneTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v S3BucketAssociationClassificationType) *string { return v.OneTime }).(pulumi.StringPtrOutput)
 }
@@ -449,8 +409,6 @@ func (o S3BucketAssociationClassificationTypePtrOutput) Elem() S3BucketAssociati
 	}).(S3BucketAssociationClassificationTypeOutput)
 }
 
-// A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-// The only valid value is the default value, `FULL`.
 func (o S3BucketAssociationClassificationTypePtrOutput) Continuous() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3BucketAssociationClassificationType) *string {
 		if v == nil {
@@ -460,8 +418,6 @@ func (o S3BucketAssociationClassificationTypePtrOutput) Continuous() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-// Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
 func (o S3BucketAssociationClassificationTypePtrOutput) OneTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3BucketAssociationClassificationType) *string {
 		if v == nil {

@@ -11,140 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EMR Serverless Application.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Initial Capacity Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
-//					&emrserverless.ApplicationInitialCapacityArgs{
-//						InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
-//							WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
-//								Cpu:    pulumi.String("2 vCPU"),
-//								Memory: pulumi.String("10 GB"),
-//							},
-//							WorkerCount: pulumi.Int(1),
-//						},
-//						InitialCapacityType: pulumi.String("HiveDriver"),
-//					},
-//				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Maximum Capacity Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-//				MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
-//					Cpu:    pulumi.String("2 vCPU"),
-//					Memory: pulumi.String("10 GB"),
-//				},
-//				ReleaseLabel: pulumi.String("emr-6.6.0"),
-//				Type:         pulumi.String("hive"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// EMR Severless applications can be imported using the `id`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:emrserverless/application:Application example id
-//
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
-	// ARN of the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration for an application to automatically start on job submission.
-	AutoStartConfiguration ApplicationAutoStartConfigurationOutput `pulumi:"autoStartConfiguration"`
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration ApplicationAutoStopConfigurationOutput `pulumi:"autoStopConfiguration"`
-	// The capacity to initialize when the application is created.
-	InitialCapacities ApplicationInitialCapacityArrayOutput `pulumi:"initialCapacities"`
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityOutput `pulumi:"maximumCapacity"`
-	// The name of the application.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration ApplicationNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// The EMR release version associated with the application.
-	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Architecture           pulumi.StringPtrOutput                   `pulumi:"architecture"`
+	Arn                    pulumi.StringOutput                      `pulumi:"arn"`
+	AutoStartConfiguration ApplicationAutoStartConfigurationOutput  `pulumi:"autoStartConfiguration"`
+	AutoStopConfiguration  ApplicationAutoStopConfigurationOutput   `pulumi:"autoStopConfiguration"`
+	InitialCapacities      ApplicationInitialCapacityArrayOutput    `pulumi:"initialCapacities"`
+	MaximumCapacity        ApplicationMaximumCapacityOutput         `pulumi:"maximumCapacity"`
+	Name                   pulumi.StringOutput                      `pulumi:"name"`
+	NetworkConfiguration   ApplicationNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
+	ReleaseLabel           pulumi.StringOutput                      `pulumi:"releaseLabel"`
+	Tags                   pulumi.StringMapOutput                   `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput                   `pulumi:"tagsAll"`
+	Type                   pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -182,57 +63,33 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture *string `pulumi:"architecture"`
-	// ARN of the cluster.
-	Arn *string `pulumi:"arn"`
-	// The configuration for an application to automatically start on job submission.
+	Architecture           *string                            `pulumi:"architecture"`
+	Arn                    *string                            `pulumi:"arn"`
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
-	// The capacity to initialize when the application is created.
-	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
-	// The name of the application.
-	Name *string `pulumi:"name"`
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
-	// The EMR release version associated with the application.
-	ReleaseLabel *string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type *string `pulumi:"type"`
+	AutoStopConfiguration  *ApplicationAutoStopConfiguration  `pulumi:"autoStopConfiguration"`
+	InitialCapacities      []ApplicationInitialCapacity       `pulumi:"initialCapacities"`
+	MaximumCapacity        *ApplicationMaximumCapacity        `pulumi:"maximumCapacity"`
+	Name                   *string                            `pulumi:"name"`
+	NetworkConfiguration   *ApplicationNetworkConfiguration   `pulumi:"networkConfiguration"`
+	ReleaseLabel           *string                            `pulumi:"releaseLabel"`
+	Tags                   map[string]string                  `pulumi:"tags"`
+	TagsAll                map[string]string                  `pulumi:"tagsAll"`
+	Type                   *string                            `pulumi:"type"`
 }
 
 type ApplicationState struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture pulumi.StringPtrInput
-	// ARN of the cluster.
-	Arn pulumi.StringPtrInput
-	// The configuration for an application to automatically start on job submission.
+	Architecture           pulumi.StringPtrInput
+	Arn                    pulumi.StringPtrInput
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
-	// The capacity to initialize when the application is created.
-	InitialCapacities ApplicationInitialCapacityArrayInput
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityPtrInput
-	// The name of the application.
-	Name pulumi.StringPtrInput
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
-	// The EMR release version associated with the application.
-	ReleaseLabel pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type pulumi.StringPtrInput
+	AutoStopConfiguration  ApplicationAutoStopConfigurationPtrInput
+	InitialCapacities      ApplicationInitialCapacityArrayInput
+	MaximumCapacity        ApplicationMaximumCapacityPtrInput
+	Name                   pulumi.StringPtrInput
+	NetworkConfiguration   ApplicationNetworkConfigurationPtrInput
+	ReleaseLabel           pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	Type                   pulumi.StringPtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {
@@ -240,50 +97,30 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture *string `pulumi:"architecture"`
-	// The configuration for an application to automatically start on job submission.
+	Architecture           *string                            `pulumi:"architecture"`
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
-	// The capacity to initialize when the application is created.
-	InitialCapacities []ApplicationInitialCapacity `pulumi:"initialCapacities"`
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity *ApplicationMaximumCapacity `pulumi:"maximumCapacity"`
-	// The name of the application.
-	Name *string `pulumi:"name"`
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
-	// The EMR release version associated with the application.
-	ReleaseLabel string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags map[string]string `pulumi:"tags"`
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type string `pulumi:"type"`
+	AutoStopConfiguration  *ApplicationAutoStopConfiguration  `pulumi:"autoStopConfiguration"`
+	InitialCapacities      []ApplicationInitialCapacity       `pulumi:"initialCapacities"`
+	MaximumCapacity        *ApplicationMaximumCapacity        `pulumi:"maximumCapacity"`
+	Name                   *string                            `pulumi:"name"`
+	NetworkConfiguration   *ApplicationNetworkConfiguration   `pulumi:"networkConfiguration"`
+	ReleaseLabel           string                             `pulumi:"releaseLabel"`
+	Tags                   map[string]string                  `pulumi:"tags"`
+	Type                   string                             `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-	Architecture pulumi.StringPtrInput
-	// The configuration for an application to automatically start on job submission.
+	Architecture           pulumi.StringPtrInput
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
-	// The configuration for an application to automatically stop after a certain amount of time being idle.
-	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
-	// The capacity to initialize when the application is created.
-	InitialCapacities ApplicationInitialCapacityArrayInput
-	// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-	MaximumCapacity ApplicationMaximumCapacityPtrInput
-	// The name of the application.
-	Name pulumi.StringPtrInput
-	// The network configuration for customer VPC connectivity.
-	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
-	// The EMR release version associated with the application.
-	ReleaseLabel pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-	Tags pulumi.StringMapInput
-	// The type of application you want to start, such as `spark` or `hive`.
-	Type pulumi.StringInput
+	AutoStopConfiguration  ApplicationAutoStopConfigurationPtrInput
+	InitialCapacities      ApplicationInitialCapacityArrayInput
+	MaximumCapacity        ApplicationMaximumCapacityPtrInput
+	Name                   pulumi.StringPtrInput
+	NetworkConfiguration   ApplicationNetworkConfigurationPtrInput
+	ReleaseLabel           pulumi.StringInput
+	Tags                   pulumi.StringMapInput
+	Type                   pulumi.StringInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -373,62 +210,50 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
 func (o ApplicationOutput) Architecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the cluster.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration for an application to automatically start on job submission.
 func (o ApplicationOutput) AutoStartConfiguration() ApplicationAutoStartConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationAutoStartConfigurationOutput { return v.AutoStartConfiguration }).(ApplicationAutoStartConfigurationOutput)
 }
 
-// The configuration for an application to automatically stop after a certain amount of time being idle.
 func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationOutput)
 }
 
-// The capacity to initialize when the application is created.
 func (o ApplicationOutput) InitialCapacities() ApplicationInitialCapacityArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationInitialCapacityArrayOutput { return v.InitialCapacities }).(ApplicationInitialCapacityArrayOutput)
 }
 
-// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
 func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumCapacityOutput {
 	return o.ApplyT(func(v *Application) ApplicationMaximumCapacityOutput { return v.MaximumCapacity }).(ApplicationMaximumCapacityOutput)
 }
 
-// The name of the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The network configuration for customer VPC connectivity.
 func (o ApplicationOutput) NetworkConfiguration() ApplicationNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(ApplicationNetworkConfigurationPtrOutput)
 }
 
-// The EMR release version associated with the application.
 func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of application you want to start, such as `spark` or `hive`.
 func (o ApplicationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

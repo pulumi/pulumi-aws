@@ -11,63 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Location Service Route Calculator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.NewRouteCalculation(ctx, "example", &location.RouteCalculationArgs{
-//				CalculatorName: pulumi.String("example"),
-//				DataSource:     pulumi.String("Here"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_location_route_calculator` can be imported using the route calculator name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:location/routeCalculation:RouteCalculation example example
-//
-// ```
 type RouteCalculation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-	CalculatorArn pulumi.StringOutput `pulumi:"calculatorArn"`
-	// The name of the route calculator resource.
-	CalculatorName pulumi.StringOutput `pulumi:"calculatorName"`
-	// The timestamp for when the route calculator resource was created in ISO 8601 format.
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// Specifies the data provider of traffic and road network data.
-	DataSource pulumi.StringOutput `pulumi:"dataSource"`
-	// The optional description for the route calculator resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The timestamp for when the route calculator resource was last update in ISO 8601.
-	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
+	CalculatorArn  pulumi.StringOutput    `pulumi:"calculatorArn"`
+	CalculatorName pulumi.StringOutput    `pulumi:"calculatorName"`
+	CreateTime     pulumi.StringOutput    `pulumi:"createTime"`
+	DataSource     pulumi.StringOutput    `pulumi:"dataSource"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	Tags           pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	UpdateTime     pulumi.StringOutput    `pulumi:"updateTime"`
 }
 
 // NewRouteCalculation registers a new resource with the given unique name, arguments, and options.
@@ -105,41 +59,25 @@ func GetRouteCalculation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteCalculation resources.
 type routeCalculationState struct {
-	// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-	CalculatorArn *string `pulumi:"calculatorArn"`
-	// The name of the route calculator resource.
-	CalculatorName *string `pulumi:"calculatorName"`
-	// The timestamp for when the route calculator resource was created in ISO 8601 format.
-	CreateTime *string `pulumi:"createTime"`
-	// Specifies the data provider of traffic and road network data.
-	DataSource *string `pulumi:"dataSource"`
-	// The optional description for the route calculator resource.
-	Description *string `pulumi:"description"`
-	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The timestamp for when the route calculator resource was last update in ISO 8601.
-	UpdateTime *string `pulumi:"updateTime"`
+	CalculatorArn  *string           `pulumi:"calculatorArn"`
+	CalculatorName *string           `pulumi:"calculatorName"`
+	CreateTime     *string           `pulumi:"createTime"`
+	DataSource     *string           `pulumi:"dataSource"`
+	Description    *string           `pulumi:"description"`
+	Tags           map[string]string `pulumi:"tags"`
+	TagsAll        map[string]string `pulumi:"tagsAll"`
+	UpdateTime     *string           `pulumi:"updateTime"`
 }
 
 type RouteCalculationState struct {
-	// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-	CalculatorArn pulumi.StringPtrInput
-	// The name of the route calculator resource.
+	CalculatorArn  pulumi.StringPtrInput
 	CalculatorName pulumi.StringPtrInput
-	// The timestamp for when the route calculator resource was created in ISO 8601 format.
-	CreateTime pulumi.StringPtrInput
-	// Specifies the data provider of traffic and road network data.
-	DataSource pulumi.StringPtrInput
-	// The optional description for the route calculator resource.
-	Description pulumi.StringPtrInput
-	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The timestamp for when the route calculator resource was last update in ISO 8601.
-	UpdateTime pulumi.StringPtrInput
+	CreateTime     pulumi.StringPtrInput
+	DataSource     pulumi.StringPtrInput
+	Description    pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
+	UpdateTime     pulumi.StringPtrInput
 }
 
 func (RouteCalculationState) ElementType() reflect.Type {
@@ -147,26 +85,18 @@ func (RouteCalculationState) ElementType() reflect.Type {
 }
 
 type routeCalculationArgs struct {
-	// The name of the route calculator resource.
-	CalculatorName string `pulumi:"calculatorName"`
-	// Specifies the data provider of traffic and road network data.
-	DataSource string `pulumi:"dataSource"`
-	// The optional description for the route calculator resource.
-	Description *string `pulumi:"description"`
-	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	CalculatorName string            `pulumi:"calculatorName"`
+	DataSource     string            `pulumi:"dataSource"`
+	Description    *string           `pulumi:"description"`
+	Tags           map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteCalculation resource.
 type RouteCalculationArgs struct {
-	// The name of the route calculator resource.
 	CalculatorName pulumi.StringInput
-	// Specifies the data provider of traffic and road network data.
-	DataSource pulumi.StringInput
-	// The optional description for the route calculator resource.
-	Description pulumi.StringPtrInput
-	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	DataSource     pulumi.StringInput
+	Description    pulumi.StringPtrInput
+	Tags           pulumi.StringMapInput
 }
 
 func (RouteCalculationArgs) ElementType() reflect.Type {
@@ -256,42 +186,34 @@ func (o RouteCalculationOutput) ToRouteCalculationOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
 func (o RouteCalculationOutput) CalculatorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.CalculatorArn }).(pulumi.StringOutput)
 }
 
-// The name of the route calculator resource.
 func (o RouteCalculationOutput) CalculatorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.CalculatorName }).(pulumi.StringOutput)
 }
 
-// The timestamp for when the route calculator resource was created in ISO 8601 format.
 func (o RouteCalculationOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// Specifies the data provider of traffic and road network data.
 func (o RouteCalculationOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// The optional description for the route calculator resource.
 func (o RouteCalculationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteCalculationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteCalculationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The timestamp for when the route calculator resource was last update in ISO 8601.
 func (o RouteCalculationOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

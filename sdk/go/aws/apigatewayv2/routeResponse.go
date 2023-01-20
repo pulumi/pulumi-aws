@@ -11,62 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Amazon API Gateway Version 2 route response.
-// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewRouteResponse(ctx, "example", &apigatewayv2.RouteResponseArgs{
-//				ApiId:            pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				RouteId:          pulumi.Any(aws_apigatewayv2_route.Example.Id),
-//				RouteResponseKey: pulumi.String(fmt.Sprintf("$default")),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
-//
-// ```
 type RouteResponse struct {
 	pulumi.CustomResourceState
 
-	// API identifier.
-	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+	ApiId                    pulumi.StringOutput    `pulumi:"apiId"`
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
-	// Response models for the route response.
-	ResponseModels pulumi.StringMapOutput `pulumi:"responseModels"`
-	// Identifier of the `apigatewayv2.Route`.
-	RouteId pulumi.StringOutput `pulumi:"routeId"`
-	// Route response key.
-	RouteResponseKey pulumi.StringOutput `pulumi:"routeResponseKey"`
+	ResponseModels           pulumi.StringMapOutput `pulumi:"responseModels"`
+	RouteId                  pulumi.StringOutput    `pulumi:"routeId"`
+	RouteResponseKey         pulumi.StringOutput    `pulumi:"routeResponseKey"`
 }
 
 // NewRouteResponse registers a new resource with the given unique name, arguments, and options.
@@ -107,29 +59,19 @@ func GetRouteResponse(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteResponse resources.
 type routeResponseState struct {
-	// API identifier.
-	ApiId *string `pulumi:"apiId"`
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
-	// Response models for the route response.
-	ResponseModels map[string]string `pulumi:"responseModels"`
-	// Identifier of the `apigatewayv2.Route`.
-	RouteId *string `pulumi:"routeId"`
-	// Route response key.
-	RouteResponseKey *string `pulumi:"routeResponseKey"`
+	ApiId                    *string           `pulumi:"apiId"`
+	ModelSelectionExpression *string           `pulumi:"modelSelectionExpression"`
+	ResponseModels           map[string]string `pulumi:"responseModels"`
+	RouteId                  *string           `pulumi:"routeId"`
+	RouteResponseKey         *string           `pulumi:"routeResponseKey"`
 }
 
 type RouteResponseState struct {
-	// API identifier.
-	ApiId pulumi.StringPtrInput
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+	ApiId                    pulumi.StringPtrInput
 	ModelSelectionExpression pulumi.StringPtrInput
-	// Response models for the route response.
-	ResponseModels pulumi.StringMapInput
-	// Identifier of the `apigatewayv2.Route`.
-	RouteId pulumi.StringPtrInput
-	// Route response key.
-	RouteResponseKey pulumi.StringPtrInput
+	ResponseModels           pulumi.StringMapInput
+	RouteId                  pulumi.StringPtrInput
+	RouteResponseKey         pulumi.StringPtrInput
 }
 
 func (RouteResponseState) ElementType() reflect.Type {
@@ -137,30 +79,20 @@ func (RouteResponseState) ElementType() reflect.Type {
 }
 
 type routeResponseArgs struct {
-	// API identifier.
-	ApiId string `pulumi:"apiId"`
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
-	// Response models for the route response.
-	ResponseModels map[string]string `pulumi:"responseModels"`
-	// Identifier of the `apigatewayv2.Route`.
-	RouteId string `pulumi:"routeId"`
-	// Route response key.
-	RouteResponseKey string `pulumi:"routeResponseKey"`
+	ApiId                    string            `pulumi:"apiId"`
+	ModelSelectionExpression *string           `pulumi:"modelSelectionExpression"`
+	ResponseModels           map[string]string `pulumi:"responseModels"`
+	RouteId                  string            `pulumi:"routeId"`
+	RouteResponseKey         string            `pulumi:"routeResponseKey"`
 }
 
 // The set of arguments for constructing a RouteResponse resource.
 type RouteResponseArgs struct {
-	// API identifier.
-	ApiId pulumi.StringInput
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+	ApiId                    pulumi.StringInput
 	ModelSelectionExpression pulumi.StringPtrInput
-	// Response models for the route response.
-	ResponseModels pulumi.StringMapInput
-	// Identifier of the `apigatewayv2.Route`.
-	RouteId pulumi.StringInput
-	// Route response key.
-	RouteResponseKey pulumi.StringInput
+	ResponseModels           pulumi.StringMapInput
+	RouteId                  pulumi.StringInput
+	RouteResponseKey         pulumi.StringInput
 }
 
 func (RouteResponseArgs) ElementType() reflect.Type {
@@ -250,27 +182,22 @@ func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// API identifier.
 func (o RouteResponseOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 func (o RouteResponseOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringPtrOutput { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
-// Response models for the route response.
 func (o RouteResponseOutput) ResponseModels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringMapOutput { return v.ResponseModels }).(pulumi.StringMapOutput)
 }
 
-// Identifier of the `apigatewayv2.Route`.
 func (o RouteResponseOutput) RouteId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteId }).(pulumi.StringOutput)
 }
 
-// Route response key.
 func (o RouteResponseOutput) RouteResponseKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.RouteResponseKey }).(pulumi.StringOutput)
 }

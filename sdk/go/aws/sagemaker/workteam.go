@@ -11,112 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Workteam resource.
-//
-// ## Example Usage
-// ### Cognito Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
-//				Description:   pulumi.String("example"),
-//				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
-//					&sagemaker.WorkteamMemberDefinitionArgs{
-//						CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
-//							ClientId:  pulumi.Any(aws_cognito_user_pool_client.Example.Id),
-//							UserPool:  pulumi.Any(aws_cognito_user_pool_domain.Example.User_pool_id),
-//							UserGroup: pulumi.Any(aws_cognito_user_group.Example.Id),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Oidc Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
-//				Description:   pulumi.String("example"),
-//				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
-//					&sagemaker.WorkteamMemberDefinitionArgs{
-//						OidcMemberDefinition: &sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs{
-//							Groups: pulumi.StringArray{
-//								pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// SageMaker Workteams can be imported using the `workteam_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/workteam:Workteam example example
-//
-// ```
 type Workteam struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the work team.
-	Description pulumi.StringOutput `pulumi:"description"`
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-	MemberDefinitions WorkteamMemberDefinitionArrayOutput `pulumi:"memberDefinitions"`
-	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+	Arn                       pulumi.StringOutput                        `pulumi:"arn"`
+	Description               pulumi.StringOutput                        `pulumi:"description"`
+	MemberDefinitions         WorkteamMemberDefinitionArrayOutput        `pulumi:"memberDefinitions"`
 	NotificationConfiguration WorkteamNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
-	// The subdomain for your OIDC Identity Provider.
-	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The name of the Workteam (must be unique).
-	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
-	// The name of the workforce.
-	WorkteamName pulumi.StringOutput `pulumi:"workteamName"`
+	Subdomain                 pulumi.StringOutput                        `pulumi:"subdomain"`
+	Tags                      pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll                   pulumi.StringMapOutput                     `pulumi:"tagsAll"`
+	WorkforceName             pulumi.StringOutput                        `pulumi:"workforceName"`
+	WorkteamName              pulumi.StringOutput                        `pulumi:"workteamName"`
 }
 
 // NewWorkteam registers a new resource with the given unique name, arguments, and options.
@@ -160,45 +66,27 @@ func GetWorkteam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workteam resources.
 type workteamState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-	Arn *string `pulumi:"arn"`
-	// A description of the work team.
-	Description *string `pulumi:"description"`
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-	MemberDefinitions []WorkteamMemberDefinition `pulumi:"memberDefinitions"`
-	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+	Arn                       *string                            `pulumi:"arn"`
+	Description               *string                            `pulumi:"description"`
+	MemberDefinitions         []WorkteamMemberDefinition         `pulumi:"memberDefinitions"`
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
-	// The subdomain for your OIDC Identity Provider.
-	Subdomain *string `pulumi:"subdomain"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The name of the Workteam (must be unique).
-	WorkforceName *string `pulumi:"workforceName"`
-	// The name of the workforce.
-	WorkteamName *string `pulumi:"workteamName"`
+	Subdomain                 *string                            `pulumi:"subdomain"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	TagsAll                   map[string]string                  `pulumi:"tagsAll"`
+	WorkforceName             *string                            `pulumi:"workforceName"`
+	WorkteamName              *string                            `pulumi:"workteamName"`
 }
 
 type WorkteamState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
-	Arn pulumi.StringPtrInput
-	// A description of the work team.
-	Description pulumi.StringPtrInput
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-	MemberDefinitions WorkteamMemberDefinitionArrayInput
-	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+	Arn                       pulumi.StringPtrInput
+	Description               pulumi.StringPtrInput
+	MemberDefinitions         WorkteamMemberDefinitionArrayInput
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
-	// The subdomain for your OIDC Identity Provider.
-	Subdomain pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// The name of the Workteam (must be unique).
-	WorkforceName pulumi.StringPtrInput
-	// The name of the workforce.
-	WorkteamName pulumi.StringPtrInput
+	Subdomain                 pulumi.StringPtrInput
+	Tags                      pulumi.StringMapInput
+	TagsAll                   pulumi.StringMapInput
+	WorkforceName             pulumi.StringPtrInput
+	WorkteamName              pulumi.StringPtrInput
 }
 
 func (WorkteamState) ElementType() reflect.Type {
@@ -206,34 +94,22 @@ func (WorkteamState) ElementType() reflect.Type {
 }
 
 type workteamArgs struct {
-	// A description of the work team.
-	Description string `pulumi:"description"`
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-	MemberDefinitions []WorkteamMemberDefinition `pulumi:"memberDefinitions"`
-	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+	Description               string                             `pulumi:"description"`
+	MemberDefinitions         []WorkteamMemberDefinition         `pulumi:"memberDefinitions"`
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the Workteam (must be unique).
-	WorkforceName string `pulumi:"workforceName"`
-	// The name of the workforce.
-	WorkteamName string `pulumi:"workteamName"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	WorkforceName             string                             `pulumi:"workforceName"`
+	WorkteamName              string                             `pulumi:"workteamName"`
 }
 
 // The set of arguments for constructing a Workteam resource.
 type WorkteamArgs struct {
-	// A description of the work team.
-	Description pulumi.StringInput
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-	MemberDefinitions WorkteamMemberDefinitionArrayInput
-	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+	Description               pulumi.StringInput
+	MemberDefinitions         WorkteamMemberDefinitionArrayInput
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// The name of the Workteam (must be unique).
-	WorkforceName pulumi.StringInput
-	// The name of the workforce.
-	WorkteamName pulumi.StringInput
+	Tags                      pulumi.StringMapInput
+	WorkforceName             pulumi.StringInput
+	WorkteamName              pulumi.StringInput
 }
 
 func (WorkteamArgs) ElementType() reflect.Type {
@@ -323,47 +199,38 @@ func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) Worktea
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
 func (o WorkteamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the work team.
 func (o WorkteamOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognitoMemberDefinition`. For workforces created using your own OIDC identity provider (IdP) use `oidcMemberDefinition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
 func (o WorkteamOutput) MemberDefinitions() WorkteamMemberDefinitionArrayOutput {
 	return o.ApplyT(func(v *Workteam) WorkteamMemberDefinitionArrayOutput { return v.MemberDefinitions }).(WorkteamMemberDefinitionArrayOutput)
 }
 
-// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 func (o WorkteamOutput) NotificationConfiguration() WorkteamNotificationConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workteam) WorkteamNotificationConfigurationPtrOutput { return v.NotificationConfiguration }).(WorkteamNotificationConfigurationPtrOutput)
 }
 
-// The subdomain for your OIDC Identity Provider.
 func (o WorkteamOutput) Subdomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WorkteamOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkteamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The name of the Workteam (must be unique).
 func (o WorkteamOutput) WorkforceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.WorkforceName }).(pulumi.StringOutput)
 }
 
-// The name of the workforce.
 func (o WorkteamOutput) WorkteamName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.WorkteamName }).(pulumi.StringOutput)
 }

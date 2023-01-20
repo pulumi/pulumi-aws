@@ -11,57 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
-//
-// > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStaticIp, err := lightsail.NewStaticIp(ctx, "testStaticIp", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("string"),
-//				BundleId:         pulumi.String("string"),
-//				KeyPairName:      pulumi.String("some_key_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail.StaticIpAttachmentArgs{
-//				StaticIpName: testStaticIp.ID(),
-//				InstanceName: testInstance.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type StaticIpAttachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the Lightsail instance to attach the IP to
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// The allocated static IP address
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// The name of the allocated static IP
+	IpAddress    pulumi.StringOutput `pulumi:"ipAddress"`
 	StaticIpName pulumi.StringOutput `pulumi:"staticIpName"`
 }
 
@@ -100,20 +54,14 @@ func GetStaticIpAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticIpAttachment resources.
 type staticIpAttachmentState struct {
-	// The name of the Lightsail instance to attach the IP to
 	InstanceName *string `pulumi:"instanceName"`
-	// The allocated static IP address
-	IpAddress *string `pulumi:"ipAddress"`
-	// The name of the allocated static IP
+	IpAddress    *string `pulumi:"ipAddress"`
 	StaticIpName *string `pulumi:"staticIpName"`
 }
 
 type StaticIpAttachmentState struct {
-	// The name of the Lightsail instance to attach the IP to
 	InstanceName pulumi.StringPtrInput
-	// The allocated static IP address
-	IpAddress pulumi.StringPtrInput
-	// The name of the allocated static IP
+	IpAddress    pulumi.StringPtrInput
 	StaticIpName pulumi.StringPtrInput
 }
 
@@ -122,17 +70,13 @@ func (StaticIpAttachmentState) ElementType() reflect.Type {
 }
 
 type staticIpAttachmentArgs struct {
-	// The name of the Lightsail instance to attach the IP to
 	InstanceName string `pulumi:"instanceName"`
-	// The name of the allocated static IP
 	StaticIpName string `pulumi:"staticIpName"`
 }
 
 // The set of arguments for constructing a StaticIpAttachment resource.
 type StaticIpAttachmentArgs struct {
-	// The name of the Lightsail instance to attach the IP to
 	InstanceName pulumi.StringInput
-	// The name of the allocated static IP
 	StaticIpName pulumi.StringInput
 }
 
@@ -223,17 +167,14 @@ func (o StaticIpAttachmentOutput) ToStaticIpAttachmentOutputWithContext(ctx cont
 	return o
 }
 
-// The name of the Lightsail instance to attach the IP to
 func (o StaticIpAttachmentOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// The allocated static IP address
 func (o StaticIpAttachmentOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// The name of the allocated static IP
 func (o StaticIpAttachmentOutput) StaticIpName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticIpAttachment) pulumi.StringOutput { return v.StaticIpName }).(pulumi.StringOutput)
 }

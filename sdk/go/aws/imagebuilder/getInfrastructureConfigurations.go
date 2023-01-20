@@ -10,40 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.GetInfrastructureConfigurations(ctx, &imagebuilder.GetInfrastructureConfigurationsArgs{
-//				Filters: []imagebuilder.GetInfrastructureConfigurationsFilter{
-//					{
-//						Name: "name",
-//						Values: []string{
-//							"example",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetInfrastructureConfigurations(ctx *pulumi.Context, args *GetInfrastructureConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetInfrastructureConfigurationsResult, error) {
 	var rv GetInfrastructureConfigurationsResult
 	err := ctx.Invoke("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args, &rv, opts...)
@@ -55,18 +21,15 @@ func GetInfrastructureConfigurations(ctx *pulumi.Context, args *GetInfrastructur
 
 // A collection of arguments for invoking getInfrastructureConfigurations.
 type GetInfrastructureConfigurationsArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetInfrastructureConfigurationsFilter `pulumi:"filters"`
 }
 
 // A collection of values returned by getInfrastructureConfigurations.
 type GetInfrastructureConfigurationsResult struct {
-	// Set of ARNs of the matched Image Builder Infrastructure Configurations.
 	Arns    []string                                `pulumi:"arns"`
 	Filters []GetInfrastructureConfigurationsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of names of the matched Image Builder Infrastructure Configurations.
+	Id    string   `pulumi:"id"`
 	Names []string `pulumi:"names"`
 }
 
@@ -85,7 +48,6 @@ func GetInfrastructureConfigurationsOutput(ctx *pulumi.Context, args GetInfrastr
 
 // A collection of arguments for invoking getInfrastructureConfigurations.
 type GetInfrastructureConfigurationsOutputArgs struct {
-	// Configuration block(s) for filtering. Detailed below.
 	Filters GetInfrastructureConfigurationsFilterArrayInput `pulumi:"filters"`
 }
 
@@ -108,7 +70,6 @@ func (o GetInfrastructureConfigurationsResultOutput) ToGetInfrastructureConfigur
 	return o
 }
 
-// Set of ARNs of the matched Image Builder Infrastructure Configurations.
 func (o GetInfrastructureConfigurationsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }
@@ -124,7 +85,6 @@ func (o GetInfrastructureConfigurationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of names of the matched Image Builder Infrastructure Configurations.
 func (o GetInfrastructureConfigurationsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInfrastructureConfigurationsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

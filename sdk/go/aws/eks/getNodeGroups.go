@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
 func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.InvokeOption) (*GetNodeGroupsResult, error) {
 	var rv GetNodeGroupsResult
 	err := ctx.Invoke("aws:eks/getNodeGroups:getNodeGroups", args, &rv, opts...)
@@ -22,7 +21,6 @@ func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getNodeGroups.
 type GetNodeGroupsArgs struct {
-	// Name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
 }
 
@@ -30,8 +28,7 @@ type GetNodeGroupsArgs struct {
 type GetNodeGroupsResult struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of all node group names in an EKS Cluster.
+	Id    string   `pulumi:"id"`
 	Names []string `pulumi:"names"`
 }
 
@@ -50,7 +47,6 @@ func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts
 
 // A collection of arguments for invoking getNodeGroups.
 type GetNodeGroupsOutputArgs struct {
-	// Name of the cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 }
 
@@ -82,7 +78,6 @@ func (o GetNodeGroupsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeGroupsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of all node group names in an EKS Cluster.
 func (o GetNodeGroupsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNodeGroupsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
 }

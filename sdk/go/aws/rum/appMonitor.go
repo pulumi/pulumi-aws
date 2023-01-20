@@ -11,64 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CloudWatch RUM App Monitor resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rum"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rum.NewAppMonitor(ctx, "example", &rum.AppMonitorArgs{
-//				Domain: pulumi.String("localhost"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Cloudwatch RUM App Monitor can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:rum/appMonitor:AppMonitor example example
-//
-// ```
 type AppMonitor struct {
 	pulumi.CustomResourceState
 
-	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration AppMonitorAppMonitorConfigurationOutput `pulumi:"appMonitorConfiguration"`
-	// The unique ID of the app monitor. Useful for JS templates.
-	AppMonitorId pulumi.StringOutput `pulumi:"appMonitorId"`
-	// The Amazon Resource Name (ARN) specifying the app monitor.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
-	// The name of the log group where the copies are stored.
-	CwLogGroup pulumi.StringOutput `pulumi:"cwLogGroup"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringOutput `pulumi:"domain"`
-	// The name of the log stream.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	AppMonitorId            pulumi.StringOutput                     `pulumi:"appMonitorId"`
+	Arn                     pulumi.StringOutput                     `pulumi:"arn"`
+	CwLogEnabled            pulumi.BoolPtrOutput                    `pulumi:"cwLogEnabled"`
+	CwLogGroup              pulumi.StringOutput                     `pulumi:"cwLogGroup"`
+	Domain                  pulumi.StringOutput                     `pulumi:"domain"`
+	Name                    pulumi.StringOutput                     `pulumi:"name"`
+	Tags                    pulumi.StringMapOutput                  `pulumi:"tags"`
+	TagsAll                 pulumi.StringMapOutput                  `pulumi:"tagsAll"`
 }
 
 // NewAppMonitor registers a new resource with the given unique name, arguments, and options.
@@ -103,45 +57,27 @@ func GetAppMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppMonitor resources.
 type appMonitorState struct {
-	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration *AppMonitorAppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
-	// The unique ID of the app monitor. Useful for JS templates.
-	AppMonitorId *string `pulumi:"appMonitorId"`
-	// The Amazon Resource Name (ARN) specifying the app monitor.
-	Arn *string `pulumi:"arn"`
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
-	// The name of the log group where the copies are stored.
-	CwLogGroup *string `pulumi:"cwLogGroup"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain *string `pulumi:"domain"`
-	// The name of the log stream.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	AppMonitorId            *string                            `pulumi:"appMonitorId"`
+	Arn                     *string                            `pulumi:"arn"`
+	CwLogEnabled            *bool                              `pulumi:"cwLogEnabled"`
+	CwLogGroup              *string                            `pulumi:"cwLogGroup"`
+	Domain                  *string                            `pulumi:"domain"`
+	Name                    *string                            `pulumi:"name"`
+	Tags                    map[string]string                  `pulumi:"tags"`
+	TagsAll                 map[string]string                  `pulumi:"tagsAll"`
 }
 
 type AppMonitorState struct {
-	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration AppMonitorAppMonitorConfigurationPtrInput
-	// The unique ID of the app monitor. Useful for JS templates.
-	AppMonitorId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) specifying the app monitor.
-	Arn pulumi.StringPtrInput
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-	CwLogEnabled pulumi.BoolPtrInput
-	// The name of the log group where the copies are stored.
-	CwLogGroup pulumi.StringPtrInput
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringPtrInput
-	// The name of the log stream.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	AppMonitorId            pulumi.StringPtrInput
+	Arn                     pulumi.StringPtrInput
+	CwLogEnabled            pulumi.BoolPtrInput
+	CwLogGroup              pulumi.StringPtrInput
+	Domain                  pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (AppMonitorState) ElementType() reflect.Type {
@@ -149,30 +85,20 @@ func (AppMonitorState) ElementType() reflect.Type {
 }
 
 type appMonitorArgs struct {
-	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration *AppMonitorAppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain string `pulumi:"domain"`
-	// The name of the log stream.
-	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	CwLogEnabled            *bool                              `pulumi:"cwLogEnabled"`
+	Domain                  string                             `pulumi:"domain"`
+	Name                    *string                            `pulumi:"name"`
+	Tags                    map[string]string                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppMonitor resource.
 type AppMonitorArgs struct {
-	// configuration data for the app monitor. See appMonitorConfiguration below.
 	AppMonitorConfiguration AppMonitorAppMonitorConfigurationPtrInput
-	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
-	CwLogEnabled pulumi.BoolPtrInput
-	// The top-level internet domain name for which your application has administrative authority.
-	Domain pulumi.StringInput
-	// The name of the log stream.
-	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	CwLogEnabled            pulumi.BoolPtrInput
+	Domain                  pulumi.StringInput
+	Name                    pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (AppMonitorArgs) ElementType() reflect.Type {
@@ -262,47 +188,38 @@ func (o AppMonitorOutput) ToAppMonitorOutputWithContext(ctx context.Context) App
 	return o
 }
 
-// configuration data for the app monitor. See appMonitorConfiguration below.
 func (o AppMonitorOutput) AppMonitorConfiguration() AppMonitorAppMonitorConfigurationOutput {
 	return o.ApplyT(func(v *AppMonitor) AppMonitorAppMonitorConfigurationOutput { return v.AppMonitorConfiguration }).(AppMonitorAppMonitorConfigurationOutput)
 }
 
-// The unique ID of the app monitor. Useful for JS templates.
 func (o AppMonitorOutput) AppMonitorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.AppMonitorId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) specifying the app monitor.
 func (o AppMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
 func (o AppMonitorOutput) CwLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.BoolPtrOutput { return v.CwLogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the log group where the copies are stored.
 func (o AppMonitorOutput) CwLogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.CwLogGroup }).(pulumi.StringOutput)
 }
 
-// The top-level internet domain name for which your application has administrative authority.
 func (o AppMonitorOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The name of the log stream.
 func (o AppMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AppMonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AppMonitorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

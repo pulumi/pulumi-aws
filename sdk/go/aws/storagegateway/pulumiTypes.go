@@ -11,9 +11,6 @@ import (
 )
 
 type FileSystemAssociationCacheAttributes struct {
-	// Refreshes a file share's cache by using Time To Live (TTL).
-	// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-	// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
 	CacheStaleTimeoutInSeconds *int `pulumi:"cacheStaleTimeoutInSeconds"`
 }
 
@@ -29,9 +26,6 @@ type FileSystemAssociationCacheAttributesInput interface {
 }
 
 type FileSystemAssociationCacheAttributesArgs struct {
-	// Refreshes a file share's cache by using Time To Live (TTL).
-	// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-	// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
 	CacheStaleTimeoutInSeconds pulumi.IntPtrInput `pulumi:"cacheStaleTimeoutInSeconds"`
 }
 
@@ -112,9 +106,6 @@ func (o FileSystemAssociationCacheAttributesOutput) ToFileSystemAssociationCache
 	}).(FileSystemAssociationCacheAttributesPtrOutput)
 }
 
-// Refreshes a file share's cache by using Time To Live (TTL).
-// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
 func (o FileSystemAssociationCacheAttributesOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemAssociationCacheAttributes) *int { return v.CacheStaleTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -143,9 +134,6 @@ func (o FileSystemAssociationCacheAttributesPtrOutput) Elem() FileSystemAssociat
 	}).(FileSystemAssociationCacheAttributesOutput)
 }
 
-// Refreshes a file share's cache by using Time To Live (TTL).
-// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
 func (o FileSystemAssociationCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemAssociationCacheAttributes) *int {
 		if v == nil {
@@ -156,7 +144,6 @@ func (o FileSystemAssociationCacheAttributesPtrOutput) CacheStaleTimeoutInSecond
 }
 
 type GatewayGatewayNetworkInterface struct {
-	// The Internet Protocol version 4 (IPv4) address of the interface.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
@@ -172,7 +159,6 @@ type GatewayGatewayNetworkInterfaceInput interface {
 }
 
 type GatewayGatewayNetworkInterfaceArgs struct {
-	// The Internet Protocol version 4 (IPv4) address of the interface.
 	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
 }
 
@@ -227,7 +213,6 @@ func (o GatewayGatewayNetworkInterfaceOutput) ToGatewayGatewayNetworkInterfaceOu
 	return o
 }
 
-// The Internet Protocol version 4 (IPv4) address of the interface.
 func (o GatewayGatewayNetworkInterfaceOutput) Ipv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayGatewayNetworkInterface) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
 }
@@ -253,14 +238,10 @@ func (o GatewayGatewayNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Gate
 }
 
 type GatewayMaintenanceStartTime struct {
-	// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-	DayOfMonth *string `pulumi:"dayOfMonth"`
-	// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-	DayOfWeek *string `pulumi:"dayOfWeek"`
-	// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-	HourOfDay int `pulumi:"hourOfDay"`
-	// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-	MinuteOfHour *int `pulumi:"minuteOfHour"`
+	DayOfMonth   *string `pulumi:"dayOfMonth"`
+	DayOfWeek    *string `pulumi:"dayOfWeek"`
+	HourOfDay    int     `pulumi:"hourOfDay"`
+	MinuteOfHour *int    `pulumi:"minuteOfHour"`
 }
 
 // GatewayMaintenanceStartTimeInput is an input type that accepts GatewayMaintenanceStartTimeArgs and GatewayMaintenanceStartTimeOutput values.
@@ -275,14 +256,10 @@ type GatewayMaintenanceStartTimeInput interface {
 }
 
 type GatewayMaintenanceStartTimeArgs struct {
-	// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-	DayOfMonth pulumi.StringPtrInput `pulumi:"dayOfMonth"`
-	// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
-	// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
-	// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-	MinuteOfHour pulumi.IntPtrInput `pulumi:"minuteOfHour"`
+	DayOfMonth   pulumi.StringPtrInput `pulumi:"dayOfMonth"`
+	DayOfWeek    pulumi.StringPtrInput `pulumi:"dayOfWeek"`
+	HourOfDay    pulumi.IntInput       `pulumi:"hourOfDay"`
+	MinuteOfHour pulumi.IntPtrInput    `pulumi:"minuteOfHour"`
 }
 
 func (GatewayMaintenanceStartTimeArgs) ElementType() reflect.Type {
@@ -362,22 +339,18 @@ func (o GatewayMaintenanceStartTimeOutput) ToGatewayMaintenanceStartTimePtrOutpu
 	}).(GatewayMaintenanceStartTimePtrOutput)
 }
 
-// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
 func (o GatewayMaintenanceStartTimeOutput) DayOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayMaintenanceStartTime) *string { return v.DayOfMonth }).(pulumi.StringPtrOutput)
 }
 
-// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
 func (o GatewayMaintenanceStartTimeOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayMaintenanceStartTime) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
 
-// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
 func (o GatewayMaintenanceStartTimeOutput) HourOfDay() pulumi.IntOutput {
 	return o.ApplyT(func(v GatewayMaintenanceStartTime) int { return v.HourOfDay }).(pulumi.IntOutput)
 }
 
-// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
 func (o GatewayMaintenanceStartTimeOutput) MinuteOfHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GatewayMaintenanceStartTime) *int { return v.MinuteOfHour }).(pulumi.IntPtrOutput)
 }
@@ -406,7 +379,6 @@ func (o GatewayMaintenanceStartTimePtrOutput) Elem() GatewayMaintenanceStartTime
 	}).(GatewayMaintenanceStartTimeOutput)
 }
 
-// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
 func (o GatewayMaintenanceStartTimePtrOutput) DayOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *string {
 		if v == nil {
@@ -416,7 +388,6 @@ func (o GatewayMaintenanceStartTimePtrOutput) DayOfMonth() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
 func (o GatewayMaintenanceStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *string {
 		if v == nil {
@@ -426,7 +397,6 @@ func (o GatewayMaintenanceStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
 func (o GatewayMaintenanceStartTimePtrOutput) HourOfDay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *int {
 		if v == nil {
@@ -436,7 +406,6 @@ func (o GatewayMaintenanceStartTimePtrOutput) HourOfDay() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
 func (o GatewayMaintenanceStartTimePtrOutput) MinuteOfHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GatewayMaintenanceStartTime) *int {
 		if v == nil {
@@ -447,21 +416,13 @@ func (o GatewayMaintenanceStartTimePtrOutput) MinuteOfHour() pulumi.IntPtrOutput
 }
 
 type GatewaySmbActiveDirectorySettings struct {
-	ActiveDirectoryStatus *string `pulumi:"activeDirectoryStatus"`
-	// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-	// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
-	DomainControllers []string `pulumi:"domainControllers"`
-	// The name of the domain that you want the gateway to join.
-	DomainName string `pulumi:"domainName"`
-	// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-	// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
-	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// The password of the user who has permission to add the gateway to the Active Directory domain.
-	Password string `pulumi:"password"`
-	// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
-	// The user name of user who has permission to add the gateway to the Active Directory domain.
-	Username string `pulumi:"username"`
+	ActiveDirectoryStatus *string  `pulumi:"activeDirectoryStatus"`
+	DomainControllers     []string `pulumi:"domainControllers"`
+	DomainName            string   `pulumi:"domainName"`
+	OrganizationalUnit    *string  `pulumi:"organizationalUnit"`
+	Password              string   `pulumi:"password"`
+	TimeoutInSeconds      *int     `pulumi:"timeoutInSeconds"`
+	Username              string   `pulumi:"username"`
 }
 
 // GatewaySmbActiveDirectorySettingsInput is an input type that accepts GatewaySmbActiveDirectorySettingsArgs and GatewaySmbActiveDirectorySettingsOutput values.
@@ -476,21 +437,13 @@ type GatewaySmbActiveDirectorySettingsInput interface {
 }
 
 type GatewaySmbActiveDirectorySettingsArgs struct {
-	ActiveDirectoryStatus pulumi.StringPtrInput `pulumi:"activeDirectoryStatus"`
-	// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-	// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
-	DomainControllers pulumi.StringArrayInput `pulumi:"domainControllers"`
-	// The name of the domain that you want the gateway to join.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-	// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// The password of the user who has permission to add the gateway to the Active Directory domain.
-	Password pulumi.StringInput `pulumi:"password"`
-	// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
-	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
-	// The user name of user who has permission to add the gateway to the Active Directory domain.
-	Username pulumi.StringInput `pulumi:"username"`
+	ActiveDirectoryStatus pulumi.StringPtrInput   `pulumi:"activeDirectoryStatus"`
+	DomainControllers     pulumi.StringArrayInput `pulumi:"domainControllers"`
+	DomainName            pulumi.StringInput      `pulumi:"domainName"`
+	OrganizationalUnit    pulumi.StringPtrInput   `pulumi:"organizationalUnit"`
+	Password              pulumi.StringInput      `pulumi:"password"`
+	TimeoutInSeconds      pulumi.IntPtrInput      `pulumi:"timeoutInSeconds"`
+	Username              pulumi.StringInput      `pulumi:"username"`
 }
 
 func (GatewaySmbActiveDirectorySettingsArgs) ElementType() reflect.Type {
@@ -574,34 +527,26 @@ func (o GatewaySmbActiveDirectorySettingsOutput) ActiveDirectoryStatus() pulumi.
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) *string { return v.ActiveDirectoryStatus }).(pulumi.StringPtrOutput)
 }
 
-// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
 func (o GatewaySmbActiveDirectorySettingsOutput) DomainControllers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) []string { return v.DomainControllers }).(pulumi.StringArrayOutput)
 }
 
-// The name of the domain that you want the gateway to join.
 func (o GatewaySmbActiveDirectorySettingsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
 func (o GatewaySmbActiveDirectorySettingsOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// The password of the user who has permission to add the gateway to the Active Directory domain.
 func (o GatewaySmbActiveDirectorySettingsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
 func (o GatewaySmbActiveDirectorySettingsOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The user name of user who has permission to add the gateway to the Active Directory domain.
 func (o GatewaySmbActiveDirectorySettingsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewaySmbActiveDirectorySettings) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -639,8 +584,6 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) ActiveDirectoryStatus() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of IPv4 addresses, NetBIOS names, or host names of your domain server.
-// If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainControllers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) []string {
 		if v == nil {
@@ -650,7 +593,6 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainControllers() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the domain that you want the gateway to join.
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
 		if v == nil {
@@ -660,8 +602,6 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
-// computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
 		if v == nil {
@@ -671,7 +611,6 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) OrganizationalUnit() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password of the user who has permission to add the gateway to the Active Directory domain.
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
 		if v == nil {
@@ -681,7 +620,6 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) Password() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *int {
 		if v == nil {
@@ -691,7 +629,6 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) TimeoutInSeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The user name of user who has permission to add the gateway to the Active Directory domain.
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewaySmbActiveDirectorySettings) *string {
 		if v == nil {
@@ -702,9 +639,6 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) Username() pulumi.StringPtrO
 }
 
 type NfsFileShareCacheAttributes struct {
-	// Refreshes a file share's cache by using Time To Live (TTL).
-	// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-	// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 	CacheStaleTimeoutInSeconds *int `pulumi:"cacheStaleTimeoutInSeconds"`
 }
 
@@ -720,9 +654,6 @@ type NfsFileShareCacheAttributesInput interface {
 }
 
 type NfsFileShareCacheAttributesArgs struct {
-	// Refreshes a file share's cache by using Time To Live (TTL).
-	// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-	// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 	CacheStaleTimeoutInSeconds pulumi.IntPtrInput `pulumi:"cacheStaleTimeoutInSeconds"`
 }
 
@@ -803,9 +734,6 @@ func (o NfsFileShareCacheAttributesOutput) ToNfsFileShareCacheAttributesPtrOutpu
 	}).(NfsFileShareCacheAttributesPtrOutput)
 }
 
-// Refreshes a file share's cache by using Time To Live (TTL).
-// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 func (o NfsFileShareCacheAttributesOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NfsFileShareCacheAttributes) *int { return v.CacheStaleTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -834,9 +762,6 @@ func (o NfsFileShareCacheAttributesPtrOutput) Elem() NfsFileShareCacheAttributes
 	}).(NfsFileShareCacheAttributesOutput)
 }
 
-// Refreshes a file share's cache by using Time To Live (TTL).
-// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 func (o NfsFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NfsFileShareCacheAttributes) *int {
 		if v == nil {
@@ -847,14 +772,10 @@ func (o NfsFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulum
 }
 
 type NfsFileShareNfsFileShareDefaults struct {
-	// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
 	DirectoryMode *string `pulumi:"directoryMode"`
-	// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
-	FileMode *string `pulumi:"fileMode"`
-	// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	GroupId *string `pulumi:"groupId"`
-	// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	OwnerId *string `pulumi:"ownerId"`
+	FileMode      *string `pulumi:"fileMode"`
+	GroupId       *string `pulumi:"groupId"`
+	OwnerId       *string `pulumi:"ownerId"`
 }
 
 // NfsFileShareNfsFileShareDefaultsInput is an input type that accepts NfsFileShareNfsFileShareDefaultsArgs and NfsFileShareNfsFileShareDefaultsOutput values.
@@ -869,14 +790,10 @@ type NfsFileShareNfsFileShareDefaultsInput interface {
 }
 
 type NfsFileShareNfsFileShareDefaultsArgs struct {
-	// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
 	DirectoryMode pulumi.StringPtrInput `pulumi:"directoryMode"`
-	// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
-	FileMode pulumi.StringPtrInput `pulumi:"fileMode"`
-	// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	FileMode      pulumi.StringPtrInput `pulumi:"fileMode"`
+	GroupId       pulumi.StringPtrInput `pulumi:"groupId"`
+	OwnerId       pulumi.StringPtrInput `pulumi:"ownerId"`
 }
 
 func (NfsFileShareNfsFileShareDefaultsArgs) ElementType() reflect.Type {
@@ -956,22 +873,18 @@ func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaul
 	}).(NfsFileShareNfsFileShareDefaultsPtrOutput)
 }
 
-// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
 func (o NfsFileShareNfsFileShareDefaultsOutput) DirectoryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.DirectoryMode }).(pulumi.StringPtrOutput)
 }
 
-// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
 func (o NfsFileShareNfsFileShareDefaultsOutput) FileMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.FileMode }).(pulumi.StringPtrOutput)
 }
 
-// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 func (o NfsFileShareNfsFileShareDefaultsOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
-// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 func (o NfsFileShareNfsFileShareDefaultsOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsFileShareNfsFileShareDefaults) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
@@ -1000,7 +913,6 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) Elem() NfsFileShareNfsFileSha
 	}).(NfsFileShareNfsFileShareDefaultsOutput)
 }
 
-// The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) DirectoryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
 		if v == nil {
@@ -1010,7 +922,6 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) DirectoryMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) FileMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
 		if v == nil {
@@ -1020,7 +931,6 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) FileMode() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
 		if v == nil {
@@ -1030,7 +940,6 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) GroupId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsFileShareNfsFileShareDefaults) *string {
 		if v == nil {
@@ -1041,9 +950,6 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) OwnerId() pulumi.StringPtrOut
 }
 
 type SmbFileShareCacheAttributes struct {
-	// Refreshes a file share's cache by using Time To Live (TTL).
-	// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-	// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 	CacheStaleTimeoutInSeconds *int `pulumi:"cacheStaleTimeoutInSeconds"`
 }
 
@@ -1059,9 +965,6 @@ type SmbFileShareCacheAttributesInput interface {
 }
 
 type SmbFileShareCacheAttributesArgs struct {
-	// Refreshes a file share's cache by using Time To Live (TTL).
-	// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-	// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 	CacheStaleTimeoutInSeconds pulumi.IntPtrInput `pulumi:"cacheStaleTimeoutInSeconds"`
 }
 
@@ -1142,9 +1045,6 @@ func (o SmbFileShareCacheAttributesOutput) ToSmbFileShareCacheAttributesPtrOutpu
 	}).(SmbFileShareCacheAttributesPtrOutput)
 }
 
-// Refreshes a file share's cache by using Time To Live (TTL).
-// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 func (o SmbFileShareCacheAttributesOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SmbFileShareCacheAttributes) *int { return v.CacheStaleTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1173,9 +1073,6 @@ func (o SmbFileShareCacheAttributesPtrOutput) Elem() SmbFileShareCacheAttributes
 	}).(SmbFileShareCacheAttributesOutput)
 }
 
-// Refreshes a file share's cache by using Time To Live (TTL).
-// TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
-// to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
 func (o SmbFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SmbFileShareCacheAttributes) *int {
 		if v == nil {

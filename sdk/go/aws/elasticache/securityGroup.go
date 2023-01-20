@@ -11,66 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ElastiCache Security Group to control access to one or more cache
-// clusters.
-//
-// > **NOTE:** ElastiCache Security Groups are for use only when working with an
-// ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
-// ElastiCache Subnet Group resource.
-//
-// !> **WARNING:** With the retirement of EC2-Classic the `elasticache.SecurityGroup` resource has been deprecated and will be removed in a future version.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			barSecurityGroup, err := ec2.NewSecurityGroup(ctx, "barSecurityGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewSecurityGroup(ctx, "barElasticache/securityGroupSecurityGroup", &elasticache.SecurityGroupArgs{
-//				SecurityGroupNames: pulumi.StringArray{
-//					barSecurityGroup.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ElastiCache Security Groups can be imported by name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:elasticache/securityGroup:SecurityGroup my_ec_security_group ec-security-group-1
-//
-// ```
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 
-	// description for the cache security group. Defaults to "Managed by Pulumi".
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Name for the cache security group. This value is stored as a lowercase string.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of EC2 security group names to be
-	// authorized for ingress to the cache security group
+	Description        pulumi.StringOutput      `pulumi:"description"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 }
 
@@ -109,22 +54,14 @@ func GetSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityGroup resources.
 type securityGroupState struct {
-	// description for the cache security group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// Name for the cache security group. This value is stored as a lowercase string.
-	Name *string `pulumi:"name"`
-	// List of EC2 security group names to be
-	// authorized for ingress to the cache security group
+	Description        *string  `pulumi:"description"`
+	Name               *string  `pulumi:"name"`
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 }
 
 type SecurityGroupState struct {
-	// description for the cache security group. Defaults to "Managed by Pulumi".
-	Description pulumi.StringPtrInput
-	// Name for the cache security group. This value is stored as a lowercase string.
-	Name pulumi.StringPtrInput
-	// List of EC2 security group names to be
-	// authorized for ingress to the cache security group
+	Description        pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	SecurityGroupNames pulumi.StringArrayInput
 }
 
@@ -133,23 +70,15 @@ func (SecurityGroupState) ElementType() reflect.Type {
 }
 
 type securityGroupArgs struct {
-	// description for the cache security group. Defaults to "Managed by Pulumi".
-	Description *string `pulumi:"description"`
-	// Name for the cache security group. This value is stored as a lowercase string.
-	Name *string `pulumi:"name"`
-	// List of EC2 security group names to be
-	// authorized for ingress to the cache security group
+	Description        *string  `pulumi:"description"`
+	Name               *string  `pulumi:"name"`
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 }
 
 // The set of arguments for constructing a SecurityGroup resource.
 type SecurityGroupArgs struct {
-	// description for the cache security group. Defaults to "Managed by Pulumi".
-	Description pulumi.StringPtrInput
-	// Name for the cache security group. This value is stored as a lowercase string.
-	Name pulumi.StringPtrInput
-	// List of EC2 security group names to be
-	// authorized for ingress to the cache security group
+	Description        pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
 	SecurityGroupNames pulumi.StringArrayInput
 }
 
@@ -240,18 +169,14 @@ func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-// description for the cache security group. Defaults to "Managed by Pulumi".
 func (o SecurityGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name for the cache security group. This value is stored as a lowercase string.
 func (o SecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of EC2 security group names to be
-// authorized for ingress to the cache security group
 func (o SecurityGroupOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }

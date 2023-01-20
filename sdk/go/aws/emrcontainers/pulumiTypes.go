@@ -11,12 +11,9 @@ import (
 )
 
 type VirtualClusterContainerProvider struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id string `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id   string                              `pulumi:"id"`
 	Info VirtualClusterContainerProviderInfo `pulumi:"info"`
-	// The type of the container provider
-	Type string `pulumi:"type"`
+	Type string                              `pulumi:"type"`
 }
 
 // VirtualClusterContainerProviderInput is an input type that accepts VirtualClusterContainerProviderArgs and VirtualClusterContainerProviderOutput values.
@@ -31,12 +28,9 @@ type VirtualClusterContainerProviderInput interface {
 }
 
 type VirtualClusterContainerProviderArgs struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id pulumi.StringInput `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id   pulumi.StringInput                       `pulumi:"id"`
 	Info VirtualClusterContainerProviderInfoInput `pulumi:"info"`
-	// The type of the container provider
-	Type pulumi.StringInput `pulumi:"type"`
+	Type pulumi.StringInput                       `pulumi:"type"`
 }
 
 func (VirtualClusterContainerProviderArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o VirtualClusterContainerProviderOutput) ToVirtualClusterContainerProvider
 	}).(VirtualClusterContainerProviderPtrOutput)
 }
 
-// The name of the container provider that is running your EMR Containers cluster
 func (o VirtualClusterContainerProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Nested list containing information about the configuration of the container provider
 func (o VirtualClusterContainerProviderOutput) Info() VirtualClusterContainerProviderInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) VirtualClusterContainerProviderInfo { return v.Info }).(VirtualClusterContainerProviderInfoOutput)
 }
 
-// The type of the container provider
 func (o VirtualClusterContainerProviderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -155,7 +146,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Elem() VirtualClusterContainer
 	}).(VirtualClusterContainerProviderOutput)
 }
 
-// The name of the container provider that is running your EMR Containers cluster
 func (o VirtualClusterContainerProviderPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProvider) *string {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested list containing information about the configuration of the container provider
 func (o VirtualClusterContainerProviderPtrOutput) Info() VirtualClusterContainerProviderInfoPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProvider) *VirtualClusterContainerProviderInfo {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Info() VirtualClusterContainer
 	}).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
-// The type of the container provider
 func (o VirtualClusterContainerProviderPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProvider) *string {
 		if v == nil {
@@ -186,7 +174,6 @@ func (o VirtualClusterContainerProviderPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type VirtualClusterContainerProviderInfo struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfo VirtualClusterContainerProviderInfoEksInfo `pulumi:"eksInfo"`
 }
 
@@ -202,7 +189,6 @@ type VirtualClusterContainerProviderInfoInput interface {
 }
 
 type VirtualClusterContainerProviderInfoArgs struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfo VirtualClusterContainerProviderInfoEksInfoInput `pulumi:"eksInfo"`
 }
 
@@ -283,7 +269,6 @@ func (o VirtualClusterContainerProviderInfoOutput) ToVirtualClusterContainerProv
 	}).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
-// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoOutput) EksInfo() VirtualClusterContainerProviderInfoEksInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfo) VirtualClusterContainerProviderInfoEksInfo {
 		return v.EksInfo
@@ -314,7 +299,6 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) Elem() VirtualClusterConta
 	}).(VirtualClusterContainerProviderInfoOutput)
 }
 
-// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoPtrOutput) EksInfo() VirtualClusterContainerProviderInfoEksInfoPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProviderInfo) *VirtualClusterContainerProviderInfoEksInfo {
 		if v == nil {
@@ -325,7 +309,6 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) EksInfo() VirtualClusterCo
 }
 
 type VirtualClusterContainerProviderInfoEksInfo struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -341,7 +324,6 @@ type VirtualClusterContainerProviderInfoEksInfoInput interface {
 }
 
 type VirtualClusterContainerProviderInfoEksInfoArgs struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
@@ -422,7 +404,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToVirtualClusterContai
 	}).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfoEksInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -451,7 +432,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Elem() VirtualClust
 	}).(VirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualClusterContainerProviderInfoEksInfo) *string {
 		if v == nil {
@@ -462,12 +442,9 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Namespace() pulumi.
 }
 
 type GetVirtualClusterContainerProvider struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id string `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id    string                                   `pulumi:"id"`
 	Infos []GetVirtualClusterContainerProviderInfo `pulumi:"infos"`
-	// The type of the container provider
-	Type string `pulumi:"type"`
+	Type  string                                   `pulumi:"type"`
 }
 
 // GetVirtualClusterContainerProviderInput is an input type that accepts GetVirtualClusterContainerProviderArgs and GetVirtualClusterContainerProviderOutput values.
@@ -482,12 +459,9 @@ type GetVirtualClusterContainerProviderInput interface {
 }
 
 type GetVirtualClusterContainerProviderArgs struct {
-	// The name of the container provider that is running your EMR Containers cluster
-	Id pulumi.StringInput `pulumi:"id"`
-	// Nested list containing information about the configuration of the container provider
+	Id    pulumi.StringInput                               `pulumi:"id"`
 	Infos GetVirtualClusterContainerProviderInfoArrayInput `pulumi:"infos"`
-	// The type of the container provider
-	Type pulumi.StringInput `pulumi:"type"`
+	Type  pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (GetVirtualClusterContainerProviderArgs) ElementType() reflect.Type {
@@ -541,17 +515,14 @@ func (o GetVirtualClusterContainerProviderOutput) ToGetVirtualClusterContainerPr
 	return o
 }
 
-// The name of the container provider that is running your EMR Containers cluster
 func (o GetVirtualClusterContainerProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Nested list containing information about the configuration of the container provider
 func (o GetVirtualClusterContainerProviderOutput) Infos() GetVirtualClusterContainerProviderInfoArrayOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProvider) []GetVirtualClusterContainerProviderInfo { return v.Infos }).(GetVirtualClusterContainerProviderInfoArrayOutput)
 }
 
-// The type of the container provider
 func (o GetVirtualClusterContainerProviderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProvider) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -577,7 +548,6 @@ func (o GetVirtualClusterContainerProviderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetVirtualClusterContainerProviderInfo struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfos []GetVirtualClusterContainerProviderInfoEksInfo `pulumi:"eksInfos"`
 }
 
@@ -593,7 +563,6 @@ type GetVirtualClusterContainerProviderInfoInput interface {
 }
 
 type GetVirtualClusterContainerProviderInfoArgs struct {
-	// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 	EksInfos GetVirtualClusterContainerProviderInfoEksInfoArrayInput `pulumi:"eksInfos"`
 }
 
@@ -648,7 +617,6 @@ func (o GetVirtualClusterContainerProviderInfoOutput) ToGetVirtualClusterContain
 	return o
 }
 
-// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o GetVirtualClusterContainerProviderInfoOutput) EksInfos() GetVirtualClusterContainerProviderInfoEksInfoArrayOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProviderInfo) []GetVirtualClusterContainerProviderInfoEksInfo {
 		return v.EksInfos
@@ -676,7 +644,6 @@ func (o GetVirtualClusterContainerProviderInfoArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetVirtualClusterContainerProviderInfoEksInfo struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -692,7 +659,6 @@ type GetVirtualClusterContainerProviderInfoEksInfoInput interface {
 }
 
 type GetVirtualClusterContainerProviderInfoEksInfoArgs struct {
-	// The namespace where the EMR Containers cluster is running
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -747,7 +713,6 @@ func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToGetVirtualCluster
 	return o
 }
 
-// The namespace where the EMR Containers cluster is running
 func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualClusterContainerProviderInfoEksInfo) string { return v.Namespace }).(pulumi.StringOutput)
 }

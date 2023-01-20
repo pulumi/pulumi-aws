@@ -11,10 +11,8 @@ import (
 )
 
 type VaultNotification struct {
-	// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-	Events []string `pulumi:"events"`
-	// The SNS Topic ARN.
-	SnsTopic string `pulumi:"snsTopic"`
+	Events   []string `pulumi:"events"`
+	SnsTopic string   `pulumi:"snsTopic"`
 }
 
 // VaultNotificationInput is an input type that accepts VaultNotificationArgs and VaultNotificationOutput values.
@@ -29,10 +27,8 @@ type VaultNotificationInput interface {
 }
 
 type VaultNotificationArgs struct {
-	// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-	Events pulumi.StringArrayInput `pulumi:"events"`
-	// The SNS Topic ARN.
-	SnsTopic pulumi.StringInput `pulumi:"snsTopic"`
+	Events   pulumi.StringArrayInput `pulumi:"events"`
+	SnsTopic pulumi.StringInput      `pulumi:"snsTopic"`
 }
 
 func (VaultNotificationArgs) ElementType() reflect.Type {
@@ -112,12 +108,10 @@ func (o VaultNotificationOutput) ToVaultNotificationPtrOutputWithContext(ctx con
 	}).(VaultNotificationPtrOutput)
 }
 
-// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
 func (o VaultNotificationOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VaultNotification) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
 
-// The SNS Topic ARN.
 func (o VaultNotificationOutput) SnsTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultNotification) string { return v.SnsTopic }).(pulumi.StringOutput)
 }
@@ -146,7 +140,6 @@ func (o VaultNotificationPtrOutput) Elem() VaultNotificationOutput {
 	}).(VaultNotificationOutput)
 }
 
-// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
 func (o VaultNotificationPtrOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VaultNotification) []string {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o VaultNotificationPtrOutput) Events() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The SNS Topic ARN.
 func (o VaultNotificationPtrOutput) SnsTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultNotification) *string {
 		if v == nil {

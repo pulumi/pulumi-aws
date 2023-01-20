@@ -11,70 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a successful verification of an SES domain identity.
-//
-// Most commonly, this resource is used together with `route53.Record` and
-// `ses.DomainIdentity` to request an SES domain identity,
-// deploy the required DNS verification records, and wait for verification to complete.
-//
-// > **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ses.NewDomainIdentity(ctx, "example", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAmazonsesVerificationRecord, err := route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
-//				Name: example.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("_amazonses.%v", id), nil
-//				}).(pulumi.StringOutput),
-//				Type: pulumi.String("TXT"),
-//				Ttl:  pulumi.Int(600),
-//				Records: pulumi.StringArray{
-//					example.VerificationToken,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ses.NewDomainIdentityVerification(ctx, "exampleVerification", &ses.DomainIdentityVerificationArgs{
-//				Domain: example.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAmazonsesVerificationRecord,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DomainIdentityVerification struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the domain identity.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The domain name of the SES domain identity to verify.
+	Arn    pulumi.StringOutput `pulumi:"arn"`
 	Domain pulumi.StringOutput `pulumi:"domain"`
 }
 
@@ -110,16 +50,12 @@ func GetDomainIdentityVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainIdentityVerification resources.
 type domainIdentityVerificationState struct {
-	// The ARN of the domain identity.
-	Arn *string `pulumi:"arn"`
-	// The domain name of the SES domain identity to verify.
+	Arn    *string `pulumi:"arn"`
 	Domain *string `pulumi:"domain"`
 }
 
 type DomainIdentityVerificationState struct {
-	// The ARN of the domain identity.
-	Arn pulumi.StringPtrInput
-	// The domain name of the SES domain identity to verify.
+	Arn    pulumi.StringPtrInput
 	Domain pulumi.StringPtrInput
 }
 
@@ -128,13 +64,11 @@ func (DomainIdentityVerificationState) ElementType() reflect.Type {
 }
 
 type domainIdentityVerificationArgs struct {
-	// The domain name of the SES domain identity to verify.
 	Domain string `pulumi:"domain"`
 }
 
 // The set of arguments for constructing a DomainIdentityVerification resource.
 type DomainIdentityVerificationArgs struct {
-	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringInput
 }
 
@@ -225,12 +159,10 @@ func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationOutputWith
 	return o
 }
 
-// The ARN of the domain identity.
 func (o DomainIdentityVerificationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The domain name of the SES domain identity to verify.
 func (o DomainIdentityVerificationOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }

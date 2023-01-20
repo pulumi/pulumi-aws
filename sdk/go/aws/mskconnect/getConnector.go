@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get information on an Amazon MSK Connect Connector.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mskconnect.LookupConnector(ctx, &mskconnect.LookupConnectorArgs{
-//				Name: "example-mskconnector",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
 	err := ctx.Invoke("aws:mskconnect/getConnector:getConnector", args, &rv, opts...)
@@ -48,20 +21,16 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 
 // A collection of arguments for invoking getConnector.
 type LookupConnectorArgs struct {
-	// Name of the connector.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getConnector.
 type LookupConnectorResult struct {
-	// ARN of the connector.
-	Arn string `pulumi:"arn"`
-	// Summary description of the connector.
+	Arn         string `pulumi:"arn"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// Current version of the connector.
+	Id      string `pulumi:"id"`
+	Name    string `pulumi:"name"`
 	Version string `pulumi:"version"`
 }
 
@@ -80,7 +49,6 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 
 // A collection of arguments for invoking getConnector.
 type LookupConnectorOutputArgs struct {
-	// Name of the connector.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -103,12 +71,10 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 	return o
 }
 
-// ARN of the connector.
 func (o LookupConnectorResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Summary description of the connector.
 func (o LookupConnectorResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -122,7 +88,6 @@ func (o LookupConnectorResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Current version of the connector.
 func (o LookupConnectorResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.Version }).(pulumi.StringOutput)
 }

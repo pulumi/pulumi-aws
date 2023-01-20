@@ -10,111 +10,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Glue Connection resource.
-//
-// ## Example Usage
-// ### Non-VPC Connection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-//				ConnectionProperties: pulumi.StringMap{
-//					"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
-//					"PASSWORD":            pulumi.String("examplepassword"),
-//					"USERNAME":            pulumi.String("exampleusername"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### VPC Connection
-//
-// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-//				ConnectionProperties: pulumi.StringMap{
-//					"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("jdbc:mysql://%v/exampledatabase", aws_rds_cluster.Example.Endpoint)),
-//					"PASSWORD":            pulumi.String("examplepassword"),
-//					"USERNAME":            pulumi.String("exampleusername"),
-//				},
-//				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
-//					AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
-//					SecurityGroupIdLists: pulumi.StringArray{
-//						aws_security_group.Example.Id,
-//					},
-//					SubnetId: pulumi.Any(aws_subnet.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Glue Connections can be imported using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
-//
-// ```
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Glue Connection.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties pulumi.StringMapOutput `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
-	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
-	// Description of the connection.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A list of criteria that can be used in selecting this connection.
-	MatchCriterias pulumi.StringArrayOutput `pulumi:"matchCriterias"`
-	// The name of the connection.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	Arn                            pulumi.StringOutput                               `pulumi:"arn"`
+	CatalogId                      pulumi.StringOutput                               `pulumi:"catalogId"`
+	ConnectionProperties           pulumi.StringMapOutput                            `pulumi:"connectionProperties"`
+	ConnectionType                 pulumi.StringPtrOutput                            `pulumi:"connectionType"`
+	Description                    pulumi.StringPtrOutput                            `pulumi:"description"`
+	MatchCriterias                 pulumi.StringArrayOutput                          `pulumi:"matchCriterias"`
+	Name                           pulumi.StringOutput                               `pulumi:"name"`
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrOutput `pulumi:"physicalConnectionRequirements"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags                           pulumi.StringMapOutput                            `pulumi:"tags"`
+	TagsAll                        pulumi.StringMapOutput                            `pulumi:"tagsAll"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -153,49 +61,29 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// The ARN of the Glue Connection.
-	Arn *string `pulumi:"arn"`
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId *string `pulumi:"catalogId"`
-	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
-	ConnectionType *string `pulumi:"connectionType"`
-	// Description of the connection.
-	Description *string `pulumi:"description"`
-	// A list of criteria that can be used in selecting this connection.
-	MatchCriterias []string `pulumi:"matchCriterias"`
-	// The name of the connection.
-	Name *string `pulumi:"name"`
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	Arn                            *string                                   `pulumi:"arn"`
+	CatalogId                      *string                                   `pulumi:"catalogId"`
+	ConnectionProperties           map[string]string                         `pulumi:"connectionProperties"`
+	ConnectionType                 *string                                   `pulumi:"connectionType"`
+	Description                    *string                                   `pulumi:"description"`
+	MatchCriterias                 []string                                  `pulumi:"matchCriterias"`
+	Name                           *string                                   `pulumi:"name"`
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags                           map[string]string                         `pulumi:"tags"`
+	TagsAll                        map[string]string                         `pulumi:"tagsAll"`
 }
 
 type ConnectionState struct {
-	// The ARN of the Glue Connection.
-	Arn pulumi.StringPtrInput
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId pulumi.StringPtrInput
-	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
-	ConnectionType pulumi.StringPtrInput
-	// Description of the connection.
-	Description pulumi.StringPtrInput
-	// A list of criteria that can be used in selecting this connection.
-	MatchCriterias pulumi.StringArrayInput
-	// The name of the connection.
-	Name pulumi.StringPtrInput
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	Arn                            pulumi.StringPtrInput
+	CatalogId                      pulumi.StringPtrInput
+	ConnectionProperties           pulumi.StringMapInput
+	ConnectionType                 pulumi.StringPtrInput
+	Description                    pulumi.StringPtrInput
+	MatchCriterias                 pulumi.StringArrayInput
+	Name                           pulumi.StringPtrInput
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -203,42 +91,26 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId *string `pulumi:"catalogId"`
-	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
-	ConnectionType *string `pulumi:"connectionType"`
-	// Description of the connection.
-	Description *string `pulumi:"description"`
-	// A list of criteria that can be used in selecting this connection.
-	MatchCriterias []string `pulumi:"matchCriterias"`
-	// The name of the connection.
-	Name *string `pulumi:"name"`
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	CatalogId                      *string                                   `pulumi:"catalogId"`
+	ConnectionProperties           map[string]string                         `pulumi:"connectionProperties"`
+	ConnectionType                 *string                                   `pulumi:"connectionType"`
+	Description                    *string                                   `pulumi:"description"`
+	MatchCriterias                 []string                                  `pulumi:"matchCriterias"`
+	Name                           *string                                   `pulumi:"name"`
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                           map[string]string                         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-	CatalogId pulumi.StringPtrInput
-	// A map of key-value pairs used as parameters for this connection.
-	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
-	ConnectionType pulumi.StringPtrInput
-	// Description of the connection.
-	Description pulumi.StringPtrInput
-	// A list of criteria that can be used in selecting this connection.
-	MatchCriterias pulumi.StringArrayInput
-	// The name of the connection.
-	Name pulumi.StringPtrInput
-	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+	CatalogId                      pulumi.StringPtrInput
+	ConnectionProperties           pulumi.StringMapInput
+	ConnectionType                 pulumi.StringPtrInput
+	Description                    pulumi.StringPtrInput
+	MatchCriterias                 pulumi.StringArrayInput
+	Name                           pulumi.StringPtrInput
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
-	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags                           pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -328,54 +200,44 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// The ARN of the Glue Connection.
 func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
 func (o ConnectionOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// A map of key-value pairs used as parameters for this connection.
 func (o ConnectionOutput) ConnectionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.ConnectionProperties }).(pulumi.StringMapOutput)
 }
 
-// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
 func (o ConnectionOutput) ConnectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
 }
 
-// Description of the connection.
 func (o ConnectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of criteria that can be used in selecting this connection.
 func (o ConnectionOutput) MatchCriterias() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringArrayOutput { return v.MatchCriterias }).(pulumi.StringArrayOutput)
 }
 
-// The name of the connection.
 func (o ConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
 func (o ConnectionOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
 	return o.ApplyT(func(v *Connection) ConnectionPhysicalConnectionRequirementsPtrOutput {
 		return v.PhysicalConnectionRequirements
 	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

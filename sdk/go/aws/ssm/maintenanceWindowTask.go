@@ -11,208 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an SSM Maintenance Window Task resource
-//
-// ## Example Usage
-// ### Automation Tasks
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
-//				MaxConcurrency: pulumi.String("2"),
-//				MaxErrors:      pulumi.String("1"),
-//				Priority:       pulumi.Int(1),
-//				TaskArn:        pulumi.String("AWS-RestartEC2Instance"),
-//				TaskType:       pulumi.String("AUTOMATION"),
-//				WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
-//				Targets: ssm.MaintenanceWindowTaskTargetArray{
-//					&ssm.MaintenanceWindowTaskTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
-//						},
-//					},
-//				},
-//				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
-//					AutomationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs{
-//						DocumentVersion: pulumi.String(fmt.Sprintf("$LATEST")),
-//						Parameters: ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray{
-//							&ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{
-//								Name: pulumi.String("InstanceId"),
-//								Values: pulumi.StringArray{
-//									aws_instance.Example.Id,
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Run Command Tasks
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
-//				MaxConcurrency: pulumi.String("2"),
-//				MaxErrors:      pulumi.String("1"),
-//				Priority:       pulumi.Int(1),
-//				TaskArn:        pulumi.String("AWS-RunShellScript"),
-//				TaskType:       pulumi.String("RUN_COMMAND"),
-//				WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
-//				Targets: ssm.MaintenanceWindowTaskTargetArray{
-//					&ssm.MaintenanceWindowTaskTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
-//						},
-//					},
-//				},
-//				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
-//					RunCommandParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs{
-//						OutputS3Bucket:    pulumi.Any(aws_s3_bucket.Example.Bucket),
-//						OutputS3KeyPrefix: pulumi.String("output"),
-//						ServiceRoleArn:    pulumi.Any(aws_iam_role.Example.Arn),
-//						TimeoutSeconds:    pulumi.Int(600),
-//						NotificationConfig: &ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs{
-//							NotificationArn: pulumi.Any(aws_sns_topic.Example.Arn),
-//							NotificationEvents: pulumi.StringArray{
-//								pulumi.String("All"),
-//							},
-//							NotificationType: pulumi.String("Command"),
-//						},
-//						Parameters: ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArray{
-//							&ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs{
-//								Name: pulumi.String("commands"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("date"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Step Function Tasks
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
-//				MaxConcurrency: pulumi.String("2"),
-//				MaxErrors:      pulumi.String("1"),
-//				Priority:       pulumi.Int(1),
-//				TaskArn:        pulumi.Any(aws_sfn_activity.Example.Id),
-//				TaskType:       pulumi.String("STEP_FUNCTIONS"),
-//				WindowId:       pulumi.Any(aws_ssm_maintenance_window.Example.Id),
-//				Targets: ssm.MaintenanceWindowTaskTargetArray{
-//					&ssm.MaintenanceWindowTaskTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							aws_instance.Example.Id,
-//						},
-//					},
-//				},
-//				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
-//					StepFunctionsParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs{
-//						Input: pulumi.String("{\"key1\":\"value1\"}"),
-//						Name:  pulumi.String("example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AWS Maintenance Window Task can be imported using the `window_id` and `window_task_id` separated by `/`.
-//
-// ```sh
-//
-//	$ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
-//
-// ```
 type MaintenanceWindowTask struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the maintenance window task.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-	CutoffBehavior pulumi.StringPtrOutput `pulumi:"cutoffBehavior"`
-	// The description of the maintenance window task.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency pulumi.StringOutput `pulumi:"maxConcurrency"`
-	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors pulumi.StringOutput `pulumi:"maxErrors"`
-	// The name of the maintenance window task.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-	Targets MaintenanceWindowTaskTargetArrayOutput `pulumi:"targets"`
-	// The ARN of the task to execute.
-	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
-	// Configuration block with parameters for task execution.
+	Arn                      pulumi.StringOutput                                    `pulumi:"arn"`
+	CutoffBehavior           pulumi.StringPtrOutput                                 `pulumi:"cutoffBehavior"`
+	Description              pulumi.StringPtrOutput                                 `pulumi:"description"`
+	MaxConcurrency           pulumi.StringOutput                                    `pulumi:"maxConcurrency"`
+	MaxErrors                pulumi.StringOutput                                    `pulumi:"maxErrors"`
+	Name                     pulumi.StringOutput                                    `pulumi:"name"`
+	Priority                 pulumi.IntPtrOutput                                    `pulumi:"priority"`
+	ServiceRoleArn           pulumi.StringOutput                                    `pulumi:"serviceRoleArn"`
+	Targets                  MaintenanceWindowTaskTargetArrayOutput                 `pulumi:"targets"`
+	TaskArn                  pulumi.StringOutput                                    `pulumi:"taskArn"`
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrOutput `pulumi:"taskInvocationParameters"`
-	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-	TaskType pulumi.StringOutput `pulumi:"taskType"`
-	// The Id of the maintenance window to register the task with.
-	WindowId pulumi.StringOutput `pulumi:"windowId"`
-	// The ID of the maintenance window task.
-	WindowTaskId pulumi.StringOutput `pulumi:"windowTaskId"`
+	TaskType                 pulumi.StringOutput                                    `pulumi:"taskType"`
+	WindowId                 pulumi.StringOutput                                    `pulumi:"windowId"`
+	WindowTaskId             pulumi.StringOutput                                    `pulumi:"windowTaskId"`
 }
 
 // NewMaintenanceWindowTask registers a new resource with the given unique name, arguments, and options.
@@ -253,65 +68,37 @@ func GetMaintenanceWindowTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceWindowTask resources.
 type maintenanceWindowTaskState struct {
-	// The ARN of the maintenance window task.
-	Arn *string `pulumi:"arn"`
-	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-	CutoffBehavior *string `pulumi:"cutoffBehavior"`
-	// The description of the maintenance window task.
-	Description *string `pulumi:"description"`
-	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors *string `pulumi:"maxErrors"`
-	// The name of the maintenance window task.
-	Name *string `pulumi:"name"`
-	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-	Priority *int `pulumi:"priority"`
-	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
-	// The ARN of the task to execute.
-	TaskArn *string `pulumi:"taskArn"`
-	// Configuration block with parameters for task execution.
+	Arn                      *string                                        `pulumi:"arn"`
+	CutoffBehavior           *string                                        `pulumi:"cutoffBehavior"`
+	Description              *string                                        `pulumi:"description"`
+	MaxConcurrency           *string                                        `pulumi:"maxConcurrency"`
+	MaxErrors                *string                                        `pulumi:"maxErrors"`
+	Name                     *string                                        `pulumi:"name"`
+	Priority                 *int                                           `pulumi:"priority"`
+	ServiceRoleArn           *string                                        `pulumi:"serviceRoleArn"`
+	Targets                  []MaintenanceWindowTaskTarget                  `pulumi:"targets"`
+	TaskArn                  *string                                        `pulumi:"taskArn"`
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
-	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-	TaskType *string `pulumi:"taskType"`
-	// The Id of the maintenance window to register the task with.
-	WindowId *string `pulumi:"windowId"`
-	// The ID of the maintenance window task.
-	WindowTaskId *string `pulumi:"windowTaskId"`
+	TaskType                 *string                                        `pulumi:"taskType"`
+	WindowId                 *string                                        `pulumi:"windowId"`
+	WindowTaskId             *string                                        `pulumi:"windowTaskId"`
 }
 
 type MaintenanceWindowTaskState struct {
-	// The ARN of the maintenance window task.
-	Arn pulumi.StringPtrInput
-	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-	CutoffBehavior pulumi.StringPtrInput
-	// The description of the maintenance window task.
-	Description pulumi.StringPtrInput
-	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency pulumi.StringPtrInput
-	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors pulumi.StringPtrInput
-	// The name of the maintenance window task.
-	Name pulumi.StringPtrInput
-	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-	Priority pulumi.IntPtrInput
-	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-	ServiceRoleArn pulumi.StringPtrInput
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-	Targets MaintenanceWindowTaskTargetArrayInput
-	// The ARN of the task to execute.
-	TaskArn pulumi.StringPtrInput
-	// Configuration block with parameters for task execution.
+	Arn                      pulumi.StringPtrInput
+	CutoffBehavior           pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	MaxConcurrency           pulumi.StringPtrInput
+	MaxErrors                pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Priority                 pulumi.IntPtrInput
+	ServiceRoleArn           pulumi.StringPtrInput
+	Targets                  MaintenanceWindowTaskTargetArrayInput
+	TaskArn                  pulumi.StringPtrInput
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
-	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-	TaskType pulumi.StringPtrInput
-	// The Id of the maintenance window to register the task with.
-	WindowId pulumi.StringPtrInput
-	// The ID of the maintenance window task.
-	WindowTaskId pulumi.StringPtrInput
+	TaskType                 pulumi.StringPtrInput
+	WindowId                 pulumi.StringPtrInput
+	WindowTaskId             pulumi.StringPtrInput
 }
 
 func (MaintenanceWindowTaskState) ElementType() reflect.Type {
@@ -319,58 +106,34 @@ func (MaintenanceWindowTaskState) ElementType() reflect.Type {
 }
 
 type maintenanceWindowTaskArgs struct {
-	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-	CutoffBehavior *string `pulumi:"cutoffBehavior"`
-	// The description of the maintenance window task.
-	Description *string `pulumi:"description"`
-	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors *string `pulumi:"maxErrors"`
-	// The name of the maintenance window task.
-	Name *string `pulumi:"name"`
-	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-	Priority *int `pulumi:"priority"`
-	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-	Targets []MaintenanceWindowTaskTarget `pulumi:"targets"`
-	// The ARN of the task to execute.
-	TaskArn string `pulumi:"taskArn"`
-	// Configuration block with parameters for task execution.
+	CutoffBehavior           *string                                        `pulumi:"cutoffBehavior"`
+	Description              *string                                        `pulumi:"description"`
+	MaxConcurrency           *string                                        `pulumi:"maxConcurrency"`
+	MaxErrors                *string                                        `pulumi:"maxErrors"`
+	Name                     *string                                        `pulumi:"name"`
+	Priority                 *int                                           `pulumi:"priority"`
+	ServiceRoleArn           *string                                        `pulumi:"serviceRoleArn"`
+	Targets                  []MaintenanceWindowTaskTarget                  `pulumi:"targets"`
+	TaskArn                  string                                         `pulumi:"taskArn"`
 	TaskInvocationParameters *MaintenanceWindowTaskTaskInvocationParameters `pulumi:"taskInvocationParameters"`
-	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-	TaskType string `pulumi:"taskType"`
-	// The Id of the maintenance window to register the task with.
-	WindowId string `pulumi:"windowId"`
+	TaskType                 string                                         `pulumi:"taskType"`
+	WindowId                 string                                         `pulumi:"windowId"`
 }
 
 // The set of arguments for constructing a MaintenanceWindowTask resource.
 type MaintenanceWindowTaskArgs struct {
-	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
-	CutoffBehavior pulumi.StringPtrInput
-	// The description of the maintenance window task.
-	Description pulumi.StringPtrInput
-	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency pulumi.StringPtrInput
-	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors pulumi.StringPtrInput
-	// The name of the maintenance window task.
-	Name pulumi.StringPtrInput
-	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
-	Priority pulumi.IntPtrInput
-	// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-	ServiceRoleArn pulumi.StringPtrInput
-	// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
-	Targets MaintenanceWindowTaskTargetArrayInput
-	// The ARN of the task to execute.
-	TaskArn pulumi.StringInput
-	// Configuration block with parameters for task execution.
+	CutoffBehavior           pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	MaxConcurrency           pulumi.StringPtrInput
+	MaxErrors                pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	Priority                 pulumi.IntPtrInput
+	ServiceRoleArn           pulumi.StringPtrInput
+	Targets                  MaintenanceWindowTaskTargetArrayInput
+	TaskArn                  pulumi.StringInput
 	TaskInvocationParameters MaintenanceWindowTaskTaskInvocationParametersPtrInput
-	// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
-	TaskType pulumi.StringInput
-	// The Id of the maintenance window to register the task with.
-	WindowId pulumi.StringInput
+	TaskType                 pulumi.StringInput
+	WindowId                 pulumi.StringInput
 }
 
 func (MaintenanceWindowTaskArgs) ElementType() reflect.Type {
@@ -460,74 +223,60 @@ func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutputWithContext(ct
 	return o
 }
 
-// The ARN of the maintenance window task.
 func (o MaintenanceWindowTaskOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
 func (o MaintenanceWindowTaskOutput) CutoffBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.CutoffBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The description of the maintenance window task.
 func (o MaintenanceWindowTaskOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The maximum number of targets this task can be run for in parallel.
 func (o MaintenanceWindowTaskOutput) MaxConcurrency() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.MaxConcurrency }).(pulumi.StringOutput)
 }
 
-// The maximum number of errors allowed before this task stops being scheduled.
 func (o MaintenanceWindowTaskOutput) MaxErrors() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.MaxErrors }).(pulumi.StringOutput)
 }
 
-// The name of the maintenance window task.
 func (o MaintenanceWindowTaskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
 func (o MaintenanceWindowTaskOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
 func (o MaintenanceWindowTaskOutput) ServiceRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.ServiceRoleArn }).(pulumi.StringOutput)
 }
 
-// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
 func (o MaintenanceWindowTaskOutput) Targets() MaintenanceWindowTaskTargetArrayOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) MaintenanceWindowTaskTargetArrayOutput { return v.Targets }).(MaintenanceWindowTaskTargetArrayOutput)
 }
 
-// The ARN of the task to execute.
 func (o MaintenanceWindowTaskOutput) TaskArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.TaskArn }).(pulumi.StringOutput)
 }
 
-// Configuration block with parameters for task execution.
 func (o MaintenanceWindowTaskOutput) TaskInvocationParameters() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
 		return v.TaskInvocationParameters
 	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
 }
 
-// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
 func (o MaintenanceWindowTaskOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.TaskType }).(pulumi.StringOutput)
 }
 
-// The Id of the maintenance window to register the task with.
 func (o MaintenanceWindowTaskOutput) WindowId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.WindowId }).(pulumi.StringOutput)
 }
 
-// The ID of the maintenance window task.
 func (o MaintenanceWindowTaskOutput) WindowTaskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTask) pulumi.StringOutput { return v.WindowTaskId }).(pulumi.StringOutput)
 }

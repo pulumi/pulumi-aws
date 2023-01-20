@@ -11,57 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Associates a transit gateway Connect peer with a device, and optionally, with a link.
-// If you specify a link, it must be associated with the specified device.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewTransitGatewayConnectPeerAssociation(ctx, "example", &networkmanager.TransitGatewayConnectPeerAssociationArgs{
-//				GlobalNetworkId:              pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				DeviceId:                     pulumi.Any(aws_networkmanager_device.Example.Id),
-//				TransitGatewayConnectPeerArn: pulumi.Any(aws_ec2_transit_gateway_connect_peer.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_networkmanager_transit_gateway_connect_peer_association` can be imported using the global network ID and customer gateway ARN, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
-//
-// ```
 type TransitGatewayConnectPeerAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the device.
-	DeviceId pulumi.StringOutput `pulumi:"deviceId"`
-	// The ID of the global network.
-	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// The ID of the link.
-	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
-	// The Amazon Resource Name (ARN) of the Connect peer.
-	TransitGatewayConnectPeerArn pulumi.StringOutput `pulumi:"transitGatewayConnectPeerArn"`
+	DeviceId                     pulumi.StringOutput    `pulumi:"deviceId"`
+	GlobalNetworkId              pulumi.StringOutput    `pulumi:"globalNetworkId"`
+	LinkId                       pulumi.StringPtrOutput `pulumi:"linkId"`
+	TransitGatewayConnectPeerArn pulumi.StringOutput    `pulumi:"transitGatewayConnectPeerArn"`
 }
 
 // NewTransitGatewayConnectPeerAssociation registers a new resource with the given unique name, arguments, and options.
@@ -102,24 +58,16 @@ func GetTransitGatewayConnectPeerAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransitGatewayConnectPeerAssociation resources.
 type transitGatewayConnectPeerAssociationState struct {
-	// The ID of the device.
-	DeviceId *string `pulumi:"deviceId"`
-	// The ID of the global network.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// The ID of the link.
-	LinkId *string `pulumi:"linkId"`
-	// The Amazon Resource Name (ARN) of the Connect peer.
+	DeviceId                     *string `pulumi:"deviceId"`
+	GlobalNetworkId              *string `pulumi:"globalNetworkId"`
+	LinkId                       *string `pulumi:"linkId"`
 	TransitGatewayConnectPeerArn *string `pulumi:"transitGatewayConnectPeerArn"`
 }
 
 type TransitGatewayConnectPeerAssociationState struct {
-	// The ID of the device.
-	DeviceId pulumi.StringPtrInput
-	// The ID of the global network.
-	GlobalNetworkId pulumi.StringPtrInput
-	// The ID of the link.
-	LinkId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Connect peer.
+	DeviceId                     pulumi.StringPtrInput
+	GlobalNetworkId              pulumi.StringPtrInput
+	LinkId                       pulumi.StringPtrInput
 	TransitGatewayConnectPeerArn pulumi.StringPtrInput
 }
 
@@ -128,25 +76,17 @@ func (TransitGatewayConnectPeerAssociationState) ElementType() reflect.Type {
 }
 
 type transitGatewayConnectPeerAssociationArgs struct {
-	// The ID of the device.
-	DeviceId string `pulumi:"deviceId"`
-	// The ID of the global network.
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// The ID of the link.
-	LinkId *string `pulumi:"linkId"`
-	// The Amazon Resource Name (ARN) of the Connect peer.
-	TransitGatewayConnectPeerArn string `pulumi:"transitGatewayConnectPeerArn"`
+	DeviceId                     string  `pulumi:"deviceId"`
+	GlobalNetworkId              string  `pulumi:"globalNetworkId"`
+	LinkId                       *string `pulumi:"linkId"`
+	TransitGatewayConnectPeerArn string  `pulumi:"transitGatewayConnectPeerArn"`
 }
 
 // The set of arguments for constructing a TransitGatewayConnectPeerAssociation resource.
 type TransitGatewayConnectPeerAssociationArgs struct {
-	// The ID of the device.
-	DeviceId pulumi.StringInput
-	// The ID of the global network.
-	GlobalNetworkId pulumi.StringInput
-	// The ID of the link.
-	LinkId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Connect peer.
+	DeviceId                     pulumi.StringInput
+	GlobalNetworkId              pulumi.StringInput
+	LinkId                       pulumi.StringPtrInput
 	TransitGatewayConnectPeerArn pulumi.StringInput
 }
 
@@ -237,22 +177,18 @@ func (o TransitGatewayConnectPeerAssociationOutput) ToTransitGatewayConnectPeerA
 	return o
 }
 
-// The ID of the device.
 func (o TransitGatewayConnectPeerAssociationOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayConnectPeerAssociation) pulumi.StringOutput { return v.DeviceId }).(pulumi.StringOutput)
 }
 
-// The ID of the global network.
 func (o TransitGatewayConnectPeerAssociationOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayConnectPeerAssociation) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// The ID of the link.
 func (o TransitGatewayConnectPeerAssociationOutput) LinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGatewayConnectPeerAssociation) pulumi.StringPtrOutput { return v.LinkId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Connect peer.
 func (o TransitGatewayConnectPeerAssociationOutput) TransitGatewayConnectPeerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayConnectPeerAssociation) pulumi.StringOutput {
 		return v.TransitGatewayConnectPeerArn

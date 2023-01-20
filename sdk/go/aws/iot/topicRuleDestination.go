@@ -11,23 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// IoT topic rule destinations can be imported using the `arn`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
-//
-// ```
 type TopicRuleDestination struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the topic rule destination
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Whether or not to enable the destination. Default: `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	Arn              pulumi.StringOutput                        `pulumi:"arn"`
+	Enabled          pulumi.BoolPtrOutput                       `pulumi:"enabled"`
 	VpcConfiguration TopicRuleDestinationVpcConfigurationOutput `pulumi:"vpcConfiguration"`
 }
 
@@ -63,20 +51,14 @@ func GetTopicRuleDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TopicRuleDestination resources.
 type topicRuleDestinationState struct {
-	// The ARN of the topic rule destination
-	Arn *string `pulumi:"arn"`
-	// Whether or not to enable the destination. Default: `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	Arn              *string                               `pulumi:"arn"`
+	Enabled          *bool                                 `pulumi:"enabled"`
 	VpcConfiguration *TopicRuleDestinationVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 type TopicRuleDestinationState struct {
-	// The ARN of the topic rule destination
-	Arn pulumi.StringPtrInput
-	// Whether or not to enable the destination. Default: `true`.
-	Enabled pulumi.BoolPtrInput
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	Arn              pulumi.StringPtrInput
+	Enabled          pulumi.BoolPtrInput
 	VpcConfiguration TopicRuleDestinationVpcConfigurationPtrInput
 }
 
@@ -85,17 +67,13 @@ func (TopicRuleDestinationState) ElementType() reflect.Type {
 }
 
 type topicRuleDestinationArgs struct {
-	// Whether or not to enable the destination. Default: `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	Enabled          *bool                                `pulumi:"enabled"`
 	VpcConfiguration TopicRuleDestinationVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // The set of arguments for constructing a TopicRuleDestination resource.
 type TopicRuleDestinationArgs struct {
-	// Whether or not to enable the destination. Default: `true`.
-	Enabled pulumi.BoolPtrInput
-	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+	Enabled          pulumi.BoolPtrInput
 	VpcConfiguration TopicRuleDestinationVpcConfigurationInput
 }
 
@@ -186,17 +164,14 @@ func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutputWithContext(ctx 
 	return o
 }
 
-// The ARN of the topic rule destination
 func (o TopicRuleDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRuleDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Whether or not to enable the destination. Default: `true`.
 func (o TopicRuleDestinationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestination) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 func (o TopicRuleDestinationOutput) VpcConfiguration() TopicRuleDestinationVpcConfigurationOutput {
 	return o.ApplyT(func(v *TopicRuleDestination) TopicRuleDestinationVpcConfigurationOutput { return v.VpcConfiguration }).(TopicRuleDestinationVpcConfigurationOutput)
 }

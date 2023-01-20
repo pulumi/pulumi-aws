@@ -11,65 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an GameLift Build resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
-//				OperatingSystem: pulumi.String("WINDOWS_2012"),
-//				StorageLocation: &gamelift.BuildStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Test.Bucket),
-//					Key:     pulumi.Any(aws_s3_object.Test.Key),
-//					RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// GameLift Builds can be imported using the ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:gamelift/build:Build example <build-id>
-//
-// ```
 type Build struct {
 	pulumi.CustomResourceState
 
-	// GameLift Build ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the build
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
-	// Information indicating where your game build files are stored. See below.
+	Arn             pulumi.StringOutput        `pulumi:"arn"`
+	Name            pulumi.StringOutput        `pulumi:"name"`
+	OperatingSystem pulumi.StringOutput        `pulumi:"operatingSystem"`
 	StorageLocation BuildStorageLocationOutput `pulumi:"storageLocation"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Version that is associated with this build.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Tags            pulumi.StringMapOutput     `pulumi:"tags"`
+	TagsAll         pulumi.StringMapOutput     `pulumi:"tagsAll"`
+	Version         pulumi.StringPtrOutput     `pulumi:"version"`
 }
 
 // NewBuild registers a new resource with the given unique name, arguments, and options.
@@ -107,37 +58,23 @@ func GetBuild(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Build resources.
 type buildState struct {
-	// GameLift Build ARN.
-	Arn *string `pulumi:"arn"`
-	// Name of the build
-	Name *string `pulumi:"name"`
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-	OperatingSystem *string `pulumi:"operatingSystem"`
-	// Information indicating where your game build files are stored. See below.
+	Arn             *string               `pulumi:"arn"`
+	Name            *string               `pulumi:"name"`
+	OperatingSystem *string               `pulumi:"operatingSystem"`
 	StorageLocation *BuildStorageLocation `pulumi:"storageLocation"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Version that is associated with this build.
-	Version *string `pulumi:"version"`
+	Tags            map[string]string     `pulumi:"tags"`
+	TagsAll         map[string]string     `pulumi:"tagsAll"`
+	Version         *string               `pulumi:"version"`
 }
 
 type BuildState struct {
-	// GameLift Build ARN.
-	Arn pulumi.StringPtrInput
-	// Name of the build
-	Name pulumi.StringPtrInput
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+	Arn             pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
 	OperatingSystem pulumi.StringPtrInput
-	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Version that is associated with this build.
-	Version pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	TagsAll         pulumi.StringMapInput
+	Version         pulumi.StringPtrInput
 }
 
 func (BuildState) ElementType() reflect.Type {
@@ -145,30 +82,20 @@ func (BuildState) ElementType() reflect.Type {
 }
 
 type buildArgs struct {
-	// Name of the build
-	Name *string `pulumi:"name"`
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-	OperatingSystem string `pulumi:"operatingSystem"`
-	// Information indicating where your game build files are stored. See below.
+	Name            *string              `pulumi:"name"`
+	OperatingSystem string               `pulumi:"operatingSystem"`
 	StorageLocation BuildStorageLocation `pulumi:"storageLocation"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Version that is associated with this build.
-	Version *string `pulumi:"version"`
+	Tags            map[string]string    `pulumi:"tags"`
+	Version         *string              `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Build resource.
 type BuildArgs struct {
-	// Name of the build
-	Name pulumi.StringPtrInput
-	// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
+	Name            pulumi.StringPtrInput
 	OperatingSystem pulumi.StringInput
-	// Information indicating where your game build files are stored. See below.
 	StorageLocation BuildStorageLocationInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Version that is associated with this build.
-	Version pulumi.StringPtrInput
+	Tags            pulumi.StringMapInput
+	Version         pulumi.StringPtrInput
 }
 
 func (BuildArgs) ElementType() reflect.Type {
@@ -258,37 +185,30 @@ func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return o
 }
 
-// GameLift Build ARN.
 func (o BuildOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the build
 func (o BuildOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
 func (o BuildOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
-// Information indicating where your game build files are stored. See below.
 func (o BuildOutput) StorageLocation() BuildStorageLocationOutput {
 	return o.ApplyT(func(v *Build) BuildStorageLocationOutput { return v.StorageLocation }).(BuildStorageLocationOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o BuildOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o BuildOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Version that is associated with this build.
 func (o BuildOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Build) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }

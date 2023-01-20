@@ -11,57 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a SageMaker Model Package Group resource.
-//
-// ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewModelPackageGroup(ctx, "example", &sagemaker.ModelPackageGroupArgs{
-//				ModelPackageGroupName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// SageMaker Model Package Groups can be imported using the `name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
-//
-// ```
 type ModelPackageGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description for the model group.
+	Arn                          pulumi.StringOutput    `pulumi:"arn"`
 	ModelPackageGroupDescription pulumi.StringPtrOutput `pulumi:"modelPackageGroupDescription"`
-	// The name of the model group.
-	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ModelPackageGroupName        pulumi.StringOutput    `pulumi:"modelPackageGroupName"`
+	Tags                         pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll                      pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewModelPackageGroup registers a new resource with the given unique name, arguments, and options.
@@ -96,29 +53,19 @@ func GetModelPackageGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ModelPackageGroup resources.
 type modelPackageGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-	Arn *string `pulumi:"arn"`
-	// A description for the model group.
-	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`
-	// The name of the model group.
-	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                          *string           `pulumi:"arn"`
+	ModelPackageGroupDescription *string           `pulumi:"modelPackageGroupDescription"`
+	ModelPackageGroupName        *string           `pulumi:"modelPackageGroupName"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TagsAll                      map[string]string `pulumi:"tagsAll"`
 }
 
 type ModelPackageGroupState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-	Arn pulumi.StringPtrInput
-	// A description for the model group.
+	Arn                          pulumi.StringPtrInput
 	ModelPackageGroupDescription pulumi.StringPtrInput
-	// The name of the model group.
-	ModelPackageGroupName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	ModelPackageGroupName        pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TagsAll                      pulumi.StringMapInput
 }
 
 func (ModelPackageGroupState) ElementType() reflect.Type {
@@ -126,22 +73,16 @@ func (ModelPackageGroupState) ElementType() reflect.Type {
 }
 
 type modelPackageGroupArgs struct {
-	// A description for the model group.
-	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`
-	// The name of the model group.
-	ModelPackageGroupName string `pulumi:"modelPackageGroupName"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	ModelPackageGroupDescription *string           `pulumi:"modelPackageGroupDescription"`
+	ModelPackageGroupName        string            `pulumi:"modelPackageGroupName"`
+	Tags                         map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelPackageGroup resource.
 type ModelPackageGroupArgs struct {
-	// A description for the model group.
 	ModelPackageGroupDescription pulumi.StringPtrInput
-	// The name of the model group.
-	ModelPackageGroupName pulumi.StringInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	ModelPackageGroupName        pulumi.StringInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (ModelPackageGroupArgs) ElementType() reflect.Type {
@@ -231,27 +172,22 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
 func (o ModelPackageGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description for the model group.
 func (o ModelPackageGroupOutput) ModelPackageGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringPtrOutput { return v.ModelPackageGroupDescription }).(pulumi.StringPtrOutput)
 }
 
-// The name of the model group.
 func (o ModelPackageGroupOutput) ModelPackageGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ModelPackageGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ModelPackageGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ModelPackageGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

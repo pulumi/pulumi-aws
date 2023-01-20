@@ -11,10 +11,8 @@ import (
 )
 
 type ScheduleFlexibleTimeWindow struct {
-	// Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
-	MaximumWindowInMinutes *int `pulumi:"maximumWindowInMinutes"`
-	// Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-	Mode string `pulumi:"mode"`
+	MaximumWindowInMinutes *int   `pulumi:"maximumWindowInMinutes"`
+	Mode                   string `pulumi:"mode"`
 }
 
 // ScheduleFlexibleTimeWindowInput is an input type that accepts ScheduleFlexibleTimeWindowArgs and ScheduleFlexibleTimeWindowOutput values.
@@ -29,10 +27,8 @@ type ScheduleFlexibleTimeWindowInput interface {
 }
 
 type ScheduleFlexibleTimeWindowArgs struct {
-	// Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
 	MaximumWindowInMinutes pulumi.IntPtrInput `pulumi:"maximumWindowInMinutes"`
-	// Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Mode                   pulumi.StringInput `pulumi:"mode"`
 }
 
 func (ScheduleFlexibleTimeWindowArgs) ElementType() reflect.Type {
@@ -112,12 +108,10 @@ func (o ScheduleFlexibleTimeWindowOutput) ToScheduleFlexibleTimeWindowPtrOutputW
 	}).(ScheduleFlexibleTimeWindowPtrOutput)
 }
 
-// Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
 func (o ScheduleFlexibleTimeWindowOutput) MaximumWindowInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleFlexibleTimeWindow) *int { return v.MaximumWindowInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
 func (o ScheduleFlexibleTimeWindowOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleFlexibleTimeWindow) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -146,7 +140,6 @@ func (o ScheduleFlexibleTimeWindowPtrOutput) Elem() ScheduleFlexibleTimeWindowOu
 	}).(ScheduleFlexibleTimeWindowOutput)
 }
 
-// Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
 func (o ScheduleFlexibleTimeWindowPtrOutput) MaximumWindowInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleFlexibleTimeWindow) *int {
 		if v == nil {
@@ -156,7 +149,6 @@ func (o ScheduleFlexibleTimeWindowPtrOutput) MaximumWindowInMinutes() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
 func (o ScheduleFlexibleTimeWindowPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleFlexibleTimeWindow) *string {
 		if v == nil {
@@ -167,26 +159,16 @@ func (o ScheduleFlexibleTimeWindowPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type ScheduleTarget struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
-	Arn string `pulumi:"arn"`
-	// Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
-	DeadLetterConfig *ScheduleTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
-	// Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
-	EcsParameters *ScheduleTargetEcsParameters `pulumi:"ecsParameters"`
-	// Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
-	EventbridgeParameters *ScheduleTargetEventbridgeParameters `pulumi:"eventbridgeParameters"`
-	// Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
-	Input *string `pulumi:"input"`
-	// Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
-	KinesisParameters *ScheduleTargetKinesisParameters `pulumi:"kinesisParameters"`
-	// Information about the retry policy settings. Detailed below.
-	RetryPolicy *ScheduleTargetRetryPolicy `pulumi:"retryPolicy"`
-	// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
-	RoleArn string `pulumi:"roleArn"`
-	// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+	Arn                         string                                     `pulumi:"arn"`
+	DeadLetterConfig            *ScheduleTargetDeadLetterConfig            `pulumi:"deadLetterConfig"`
+	EcsParameters               *ScheduleTargetEcsParameters               `pulumi:"ecsParameters"`
+	EventbridgeParameters       *ScheduleTargetEventbridgeParameters       `pulumi:"eventbridgeParameters"`
+	Input                       *string                                    `pulumi:"input"`
+	KinesisParameters           *ScheduleTargetKinesisParameters           `pulumi:"kinesisParameters"`
+	RetryPolicy                 *ScheduleTargetRetryPolicy                 `pulumi:"retryPolicy"`
+	RoleArn                     string                                     `pulumi:"roleArn"`
 	SagemakerPipelineParameters *ScheduleTargetSagemakerPipelineParameters `pulumi:"sagemakerPipelineParameters"`
-	// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
-	SqsParameters *ScheduleTargetSqsParameters `pulumi:"sqsParameters"`
+	SqsParameters               *ScheduleTargetSqsParameters               `pulumi:"sqsParameters"`
 }
 
 // ScheduleTargetInput is an input type that accepts ScheduleTargetArgs and ScheduleTargetOutput values.
@@ -201,26 +183,16 @@ type ScheduleTargetInput interface {
 }
 
 type ScheduleTargetArgs struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
-	DeadLetterConfig ScheduleTargetDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
-	// Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
-	EcsParameters ScheduleTargetEcsParametersPtrInput `pulumi:"ecsParameters"`
-	// Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
-	EventbridgeParameters ScheduleTargetEventbridgeParametersPtrInput `pulumi:"eventbridgeParameters"`
-	// Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
-	Input pulumi.StringPtrInput `pulumi:"input"`
-	// Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
-	KinesisParameters ScheduleTargetKinesisParametersPtrInput `pulumi:"kinesisParameters"`
-	// Information about the retry policy settings. Detailed below.
-	RetryPolicy ScheduleTargetRetryPolicyPtrInput `pulumi:"retryPolicy"`
-	// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+	Arn                         pulumi.StringInput                                `pulumi:"arn"`
+	DeadLetterConfig            ScheduleTargetDeadLetterConfigPtrInput            `pulumi:"deadLetterConfig"`
+	EcsParameters               ScheduleTargetEcsParametersPtrInput               `pulumi:"ecsParameters"`
+	EventbridgeParameters       ScheduleTargetEventbridgeParametersPtrInput       `pulumi:"eventbridgeParameters"`
+	Input                       pulumi.StringPtrInput                             `pulumi:"input"`
+	KinesisParameters           ScheduleTargetKinesisParametersPtrInput           `pulumi:"kinesisParameters"`
+	RetryPolicy                 ScheduleTargetRetryPolicyPtrInput                 `pulumi:"retryPolicy"`
+	RoleArn                     pulumi.StringInput                                `pulumi:"roleArn"`
 	SagemakerPipelineParameters ScheduleTargetSagemakerPipelineParametersPtrInput `pulumi:"sagemakerPipelineParameters"`
-	// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
-	SqsParameters ScheduleTargetSqsParametersPtrInput `pulumi:"sqsParameters"`
+	SqsParameters               ScheduleTargetSqsParametersPtrInput               `pulumi:"sqsParameters"`
 }
 
 func (ScheduleTargetArgs) ElementType() reflect.Type {
@@ -300,54 +272,44 @@ func (o ScheduleTargetOutput) ToScheduleTargetPtrOutputWithContext(ctx context.C
 	}).(ScheduleTargetPtrOutput)
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
 func (o ScheduleTargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTarget) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
 func (o ScheduleTargetOutput) DeadLetterConfig() ScheduleTargetDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetDeadLetterConfig { return v.DeadLetterConfig }).(ScheduleTargetDeadLetterConfigPtrOutput)
 }
 
-// Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
 func (o ScheduleTargetOutput) EcsParameters() ScheduleTargetEcsParametersPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetEcsParameters { return v.EcsParameters }).(ScheduleTargetEcsParametersPtrOutput)
 }
 
-// Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
 func (o ScheduleTargetOutput) EventbridgeParameters() ScheduleTargetEventbridgeParametersPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetEventbridgeParameters { return v.EventbridgeParameters }).(ScheduleTargetEventbridgeParametersPtrOutput)
 }
 
-// Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
 func (o ScheduleTargetOutput) Input() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *string { return v.Input }).(pulumi.StringPtrOutput)
 }
 
-// Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
 func (o ScheduleTargetOutput) KinesisParameters() ScheduleTargetKinesisParametersPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetKinesisParameters { return v.KinesisParameters }).(ScheduleTargetKinesisParametersPtrOutput)
 }
 
-// Information about the retry policy settings. Detailed below.
 func (o ScheduleTargetOutput) RetryPolicy() ScheduleTargetRetryPolicyPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetRetryPolicy { return v.RetryPolicy }).(ScheduleTargetRetryPolicyPtrOutput)
 }
 
-// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
 func (o ScheduleTargetOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTarget) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 func (o ScheduleTargetOutput) SagemakerPipelineParameters() ScheduleTargetSagemakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetSagemakerPipelineParameters {
 		return v.SagemakerPipelineParameters
 	}).(ScheduleTargetSagemakerPipelineParametersPtrOutput)
 }
 
-// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
 func (o ScheduleTargetOutput) SqsParameters() ScheduleTargetSqsParametersPtrOutput {
 	return o.ApplyT(func(v ScheduleTarget) *ScheduleTargetSqsParameters { return v.SqsParameters }).(ScheduleTargetSqsParametersPtrOutput)
 }
@@ -376,7 +338,6 @@ func (o ScheduleTargetPtrOutput) Elem() ScheduleTargetOutput {
 	}).(ScheduleTargetOutput)
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
 func (o ScheduleTargetPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *string {
 		if v == nil {
@@ -386,7 +347,6 @@ func (o ScheduleTargetPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
 func (o ScheduleTargetPtrOutput) DeadLetterConfig() ScheduleTargetDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetDeadLetterConfig {
 		if v == nil {
@@ -396,7 +356,6 @@ func (o ScheduleTargetPtrOutput) DeadLetterConfig() ScheduleTargetDeadLetterConf
 	}).(ScheduleTargetDeadLetterConfigPtrOutput)
 }
 
-// Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
 func (o ScheduleTargetPtrOutput) EcsParameters() ScheduleTargetEcsParametersPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetEcsParameters {
 		if v == nil {
@@ -406,7 +365,6 @@ func (o ScheduleTargetPtrOutput) EcsParameters() ScheduleTargetEcsParametersPtrO
 	}).(ScheduleTargetEcsParametersPtrOutput)
 }
 
-// Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
 func (o ScheduleTargetPtrOutput) EventbridgeParameters() ScheduleTargetEventbridgeParametersPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetEventbridgeParameters {
 		if v == nil {
@@ -416,7 +374,6 @@ func (o ScheduleTargetPtrOutput) EventbridgeParameters() ScheduleTargetEventbrid
 	}).(ScheduleTargetEventbridgeParametersPtrOutput)
 }
 
-// Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
 func (o ScheduleTargetPtrOutput) Input() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *string {
 		if v == nil {
@@ -426,7 +383,6 @@ func (o ScheduleTargetPtrOutput) Input() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
 func (o ScheduleTargetPtrOutput) KinesisParameters() ScheduleTargetKinesisParametersPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetKinesisParameters {
 		if v == nil {
@@ -436,7 +392,6 @@ func (o ScheduleTargetPtrOutput) KinesisParameters() ScheduleTargetKinesisParame
 	}).(ScheduleTargetKinesisParametersPtrOutput)
 }
 
-// Information about the retry policy settings. Detailed below.
 func (o ScheduleTargetPtrOutput) RetryPolicy() ScheduleTargetRetryPolicyPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetRetryPolicy {
 		if v == nil {
@@ -446,7 +401,6 @@ func (o ScheduleTargetPtrOutput) RetryPolicy() ScheduleTargetRetryPolicyPtrOutpu
 	}).(ScheduleTargetRetryPolicyPtrOutput)
 }
 
-// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
 func (o ScheduleTargetPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *string {
 		if v == nil {
@@ -456,7 +410,6 @@ func (o ScheduleTargetPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 func (o ScheduleTargetPtrOutput) SagemakerPipelineParameters() ScheduleTargetSagemakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetSagemakerPipelineParameters {
 		if v == nil {
@@ -466,7 +419,6 @@ func (o ScheduleTargetPtrOutput) SagemakerPipelineParameters() ScheduleTargetSag
 	}).(ScheduleTargetSagemakerPipelineParametersPtrOutput)
 }
 
-// The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
 func (o ScheduleTargetPtrOutput) SqsParameters() ScheduleTargetSqsParametersPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *ScheduleTargetSqsParameters {
 		if v == nil {
@@ -477,7 +429,6 @@ func (o ScheduleTargetPtrOutput) SqsParameters() ScheduleTargetSqsParametersPtrO
 }
 
 type ScheduleTargetDeadLetterConfig struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -493,7 +444,6 @@ type ScheduleTargetDeadLetterConfigInput interface {
 }
 
 type ScheduleTargetDeadLetterConfigArgs struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -574,7 +524,6 @@ func (o ScheduleTargetDeadLetterConfigOutput) ToScheduleTargetDeadLetterConfigPt
 	}).(ScheduleTargetDeadLetterConfigPtrOutput)
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
 func (o ScheduleTargetDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -603,7 +552,6 @@ func (o ScheduleTargetDeadLetterConfigPtrOutput) Elem() ScheduleTargetDeadLetter
 	}).(ScheduleTargetDeadLetterConfigOutput)
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
 func (o ScheduleTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetDeadLetterConfig) *string {
 		if v == nil {
@@ -614,34 +562,20 @@ func (o ScheduleTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 type ScheduleTargetEcsParameters struct {
-	// Up to `6` capacity provider strategies to use for the task. Detailed below.
 	CapacityProviderStrategies []ScheduleTargetEcsParametersCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
-	// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
-	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
-	// Specifies whether to enable the execute command functionality for the containers in this task.
-	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
-	// Specifies an ECS task group for the task. At most 255 characters.
-	Group *string `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
-	LaunchType *string `pulumi:"launchType"`
-	// Configures the networking associated with the task. Detailed below.
-	NetworkConfiguration *ScheduleTargetEcsParametersNetworkConfiguration `pulumi:"networkConfiguration"`
-	// A set of up to 10 placement constraints to use for the task. Detailed below.
-	PlacementConstraints []ScheduleTargetEcsParametersPlacementConstraint `pulumi:"placementConstraints"`
-	// A set of up to 5 placement strategies. Detailed below.
-	PlacementStrategies []ScheduleTargetEcsParametersPlacementStrategy `pulumi:"placementStrategies"`
-	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
-	PlatformVersion *string `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
-	PropagateTags *string `pulumi:"propagateTags"`
-	// Reference ID to use for the task.
-	ReferenceId *string `pulumi:"referenceId"`
-	// The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
-	Tags map[string]string `pulumi:"tags"`
-	// The number of tasks to create. Ranges from `1` (default) to `10`.
-	TaskCount *int `pulumi:"taskCount"`
-	// ARN of the task definition to use.
-	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
+	EnableEcsManagedTags       *bool                                                 `pulumi:"enableEcsManagedTags"`
+	EnableExecuteCommand       *bool                                                 `pulumi:"enableExecuteCommand"`
+	Group                      *string                                               `pulumi:"group"`
+	LaunchType                 *string                                               `pulumi:"launchType"`
+	NetworkConfiguration       *ScheduleTargetEcsParametersNetworkConfiguration      `pulumi:"networkConfiguration"`
+	PlacementConstraints       []ScheduleTargetEcsParametersPlacementConstraint      `pulumi:"placementConstraints"`
+	PlacementStrategies        []ScheduleTargetEcsParametersPlacementStrategy        `pulumi:"placementStrategies"`
+	PlatformVersion            *string                                               `pulumi:"platformVersion"`
+	PropagateTags              *string                                               `pulumi:"propagateTags"`
+	ReferenceId                *string                                               `pulumi:"referenceId"`
+	Tags                       map[string]string                                     `pulumi:"tags"`
+	TaskCount                  *int                                                  `pulumi:"taskCount"`
+	TaskDefinitionArn          string                                                `pulumi:"taskDefinitionArn"`
 }
 
 // ScheduleTargetEcsParametersInput is an input type that accepts ScheduleTargetEcsParametersArgs and ScheduleTargetEcsParametersOutput values.
@@ -656,34 +590,20 @@ type ScheduleTargetEcsParametersInput interface {
 }
 
 type ScheduleTargetEcsParametersArgs struct {
-	// Up to `6` capacity provider strategies to use for the task. Detailed below.
 	CapacityProviderStrategies ScheduleTargetEcsParametersCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
-	// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
-	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
-	// Specifies whether to enable the execute command functionality for the containers in this task.
-	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
-	// Specifies an ECS task group for the task. At most 255 characters.
-	Group pulumi.StringPtrInput `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
-	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
-	// Configures the networking associated with the task. Detailed below.
-	NetworkConfiguration ScheduleTargetEcsParametersNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
-	// A set of up to 10 placement constraints to use for the task. Detailed below.
-	PlacementConstraints ScheduleTargetEcsParametersPlacementConstraintArrayInput `pulumi:"placementConstraints"`
-	// A set of up to 5 placement strategies. Detailed below.
-	PlacementStrategies ScheduleTargetEcsParametersPlacementStrategyArrayInput `pulumi:"placementStrategies"`
-	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
-	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
-	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
-	// Reference ID to use for the task.
-	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
-	// The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The number of tasks to create. Ranges from `1` (default) to `10`.
-	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
-	// ARN of the task definition to use.
-	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
+	EnableEcsManagedTags       pulumi.BoolPtrInput                                           `pulumi:"enableEcsManagedTags"`
+	EnableExecuteCommand       pulumi.BoolPtrInput                                           `pulumi:"enableExecuteCommand"`
+	Group                      pulumi.StringPtrInput                                         `pulumi:"group"`
+	LaunchType                 pulumi.StringPtrInput                                         `pulumi:"launchType"`
+	NetworkConfiguration       ScheduleTargetEcsParametersNetworkConfigurationPtrInput       `pulumi:"networkConfiguration"`
+	PlacementConstraints       ScheduleTargetEcsParametersPlacementConstraintArrayInput      `pulumi:"placementConstraints"`
+	PlacementStrategies        ScheduleTargetEcsParametersPlacementStrategyArrayInput        `pulumi:"placementStrategies"`
+	PlatformVersion            pulumi.StringPtrInput                                         `pulumi:"platformVersion"`
+	PropagateTags              pulumi.StringPtrInput                                         `pulumi:"propagateTags"`
+	ReferenceId                pulumi.StringPtrInput                                         `pulumi:"referenceId"`
+	Tags                       pulumi.StringMapInput                                         `pulumi:"tags"`
+	TaskCount                  pulumi.IntPtrInput                                            `pulumi:"taskCount"`
+	TaskDefinitionArn          pulumi.StringInput                                            `pulumi:"taskDefinitionArn"`
 }
 
 func (ScheduleTargetEcsParametersArgs) ElementType() reflect.Type {
@@ -763,80 +683,66 @@ func (o ScheduleTargetEcsParametersOutput) ToScheduleTargetEcsParametersPtrOutpu
 	}).(ScheduleTargetEcsParametersPtrOutput)
 }
 
-// Up to `6` capacity provider strategies to use for the task. Detailed below.
 func (o ScheduleTargetEcsParametersOutput) CapacityProviderStrategies() ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) []ScheduleTargetEcsParametersCapacityProviderStrategy {
 		return v.CapacityProviderStrategies
 	}).(ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput)
 }
 
-// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
 func (o ScheduleTargetEcsParametersOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to enable the execute command functionality for the containers in this task.
 func (o ScheduleTargetEcsParametersOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an ECS task group for the task. At most 255 characters.
 func (o ScheduleTargetEcsParametersOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *string { return v.Group }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
 func (o ScheduleTargetEcsParametersOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
 
-// Configures the networking associated with the task. Detailed below.
 func (o ScheduleTargetEcsParametersOutput) NetworkConfiguration() ScheduleTargetEcsParametersNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *ScheduleTargetEcsParametersNetworkConfiguration {
 		return v.NetworkConfiguration
 	}).(ScheduleTargetEcsParametersNetworkConfigurationPtrOutput)
 }
 
-// A set of up to 10 placement constraints to use for the task. Detailed below.
 func (o ScheduleTargetEcsParametersOutput) PlacementConstraints() ScheduleTargetEcsParametersPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) []ScheduleTargetEcsParametersPlacementConstraint {
 		return v.PlacementConstraints
 	}).(ScheduleTargetEcsParametersPlacementConstraintArrayOutput)
 }
 
-// A set of up to 5 placement strategies. Detailed below.
 func (o ScheduleTargetEcsParametersOutput) PlacementStrategies() ScheduleTargetEcsParametersPlacementStrategyArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) []ScheduleTargetEcsParametersPlacementStrategy {
 		return v.PlacementStrategies
 	}).(ScheduleTargetEcsParametersPlacementStrategyArrayOutput)
 }
 
-// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
 func (o ScheduleTargetEcsParametersOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
 func (o ScheduleTargetEcsParametersOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
 
-// Reference ID to use for the task.
 func (o ScheduleTargetEcsParametersOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *string { return v.ReferenceId }).(pulumi.StringPtrOutput)
 }
 
-// The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
 func (o ScheduleTargetEcsParametersOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The number of tasks to create. Ranges from `1` (default) to `10`.
 func (o ScheduleTargetEcsParametersOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) *int { return v.TaskCount }).(pulumi.IntPtrOutput)
 }
 
-// ARN of the task definition to use.
 func (o ScheduleTargetEcsParametersOutput) TaskDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) string { return v.TaskDefinitionArn }).(pulumi.StringOutput)
 }
@@ -865,7 +771,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) Elem() ScheduleTargetEcsParameters
 	}).(ScheduleTargetEcsParametersOutput)
 }
 
-// Up to `6` capacity provider strategies to use for the task. Detailed below.
 func (o ScheduleTargetEcsParametersPtrOutput) CapacityProviderStrategies() ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) []ScheduleTargetEcsParametersCapacityProviderStrategy {
 		if v == nil {
@@ -875,7 +780,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) CapacityProviderStrategies() Sched
 	}).(ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput)
 }
 
-// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
 func (o ScheduleTargetEcsParametersPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *bool {
 		if v == nil {
@@ -885,7 +789,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) EnableEcsManagedTags() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to enable the execute command functionality for the containers in this task.
 func (o ScheduleTargetEcsParametersPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *bool {
 		if v == nil {
@@ -895,7 +798,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) EnableExecuteCommand() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an ECS task group for the task. At most 255 characters.
 func (o ScheduleTargetEcsParametersPtrOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *string {
 		if v == nil {
@@ -905,7 +807,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) Group() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
 func (o ScheduleTargetEcsParametersPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *string {
 		if v == nil {
@@ -915,7 +816,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) LaunchType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures the networking associated with the task. Detailed below.
 func (o ScheduleTargetEcsParametersPtrOutput) NetworkConfiguration() ScheduleTargetEcsParametersNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *ScheduleTargetEcsParametersNetworkConfiguration {
 		if v == nil {
@@ -925,7 +825,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) NetworkConfiguration() ScheduleTar
 	}).(ScheduleTargetEcsParametersNetworkConfigurationPtrOutput)
 }
 
-// A set of up to 10 placement constraints to use for the task. Detailed below.
 func (o ScheduleTargetEcsParametersPtrOutput) PlacementConstraints() ScheduleTargetEcsParametersPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) []ScheduleTargetEcsParametersPlacementConstraint {
 		if v == nil {
@@ -935,7 +834,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) PlacementConstraints() ScheduleTar
 	}).(ScheduleTargetEcsParametersPlacementConstraintArrayOutput)
 }
 
-// A set of up to 5 placement strategies. Detailed below.
 func (o ScheduleTargetEcsParametersPtrOutput) PlacementStrategies() ScheduleTargetEcsParametersPlacementStrategyArrayOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) []ScheduleTargetEcsParametersPlacementStrategy {
 		if v == nil {
@@ -945,7 +843,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) PlacementStrategies() ScheduleTarg
 	}).(ScheduleTargetEcsParametersPlacementStrategyArrayOutput)
 }
 
-// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
 func (o ScheduleTargetEcsParametersPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *string {
 		if v == nil {
@@ -955,7 +852,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) PlatformVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
 func (o ScheduleTargetEcsParametersPtrOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *string {
 		if v == nil {
@@ -965,7 +861,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) PropagateTags() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference ID to use for the task.
 func (o ScheduleTargetEcsParametersPtrOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *string {
 		if v == nil {
@@ -975,7 +870,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) ReferenceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
 func (o ScheduleTargetEcsParametersPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) map[string]string {
 		if v == nil {
@@ -985,7 +879,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The number of tasks to create. Ranges from `1` (default) to `10`.
 func (o ScheduleTargetEcsParametersPtrOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *int {
 		if v == nil {
@@ -995,7 +888,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) TaskCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// ARN of the task definition to use.
 func (o ScheduleTargetEcsParametersPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *string {
 		if v == nil {
@@ -1006,12 +898,9 @@ func (o ScheduleTargetEcsParametersPtrOutput) TaskDefinitionArn() pulumi.StringP
 }
 
 type ScheduleTargetEcsParametersCapacityProviderStrategy struct {
-	// How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
-	Base *int `pulumi:"base"`
-	// Short name of the capacity provider.
+	Base             *int   `pulumi:"base"`
 	CapacityProvider string `pulumi:"capacityProvider"`
-	// Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
-	Weight *int `pulumi:"weight"`
+	Weight           *int   `pulumi:"weight"`
 }
 
 // ScheduleTargetEcsParametersCapacityProviderStrategyInput is an input type that accepts ScheduleTargetEcsParametersCapacityProviderStrategyArgs and ScheduleTargetEcsParametersCapacityProviderStrategyOutput values.
@@ -1026,12 +915,9 @@ type ScheduleTargetEcsParametersCapacityProviderStrategyInput interface {
 }
 
 type ScheduleTargetEcsParametersCapacityProviderStrategyArgs struct {
-	// How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
-	Base pulumi.IntPtrInput `pulumi:"base"`
-	// Short name of the capacity provider.
+	Base             pulumi.IntPtrInput `pulumi:"base"`
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	// Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight           pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ScheduleTargetEcsParametersCapacityProviderStrategyArgs) ElementType() reflect.Type {
@@ -1085,17 +971,14 @@ func (o ScheduleTargetEcsParametersCapacityProviderStrategyOutput) ToScheduleTar
 	return o
 }
 
-// How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
 func (o ScheduleTargetEcsParametersCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// Short name of the capacity provider.
 func (o ScheduleTargetEcsParametersCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
-// Designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Ranges from from `0` to `1000`.
 func (o ScheduleTargetEcsParametersCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1121,12 +1004,9 @@ func (o ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput) Index(i 
 }
 
 type ScheduleTargetEcsParametersNetworkConfiguration struct {
-	// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
-	AssignPublicIp *bool `pulumi:"assignPublicIp"`
-	// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
+	AssignPublicIp *bool    `pulumi:"assignPublicIp"`
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
-	Subnets []string `pulumi:"subnets"`
+	Subnets        []string `pulumi:"subnets"`
 }
 
 // ScheduleTargetEcsParametersNetworkConfigurationInput is an input type that accepts ScheduleTargetEcsParametersNetworkConfigurationArgs and ScheduleTargetEcsParametersNetworkConfigurationOutput values.
@@ -1141,12 +1021,9 @@ type ScheduleTargetEcsParametersNetworkConfigurationInput interface {
 }
 
 type ScheduleTargetEcsParametersNetworkConfigurationArgs struct {
-	// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
-	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
-	// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
+	AssignPublicIp pulumi.BoolPtrInput     `pulumi:"assignPublicIp"`
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (ScheduleTargetEcsParametersNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -1226,17 +1103,14 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) ToScheduleTargetE
 	}).(ScheduleTargetEcsParametersNetworkConfigurationPtrOutput)
 }
 
-// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
 func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
 
-// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
 func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
 func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -1265,7 +1139,6 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) Elem() Schedul
 	}).(ScheduleTargetEcsParametersNetworkConfigurationOutput)
 }
 
-// Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when the `launchType` is set to `FARGATE`. One of: `ENABLED`, `DISABLED`.
 func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParametersNetworkConfiguration) *bool {
 		if v == nil {
@@ -1275,7 +1148,6 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) AssignPublicIp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
 func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParametersNetworkConfiguration) []string {
 		if v == nil {
@@ -1285,7 +1157,6 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) SecurityGroups
 	}).(pulumi.StringArrayOutput)
 }
 
-// Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
 func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParametersNetworkConfiguration) []string {
 		if v == nil {
@@ -1296,10 +1167,8 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) Subnets() pulu
 }
 
 type ScheduleTargetEcsParametersPlacementConstraint struct {
-	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
 	Expression *string `pulumi:"expression"`
-	// The type of placement strategy. One of: `random`, `spread`, `binpack`.
-	Type string `pulumi:"type"`
+	Type       string  `pulumi:"type"`
 }
 
 // ScheduleTargetEcsParametersPlacementConstraintInput is an input type that accepts ScheduleTargetEcsParametersPlacementConstraintArgs and ScheduleTargetEcsParametersPlacementConstraintOutput values.
@@ -1314,10 +1183,8 @@ type ScheduleTargetEcsParametersPlacementConstraintInput interface {
 }
 
 type ScheduleTargetEcsParametersPlacementConstraintArgs struct {
-	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// The type of placement strategy. One of: `random`, `spread`, `binpack`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ScheduleTargetEcsParametersPlacementConstraintArgs) ElementType() reflect.Type {
@@ -1371,12 +1238,10 @@ func (o ScheduleTargetEcsParametersPlacementConstraintOutput) ToScheduleTargetEc
 	return o
 }
 
-// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
 func (o ScheduleTargetEcsParametersPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. One of: `random`, `spread`, `binpack`.
 func (o ScheduleTargetEcsParametersPlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1402,10 +1267,8 @@ func (o ScheduleTargetEcsParametersPlacementConstraintArrayOutput) Index(i pulum
 }
 
 type ScheduleTargetEcsParametersPlacementStrategy struct {
-	// The field to apply the placement strategy against.
 	Field *string `pulumi:"field"`
-	// The type of placement strategy. One of: `random`, `spread`, `binpack`.
-	Type string `pulumi:"type"`
+	Type  string  `pulumi:"type"`
 }
 
 // ScheduleTargetEcsParametersPlacementStrategyInput is an input type that accepts ScheduleTargetEcsParametersPlacementStrategyArgs and ScheduleTargetEcsParametersPlacementStrategyOutput values.
@@ -1420,10 +1283,8 @@ type ScheduleTargetEcsParametersPlacementStrategyInput interface {
 }
 
 type ScheduleTargetEcsParametersPlacementStrategyArgs struct {
-	// The field to apply the placement strategy against.
 	Field pulumi.StringPtrInput `pulumi:"field"`
-	// The type of placement strategy. One of: `random`, `spread`, `binpack`.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type  pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ScheduleTargetEcsParametersPlacementStrategyArgs) ElementType() reflect.Type {
@@ -1477,12 +1338,10 @@ func (o ScheduleTargetEcsParametersPlacementStrategyOutput) ToScheduleTargetEcsP
 	return o
 }
 
-// The field to apply the placement strategy against.
 func (o ScheduleTargetEcsParametersPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. One of: `random`, `spread`, `binpack`.
 func (o ScheduleTargetEcsParametersPlacementStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1508,10 +1367,8 @@ func (o ScheduleTargetEcsParametersPlacementStrategyArrayOutput) Index(i pulumi.
 }
 
 type ScheduleTargetEventbridgeParameters struct {
-	// Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
 	DetailType string `pulumi:"detailType"`
-	// Source of the event.
-	Source string `pulumi:"source"`
+	Source     string `pulumi:"source"`
 }
 
 // ScheduleTargetEventbridgeParametersInput is an input type that accepts ScheduleTargetEventbridgeParametersArgs and ScheduleTargetEventbridgeParametersOutput values.
@@ -1526,10 +1383,8 @@ type ScheduleTargetEventbridgeParametersInput interface {
 }
 
 type ScheduleTargetEventbridgeParametersArgs struct {
-	// Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
 	DetailType pulumi.StringInput `pulumi:"detailType"`
-	// Source of the event.
-	Source pulumi.StringInput `pulumi:"source"`
+	Source     pulumi.StringInput `pulumi:"source"`
 }
 
 func (ScheduleTargetEventbridgeParametersArgs) ElementType() reflect.Type {
@@ -1609,12 +1464,10 @@ func (o ScheduleTargetEventbridgeParametersOutput) ToScheduleTargetEventbridgePa
 	}).(ScheduleTargetEventbridgeParametersPtrOutput)
 }
 
-// Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
 func (o ScheduleTargetEventbridgeParametersOutput) DetailType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEventbridgeParameters) string { return v.DetailType }).(pulumi.StringOutput)
 }
 
-// Source of the event.
 func (o ScheduleTargetEventbridgeParametersOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEventbridgeParameters) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -1643,7 +1496,6 @@ func (o ScheduleTargetEventbridgeParametersPtrOutput) Elem() ScheduleTargetEvent
 	}).(ScheduleTargetEventbridgeParametersOutput)
 }
 
-// Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
 func (o ScheduleTargetEventbridgeParametersPtrOutput) DetailType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEventbridgeParameters) *string {
 		if v == nil {
@@ -1653,7 +1505,6 @@ func (o ScheduleTargetEventbridgeParametersPtrOutput) DetailType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source of the event.
 func (o ScheduleTargetEventbridgeParametersPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEventbridgeParameters) *string {
 		if v == nil {
@@ -1664,7 +1515,6 @@ func (o ScheduleTargetEventbridgeParametersPtrOutput) Source() pulumi.StringPtrO
 }
 
 type ScheduleTargetKinesisParameters struct {
-	// Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
 	PartitionKey string `pulumi:"partitionKey"`
 }
 
@@ -1680,7 +1530,6 @@ type ScheduleTargetKinesisParametersInput interface {
 }
 
 type ScheduleTargetKinesisParametersArgs struct {
-	// Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
 	PartitionKey pulumi.StringInput `pulumi:"partitionKey"`
 }
 
@@ -1761,7 +1610,6 @@ func (o ScheduleTargetKinesisParametersOutput) ToScheduleTargetKinesisParameters
 	}).(ScheduleTargetKinesisParametersPtrOutput)
 }
 
-// Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
 func (o ScheduleTargetKinesisParametersOutput) PartitionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetKinesisParameters) string { return v.PartitionKey }).(pulumi.StringOutput)
 }
@@ -1790,7 +1638,6 @@ func (o ScheduleTargetKinesisParametersPtrOutput) Elem() ScheduleTargetKinesisPa
 	}).(ScheduleTargetKinesisParametersOutput)
 }
 
-// Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
 func (o ScheduleTargetKinesisParametersPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetKinesisParameters) *string {
 		if v == nil {
@@ -1801,10 +1648,8 @@ func (o ScheduleTargetKinesisParametersPtrOutput) PartitionKey() pulumi.StringPt
 }
 
 type ScheduleTargetRetryPolicy struct {
-	// Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
-	// Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	MaximumRetryAttempts     *int `pulumi:"maximumRetryAttempts"`
 }
 
 // ScheduleTargetRetryPolicyInput is an input type that accepts ScheduleTargetRetryPolicyArgs and ScheduleTargetRetryPolicyOutput values.
@@ -1819,10 +1664,8 @@ type ScheduleTargetRetryPolicyInput interface {
 }
 
 type ScheduleTargetRetryPolicyArgs struct {
-	// Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
 	MaximumEventAgeInSeconds pulumi.IntPtrInput `pulumi:"maximumEventAgeInSeconds"`
-	// Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
+	MaximumRetryAttempts     pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
 }
 
 func (ScheduleTargetRetryPolicyArgs) ElementType() reflect.Type {
@@ -1902,12 +1745,10 @@ func (o ScheduleTargetRetryPolicyOutput) ToScheduleTargetRetryPolicyPtrOutputWit
 	}).(ScheduleTargetRetryPolicyPtrOutput)
 }
 
-// Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
 func (o ScheduleTargetRetryPolicyOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetRetryPolicy) *int { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
 func (o ScheduleTargetRetryPolicyOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetRetryPolicy) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
@@ -1936,7 +1777,6 @@ func (o ScheduleTargetRetryPolicyPtrOutput) Elem() ScheduleTargetRetryPolicyOutp
 	}).(ScheduleTargetRetryPolicyOutput)
 }
 
-// Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
 func (o ScheduleTargetRetryPolicyPtrOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetRetryPolicy) *int {
 		if v == nil {
@@ -1946,7 +1786,6 @@ func (o ScheduleTargetRetryPolicyPtrOutput) MaximumEventAgeInSeconds() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
 func (o ScheduleTargetRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetRetryPolicy) *int {
 		if v == nil {
@@ -1957,7 +1796,6 @@ func (o ScheduleTargetRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtr
 }
 
 type ScheduleTargetSagemakerPipelineParameters struct {
-	// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
 	PipelineParameters []ScheduleTargetSagemakerPipelineParametersPipelineParameter `pulumi:"pipelineParameters"`
 }
 
@@ -1973,7 +1811,6 @@ type ScheduleTargetSagemakerPipelineParametersInput interface {
 }
 
 type ScheduleTargetSagemakerPipelineParametersArgs struct {
-	// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
 	PipelineParameters ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayInput `pulumi:"pipelineParameters"`
 }
 
@@ -2054,7 +1891,6 @@ func (o ScheduleTargetSagemakerPipelineParametersOutput) ToScheduleTargetSagemak
 	}).(ScheduleTargetSagemakerPipelineParametersPtrOutput)
 }
 
-// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
 func (o ScheduleTargetSagemakerPipelineParametersOutput) PipelineParameters() ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetSagemakerPipelineParameters) []ScheduleTargetSagemakerPipelineParametersPipelineParameter {
 		return v.PipelineParameters
@@ -2085,7 +1921,6 @@ func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) Elem() ScheduleTarge
 	}).(ScheduleTargetSagemakerPipelineParametersOutput)
 }
 
-// Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
 func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) PipelineParameters() ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v *ScheduleTargetSagemakerPipelineParameters) []ScheduleTargetSagemakerPipelineParametersPipelineParameter {
 		if v == nil {
@@ -2096,9 +1931,7 @@ func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) PipelineParameters()
 }
 
 type ScheduleTargetSagemakerPipelineParametersPipelineParameter struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
-	Name string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2114,9 +1947,7 @@ type ScheduleTargetSagemakerPipelineParametersPipelineParameterInput interface {
 }
 
 type ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2171,12 +2002,10 @@ func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) ToSche
 	return o
 }
 
-// Name of parameter to start execution of a SageMaker Model Building Pipeline.
 func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetSagemakerPipelineParametersPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline.
 func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetSagemakerPipelineParametersPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2202,7 +2031,6 @@ func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput) I
 }
 
 type ScheduleTargetSqsParameters struct {
-	// FIFO message group ID to use as the target.
 	MessageGroupId *string `pulumi:"messageGroupId"`
 }
 
@@ -2218,7 +2046,6 @@ type ScheduleTargetSqsParametersInput interface {
 }
 
 type ScheduleTargetSqsParametersArgs struct {
-	// FIFO message group ID to use as the target.
 	MessageGroupId pulumi.StringPtrInput `pulumi:"messageGroupId"`
 }
 
@@ -2299,7 +2126,6 @@ func (o ScheduleTargetSqsParametersOutput) ToScheduleTargetSqsParametersPtrOutpu
 	}).(ScheduleTargetSqsParametersPtrOutput)
 }
 
-// FIFO message group ID to use as the target.
 func (o ScheduleTargetSqsParametersOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetSqsParameters) *string { return v.MessageGroupId }).(pulumi.StringPtrOutput)
 }
@@ -2328,7 +2154,6 @@ func (o ScheduleTargetSqsParametersPtrOutput) Elem() ScheduleTargetSqsParameters
 	}).(ScheduleTargetSqsParametersOutput)
 }
 
-// FIFO message group ID to use as the target.
 func (o ScheduleTargetSqsParametersPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetSqsParameters) *string {
 		if v == nil {

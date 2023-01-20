@@ -11,69 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Adds the specified user to the specified group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
-//				PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
-//					TemporaryPasswordValidityDays: pulumi.Int(7),
-//					MinimumLength:                 pulumi.Int(6),
-//					RequireUppercase:              pulumi.Bool(false),
-//					RequireSymbols:                pulumi.Bool(false),
-//					RequireNumbers:                pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
-//				Username:   pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserGroup, err := cognito.NewUserGroup(ctx, "exampleUserGroup", &cognito.UserGroupArgs{
-//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUserInGroup(ctx, "exampleUserInGroup", &cognito.UserInGroupArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//				GroupName:  exampleUserGroup.Name,
-//				Username:   exampleUser.Username,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type UserInGroup struct {
 	pulumi.CustomResourceState
 
-	// The name of the group to which the user is to be added.
-	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// The user pool ID of the user and group.
+	GroupName  pulumi.StringOutput `pulumi:"groupName"`
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
-	// The username of the user to be added to the group.
-	Username pulumi.StringOutput `pulumi:"username"`
+	Username   pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewUserInGroup registers a new resource with the given unique name, arguments, and options.
@@ -114,21 +57,15 @@ func GetUserInGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserInGroup resources.
 type userInGroupState struct {
-	// The name of the group to which the user is to be added.
-	GroupName *string `pulumi:"groupName"`
-	// The user pool ID of the user and group.
+	GroupName  *string `pulumi:"groupName"`
 	UserPoolId *string `pulumi:"userPoolId"`
-	// The username of the user to be added to the group.
-	Username *string `pulumi:"username"`
+	Username   *string `pulumi:"username"`
 }
 
 type UserInGroupState struct {
-	// The name of the group to which the user is to be added.
-	GroupName pulumi.StringPtrInput
-	// The user pool ID of the user and group.
+	GroupName  pulumi.StringPtrInput
 	UserPoolId pulumi.StringPtrInput
-	// The username of the user to be added to the group.
-	Username pulumi.StringPtrInput
+	Username   pulumi.StringPtrInput
 }
 
 func (UserInGroupState) ElementType() reflect.Type {
@@ -136,22 +73,16 @@ func (UserInGroupState) ElementType() reflect.Type {
 }
 
 type userInGroupArgs struct {
-	// The name of the group to which the user is to be added.
-	GroupName string `pulumi:"groupName"`
-	// The user pool ID of the user and group.
+	GroupName  string `pulumi:"groupName"`
 	UserPoolId string `pulumi:"userPoolId"`
-	// The username of the user to be added to the group.
-	Username string `pulumi:"username"`
+	Username   string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a UserInGroup resource.
 type UserInGroupArgs struct {
-	// The name of the group to which the user is to be added.
-	GroupName pulumi.StringInput
-	// The user pool ID of the user and group.
+	GroupName  pulumi.StringInput
 	UserPoolId pulumi.StringInput
-	// The username of the user to be added to the group.
-	Username pulumi.StringInput
+	Username   pulumi.StringInput
 }
 
 func (UserInGroupArgs) ElementType() reflect.Type {
@@ -241,17 +172,14 @@ func (o UserInGroupOutput) ToUserInGroupOutputWithContext(ctx context.Context) U
 	return o
 }
 
-// The name of the group to which the user is to be added.
 func (o UserInGroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// The user pool ID of the user and group.
 func (o UserInGroupOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
-// The username of the user to be added to the group.
 func (o UserInGroupOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserInGroup) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

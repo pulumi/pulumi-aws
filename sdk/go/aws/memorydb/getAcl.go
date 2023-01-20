@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a MemoryDB ACL.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.LookupAcl(ctx, &memorydb.LookupAclArgs{
-//				Name: "my-acl",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupAcl(ctx *pulumi.Context, args *LookupAclArgs, opts ...pulumi.InvokeOption) (*LookupAclResult, error) {
 	var rv LookupAclResult
 	err := ctx.Invoke("aws:memorydb/getAcl:getAcl", args, &rv, opts...)
@@ -48,25 +21,19 @@ func LookupAcl(ctx *pulumi.Context, args *LookupAclArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getAcl.
 type LookupAclArgs struct {
-	// Name of the ACL.
-	Name string `pulumi:"name"`
-	// Map of tags assigned to the ACL.
+	Name string            `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAcl.
 type LookupAclResult struct {
-	// ARN of the ACL.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The minimum engine version supported by the ACL.
-	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
-	Name                 string `pulumi:"name"`
-	// Map of tags assigned to the ACL.
-	Tags map[string]string `pulumi:"tags"`
-	// Set of MemoryDB user names included in this ACL.
-	UserNames []string `pulumi:"userNames"`
+	Id                   string            `pulumi:"id"`
+	MinimumEngineVersion string            `pulumi:"minimumEngineVersion"`
+	Name                 string            `pulumi:"name"`
+	Tags                 map[string]string `pulumi:"tags"`
+	UserNames            []string          `pulumi:"userNames"`
 }
 
 func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulumi.InvokeOption) LookupAclResultOutput {
@@ -84,9 +51,7 @@ func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getAcl.
 type LookupAclOutputArgs struct {
-	// Name of the ACL.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Map of tags assigned to the ACL.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -109,7 +74,6 @@ func (o LookupAclResultOutput) ToLookupAclResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// ARN of the ACL.
 func (o LookupAclResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAclResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -119,7 +83,6 @@ func (o LookupAclResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAclResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The minimum engine version supported by the ACL.
 func (o LookupAclResultOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAclResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }
@@ -128,12 +91,10 @@ func (o LookupAclResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAclResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the ACL.
 func (o LookupAclResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAclResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Set of MemoryDB user names included in this ACL.
 func (o LookupAclResultOutput) UserNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAclResult) []string { return v.UserNames }).(pulumi.StringArrayOutput)
 }

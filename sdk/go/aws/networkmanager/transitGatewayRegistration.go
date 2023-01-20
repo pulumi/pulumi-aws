@@ -11,63 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registers a transit gateway to a global network. The transit gateway can be in any AWS Region,
-// but it must be owned by the same AWS account that owns the global network.
-// You cannot register a transit gateway in more than one global network.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager.GlobalNetworkArgs{
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = networkmanager.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager.TransitGatewayRegistrationArgs{
-//				GlobalNetworkId:   exampleGlobalNetwork.ID(),
-//				TransitGatewayArn: exampleTransitGateway.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_networkmanager_transit_gateway_registration` can be imported using the global network ID and transit gateway ARN, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
-//
-// ```
 type TransitGatewayRegistration struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Global Network to register to.
-	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// The ARN of the Transit Gateway to register.
+	GlobalNetworkId   pulumi.StringOutput `pulumi:"globalNetworkId"`
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
 }
 
@@ -106,16 +53,12 @@ func GetTransitGatewayRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransitGatewayRegistration resources.
 type transitGatewayRegistrationState struct {
-	// The ID of the Global Network to register to.
-	GlobalNetworkId *string `pulumi:"globalNetworkId"`
-	// The ARN of the Transit Gateway to register.
+	GlobalNetworkId   *string `pulumi:"globalNetworkId"`
 	TransitGatewayArn *string `pulumi:"transitGatewayArn"`
 }
 
 type TransitGatewayRegistrationState struct {
-	// The ID of the Global Network to register to.
-	GlobalNetworkId pulumi.StringPtrInput
-	// The ARN of the Transit Gateway to register.
+	GlobalNetworkId   pulumi.StringPtrInput
 	TransitGatewayArn pulumi.StringPtrInput
 }
 
@@ -124,17 +67,13 @@ func (TransitGatewayRegistrationState) ElementType() reflect.Type {
 }
 
 type transitGatewayRegistrationArgs struct {
-	// The ID of the Global Network to register to.
-	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// The ARN of the Transit Gateway to register.
+	GlobalNetworkId   string `pulumi:"globalNetworkId"`
 	TransitGatewayArn string `pulumi:"transitGatewayArn"`
 }
 
 // The set of arguments for constructing a TransitGatewayRegistration resource.
 type TransitGatewayRegistrationArgs struct {
-	// The ID of the Global Network to register to.
-	GlobalNetworkId pulumi.StringInput
-	// The ARN of the Transit Gateway to register.
+	GlobalNetworkId   pulumi.StringInput
 	TransitGatewayArn pulumi.StringInput
 }
 
@@ -225,12 +164,10 @@ func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutputWith
 	return o
 }
 
-// The ID of the Global Network to register to.
 func (o TransitGatewayRegistrationOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRegistration) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
 
-// The ARN of the Transit Gateway to register.
 func (o TransitGatewayRegistrationOutput) TransitGatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRegistration) pulumi.StringOutput { return v.TransitGatewayArn }).(pulumi.StringOutput)
 }

@@ -11,10 +11,7 @@ import (
 )
 
 type DataSourceCredentials struct {
-	// - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-	//   When the value is not null, the `credentialPair` from the data source in the ARN is used.
-	CopySourceArn *string `pulumi:"copySourceArn"`
-	// - Credential pair. See Credential Pair below for more details.
+	CopySourceArn  *string                              `pulumi:"copySourceArn"`
 	CredentialPair *DataSourceCredentialsCredentialPair `pulumi:"credentialPair"`
 }
 
@@ -30,10 +27,7 @@ type DataSourceCredentialsInput interface {
 }
 
 type DataSourceCredentialsArgs struct {
-	// - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-	//   When the value is not null, the `credentialPair` from the data source in the ARN is used.
-	CopySourceArn pulumi.StringPtrInput `pulumi:"copySourceArn"`
-	// - Credential pair. See Credential Pair below for more details.
+	CopySourceArn  pulumi.StringPtrInput                       `pulumi:"copySourceArn"`
 	CredentialPair DataSourceCredentialsCredentialPairPtrInput `pulumi:"credentialPair"`
 }
 
@@ -114,13 +108,10 @@ func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutputWithContext
 	}).(DataSourceCredentialsPtrOutput)
 }
 
-//   - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-//     When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
 
-// - Credential pair. See Credential Pair below for more details.
 func (o DataSourceCredentialsOutput) CredentialPair() DataSourceCredentialsCredentialPairPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *DataSourceCredentialsCredentialPair { return v.CredentialPair }).(DataSourceCredentialsCredentialPairPtrOutput)
 }
@@ -149,8 +140,6 @@ func (o DataSourceCredentialsPtrOutput) Elem() DataSourceCredentialsOutput {
 	}).(DataSourceCredentialsOutput)
 }
 
-//   - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-//     When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
@@ -160,7 +149,6 @@ func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// - Credential pair. See Credential Pair below for more details.
 func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialsCredentialPairPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *DataSourceCredentialsCredentialPair {
 		if v == nil {
@@ -171,9 +159,7 @@ func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialsCr
 }
 
 type DataSourceCredentialsCredentialPair struct {
-	// Password, maximum length of 1024 characters.
 	Password string `pulumi:"password"`
-	// User name, maximum length of 64 characters.
 	Username string `pulumi:"username"`
 }
 
@@ -189,9 +175,7 @@ type DataSourceCredentialsCredentialPairInput interface {
 }
 
 type DataSourceCredentialsCredentialPairArgs struct {
-	// Password, maximum length of 1024 characters.
 	Password pulumi.StringInput `pulumi:"password"`
-	// User name, maximum length of 64 characters.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -272,12 +256,10 @@ func (o DataSourceCredentialsCredentialPairOutput) ToDataSourceCredentialsCreden
 	}).(DataSourceCredentialsCredentialPairPtrOutput)
 }
 
-// Password, maximum length of 1024 characters.
 func (o DataSourceCredentialsCredentialPairOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCredentialsCredentialPair) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// User name, maximum length of 64 characters.
 func (o DataSourceCredentialsCredentialPairOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCredentialsCredentialPair) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -306,7 +288,6 @@ func (o DataSourceCredentialsCredentialPairPtrOutput) Elem() DataSourceCredentia
 	}).(DataSourceCredentialsCredentialPairOutput)
 }
 
-// Password, maximum length of 1024 characters.
 func (o DataSourceCredentialsCredentialPairPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentialsCredentialPair) *string {
 		if v == nil {
@@ -316,7 +297,6 @@ func (o DataSourceCredentialsCredentialPairPtrOutput) Password() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// User name, maximum length of 64 characters.
 func (o DataSourceCredentialsCredentialPairPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentialsCredentialPair) *string {
 		if v == nil {
@@ -327,46 +307,26 @@ func (o DataSourceCredentialsCredentialPairPtrOutput) Username() pulumi.StringPt
 }
 
 type DataSourceParameters struct {
-	// Parameters for connecting to Amazon Elasticsearch.
 	AmazonElasticsearch *DataSourceParametersAmazonElasticsearch `pulumi:"amazonElasticsearch"`
-	// Parameters for connecting to Athena.
-	Athena *DataSourceParametersAthena `pulumi:"athena"`
-	// Parameters for connecting to Aurora MySQL.
-	Aurora *DataSourceParametersAurora `pulumi:"aurora"`
-	// Parameters for connecting to Aurora Postgresql.
-	AuroraPostgresql *DataSourceParametersAuroraPostgresql `pulumi:"auroraPostgresql"`
-	// Parameters for connecting to AWS IOT Analytics.
-	AwsIotAnalytics *DataSourceParametersAwsIotAnalytics `pulumi:"awsIotAnalytics"`
-	// Parameters for connecting to Jira.
-	Jira *DataSourceParametersJira `pulumi:"jira"`
-	// Parameters for connecting to MariaDB.
-	MariaDb *DataSourceParametersMariaDb `pulumi:"mariaDb"`
-	// Parameters for connecting to MySQL.
-	Mysql *DataSourceParametersMysql `pulumi:"mysql"`
-	// Parameters for connecting to Oracle.
-	Oracle *DataSourceParametersOracle `pulumi:"oracle"`
-	// Parameters for connecting to Postgresql.
-	Postgresql *DataSourceParametersPostgresql `pulumi:"postgresql"`
-	// Parameters for connecting to Presto.
-	Presto *DataSourceParametersPresto `pulumi:"presto"`
-	// Parameters for connecting to RDS.
-	Rds *DataSourceParametersRds `pulumi:"rds"`
-	// Parameters for connecting to Redshift.
-	Redshift *DataSourceParametersRedshift `pulumi:"redshift"`
-	// Parameters for connecting to S3.
-	S3 *DataSourceParametersS3 `pulumi:"s3"`
-	// Parameters for connecting to ServiceNow.
-	ServiceNow *DataSourceParametersServiceNow `pulumi:"serviceNow"`
-	// Parameters for connecting to Snowflake.
-	Snowflake *DataSourceParametersSnowflake `pulumi:"snowflake"`
-	// Parameters for connecting to Spark.
-	Spark *DataSourceParametersSpark `pulumi:"spark"`
-	// Parameters for connecting to SQL Server.
-	SqlServer *DataSourceParametersSqlServer `pulumi:"sqlServer"`
-	// Parameters for connecting to Teradata.
-	Teradata *DataSourceParametersTeradata `pulumi:"teradata"`
-	// Parameters for connecting to Twitter.
-	Twitter *DataSourceParametersTwitter `pulumi:"twitter"`
+	Athena              *DataSourceParametersAthena              `pulumi:"athena"`
+	Aurora              *DataSourceParametersAurora              `pulumi:"aurora"`
+	AuroraPostgresql    *DataSourceParametersAuroraPostgresql    `pulumi:"auroraPostgresql"`
+	AwsIotAnalytics     *DataSourceParametersAwsIotAnalytics     `pulumi:"awsIotAnalytics"`
+	Jira                *DataSourceParametersJira                `pulumi:"jira"`
+	MariaDb             *DataSourceParametersMariaDb             `pulumi:"mariaDb"`
+	Mysql               *DataSourceParametersMysql               `pulumi:"mysql"`
+	Oracle              *DataSourceParametersOracle              `pulumi:"oracle"`
+	Postgresql          *DataSourceParametersPostgresql          `pulumi:"postgresql"`
+	Presto              *DataSourceParametersPresto              `pulumi:"presto"`
+	Rds                 *DataSourceParametersRds                 `pulumi:"rds"`
+	Redshift            *DataSourceParametersRedshift            `pulumi:"redshift"`
+	S3                  *DataSourceParametersS3                  `pulumi:"s3"`
+	ServiceNow          *DataSourceParametersServiceNow          `pulumi:"serviceNow"`
+	Snowflake           *DataSourceParametersSnowflake           `pulumi:"snowflake"`
+	Spark               *DataSourceParametersSpark               `pulumi:"spark"`
+	SqlServer           *DataSourceParametersSqlServer           `pulumi:"sqlServer"`
+	Teradata            *DataSourceParametersTeradata            `pulumi:"teradata"`
+	Twitter             *DataSourceParametersTwitter             `pulumi:"twitter"`
 }
 
 // DataSourceParametersInput is an input type that accepts DataSourceParametersArgs and DataSourceParametersOutput values.
@@ -381,46 +341,26 @@ type DataSourceParametersInput interface {
 }
 
 type DataSourceParametersArgs struct {
-	// Parameters for connecting to Amazon Elasticsearch.
 	AmazonElasticsearch DataSourceParametersAmazonElasticsearchPtrInput `pulumi:"amazonElasticsearch"`
-	// Parameters for connecting to Athena.
-	Athena DataSourceParametersAthenaPtrInput `pulumi:"athena"`
-	// Parameters for connecting to Aurora MySQL.
-	Aurora DataSourceParametersAuroraPtrInput `pulumi:"aurora"`
-	// Parameters for connecting to Aurora Postgresql.
-	AuroraPostgresql DataSourceParametersAuroraPostgresqlPtrInput `pulumi:"auroraPostgresql"`
-	// Parameters for connecting to AWS IOT Analytics.
-	AwsIotAnalytics DataSourceParametersAwsIotAnalyticsPtrInput `pulumi:"awsIotAnalytics"`
-	// Parameters for connecting to Jira.
-	Jira DataSourceParametersJiraPtrInput `pulumi:"jira"`
-	// Parameters for connecting to MariaDB.
-	MariaDb DataSourceParametersMariaDbPtrInput `pulumi:"mariaDb"`
-	// Parameters for connecting to MySQL.
-	Mysql DataSourceParametersMysqlPtrInput `pulumi:"mysql"`
-	// Parameters for connecting to Oracle.
-	Oracle DataSourceParametersOraclePtrInput `pulumi:"oracle"`
-	// Parameters for connecting to Postgresql.
-	Postgresql DataSourceParametersPostgresqlPtrInput `pulumi:"postgresql"`
-	// Parameters for connecting to Presto.
-	Presto DataSourceParametersPrestoPtrInput `pulumi:"presto"`
-	// Parameters for connecting to RDS.
-	Rds DataSourceParametersRdsPtrInput `pulumi:"rds"`
-	// Parameters for connecting to Redshift.
-	Redshift DataSourceParametersRedshiftPtrInput `pulumi:"redshift"`
-	// Parameters for connecting to S3.
-	S3 DataSourceParametersS3PtrInput `pulumi:"s3"`
-	// Parameters for connecting to ServiceNow.
-	ServiceNow DataSourceParametersServiceNowPtrInput `pulumi:"serviceNow"`
-	// Parameters for connecting to Snowflake.
-	Snowflake DataSourceParametersSnowflakePtrInput `pulumi:"snowflake"`
-	// Parameters for connecting to Spark.
-	Spark DataSourceParametersSparkPtrInput `pulumi:"spark"`
-	// Parameters for connecting to SQL Server.
-	SqlServer DataSourceParametersSqlServerPtrInput `pulumi:"sqlServer"`
-	// Parameters for connecting to Teradata.
-	Teradata DataSourceParametersTeradataPtrInput `pulumi:"teradata"`
-	// Parameters for connecting to Twitter.
-	Twitter DataSourceParametersTwitterPtrInput `pulumi:"twitter"`
+	Athena              DataSourceParametersAthenaPtrInput              `pulumi:"athena"`
+	Aurora              DataSourceParametersAuroraPtrInput              `pulumi:"aurora"`
+	AuroraPostgresql    DataSourceParametersAuroraPostgresqlPtrInput    `pulumi:"auroraPostgresql"`
+	AwsIotAnalytics     DataSourceParametersAwsIotAnalyticsPtrInput     `pulumi:"awsIotAnalytics"`
+	Jira                DataSourceParametersJiraPtrInput                `pulumi:"jira"`
+	MariaDb             DataSourceParametersMariaDbPtrInput             `pulumi:"mariaDb"`
+	Mysql               DataSourceParametersMysqlPtrInput               `pulumi:"mysql"`
+	Oracle              DataSourceParametersOraclePtrInput              `pulumi:"oracle"`
+	Postgresql          DataSourceParametersPostgresqlPtrInput          `pulumi:"postgresql"`
+	Presto              DataSourceParametersPrestoPtrInput              `pulumi:"presto"`
+	Rds                 DataSourceParametersRdsPtrInput                 `pulumi:"rds"`
+	Redshift            DataSourceParametersRedshiftPtrInput            `pulumi:"redshift"`
+	S3                  DataSourceParametersS3PtrInput                  `pulumi:"s3"`
+	ServiceNow          DataSourceParametersServiceNowPtrInput          `pulumi:"serviceNow"`
+	Snowflake           DataSourceParametersSnowflakePtrInput           `pulumi:"snowflake"`
+	Spark               DataSourceParametersSparkPtrInput               `pulumi:"spark"`
+	SqlServer           DataSourceParametersSqlServerPtrInput           `pulumi:"sqlServer"`
+	Teradata            DataSourceParametersTeradataPtrInput            `pulumi:"teradata"`
+	Twitter             DataSourceParametersTwitterPtrInput             `pulumi:"twitter"`
 }
 
 func (DataSourceParametersArgs) ElementType() reflect.Type {
@@ -500,102 +440,82 @@ func (o DataSourceParametersOutput) ToDataSourceParametersPtrOutputWithContext(c
 	}).(DataSourceParametersPtrOutput)
 }
 
-// Parameters for connecting to Amazon Elasticsearch.
 func (o DataSourceParametersOutput) AmazonElasticsearch() DataSourceParametersAmazonElasticsearchPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAmazonElasticsearch { return v.AmazonElasticsearch }).(DataSourceParametersAmazonElasticsearchPtrOutput)
 }
 
-// Parameters for connecting to Athena.
 func (o DataSourceParametersOutput) Athena() DataSourceParametersAthenaPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAthena { return v.Athena }).(DataSourceParametersAthenaPtrOutput)
 }
 
-// Parameters for connecting to Aurora MySQL.
 func (o DataSourceParametersOutput) Aurora() DataSourceParametersAuroraPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAurora { return v.Aurora }).(DataSourceParametersAuroraPtrOutput)
 }
 
-// Parameters for connecting to Aurora Postgresql.
 func (o DataSourceParametersOutput) AuroraPostgresql() DataSourceParametersAuroraPostgresqlPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAuroraPostgresql { return v.AuroraPostgresql }).(DataSourceParametersAuroraPostgresqlPtrOutput)
 }
 
-// Parameters for connecting to AWS IOT Analytics.
 func (o DataSourceParametersOutput) AwsIotAnalytics() DataSourceParametersAwsIotAnalyticsPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAwsIotAnalytics { return v.AwsIotAnalytics }).(DataSourceParametersAwsIotAnalyticsPtrOutput)
 }
 
-// Parameters for connecting to Jira.
 func (o DataSourceParametersOutput) Jira() DataSourceParametersJiraPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersJira { return v.Jira }).(DataSourceParametersJiraPtrOutput)
 }
 
-// Parameters for connecting to MariaDB.
 func (o DataSourceParametersOutput) MariaDb() DataSourceParametersMariaDbPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersMariaDb { return v.MariaDb }).(DataSourceParametersMariaDbPtrOutput)
 }
 
-// Parameters for connecting to MySQL.
 func (o DataSourceParametersOutput) Mysql() DataSourceParametersMysqlPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersMysql { return v.Mysql }).(DataSourceParametersMysqlPtrOutput)
 }
 
-// Parameters for connecting to Oracle.
 func (o DataSourceParametersOutput) Oracle() DataSourceParametersOraclePtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersOracle { return v.Oracle }).(DataSourceParametersOraclePtrOutput)
 }
 
-// Parameters for connecting to Postgresql.
 func (o DataSourceParametersOutput) Postgresql() DataSourceParametersPostgresqlPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersPostgresql { return v.Postgresql }).(DataSourceParametersPostgresqlPtrOutput)
 }
 
-// Parameters for connecting to Presto.
 func (o DataSourceParametersOutput) Presto() DataSourceParametersPrestoPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersPresto { return v.Presto }).(DataSourceParametersPrestoPtrOutput)
 }
 
-// Parameters for connecting to RDS.
 func (o DataSourceParametersOutput) Rds() DataSourceParametersRdsPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersRds { return v.Rds }).(DataSourceParametersRdsPtrOutput)
 }
 
-// Parameters for connecting to Redshift.
 func (o DataSourceParametersOutput) Redshift() DataSourceParametersRedshiftPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersRedshift { return v.Redshift }).(DataSourceParametersRedshiftPtrOutput)
 }
 
-// Parameters for connecting to S3.
 func (o DataSourceParametersOutput) S3() DataSourceParametersS3PtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersS3 { return v.S3 }).(DataSourceParametersS3PtrOutput)
 }
 
-// Parameters for connecting to ServiceNow.
 func (o DataSourceParametersOutput) ServiceNow() DataSourceParametersServiceNowPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersServiceNow { return v.ServiceNow }).(DataSourceParametersServiceNowPtrOutput)
 }
 
-// Parameters for connecting to Snowflake.
 func (o DataSourceParametersOutput) Snowflake() DataSourceParametersSnowflakePtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersSnowflake { return v.Snowflake }).(DataSourceParametersSnowflakePtrOutput)
 }
 
-// Parameters for connecting to Spark.
 func (o DataSourceParametersOutput) Spark() DataSourceParametersSparkPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersSpark { return v.Spark }).(DataSourceParametersSparkPtrOutput)
 }
 
-// Parameters for connecting to SQL Server.
 func (o DataSourceParametersOutput) SqlServer() DataSourceParametersSqlServerPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersSqlServer { return v.SqlServer }).(DataSourceParametersSqlServerPtrOutput)
 }
 
-// Parameters for connecting to Teradata.
 func (o DataSourceParametersOutput) Teradata() DataSourceParametersTeradataPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersTeradata { return v.Teradata }).(DataSourceParametersTeradataPtrOutput)
 }
 
-// Parameters for connecting to Twitter.
 func (o DataSourceParametersOutput) Twitter() DataSourceParametersTwitterPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersTwitter { return v.Twitter }).(DataSourceParametersTwitterPtrOutput)
 }
@@ -624,7 +544,6 @@ func (o DataSourceParametersPtrOutput) Elem() DataSourceParametersOutput {
 	}).(DataSourceParametersOutput)
 }
 
-// Parameters for connecting to Amazon Elasticsearch.
 func (o DataSourceParametersPtrOutput) AmazonElasticsearch() DataSourceParametersAmazonElasticsearchPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAmazonElasticsearch {
 		if v == nil {
@@ -634,7 +553,6 @@ func (o DataSourceParametersPtrOutput) AmazonElasticsearch() DataSourceParameter
 	}).(DataSourceParametersAmazonElasticsearchPtrOutput)
 }
 
-// Parameters for connecting to Athena.
 func (o DataSourceParametersPtrOutput) Athena() DataSourceParametersAthenaPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAthena {
 		if v == nil {
@@ -644,7 +562,6 @@ func (o DataSourceParametersPtrOutput) Athena() DataSourceParametersAthenaPtrOut
 	}).(DataSourceParametersAthenaPtrOutput)
 }
 
-// Parameters for connecting to Aurora MySQL.
 func (o DataSourceParametersPtrOutput) Aurora() DataSourceParametersAuroraPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAurora {
 		if v == nil {
@@ -654,7 +571,6 @@ func (o DataSourceParametersPtrOutput) Aurora() DataSourceParametersAuroraPtrOut
 	}).(DataSourceParametersAuroraPtrOutput)
 }
 
-// Parameters for connecting to Aurora Postgresql.
 func (o DataSourceParametersPtrOutput) AuroraPostgresql() DataSourceParametersAuroraPostgresqlPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAuroraPostgresql {
 		if v == nil {
@@ -664,7 +580,6 @@ func (o DataSourceParametersPtrOutput) AuroraPostgresql() DataSourceParametersAu
 	}).(DataSourceParametersAuroraPostgresqlPtrOutput)
 }
 
-// Parameters for connecting to AWS IOT Analytics.
 func (o DataSourceParametersPtrOutput) AwsIotAnalytics() DataSourceParametersAwsIotAnalyticsPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAwsIotAnalytics {
 		if v == nil {
@@ -674,7 +589,6 @@ func (o DataSourceParametersPtrOutput) AwsIotAnalytics() DataSourceParametersAws
 	}).(DataSourceParametersAwsIotAnalyticsPtrOutput)
 }
 
-// Parameters for connecting to Jira.
 func (o DataSourceParametersPtrOutput) Jira() DataSourceParametersJiraPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersJira {
 		if v == nil {
@@ -684,7 +598,6 @@ func (o DataSourceParametersPtrOutput) Jira() DataSourceParametersJiraPtrOutput 
 	}).(DataSourceParametersJiraPtrOutput)
 }
 
-// Parameters for connecting to MariaDB.
 func (o DataSourceParametersPtrOutput) MariaDb() DataSourceParametersMariaDbPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersMariaDb {
 		if v == nil {
@@ -694,7 +607,6 @@ func (o DataSourceParametersPtrOutput) MariaDb() DataSourceParametersMariaDbPtrO
 	}).(DataSourceParametersMariaDbPtrOutput)
 }
 
-// Parameters for connecting to MySQL.
 func (o DataSourceParametersPtrOutput) Mysql() DataSourceParametersMysqlPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersMysql {
 		if v == nil {
@@ -704,7 +616,6 @@ func (o DataSourceParametersPtrOutput) Mysql() DataSourceParametersMysqlPtrOutpu
 	}).(DataSourceParametersMysqlPtrOutput)
 }
 
-// Parameters for connecting to Oracle.
 func (o DataSourceParametersPtrOutput) Oracle() DataSourceParametersOraclePtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersOracle {
 		if v == nil {
@@ -714,7 +625,6 @@ func (o DataSourceParametersPtrOutput) Oracle() DataSourceParametersOraclePtrOut
 	}).(DataSourceParametersOraclePtrOutput)
 }
 
-// Parameters for connecting to Postgresql.
 func (o DataSourceParametersPtrOutput) Postgresql() DataSourceParametersPostgresqlPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersPostgresql {
 		if v == nil {
@@ -724,7 +634,6 @@ func (o DataSourceParametersPtrOutput) Postgresql() DataSourceParametersPostgres
 	}).(DataSourceParametersPostgresqlPtrOutput)
 }
 
-// Parameters for connecting to Presto.
 func (o DataSourceParametersPtrOutput) Presto() DataSourceParametersPrestoPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersPresto {
 		if v == nil {
@@ -734,7 +643,6 @@ func (o DataSourceParametersPtrOutput) Presto() DataSourceParametersPrestoPtrOut
 	}).(DataSourceParametersPrestoPtrOutput)
 }
 
-// Parameters for connecting to RDS.
 func (o DataSourceParametersPtrOutput) Rds() DataSourceParametersRdsPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersRds {
 		if v == nil {
@@ -744,7 +652,6 @@ func (o DataSourceParametersPtrOutput) Rds() DataSourceParametersRdsPtrOutput {
 	}).(DataSourceParametersRdsPtrOutput)
 }
 
-// Parameters for connecting to Redshift.
 func (o DataSourceParametersPtrOutput) Redshift() DataSourceParametersRedshiftPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersRedshift {
 		if v == nil {
@@ -754,7 +661,6 @@ func (o DataSourceParametersPtrOutput) Redshift() DataSourceParametersRedshiftPt
 	}).(DataSourceParametersRedshiftPtrOutput)
 }
 
-// Parameters for connecting to S3.
 func (o DataSourceParametersPtrOutput) S3() DataSourceParametersS3PtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersS3 {
 		if v == nil {
@@ -764,7 +670,6 @@ func (o DataSourceParametersPtrOutput) S3() DataSourceParametersS3PtrOutput {
 	}).(DataSourceParametersS3PtrOutput)
 }
 
-// Parameters for connecting to ServiceNow.
 func (o DataSourceParametersPtrOutput) ServiceNow() DataSourceParametersServiceNowPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersServiceNow {
 		if v == nil {
@@ -774,7 +679,6 @@ func (o DataSourceParametersPtrOutput) ServiceNow() DataSourceParametersServiceN
 	}).(DataSourceParametersServiceNowPtrOutput)
 }
 
-// Parameters for connecting to Snowflake.
 func (o DataSourceParametersPtrOutput) Snowflake() DataSourceParametersSnowflakePtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersSnowflake {
 		if v == nil {
@@ -784,7 +688,6 @@ func (o DataSourceParametersPtrOutput) Snowflake() DataSourceParametersSnowflake
 	}).(DataSourceParametersSnowflakePtrOutput)
 }
 
-// Parameters for connecting to Spark.
 func (o DataSourceParametersPtrOutput) Spark() DataSourceParametersSparkPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersSpark {
 		if v == nil {
@@ -794,7 +697,6 @@ func (o DataSourceParametersPtrOutput) Spark() DataSourceParametersSparkPtrOutpu
 	}).(DataSourceParametersSparkPtrOutput)
 }
 
-// Parameters for connecting to SQL Server.
 func (o DataSourceParametersPtrOutput) SqlServer() DataSourceParametersSqlServerPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersSqlServer {
 		if v == nil {
@@ -804,7 +706,6 @@ func (o DataSourceParametersPtrOutput) SqlServer() DataSourceParametersSqlServer
 	}).(DataSourceParametersSqlServerPtrOutput)
 }
 
-// Parameters for connecting to Teradata.
 func (o DataSourceParametersPtrOutput) Teradata() DataSourceParametersTeradataPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersTeradata {
 		if v == nil {
@@ -814,7 +715,6 @@ func (o DataSourceParametersPtrOutput) Teradata() DataSourceParametersTeradataPt
 	}).(DataSourceParametersTeradataPtrOutput)
 }
 
-// Parameters for connecting to Twitter.
 func (o DataSourceParametersPtrOutput) Twitter() DataSourceParametersTwitterPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersTwitter {
 		if v == nil {
@@ -825,7 +725,6 @@ func (o DataSourceParametersPtrOutput) Twitter() DataSourceParametersTwitterPtrO
 }
 
 type DataSourceParametersAmazonElasticsearch struct {
-	// The OpenSearch domain.
 	Domain string `pulumi:"domain"`
 }
 
@@ -841,7 +740,6 @@ type DataSourceParametersAmazonElasticsearchInput interface {
 }
 
 type DataSourceParametersAmazonElasticsearchArgs struct {
-	// The OpenSearch domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
 }
 
@@ -922,7 +820,6 @@ func (o DataSourceParametersAmazonElasticsearchOutput) ToDataSourceParametersAma
 	}).(DataSourceParametersAmazonElasticsearchPtrOutput)
 }
 
-// The OpenSearch domain.
 func (o DataSourceParametersAmazonElasticsearchOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAmazonElasticsearch) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -951,7 +848,6 @@ func (o DataSourceParametersAmazonElasticsearchPtrOutput) Elem() DataSourceParam
 	}).(DataSourceParametersAmazonElasticsearchOutput)
 }
 
-// The OpenSearch domain.
 func (o DataSourceParametersAmazonElasticsearchPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAmazonElasticsearch) *string {
 		if v == nil {
@@ -962,7 +858,6 @@ func (o DataSourceParametersAmazonElasticsearchPtrOutput) Domain() pulumi.String
 }
 
 type DataSourceParametersAthena struct {
-	// The work-group to which to connect.
 	WorkGroup *string `pulumi:"workGroup"`
 }
 
@@ -978,7 +873,6 @@ type DataSourceParametersAthenaInput interface {
 }
 
 type DataSourceParametersAthenaArgs struct {
-	// The work-group to which to connect.
 	WorkGroup pulumi.StringPtrInput `pulumi:"workGroup"`
 }
 
@@ -1059,7 +953,6 @@ func (o DataSourceParametersAthenaOutput) ToDataSourceParametersAthenaPtrOutputW
 	}).(DataSourceParametersAthenaPtrOutput)
 }
 
-// The work-group to which to connect.
 func (o DataSourceParametersAthenaOutput) WorkGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersAthena) *string { return v.WorkGroup }).(pulumi.StringPtrOutput)
 }
@@ -1088,7 +981,6 @@ func (o DataSourceParametersAthenaPtrOutput) Elem() DataSourceParametersAthenaOu
 	}).(DataSourceParametersAthenaOutput)
 }
 
-// The work-group to which to connect.
 func (o DataSourceParametersAthenaPtrOutput) WorkGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAthena) *string {
 		if v == nil {
@@ -1099,12 +991,9 @@ func (o DataSourceParametersAthenaPtrOutput) WorkGroup() pulumi.StringPtrOutput 
 }
 
 type DataSourceParametersAurora struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The port to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersAuroraInput is an input type that accepts DataSourceParametersAuroraArgs and DataSourceParametersAuroraOutput values.
@@ -1119,12 +1008,9 @@ type DataSourceParametersAuroraInput interface {
 }
 
 type DataSourceParametersAuroraArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersAuroraArgs) ElementType() reflect.Type {
@@ -1204,17 +1090,14 @@ func (o DataSourceParametersAuroraOutput) ToDataSourceParametersAuroraPtrOutputW
 	}).(DataSourceParametersAuroraPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersAuroraOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAurora) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersAuroraOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAurora) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersAuroraOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersAurora) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1243,7 +1126,6 @@ func (o DataSourceParametersAuroraPtrOutput) Elem() DataSourceParametersAuroraOu
 	}).(DataSourceParametersAuroraOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersAuroraPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAurora) *string {
 		if v == nil {
@@ -1253,7 +1135,6 @@ func (o DataSourceParametersAuroraPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersAuroraPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAurora) *string {
 		if v == nil {
@@ -1263,7 +1144,6 @@ func (o DataSourceParametersAuroraPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersAuroraPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAurora) *int {
 		if v == nil {
@@ -1274,12 +1154,9 @@ func (o DataSourceParametersAuroraPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersAuroraPostgresql struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The port to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersAuroraPostgresqlInput is an input type that accepts DataSourceParametersAuroraPostgresqlArgs and DataSourceParametersAuroraPostgresqlOutput values.
@@ -1294,12 +1171,9 @@ type DataSourceParametersAuroraPostgresqlInput interface {
 }
 
 type DataSourceParametersAuroraPostgresqlArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersAuroraPostgresqlArgs) ElementType() reflect.Type {
@@ -1379,17 +1253,14 @@ func (o DataSourceParametersAuroraPostgresqlOutput) ToDataSourceParametersAurora
 	}).(DataSourceParametersAuroraPostgresqlPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersAuroraPostgresqlOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAuroraPostgresql) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersAuroraPostgresqlOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAuroraPostgresql) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersAuroraPostgresqlOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersAuroraPostgresql) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1418,7 +1289,6 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Elem() DataSourceParamete
 	}).(DataSourceParametersAuroraPostgresqlOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersAuroraPostgresqlPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAuroraPostgresql) *string {
 		if v == nil {
@@ -1428,7 +1298,6 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Database() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersAuroraPostgresqlPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAuroraPostgresql) *string {
 		if v == nil {
@@ -1438,7 +1307,6 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Host() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersAuroraPostgresqlPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAuroraPostgresql) *int {
 		if v == nil {
@@ -1449,7 +1317,6 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Port() pulumi.IntPtrOutpu
 }
 
 type DataSourceParametersAwsIotAnalytics struct {
-	// The name of the data set to which to connect.
 	DataSetName string `pulumi:"dataSetName"`
 }
 
@@ -1465,7 +1332,6 @@ type DataSourceParametersAwsIotAnalyticsInput interface {
 }
 
 type DataSourceParametersAwsIotAnalyticsArgs struct {
-	// The name of the data set to which to connect.
 	DataSetName pulumi.StringInput `pulumi:"dataSetName"`
 }
 
@@ -1546,7 +1412,6 @@ func (o DataSourceParametersAwsIotAnalyticsOutput) ToDataSourceParametersAwsIotA
 	}).(DataSourceParametersAwsIotAnalyticsPtrOutput)
 }
 
-// The name of the data set to which to connect.
 func (o DataSourceParametersAwsIotAnalyticsOutput) DataSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAwsIotAnalytics) string { return v.DataSetName }).(pulumi.StringOutput)
 }
@@ -1575,7 +1440,6 @@ func (o DataSourceParametersAwsIotAnalyticsPtrOutput) Elem() DataSourceParameter
 	}).(DataSourceParametersAwsIotAnalyticsOutput)
 }
 
-// The name of the data set to which to connect.
 func (o DataSourceParametersAwsIotAnalyticsPtrOutput) DataSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAwsIotAnalytics) *string {
 		if v == nil {
@@ -1586,7 +1450,6 @@ func (o DataSourceParametersAwsIotAnalyticsPtrOutput) DataSetName() pulumi.Strin
 }
 
 type DataSourceParametersJira struct {
-	// The base URL of the Jira instance's site to which to connect.
 	SiteBaseUrl string `pulumi:"siteBaseUrl"`
 }
 
@@ -1602,7 +1465,6 @@ type DataSourceParametersJiraInput interface {
 }
 
 type DataSourceParametersJiraArgs struct {
-	// The base URL of the Jira instance's site to which to connect.
 	SiteBaseUrl pulumi.StringInput `pulumi:"siteBaseUrl"`
 }
 
@@ -1683,7 +1545,6 @@ func (o DataSourceParametersJiraOutput) ToDataSourceParametersJiraPtrOutputWithC
 	}).(DataSourceParametersJiraPtrOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
 func (o DataSourceParametersJiraOutput) SiteBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersJira) string { return v.SiteBaseUrl }).(pulumi.StringOutput)
 }
@@ -1712,7 +1573,6 @@ func (o DataSourceParametersJiraPtrOutput) Elem() DataSourceParametersJiraOutput
 	}).(DataSourceParametersJiraOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
 func (o DataSourceParametersJiraPtrOutput) SiteBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersJira) *string {
 		if v == nil {
@@ -1723,12 +1583,9 @@ func (o DataSourceParametersJiraPtrOutput) SiteBaseUrl() pulumi.StringPtrOutput 
 }
 
 type DataSourceParametersMariaDb struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The port to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersMariaDbInput is an input type that accepts DataSourceParametersMariaDbArgs and DataSourceParametersMariaDbOutput values.
@@ -1743,12 +1600,9 @@ type DataSourceParametersMariaDbInput interface {
 }
 
 type DataSourceParametersMariaDbArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersMariaDbArgs) ElementType() reflect.Type {
@@ -1828,17 +1682,14 @@ func (o DataSourceParametersMariaDbOutput) ToDataSourceParametersMariaDbPtrOutpu
 	}).(DataSourceParametersMariaDbPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersMariaDbOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMariaDb) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersMariaDbOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMariaDb) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersMariaDbOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersMariaDb) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1867,7 +1718,6 @@ func (o DataSourceParametersMariaDbPtrOutput) Elem() DataSourceParametersMariaDb
 	}).(DataSourceParametersMariaDbOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersMariaDbPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMariaDb) *string {
 		if v == nil {
@@ -1877,7 +1727,6 @@ func (o DataSourceParametersMariaDbPtrOutput) Database() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersMariaDbPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMariaDb) *string {
 		if v == nil {
@@ -1887,7 +1736,6 @@ func (o DataSourceParametersMariaDbPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersMariaDbPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMariaDb) *int {
 		if v == nil {
@@ -1898,12 +1746,9 @@ func (o DataSourceParametersMariaDbPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersMysql struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The port to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersMysqlInput is an input type that accepts DataSourceParametersMysqlArgs and DataSourceParametersMysqlOutput values.
@@ -1918,12 +1763,9 @@ type DataSourceParametersMysqlInput interface {
 }
 
 type DataSourceParametersMysqlArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersMysqlArgs) ElementType() reflect.Type {
@@ -2003,17 +1845,14 @@ func (o DataSourceParametersMysqlOutput) ToDataSourceParametersMysqlPtrOutputWit
 	}).(DataSourceParametersMysqlPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersMysqlOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMysql) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersMysqlOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMysql) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersMysqlOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersMysql) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2042,7 +1881,6 @@ func (o DataSourceParametersMysqlPtrOutput) Elem() DataSourceParametersMysqlOutp
 	}).(DataSourceParametersMysqlOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersMysqlPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMysql) *string {
 		if v == nil {
@@ -2052,7 +1890,6 @@ func (o DataSourceParametersMysqlPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersMysqlPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMysql) *string {
 		if v == nil {
@@ -2062,7 +1899,6 @@ func (o DataSourceParametersMysqlPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersMysqlPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMysql) *int {
 		if v == nil {
@@ -2073,12 +1909,9 @@ func (o DataSourceParametersMysqlPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersOracle struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The port to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersOracleInput is an input type that accepts DataSourceParametersOracleArgs and DataSourceParametersOracleOutput values.
@@ -2093,12 +1926,9 @@ type DataSourceParametersOracleInput interface {
 }
 
 type DataSourceParametersOracleArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersOracleArgs) ElementType() reflect.Type {
@@ -2178,17 +2008,14 @@ func (o DataSourceParametersOracleOutput) ToDataSourceParametersOraclePtrOutputW
 	}).(DataSourceParametersOraclePtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersOracleOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersOracle) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersOracleOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersOracle) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersOracleOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersOracle) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2217,7 +2044,6 @@ func (o DataSourceParametersOraclePtrOutput) Elem() DataSourceParametersOracleOu
 	}).(DataSourceParametersOracleOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersOraclePtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersOracle) *string {
 		if v == nil {
@@ -2227,7 +2053,6 @@ func (o DataSourceParametersOraclePtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersOraclePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersOracle) *string {
 		if v == nil {
@@ -2237,7 +2062,6 @@ func (o DataSourceParametersOraclePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersOraclePtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersOracle) *int {
 		if v == nil {
@@ -2248,12 +2072,9 @@ func (o DataSourceParametersOraclePtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersPostgresql struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The port to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersPostgresqlInput is an input type that accepts DataSourceParametersPostgresqlArgs and DataSourceParametersPostgresqlOutput values.
@@ -2268,12 +2089,9 @@ type DataSourceParametersPostgresqlInput interface {
 }
 
 type DataSourceParametersPostgresqlArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersPostgresqlArgs) ElementType() reflect.Type {
@@ -2353,17 +2171,14 @@ func (o DataSourceParametersPostgresqlOutput) ToDataSourceParametersPostgresqlPt
 	}).(DataSourceParametersPostgresqlPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersPostgresqlOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPostgresql) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersPostgresqlOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPostgresql) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersPostgresqlOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersPostgresql) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2392,7 +2207,6 @@ func (o DataSourceParametersPostgresqlPtrOutput) Elem() DataSourceParametersPost
 	}).(DataSourceParametersPostgresqlOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersPostgresqlPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPostgresql) *string {
 		if v == nil {
@@ -2402,7 +2216,6 @@ func (o DataSourceParametersPostgresqlPtrOutput) Database() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersPostgresqlPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPostgresql) *string {
 		if v == nil {
@@ -2412,7 +2225,6 @@ func (o DataSourceParametersPostgresqlPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersPostgresqlPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPostgresql) *int {
 		if v == nil {
@@ -2423,12 +2235,9 @@ func (o DataSourceParametersPostgresqlPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersPresto struct {
-	// The catalog to which to connect.
 	Catalog string `pulumi:"catalog"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The port to which to connect.
-	Port int `pulumi:"port"`
+	Host    string `pulumi:"host"`
+	Port    int    `pulumi:"port"`
 }
 
 // DataSourceParametersPrestoInput is an input type that accepts DataSourceParametersPrestoArgs and DataSourceParametersPrestoOutput values.
@@ -2443,12 +2252,9 @@ type DataSourceParametersPrestoInput interface {
 }
 
 type DataSourceParametersPrestoArgs struct {
-	// The catalog to which to connect.
 	Catalog pulumi.StringInput `pulumi:"catalog"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host    pulumi.StringInput `pulumi:"host"`
+	Port    pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersPrestoArgs) ElementType() reflect.Type {
@@ -2528,17 +2334,14 @@ func (o DataSourceParametersPrestoOutput) ToDataSourceParametersPrestoPtrOutputW
 	}).(DataSourceParametersPrestoPtrOutput)
 }
 
-// The catalog to which to connect.
 func (o DataSourceParametersPrestoOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPresto) string { return v.Catalog }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersPrestoOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPresto) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersPrestoOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersPresto) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2567,7 +2370,6 @@ func (o DataSourceParametersPrestoPtrOutput) Elem() DataSourceParametersPrestoOu
 	}).(DataSourceParametersPrestoOutput)
 }
 
-// The catalog to which to connect.
 func (o DataSourceParametersPrestoPtrOutput) Catalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPresto) *string {
 		if v == nil {
@@ -2577,7 +2379,6 @@ func (o DataSourceParametersPrestoPtrOutput) Catalog() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersPrestoPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPresto) *string {
 		if v == nil {
@@ -2587,7 +2388,6 @@ func (o DataSourceParametersPrestoPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersPrestoPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPresto) *int {
 		if v == nil {
@@ -2598,9 +2398,7 @@ func (o DataSourceParametersPrestoPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersRds struct {
-	// The database to which to connect.
-	Database string `pulumi:"database"`
-	// The instance ID to which to connect.
+	Database   string `pulumi:"database"`
 	InstanceId string `pulumi:"instanceId"`
 }
 
@@ -2616,9 +2414,7 @@ type DataSourceParametersRdsInput interface {
 }
 
 type DataSourceParametersRdsArgs struct {
-	// The database to which to connect.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The instance ID to which to connect.
+	Database   pulumi.StringInput `pulumi:"database"`
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 }
 
@@ -2699,12 +2495,10 @@ func (o DataSourceParametersRdsOutput) ToDataSourceParametersRdsPtrOutputWithCon
 	}).(DataSourceParametersRdsPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersRdsOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersRds) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The instance ID to which to connect.
 func (o DataSourceParametersRdsOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersRds) string { return v.InstanceId }).(pulumi.StringOutput)
 }
@@ -2733,7 +2527,6 @@ func (o DataSourceParametersRdsPtrOutput) Elem() DataSourceParametersRdsOutput {
 	}).(DataSourceParametersRdsOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersRdsPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRds) *string {
 		if v == nil {
@@ -2743,7 +2536,6 @@ func (o DataSourceParametersRdsPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance ID to which to connect.
 func (o DataSourceParametersRdsPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRds) *string {
 		if v == nil {
@@ -2754,14 +2546,10 @@ func (o DataSourceParametersRdsPtrOutput) InstanceId() pulumi.StringPtrOutput {
 }
 
 type DataSourceParametersRedshift struct {
-	// The ID of the cluster to which to connect.
 	ClusterId *string `pulumi:"clusterId"`
-	// The database to which to connect.
-	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host *string `pulumi:"host"`
-	// The port to which to connect.
-	Port *int `pulumi:"port"`
+	Database  string  `pulumi:"database"`
+	Host      *string `pulumi:"host"`
+	Port      *int    `pulumi:"port"`
 }
 
 // DataSourceParametersRedshiftInput is an input type that accepts DataSourceParametersRedshiftArgs and DataSourceParametersRedshiftOutput values.
@@ -2776,14 +2564,10 @@ type DataSourceParametersRedshiftInput interface {
 }
 
 type DataSourceParametersRedshiftArgs struct {
-	// The ID of the cluster to which to connect.
 	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
-	// The database to which to connect.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The port to which to connect.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Database  pulumi.StringInput    `pulumi:"database"`
+	Host      pulumi.StringPtrInput `pulumi:"host"`
+	Port      pulumi.IntPtrInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersRedshiftArgs) ElementType() reflect.Type {
@@ -2863,22 +2647,18 @@ func (o DataSourceParametersRedshiftOutput) ToDataSourceParametersRedshiftPtrOut
 	}).(DataSourceParametersRedshiftPtrOutput)
 }
 
-// The ID of the cluster to which to connect.
 func (o DataSourceParametersRedshiftOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersRedshiftOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersRedshiftOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersRedshiftOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -2907,7 +2687,6 @@ func (o DataSourceParametersRedshiftPtrOutput) Elem() DataSourceParametersRedshi
 	}).(DataSourceParametersRedshiftOutput)
 }
 
-// The ID of the cluster to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *string {
 		if v == nil {
@@ -2917,7 +2696,6 @@ func (o DataSourceParametersRedshiftPtrOutput) ClusterId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *string {
 		if v == nil {
@@ -2927,7 +2705,6 @@ func (o DataSourceParametersRedshiftPtrOutput) Database() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *string {
 		if v == nil {
@@ -2937,7 +2714,6 @@ func (o DataSourceParametersRedshiftPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *int {
 		if v == nil {
@@ -2948,7 +2724,6 @@ func (o DataSourceParametersRedshiftPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersS3 struct {
-	// An object containing the S3 location of the S3 manifest file.
 	ManifestFileLocation DataSourceParametersS3ManifestFileLocation `pulumi:"manifestFileLocation"`
 }
 
@@ -2964,7 +2739,6 @@ type DataSourceParametersS3Input interface {
 }
 
 type DataSourceParametersS3Args struct {
-	// An object containing the S3 location of the S3 manifest file.
 	ManifestFileLocation DataSourceParametersS3ManifestFileLocationInput `pulumi:"manifestFileLocation"`
 }
 
@@ -3045,7 +2819,6 @@ func (o DataSourceParametersS3Output) ToDataSourceParametersS3PtrOutputWithConte
 	}).(DataSourceParametersS3PtrOutput)
 }
 
-// An object containing the S3 location of the S3 manifest file.
 func (o DataSourceParametersS3Output) ManifestFileLocation() DataSourceParametersS3ManifestFileLocationOutput {
 	return o.ApplyT(func(v DataSourceParametersS3) DataSourceParametersS3ManifestFileLocation {
 		return v.ManifestFileLocation
@@ -3076,7 +2849,6 @@ func (o DataSourceParametersS3PtrOutput) Elem() DataSourceParametersS3Output {
 	}).(DataSourceParametersS3Output)
 }
 
-// An object containing the S3 location of the S3 manifest file.
 func (o DataSourceParametersS3PtrOutput) ManifestFileLocation() DataSourceParametersS3ManifestFileLocationPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersS3) *DataSourceParametersS3ManifestFileLocation {
 		if v == nil {
@@ -3087,10 +2859,8 @@ func (o DataSourceParametersS3PtrOutput) ManifestFileLocation() DataSourceParame
 }
 
 type DataSourceParametersS3ManifestFileLocation struct {
-	// The name of the bucket that contains the manifest file.
 	Bucket string `pulumi:"bucket"`
-	// The key of the manifest file within the bucket.
-	Key string `pulumi:"key"`
+	Key    string `pulumi:"key"`
 }
 
 // DataSourceParametersS3ManifestFileLocationInput is an input type that accepts DataSourceParametersS3ManifestFileLocationArgs and DataSourceParametersS3ManifestFileLocationOutput values.
@@ -3105,10 +2875,8 @@ type DataSourceParametersS3ManifestFileLocationInput interface {
 }
 
 type DataSourceParametersS3ManifestFileLocationArgs struct {
-	// The name of the bucket that contains the manifest file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The key of the manifest file within the bucket.
-	Key pulumi.StringInput `pulumi:"key"`
+	Key    pulumi.StringInput `pulumi:"key"`
 }
 
 func (DataSourceParametersS3ManifestFileLocationArgs) ElementType() reflect.Type {
@@ -3188,12 +2956,10 @@ func (o DataSourceParametersS3ManifestFileLocationOutput) ToDataSourceParameters
 	}).(DataSourceParametersS3ManifestFileLocationPtrOutput)
 }
 
-// The name of the bucket that contains the manifest file.
 func (o DataSourceParametersS3ManifestFileLocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersS3ManifestFileLocation) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The key of the manifest file within the bucket.
 func (o DataSourceParametersS3ManifestFileLocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersS3ManifestFileLocation) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3222,7 +2988,6 @@ func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Elem() DataSourcePa
 	}).(DataSourceParametersS3ManifestFileLocationOutput)
 }
 
-// The name of the bucket that contains the manifest file.
 func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersS3ManifestFileLocation) *string {
 		if v == nil {
@@ -3232,7 +2997,6 @@ func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Bucket() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key of the manifest file within the bucket.
 func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersS3ManifestFileLocation) *string {
 		if v == nil {
@@ -3243,7 +3007,6 @@ func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Key() pulumi.String
 }
 
 type DataSourceParametersServiceNow struct {
-	// The base URL of the Jira instance's site to which to connect.
 	SiteBaseUrl string `pulumi:"siteBaseUrl"`
 }
 
@@ -3259,7 +3022,6 @@ type DataSourceParametersServiceNowInput interface {
 }
 
 type DataSourceParametersServiceNowArgs struct {
-	// The base URL of the Jira instance's site to which to connect.
 	SiteBaseUrl pulumi.StringInput `pulumi:"siteBaseUrl"`
 }
 
@@ -3340,7 +3102,6 @@ func (o DataSourceParametersServiceNowOutput) ToDataSourceParametersServiceNowPt
 	}).(DataSourceParametersServiceNowPtrOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
 func (o DataSourceParametersServiceNowOutput) SiteBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersServiceNow) string { return v.SiteBaseUrl }).(pulumi.StringOutput)
 }
@@ -3369,7 +3130,6 @@ func (o DataSourceParametersServiceNowPtrOutput) Elem() DataSourceParametersServ
 	}).(DataSourceParametersServiceNowOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
 func (o DataSourceParametersServiceNowPtrOutput) SiteBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersServiceNow) *string {
 		if v == nil {
@@ -3380,11 +3140,8 @@ func (o DataSourceParametersServiceNowPtrOutput) SiteBaseUrl() pulumi.StringPtrO
 }
 
 type DataSourceParametersSnowflake struct {
-	// The database to which to connect.
-	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
+	Database  string `pulumi:"database"`
+	Host      string `pulumi:"host"`
 	Warehouse string `pulumi:"warehouse"`
 }
 
@@ -3400,11 +3157,8 @@ type DataSourceParametersSnowflakeInput interface {
 }
 
 type DataSourceParametersSnowflakeArgs struct {
-	// The database to which to connect.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
+	Database  pulumi.StringInput `pulumi:"database"`
+	Host      pulumi.StringInput `pulumi:"host"`
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
 
@@ -3485,17 +3239,14 @@ func (o DataSourceParametersSnowflakeOutput) ToDataSourceParametersSnowflakePtrO
 	}).(DataSourceParametersSnowflakePtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersSnowflakeOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSnowflake) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersSnowflakeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSnowflake) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersSnowflakeOutput) Warehouse() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSnowflake) string { return v.Warehouse }).(pulumi.StringOutput)
 }
@@ -3524,7 +3275,6 @@ func (o DataSourceParametersSnowflakePtrOutput) Elem() DataSourceParametersSnowf
 	}).(DataSourceParametersSnowflakeOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersSnowflakePtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSnowflake) *string {
 		if v == nil {
@@ -3534,7 +3284,6 @@ func (o DataSourceParametersSnowflakePtrOutput) Database() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersSnowflakePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSnowflake) *string {
 		if v == nil {
@@ -3544,7 +3293,6 @@ func (o DataSourceParametersSnowflakePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersSnowflakePtrOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSnowflake) *string {
 		if v == nil {
@@ -3555,10 +3303,8 @@ func (o DataSourceParametersSnowflakePtrOutput) Warehouse() pulumi.StringPtrOutp
 }
 
 type DataSourceParametersSpark struct {
-	// The host to which to connect.
 	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
-	Port int `pulumi:"port"`
+	Port int    `pulumi:"port"`
 }
 
 // DataSourceParametersSparkInput is an input type that accepts DataSourceParametersSparkArgs and DataSourceParametersSparkOutput values.
@@ -3573,10 +3319,8 @@ type DataSourceParametersSparkInput interface {
 }
 
 type DataSourceParametersSparkArgs struct {
-	// The host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Port pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersSparkArgs) ElementType() reflect.Type {
@@ -3656,12 +3400,10 @@ func (o DataSourceParametersSparkOutput) ToDataSourceParametersSparkPtrOutputWit
 	}).(DataSourceParametersSparkPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersSparkOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSpark) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersSparkOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersSpark) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -3690,7 +3432,6 @@ func (o DataSourceParametersSparkPtrOutput) Elem() DataSourceParametersSparkOutp
 	}).(DataSourceParametersSparkOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersSparkPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSpark) *string {
 		if v == nil {
@@ -3700,7 +3441,6 @@ func (o DataSourceParametersSparkPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersSparkPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSpark) *int {
 		if v == nil {
@@ -3711,12 +3451,9 @@ func (o DataSourceParametersSparkPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersSqlServer struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersSqlServerInput is an input type that accepts DataSourceParametersSqlServerArgs and DataSourceParametersSqlServerOutput values.
@@ -3731,12 +3468,9 @@ type DataSourceParametersSqlServerInput interface {
 }
 
 type DataSourceParametersSqlServerArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersSqlServerArgs) ElementType() reflect.Type {
@@ -3816,17 +3550,14 @@ func (o DataSourceParametersSqlServerOutput) ToDataSourceParametersSqlServerPtrO
 	}).(DataSourceParametersSqlServerPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersSqlServerOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSqlServer) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersSqlServerOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSqlServer) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersSqlServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersSqlServer) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -3855,7 +3586,6 @@ func (o DataSourceParametersSqlServerPtrOutput) Elem() DataSourceParametersSqlSe
 	}).(DataSourceParametersSqlServerOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersSqlServerPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSqlServer) *string {
 		if v == nil {
@@ -3865,7 +3595,6 @@ func (o DataSourceParametersSqlServerPtrOutput) Database() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersSqlServerPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSqlServer) *string {
 		if v == nil {
@@ -3875,7 +3604,6 @@ func (o DataSourceParametersSqlServerPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersSqlServerPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSqlServer) *int {
 		if v == nil {
@@ -3886,12 +3614,9 @@ func (o DataSourceParametersSqlServerPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersTeradata struct {
-	// The database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
-	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
-	Port int `pulumi:"port"`
+	Host     string `pulumi:"host"`
+	Port     int    `pulumi:"port"`
 }
 
 // DataSourceParametersTeradataInput is an input type that accepts DataSourceParametersTeradataArgs and DataSourceParametersTeradataOutput values.
@@ -3906,12 +3631,9 @@ type DataSourceParametersTeradataInput interface {
 }
 
 type DataSourceParametersTeradataArgs struct {
-	// The database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
-	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
-	Port pulumi.IntInput `pulumi:"port"`
+	Host     pulumi.StringInput `pulumi:"host"`
+	Port     pulumi.IntInput    `pulumi:"port"`
 }
 
 func (DataSourceParametersTeradataArgs) ElementType() reflect.Type {
@@ -3991,17 +3713,14 @@ func (o DataSourceParametersTeradataOutput) ToDataSourceParametersTeradataPtrOut
 	}).(DataSourceParametersTeradataPtrOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersTeradataOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersTeradata) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersTeradataOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersTeradata) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersTeradataOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersTeradata) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -4030,7 +3749,6 @@ func (o DataSourceParametersTeradataPtrOutput) Elem() DataSourceParametersTerada
 	}).(DataSourceParametersTeradataOutput)
 }
 
-// The database to which to connect.
 func (o DataSourceParametersTeradataPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTeradata) *string {
 		if v == nil {
@@ -4040,7 +3758,6 @@ func (o DataSourceParametersTeradataPtrOutput) Database() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
 func (o DataSourceParametersTeradataPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTeradata) *string {
 		if v == nil {
@@ -4050,7 +3767,6 @@ func (o DataSourceParametersTeradataPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
 func (o DataSourceParametersTeradataPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTeradata) *int {
 		if v == nil {
@@ -4061,10 +3777,8 @@ func (o DataSourceParametersTeradataPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersTwitter struct {
-	// The maximum number of rows to query.
-	MaxRows int `pulumi:"maxRows"`
-	// The Twitter query to retrieve the data.
-	Query string `pulumi:"query"`
+	MaxRows int    `pulumi:"maxRows"`
+	Query   string `pulumi:"query"`
 }
 
 // DataSourceParametersTwitterInput is an input type that accepts DataSourceParametersTwitterArgs and DataSourceParametersTwitterOutput values.
@@ -4079,10 +3793,8 @@ type DataSourceParametersTwitterInput interface {
 }
 
 type DataSourceParametersTwitterArgs struct {
-	// The maximum number of rows to query.
-	MaxRows pulumi.IntInput `pulumi:"maxRows"`
-	// The Twitter query to retrieve the data.
-	Query pulumi.StringInput `pulumi:"query"`
+	MaxRows pulumi.IntInput    `pulumi:"maxRows"`
+	Query   pulumi.StringInput `pulumi:"query"`
 }
 
 func (DataSourceParametersTwitterArgs) ElementType() reflect.Type {
@@ -4162,12 +3874,10 @@ func (o DataSourceParametersTwitterOutput) ToDataSourceParametersTwitterPtrOutpu
 	}).(DataSourceParametersTwitterPtrOutput)
 }
 
-// The maximum number of rows to query.
 func (o DataSourceParametersTwitterOutput) MaxRows() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersTwitter) int { return v.MaxRows }).(pulumi.IntOutput)
 }
 
-// The Twitter query to retrieve the data.
 func (o DataSourceParametersTwitterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersTwitter) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -4196,7 +3906,6 @@ func (o DataSourceParametersTwitterPtrOutput) Elem() DataSourceParametersTwitter
 	}).(DataSourceParametersTwitterOutput)
 }
 
-// The maximum number of rows to query.
 func (o DataSourceParametersTwitterPtrOutput) MaxRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTwitter) *int {
 		if v == nil {
@@ -4206,7 +3915,6 @@ func (o DataSourceParametersTwitterPtrOutput) MaxRows() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Twitter query to retrieve the data.
 func (o DataSourceParametersTwitterPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTwitter) *string {
 		if v == nil {
@@ -4217,10 +3925,8 @@ func (o DataSourceParametersTwitterPtrOutput) Query() pulumi.StringPtrOutput {
 }
 
 type DataSourcePermission struct {
-	// Set of IAM actions to grant or revoke permissions on. Max of 16 items.
-	Actions []string `pulumi:"actions"`
-	// The Amazon Resource Name (ARN) of the principal.
-	Principal string `pulumi:"principal"`
+	Actions   []string `pulumi:"actions"`
+	Principal string   `pulumi:"principal"`
 }
 
 // DataSourcePermissionInput is an input type that accepts DataSourcePermissionArgs and DataSourcePermissionOutput values.
@@ -4235,10 +3941,8 @@ type DataSourcePermissionInput interface {
 }
 
 type DataSourcePermissionArgs struct {
-	// Set of IAM actions to grant or revoke permissions on. Max of 16 items.
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The Amazon Resource Name (ARN) of the principal.
-	Principal pulumi.StringInput `pulumi:"principal"`
+	Actions   pulumi.StringArrayInput `pulumi:"actions"`
+	Principal pulumi.StringInput      `pulumi:"principal"`
 }
 
 func (DataSourcePermissionArgs) ElementType() reflect.Type {
@@ -4292,12 +3996,10 @@ func (o DataSourcePermissionOutput) ToDataSourcePermissionOutputWithContext(ctx 
 	return o
 }
 
-// Set of IAM actions to grant or revoke permissions on. Max of 16 items.
 func (o DataSourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the principal.
 func (o DataSourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -4323,7 +4025,6 @@ func (o DataSourcePermissionArrayOutput) Index(i pulumi.IntInput) DataSourcePerm
 }
 
 type DataSourceSslProperties struct {
-	// A Boolean option to control whether SSL should be disabled.
 	DisableSsl bool `pulumi:"disableSsl"`
 }
 
@@ -4339,7 +4040,6 @@ type DataSourceSslPropertiesInput interface {
 }
 
 type DataSourceSslPropertiesArgs struct {
-	// A Boolean option to control whether SSL should be disabled.
 	DisableSsl pulumi.BoolInput `pulumi:"disableSsl"`
 }
 
@@ -4420,7 +4120,6 @@ func (o DataSourceSslPropertiesOutput) ToDataSourceSslPropertiesPtrOutputWithCon
 	}).(DataSourceSslPropertiesPtrOutput)
 }
 
-// A Boolean option to control whether SSL should be disabled.
 func (o DataSourceSslPropertiesOutput) DisableSsl() pulumi.BoolOutput {
 	return o.ApplyT(func(v DataSourceSslProperties) bool { return v.DisableSsl }).(pulumi.BoolOutput)
 }
@@ -4449,7 +4148,6 @@ func (o DataSourceSslPropertiesPtrOutput) Elem() DataSourceSslPropertiesOutput {
 	}).(DataSourceSslPropertiesOutput)
 }
 
-// A Boolean option to control whether SSL should be disabled.
 func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceSslProperties) *bool {
 		if v == nil {
@@ -4460,7 +4158,6 @@ func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 }
 
 type DataSourceVpcConnectionProperties struct {
-	// The Amazon Resource Name (ARN) for the VPC connection.
 	VpcConnectionArn string `pulumi:"vpcConnectionArn"`
 }
 
@@ -4476,7 +4173,6 @@ type DataSourceVpcConnectionPropertiesInput interface {
 }
 
 type DataSourceVpcConnectionPropertiesArgs struct {
-	// The Amazon Resource Name (ARN) for the VPC connection.
 	VpcConnectionArn pulumi.StringInput `pulumi:"vpcConnectionArn"`
 }
 
@@ -4557,7 +4253,6 @@ func (o DataSourceVpcConnectionPropertiesOutput) ToDataSourceVpcConnectionProper
 	}).(DataSourceVpcConnectionPropertiesPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the VPC connection.
 func (o DataSourceVpcConnectionPropertiesOutput) VpcConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceVpcConnectionProperties) string { return v.VpcConnectionArn }).(pulumi.StringOutput)
 }
@@ -4586,7 +4281,6 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) Elem() DataSourceVpcConnecti
 	}).(DataSourceVpcConnectionPropertiesOutput)
 }
 
-// The Amazon Resource Name (ARN) for the VPC connection.
 func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceVpcConnectionProperties) *string {
 		if v == nil {

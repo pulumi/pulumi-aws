@@ -11,97 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
-//
-// > **Note:** Use `lifecycle` `ignoreChanges` for `replica` in the associated dynamodb.Table configuration.
-//
-// > **Note:** Do not use the `replica` configuration block of dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
-//
-// ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "main", &aws.ProviderArgs{
-//				Region: pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "alt", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-//				HashKey:        pulumi.String("BrodoBaggins"),
-//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("BrodoBaggins"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			}, pulumi.Provider("aws.main"))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewTableReplica(ctx, "exampleTableReplica", &dynamodb.TableReplicaArgs{
-//				GlobalTableArn: exampleTable.Arn,
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("IZPAWS"),
-//					"Pozo": pulumi.String("Amargo"),
-//				},
-//			}, pulumi.Provider("aws.alt"))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
-//
-// ```sh
-//
-//	$ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
-//
-// ```
 type TableReplica struct {
 	pulumi.CustomResourceState
 
-	// ARN of the table replica.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ARN of the _main_ or global table which this resource will replicate.
-	GlobalTableArn pulumi.StringOutput `pulumi:"globalTableArn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
-	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-	PointInTimeRecovery pulumi.BoolPtrOutput `pulumi:"pointInTimeRecovery"`
-	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-	TableClassOverride pulumi.StringPtrOutput `pulumi:"tableClassOverride"`
-	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Arn                 pulumi.StringOutput    `pulumi:"arn"`
+	GlobalTableArn      pulumi.StringOutput    `pulumi:"globalTableArn"`
+	KmsKeyArn           pulumi.StringOutput    `pulumi:"kmsKeyArn"`
+	PointInTimeRecovery pulumi.BoolPtrOutput   `pulumi:"pointInTimeRecovery"`
+	TableClassOverride  pulumi.StringPtrOutput `pulumi:"tableClassOverride"`
+	Tags                pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll             pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTableReplica registers a new resource with the given unique name, arguments, and options.
@@ -136,37 +55,23 @@ func GetTableReplica(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableReplica resources.
 type tableReplicaState struct {
-	// ARN of the table replica.
-	Arn *string `pulumi:"arn"`
-	// ARN of the _main_ or global table which this resource will replicate.
-	GlobalTableArn *string `pulumi:"globalTableArn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
-	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-	TableClassOverride *string `pulumi:"tableClassOverride"`
-	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Arn                 *string           `pulumi:"arn"`
+	GlobalTableArn      *string           `pulumi:"globalTableArn"`
+	KmsKeyArn           *string           `pulumi:"kmsKeyArn"`
+	PointInTimeRecovery *bool             `pulumi:"pointInTimeRecovery"`
+	TableClassOverride  *string           `pulumi:"tableClassOverride"`
+	Tags                map[string]string `pulumi:"tags"`
+	TagsAll             map[string]string `pulumi:"tagsAll"`
 }
 
 type TableReplicaState struct {
-	// ARN of the table replica.
-	Arn pulumi.StringPtrInput
-	// ARN of the _main_ or global table which this resource will replicate.
-	GlobalTableArn pulumi.StringPtrInput
-	// ARN of the CMK that should be used for the AWS KMS encryption.
-	KmsKeyArn pulumi.StringPtrInput
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	Arn                 pulumi.StringPtrInput
+	GlobalTableArn      pulumi.StringPtrInput
+	KmsKeyArn           pulumi.StringPtrInput
 	PointInTimeRecovery pulumi.BoolPtrInput
-	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-	TableClassOverride pulumi.StringPtrInput
-	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	TableClassOverride  pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	TagsAll             pulumi.StringMapInput
 }
 
 func (TableReplicaState) ElementType() reflect.Type {
@@ -174,30 +79,20 @@ func (TableReplicaState) ElementType() reflect.Type {
 }
 
 type tableReplicaArgs struct {
-	// ARN of the _main_ or global table which this resource will replicate.
-	GlobalTableArn string `pulumi:"globalTableArn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
-	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
-	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
-	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-	TableClassOverride *string `pulumi:"tableClassOverride"`
-	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	GlobalTableArn      string            `pulumi:"globalTableArn"`
+	KmsKeyArn           *string           `pulumi:"kmsKeyArn"`
+	PointInTimeRecovery *bool             `pulumi:"pointInTimeRecovery"`
+	TableClassOverride  *string           `pulumi:"tableClassOverride"`
+	Tags                map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TableReplica resource.
 type TableReplicaArgs struct {
-	// ARN of the _main_ or global table which this resource will replicate.
-	GlobalTableArn pulumi.StringInput
-	// ARN of the CMK that should be used for the AWS KMS encryption.
-	KmsKeyArn pulumi.StringPtrInput
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	GlobalTableArn      pulumi.StringInput
+	KmsKeyArn           pulumi.StringPtrInput
 	PointInTimeRecovery pulumi.BoolPtrInput
-	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-	TableClassOverride pulumi.StringPtrInput
-	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	TableClassOverride  pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (TableReplicaArgs) ElementType() reflect.Type {
@@ -287,37 +182,30 @@ func (o TableReplicaOutput) ToTableReplicaOutputWithContext(ctx context.Context)
 	return o
 }
 
-// ARN of the table replica.
 func (o TableReplicaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ARN of the _main_ or global table which this resource will replicate.
 func (o TableReplicaOutput) GlobalTableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.GlobalTableArn }).(pulumi.StringOutput)
 }
 
-// ARN of the CMK that should be used for the AWS KMS encryption.
 func (o TableReplicaOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 func (o TableReplicaOutput) PointInTimeRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.BoolPtrOutput { return v.PointInTimeRecovery }).(pulumi.BoolPtrOutput)
 }
 
-// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 func (o TableReplicaOutput) TableClassOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringPtrOutput { return v.TableClassOverride }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TableReplicaOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TableReplicaOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

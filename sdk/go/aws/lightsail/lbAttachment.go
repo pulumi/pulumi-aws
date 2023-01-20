@@ -11,84 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attaches a Lightsail Instance to a Lightsail Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//				Filters: []aws.GetAvailabilityZonesFilter{
-//					{
-//						Name: "opt-in-status",
-//						Values: []string{
-//							"opt-in-not-required",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbAttachment(ctx, "testLbAttachment", &lightsail.LbAttachmentArgs{
-//				LbName:       testLb.Name,
-//				InstanceName: testInstance.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_lightsail_lb_attachment` can be imported by using the name attribute, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
-//
-// ```
 type LbAttachment struct {
 	pulumi.CustomResourceState
 
-	// The name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
-	// The name of the Lightsail load balancer.
-	LbName pulumi.StringOutput `pulumi:"lbName"`
+	LbName       pulumi.StringOutput `pulumi:"lbName"`
 }
 
 // NewLbAttachment registers a new resource with the given unique name, arguments, and options.
@@ -126,17 +53,13 @@ func GetLbAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbAttachment resources.
 type lbAttachmentState struct {
-	// The name of the instance to attach to the load balancer.
 	InstanceName *string `pulumi:"instanceName"`
-	// The name of the Lightsail load balancer.
-	LbName *string `pulumi:"lbName"`
+	LbName       *string `pulumi:"lbName"`
 }
 
 type LbAttachmentState struct {
-	// The name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringPtrInput
-	// The name of the Lightsail load balancer.
-	LbName pulumi.StringPtrInput
+	LbName       pulumi.StringPtrInput
 }
 
 func (LbAttachmentState) ElementType() reflect.Type {
@@ -144,18 +67,14 @@ func (LbAttachmentState) ElementType() reflect.Type {
 }
 
 type lbAttachmentArgs struct {
-	// The name of the instance to attach to the load balancer.
 	InstanceName string `pulumi:"instanceName"`
-	// The name of the Lightsail load balancer.
-	LbName string `pulumi:"lbName"`
+	LbName       string `pulumi:"lbName"`
 }
 
 // The set of arguments for constructing a LbAttachment resource.
 type LbAttachmentArgs struct {
-	// The name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringInput
-	// The name of the Lightsail load balancer.
-	LbName pulumi.StringInput
+	LbName       pulumi.StringInput
 }
 
 func (LbAttachmentArgs) ElementType() reflect.Type {
@@ -245,12 +164,10 @@ func (o LbAttachmentOutput) ToLbAttachmentOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the instance to attach to the load balancer.
 func (o LbAttachmentOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
 }
 
-// The name of the Lightsail load balancer.
 func (o LbAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
 }

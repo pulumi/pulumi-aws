@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get information about an AWS Cloudwatch Log Group
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.LookupLogGroup(ctx, &cloudwatch.LookupLogGroupArgs{
-//				Name: "MyImportantLogs",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulumi.InvokeOption) (*LookupLogGroupResult, error) {
 	var rv LookupLogGroupResult
 	err := ctx.Invoke("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, opts...)
@@ -48,27 +21,20 @@ func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulum
 
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupArgs struct {
-	// Name of the Cloudwatch log group
-	Name string `pulumi:"name"`
-	// Map of tags to assign to the resource.
+	Name string            `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLogGroup.
 type LookupLogGroupResult struct {
-	// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-	Arn string `pulumi:"arn"`
-	// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-	CreationTime int `pulumi:"creationTime"`
+	Arn          string `pulumi:"arn"`
+	CreationTime int    `pulumi:"creationTime"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// ARN of the KMS Key to use when encrypting log data.
-	KmsKeyId string `pulumi:"kmsKeyId"`
-	Name     string `pulumi:"name"`
-	// Number of days log events retained in the specified log group.
-	RetentionInDays int `pulumi:"retentionInDays"`
-	// Map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Id              string            `pulumi:"id"`
+	KmsKeyId        string            `pulumi:"kmsKeyId"`
+	Name            string            `pulumi:"name"`
+	RetentionInDays int               `pulumi:"retentionInDays"`
+	Tags            map[string]string `pulumi:"tags"`
 }
 
 func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, opts ...pulumi.InvokeOption) LookupLogGroupResultOutput {
@@ -86,9 +52,7 @@ func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, op
 
 // A collection of arguments for invoking getLogGroup.
 type LookupLogGroupOutputArgs struct {
-	// Name of the Cloudwatch log group
-	Name pulumi.StringInput `pulumi:"name"`
-	// Map of tags to assign to the resource.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -111,12 +75,10 @@ func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx 
 	return o
 }
 
-// ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
 func (o LookupLogGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 func (o LookupLogGroupResultOutput) CreationTime() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) int { return v.CreationTime }).(pulumi.IntOutput)
 }
@@ -126,7 +88,6 @@ func (o LookupLogGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the KMS Key to use when encrypting log data.
 func (o LookupLogGroupResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -135,12 +96,10 @@ func (o LookupLogGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Number of days log events retained in the specified log group.
 func (o LookupLogGroupResultOutput) RetentionInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) int { return v.RetentionInDays }).(pulumi.IntOutput)
 }
 
-// Map of tags to assign to the resource.
 func (o LookupLogGroupResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

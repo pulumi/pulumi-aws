@@ -10,34 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
-//
-// ## Example Usage
-//
-// The following shows outputing all Local Gateway Route Table Ids.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fooLocalGatewayRouteTables, err := ec2.GetLocalGatewayRouteTables(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("foo", fooLocalGatewayRouteTables.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLocalGatewayRouteTables(ctx *pulumi.Context, args *GetLocalGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTablesResult, error) {
 	var rv GetLocalGatewayRouteTablesResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, &rv, opts...)
@@ -49,19 +21,15 @@ func GetLocalGatewayRouteTables(ctx *pulumi.Context, args *GetLocalGatewayRouteT
 
 // A collection of arguments for invoking getLocalGatewayRouteTables.
 type GetLocalGatewayRouteTablesArgs struct {
-	// Custom filter block as described below.
 	Filters []GetLocalGatewayRouteTablesFilter `pulumi:"filters"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired local gateway route table.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string                  `pulumi:"tags"`
 }
 
 // A collection of values returned by getLocalGatewayRouteTables.
 type GetLocalGatewayRouteTablesResult struct {
 	Filters []GetLocalGatewayRouteTablesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Set of Local Gateway Route Table identifiers
+	Id   string            `pulumi:"id"`
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,11 +49,8 @@ func GetLocalGatewayRouteTablesOutput(ctx *pulumi.Context, args GetLocalGatewayR
 
 // A collection of arguments for invoking getLocalGatewayRouteTables.
 type GetLocalGatewayRouteTablesOutputArgs struct {
-	// Custom filter block as described below.
 	Filters GetLocalGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired local gateway route table.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags    pulumi.StringMapInput                      `pulumi:"tags"`
 }
 
 func (GetLocalGatewayRouteTablesOutputArgs) ElementType() reflect.Type {
@@ -116,7 +81,6 @@ func (o GetLocalGatewayRouteTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Set of Local Gateway Route Table identifiers
 func (o GetLocalGatewayRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocalGatewayRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -10,49 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a MQ Broker.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			brokerId := ""
-//			if param := cfg.Get("brokerId"); param != "" {
-//				brokerId = param
-//			}
-//			brokerName := ""
-//			if param := cfg.Get("brokerName"); param != "" {
-//				brokerName = param
-//			}
-//			_, err := mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-//				BrokerId: pulumi.StringRef(brokerId),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mq.LookupBroker(ctx, &mq.LookupBrokerArgs{
-//				BrokerName: pulumi.StringRef(brokerName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.InvokeOption) (*LookupBrokerResult, error) {
 	var rv LookupBrokerResult
 	err := ctx.Invoke("aws:mq/getBroker:getBroker", args, &rv, opts...)
@@ -64,9 +21,7 @@ func LookupBroker(ctx *pulumi.Context, args *LookupBrokerArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getBroker.
 type LookupBrokerArgs struct {
-	// Unique id of the mq broker.
-	BrokerId *string `pulumi:"brokerId"`
-	// Unique name of the mq broker.
+	BrokerId   *string           `pulumi:"brokerId"`
 	BrokerName *string           `pulumi:"brokerName"`
 	Tags       map[string]string `pulumi:"tags"`
 }
@@ -113,9 +68,7 @@ func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts .
 
 // A collection of arguments for invoking getBroker.
 type LookupBrokerOutputArgs struct {
-	// Unique id of the mq broker.
-	BrokerId pulumi.StringPtrInput `pulumi:"brokerId"`
-	// Unique name of the mq broker.
+	BrokerId   pulumi.StringPtrInput `pulumi:"brokerId"`
 	BrokerName pulumi.StringPtrInput `pulumi:"brokerName"`
 	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }

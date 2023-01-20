@@ -11,85 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an IAM policy attached to a user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
-//				Path: pulumi.String("/system/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"ec2:Describe*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
-//				User:   lbUser.Name,
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-//				User: lbUser.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
-//
-// ```
 type UserPolicy struct {
 	pulumi.CustomResourceState
 
-	// The name of the policy. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	Name       pulumi.StringOutput    `pulumi:"name"`
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringOutput `pulumi:"policy"`
-	// IAM user to which to attach this policy.
-	User pulumi.StringOutput `pulumi:"user"`
+	Policy     pulumi.StringOutput    `pulumi:"policy"`
+	User       pulumi.StringOutput    `pulumi:"user"`
 }
 
 // NewUserPolicy registers a new resource with the given unique name, arguments, and options.
@@ -127,25 +55,17 @@ func GetUserPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPolicy resources.
 type userPolicyState struct {
-	// The name of the policy. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
-	// IAM user to which to attach this policy.
-	User *string `pulumi:"user"`
+	Name       *string     `pulumi:"name"`
+	NamePrefix *string     `pulumi:"namePrefix"`
+	Policy     interface{} `pulumi:"policy"`
+	User       *string     `pulumi:"user"`
 }
 
 type UserPolicyState struct {
-	// The name of the policy. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
-	// IAM user to which to attach this policy.
-	User pulumi.StringPtrInput
+	Policy     pulumi.Input
+	User       pulumi.StringPtrInput
 }
 
 func (UserPolicyState) ElementType() reflect.Type {
@@ -153,26 +73,18 @@ func (UserPolicyState) ElementType() reflect.Type {
 }
 
 type userPolicyArgs struct {
-	// The name of the policy. If omitted, the provider will assign a random, unique name.
-	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix *string `pulumi:"namePrefix"`
-	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
-	// IAM user to which to attach this policy.
-	User string `pulumi:"user"`
+	Name       *string     `pulumi:"name"`
+	NamePrefix *string     `pulumi:"namePrefix"`
+	Policy     interface{} `pulumi:"policy"`
+	User       string      `pulumi:"user"`
 }
 
 // The set of arguments for constructing a UserPolicy resource.
 type UserPolicyArgs struct {
-	// The name of the policy. If omitted, the provider will assign a random, unique name.
-	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	Name       pulumi.StringPtrInput
 	NamePrefix pulumi.StringPtrInput
-	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
-	// IAM user to which to attach this policy.
-	User pulumi.StringInput
+	Policy     pulumi.Input
+	User       pulumi.StringInput
 }
 
 func (UserPolicyArgs) ElementType() reflect.Type {
@@ -262,22 +174,18 @@ func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) Use
 	return o
 }
 
-// The name of the policy. If omitted, the provider will assign a random, unique name.
 func (o UserPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o UserPolicyOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
-// The policy document. This is a JSON formatted string.
 func (o UserPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
 
-// IAM user to which to attach this policy.
 func (o UserPolicyOutput) User() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPolicy) pulumi.StringOutput { return v.User }).(pulumi.StringOutput)
 }

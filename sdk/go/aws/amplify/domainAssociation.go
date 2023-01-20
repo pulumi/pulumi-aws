@@ -11,88 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amplify Domain Association resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", &amplify.AppArgs{
-//				CustomRules: amplify.AppCustomRuleArray{
-//					&amplify.AppCustomRuleArgs{
-//						Source: pulumi.String("https://example.com"),
-//						Status: pulumi.String("302"),
-//						Target: pulumi.String("https://www.example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      exampleApp.ID(),
-//				BranchName: pulumi.String("master"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewDomainAssociation(ctx, "exampleDomainAssociation", &amplify.DomainAssociationArgs{
-//				AppId:      exampleApp.ID(),
-//				DomainName: pulumi.String("example.com"),
-//				SubDomains: amplify.DomainAssociationSubDomainArray{
-//					&amplify.DomainAssociationSubDomainArgs{
-//						BranchName: master.BranchName,
-//						Prefix:     pulumi.String(""),
-//					},
-//					&amplify.DomainAssociationSubDomainArgs{
-//						BranchName: master.BranchName,
-//						Prefix:     pulumi.String("www"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Amplify domain association can be imported using `app_id` and `domain_name`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
-//
-// ```
 type DomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// Unique ID for an Amplify app.
-	AppId pulumi.StringOutput `pulumi:"appId"`
-	// ARN for the domain association.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The DNS record for certificate verification.
-	CertificateVerificationDnsRecord pulumi.StringOutput `pulumi:"certificateVerificationDnsRecord"`
-	// Domain name for the domain association.
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Setting for the subdomain. Documented below.
-	SubDomains DomainAssociationSubDomainArrayOutput `pulumi:"subDomains"`
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification pulumi.BoolPtrOutput `pulumi:"waitForVerification"`
+	AppId                            pulumi.StringOutput                   `pulumi:"appId"`
+	Arn                              pulumi.StringOutput                   `pulumi:"arn"`
+	CertificateVerificationDnsRecord pulumi.StringOutput                   `pulumi:"certificateVerificationDnsRecord"`
+	DomainName                       pulumi.StringOutput                   `pulumi:"domainName"`
+	SubDomains                       DomainAssociationSubDomainArrayOutput `pulumi:"subDomains"`
+	WaitForVerification              pulumi.BoolPtrOutput                  `pulumi:"waitForVerification"`
 }
 
 // NewDomainAssociation registers a new resource with the given unique name, arguments, and options.
@@ -133,33 +60,21 @@ func GetDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainAssociation resources.
 type domainAssociationState struct {
-	// Unique ID for an Amplify app.
-	AppId *string `pulumi:"appId"`
-	// ARN for the domain association.
-	Arn *string `pulumi:"arn"`
-	// The DNS record for certificate verification.
-	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
-	// Domain name for the domain association.
-	DomainName *string `pulumi:"domainName"`
-	// Setting for the subdomain. Documented below.
-	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification *bool `pulumi:"waitForVerification"`
+	AppId                            *string                      `pulumi:"appId"`
+	Arn                              *string                      `pulumi:"arn"`
+	CertificateVerificationDnsRecord *string                      `pulumi:"certificateVerificationDnsRecord"`
+	DomainName                       *string                      `pulumi:"domainName"`
+	SubDomains                       []DomainAssociationSubDomain `pulumi:"subDomains"`
+	WaitForVerification              *bool                        `pulumi:"waitForVerification"`
 }
 
 type DomainAssociationState struct {
-	// Unique ID for an Amplify app.
-	AppId pulumi.StringPtrInput
-	// ARN for the domain association.
-	Arn pulumi.StringPtrInput
-	// The DNS record for certificate verification.
+	AppId                            pulumi.StringPtrInput
+	Arn                              pulumi.StringPtrInput
 	CertificateVerificationDnsRecord pulumi.StringPtrInput
-	// Domain name for the domain association.
-	DomainName pulumi.StringPtrInput
-	// Setting for the subdomain. Documented below.
-	SubDomains DomainAssociationSubDomainArrayInput
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification pulumi.BoolPtrInput
+	DomainName                       pulumi.StringPtrInput
+	SubDomains                       DomainAssociationSubDomainArrayInput
+	WaitForVerification              pulumi.BoolPtrInput
 }
 
 func (DomainAssociationState) ElementType() reflect.Type {
@@ -167,25 +82,17 @@ func (DomainAssociationState) ElementType() reflect.Type {
 }
 
 type domainAssociationArgs struct {
-	// Unique ID for an Amplify app.
-	AppId string `pulumi:"appId"`
-	// Domain name for the domain association.
-	DomainName string `pulumi:"domainName"`
-	// Setting for the subdomain. Documented below.
-	SubDomains []DomainAssociationSubDomain `pulumi:"subDomains"`
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-	WaitForVerification *bool `pulumi:"waitForVerification"`
+	AppId               string                       `pulumi:"appId"`
+	DomainName          string                       `pulumi:"domainName"`
+	SubDomains          []DomainAssociationSubDomain `pulumi:"subDomains"`
+	WaitForVerification *bool                        `pulumi:"waitForVerification"`
 }
 
 // The set of arguments for constructing a DomainAssociation resource.
 type DomainAssociationArgs struct {
-	// Unique ID for an Amplify app.
-	AppId pulumi.StringInput
-	// Domain name for the domain association.
-	DomainName pulumi.StringInput
-	// Setting for the subdomain. Documented below.
-	SubDomains DomainAssociationSubDomainArrayInput
-	// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
+	AppId               pulumi.StringInput
+	DomainName          pulumi.StringInput
+	SubDomains          DomainAssociationSubDomainArrayInput
 	WaitForVerification pulumi.BoolPtrInput
 }
 
@@ -276,32 +183,26 @@ func (o DomainAssociationOutput) ToDomainAssociationOutputWithContext(ctx contex
 	return o
 }
 
-// Unique ID for an Amplify app.
 func (o DomainAssociationOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
 
-// ARN for the domain association.
 func (o DomainAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The DNS record for certificate verification.
 func (o DomainAssociationOutput) CertificateVerificationDnsRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.CertificateVerificationDnsRecord }).(pulumi.StringOutput)
 }
 
-// Domain name for the domain association.
 func (o DomainAssociationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Setting for the subdomain. Documented below.
 func (o DomainAssociationOutput) SubDomains() DomainAssociationSubDomainArrayOutput {
 	return o.ApplyT(func(v *DomainAssociation) DomainAssociationSubDomainArrayOutput { return v.SubDomains }).(DomainAssociationSubDomainArrayOutput)
 }
 
-// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
 func (o DomainAssociationOutput) WaitForVerification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.BoolPtrOutput { return v.WaitForVerification }).(pulumi.BoolPtrOutput)
 }

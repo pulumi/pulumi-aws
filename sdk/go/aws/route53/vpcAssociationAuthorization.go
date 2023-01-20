@@ -11,92 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "alternate", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.6.0.0/16"),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleZone, err := route53.NewZone(ctx, "exampleZone", &route53.ZoneArgs{
-//				Vpcs: route53.ZoneVpcArray{
-//					&route53.ZoneVpcArgs{
-//						VpcId: exampleVpc.ID(),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			alternateVpc, err := ec2.NewVpc(ctx, "alternateVpc", &ec2.VpcArgs{
-//				CidrBlock:          pulumi.String("10.7.0.0/16"),
-//				EnableDnsHostnames: pulumi.Bool(true),
-//				EnableDnsSupport:   pulumi.Bool(true),
-//			}, pulumi.Provider("aws.alternate"))
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcAssociationAuthorization, err := route53.NewVpcAssociationAuthorization(ctx, "exampleVpcAssociationAuthorization", &route53.VpcAssociationAuthorizationArgs{
-//				VpcId:  alternateVpc.ID(),
-//				ZoneId: exampleZone.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
-//				VpcId:  exampleVpcAssociationAuthorization.VpcId,
-//				ZoneId: exampleVpcAssociationAuthorization.ZoneId,
-//			}, pulumi.Provider("aws.alternate"))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
-//
-// ```
 type VpcAssociationAuthorization struct {
 	pulumi.CustomResourceState
 
-	// The VPC to authorize for association with the private hosted zone.
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
-	// The VPC's region. Defaults to the region of the AWS provider.
+	VpcId     pulumi.StringOutput `pulumi:"vpcId"`
 	VpcRegion pulumi.StringOutput `pulumi:"vpcRegion"`
-	// The ID of the private hosted zone that you want to authorize associating a VPC with.
-	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
+	ZoneId    pulumi.StringOutput `pulumi:"zoneId"`
 }
 
 // NewVpcAssociationAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -134,21 +54,15 @@ func GetVpcAssociationAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcAssociationAuthorization resources.
 type vpcAssociationAuthorizationState struct {
-	// The VPC to authorize for association with the private hosted zone.
-	VpcId *string `pulumi:"vpcId"`
-	// The VPC's region. Defaults to the region of the AWS provider.
+	VpcId     *string `pulumi:"vpcId"`
 	VpcRegion *string `pulumi:"vpcRegion"`
-	// The ID of the private hosted zone that you want to authorize associating a VPC with.
-	ZoneId *string `pulumi:"zoneId"`
+	ZoneId    *string `pulumi:"zoneId"`
 }
 
 type VpcAssociationAuthorizationState struct {
-	// The VPC to authorize for association with the private hosted zone.
-	VpcId pulumi.StringPtrInput
-	// The VPC's region. Defaults to the region of the AWS provider.
+	VpcId     pulumi.StringPtrInput
 	VpcRegion pulumi.StringPtrInput
-	// The ID of the private hosted zone that you want to authorize associating a VPC with.
-	ZoneId pulumi.StringPtrInput
+	ZoneId    pulumi.StringPtrInput
 }
 
 func (VpcAssociationAuthorizationState) ElementType() reflect.Type {
@@ -156,22 +70,16 @@ func (VpcAssociationAuthorizationState) ElementType() reflect.Type {
 }
 
 type vpcAssociationAuthorizationArgs struct {
-	// The VPC to authorize for association with the private hosted zone.
-	VpcId string `pulumi:"vpcId"`
-	// The VPC's region. Defaults to the region of the AWS provider.
+	VpcId     string  `pulumi:"vpcId"`
 	VpcRegion *string `pulumi:"vpcRegion"`
-	// The ID of the private hosted zone that you want to authorize associating a VPC with.
-	ZoneId string `pulumi:"zoneId"`
+	ZoneId    string  `pulumi:"zoneId"`
 }
 
 // The set of arguments for constructing a VpcAssociationAuthorization resource.
 type VpcAssociationAuthorizationArgs struct {
-	// The VPC to authorize for association with the private hosted zone.
-	VpcId pulumi.StringInput
-	// The VPC's region. Defaults to the region of the AWS provider.
+	VpcId     pulumi.StringInput
 	VpcRegion pulumi.StringPtrInput
-	// The ID of the private hosted zone that you want to authorize associating a VPC with.
-	ZoneId pulumi.StringInput
+	ZoneId    pulumi.StringInput
 }
 
 func (VpcAssociationAuthorizationArgs) ElementType() reflect.Type {
@@ -261,17 +169,14 @@ func (o VpcAssociationAuthorizationOutput) ToVpcAssociationAuthorizationOutputWi
 	return o
 }
 
-// The VPC to authorize for association with the private hosted zone.
 func (o VpcAssociationAuthorizationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAssociationAuthorization) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The VPC's region. Defaults to the region of the AWS provider.
 func (o VpcAssociationAuthorizationOutput) VpcRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAssociationAuthorization) pulumi.StringOutput { return v.VpcRegion }).(pulumi.StringOutput)
 }
 
-// The ID of the private hosted zone that you want to authorize associating a VPC with.
 func (o VpcAssociationAuthorizationOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAssociationAuthorization) pulumi.StringOutput { return v.ZoneId }).(pulumi.StringOutput)
 }

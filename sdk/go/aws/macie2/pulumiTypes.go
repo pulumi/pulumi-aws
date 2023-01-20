@@ -11,12 +11,9 @@ import (
 )
 
 type ClassificationExportConfigurationS3Destination struct {
-	// The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-	BucketName string `pulumi:"bucketName"`
-	// The object key for the bucket in which Amazon Macie exports the data classification results.
-	KeyPrefix *string `pulumi:"keyPrefix"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	BucketName string  `pulumi:"bucketName"`
+	KeyPrefix  *string `pulumi:"keyPrefix"`
+	KmsKeyArn  string  `pulumi:"kmsKeyArn"`
 }
 
 // ClassificationExportConfigurationS3DestinationInput is an input type that accepts ClassificationExportConfigurationS3DestinationArgs and ClassificationExportConfigurationS3DestinationOutput values.
@@ -31,12 +28,9 @@ type ClassificationExportConfigurationS3DestinationInput interface {
 }
 
 type ClassificationExportConfigurationS3DestinationArgs struct {
-	// The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The object key for the bucket in which Amazon Macie exports the data classification results.
-	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	BucketName pulumi.StringInput    `pulumi:"bucketName"`
+	KeyPrefix  pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	KmsKeyArn  pulumi.StringInput    `pulumi:"kmsKeyArn"`
 }
 
 func (ClassificationExportConfigurationS3DestinationArgs) ElementType() reflect.Type {
@@ -116,17 +110,14 @@ func (o ClassificationExportConfigurationS3DestinationOutput) ToClassificationEx
 	}).(ClassificationExportConfigurationS3DestinationPtrOutput)
 }
 
-// The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
 func (o ClassificationExportConfigurationS3DestinationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassificationExportConfigurationS3Destination) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The object key for the bucket in which Amazon Macie exports the data classification results.
 func (o ClassificationExportConfigurationS3DestinationOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationExportConfigurationS3Destination) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o ClassificationExportConfigurationS3DestinationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassificationExportConfigurationS3Destination) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -155,7 +146,6 @@ func (o ClassificationExportConfigurationS3DestinationPtrOutput) Elem() Classifi
 	}).(ClassificationExportConfigurationS3DestinationOutput)
 }
 
-// The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
 func (o ClassificationExportConfigurationS3DestinationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationExportConfigurationS3Destination) *string {
 		if v == nil {
@@ -165,7 +155,6 @@ func (o ClassificationExportConfigurationS3DestinationPtrOutput) BucketName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key for the bucket in which Amazon Macie exports the data classification results.
 func (o ClassificationExportConfigurationS3DestinationPtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationExportConfigurationS3Destination) *string {
 		if v == nil {
@@ -175,7 +164,6 @@ func (o ClassificationExportConfigurationS3DestinationPtrOutput) KeyPrefix() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o ClassificationExportConfigurationS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationExportConfigurationS3Destination) *string {
 		if v == nil {
@@ -186,12 +174,9 @@ func (o ClassificationExportConfigurationS3DestinationPtrOutput) KmsKeyArn() pul
 }
 
 type ClassificationJobS3JobDefinition struct {
-	// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucketDefinitions`. (documented below)
-	BucketCriteria *ClassificationJobS3JobDefinitionBucketCriteria `pulumi:"bucketCriteria"`
-	// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucketCriteria`. (documented below)
+	BucketCriteria    *ClassificationJobS3JobDefinitionBucketCriteria    `pulumi:"bucketCriteria"`
 	BucketDefinitions []ClassificationJobS3JobDefinitionBucketDefinition `pulumi:"bucketDefinitions"`
-	// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
-	Scoping *ClassificationJobS3JobDefinitionScoping `pulumi:"scoping"`
+	Scoping           *ClassificationJobS3JobDefinitionScoping           `pulumi:"scoping"`
 }
 
 // ClassificationJobS3JobDefinitionInput is an input type that accepts ClassificationJobS3JobDefinitionArgs and ClassificationJobS3JobDefinitionOutput values.
@@ -206,12 +191,9 @@ type ClassificationJobS3JobDefinitionInput interface {
 }
 
 type ClassificationJobS3JobDefinitionArgs struct {
-	// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucketDefinitions`. (documented below)
-	BucketCriteria ClassificationJobS3JobDefinitionBucketCriteriaPtrInput `pulumi:"bucketCriteria"`
-	// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucketCriteria`. (documented below)
+	BucketCriteria    ClassificationJobS3JobDefinitionBucketCriteriaPtrInput     `pulumi:"bucketCriteria"`
 	BucketDefinitions ClassificationJobS3JobDefinitionBucketDefinitionArrayInput `pulumi:"bucketDefinitions"`
-	// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
-	Scoping ClassificationJobS3JobDefinitionScopingPtrInput `pulumi:"scoping"`
+	Scoping           ClassificationJobS3JobDefinitionScopingPtrInput            `pulumi:"scoping"`
 }
 
 func (ClassificationJobS3JobDefinitionArgs) ElementType() reflect.Type {
@@ -291,21 +273,18 @@ func (o ClassificationJobS3JobDefinitionOutput) ToClassificationJobS3JobDefiniti
 	}).(ClassificationJobS3JobDefinitionPtrOutput)
 }
 
-// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucketDefinitions`. (documented below)
 func (o ClassificationJobS3JobDefinitionOutput) BucketCriteria() ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinitionBucketCriteria {
 		return v.BucketCriteria
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput)
 }
 
-// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucketCriteria`. (documented below)
 func (o ClassificationJobS3JobDefinitionOutput) BucketDefinitions() ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinition) []ClassificationJobS3JobDefinitionBucketDefinition {
 		return v.BucketDefinitions
 	}).(ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput)
 }
 
-// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionOutput) Scoping() ClassificationJobS3JobDefinitionScopingPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinitionScoping { return v.Scoping }).(ClassificationJobS3JobDefinitionScopingPtrOutput)
 }
@@ -334,7 +313,6 @@ func (o ClassificationJobS3JobDefinitionPtrOutput) Elem() ClassificationJobS3Job
 	}).(ClassificationJobS3JobDefinitionOutput)
 }
 
-// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucketDefinitions`. (documented below)
 func (o ClassificationJobS3JobDefinitionPtrOutput) BucketCriteria() ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinitionBucketCriteria {
 		if v == nil {
@@ -344,7 +322,6 @@ func (o ClassificationJobS3JobDefinitionPtrOutput) BucketCriteria() Classificati
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput)
 }
 
-// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucketCriteria`. (documented below)
 func (o ClassificationJobS3JobDefinitionPtrOutput) BucketDefinitions() ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) []ClassificationJobS3JobDefinitionBucketDefinition {
 		if v == nil {
@@ -354,7 +331,6 @@ func (o ClassificationJobS3JobDefinitionPtrOutput) BucketDefinitions() Classific
 	}).(ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput)
 }
 
-// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionPtrOutput) Scoping() ClassificationJobS3JobDefinitionScopingPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinitionScoping {
 		if v == nil {
@@ -365,9 +341,7 @@ func (o ClassificationJobS3JobDefinitionPtrOutput) Scoping() ClassificationJobS3
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteria struct {
-	// The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
 	Excludes *ClassificationJobS3JobDefinitionBucketCriteriaExcludes `pulumi:"excludes"`
-	// The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
 	Includes *ClassificationJobS3JobDefinitionBucketCriteriaIncludes `pulumi:"includes"`
 }
 
@@ -383,9 +357,7 @@ type ClassificationJobS3JobDefinitionBucketCriteriaInput interface {
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaArgs struct {
-	// The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
 	Excludes ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrInput `pulumi:"excludes"`
-	// The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
 	Includes ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrInput `pulumi:"includes"`
 }
 
@@ -466,14 +438,12 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaOutput) ToClassificationJo
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput)
 }
 
-// The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaOutput) Excludes() ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteria) *ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
 		return v.Excludes
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput)
 }
 
-// The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaOutput) Includes() ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteria) *ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
 		return v.Includes
@@ -504,7 +474,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) Elem() Classifi
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaOutput)
 }
 
-// The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) Excludes() ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteria) *ClassificationJobS3JobDefinitionBucketCriteriaExcludes {
 		if v == nil {
@@ -514,7 +483,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) Excludes() Clas
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput)
 }
 
-// The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) Includes() ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteria) *ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
 		if v == nil {
@@ -525,7 +493,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) Includes() Clas
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludes struct {
-	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd `pulumi:"ands"`
 }
 
@@ -541,7 +508,6 @@ type ClassificationJobS3JobDefinitionBucketCriteriaExcludesInput interface {
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs struct {
-	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayInput `pulumi:"ands"`
 }
 
@@ -622,7 +588,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput) ToClassifi
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput)
 }
 
-// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludes) []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
 		return v.Ands
@@ -653,7 +618,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput) Elem() 
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput)
 }
 
-// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaExcludes) []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
 		if v == nil {
@@ -664,10 +628,8 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput) Ands() 
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
 	SimpleCriterion *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion `pulumi:"simpleCriterion"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-	TagCriterion *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion `pulumi:"tagCriterion"`
+	TagCriterion    *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion    `pulumi:"tagCriterion"`
 }
 
 // ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs and ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput values.
@@ -682,10 +644,8 @@ type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndInput interface {
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
 	SimpleCriterion ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrInput `pulumi:"simpleCriterion"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-	TagCriterion ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrInput `pulumi:"tagCriterion"`
+	TagCriterion    ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrInput    `pulumi:"tagCriterion"`
 }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs) ElementType() reflect.Type {
@@ -739,14 +699,12 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput) ToClass
 	return o
 }
 
-// A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput) SimpleCriterion() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd) *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion {
 		return v.SimpleCriterion
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput)
 }
 
-// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput) TagCriterion() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd) *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion {
 		return v.TagCriterion
@@ -774,12 +732,9 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput) In
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion struct {
-	// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator *string `pulumi:"comparator"`
-	// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-	Key *string `pulumi:"key"`
-	// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-	Values []string `pulumi:"values"`
+	Comparator *string  `pulumi:"comparator"`
+	Key        *string  `pulumi:"key"`
+	Values     []string `pulumi:"values"`
 }
 
 // ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs and ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput values.
@@ -794,12 +749,9 @@ type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionInp
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs struct {
-	// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Comparator pulumi.StringPtrInput   `pulumi:"comparator"`
+	Key        pulumi.StringPtrInput   `pulumi:"key"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs) ElementType() reflect.Type {
@@ -879,19 +831,16 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput)
 }
 
-// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion) *string {
 		return v.Comparator
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion) []string {
 		return v.Values
@@ -922,7 +871,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput)
 }
 
-// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion) *string {
 		if v == nil {
@@ -932,7 +880,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion) *string {
 		if v == nil {
@@ -942,7 +889,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion) []string {
 		if v == nil {
@@ -953,10 +899,8 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion struct {
-	// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator *string `pulumi:"comparator"`
-	// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-	TagValues []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue `pulumi:"tagValues"`
+	Comparator *string                                                                         `pulumi:"comparator"`
+	TagValues  []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue `pulumi:"tagValues"`
 }
 
 // ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs and ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput values.
@@ -971,10 +915,8 @@ type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionInput 
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs struct {
-	// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-	TagValues ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayInput `pulumi:"tagValues"`
+	Comparator pulumi.StringPtrInput                                                                   `pulumi:"comparator"`
+	TagValues  ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayInput `pulumi:"tagValues"`
 }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs) ElementType() reflect.Type {
@@ -1054,14 +996,12 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOut
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput)
 }
 
-// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion) *string {
 		return v.Comparator
 	}).(pulumi.StringPtrOutput)
 }
 
-// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput) TagValues() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion) []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue {
 		return v.TagValues
@@ -1092,7 +1032,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtr
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput)
 }
 
-// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion) *string {
 		if v == nil {
@@ -1102,7 +1041,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput) TagValues() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion) []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue {
 		if v == nil {
@@ -1113,9 +1051,7 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtr
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue struct {
-	// The tag key.
-	Key *string `pulumi:"key"`
-	// The tag value.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1131,9 +1067,7 @@ type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagVal
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgs struct {
-	// The tag key.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The tag value.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1188,14 +1122,12 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTag
 	return o
 }
 
-// The tag key.
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue) *string {
 		return v.Key
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tag value.
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue) *string {
 		return v.Value
@@ -1223,7 +1155,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTag
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludes struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 	Ands []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd `pulumi:"ands"`
 }
 
@@ -1239,7 +1170,6 @@ type ClassificationJobS3JobDefinitionBucketCriteriaIncludesInput interface {
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 	Ands ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayInput `pulumi:"ands"`
 }
 
@@ -1320,7 +1250,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) ToClassifi
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput)
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludes) []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
 		return v.Ands
@@ -1351,7 +1280,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) Elem() 
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput)
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaIncludes) []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
 		if v == nil {
@@ -1362,10 +1290,8 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) Ands() 
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
 	SimpleCriterion *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion `pulumi:"simpleCriterion"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-	TagCriterion *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion `pulumi:"tagCriterion"`
+	TagCriterion    *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion    `pulumi:"tagCriterion"`
 }
 
 // ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs and ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput values.
@@ -1380,10 +1306,8 @@ type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndInput interface {
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
 	SimpleCriterion ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrInput `pulumi:"simpleCriterion"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-	TagCriterion ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrInput `pulumi:"tagCriterion"`
+	TagCriterion    ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrInput    `pulumi:"tagCriterion"`
 }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs) ElementType() reflect.Type {
@@ -1437,14 +1361,12 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput) ToClass
 	return o
 }
 
-// A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput) SimpleCriterion() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd) *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion {
 		return v.SimpleCriterion
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput)
 }
 
-// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput) TagCriterion() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd) *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion {
 		return v.TagCriterion
@@ -1472,12 +1394,9 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput) In
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion struct {
-	// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator *string `pulumi:"comparator"`
-	// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-	Key *string `pulumi:"key"`
-	// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-	Values []string `pulumi:"values"`
+	Comparator *string  `pulumi:"comparator"`
+	Key        *string  `pulumi:"key"`
+	Values     []string `pulumi:"values"`
 }
 
 // ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs and ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput values.
@@ -1492,12 +1411,9 @@ type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionInp
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs struct {
-	// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Comparator pulumi.StringPtrInput   `pulumi:"comparator"`
+	Key        pulumi.StringPtrInput   `pulumi:"key"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs) ElementType() reflect.Type {
@@ -1577,19 +1493,16 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput)
 }
 
-// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion) *string {
 		return v.Comparator
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion) []string {
 		return v.Values
@@ -1620,7 +1533,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput)
 }
 
-// The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion) *string {
 		if v == nil {
@@ -1630,7 +1542,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion) *string {
 		if v == nil {
@@ -1640,7 +1551,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion) []string {
 		if v == nil {
@@ -1651,10 +1561,8 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion struct {
-	// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator *string `pulumi:"comparator"`
-	// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-	TagValues []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue `pulumi:"tagValues"`
+	Comparator *string                                                                         `pulumi:"comparator"`
+	TagValues  []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue `pulumi:"tagValues"`
 }
 
 // ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs and ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput values.
@@ -1669,10 +1577,8 @@ type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionInput 
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs struct {
-	// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-	TagValues ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayInput `pulumi:"tagValues"`
+	Comparator pulumi.StringPtrInput                                                                   `pulumi:"comparator"`
+	TagValues  ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayInput `pulumi:"tagValues"`
 }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs) ElementType() reflect.Type {
@@ -1752,14 +1658,12 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOut
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput)
 }
 
-// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion) *string {
 		return v.Comparator
 	}).(pulumi.StringPtrOutput)
 }
 
-// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput) TagValues() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion) []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue {
 		return v.TagValues
@@ -1790,7 +1694,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtr
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput)
 }
 
-// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion) *string {
 		if v == nil {
@@ -1800,7 +1703,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput) TagValues() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion) []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue {
 		if v == nil {
@@ -1811,9 +1713,7 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtr
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue struct {
-	// The tag key.
-	Key *string `pulumi:"key"`
-	// The tag value.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1829,9 +1729,7 @@ type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagVal
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs struct {
-	// The tag key.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The tag value.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1886,14 +1784,12 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTag
 	return o
 }
 
-// The tag key.
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue) *string {
 		return v.Key
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tag value.
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue) *string {
 		return v.Value
@@ -1921,10 +1817,8 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTag
 }
 
 type ClassificationJobS3JobDefinitionBucketDefinition struct {
-	// The unique identifier for the AWS account that owns the buckets.
-	AccountId string `pulumi:"accountId"`
-	// An array that lists the names of the buckets.
-	Buckets []string `pulumi:"buckets"`
+	AccountId string   `pulumi:"accountId"`
+	Buckets   []string `pulumi:"buckets"`
 }
 
 // ClassificationJobS3JobDefinitionBucketDefinitionInput is an input type that accepts ClassificationJobS3JobDefinitionBucketDefinitionArgs and ClassificationJobS3JobDefinitionBucketDefinitionOutput values.
@@ -1939,10 +1833,8 @@ type ClassificationJobS3JobDefinitionBucketDefinitionInput interface {
 }
 
 type ClassificationJobS3JobDefinitionBucketDefinitionArgs struct {
-	// The unique identifier for the AWS account that owns the buckets.
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// An array that lists the names of the buckets.
-	Buckets pulumi.StringArrayInput `pulumi:"buckets"`
+	AccountId pulumi.StringInput      `pulumi:"accountId"`
+	Buckets   pulumi.StringArrayInput `pulumi:"buckets"`
 }
 
 func (ClassificationJobS3JobDefinitionBucketDefinitionArgs) ElementType() reflect.Type {
@@ -1996,12 +1888,10 @@ func (o ClassificationJobS3JobDefinitionBucketDefinitionOutput) ToClassification
 	return o
 }
 
-// The unique identifier for the AWS account that owns the buckets.
 func (o ClassificationJobS3JobDefinitionBucketDefinitionOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketDefinition) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// An array that lists the names of the buckets.
 func (o ClassificationJobS3JobDefinitionBucketDefinitionOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketDefinition) []string { return v.Buckets }).(pulumi.StringArrayOutput)
 }
@@ -2027,9 +1917,7 @@ func (o ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput) Index(i pul
 }
 
 type ClassificationJobS3JobDefinitionScoping struct {
-	// The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
 	Excludes *ClassificationJobS3JobDefinitionScopingExcludes `pulumi:"excludes"`
-	// The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
 	Includes *ClassificationJobS3JobDefinitionScopingIncludes `pulumi:"includes"`
 }
 
@@ -2045,9 +1933,7 @@ type ClassificationJobS3JobDefinitionScopingInput interface {
 }
 
 type ClassificationJobS3JobDefinitionScopingArgs struct {
-	// The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
 	Excludes ClassificationJobS3JobDefinitionScopingExcludesPtrInput `pulumi:"excludes"`
-	// The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
 	Includes ClassificationJobS3JobDefinitionScopingIncludesPtrInput `pulumi:"includes"`
 }
 
@@ -2128,14 +2014,12 @@ func (o ClassificationJobS3JobDefinitionScopingOutput) ToClassificationJobS3JobD
 	}).(ClassificationJobS3JobDefinitionScopingPtrOutput)
 }
 
-// The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingOutput) Excludes() ClassificationJobS3JobDefinitionScopingExcludesPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScoping) *ClassificationJobS3JobDefinitionScopingExcludes {
 		return v.Excludes
 	}).(ClassificationJobS3JobDefinitionScopingExcludesPtrOutput)
 }
 
-// The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingOutput) Includes() ClassificationJobS3JobDefinitionScopingIncludesPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScoping) *ClassificationJobS3JobDefinitionScopingIncludes {
 		return v.Includes
@@ -2166,7 +2050,6 @@ func (o ClassificationJobS3JobDefinitionScopingPtrOutput) Elem() ClassificationJ
 	}).(ClassificationJobS3JobDefinitionScopingOutput)
 }
 
-// The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingPtrOutput) Excludes() ClassificationJobS3JobDefinitionScopingExcludesPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScoping) *ClassificationJobS3JobDefinitionScopingExcludes {
 		if v == nil {
@@ -2176,7 +2059,6 @@ func (o ClassificationJobS3JobDefinitionScopingPtrOutput) Excludes() Classificat
 	}).(ClassificationJobS3JobDefinitionScopingExcludesPtrOutput)
 }
 
-// The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingPtrOutput) Includes() ClassificationJobS3JobDefinitionScopingIncludesPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScoping) *ClassificationJobS3JobDefinitionScopingIncludes {
 		if v == nil {
@@ -2187,7 +2069,6 @@ func (o ClassificationJobS3JobDefinitionScopingPtrOutput) Includes() Classificat
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludes struct {
-	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands []ClassificationJobS3JobDefinitionScopingExcludesAnd `pulumi:"ands"`
 }
 
@@ -2203,7 +2084,6 @@ type ClassificationJobS3JobDefinitionScopingExcludesInput interface {
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesArgs struct {
-	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands ClassificationJobS3JobDefinitionScopingExcludesAndArrayInput `pulumi:"ands"`
 }
 
@@ -2284,7 +2164,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesOutput) ToClassificationJ
 	}).(ClassificationJobS3JobDefinitionScopingExcludesPtrOutput)
 }
 
-// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingExcludesOutput) Ands() ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludes) []ClassificationJobS3JobDefinitionScopingExcludesAnd {
 		return v.Ands
@@ -2315,7 +2194,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) Elem() Classif
 	}).(ClassificationJobS3JobDefinitionScopingExcludesOutput)
 }
 
-// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) Ands() ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludes) []ClassificationJobS3JobDefinitionScopingExcludesAnd {
 		if v == nil {
@@ -2326,10 +2204,8 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) Ands() Classif
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAnd struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
 	SimpleScopeTerm *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm `pulumi:"simpleScopeTerm"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-	TagScopeTerm *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm `pulumi:"tagScopeTerm"`
+	TagScopeTerm    *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm    `pulumi:"tagScopeTerm"`
 }
 
 // ClassificationJobS3JobDefinitionScopingExcludesAndInput is an input type that accepts ClassificationJobS3JobDefinitionScopingExcludesAndArgs and ClassificationJobS3JobDefinitionScopingExcludesAndOutput values.
@@ -2344,10 +2220,8 @@ type ClassificationJobS3JobDefinitionScopingExcludesAndInput interface {
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAndArgs struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
 	SimpleScopeTerm ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrInput `pulumi:"simpleScopeTerm"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-	TagScopeTerm ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrInput `pulumi:"tagScopeTerm"`
+	TagScopeTerm    ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrInput    `pulumi:"tagScopeTerm"`
 }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesAndArgs) ElementType() reflect.Type {
@@ -2401,14 +2275,12 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndOutput) ToClassificati
 	return o
 }
 
-// A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndOutput) SimpleScopeTerm() ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAnd) *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm {
 		return v.SimpleScopeTerm
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput)
 }
 
-// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndOutput) TagScopeTerm() ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAnd) *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm {
 		return v.TagScopeTerm
@@ -2436,12 +2308,9 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput) Index(i p
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm struct {
-	// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-	Comparator *string `pulumi:"comparator"`
-	// The object property to use in the condition.
-	Key *string `pulumi:"key"`
-	// An array that lists the values to use in the condition.
-	Values []string `pulumi:"values"`
+	Comparator *string  `pulumi:"comparator"`
+	Key        *string  `pulumi:"key"`
+	Values     []string `pulumi:"values"`
 }
 
 // ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermInput is an input type that accepts ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs and ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput values.
@@ -2456,12 +2325,9 @@ type ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermInput inte
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs struct {
-	// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The object property to use in the condition.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// An array that lists the values to use in the condition.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Comparator pulumi.StringPtrInput   `pulumi:"comparator"`
+	Key        pulumi.StringPtrInput   `pulumi:"key"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs) ElementType() reflect.Type {
@@ -2541,17 +2407,14 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput)
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput)
 }
 
-// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) *string { return v.Comparator }).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2580,7 +2443,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutp
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput)
 }
 
-// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) *string {
 		if v == nil {
@@ -2590,7 +2452,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) *string {
 		if v == nil {
@@ -2600,7 +2461,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) []string {
 		if v == nil {
@@ -2611,14 +2471,10 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutp
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm struct {
-	// The operator to use in the condition.
-	Comparator *string `pulumi:"comparator"`
-	// The tag key to use in the condition. The only valid value is `TAG`.
-	Key *string `pulumi:"key"`
-	// The tag keys or tag key and value pairs to use in the condition.
-	TagValues []ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue `pulumi:"tagValues"`
-	// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-	Target *string `pulumi:"target"`
+	Comparator *string                                                                  `pulumi:"comparator"`
+	Key        *string                                                                  `pulumi:"key"`
+	TagValues  []ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue `pulumi:"tagValues"`
+	Target     *string                                                                  `pulumi:"target"`
 }
 
 // ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermInput is an input type that accepts ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs and ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput values.
@@ -2633,14 +2489,10 @@ type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermInput interfa
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs struct {
-	// The operator to use in the condition.
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The tag key to use in the condition. The only valid value is `TAG`.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The tag keys or tag key and value pairs to use in the condition.
-	TagValues ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayInput `pulumi:"tagValues"`
-	// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Comparator pulumi.StringPtrInput                                                            `pulumi:"comparator"`
+	Key        pulumi.StringPtrInput                                                            `pulumi:"key"`
+	TagValues  ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayInput `pulumi:"tagValues"`
+	Target     pulumi.StringPtrInput                                                            `pulumi:"target"`
 }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs) ElementType() reflect.Type {
@@ -2720,24 +2572,20 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) To
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 }
 
-// The operator to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *string { return v.Comparator }).(pulumi.StringPtrOutput)
 }
 
-// The tag key to use in the condition. The only valid value is `TAG`.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The tag keys or tag key and value pairs to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) TagValues() ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) []ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue {
 		return v.TagValues
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput)
 }
 
-// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -2766,7 +2614,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput)
 }
 
-// The operator to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *string {
 		if v == nil {
@@ -2776,7 +2623,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tag key to use in the condition. The only valid value is `TAG`.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *string {
 		if v == nil {
@@ -2786,7 +2632,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tag keys or tag key and value pairs to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) TagValues() ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) []ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue {
 		if v == nil {
@@ -2796,7 +2641,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput)
 }
 
-// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *string {
 		if v == nil {
@@ -2807,9 +2651,7 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue struct {
-	// The tag key.
-	Key *string `pulumi:"key"`
-	// The tag value.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -2825,9 +2667,7 @@ type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueInput
 }
 
 type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs struct {
-	// The tag key.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The tag value.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2882,12 +2722,10 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOu
 	return o
 }
 
-// The tag key.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The tag value.
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2913,7 +2751,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueAr
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludes struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 	Ands []ClassificationJobS3JobDefinitionScopingIncludesAnd `pulumi:"ands"`
 }
 
@@ -2929,7 +2766,6 @@ type ClassificationJobS3JobDefinitionScopingIncludesInput interface {
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesArgs struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 	Ands ClassificationJobS3JobDefinitionScopingIncludesAndArrayInput `pulumi:"ands"`
 }
 
@@ -3010,7 +2846,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) ToClassificationJ
 	}).(ClassificationJobS3JobDefinitionScopingIncludesPtrOutput)
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) Ands() ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludes) []ClassificationJobS3JobDefinitionScopingIncludesAnd {
 		return v.Ands
@@ -3041,7 +2876,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) Elem() Classif
 	}).(ClassificationJobS3JobDefinitionScopingIncludesOutput)
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) Ands() ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludes) []ClassificationJobS3JobDefinitionScopingIncludesAnd {
 		if v == nil {
@@ -3052,10 +2886,8 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) Ands() Classif
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAnd struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
 	SimpleScopeTerm *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm `pulumi:"simpleScopeTerm"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-	TagScopeTerm *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm `pulumi:"tagScopeTerm"`
+	TagScopeTerm    *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm    `pulumi:"tagScopeTerm"`
 }
 
 // ClassificationJobS3JobDefinitionScopingIncludesAndInput is an input type that accepts ClassificationJobS3JobDefinitionScopingIncludesAndArgs and ClassificationJobS3JobDefinitionScopingIncludesAndOutput values.
@@ -3070,10 +2902,8 @@ type ClassificationJobS3JobDefinitionScopingIncludesAndInput interface {
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAndArgs struct {
-	// A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
 	SimpleScopeTerm ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrInput `pulumi:"simpleScopeTerm"`
-	// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-	TagScopeTerm ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrInput `pulumi:"tagScopeTerm"`
+	TagScopeTerm    ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrInput    `pulumi:"tagScopeTerm"`
 }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesAndArgs) ElementType() reflect.Type {
@@ -3127,14 +2957,12 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndOutput) ToClassificati
 	return o
 }
 
-// A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndOutput) SimpleScopeTerm() ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAnd) *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm {
 		return v.SimpleScopeTerm
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput)
 }
 
-// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndOutput) TagScopeTerm() ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAnd) *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
 		return v.TagScopeTerm
@@ -3162,12 +2990,9 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput) Index(i p
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm struct {
-	// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-	Comparator *string `pulumi:"comparator"`
-	// The object property to use in the condition.
-	Key *string `pulumi:"key"`
-	// An array that lists the values to use in the condition.
-	Values []string `pulumi:"values"`
+	Comparator *string  `pulumi:"comparator"`
+	Key        *string  `pulumi:"key"`
+	Values     []string `pulumi:"values"`
 }
 
 // ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermInput is an input type that accepts ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs and ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput values.
@@ -3182,12 +3007,9 @@ type ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermInput inte
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs struct {
-	// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The object property to use in the condition.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// An array that lists the values to use in the condition.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Comparator pulumi.StringPtrInput   `pulumi:"comparator"`
+	Key        pulumi.StringPtrInput   `pulumi:"key"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs) ElementType() reflect.Type {
@@ -3267,17 +3089,14 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput)
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput)
 }
 
-// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) *string { return v.Comparator }).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3306,7 +3125,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutp
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput)
 }
 
-// The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) *string {
 		if v == nil {
@@ -3316,7 +3134,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object property to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) *string {
 		if v == nil {
@@ -3326,7 +3143,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array that lists the values to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) []string {
 		if v == nil {
@@ -3337,14 +3153,10 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutp
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm struct {
-	// The operator to use in the condition.
-	Comparator *string `pulumi:"comparator"`
-	// The tag key to use in the condition. The only valid value is `TAG`.
-	Key *string `pulumi:"key"`
-	// The tag keys or tag key and value pairs to use in the condition.
-	TagValues []ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue `pulumi:"tagValues"`
-	// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-	Target *string `pulumi:"target"`
+	Comparator *string                                                                  `pulumi:"comparator"`
+	Key        *string                                                                  `pulumi:"key"`
+	TagValues  []ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue `pulumi:"tagValues"`
+	Target     *string                                                                  `pulumi:"target"`
 }
 
 // ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermInput is an input type that accepts ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs and ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput values.
@@ -3359,14 +3171,10 @@ type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermInput interfa
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs struct {
-	// The operator to use in the condition.
-	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
-	// The tag key to use in the condition. The only valid value is `TAG`.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The tag keys or tag key and value pairs to use in the condition.
-	TagValues ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayInput `pulumi:"tagValues"`
-	// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Comparator pulumi.StringPtrInput                                                            `pulumi:"comparator"`
+	Key        pulumi.StringPtrInput                                                            `pulumi:"key"`
+	TagValues  ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayInput `pulumi:"tagValues"`
+	Target     pulumi.StringPtrInput                                                            `pulumi:"target"`
 }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs) ElementType() reflect.Type {
@@ -3446,24 +3254,20 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) To
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 }
 
-// The operator to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *string { return v.Comparator }).(pulumi.StringPtrOutput)
 }
 
-// The tag key to use in the condition. The only valid value is `TAG`.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The tag keys or tag key and value pairs to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) TagValues() ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) []ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue {
 		return v.TagValues
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput)
 }
 
-// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -3492,7 +3296,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput)
 }
 
-// The operator to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *string {
 		if v == nil {
@@ -3502,7 +3305,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tag key to use in the condition. The only valid value is `TAG`.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *string {
 		if v == nil {
@@ -3512,7 +3314,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tag keys or tag key and value pairs to use in the condition.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) TagValues() ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) []ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue {
 		if v == nil {
@@ -3522,7 +3323,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput)
 }
 
-// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *string {
 		if v == nil {
@@ -3533,9 +3333,7 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue struct {
-	// The tag key.
-	Key *string `pulumi:"key"`
-	// The tag value.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -3551,9 +3349,7 @@ type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueInput
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs struct {
-	// The tag key.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The tag value.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3608,12 +3404,10 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOu
 	return o
 }
 
-// The tag key.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The tag value.
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3639,12 +3433,9 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueAr
 }
 
 type ClassificationJobScheduleFrequency struct {
-	// Specifies a daily recurrence pattern for running the job.
-	DailySchedule *bool `pulumi:"dailySchedule"`
-	// Specifies a monthly recurrence pattern for running the job.
-	MonthlySchedule *int `pulumi:"monthlySchedule"`
-	// Specifies a weekly recurrence pattern for running the job.
-	WeeklySchedule *string `pulumi:"weeklySchedule"`
+	DailySchedule   *bool   `pulumi:"dailySchedule"`
+	MonthlySchedule *int    `pulumi:"monthlySchedule"`
+	WeeklySchedule  *string `pulumi:"weeklySchedule"`
 }
 
 // ClassificationJobScheduleFrequencyInput is an input type that accepts ClassificationJobScheduleFrequencyArgs and ClassificationJobScheduleFrequencyOutput values.
@@ -3659,12 +3450,9 @@ type ClassificationJobScheduleFrequencyInput interface {
 }
 
 type ClassificationJobScheduleFrequencyArgs struct {
-	// Specifies a daily recurrence pattern for running the job.
-	DailySchedule pulumi.BoolPtrInput `pulumi:"dailySchedule"`
-	// Specifies a monthly recurrence pattern for running the job.
-	MonthlySchedule pulumi.IntPtrInput `pulumi:"monthlySchedule"`
-	// Specifies a weekly recurrence pattern for running the job.
-	WeeklySchedule pulumi.StringPtrInput `pulumi:"weeklySchedule"`
+	DailySchedule   pulumi.BoolPtrInput   `pulumi:"dailySchedule"`
+	MonthlySchedule pulumi.IntPtrInput    `pulumi:"monthlySchedule"`
+	WeeklySchedule  pulumi.StringPtrInput `pulumi:"weeklySchedule"`
 }
 
 func (ClassificationJobScheduleFrequencyArgs) ElementType() reflect.Type {
@@ -3744,17 +3532,14 @@ func (o ClassificationJobScheduleFrequencyOutput) ToClassificationJobScheduleFre
 	}).(ClassificationJobScheduleFrequencyPtrOutput)
 }
 
-// Specifies a daily recurrence pattern for running the job.
 func (o ClassificationJobScheduleFrequencyOutput) DailySchedule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClassificationJobScheduleFrequency) *bool { return v.DailySchedule }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies a monthly recurrence pattern for running the job.
 func (o ClassificationJobScheduleFrequencyOutput) MonthlySchedule() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClassificationJobScheduleFrequency) *int { return v.MonthlySchedule }).(pulumi.IntPtrOutput)
 }
 
-// Specifies a weekly recurrence pattern for running the job.
 func (o ClassificationJobScheduleFrequencyOutput) WeeklySchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassificationJobScheduleFrequency) *string { return v.WeeklySchedule }).(pulumi.StringPtrOutput)
 }
@@ -3783,7 +3568,6 @@ func (o ClassificationJobScheduleFrequencyPtrOutput) Elem() ClassificationJobSch
 	}).(ClassificationJobScheduleFrequencyOutput)
 }
 
-// Specifies a daily recurrence pattern for running the job.
 func (o ClassificationJobScheduleFrequencyPtrOutput) DailySchedule() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobScheduleFrequency) *bool {
 		if v == nil {
@@ -3793,7 +3577,6 @@ func (o ClassificationJobScheduleFrequencyPtrOutput) DailySchedule() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies a monthly recurrence pattern for running the job.
 func (o ClassificationJobScheduleFrequencyPtrOutput) MonthlySchedule() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobScheduleFrequency) *int {
 		if v == nil {
@@ -3803,7 +3586,6 @@ func (o ClassificationJobScheduleFrequencyPtrOutput) MonthlySchedule() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies a weekly recurrence pattern for running the job.
 func (o ClassificationJobScheduleFrequencyPtrOutput) WeeklySchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobScheduleFrequency) *string {
 		if v == nil {

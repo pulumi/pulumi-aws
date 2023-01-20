@@ -10,37 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-//
-// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-//
-// ## Example Usage
-//
-// The following example shows how to get a firewall rule group from its ID.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.LookupResolverFirewallRuleGroup(ctx, &route53.LookupResolverFirewallRuleGroupArgs{
-//				FirewallRuleGroupId: "rslvr-frg-example",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFirewallRuleGroupArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallRuleGroupResult, error) {
 	var rv LookupResolverFirewallRuleGroupResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, &rv, opts...)
@@ -52,7 +21,6 @@ func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFi
 
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupArgs struct {
-	// The ID of the rule group.
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 }
 
@@ -88,7 +56,6 @@ func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResol
 
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupOutputArgs struct {
-	// The ID of the rule group.
 	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
 }
 

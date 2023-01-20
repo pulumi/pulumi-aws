@@ -11,67 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AppStream User Stack association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStack, err := appstream.NewStack(ctx, "testStack", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testUser, err := appstream.NewUser(ctx, "testUser", &appstream.UserArgs{
-//				AuthenticationType: pulumi.String("USERPOOL"),
-//				UserName:           pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appstream.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream.UserStackAssociationArgs{
-//				AuthenticationType: testUser.AuthenticationType,
-//				StackName:          testStack.Name,
-//				UserName:           testUser.UserName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
-//
-// ```
 type UserStackAssociation struct {
 	pulumi.CustomResourceState
 
-	// Authentication type for the user.
-	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
+	AuthenticationType    pulumi.StringOutput  `pulumi:"authenticationType"`
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
-	// Name of the stack that is associated with the user.
-	StackName pulumi.StringOutput `pulumi:"stackName"`
-	// Email address of the user who is associated with the stack.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	StackName             pulumi.StringOutput  `pulumi:"stackName"`
+	UserName              pulumi.StringOutput  `pulumi:"userName"`
 }
 
 // NewUserStackAssociation registers a new resource with the given unique name, arguments, and options.
@@ -112,25 +58,17 @@ func GetUserStackAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserStackAssociation resources.
 type userStackAssociationState struct {
-	// Authentication type for the user.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
-	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
-	// Name of the stack that is associated with the user.
-	StackName *string `pulumi:"stackName"`
-	// Email address of the user who is associated with the stack.
-	UserName *string `pulumi:"userName"`
+	AuthenticationType    *string `pulumi:"authenticationType"`
+	SendEmailNotification *bool   `pulumi:"sendEmailNotification"`
+	StackName             *string `pulumi:"stackName"`
+	UserName              *string `pulumi:"userName"`
 }
 
 type UserStackAssociationState struct {
-	// Authentication type for the user.
-	AuthenticationType pulumi.StringPtrInput
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
+	AuthenticationType    pulumi.StringPtrInput
 	SendEmailNotification pulumi.BoolPtrInput
-	// Name of the stack that is associated with the user.
-	StackName pulumi.StringPtrInput
-	// Email address of the user who is associated with the stack.
-	UserName pulumi.StringPtrInput
+	StackName             pulumi.StringPtrInput
+	UserName              pulumi.StringPtrInput
 }
 
 func (UserStackAssociationState) ElementType() reflect.Type {
@@ -138,26 +76,18 @@ func (UserStackAssociationState) ElementType() reflect.Type {
 }
 
 type userStackAssociationArgs struct {
-	// Authentication type for the user.
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
-	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
-	// Name of the stack that is associated with the user.
-	StackName string `pulumi:"stackName"`
-	// Email address of the user who is associated with the stack.
-	UserName string `pulumi:"userName"`
+	AuthenticationType    string `pulumi:"authenticationType"`
+	SendEmailNotification *bool  `pulumi:"sendEmailNotification"`
+	StackName             string `pulumi:"stackName"`
+	UserName              string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserStackAssociation resource.
 type UserStackAssociationArgs struct {
-	// Authentication type for the user.
-	AuthenticationType pulumi.StringInput
-	// Whether a welcome email is sent to a user after the user is created in the user pool.
+	AuthenticationType    pulumi.StringInput
 	SendEmailNotification pulumi.BoolPtrInput
-	// Name of the stack that is associated with the user.
-	StackName pulumi.StringInput
-	// Email address of the user who is associated with the stack.
-	UserName pulumi.StringInput
+	StackName             pulumi.StringInput
+	UserName              pulumi.StringInput
 }
 
 func (UserStackAssociationArgs) ElementType() reflect.Type {
@@ -247,22 +177,18 @@ func (o UserStackAssociationOutput) ToUserStackAssociationOutputWithContext(ctx 
 	return o
 }
 
-// Authentication type for the user.
 func (o UserStackAssociationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Whether a welcome email is sent to a user after the user is created in the user pool.
 func (o UserStackAssociationOutput) SendEmailNotification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.BoolPtrOutput { return v.SendEmailNotification }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the stack that is associated with the user.
 func (o UserStackAssociationOutput) StackName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.StackName }).(pulumi.StringOutput)
 }
 
-// Email address of the user who is associated with the stack.
 func (o UserStackAssociationOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

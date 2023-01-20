@@ -11,189 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppFlow flow resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appflow"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "exampleSourceBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleSourceBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: exampleSourceBucketV2.ID(),
-//				Policy: pulumi.Any(fmt.Sprintf(`{
-//	    "Statement": [
-//	        {
-//	            "Effect": "Allow",
-//	            "Sid": "AllowAppFlowSourceActions",
-//	            "Principal": {
-//	                "Service": "appflow.amazonaws.com"
-//	            },
-//	            "Action": [
-//	                "s3:ListBucket",
-//	                "s3:GetObject"
-//	            ],
-//	            "Resource": [
-//	                "arn:aws:s3:::example_source",
-//	                "arn:aws:s3:::example_source/*"
-//	            ]
-//	        }
-//	    ],
-//		"Version": "2012-10-17"
-//	}
-//
-// `)),
-//
-//	})
-//	if err != nil {
-//		return err
-//	}
-//	_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//		Bucket: exampleSourceBucketV2.ID(),
-//		Key:    pulumi.String("example_source.csv"),
-//		Source: pulumi.NewFileAsset("example_source.csv"),
-//	})
-//	if err != nil {
-//		return err
-//	}
-//	exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "exampleDestinationBucketV2", nil)
-//	if err != nil {
-//		return err
-//	}
-//	exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleDestinationBucketPolicy", &s3.BucketPolicyArgs{
-//		Bucket: exampleDestinationBucketV2.ID(),
-//		Policy: pulumi.Any(fmt.Sprintf(`
-//
-//	{
-//	    "Statement": [
-//	        {
-//	            "Effect": "Allow",
-//	            "Sid": "AllowAppFlowDestinationActions",
-//	            "Principal": {
-//	                "Service": "appflow.amazonaws.com"
-//	            },
-//	            "Action": [
-//	                "s3:PutObject",
-//	                "s3:AbortMultipartUpload",
-//	                "s3:ListMultipartUploadParts",
-//	                "s3:ListBucketMultipartUploads",
-//	                "s3:GetBucketAcl",
-//	                "s3:PutObjectAcl"
-//	            ],
-//	            "Resource": [
-//	                "arn:aws:s3:::example_destination",
-//	                "arn:aws:s3:::example_destination/*"
-//	            ]
-//	        }
-//	    ],
-//		"Version": "2012-10-17"
-//	}
-//
-// `)),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appflow.NewFlow(ctx, "exampleFlow", &appflow.FlowArgs{
-//				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
-//					ConnectorType: pulumi.String("S3"),
-//					SourceConnectorProperties: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs{
-//						S3: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3Args{
-//							BucketName:   exampleSourceBucketPolicy.Bucket,
-//							BucketPrefix: pulumi.String("example"),
-//						},
-//					},
-//				},
-//				DestinationFlowConfigs: appflow.FlowDestinationFlowConfigArray{
-//					&appflow.FlowDestinationFlowConfigArgs{
-//						ConnectorType: pulumi.String("S3"),
-//						DestinationConnectorProperties: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs{
-//							S3: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{
-//								BucketName: exampleDestinationBucketPolicy.Bucket,
-//								S3OutputFormatConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{
-//									PrefixConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{
-//										PrefixType: pulumi.String("PATH"),
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
-//				Tasks: appflow.FlowTaskArray{
-//					&appflow.FlowTaskArgs{
-//						SourceFields: pulumi.StringArray{
-//							pulumi.String("exampleField"),
-//						},
-//						DestinationField: pulumi.String("exampleField"),
-//						TaskType:         pulumi.String("Map"),
-//						ConnectorOperators: appflow.FlowTaskConnectorOperatorArray{
-//							&appflow.FlowTaskConnectorOperatorArgs{
-//								S3: pulumi.String("NO_OP"),
-//							},
-//						},
-//					},
-//				},
-//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
-//					TriggerType: pulumi.String("OnDemand"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AppFlow flows can be imported using the `arn`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
-//
-// ```
 type Flow struct {
 	pulumi.CustomResourceState
 
-	// Flow's ARN.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description of the flow you want to create.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+	Arn                    pulumi.StringOutput                  `pulumi:"arn"`
+	Description            pulumi.StringPtrOutput               `pulumi:"description"`
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayOutput `pulumi:"destinationFlowConfigs"`
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
-	// Name of the flow.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-	SourceFlowConfig FlowSourceFlowConfigOutput `pulumi:"sourceFlowConfig"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
-	Tasks FlowTaskArrayOutput `pulumi:"tasks"`
-	// A Trigger that determine how and when the flow runs.
-	TriggerConfig FlowTriggerConfigOutput `pulumi:"triggerConfig"`
+	KmsArn                 pulumi.StringOutput                  `pulumi:"kmsArn"`
+	Name                   pulumi.StringOutput                  `pulumi:"name"`
+	SourceFlowConfig       FlowSourceFlowConfigOutput           `pulumi:"sourceFlowConfig"`
+	Tags                   pulumi.StringMapOutput               `pulumi:"tags"`
+	TagsAll                pulumi.StringMapOutput               `pulumi:"tagsAll"`
+	Tasks                  FlowTaskArrayOutput                  `pulumi:"tasks"`
+	TriggerConfig          FlowTriggerConfigOutput              `pulumi:"triggerConfig"`
 }
 
 // NewFlow registers a new resource with the given unique name, arguments, and options.
@@ -237,49 +67,29 @@ func GetFlow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Flow resources.
 type flowState struct {
-	// Flow's ARN.
-	Arn *string `pulumi:"arn"`
-	// Description of the flow you want to create.
-	Description *string `pulumi:"description"`
-	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+	Arn                    *string                     `pulumi:"arn"`
+	Description            *string                     `pulumi:"description"`
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `pulumi:"kmsArn"`
-	// Name of the flow.
-	Name *string `pulumi:"name"`
-	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-	SourceFlowConfig *FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
-	Tasks []FlowTask `pulumi:"tasks"`
-	// A Trigger that determine how and when the flow runs.
-	TriggerConfig *FlowTriggerConfig `pulumi:"triggerConfig"`
+	KmsArn                 *string                     `pulumi:"kmsArn"`
+	Name                   *string                     `pulumi:"name"`
+	SourceFlowConfig       *FlowSourceFlowConfig       `pulumi:"sourceFlowConfig"`
+	Tags                   map[string]string           `pulumi:"tags"`
+	TagsAll                map[string]string           `pulumi:"tagsAll"`
+	Tasks                  []FlowTask                  `pulumi:"tasks"`
+	TriggerConfig          *FlowTriggerConfig          `pulumi:"triggerConfig"`
 }
 
 type FlowState struct {
-	// Flow's ARN.
-	Arn pulumi.StringPtrInput
-	// Description of the flow you want to create.
-	Description pulumi.StringPtrInput
-	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+	Arn                    pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn pulumi.StringPtrInput
-	// Name of the flow.
-	Name pulumi.StringPtrInput
-	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-	SourceFlowConfig FlowSourceFlowConfigPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
-	Tasks FlowTaskArrayInput
-	// A Trigger that determine how and when the flow runs.
-	TriggerConfig FlowTriggerConfigPtrInput
+	KmsArn                 pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	SourceFlowConfig       FlowSourceFlowConfigPtrInput
+	Tags                   pulumi.StringMapInput
+	TagsAll                pulumi.StringMapInput
+	Tasks                  FlowTaskArrayInput
+	TriggerConfig          FlowTriggerConfigPtrInput
 }
 
 func (FlowState) ElementType() reflect.Type {
@@ -287,42 +97,26 @@ func (FlowState) ElementType() reflect.Type {
 }
 
 type flowArgs struct {
-	// Description of the flow you want to create.
-	Description *string `pulumi:"description"`
-	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+	Description            *string                     `pulumi:"description"`
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn *string `pulumi:"kmsArn"`
-	// Name of the flow.
-	Name *string `pulumi:"name"`
-	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-	SourceFlowConfig FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
-	Tasks []FlowTask `pulumi:"tasks"`
-	// A Trigger that determine how and when the flow runs.
-	TriggerConfig FlowTriggerConfig `pulumi:"triggerConfig"`
+	KmsArn                 *string                     `pulumi:"kmsArn"`
+	Name                   *string                     `pulumi:"name"`
+	SourceFlowConfig       FlowSourceFlowConfig        `pulumi:"sourceFlowConfig"`
+	Tags                   map[string]string           `pulumi:"tags"`
+	Tasks                  []FlowTask                  `pulumi:"tasks"`
+	TriggerConfig          FlowTriggerConfig           `pulumi:"triggerConfig"`
 }
 
 // The set of arguments for constructing a Flow resource.
 type FlowArgs struct {
-	// Description of the flow you want to create.
-	Description pulumi.StringPtrInput
-	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+	Description            pulumi.StringPtrInput
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
-	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-	KmsArn pulumi.StringPtrInput
-	// Name of the flow.
-	Name pulumi.StringPtrInput
-	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-	SourceFlowConfig FlowSourceFlowConfigInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
-	Tasks FlowTaskArrayInput
-	// A Trigger that determine how and when the flow runs.
-	TriggerConfig FlowTriggerConfigInput
+	KmsArn                 pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	SourceFlowConfig       FlowSourceFlowConfigInput
+	Tags                   pulumi.StringMapInput
+	Tasks                  FlowTaskArrayInput
+	TriggerConfig          FlowTriggerConfigInput
 }
 
 func (FlowArgs) ElementType() reflect.Type {
@@ -412,52 +206,42 @@ func (o FlowOutput) ToFlowOutputWithContext(ctx context.Context) FlowOutput {
 	return o
 }
 
-// Flow's ARN.
 func (o FlowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description of the flow you want to create.
 func (o FlowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 func (o FlowOutput) DestinationFlowConfigs() FlowDestinationFlowConfigArrayOutput {
 	return o.ApplyT(func(v *Flow) FlowDestinationFlowConfigArrayOutput { return v.DestinationFlowConfigs }).(FlowDestinationFlowConfigArrayOutput)
 }
 
-// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 func (o FlowOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
 }
 
-// Name of the flow.
 func (o FlowOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
 func (o FlowOutput) SourceFlowConfig() FlowSourceFlowConfigOutput {
 	return o.ApplyT(func(v *Flow) FlowSourceFlowConfigOutput { return v.SourceFlowConfig }).(FlowSourceFlowConfigOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FlowOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FlowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 func (o FlowOutput) Tasks() FlowTaskArrayOutput {
 	return o.ApplyT(func(v *Flow) FlowTaskArrayOutput { return v.Tasks }).(FlowTaskArrayOutput)
 }
 
-// A Trigger that determine how and when the flow runs.
 func (o FlowOutput) TriggerConfig() FlowTriggerConfigOutput {
 	return o.ApplyT(func(v *Flow) FlowTriggerConfigOutput { return v.TriggerConfig }).(FlowTriggerConfigOutput)
 }

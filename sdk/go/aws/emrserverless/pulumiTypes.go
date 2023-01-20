@@ -11,7 +11,6 @@ import (
 )
 
 type ApplicationAutoStartConfiguration struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -27,7 +26,6 @@ type ApplicationAutoStartConfigurationInput interface {
 }
 
 type ApplicationAutoStartConfigurationArgs struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -108,7 +106,6 @@ func (o ApplicationAutoStartConfigurationOutput) ToApplicationAutoStartConfigura
 	}).(ApplicationAutoStartConfigurationPtrOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 func (o ApplicationAutoStartConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStartConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -137,7 +134,6 @@ func (o ApplicationAutoStartConfigurationPtrOutput) Elem() ApplicationAutoStartC
 	}).(ApplicationAutoStartConfigurationOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 func (o ApplicationAutoStartConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoStartConfiguration) *bool {
 		if v == nil {
@@ -148,10 +144,8 @@ func (o ApplicationAutoStartConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutp
 }
 
 type ApplicationAutoStopConfiguration struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-	IdleTimeoutMinutes *int `pulumi:"idleTimeoutMinutes"`
+	Enabled            *bool `pulumi:"enabled"`
+	IdleTimeoutMinutes *int  `pulumi:"idleTimeoutMinutes"`
 }
 
 // ApplicationAutoStopConfigurationInput is an input type that accepts ApplicationAutoStopConfigurationArgs and ApplicationAutoStopConfigurationOutput values.
@@ -166,10 +160,8 @@ type ApplicationAutoStopConfigurationInput interface {
 }
 
 type ApplicationAutoStopConfigurationArgs struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-	IdleTimeoutMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutMinutes"`
+	Enabled            pulumi.BoolPtrInput `pulumi:"enabled"`
+	IdleTimeoutMinutes pulumi.IntPtrInput  `pulumi:"idleTimeoutMinutes"`
 }
 
 func (ApplicationAutoStopConfigurationArgs) ElementType() reflect.Type {
@@ -249,12 +241,10 @@ func (o ApplicationAutoStopConfigurationOutput) ToApplicationAutoStopConfigurati
 	}).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 func (o ApplicationAutoStopConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStopConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
 func (o ApplicationAutoStopConfigurationOutput) IdleTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStopConfiguration) *int { return v.IdleTimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -283,7 +273,6 @@ func (o ApplicationAutoStopConfigurationPtrOutput) Elem() ApplicationAutoStopCon
 	}).(ApplicationAutoStopConfigurationOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
 func (o ApplicationAutoStopConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoStopConfiguration) *bool {
 		if v == nil {
@@ -293,7 +282,6 @@ func (o ApplicationAutoStopConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
 func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoStopConfiguration) *int {
 		if v == nil {
@@ -304,10 +292,8 @@ func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.I
 }
 
 type ApplicationInitialCapacity struct {
-	// The initial capacity configuration per worker.
 	InitialCapacityConfig *ApplicationInitialCapacityInitialCapacityConfig `pulumi:"initialCapacityConfig"`
-	// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-	InitialCapacityType string `pulumi:"initialCapacityType"`
+	InitialCapacityType   string                                           `pulumi:"initialCapacityType"`
 }
 
 // ApplicationInitialCapacityInput is an input type that accepts ApplicationInitialCapacityArgs and ApplicationInitialCapacityOutput values.
@@ -322,10 +308,8 @@ type ApplicationInitialCapacityInput interface {
 }
 
 type ApplicationInitialCapacityArgs struct {
-	// The initial capacity configuration per worker.
 	InitialCapacityConfig ApplicationInitialCapacityInitialCapacityConfigPtrInput `pulumi:"initialCapacityConfig"`
-	// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-	InitialCapacityType pulumi.StringInput `pulumi:"initialCapacityType"`
+	InitialCapacityType   pulumi.StringInput                                      `pulumi:"initialCapacityType"`
 }
 
 func (ApplicationInitialCapacityArgs) ElementType() reflect.Type {
@@ -379,14 +363,12 @@ func (o ApplicationInitialCapacityOutput) ToApplicationInitialCapacityOutputWith
 	return o
 }
 
-// The initial capacity configuration per worker.
 func (o ApplicationInitialCapacityOutput) InitialCapacityConfig() ApplicationInitialCapacityInitialCapacityConfigPtrOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacity) *ApplicationInitialCapacityInitialCapacityConfig {
 		return v.InitialCapacityConfig
 	}).(ApplicationInitialCapacityInitialCapacityConfigPtrOutput)
 }
 
-// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
 func (o ApplicationInitialCapacityOutput) InitialCapacityType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacity) string { return v.InitialCapacityType }).(pulumi.StringOutput)
 }
@@ -412,10 +394,8 @@ func (o ApplicationInitialCapacityArrayOutput) Index(i pulumi.IntInput) Applicat
 }
 
 type ApplicationInitialCapacityInitialCapacityConfig struct {
-	// The resource configuration of the initial capacity configuration.
 	WorkerConfiguration *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration `pulumi:"workerConfiguration"`
-	// The number of workers in the initial capacity configuration.
-	WorkerCount int `pulumi:"workerCount"`
+	WorkerCount         int                                                                 `pulumi:"workerCount"`
 }
 
 // ApplicationInitialCapacityInitialCapacityConfigInput is an input type that accepts ApplicationInitialCapacityInitialCapacityConfigArgs and ApplicationInitialCapacityInitialCapacityConfigOutput values.
@@ -430,10 +410,8 @@ type ApplicationInitialCapacityInitialCapacityConfigInput interface {
 }
 
 type ApplicationInitialCapacityInitialCapacityConfigArgs struct {
-	// The resource configuration of the initial capacity configuration.
 	WorkerConfiguration ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrInput `pulumi:"workerConfiguration"`
-	// The number of workers in the initial capacity configuration.
-	WorkerCount pulumi.IntInput `pulumi:"workerCount"`
+	WorkerCount         pulumi.IntInput                                                            `pulumi:"workerCount"`
 }
 
 func (ApplicationInitialCapacityInitialCapacityConfigArgs) ElementType() reflect.Type {
@@ -513,14 +491,12 @@ func (o ApplicationInitialCapacityInitialCapacityConfigOutput) ToApplicationInit
 	}).(ApplicationInitialCapacityInitialCapacityConfigPtrOutput)
 }
 
-// The resource configuration of the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigOutput) WorkerConfiguration() ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfig) *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration {
 		return v.WorkerConfiguration
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput)
 }
 
-// The number of workers in the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigOutput) WorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfig) int { return v.WorkerCount }).(pulumi.IntOutput)
 }
@@ -549,7 +525,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) Elem() Applica
 	}).(ApplicationInitialCapacityInitialCapacityConfigOutput)
 }
 
-// The resource configuration of the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerConfiguration() ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfig) *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration {
 		if v == nil {
@@ -559,7 +534,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerConfigur
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput)
 }
 
-// The number of workers in the initial capacity configuration.
 func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfig) *int {
 		if v == nil {
@@ -570,12 +544,9 @@ func (o ApplicationInitialCapacityInitialCapacityConfigPtrOutput) WorkerCount() 
 }
 
 type ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration struct {
-	// The CPU requirements for every worker instance of the worker type.
-	Cpu string `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
-	Disk *string `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
-	Memory string `pulumi:"memory"`
+	Cpu    string  `pulumi:"cpu"`
+	Disk   *string `pulumi:"disk"`
+	Memory string  `pulumi:"memory"`
 }
 
 // ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationInput is an input type that accepts ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs and ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput values.
@@ -590,12 +561,9 @@ type ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationInput int
 }
 
 type ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs struct {
-	// The CPU requirements for every worker instance of the worker type.
-	Cpu pulumi.StringInput `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
-	Disk pulumi.StringPtrInput `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
-	Memory pulumi.StringInput `pulumi:"memory"`
+	Cpu    pulumi.StringInput    `pulumi:"cpu"`
+	Disk   pulumi.StringPtrInput `pulumi:"disk"`
+	Memory pulumi.StringInput    `pulumi:"memory"`
 }
 
 func (ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs) ElementType() reflect.Type {
@@ -675,17 +643,14 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) string { return v.Cpu }).(pulumi.StringOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string { return v.Disk }).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -714,7 +679,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 	}).(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string {
 		if v == nil {
@@ -724,7 +688,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string {
 		if v == nil {
@@ -734,7 +697,6 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
 func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration) *string {
 		if v == nil {
@@ -745,12 +707,9 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 }
 
 type ApplicationMaximumCapacity struct {
-	// The CPU requirements for every worker instance of the worker type.
-	Cpu string `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
-	Disk *string `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
-	Memory string `pulumi:"memory"`
+	Cpu    string  `pulumi:"cpu"`
+	Disk   *string `pulumi:"disk"`
+	Memory string  `pulumi:"memory"`
 }
 
 // ApplicationMaximumCapacityInput is an input type that accepts ApplicationMaximumCapacityArgs and ApplicationMaximumCapacityOutput values.
@@ -765,12 +724,9 @@ type ApplicationMaximumCapacityInput interface {
 }
 
 type ApplicationMaximumCapacityArgs struct {
-	// The CPU requirements for every worker instance of the worker type.
-	Cpu pulumi.StringInput `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
-	Disk pulumi.StringPtrInput `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
-	Memory pulumi.StringInput `pulumi:"memory"`
+	Cpu    pulumi.StringInput    `pulumi:"cpu"`
+	Disk   pulumi.StringPtrInput `pulumi:"disk"`
+	Memory pulumi.StringInput    `pulumi:"memory"`
 }
 
 func (ApplicationMaximumCapacityArgs) ElementType() reflect.Type {
@@ -850,17 +806,14 @@ func (o ApplicationMaximumCapacityOutput) ToApplicationMaximumCapacityPtrOutputW
 	}).(ApplicationMaximumCapacityPtrOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
 func (o ApplicationMaximumCapacityOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) string { return v.Cpu }).(pulumi.StringOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
 func (o ApplicationMaximumCapacityOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) *string { return v.Disk }).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
 func (o ApplicationMaximumCapacityOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -889,7 +842,6 @@ func (o ApplicationMaximumCapacityPtrOutput) Elem() ApplicationMaximumCapacityOu
 	}).(ApplicationMaximumCapacityOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
 func (o ApplicationMaximumCapacityPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -899,7 +851,6 @@ func (o ApplicationMaximumCapacityPtrOutput) Cpu() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
 func (o ApplicationMaximumCapacityPtrOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -909,7 +860,6 @@ func (o ApplicationMaximumCapacityPtrOutput) Disk() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
 func (o ApplicationMaximumCapacityPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -920,10 +870,8 @@ func (o ApplicationMaximumCapacityPtrOutput) Memory() pulumi.StringPtrOutput {
 }
 
 type ApplicationNetworkConfiguration struct {
-	// The array of security group Ids for customer VPC connectivity.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The array of subnet Ids for customer VPC connectivity.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
 }
 
 // ApplicationNetworkConfigurationInput is an input type that accepts ApplicationNetworkConfigurationArgs and ApplicationNetworkConfigurationOutput values.
@@ -938,10 +886,8 @@ type ApplicationNetworkConfigurationInput interface {
 }
 
 type ApplicationNetworkConfigurationArgs struct {
-	// The array of security group Ids for customer VPC connectivity.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The array of subnet Ids for customer VPC connectivity.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ApplicationNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -1021,12 +967,10 @@ func (o ApplicationNetworkConfigurationOutput) ToApplicationNetworkConfiguration
 	}).(ApplicationNetworkConfigurationPtrOutput)
 }
 
-// The array of security group Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The array of subnet Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationNetworkConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1055,7 +999,6 @@ func (o ApplicationNetworkConfigurationPtrOutput) Elem() ApplicationNetworkConfi
 	}).(ApplicationNetworkConfigurationOutput)
 }
 
-// The array of security group Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationNetworkConfiguration) []string {
 		if v == nil {
@@ -1065,7 +1008,6 @@ func (o ApplicationNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The array of subnet Ids for customer VPC connectivity.
 func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationNetworkConfiguration) []string {
 		if v == nil {

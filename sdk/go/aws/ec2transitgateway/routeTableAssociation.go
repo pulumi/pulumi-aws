@@ -11,54 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an EC2 Transit Gateway Route Table association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				TransitGatewayRouteTableId: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// `aws_ec2_transit_gateway_route_table_association` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-//
-// ```
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
-	// Identifier of the resource
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Type of the resource
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// Identifier of EC2 Transit Gateway Attachment.
+	ResourceId                 pulumi.StringOutput `pulumi:"resourceId"`
+	ResourceType               pulumi.StringOutput `pulumi:"resourceType"`
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -97,24 +55,16 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type routeTableAssociationState struct {
-	// Identifier of the resource
-	ResourceId *string `pulumi:"resourceId"`
-	// Type of the resource
-	ResourceType *string `pulumi:"resourceType"`
-	// Identifier of EC2 Transit Gateway Attachment.
+	ResourceId                 *string `pulumi:"resourceId"`
+	ResourceType               *string `pulumi:"resourceType"`
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
 
 type RouteTableAssociationState struct {
-	// Identifier of the resource
-	ResourceId pulumi.StringPtrInput
-	// Type of the resource
-	ResourceType pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Attachment.
+	ResourceId                 pulumi.StringPtrInput
+	ResourceType               pulumi.StringPtrInput
 	TransitGatewayAttachmentId pulumi.StringPtrInput
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId pulumi.StringPtrInput
 }
 
@@ -123,17 +73,13 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type routeTableAssociationArgs struct {
-	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
-	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
-	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -224,22 +170,18 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ct
 	return o
 }
 
-// Identifier of the resource
 func (o RouteTableAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Type of the resource
 func (o RouteTableAssociationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway Attachment.
 func (o RouteTableAssociationOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// Identifier of EC2 Transit Gateway Route Table.
 func (o RouteTableAssociationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTableAssociation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

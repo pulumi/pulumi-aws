@@ -10,9 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to invoke custom lambda functions as data source.
-// The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-// invocation type.
 func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...pulumi.InvokeOption) (*LookupInvocationResult, error) {
 	var rv LookupInvocationResult
 	err := ctx.Invoke("aws:lambda/getInvocation:getInvocation", args, &rv, opts...)
@@ -24,13 +21,9 @@ func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...p
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationArgs struct {
-	// Name of the lambda function.
-	FunctionName string `pulumi:"functionName"`
-	// String in JSON format that is passed as payload to the lambda function.
-	Input string `pulumi:"input"`
-	// Qualifier (a.k.a version) of the lambda function. Defaults
-	// to `$LATEST`.
-	Qualifier *string `pulumi:"qualifier"`
+	FunctionName string  `pulumi:"functionName"`
+	Input        string  `pulumi:"input"`
+	Qualifier    *string `pulumi:"qualifier"`
 }
 
 // A collection of values returned by getInvocation.
@@ -40,8 +33,7 @@ type LookupInvocationResult struct {
 	Id        string  `pulumi:"id"`
 	Input     string  `pulumi:"input"`
 	Qualifier *string `pulumi:"qualifier"`
-	// String result of the lambda function invocation.
-	Result string `pulumi:"result"`
+	Result    string  `pulumi:"result"`
 }
 
 func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
@@ -59,13 +51,9 @@ func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs
 
 // A collection of arguments for invoking getInvocation.
 type LookupInvocationOutputArgs struct {
-	// Name of the lambda function.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// String in JSON format that is passed as payload to the lambda function.
-	Input pulumi.StringInput `pulumi:"input"`
-	// Qualifier (a.k.a version) of the lambda function. Defaults
-	// to `$LATEST`.
-	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
+	FunctionName pulumi.StringInput    `pulumi:"functionName"`
+	Input        pulumi.StringInput    `pulumi:"input"`
+	Qualifier    pulumi.StringPtrInput `pulumi:"qualifier"`
 }
 
 func (LookupInvocationOutputArgs) ElementType() reflect.Type {
@@ -104,7 +92,6 @@ func (o LookupInvocationResultOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvocationResult) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
 }
 
-// String result of the lambda function invocation.
 func (o LookupInvocationResultOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInvocationResult) string { return v.Result }).(pulumi.StringOutput)
 }

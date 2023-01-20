@@ -10,75 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector group by including VoiceConnectorItems in the request.
-//
-// You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vc1, err := chime.NewVoiceConnector(ctx, "vc1", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//				AwsRegion:         pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vc2, err := chime.NewVoiceConnector(ctx, "vc2", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//				AwsRegion:         pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
-//				Connectors: chime.VoiceConnectorGroupConnectorArray{
-//					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc1.ID(),
-//						Priority:         pulumi.Int(1),
-//					},
-//					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc2.ID(),
-//						Priority:         pulumi.Int(3),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Configuration Recorder can be imported using the name, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
-//
-// ```
 type VoiceConnectorGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors VoiceConnectorGroupConnectorArrayOutput `pulumi:"connectors"`
-	// The name of the Amazon Chime Voice Connector group.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
 }
 
 // NewVoiceConnectorGroup registers a new resource with the given unique name, arguments, and options.
@@ -110,17 +46,13 @@ func GetVoiceConnectorGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VoiceConnectorGroup resources.
 type voiceConnectorGroupState struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors []VoiceConnectorGroupConnector `pulumi:"connectors"`
-	// The name of the Amazon Chime Voice Connector group.
-	Name *string `pulumi:"name"`
+	Name       *string                        `pulumi:"name"`
 }
 
 type VoiceConnectorGroupState struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors VoiceConnectorGroupConnectorArrayInput
-	// The name of the Amazon Chime Voice Connector group.
-	Name pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
 }
 
 func (VoiceConnectorGroupState) ElementType() reflect.Type {
@@ -128,18 +60,14 @@ func (VoiceConnectorGroupState) ElementType() reflect.Type {
 }
 
 type voiceConnectorGroupArgs struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors []VoiceConnectorGroupConnector `pulumi:"connectors"`
-	// The name of the Amazon Chime Voice Connector group.
-	Name *string `pulumi:"name"`
+	Name       *string                        `pulumi:"name"`
 }
 
 // The set of arguments for constructing a VoiceConnectorGroup resource.
 type VoiceConnectorGroupArgs struct {
-	// The Amazon Chime Voice Connectors to route inbound calls to.
 	Connectors VoiceConnectorGroupConnectorArrayInput
-	// The name of the Amazon Chime Voice Connector group.
-	Name pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
 }
 
 func (VoiceConnectorGroupArgs) ElementType() reflect.Type {
@@ -229,12 +157,10 @@ func (o VoiceConnectorGroupOutput) ToVoiceConnectorGroupOutputWithContext(ctx co
 	return o
 }
 
-// The Amazon Chime Voice Connectors to route inbound calls to.
 func (o VoiceConnectorGroupOutput) Connectors() VoiceConnectorGroupConnectorArrayOutput {
 	return o.ApplyT(func(v *VoiceConnectorGroup) VoiceConnectorGroupConnectorArrayOutput { return v.Connectors }).(VoiceConnectorGroupConnectorArrayOutput)
 }
 
-// The name of the Amazon Chime Voice Connector group.
 func (o VoiceConnectorGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VoiceConnectorGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

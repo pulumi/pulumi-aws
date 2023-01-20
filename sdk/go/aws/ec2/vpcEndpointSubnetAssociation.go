@@ -11,58 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource to create an association between a VPC endpoint and a subnet.
-//
-// > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
-// both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
-// and a single `subnetId`) and a VPC Endpoint resource with a `subnetIds`
-// attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
-// Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcEndpointSubnetAssociation(ctx, "snEc2", &ec2.VpcEndpointSubnetAssociationArgs{
-//				VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Ec2.Id),
-//				SubnetId:      pulumi.Any(aws_subnet.Sn.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
-//
-// ```
 type VpcEndpointSubnetAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ID of the subnet to be associated with the VPC endpoint.
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	SubnetId      pulumi.StringOutput `pulumi:"subnetId"`
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
 
@@ -101,16 +53,12 @@ func GetVpcEndpointSubnetAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpointSubnetAssociation resources.
 type vpcEndpointSubnetAssociationState struct {
-	// The ID of the subnet to be associated with the VPC endpoint.
-	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	SubnetId      *string `pulumi:"subnetId"`
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
 
 type VpcEndpointSubnetAssociationState struct {
-	// The ID of the subnet to be associated with the VPC endpoint.
-	SubnetId pulumi.StringPtrInput
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	SubnetId      pulumi.StringPtrInput
 	VpcEndpointId pulumi.StringPtrInput
 }
 
@@ -119,17 +67,13 @@ func (VpcEndpointSubnetAssociationState) ElementType() reflect.Type {
 }
 
 type vpcEndpointSubnetAssociationArgs struct {
-	// The ID of the subnet to be associated with the VPC endpoint.
-	SubnetId string `pulumi:"subnetId"`
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	SubnetId      string `pulumi:"subnetId"`
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a VpcEndpointSubnetAssociation resource.
 type VpcEndpointSubnetAssociationArgs struct {
-	// The ID of the subnet to be associated with the VPC endpoint.
-	SubnetId pulumi.StringInput
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	SubnetId      pulumi.StringInput
 	VpcEndpointId pulumi.StringInput
 }
 
@@ -220,12 +164,10 @@ func (o VpcEndpointSubnetAssociationOutput) ToVpcEndpointSubnetAssociationOutput
 	return o
 }
 
-// The ID of the subnet to be associated with the VPC endpoint.
 func (o VpcEndpointSubnetAssociationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointSubnetAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC endpoint with which the subnet will be associated.
 func (o VpcEndpointSubnetAssociationOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointSubnetAssociation) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }
