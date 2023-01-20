@@ -123,7 +123,7 @@ patch_upstream: init_upstream
 	@# Ensure tool is installed
 	cd upstream-tools yarn install --frozen-lockfile --silent
 	@# Reset all changes in the submodule so we're starting from a clean slate
-	cd upstream && git checkout .
+	cd upstream && git checkout . && git clean -fdx
 	@# Apply all automated changed
 	cd upstream-tools && yarn --silent run apply
 	@# Check for any pending replacements
