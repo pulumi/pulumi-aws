@@ -108,14 +108,14 @@ public class SnapshotImport extends com.pulumi.resources.CustomResource {
         return this.dataEncryptionKeyId;
     }
     /**
-     * The description of the disk image being imported.
+     * The description string for the import snapshot task.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the disk image being imported.
+     * @return The description string for the import snapshot task.
      * 
      */
     public Output<String> description() {

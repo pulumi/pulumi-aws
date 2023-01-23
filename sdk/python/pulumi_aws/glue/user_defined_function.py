@@ -143,8 +143,10 @@ class _UserDefinedFunctionState:
                  resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
         """
         Input properties used for looking up and filtering UserDefinedFunction resources.
+        :param pulumi.Input[str] arn: The ARN of the Glue User Defined Function.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] class_name: The Java class that contains the function code.
+        :param pulumi.Input[str] create_time: The time at which the function was created.
         :param pulumi.Input[str] database_name: The name of the Database to create the Function.
         :param pulumi.Input[str] name: The name of the function.
         :param pulumi.Input[str] owner_name: The owner of the function.
@@ -173,6 +175,9 @@ class _UserDefinedFunctionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Glue User Defined Function.
+        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -206,6 +211,9 @@ class _UserDefinedFunctionState:
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time at which the function was created.
+        """
         return pulumi.get(self, "create_time")
 
     @create_time.setter
@@ -436,8 +444,10 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the Glue User Defined Function.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] class_name: The Java class that contains the function code.
+        :param pulumi.Input[str] create_time: The time at which the function was created.
         :param pulumi.Input[str] database_name: The name of the Database to create the Function.
         :param pulumi.Input[str] name: The name of the function.
         :param pulumi.Input[str] owner_name: The owner of the function.
@@ -462,6 +472,9 @@ class UserDefinedFunction(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Glue User Defined Function.
+        """
         return pulumi.get(self, "arn")
 
     @property
@@ -483,6 +496,9 @@ class UserDefinedFunction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
+        """
+        The time at which the function was created.
+        """
         return pulumi.get(self, "create_time")
 
     @property

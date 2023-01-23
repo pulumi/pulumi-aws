@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// Password that corresponds to the user name.
+        /// The password to use to connect to a resource.
         /// </summary>
         public Input<string>? Password
         {
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// Name of the user.
+        /// The username to use to connect to a resource.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

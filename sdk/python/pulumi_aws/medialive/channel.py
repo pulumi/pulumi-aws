@@ -39,7 +39,7 @@ class ChannelArgs:
         :param pulumi.Input['ChannelCdiInputSpecificationArgs'] cdi_input_specification: Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: The name of the video description.
+        :param pulumi.Input[str] name: Name of the Channel.
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -167,7 +167,7 @@ class ChannelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the video description.
+        Name of the Channel.
         """
         return pulumi.get(self, "name")
 
@@ -255,7 +255,7 @@ class _ChannelState:
         :param pulumi.Input['ChannelInputSpecificationArgs'] input_specification: Specification of network and file inputs for the channel.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: The name of the video description.
+        :param pulumi.Input[str] name: Name of the Channel.
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -418,7 +418,7 @@ class _ChannelState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the video description.
+        Name of the Channel.
         """
         return pulumi.get(self, "name")
 
@@ -595,7 +595,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ChannelInputSpecificationArgs']] input_specification: Specification of network and file inputs for the channel.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: The name of the video description.
+        :param pulumi.Input[str] name: Name of the Channel.
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -795,7 +795,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ChannelInputSpecificationArgs']] input_specification: Specification of network and file inputs for the channel.
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
-        :param pulumi.Input[str] name: The name of the video description.
+        :param pulumi.Input[str] name: Name of the Channel.
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -907,7 +907,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the video description.
+        Name of the Channel.
         """
         return pulumi.get(self, "name")
 

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly int PortNumber;
         /// <summary>
-        /// The Snowflake Private Link service name to be used for private data transfers.
+        /// The SAPOData Private Link service name to be used for private data transfers.
         /// </summary>
         public readonly string? PrivateLinkServiceName;
 

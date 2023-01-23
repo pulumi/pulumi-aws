@@ -132,11 +132,12 @@ type LoadBalancer struct {
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
 	// this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-	PreserveHostHeader pulumi.BoolPtrOutput     `pulumi:"preserveHostHeader"`
-	SecurityGroups     pulumi.StringArrayOutput `pulumi:"securityGroups"`
+	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
 	// A list of subnet IDs to attach to the LB. Subnets
@@ -221,11 +222,12 @@ type loadBalancerState struct {
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
 	// this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-	PreserveHostHeader *bool    `pulumi:"preserveHostHeader"`
-	SecurityGroups     []string `pulumi:"securityGroups"`
+	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
 	// A list of subnet IDs to attach to the LB. Subnets
@@ -276,11 +278,12 @@ type LoadBalancerState struct {
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
 	// this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	SecurityGroups     pulumi.StringArrayInput
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
 	// A list of subnet IDs to attach to the LB. Subnets
@@ -329,11 +332,12 @@ type loadBalancerArgs struct {
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
 	// this provider will autogenerate a name beginning with `tf-lb`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-	PreserveHostHeader *bool    `pulumi:"preserveHostHeader"`
-	SecurityGroups     []string `pulumi:"securityGroups"`
+	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
 	// A list of subnet IDs to attach to the LB. Subnets
@@ -374,11 +378,12 @@ type LoadBalancerArgs struct {
 	// must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
 	// this provider will autogenerate a name beginning with `tf-lb`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	SecurityGroups     pulumi.StringArrayInput
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
 	// A list of subnet IDs to attach to the LB. Subnets
@@ -558,7 +563,7 @@ func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o LoadBalancerOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
@@ -568,6 +573,7 @@ func (o LoadBalancerOutput) PreserveHostHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.PreserveHostHeader }).(pulumi.BoolPtrOutput)
 }
 
+// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

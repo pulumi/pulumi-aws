@@ -30,14 +30,14 @@ public final class ServiceDnsConfigDnsRecordArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+     * The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+     * @return The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
      * 
      */
     public Output<String> type() {
@@ -91,7 +91,7 @@ public final class ServiceDnsConfigDnsRecordArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+         * @param type The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceDnsConfigDnsRecordArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+         * @param type The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     public sealed class GetUserFilterResult
     {
         /// <summary>
-        /// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+        /// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         /// </summary>
         public readonly string AttributePath;
         /// <summary>

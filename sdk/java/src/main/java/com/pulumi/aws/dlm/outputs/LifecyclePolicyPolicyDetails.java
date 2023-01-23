@@ -28,7 +28,7 @@ public final class LifecyclePolicyPolicyDetails {
      */
     private @Nullable LifecyclePolicyPolicyDetailsEventSource eventSource;
     /**
-     * @return Information about the event. See the `parameters` configuration block.
+     * @return A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsParameters parameters;
@@ -74,7 +74,7 @@ public final class LifecyclePolicyPolicyDetails {
         return Optional.ofNullable(this.eventSource);
     }
     /**
-     * @return Information about the event. See the `parameters` configuration block.
+     * @return A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsParameters> parameters() {

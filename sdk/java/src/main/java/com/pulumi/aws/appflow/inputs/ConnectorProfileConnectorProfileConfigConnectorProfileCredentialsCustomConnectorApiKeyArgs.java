@@ -31,14 +31,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The Secret Access Key portion of the credentials.
+     * The API secret key required for API key authentication.
      * 
      */
     @Import(name="apiSecretKey")
     private @Nullable Output<String> apiSecretKey;
 
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return The API secret key required for API key authentication.
      * 
      */
     public Optional<Output<String>> apiSecretKey() {
@@ -92,7 +92,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiSecretKey The Secret Access Key portion of the credentials.
+         * @param apiSecretKey The API secret key required for API key authentication.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiSecretKey The Secret Access Key portion of the credentials.
+         * @param apiSecretKey The API secret key required for API key authentication.
          * 
          * @return builder
          * 

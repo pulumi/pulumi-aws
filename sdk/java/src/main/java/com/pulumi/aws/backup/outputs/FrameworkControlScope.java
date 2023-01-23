@@ -23,7 +23,7 @@ public final class FrameworkControlScope {
      */
     private @Nullable List<String> complianceResourceTypes;
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -44,7 +44,7 @@ public final class FrameworkControlScope {
         return this.complianceResourceTypes == null ? List.of() : this.complianceResourceTypes;
     }
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {

@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsScheduleRetainRule {
     /**
-     * @return How many snapshots to keep. Must be an integer between `1` and `1000`.
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
      * 
      */
     private @Nullable Integer count;
     /**
-     * @return The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
      * 
      */
     private @Nullable Integer interval;
     /**
-     * @return The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
      * 
      */
     private @Nullable String intervalUnit;
 
     private LifecyclePolicyPolicyDetailsScheduleRetainRule() {}
     /**
-     * @return How many snapshots to keep. Must be an integer between `1` and `1000`.
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
      * 
      */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
      * 
      */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
     /**
-     * @return The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
      * 
      */
     public Optional<String> intervalUnit() {

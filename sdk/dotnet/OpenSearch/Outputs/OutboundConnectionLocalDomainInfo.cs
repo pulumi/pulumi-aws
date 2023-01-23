@@ -14,15 +14,15 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class OutboundConnectionLocalDomainInfo
     {
         /// <summary>
-        /// The name of the remote domain.
+        /// The name of the local domain.
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// The Account ID of the owner of the remote domain.
+        /// The Account ID of the owner of the local domain.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// The region of the remote domain.
+        /// The region of the local domain.
         /// </summary>
         public readonly string Region;
 

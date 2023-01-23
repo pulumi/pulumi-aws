@@ -21,14 +21,14 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigArgs extends com.pu
     public static final ClusterCoreInstanceFleetInstanceTypeConfigArgs Empty = new ClusterCoreInstanceFleetInstanceTypeConfigArgs();
 
     /**
-     * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+     * Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
      * 
      */
     @Import(name="bidPrice")
     private @Nullable Output<String> bidPrice;
 
     /**
-     * @return Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+     * @return Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
      * 
      */
     public Optional<Output<String>> bidPrice() {
@@ -81,14 +81,14 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigArgs extends com.pu
     }
 
     /**
-     * EC2 instance type for all instances in the instance group.
+     * EC2 instance type, such as m4.xlarge.
      * 
      */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
     /**
-     * @return EC2 instance type for all instances in the instance group.
+     * @return EC2 instance type, such as m4.xlarge.
      * 
      */
     public Output<String> instanceType() {
@@ -140,7 +140,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigArgs extends com.pu
         }
 
         /**
-         * @param bidPrice Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+         * @param bidPrice Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigArgs extends com.pu
         }
 
         /**
-         * @param bidPrice Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+         * @param bidPrice Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigArgs extends com.pu
         }
 
         /**
-         * @param instanceType EC2 instance type for all instances in the instance group.
+         * @param instanceType EC2 instance type, such as m4.xlarge.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigArgs extends com.pu
         }
 
         /**
-         * @param instanceType EC2 instance type for all instances in the instance group.
+         * @param instanceType EC2 instance type, such as m4.xlarge.
          * 
          * @return builder
          * 

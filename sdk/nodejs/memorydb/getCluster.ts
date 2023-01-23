@@ -58,7 +58,6 @@ export interface GetClusterResult {
     readonly arn: string;
     /**
      * True when the cluster allows automatic minor version upgrades.
-     * * `clusterEndpoint`
      */
     readonly autoMinorVersionUpgrade: boolean;
     readonly clusterEndpoints: outputs.memorydb.GetClusterClusterEndpoint[];
@@ -96,7 +95,6 @@ export interface GetClusterResult {
     readonly maintenanceWindow: string;
     /**
      * Name of this node.
-     * * `endpoint`
      */
     readonly name: string;
     /**
@@ -137,9 +135,11 @@ export interface GetClusterResult {
     readonly snapshotWindow: string;
     /**
      * ARN of the SNS topic to which cluster notifications are sent.
-     * * `subnetGroupName` -The name of the subnet group used for the cluster.
      */
     readonly snsTopicArn: string;
+    /**
+     * The name of the subnet group used for the cluster.
+     */
     readonly subnetGroupName: string;
     /**
      * Map of tags assigned to the cluster.

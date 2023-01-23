@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         }
 
         /// <summary>
-        /// Description of the container distribution configuration.
+        /// Description to apply to the distributed AMI.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

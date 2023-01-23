@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.SpotFleetRequestSpotMaintenanceStrategies?> SpotMaintenanceStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum spot bid for this override request.
+        /// The maximum bid price per unit hour.
         /// </summary>
         [Output("spotPrice")]
         public Output<string?> SpotPrice { get; private set; } = null!;
@@ -535,7 +535,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.SpotFleetRequestSpotMaintenanceStrategiesArgs>? SpotMaintenanceStrategies { get; set; }
 
         /// <summary>
-        /// The maximum spot bid for this override request.
+        /// The maximum bid price per unit hour.
         /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
@@ -742,7 +742,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.SpotFleetRequestSpotMaintenanceStrategiesGetArgs>? SpotMaintenanceStrategies { get; set; }
 
         /// <summary>
-        /// The maximum spot bid for this override request.
+        /// The maximum bid price per unit hour.
         /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }

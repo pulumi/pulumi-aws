@@ -163,7 +163,7 @@ type NodeGroup struct {
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       NodeGroupTaintArrayOutput   `pulumi:"taints"`
 	UpdateConfig NodeGroupUpdateConfigOutput `pulumi:"updateConfig"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -251,7 +251,7 @@ type nodeGroupState struct {
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       []NodeGroupTaint       `pulumi:"taints"`
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version *string `pulumi:"version"`
 }
 
@@ -299,7 +299,7 @@ type NodeGroupState struct {
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       NodeGroupTaintArrayInput
 	UpdateConfig NodeGroupUpdateConfigPtrInput
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
 }
 
@@ -343,7 +343,7 @@ type nodeGroupArgs struct {
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       []NodeGroupTaint       `pulumi:"taints"`
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version *string `pulumi:"version"`
 }
 
@@ -384,7 +384,7 @@ type NodeGroupArgs struct {
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints       NodeGroupTaintArrayInput
 	UpdateConfig NodeGroupUpdateConfigPtrInput
-	// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
 }
 
@@ -584,7 +584,7 @@ func (o NodeGroupOutput) UpdateConfig() NodeGroupUpdateConfigOutput {
 	return o.ApplyT(func(v *NodeGroup) NodeGroupUpdateConfigOutput { return v.UpdateConfig }).(NodeGroupUpdateConfigOutput)
 }
 
-// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 func (o NodeGroupOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

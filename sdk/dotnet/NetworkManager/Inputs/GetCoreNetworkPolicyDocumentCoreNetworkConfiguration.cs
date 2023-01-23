@@ -28,7 +28,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         private List<Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs>? _edgeLocations;
 
         /// <summary>
-        /// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+        /// A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
         /// </summary>
         public List<Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs> EdgeLocations
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         private List<string>? _insideCidrBlocks;
 
         /// <summary>
-        /// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+        /// The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         /// </summary>
         public List<string> InsideCidrBlocks
         {

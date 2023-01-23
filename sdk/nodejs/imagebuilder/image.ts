@@ -64,7 +64,7 @@ export class Image extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * - Amazon Resource Name (ARN) of the container recipe.
+     * Amazon Resource Name (ARN) of the container recipe.
      */
     public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface ImageState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * - Amazon Resource Name (ARN) of the container recipe.
+     * Amazon Resource Name (ARN) of the container recipe.
      */
     containerRecipeArn?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface ImageState {
  */
 export interface ImageArgs {
     /**
-     * - Amazon Resource Name (ARN) of the container recipe.
+     * Amazon Resource Name (ARN) of the container recipe.
      */
     containerRecipeArn?: pulumi.Input<string>;
     /**

@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:workspaces/ipGroup:IpGroup")
 public class IpGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The description.
+     * The description of the IP group.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description.
+     * @return The description of the IP group.
      * 
      */
     public Output<Optional<String>> description() {

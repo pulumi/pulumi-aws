@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+        /// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
         /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         }
 
         /// <summary>
-        /// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        /// See the `deprecate_rule` block. Max of 1 per schedule.
         /// </summary>
         [Input("deprecateRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleGetArgs>? DeprecateRule { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs>? FastRestoreRule { get; set; }
 
         /// <summary>
-        /// A name for the schedule.
+        /// A descriptive name for the action.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+        /// Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         /// </summary>
         [Input("retainRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleGetArgs> RetainRule { get; set; } = null!;

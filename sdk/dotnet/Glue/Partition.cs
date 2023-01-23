@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> LastAnalyzedTime { get; private set; } = null!;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of initialization parameters for the SerDe, in key-value form.
+        /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         public InputMap<string> Parameters
         {

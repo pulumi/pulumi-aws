@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupMixedInstancesPolicyLaunchTemplate {
     /**
-     * @return Override the instance launch template specification in the Launch Template.
+     * @return Nested argument defines the Launch Template. Defined below.
      * 
      */
     private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification;
@@ -25,7 +25,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplate {
 
     private GroupMixedInstancesPolicyLaunchTemplate() {}
     /**
-     * @return Override the instance launch template specification in the Launch Template.
+     * @return Nested argument defines the Launch Template. Defined below.
      * 
      */
     public GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification launchTemplateSpecification() {

@@ -14,14 +14,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs();
 
     /**
-     * Password that corresponds to the user name.
+     * The password to use to connect to a resource.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return Password that corresponds to the user name.
+     * @return The password to use to connect to a resource.
      * 
      */
     public Output<String> password() {
@@ -29,14 +29,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Name of the user.
+     * The username to use to connect to a resource.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return Name of the user.
+     * @return The username to use to connect to a resource.
      * 
      */
     public Output<String> username() {
@@ -69,7 +69,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param password Password that corresponds to the user name.
+         * @param password The password to use to connect to a resource.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param password Password that corresponds to the user name.
+         * @param password The password to use to connect to a resource.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param username Name of the user.
+         * @param username The username to use to connect to a resource.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param username Name of the user.
+         * @param username The username to use to connect to a resource.
          * 
          * @return builder
          * 

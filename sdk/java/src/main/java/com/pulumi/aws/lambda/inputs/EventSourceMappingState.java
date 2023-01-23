@@ -41,8 +41,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-     * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-     * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      * 
      */
     @Import(name="batchSize")
@@ -50,24 +48,38 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
     /**
      * @return The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-     * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-     * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
      * 
      */
     public Optional<Output<Integer>> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
 
+    /**
+     * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * 
+     */
     @Import(name="bisectBatchOnFunctionError")
     private @Nullable Output<Boolean> bisectBatchOnFunctionError;
 
+    /**
+     * @return - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> bisectBatchOnFunctionError() {
         return Optional.ofNullable(this.bisectBatchOnFunctionError);
     }
 
+    /**
+     * - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * 
+     */
     @Import(name="destinationConfig")
     private @Nullable Output<EventSourceMappingDestinationConfigArgs> destinationConfig;
 
+    /**
+     * @return - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+     * 
+     */
     public Optional<Output<EventSourceMappingDestinationConfigArgs>> destinationConfig() {
         return Optional.ofNullable(this.destinationConfig);
     }
@@ -194,9 +206,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
     /**
      * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-     * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-     * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-     * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
     @Import(name="maximumBatchingWindowInSeconds")
@@ -204,39 +213,59 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
     /**
      * @return The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-     * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-     * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-     * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }
 
+    /**
+     * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * 
+     */
     @Import(name="maximumRecordAgeInSeconds")
     private @Nullable Output<Integer> maximumRecordAgeInSeconds;
 
+    /**
+     * @return - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+     * 
+     */
     public Optional<Output<Integer>> maximumRecordAgeInSeconds() {
         return Optional.ofNullable(this.maximumRecordAgeInSeconds);
     }
 
+    /**
+     * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * 
+     */
     @Import(name="maximumRetryAttempts")
     private @Nullable Output<Integer> maximumRetryAttempts;
 
+    /**
+     * @return - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+     * 
+     */
     public Optional<Output<Integer>> maximumRetryAttempts() {
         return Optional.ofNullable(this.maximumRetryAttempts);
     }
 
+    /**
+     * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * 
+     */
     @Import(name="parallelizationFactor")
     private @Nullable Output<Integer> parallelizationFactor;
 
+    /**
+     * @return - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+     * 
+     */
     public Optional<Output<Integer>> parallelizationFactor() {
         return Optional.ofNullable(this.parallelizationFactor);
     }
 
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-     * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
     @Import(name="queues")
@@ -244,23 +273,29 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
     /**
      * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-     * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
     public Optional<Output<List<String>>> queues() {
         return Optional.ofNullable(this.queues);
     }
 
+    /**
+     * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+     * 
+     */
     @Import(name="selfManagedEventSource")
     private @Nullable Output<EventSourceMappingSelfManagedEventSourceArgs> selfManagedEventSource;
 
+    /**
+     * @return - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+     * 
+     */
     public Optional<Output<EventSourceMappingSelfManagedEventSourceArgs>> selfManagedEventSource() {
         return Optional.ofNullable(this.selfManagedEventSource);
     }
 
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
      * 
      */
     @Import(name="selfManagedKafkaEventSourceConfig")
@@ -268,16 +303,23 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
     /**
      * @return Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
      * 
      */
     public Optional<Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>> selfManagedKafkaEventSourceConfig() {
         return Optional.ofNullable(this.selfManagedKafkaEventSourceConfig);
     }
 
+    /**
+     * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+     * 
+     */
     @Import(name="sourceAccessConfigurations")
     private @Nullable Output<List<EventSourceMappingSourceAccessConfigurationArgs>> sourceAccessConfigurations;
 
+    /**
+     * @return For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+     * 
+     */
     public Optional<Output<List<EventSourceMappingSourceAccessConfigurationArgs>>> sourceAccessConfigurations() {
         return Optional.ofNullable(this.sourceAccessConfigurations);
     }
@@ -460,8 +502,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
         /**
          * @param batchSize The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-         * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-         * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
          * 
          * @return builder
          * 
@@ -473,8 +513,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
         /**
          * @param batchSize The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-         * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-         * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
          * 
          * @return builder
          * 
@@ -483,20 +521,44 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
             return batchSize(Output.of(batchSize));
         }
 
+        /**
+         * @param bisectBatchOnFunctionError - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bisectBatchOnFunctionError(@Nullable Output<Boolean> bisectBatchOnFunctionError) {
             $.bisectBatchOnFunctionError = bisectBatchOnFunctionError;
             return this;
         }
 
+        /**
+         * @param bisectBatchOnFunctionError - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bisectBatchOnFunctionError(Boolean bisectBatchOnFunctionError) {
             return bisectBatchOnFunctionError(Output.of(bisectBatchOnFunctionError));
         }
 
+        /**
+         * @param destinationConfig - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationConfig(@Nullable Output<EventSourceMappingDestinationConfigArgs> destinationConfig) {
             $.destinationConfig = destinationConfig;
             return this;
         }
 
+        /**
+         * @param destinationConfig - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationConfig(EventSourceMappingDestinationConfigArgs destinationConfig) {
             return destinationConfig(Output.of(destinationConfig));
         }
@@ -681,9 +743,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
         /**
          * @param maximumBatchingWindowInSeconds The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-         * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-         * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-         * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
          * 
          * @return builder
          * 
@@ -695,9 +754,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
         /**
          * @param maximumBatchingWindowInSeconds The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-         * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-         * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-         * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
          * 
          * @return builder
          * 
@@ -706,36 +762,71 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
             return maximumBatchingWindowInSeconds(Output.of(maximumBatchingWindowInSeconds));
         }
 
+        /**
+         * @param maximumRecordAgeInSeconds - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumRecordAgeInSeconds(@Nullable Output<Integer> maximumRecordAgeInSeconds) {
             $.maximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
             return this;
         }
 
+        /**
+         * @param maximumRecordAgeInSeconds - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumRecordAgeInSeconds(Integer maximumRecordAgeInSeconds) {
             return maximumRecordAgeInSeconds(Output.of(maximumRecordAgeInSeconds));
         }
 
+        /**
+         * @param maximumRetryAttempts - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumRetryAttempts(@Nullable Output<Integer> maximumRetryAttempts) {
             $.maximumRetryAttempts = maximumRetryAttempts;
             return this;
         }
 
+        /**
+         * @param maximumRetryAttempts - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumRetryAttempts(Integer maximumRetryAttempts) {
             return maximumRetryAttempts(Output.of(maximumRetryAttempts));
         }
 
+        /**
+         * @param parallelizationFactor - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parallelizationFactor(@Nullable Output<Integer> parallelizationFactor) {
             $.parallelizationFactor = parallelizationFactor;
             return this;
         }
 
+        /**
+         * @param parallelizationFactor - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parallelizationFactor(Integer parallelizationFactor) {
             return parallelizationFactor(Output.of(parallelizationFactor));
         }
 
         /**
          * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-         * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
          * 
          * @return builder
          * 
@@ -747,7 +838,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
         /**
          * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-         * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
          * 
          * @return builder
          * 
@@ -758,7 +848,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
         /**
          * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-         * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
          * 
          * @return builder
          * 
@@ -767,18 +856,29 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
             return queues(List.of(queues));
         }
 
+        /**
+         * @param selfManagedEventSource - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selfManagedEventSource(@Nullable Output<EventSourceMappingSelfManagedEventSourceArgs> selfManagedEventSource) {
             $.selfManagedEventSource = selfManagedEventSource;
             return this;
         }
 
+        /**
+         * @param selfManagedEventSource - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs selfManagedEventSource) {
             return selfManagedEventSource(Output.of(selfManagedEventSource));
         }
 
         /**
          * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
          * 
          * @return builder
          * 
@@ -790,7 +890,6 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
 
         /**
          * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
          * 
          * @return builder
          * 
@@ -799,15 +898,33 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
             return selfManagedKafkaEventSourceConfig(Output.of(selfManagedKafkaEventSourceConfig));
         }
 
+        /**
+         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceAccessConfigurations(@Nullable Output<List<EventSourceMappingSourceAccessConfigurationArgs>> sourceAccessConfigurations) {
             $.sourceAccessConfigurations = sourceAccessConfigurations;
             return this;
         }
 
+        /**
+         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceAccessConfigurations(List<EventSourceMappingSourceAccessConfigurationArgs> sourceAccessConfigurations) {
             return sourceAccessConfigurations(Output.of(sourceAccessConfigurations));
         }
 
+        /**
+         * @param sourceAccessConfigurations For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceAccessConfigurations(EventSourceMappingSourceAccessConfigurationArgs... sourceAccessConfigurations) {
             return sourceAccessConfigurations(List.of(sourceAccessConfigurations));
         }

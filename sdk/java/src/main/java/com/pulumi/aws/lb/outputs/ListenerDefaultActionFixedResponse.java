@@ -22,7 +22,7 @@ public final class ListenerDefaultActionFixedResponse {
      */
     private @Nullable String messageBody;
     /**
-     * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+     * @return HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
      * 
      */
     private @Nullable String statusCode;
@@ -43,7 +43,7 @@ public final class ListenerDefaultActionFixedResponse {
         return Optional.ofNullable(this.messageBody);
     }
     /**
-     * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+     * @return HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
      * 
      */
     public Optional<String> statusCode() {

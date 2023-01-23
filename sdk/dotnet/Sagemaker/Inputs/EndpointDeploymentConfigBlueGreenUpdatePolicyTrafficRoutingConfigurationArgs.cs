@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs>? LinearStepSize { get; set; }
 
         /// <summary>
-        /// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        /// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

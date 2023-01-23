@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DomainDefaultSpaceSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The execution role ARN for the user.
+        /// The execution role for the space.
         /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of security group IDs that will be attached to the user.
+        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         /// </summary>
         public InputList<string> SecurityGroups
         {

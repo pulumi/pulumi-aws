@@ -19,18 +19,18 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
     public static final StatementArgs Empty = new StatementArgs();
 
     /**
-     * The cluster identifier.
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
-    @Import(name="clusterIdentifier", required=true)
-    private Output<String> clusterIdentifier;
+    @Import(name="clusterIdentifier")
+    private @Nullable Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier.
+     * @return The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
-    public Output<String> clusterIdentifier() {
-        return this.clusterIdentifier;
+    public Optional<Output<String>> clusterIdentifier() {
+        return Optional.ofNullable(this.clusterIdentifier);
     }
 
     /**
@@ -130,6 +130,21 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.withEvent);
     }
 
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     * 
+     */
+    @Import(name="workgroupName")
+    private @Nullable Output<String> workgroupName;
+
+    /**
+     * @return The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     * 
+     */
+    public Optional<Output<String>> workgroupName() {
+        return Optional.ofNullable(this.workgroupName);
+    }
+
     private StatementArgs() {}
 
     private StatementArgs(StatementArgs $) {
@@ -141,6 +156,7 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
         this.sql = $.sql;
         this.statementName = $.statementName;
         this.withEvent = $.withEvent;
+        this.workgroupName = $.workgroupName;
     }
 
     public static Builder builder() {
@@ -162,18 +178,18 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
          * 
          * @return builder
          * 
          */
-        public Builder clusterIdentifier(Output<String> clusterIdentifier) {
+        public Builder clusterIdentifier(@Nullable Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
          * 
          * @return builder
          * 
@@ -321,8 +337,28 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
             return withEvent(Output.of(withEvent));
         }
 
+        /**
+         * @param workgroupName The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workgroupName(@Nullable Output<String> workgroupName) {
+            $.workgroupName = workgroupName;
+            return this;
+        }
+
+        /**
+         * @param workgroupName The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workgroupName(String workgroupName) {
+            return workgroupName(Output.of(workgroupName));
+        }
+
         public StatementArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
             $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
             $.sql = Objects.requireNonNull($.sql, "expected parameter 'sql' to be non-null");
             return $;

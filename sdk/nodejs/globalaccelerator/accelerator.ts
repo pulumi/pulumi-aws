@@ -70,15 +70,17 @@ export class Accelerator extends pulumi.CustomResource {
     public readonly attributes!: pulumi.Output<outputs.globalaccelerator.AcceleratorAttributes | undefined>;
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-     * * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * -  The Global Accelerator Route 53 zone ID that can be used to
+     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
@@ -156,15 +158,17 @@ export interface AcceleratorState {
     attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-     * * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     dnsName?: pulumi.Input<string>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * -  The Global Accelerator Route 53 zone ID that can be used to
+     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     */
     hostedZoneId?: pulumi.Input<string>;
     /**
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.

@@ -195,15 +195,31 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The number of instances currently running in this instance group.
+     * 
+     */
     @Export(name="runningInstanceCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> runningInstanceCount;
 
+    /**
+     * @return The number of instances currently running in this instance group.
+     * 
+     */
     public Output<Integer> runningInstanceCount() {
         return this.runningInstanceCount;
     }
+    /**
+     * The current status of the instance group.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The current status of the instance group.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

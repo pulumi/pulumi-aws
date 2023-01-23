@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Scheduler.Inputs
         public Input<string>? Expression { get; set; }
 
         /// <summary>
-        /// The type of placement strategy. One of: `random`, `spread`, `binpack`.
+        /// The type of constraint. One of: `distinctInstance`, `memberOf`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

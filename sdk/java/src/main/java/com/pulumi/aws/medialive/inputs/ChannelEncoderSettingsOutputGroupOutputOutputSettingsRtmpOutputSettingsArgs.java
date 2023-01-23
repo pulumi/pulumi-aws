@@ -40,14 +40,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
     }
 
     /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * The RTMP endpoint excluding the stream name. See Destination for more details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs> destination;
 
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs> destination() {
@@ -127,7 +127,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination The RTMP endpoint excluding the stream name. See Destination for more details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination The RTMP endpoint excluding the stream name. See Destination for more details.
          * 
          * @return builder
          * 

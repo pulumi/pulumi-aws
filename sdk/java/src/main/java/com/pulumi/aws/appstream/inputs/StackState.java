@@ -215,7 +215,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `user_settings` below.
      * 
      */
@@ -223,7 +223,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<StackUserSettingArgs>> userSettings;
 
     /**
-     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `user_settings` below.
      * 
      */
@@ -568,7 +568,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
          * See `user_settings` below.
          * 
          * @return builder
@@ -580,7 +580,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
          * See `user_settings` below.
          * 
          * @return builder
@@ -591,7 +591,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
          * See `user_settings` below.
          * 
          * @return builder

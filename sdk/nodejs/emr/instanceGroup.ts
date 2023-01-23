@@ -100,7 +100,13 @@ export class InstanceGroup extends pulumi.CustomResource {
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The number of instances currently running in this instance group.
+     */
     public /*out*/ readonly runningInstanceCount!: pulumi.Output<number>;
+    /**
+     * The current status of the instance group.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -192,7 +198,13 @@ export interface InstanceGroupState {
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The number of instances currently running in this instance group.
+     */
     runningInstanceCount?: pulumi.Input<number>;
+    /**
+     * The current status of the instance group.
+     */
     status?: pulumi.Input<string>;
 }
 

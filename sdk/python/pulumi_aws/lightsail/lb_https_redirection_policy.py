@@ -18,7 +18,7 @@ class LbHttpsRedirectionPolicyArgs:
                  lb_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a LbHttpsRedirectionPolicy resource.
-        :param pulumi.Input[bool] enabled: - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        :param pulumi.Input[bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -28,7 +28,7 @@ class LbHttpsRedirectionPolicyArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         """
         return pulumi.get(self, "enabled")
 
@@ -56,7 +56,7 @@ class _LbHttpsRedirectionPolicyState:
                  lb_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LbHttpsRedirectionPolicy resources.
-        :param pulumi.Input[bool] enabled: - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        :param pulumi.Input[bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
         """
         if enabled is not None:
@@ -68,7 +68,7 @@ class _LbHttpsRedirectionPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         """
         return pulumi.get(self, "enabled")
 
@@ -133,7 +133,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        :param pulumi.Input[bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
         """
         ...
@@ -227,7 +227,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        :param pulumi.Input[bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -242,7 +242,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         """
         return pulumi.get(self, "enabled")
 

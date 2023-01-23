@@ -89,7 +89,7 @@ type Secret struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
 	ForceOverwriteReplicaSecret pulumi.BoolPtrOutput `pulumi:"forceOverwriteReplicaSecret"`
-	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -154,7 +154,7 @@ type secretState struct {
 	Description *string `pulumi:"description"`
 	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
 	ForceOverwriteReplicaSecret *bool `pulumi:"forceOverwriteReplicaSecret"`
-	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -191,7 +191,7 @@ type SecretState struct {
 	Description pulumi.StringPtrInput
 	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
 	ForceOverwriteReplicaSecret pulumi.BoolPtrInput
-	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 	KmsKeyId pulumi.StringPtrInput
 	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -230,7 +230,7 @@ type secretArgs struct {
 	Description *string `pulumi:"description"`
 	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
 	ForceOverwriteReplicaSecret *bool `pulumi:"forceOverwriteReplicaSecret"`
-	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -260,7 +260,7 @@ type SecretArgs struct {
 	Description pulumi.StringPtrInput
 	// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
 	ForceOverwriteReplicaSecret pulumi.BoolPtrInput
-	// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+	// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 	KmsKeyId pulumi.StringPtrInput
 	// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -386,7 +386,7 @@ func (o SecretOutput) ForceOverwriteReplicaSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.BoolPtrOutput { return v.ForceOverwriteReplicaSecret }).(pulumi.BoolPtrOutput)
 }
 
-// ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
 func (o SecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }

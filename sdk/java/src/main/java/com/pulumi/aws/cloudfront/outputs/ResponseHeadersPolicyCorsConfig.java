@@ -42,7 +42,7 @@ public final class ResponseHeadersPolicyCorsConfig {
      */
     private @Nullable ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders accessControlExposeHeaders;
     /**
-     * @return A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+     * @return A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
      * 
      */
     private @Nullable Integer accessControlMaxAgeSec;
@@ -89,7 +89,7 @@ public final class ResponseHeadersPolicyCorsConfig {
         return Optional.ofNullable(this.accessControlExposeHeaders);
     }
     /**
-     * @return A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+     * @return A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
      * 
      */
     public Optional<Integer> accessControlMaxAgeSec() {

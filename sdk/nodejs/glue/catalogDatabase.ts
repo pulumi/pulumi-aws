@@ -76,7 +76,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * ID of the Data Catalog in which the database resides.
+     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
     public readonly catalogId!: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export interface CatalogDatabaseState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * ID of the Data Catalog in which the database resides.
+     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
     catalogId?: pulumi.Input<string>;
     /**
@@ -184,7 +184,7 @@ export interface CatalogDatabaseState {
  */
 export interface CatalogDatabaseArgs {
     /**
-     * ID of the Data Catalog in which the database resides.
+     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      */
     catalogId?: pulumi.Input<string>;
     /**

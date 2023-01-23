@@ -82,9 +82,9 @@ class CapacityProviderAutoScalingGroupProvider(dict):
                  managed_scaling: Optional['outputs.CapacityProviderAutoScalingGroupProviderManagedScaling'] = None,
                  managed_termination_protection: Optional[str] = None):
         """
-        :param str auto_scaling_group_arn: - ARN of the associated auto scaling group.
-        :param 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs' managed_scaling: - Configuration block defining the parameters of the auto scaling. Detailed below.
-        :param str managed_termination_protection: - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+        :param str auto_scaling_group_arn: ARN of the associated auto scaling group.
+        :param 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs' managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
+        :param str managed_termination_protection: Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
         if managed_scaling is not None:
@@ -96,7 +96,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
     @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> str:
         """
-        - ARN of the associated auto scaling group.
+        ARN of the associated auto scaling group.
         """
         return pulumi.get(self, "auto_scaling_group_arn")
 
@@ -104,7 +104,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
     @pulumi.getter(name="managedScaling")
     def managed_scaling(self) -> Optional['outputs.CapacityProviderAutoScalingGroupProviderManagedScaling']:
         """
-        - Configuration block defining the parameters of the auto scaling. Detailed below.
+        Configuration block defining the parameters of the auto scaling. Detailed below.
         """
         return pulumi.get(self, "managed_scaling")
 
@@ -112,7 +112,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
     @pulumi.getter(name="managedTerminationProtection")
     def managed_termination_protection(self) -> Optional[str]:
         """
-        - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+        Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "managed_termination_protection")
 
@@ -1391,7 +1391,7 @@ class TaskDefinitionPlacementConstraint(dict):
                  type: str,
                  expression: Optional[str] = None):
         """
-        :param str type: Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        :param str type: Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
         :param str expression: Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         """
         pulumi.set(__self__, "type", type)
@@ -1402,7 +1402,7 @@ class TaskDefinitionPlacementConstraint(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
         """
         return pulumi.get(self, "type")
 
@@ -1733,9 +1733,9 @@ class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
                  transit_encryption: Optional[str] = None,
                  transit_encryption_port: Optional[int] = None):
         """
-        :param str file_system_id: The Amazon FSx for Windows File Server file system ID to use.
-        :param 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs' authorization_config: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
-        :param str root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        :param str file_system_id: ID of the EFS File System.
+        :param 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs' authorization_config: Configuration block for authorization for the Amazon EFS file system. Detailed below.
+        :param str root_directory: Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
         :param str transit_encryption: Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
         :param int transit_encryption_port: Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
         """
@@ -1753,7 +1753,7 @@ class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> str:
         """
-        The Amazon FSx for Windows File Server file system ID to use.
+        ID of the EFS File System.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -1761,7 +1761,7 @@ class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
     @pulumi.getter(name="authorizationConfig")
     def authorization_config(self) -> Optional['outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig']:
         """
-        Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        Configuration block for authorization for the Amazon EFS file system. Detailed below.
         """
         return pulumi.get(self, "authorization_config")
 
@@ -1769,7 +1769,7 @@ class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> Optional[str]:
         """
-        The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
         """
         return pulumi.get(self, "root_directory")
 

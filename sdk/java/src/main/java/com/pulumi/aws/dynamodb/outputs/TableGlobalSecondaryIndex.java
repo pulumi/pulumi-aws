@@ -19,7 +19,7 @@ public final class TableGlobalSecondaryIndex {
      */
     private String hashKey;
     /**
-     * @return Name of the index
+     * @return Name of the index.
      * 
      */
     private String name;
@@ -34,7 +34,7 @@ public final class TableGlobalSecondaryIndex {
      */
     private String projectionType;
     /**
-     * @return Name of the range key.
+     * @return Name of the range key; must be defined
      * 
      */
     private @Nullable String rangeKey;
@@ -58,7 +58,7 @@ public final class TableGlobalSecondaryIndex {
         return this.hashKey;
     }
     /**
-     * @return Name of the index
+     * @return Name of the index.
      * 
      */
     public String name() {
@@ -79,7 +79,7 @@ public final class TableGlobalSecondaryIndex {
         return this.projectionType;
     }
     /**
-     * @return Name of the range key.
+     * @return Name of the range key; must be defined
      * 
      */
     public Optional<String> rangeKey() {

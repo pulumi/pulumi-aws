@@ -23,7 +23,7 @@ public final class CostCategoryRuleRuleNotTags {
      */
     private @Nullable List<String> matchOptions;
     /**
-     * @return Parameter values.
+     * @return Specific value of the Cost Category.
      * 
      */
     private @Nullable List<String> values;
@@ -44,7 +44,7 @@ public final class CostCategoryRuleRuleNotTags {
         return this.matchOptions == null ? List.of() : this.matchOptions;
     }
     /**
-     * @return Parameter values.
+     * @return Specific value of the Cost Category.
      * 
      */
     public List<String> values() {

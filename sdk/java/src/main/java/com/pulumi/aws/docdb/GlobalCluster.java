@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### New DocumentDB Global Cluster
- * 
  * ```java
  * package generated_program;
  * 
@@ -81,11 +80,9 @@ import javax.annotation.Nullable;
  * 
  *         var primaryClusterInstance = new ClusterInstance(&#34;primaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
  *             .identifier(&#34;test-primary-cluster-instance&#34;)
  *             .clusterIdentifier(primaryCluster.id())
  *             .instanceClass(&#34;db.r5.large&#34;)
- *             .dbSubnetGroupName(&#34;default&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.primary())
  *                 .build());
@@ -102,11 +99,9 @@ import javax.annotation.Nullable;
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
- *             .engineVersion(example.engineVersion())
  *             .identifier(&#34;test-secondary-cluster-instance&#34;)
  *             .clusterIdentifier(secondaryCluster.id())
  *             .instanceClass(&#34;db.r5.large&#34;)
- *             .dbSubnetGroupName(&#34;default&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.secondary())
  *                 .dependsOn(primaryClusterInstance)

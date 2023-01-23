@@ -216,28 +216,28 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceConfiguration);
     }
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * The KMS key used to encrypt the container image.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * @return The KMS key used to encrypt the container image.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * The name of the component parameter.
+     * The name of the container recipe.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the component parameter.
+     * @return The name of the container recipe.
      * 
      */
     public Output<String> name() {

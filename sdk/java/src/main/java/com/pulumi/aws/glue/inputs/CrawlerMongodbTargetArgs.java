@@ -17,14 +17,14 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
     public static final CrawlerMongodbTargetArgs Empty = new CrawlerMongodbTargetArgs();
 
     /**
-     * The name of the connection to use to connect to the Delta table target.
+     * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
      * 
      */
     @Import(name="connectionName", required=true)
     private Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
      * 
      */
     public Output<String> connectionName() {
@@ -88,7 +88,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CrawlerMongodbTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          * 
          * @return builder
          * 

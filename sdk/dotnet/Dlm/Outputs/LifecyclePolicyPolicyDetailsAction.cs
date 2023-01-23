@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy> CrossRegionCopies;
         /// <summary>
-        /// A name for the schedule.
+        /// A descriptive name for the action.
         /// </summary>
         public readonly string Name;
 

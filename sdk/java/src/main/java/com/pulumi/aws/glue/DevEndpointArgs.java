@@ -65,14 +65,14 @@ public final class DevEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+     * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      * 
      */
     @Import(name="glueVersion")
     private @Nullable Output<String> glueVersion;
 
     /**
-     * @return -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+     * @return Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      * 
      */
     public Optional<Output<String>> glueVersion() {
@@ -346,7 +346,7 @@ public final class DevEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param glueVersion -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+         * @param glueVersion Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class DevEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param glueVersion -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+         * @param glueVersion Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs();
 
     /**
-     * Maximum.
+     * Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
     /**
-     * @return Maximum.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     public Optional<Output<Double>> max() {
@@ -71,7 +71,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
          * 
          * @return builder
          * 

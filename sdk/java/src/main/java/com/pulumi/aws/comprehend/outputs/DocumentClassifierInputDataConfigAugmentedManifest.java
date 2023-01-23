@@ -29,8 +29,7 @@ public final class DocumentClassifierInputDataConfigAugmentedManifest {
      */
     private @Nullable String documentType;
     /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * @return Location of augmented manifest file.
      * 
      */
     private String s3Uri;
@@ -70,8 +69,7 @@ public final class DocumentClassifierInputDataConfigAugmentedManifest {
         return Optional.ofNullable(this.documentType);
     }
     /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * @return Location of augmented manifest file.
      * 
      */
     public String s3Uri() {

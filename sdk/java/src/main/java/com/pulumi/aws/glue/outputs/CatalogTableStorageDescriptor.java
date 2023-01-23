@@ -56,7 +56,7 @@ public final class CatalogTableStorageDescriptor {
      */
     private @Nullable String outputFormat;
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return User-supplied properties in key-value form.
      * 
      */
     private @Nullable Map<String,String> parameters;
@@ -137,7 +137,7 @@ public final class CatalogTableStorageDescriptor {
         return Optional.ofNullable(this.outputFormat);
     }
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return User-supplied properties in key-value form.
      * 
      */
     public Map<String,String> parameters() {

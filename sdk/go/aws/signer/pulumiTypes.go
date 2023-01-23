@@ -410,7 +410,7 @@ func (o SigningJobRevocationRecordArrayOutput) Index(i pulumi.IntInput) SigningJ
 }
 
 type SigningJobSignedObject struct {
-	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3s []SigningJobSignedObjectS3 `pulumi:"s3s"`
 }
 
@@ -426,7 +426,7 @@ type SigningJobSignedObjectInput interface {
 }
 
 type SigningJobSignedObjectArgs struct {
-	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3s SigningJobSignedObjectS3ArrayInput `pulumi:"s3s"`
 }
 
@@ -481,7 +481,7 @@ func (o SigningJobSignedObjectOutput) ToSigningJobSignedObjectOutputWithContext(
 	return o
 }
 
-// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSignedObjectOutput) S3s() SigningJobSignedObjectS3ArrayOutput {
 	return o.ApplyT(func(v SigningJobSignedObject) []SigningJobSignedObjectS3 { return v.S3s }).(SigningJobSignedObjectS3ArrayOutput)
 }
@@ -613,7 +613,7 @@ func (o SigningJobSignedObjectS3ArrayOutput) Index(i pulumi.IntInput) SigningJob
 }
 
 type SigningJobSource struct {
-	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3 SigningJobSourceS3 `pulumi:"s3"`
 }
 
@@ -629,7 +629,7 @@ type SigningJobSourceInput interface {
 }
 
 type SigningJobSourceArgs struct {
-	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+	// A configuration block describing the S3 Source object: See S3 Source below for details.
 	S3 SigningJobSourceS3Input `pulumi:"s3"`
 }
 
@@ -710,7 +710,7 @@ func (o SigningJobSourceOutput) ToSigningJobSourcePtrOutputWithContext(ctx conte
 	}).(SigningJobSourcePtrOutput)
 }
 
-// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSourceOutput) S3() SigningJobSourceS3Output {
 	return o.ApplyT(func(v SigningJobSource) SigningJobSourceS3 { return v.S3 }).(SigningJobSourceS3Output)
 }
@@ -739,7 +739,7 @@ func (o SigningJobSourcePtrOutput) Elem() SigningJobSourceOutput {
 	}).(SigningJobSourceOutput)
 }
 
-// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+// A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSourcePtrOutput) S3() SigningJobSourceS3PtrOutput {
 	return o.ApplyT(func(v *SigningJobSource) *SigningJobSourceS3 {
 		if v == nil {

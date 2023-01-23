@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum.
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
         /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }

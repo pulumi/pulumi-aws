@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<bool>? IncludeSourceFiles { get; set; }
 
         /// <summary>
-        /// Object specified in the Veeva flow source.
+        /// Object specified in the flow destination.
         /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;

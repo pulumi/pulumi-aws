@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Name of the target table.
+        /// Name of the Column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
+        /// Key-value pairs defining properties associated with the column.
         /// </summary>
         public InputMap<string> Parameters
         {

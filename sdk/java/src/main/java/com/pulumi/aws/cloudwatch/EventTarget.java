@@ -573,14 +573,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/eventTarget:EventTarget")
 public class EventTarget extends com.pulumi.resources.CustomResource {
     /**
-     * - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * The Amazon Resource Name (ARN) of the target.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * @return The Amazon Resource Name (ARN) of the target.
      * 
      */
     public Output<String> arn() {

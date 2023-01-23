@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Executes a Redshift Data Statement.
  *
  * ## Example Usage
+ * ### clusterIdentifier
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,6 +21,18 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
  *     database: aws_redshift_cluster.example.database_name,
  *     dbUser: aws_redshift_cluster.example.master_username,
+ *     sql: "CREATE GROUP group_name;",
+ * });
+ * ```
+ * ### workgroupName
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshiftdata.Statement("example", {
+ *     workgroupName: aws_redshiftserverless_workgroup.example.workgroup_name,
+ *     database: "dev",
  *     sql: "CREATE GROUP group_name;",
  * });
  * ```
@@ -61,9 +74,9 @@ export class Statement extends pulumi.CustomResource {
     }
 
     /**
-     * The cluster identifier.
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
+    public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The name of the database.
      */
@@ -89,6 +102,10 @@ export class Statement extends pulumi.CustomResource {
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      */
     public readonly withEvent!: pulumi.Output<boolean | undefined>;
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     */
+    public readonly workgroupName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Statement resource with the given unique name, arguments, and options.
@@ -111,11 +128,9 @@ export class Statement extends pulumi.CustomResource {
             resourceInputs["sql"] = state ? state.sql : undefined;
             resourceInputs["statementName"] = state ? state.statementName : undefined;
             resourceInputs["withEvent"] = state ? state.withEvent : undefined;
+            resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
         } else {
             const args = argsOrState as StatementArgs | undefined;
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterIdentifier'");
-            }
             if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
@@ -130,6 +145,7 @@ export class Statement extends pulumi.CustomResource {
             resourceInputs["sql"] = args ? args.sql : undefined;
             resourceInputs["statementName"] = args ? args.statementName : undefined;
             resourceInputs["withEvent"] = args ? args.withEvent : undefined;
+            resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Statement.__pulumiType, name, resourceInputs, opts);
@@ -141,7 +157,7 @@ export class Statement extends pulumi.CustomResource {
  */
 export interface StatementState {
     /**
-     * The cluster identifier.
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -169,6 +185,10 @@ export interface StatementState {
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      */
     withEvent?: pulumi.Input<boolean>;
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     */
+    workgroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -176,9 +196,9 @@ export interface StatementState {
  */
 export interface StatementArgs {
     /**
-     * The cluster identifier.
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      */
-    clusterIdentifier: pulumi.Input<string>;
+    clusterIdentifier?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
@@ -204,4 +224,8 @@ export interface StatementArgs {
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      */
     withEvent?: pulumi.Input<boolean>;
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     */
+    workgroupName?: pulumi.Input<string>;
 }

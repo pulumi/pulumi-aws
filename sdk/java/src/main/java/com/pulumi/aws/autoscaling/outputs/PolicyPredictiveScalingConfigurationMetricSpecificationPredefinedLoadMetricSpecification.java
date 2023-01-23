@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
      * 
      */
     private String predefinedMetricType;
@@ -22,7 +22,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification() {}
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
      * 
      */
     public String predefinedMetricType() {

@@ -87,9 +87,6 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
     }
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-     * * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-     *   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
@@ -97,9 +94,6 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-     * * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-     *   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     public Output<String> dnsName() {
@@ -119,9 +113,21 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
+    /**
+     * -  The Global Accelerator Route 53 zone ID that can be used to
+     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * 
+     */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
+    /**
+     * @return -  The Global Accelerator Route 53 zone ID that can be used to
+     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * 
+     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }

@@ -15,14 +15,14 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
     public static final WorkspaceVpcConfigurationArgs Empty = new WorkspaceVpcConfigurationArgs();
 
     /**
-     * - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+     * The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
      * 
      */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+     * @return The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -30,14 +30,14 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+     * The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+     * @return The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -70,7 +70,7 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupIds - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+         * @param securityGroupIds The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupIds - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+         * @param securityGroupIds The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupIds - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+         * @param securityGroupIds The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetIds - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+         * @param subnetIds The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetIds - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+         * @param subnetIds The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class WorkspaceVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetIds - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+         * @param subnetIds The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
          * 
          * @return builder
          * 

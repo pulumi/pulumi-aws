@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string Statistic;
         /// <summary>
-        /// Unit of the metrics to return.
+        /// Unit of the metric.
         /// </summary>
         public readonly string? Unit;
 

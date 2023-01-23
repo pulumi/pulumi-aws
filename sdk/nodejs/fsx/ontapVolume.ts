@@ -98,7 +98,7 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     public readonly junctionPath!: pulumi.Output<string>;
     /**
-     * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -223,7 +223,7 @@ export interface OntapVolumeState {
      */
     junctionPath?: pulumi.Input<string>;
     /**
-     * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
     name?: pulumi.Input<string>;
     /**
@@ -274,7 +274,7 @@ export interface OntapVolumeArgs {
      */
     junctionPath: pulumi.Input<string>;
     /**
-     * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
     name?: pulumi.Input<string>;
     /**

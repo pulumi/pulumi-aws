@@ -19,12 +19,12 @@ public final class EndpointS3Settings {
      */
     private @Nullable Boolean addColumnName;
     /**
-     * @return S3 object prefix.
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     private @Nullable String bucketFolder;
     /**
-     * @return S3 bucket name.
+     * @return Custom S3 Bucket name for intermediate storage.
      * 
      */
     private @Nullable String bucketName;
@@ -124,7 +124,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable String encodingType;
     /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     private @Nullable String encryptionMode;
@@ -154,7 +154,7 @@ public final class EndpointS3Settings {
      */
     private @Nullable Integer maxFileSize;
     /**
-     * @return - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+     * @return Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
      * 
      */
     private @Nullable Boolean parquetTimestampInMillisecond;
@@ -179,12 +179,12 @@ public final class EndpointS3Settings {
      */
     private @Nullable Integer rowGroupLength;
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     private @Nullable String serverSideEncryptionKmsKeyId;
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
      * 
      */
     private @Nullable String serviceAccessRoleArn;
@@ -215,14 +215,14 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.addColumnName);
     }
     /**
-     * @return S3 object prefix.
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     public Optional<String> bucketFolder() {
         return Optional.ofNullable(this.bucketFolder);
     }
     /**
-     * @return S3 bucket name.
+     * @return Custom S3 Bucket name for intermediate storage.
      * 
      */
     public Optional<String> bucketName() {
@@ -362,7 +362,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.encodingType);
     }
     /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     public Optional<String> encryptionMode() {
@@ -404,7 +404,7 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.maxFileSize);
     }
     /**
-     * @return - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+     * @return Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
      * 
      */
     public Optional<Boolean> parquetTimestampInMillisecond() {
@@ -439,14 +439,14 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.rowGroupLength);
     }
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     public Optional<String> serverSideEncryptionKmsKeyId() {
         return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
      * 
      */
     public Optional<String> serviceAccessRoleArn() {

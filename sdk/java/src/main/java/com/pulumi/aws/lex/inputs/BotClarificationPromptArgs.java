@@ -33,27 +33,17 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
         return this.maxAttempts;
     }
 
-    /**
-     * A set of messages, each of which provides a message string and its type. You
-     * can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-     * are documented under message.
-     * 
-     */
     @Import(name="messages", required=true)
     private Output<List<BotClarificationPromptMessageArgs>> messages;
 
-    /**
-     * @return A set of messages, each of which provides a message string and its type. You
-     * can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-     * are documented under message.
-     * 
-     */
     public Output<List<BotClarificationPromptMessageArgs>> messages() {
         return this.messages;
     }
 
     /**
      * The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * 
@@ -63,6 +53,8 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
 
     /**
      * @return The response card. Amazon Lex will substitute session attributes and
+     * slot values into the response card. For more information, see
+     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * 
@@ -118,45 +110,23 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
             return maxAttempts(Output.of(maxAttempts));
         }
 
-        /**
-         * @param messages A set of messages, each of which provides a message string and its type. You
-         * can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-         * are documented under message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(Output<List<BotClarificationPromptMessageArgs>> messages) {
             $.messages = messages;
             return this;
         }
 
-        /**
-         * @param messages A set of messages, each of which provides a message string and its type. You
-         * can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-         * are documented under message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(List<BotClarificationPromptMessageArgs> messages) {
             return messages(Output.of(messages));
         }
 
-        /**
-         * @param messages A set of messages, each of which provides a message string and its type. You
-         * can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-         * are documented under message.
-         * 
-         * @return builder
-         * 
-         */
         public Builder messages(BotClarificationPromptMessageArgs... messages) {
             return messages(List.of(messages));
         }
 
         /**
          * @param responseCard The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * 
@@ -170,6 +140,8 @@ public final class BotClarificationPromptArgs extends com.pulumi.resources.Resou
 
         /**
          * @param responseCard The response card. Amazon Lex will substitute session attributes and
+         * slot values into the response card. For more information, see
+         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * 

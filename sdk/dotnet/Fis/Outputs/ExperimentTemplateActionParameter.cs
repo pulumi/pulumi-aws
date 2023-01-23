@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fis.Outputs
     public sealed class ExperimentTemplateActionParameter
     {
         /// <summary>
-        /// Tag key.
+        /// Parameter name.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// Tag value.
+        /// Parameter value.
         /// </summary>
         public readonly string Value;
 

@@ -42,7 +42,7 @@ class StackArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
         """
         if access_endpoints is not None:
@@ -195,7 +195,7 @@ class StackArgs:
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
@@ -239,7 +239,7 @@ class _StackState:
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
         """
         if access_endpoints is not None:
@@ -431,7 +431,7 @@ class _StackState:
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
@@ -492,11 +492,23 @@ class Stack(pulumi.CustomResource):
                     permission="ENABLED",
                 ),
                 aws.appstream.StackUserSettingArgs(
+                    action="DOMAIN_PASSWORD_SIGNIN",
+                    permission="ENABLED",
+                ),
+                aws.appstream.StackUserSettingArgs(
+                    action="DOMAIN_SMART_CARD_SIGNIN",
+                    permission="DISABLED",
+                ),
+                aws.appstream.StackUserSettingArgs(
+                    action="FILE_DOWNLOAD",
+                    permission="ENABLED",
+                ),
+                aws.appstream.StackUserSettingArgs(
                     action="FILE_UPLOAD",
                     permission="ENABLED",
                 ),
                 aws.appstream.StackUserSettingArgs(
-                    action="FILE_DOWNLOAD",
+                    action="PRINTING_TO_LOCAL_DEVICE",
                     permission="ENABLED",
                 ),
             ])
@@ -525,7 +537,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
         """
         ...
@@ -568,11 +580,23 @@ class Stack(pulumi.CustomResource):
                     permission="ENABLED",
                 ),
                 aws.appstream.StackUserSettingArgs(
+                    action="DOMAIN_PASSWORD_SIGNIN",
+                    permission="ENABLED",
+                ),
+                aws.appstream.StackUserSettingArgs(
+                    action="DOMAIN_SMART_CARD_SIGNIN",
+                    permission="DISABLED",
+                ),
+                aws.appstream.StackUserSettingArgs(
+                    action="FILE_DOWNLOAD",
+                    permission="ENABLED",
+                ),
+                aws.appstream.StackUserSettingArgs(
                     action="FILE_UPLOAD",
                     permission="ENABLED",
                 ),
                 aws.appstream.StackUserSettingArgs(
-                    action="FILE_DOWNLOAD",
+                    action="PRINTING_TO_LOCAL_DEVICE",
                     permission="ENABLED",
                 ),
             ])
@@ -681,7 +705,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -740,7 +764,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description for the AppStream stack.
         """
@@ -748,7 +772,7 @@ class Stack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
+    def display_name(self) -> pulumi.Output[Optional[str]]:
         """
         Stack name to display.
         """
@@ -812,7 +836,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> pulumi.Output[Sequence['outputs.StackUserSetting']]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")

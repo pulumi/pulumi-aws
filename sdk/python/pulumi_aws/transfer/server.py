@@ -50,13 +50,9 @@ class ServerArgs:
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-               * `AS2`: File transfer over Applicability Statement 2
-               * `SFTP`: File transfer over SSH
-               * `FTPS`: File transfer with TLS encryption
-               * `FTP`: Unencrypted file transfer
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if certificate is not None:
@@ -257,10 +253,6 @@ class ServerArgs:
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        * `AS2`: File transfer over Applicability Statement 2
-        * `SFTP`: File transfer over SSH
-        * `FTPS`: File transfer with TLS encryption
-        * `FTP`: Unencrypted file transfer
         """
         return pulumi.get(self, "protocols")
 
@@ -296,7 +288,7 @@ class ServerArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
         return pulumi.get(self, "url")
 
@@ -361,14 +353,10 @@ class _ServerState:
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-               * `AS2`: File transfer over Applicability Statement 2
-               * `SFTP`: File transfer over SSH
-               * `FTPS`: File transfer with TLS encryption
-               * `FTP`: Unencrypted file transfer
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if arn is not None:
@@ -613,10 +601,6 @@ class _ServerState:
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        * `AS2`: File transfer over Applicability Statement 2
-        * `SFTP`: File transfer over SSH
-        * `FTPS`: File transfer with TLS encryption
-        * `FTP`: Unencrypted file transfer
         """
         return pulumi.get(self, "protocols")
 
@@ -664,7 +648,7 @@ class _ServerState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
         return pulumi.get(self, "url")
 
@@ -816,13 +800,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-               * `AS2`: File transfer over Applicability Statement 2
-               * `SFTP`: File transfer over SSH
-               * `FTPS`: File transfer with TLS encryption
-               * `FTP`: Unencrypted file transfer
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         ...
@@ -1044,14 +1024,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-               * `AS2`: File transfer over Applicability Statement 2
-               * `SFTP`: File transfer over SSH
-               * `FTPS`: File transfer with TLS encryption
-               * `FTP`: Unencrypted file transfer
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1215,10 +1191,6 @@ class Server(pulumi.CustomResource):
     def protocols(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        * `AS2`: File transfer over Applicability Statement 2
-        * `SFTP`: File transfer over SSH
-        * `FTPS`: File transfer with TLS encryption
-        * `FTP`: Unencrypted file transfer
         """
         return pulumi.get(self, "protocols")
 
@@ -1250,7 +1222,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
         """
-        - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
         return pulumi.get(self, "url")
 

@@ -282,7 +282,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly logsConfig!: pulumi.Output<outputs.codebuild.ProjectLogsConfig | undefined>;
     /**
-     * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * Project's name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -314,7 +314,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly secondarySources!: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
     /**
-     * Specifies the service role ARN for the batch build project.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     public readonly serviceRole!: pulumi.Output<string>;
     /**
@@ -322,7 +322,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     /**
-     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
     public readonly sourceVersion!: pulumi.Output<string | undefined>;
     /**
@@ -482,7 +482,7 @@ export interface ProjectState {
      */
     logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
     /**
-     * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * Project's name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -514,7 +514,7 @@ export interface ProjectState {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
-     * Specifies the service role ARN for the batch build project.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole?: pulumi.Input<string>;
     /**
@@ -522,7 +522,7 @@ export interface ProjectState {
      */
     source?: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
-     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
     sourceVersion?: pulumi.Input<string>;
     /**
@@ -588,7 +588,7 @@ export interface ProjectArgs {
      */
     logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
     /**
-     * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * Project's name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -616,7 +616,7 @@ export interface ProjectArgs {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
-     * Specifies the service role ARN for the batch build project.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole: pulumi.Input<string>;
     /**
@@ -624,7 +624,7 @@ export interface ProjectArgs {
      */
     source: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
-     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
     sourceVersion?: pulumi.Input<string>;
     /**

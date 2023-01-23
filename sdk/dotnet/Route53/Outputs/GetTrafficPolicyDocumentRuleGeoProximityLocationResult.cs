@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string? Longitude;
         /// <summary>
-        /// Region code for the AWS Region that you created the resource in.
+        /// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
         /// </summary>
         public readonly string? Region;
         /// <summary>

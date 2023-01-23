@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfiguration {
     /**
-     * @return The compromised credentials risk configuration actions. See details below.
+     * @return Account takeover risk configuration actions. See details below.
      * 
      */
     private RiskConfigurationAccountTakeoverRiskConfigurationActions actions;
@@ -23,7 +23,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
 
     private RiskConfigurationAccountTakeoverRiskConfiguration() {}
     /**
-     * @return The compromised credentials risk configuration actions. See details below.
+     * @return Account takeover risk configuration actions. See details below.
      * 
      */
     public RiskConfigurationAccountTakeoverRiskConfigurationActions actions() {

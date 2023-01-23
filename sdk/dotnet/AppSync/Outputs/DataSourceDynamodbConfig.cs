@@ -15,7 +15,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     {
         public readonly Outputs.DataSourceDynamodbConfigDeltaSyncConfig? DeltaSyncConfig;
         /// <summary>
-        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
+        /// AWS region of the DynamoDB table. Defaults to current region.
         /// </summary>
         public readonly string? Region;
         /// <summary>

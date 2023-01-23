@@ -167,7 +167,7 @@ func (o ScheduleFlexibleTimeWindowPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type ScheduleTarget struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 	Arn string `pulumi:"arn"`
 	// Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
 	DeadLetterConfig *ScheduleTargetDeadLetterConfig `pulumi:"deadLetterConfig"`
@@ -201,7 +201,7 @@ type ScheduleTargetInput interface {
 }
 
 type ScheduleTargetArgs struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
 	DeadLetterConfig ScheduleTargetDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
@@ -300,7 +300,7 @@ func (o ScheduleTargetOutput) ToScheduleTargetPtrOutputWithContext(ctx context.C
 	}).(ScheduleTargetPtrOutput)
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
+// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 func (o ScheduleTargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTarget) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -376,7 +376,7 @@ func (o ScheduleTargetPtrOutput) Elem() ScheduleTargetOutput {
 	}).(ScheduleTargetOutput)
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
+// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 func (o ScheduleTargetPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *string {
 		if v == nil {
@@ -1298,7 +1298,7 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) Subnets() pulu
 type ScheduleTargetEcsParametersPlacementConstraint struct {
 	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
 	Expression *string `pulumi:"expression"`
-	// The type of placement strategy. One of: `random`, `spread`, `binpack`.
+	// The type of constraint. One of: `distinctInstance`, `memberOf`.
 	Type string `pulumi:"type"`
 }
 
@@ -1316,7 +1316,7 @@ type ScheduleTargetEcsParametersPlacementConstraintInput interface {
 type ScheduleTargetEcsParametersPlacementConstraintArgs struct {
 	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// The type of placement strategy. One of: `random`, `spread`, `binpack`.
+	// The type of constraint. One of: `distinctInstance`, `memberOf`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1376,7 +1376,7 @@ func (o ScheduleTargetEcsParametersPlacementConstraintOutput) Expression() pulum
 	return o.ApplyT(func(v ScheduleTargetEcsParametersPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. One of: `random`, `spread`, `binpack`.
+// The type of constraint. One of: `distinctInstance`, `memberOf`.
 func (o ScheduleTargetEcsParametersPlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParametersPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }

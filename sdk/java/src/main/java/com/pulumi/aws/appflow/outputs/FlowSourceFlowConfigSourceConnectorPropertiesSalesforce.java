@@ -23,7 +23,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
      */
     private @Nullable Boolean includeDeletedRecords;
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     private String object;
@@ -44,7 +44,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
         return Optional.ofNullable(this.includeDeletedRecords);
     }
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public String object() {

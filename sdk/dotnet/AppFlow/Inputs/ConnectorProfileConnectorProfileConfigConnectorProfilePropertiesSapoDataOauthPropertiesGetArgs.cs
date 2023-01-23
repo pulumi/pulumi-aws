@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+        /// The token URL required for OAuth 2.0 authentication.
         /// </summary>
         [Input("tokenUrl", required: true)]
         public Input<string> TokenUrl { get; set; } = null!;

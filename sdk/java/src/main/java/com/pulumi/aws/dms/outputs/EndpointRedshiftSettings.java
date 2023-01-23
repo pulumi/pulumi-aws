@@ -12,62 +12,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointRedshiftSettings {
     /**
-     * @return S3 object prefix.
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     private @Nullable String bucketFolder;
     /**
-     * @return S3 bucket name.
+     * @return Custom S3 Bucket name for intermediate storage.
      * 
      */
     private @Nullable String bucketName;
     /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     private @Nullable String encryptionMode;
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     private @Nullable String serverSideEncryptionKmsKeyId;
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
     private @Nullable String serviceAccessRoleArn;
 
     private EndpointRedshiftSettings() {}
     /**
-     * @return S3 object prefix.
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     public Optional<String> bucketFolder() {
         return Optional.ofNullable(this.bucketFolder);
     }
     /**
-     * @return S3 bucket name.
+     * @return Custom S3 Bucket name for intermediate storage.
      * 
      */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
     /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     public Optional<String> encryptionMode() {
         return Optional.ofNullable(this.encryptionMode);
     }
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     public Optional<String> serverSideEncryptionKmsKeyId() {
         return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
     public Optional<String> serviceAccessRoleArn() {

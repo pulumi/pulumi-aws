@@ -18,7 +18,7 @@ public final class EndpointClientLoginBannerOptions {
      */
     private @Nullable String bannerText;
     /**
-     * @return Indicates whether connection logging is enabled.
+     * @return Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
      * 
      */
     private @Nullable Boolean enabled;
@@ -32,7 +32,7 @@ public final class EndpointClientLoginBannerOptions {
         return Optional.ofNullable(this.bannerText);
     }
     /**
-     * @return Indicates whether connection logging is enabled.
+     * @return Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
      * 
      */
     public Optional<Boolean> enabled() {

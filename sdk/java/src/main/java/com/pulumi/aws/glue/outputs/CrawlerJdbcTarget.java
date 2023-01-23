@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerJdbcTarget {
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the JDBC target.
      * 
      */
     private String connectionName;
@@ -27,14 +27,14 @@ public final class CrawlerJdbcTarget {
      */
     private @Nullable List<String> exclusions;
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The path of the JDBC target.
      * 
      */
     private String path;
 
     private CrawlerJdbcTarget() {}
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the JDBC target.
      * 
      */
     public String connectionName() {
@@ -55,7 +55,7 @@ public final class CrawlerJdbcTarget {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The path of the JDBC target.
      * 
      */
     public String path() {

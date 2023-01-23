@@ -20,14 +20,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyArgs Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyArgs();
 
     /**
-     * Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * Action to take when a condition is true. Detailed Below.
      * 
      */
     @Import(name="action", required=true)
     private Output<GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs> action;
 
     /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take when a condition is true. Detailed Below.
      * 
      */
     public Output<GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs> action() {
@@ -65,14 +65,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
     }
 
     /**
-     * A user-defined string describing the segment action.
+     * A user-defined description that further helps identify the rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A user-defined string describing the segment action.
+     * @return A user-defined description that further helps identify the rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -123,7 +123,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take when a condition is true. Detailed Below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take when a condition is true. Detailed Below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
         }
 
         /**
-         * @param description A user-defined string describing the segment action.
+         * @param description A user-defined description that further helps identify the rule.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs extends com.
         }
 
         /**
-         * @param description A user-defined string describing the segment action.
+         * @param description A user-defined description that further helps identify the rule.
          * 
          * @return builder
          * 

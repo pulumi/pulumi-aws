@@ -158,14 +158,14 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the component parameter.
+     * Name of the image recipe.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the component parameter.
+     * @return Name of the image recipe.
      * 
      */
     public Output<String> name() {

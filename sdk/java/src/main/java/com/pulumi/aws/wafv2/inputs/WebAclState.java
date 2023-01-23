@@ -105,14 +105,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Label string.
+     * Friendly name of the WebACL.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Label string.
+     * @return Friendly name of the WebACL.
      * 
      */
     public Optional<Output<String>> name() {
@@ -354,7 +354,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Label string.
+         * @param name Friendly name of the WebACL.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Label string.
+         * @param name Friendly name of the WebACL.
          * 
          * @return builder
          * 

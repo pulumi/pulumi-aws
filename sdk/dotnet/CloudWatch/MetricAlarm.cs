@@ -274,7 +274,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<int?> DatapointsToAlarm { get; private set; } = null!;
 
         /// <summary>
-        /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+        /// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         [Output("dimensions")]
         public Output<ImmutableDictionary<string, string>?> Dimensions { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableArray<string>> InsufficientDataActions { get; private set; } = null!;
 
         /// <summary>
-        /// The name for this metric.
+        /// The name for the alarm's associated metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         [Output("metricName")]
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+        /// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         [Output("namespace")]
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableArray<string>> OkActions { get; private set; } = null!;
 
         /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
+        /// The period in seconds over which the specified `statistic` is applied.
         /// </summary>
         [Output("period")]
         public Output<int?> Period { get; private set; } = null!;
@@ -384,7 +384,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> TreatMissingData { get; private set; } = null!;
 
         /// <summary>
-        /// The unit for this metric.
+        /// The unit for the alarm's associated metric.
         /// </summary>
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
@@ -475,7 +475,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _dimensions;
 
         /// <summary>
-        /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+        /// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         public InputMap<string> Dimensions
         {
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// The name for this metric.
+        /// The name for the alarm's associated metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         [Input("metricName")]
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+        /// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         [Input("namespace")]
@@ -563,7 +563,7 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
+        /// The period in seconds over which the specified `statistic` is applied.
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
@@ -606,7 +606,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? TreatMissingData { get; set; }
 
         /// <summary>
-        /// The unit for this metric.
+        /// The unit for the alarm's associated metric.
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
@@ -665,7 +665,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _dimensions;
 
         /// <summary>
-        /// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+        /// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         public InputMap<string> Dimensions
         {
@@ -709,7 +709,7 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// The name for this metric.
+        /// The name for the alarm's associated metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         [Input("metricName")]
@@ -734,7 +734,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+        /// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
         [Input("namespace")]
@@ -753,7 +753,7 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
-        /// The period in seconds over which the specified `stat` is applied.
+        /// The period in seconds over which the specified `statistic` is applied.
         /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
@@ -808,7 +808,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? TreatMissingData { get; set; }
 
         /// <summary>
-        /// The unit for this metric.
+        /// The unit for the alarm's associated metric.
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }

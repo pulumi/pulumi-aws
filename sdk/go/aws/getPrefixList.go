@@ -117,7 +117,7 @@ func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.
 type GetPrefixListArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetPrefixListFilter `pulumi:"filters"`
-	// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	// Name of the prefix list to select.
 	Name *string `pulumi:"name"`
 	// ID of the prefix list to select.
 	PrefixListId *string `pulumi:"prefixListId"`
@@ -152,7 +152,7 @@ func GetPrefixListOutput(ctx *pulumi.Context, args GetPrefixListOutputArgs, opts
 type GetPrefixListOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetPrefixListFilterArrayInput `pulumi:"filters"`
-	// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+	// Name of the prefix list to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of the prefix list to select.
 	PrefixListId pulumi.StringPtrInput `pulumi:"prefixListId"`

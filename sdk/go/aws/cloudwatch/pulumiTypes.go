@@ -2294,7 +2294,7 @@ func (o EventTargetBatchTargetPtrOutput) JobName() pulumi.StringPtrOutput {
 }
 
 type EventTargetDeadLetterConfig struct {
-	// - ARN of the SQS queue specified as the target for the dead-letter queue.
+	// ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -2310,7 +2310,7 @@ type EventTargetDeadLetterConfigInput interface {
 }
 
 type EventTargetDeadLetterConfigArgs struct {
-	// - ARN of the SQS queue specified as the target for the dead-letter queue.
+	// ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -2391,7 +2391,7 @@ func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigPtrOutpu
 	}).(EventTargetDeadLetterConfigPtrOutput)
 }
 
-// - ARN of the SQS queue specified as the target for the dead-letter queue.
+// ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o EventTargetDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -2420,7 +2420,7 @@ func (o EventTargetDeadLetterConfigPtrOutput) Elem() EventTargetDeadLetterConfig
 	}).(EventTargetDeadLetterConfigOutput)
 }
 
-// - ARN of the SQS queue specified as the target for the dead-letter queue.
+// ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o EventTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetDeadLetterConfig) *string {
 		if v == nil {
@@ -4904,7 +4904,7 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Unit() pulumi.StringPtrOutput {
 }
 
 type MetricStreamExcludeFilter struct {
-	// The namespace of the metric.
+	// Name of the metric namespace in the filter.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -4920,7 +4920,7 @@ type MetricStreamExcludeFilterInput interface {
 }
 
 type MetricStreamExcludeFilterArgs struct {
-	// The namespace of the metric.
+	// Name of the metric namespace in the filter.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -4975,7 +4975,7 @@ func (o MetricStreamExcludeFilterOutput) ToMetricStreamExcludeFilterOutputWithCo
 	return o
 }
 
-// The namespace of the metric.
+// Name of the metric namespace in the filter.
 func (o MetricStreamExcludeFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamExcludeFilter) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -5001,7 +5001,7 @@ func (o MetricStreamExcludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 }
 
 type MetricStreamIncludeFilter struct {
-	// The namespace of the metric.
+	// Name of the metric namespace in the filter.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -5017,7 +5017,7 @@ type MetricStreamIncludeFilterInput interface {
 }
 
 type MetricStreamIncludeFilterArgs struct {
-	// The namespace of the metric.
+	// Name of the metric namespace in the filter.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -5072,7 +5072,7 @@ func (o MetricStreamIncludeFilterOutput) ToMetricStreamIncludeFilterOutputWithCo
 	return o
 }
 
-// The namespace of the metric.
+// Name of the metric namespace in the filter.
 func (o MetricStreamIncludeFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamIncludeFilter) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -5208,7 +5208,7 @@ func (o MetricStreamStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput)
 type MetricStreamStatisticsConfigurationIncludeMetric struct {
 	// The name of the metric.
 	MetricName string `pulumi:"metricName"`
-	// The namespace of the metric.
+	// Name of the metric namespace in the filter.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -5226,7 +5226,7 @@ type MetricStreamStatisticsConfigurationIncludeMetricInput interface {
 type MetricStreamStatisticsConfigurationIncludeMetricArgs struct {
 	// The name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// The namespace of the metric.
+	// Name of the metric namespace in the filter.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -5286,7 +5286,7 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) MetricName() pul
 	return o.ApplyT(func(v MetricStreamStatisticsConfigurationIncludeMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// The namespace of the metric.
+// Name of the metric namespace in the filter.
 func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamStatisticsConfigurationIncludeMetric) string { return v.Namespace }).(pulumi.StringOutput)
 }

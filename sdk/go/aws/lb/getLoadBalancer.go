@@ -75,16 +75,17 @@ type LookupLoadBalancerArgs struct {
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs               GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
-	Arn                      string                    `pulumi:"arn"`
-	ArnSuffix                string                    `pulumi:"arnSuffix"`
-	CustomerOwnedIpv4Pool    string                    `pulumi:"customerOwnedIpv4Pool"`
-	DesyncMitigationMode     string                    `pulumi:"desyncMitigationMode"`
-	DnsName                  string                    `pulumi:"dnsName"`
-	DropInvalidHeaderFields  bool                      `pulumi:"dropInvalidHeaderFields"`
-	EnableDeletionProtection bool                      `pulumi:"enableDeletionProtection"`
-	EnableHttp2              bool                      `pulumi:"enableHttp2"`
-	EnableWafFailOpen        bool                      `pulumi:"enableWafFailOpen"`
+	AccessLogs                   GetLoadBalancerAccessLogs `pulumi:"accessLogs"`
+	Arn                          string                    `pulumi:"arn"`
+	ArnSuffix                    string                    `pulumi:"arnSuffix"`
+	CustomerOwnedIpv4Pool        string                    `pulumi:"customerOwnedIpv4Pool"`
+	DesyncMitigationMode         string                    `pulumi:"desyncMitigationMode"`
+	DnsName                      string                    `pulumi:"dnsName"`
+	DropInvalidHeaderFields      bool                      `pulumi:"dropInvalidHeaderFields"`
+	EnableCrossZoneLoadBalancing bool                      `pulumi:"enableCrossZoneLoadBalancing"`
+	EnableDeletionProtection     bool                      `pulumi:"enableDeletionProtection"`
+	EnableHttp2                  bool                      `pulumi:"enableHttp2"`
+	EnableWafFailOpen            bool                      `pulumi:"enableWafFailOpen"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                 string                         `pulumi:"id"`
 	IdleTimeout        int                            `pulumi:"idleTimeout"`
@@ -169,6 +170,10 @@ func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {
 
 func (o LookupLoadBalancerResultOutput) DropInvalidHeaderFields() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.DropInvalidHeaderFields }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) EnableCrossZoneLoadBalancing() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableCrossZoneLoadBalancing }).(pulumi.BoolOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) EnableDeletionProtection() pulumi.BoolOutput {

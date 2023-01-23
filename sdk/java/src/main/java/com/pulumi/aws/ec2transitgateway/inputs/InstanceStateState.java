@@ -47,14 +47,14 @@ public final class InstanceStateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * - State of the instance. Valid values are `stopped`, `running`.
+     * State of the instance. Valid values are `stopped`, `running`.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return - State of the instance. Valid values are `stopped`, `running`.
+     * @return State of the instance. Valid values are `stopped`, `running`.
      * 
      */
     public Optional<Output<String>> state() {
@@ -130,7 +130,7 @@ public final class InstanceStateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param state - State of the instance. Valid values are `stopped`, `running`.
+         * @param state State of the instance. Valid values are `stopped`, `running`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class InstanceStateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param state - State of the instance. Valid values are `stopped`, `running`.
+         * @param state State of the instance. Valid values are `stopped`, `running`.
          * 
          * @return builder
          * 

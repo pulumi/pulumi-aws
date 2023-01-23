@@ -33,7 +33,7 @@ public final class PlanRule {
      */
     private @Nullable Boolean enableContinuousBackup;
     /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
      * 
      */
     private @Nullable PlanRuleLifecycle lifecycle;
@@ -86,7 +86,7 @@ public final class PlanRule {
         return Optional.ofNullable(this.enableContinuousBackup);
     }
     /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
      * 
      */
     public Optional<PlanRuleLifecycle> lifecycle() {

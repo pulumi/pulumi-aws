@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly bool? IncludeSourceFiles;
         /// <summary>
-        /// Object specified in the Veeva flow source.
+        /// Object specified in the flow destination.
         /// </summary>
         public readonly string Object;
 

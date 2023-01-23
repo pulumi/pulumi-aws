@@ -14,14 +14,14 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
     public static final FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs Empty = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs();
 
     /**
-     * ID of profile to use for field-level encryption query argument-profile mapping
+     * The profile ID for a field-level encryption content type-profile mapping.
      * 
      */
     @Import(name="profileId", required=true)
     private Output<String> profileId;
 
     /**
-     * @return ID of profile to use for field-level encryption query argument-profile mapping
+     * @return The profile ID for a field-level encryption content type-profile mapping.
      * 
      */
     public Output<String> profileId() {
@@ -69,7 +69,7 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
         }
 
         /**
-         * @param profileId ID of profile to use for field-level encryption query argument-profile mapping
+         * @param profileId The profile ID for a field-level encryption content type-profile mapping.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
         }
 
         /**
-         * @param profileId ID of profile to use for field-level encryption query argument-profile mapping
+         * @param profileId The profile ID for a field-level encryption content type-profile mapping.
          * 
          * @return builder
          * 

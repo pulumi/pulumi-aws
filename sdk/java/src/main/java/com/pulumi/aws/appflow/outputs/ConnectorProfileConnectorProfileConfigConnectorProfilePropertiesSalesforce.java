@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
     /**
-     * @return The location of the Salesforce resource.
+     * @return The location of the Datadog resource.
      * 
      */
     private @Nullable String instanceUrl;
@@ -25,7 +25,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce() {}
     /**
-     * @return The location of the Salesforce resource.
+     * @return The location of the Datadog resource.
      * 
      */
     public Optional<String> instanceUrl() {

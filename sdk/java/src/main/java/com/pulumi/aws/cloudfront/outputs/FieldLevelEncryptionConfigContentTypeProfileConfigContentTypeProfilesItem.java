@@ -22,7 +22,7 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
      */
     private String format;
     /**
-     * @return ID of profile to use for field-level encryption query argument-profile mapping
+     * @return The profile ID for a field-level encryption content type-profile mapping.
      * 
      */
     private @Nullable String profileId;
@@ -43,7 +43,7 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
         return this.format;
     }
     /**
-     * @return ID of profile to use for field-level encryption query argument-profile mapping
+     * @return The profile ID for a field-level encryption content type-profile mapping.
      * 
      */
     public Optional<String> profileId() {

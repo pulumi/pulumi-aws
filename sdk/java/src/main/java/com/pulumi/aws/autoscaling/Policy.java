@@ -106,21 +106,10 @@ import javax.annotation.Nullable;
  *             .predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs.builder()
  *                 .metricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationArgs.builder()
  *                     .customizedCapacityMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs.builder()
- *                         .metricDataQueries(                        
- *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
- *                                 .id(&#34;capacity_sum&#34;)
- *                                 .returnData(false)
- *                                 .build(),
- *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 300))&#34;)
- *                                 .id(&#34;load_sum&#34;)
- *                                 .returnData(false)
- *                                 .build(),
- *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
- *                                 .expression(&#34;load_sum / capacity_sum&#34;)
- *                                 .id(&#34;weighted_average&#34;)
- *                                 .build())
+ *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs.builder()
+ *                             .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
+ *                             .id(&#34;capacity_sum&#34;)
+ *                             .build())
  *                         .build())
  *                     .customizedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs.builder()
  *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.builder()
@@ -129,20 +118,21 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .customizedScalingMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.builder()
- *                         .metricDataQueries(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
- *                             .id(&#34;scaling&#34;)
- *                             .metricStat(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs.builder()
- *                                 .metric(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs.builder()
- *                                     .dimensions(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs.builder()
- *                                         .name(&#34;AutoScalingGroupName&#34;)
- *                                         .value(&#34;my-test-asg&#34;)
- *                                         .build())
- *                                     .metricName(&#34;CPUUtilization&#34;)
- *                                     .namespace(&#34;AWS/EC2&#34;)
- *                                     .build())
- *                                 .stat(&#34;Average&#34;)
+ *                         .metricDataQueries(                        
+ *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
+ *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/AutoScaling,AutoScalingGroupName} MetricName=\&#34;GroupInServiceIntances\&#34; my-test-asg&#39;, &#39;Average&#39;, 300))&#34;)
+ *                                 .id(&#34;capacity_sum&#34;)
+ *                                 .returnData(false)
+ *                                 .build(),
+ *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
+ *                                 .expression(&#34;SUM(SEARCH(&#39;{AWS/EC2,AutoScalingGroupName} MetricName=\&#34;CPUUtilization\&#34; my-test-asg&#39;, &#39;Sum&#39;, 300))&#34;)
+ *                                 .id(&#34;load_sum&#34;)
+ *                                 .returnData(false)
+ *                                 .build(),
+ *                             PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs.builder()
+ *                                 .expression(&#34;load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)&#34;)
+ *                                 .id(&#34;weighted_average&#34;)
  *                                 .build())
- *                             .build())
  *                         .build())
  *                     .targetValue(10)
  *                     .build())
@@ -336,14 +326,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minAdjustmentMagnitude);
     }
     /**
-     * Name of the dimension.
+     * Name of the policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the dimension.
+     * @return Name of the policy.
      * 
      */
     public Output<String> name() {

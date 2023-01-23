@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsEventSource
     {
         /// <summary>
-        /// Information about the event. See the `parameters` configuration block.
+        /// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsEventSourceParameters Parameters;
         /// <summary>

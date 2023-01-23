@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
         /// </summary>
         public readonly string? InputFormat;
         /// <summary>
-        /// Location of entity list.
+        /// Location of training documents.
         /// </summary>
         public readonly string S3Uri;
         public readonly string? TestS3Uri;

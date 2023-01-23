@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
         /// <summary>
-        /// The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+        /// The token URL required for OAuth 2.0 authentication.
         /// </summary>
         public readonly string TokenUrl;
 

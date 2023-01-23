@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         }
 
         /// <summary>
-        /// Name of the advanced event selector.
+        /// Name of the trail.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

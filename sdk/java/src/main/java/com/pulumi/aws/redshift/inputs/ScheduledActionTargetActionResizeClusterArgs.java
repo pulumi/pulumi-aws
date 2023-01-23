@@ -33,14 +33,14 @@ public final class ScheduledActionTargetActionResizeClusterArgs extends com.pulu
     }
 
     /**
-     * The identifier of the cluster to be resumed.
+     * The unique identifier for the cluster to resize.
      * 
      */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The identifier of the cluster to be resumed.
+     * @return The unique identifier for the cluster to resize.
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -142,7 +142,7 @@ public final class ScheduledActionTargetActionResizeClusterArgs extends com.pulu
         }
 
         /**
-         * @param clusterIdentifier The identifier of the cluster to be resumed.
+         * @param clusterIdentifier The unique identifier for the cluster to resize.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ScheduledActionTargetActionResizeClusterArgs extends com.pulu
         }
 
         /**
-         * @param clusterIdentifier The identifier of the cluster to be resumed.
+         * @param clusterIdentifier The unique identifier for the cluster to resize.
          * 
          * @return builder
          * 

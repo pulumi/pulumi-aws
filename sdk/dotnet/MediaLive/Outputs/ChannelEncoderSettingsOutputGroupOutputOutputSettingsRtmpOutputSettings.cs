@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? ConnectionRetryInterval;
         /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
+        /// The RTMP endpoint excluding the stream name. See Destination for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination Destination;
         /// <summary>

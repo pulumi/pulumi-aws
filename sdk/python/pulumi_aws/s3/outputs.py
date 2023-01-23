@@ -868,7 +868,7 @@ class BucketGrant(dict):
                  uri: Optional[str] = None):
         """
         :param Sequence[str] permissions: List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-        :param str type: - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        :param str type: Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
         :param str id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         :param str uri: Uri address to grant for. Used only when `type` is `Group`.
         """
@@ -891,7 +891,7 @@ class BucketGrant(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
         """
         return pulumi.get(self, "type")
 
@@ -2209,7 +2209,7 @@ class BucketNotificationQueue(dict):
                  filter_suffix: Optional[str] = None,
                  id: Optional[str] = None):
         """
-        :param Sequence[str] events: [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param Sequence[str] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         :param str queue_arn: SQS queue ARN.
         :param str filter_prefix: Object key name prefix.
         :param str filter_suffix: Object key name suffix.
@@ -2228,7 +2228,7 @@ class BucketNotificationQueue(dict):
     @pulumi.getter
     def events(self) -> Sequence[str]:
         """
-        [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
         return pulumi.get(self, "events")
 
@@ -5874,7 +5874,7 @@ class ObjectCopyGrant(dict):
                  uri: Optional[str] = None):
         """
         :param Sequence[str] permissions: List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-        :param str type: - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        :param str type: Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
         :param str email: Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
         :param str id: The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
         :param str uri: URI of the grantee group. Used only when `type` is `Group`.
@@ -5900,7 +5900,7 @@ class ObjectCopyGrant(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
         """
         return pulumi.get(self, "type")
 

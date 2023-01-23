@@ -282,7 +282,7 @@ type Project struct {
 	FileSystemLocations ProjectFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrOutput `pulumi:"logsConfig"`
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Project's name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility pulumi.StringPtrOutput `pulumi:"projectVisibility"`
@@ -298,11 +298,11 @@ type Project struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayOutput `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayOutput `pulumi:"secondarySources"`
-	// Specifies the service role ARN for the batch build project.
+	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source ProjectSourceOutput `pulumi:"source"`
-	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -379,7 +379,7 @@ type projectState struct {
 	FileSystemLocations []ProjectFileSystemLocation `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Project's name.
 	Name *string `pulumi:"name"`
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility *string `pulumi:"projectVisibility"`
@@ -395,11 +395,11 @@ type projectState struct {
 	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Specifies the service role ARN for the batch build project.
+	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source *ProjectSource `pulumi:"source"`
-	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -436,7 +436,7 @@ type ProjectState struct {
 	FileSystemLocations ProjectFileSystemLocationArrayInput
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrInput
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Project's name.
 	Name pulumi.StringPtrInput
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility pulumi.StringPtrInput
@@ -452,11 +452,11 @@ type ProjectState struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Specifies the service role ARN for the batch build project.
+	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Source ProjectSourcePtrInput
-	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -493,7 +493,7 @@ type projectArgs struct {
 	FileSystemLocations []ProjectFileSystemLocation `pulumi:"fileSystemLocations"`
 	// Configuration block. Detailed below.
 	LogsConfig *ProjectLogsConfig `pulumi:"logsConfig"`
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Project's name.
 	Name *string `pulumi:"name"`
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility *string `pulumi:"projectVisibility"`
@@ -507,11 +507,11 @@ type projectArgs struct {
 	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Specifies the service role ARN for the batch build project.
+	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
 	Source ProjectSource `pulumi:"source"`
-	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -543,7 +543,7 @@ type ProjectArgs struct {
 	FileSystemLocations ProjectFileSystemLocationArrayInput
 	// Configuration block. Detailed below.
 	LogsConfig ProjectLogsConfigPtrInput
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Project's name.
 	Name pulumi.StringPtrInput
 	// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
 	ProjectVisibility pulumi.StringPtrInput
@@ -557,11 +557,11 @@ type ProjectArgs struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Specifies the service role ARN for the batch build project.
+	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringInput
 	// Configuration block. Detailed below.
 	Source ProjectSourceInput
-	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -721,7 +721,7 @@ func (o ProjectOutput) LogsConfig() ProjectLogsConfigPtrOutput {
 	return o.ApplyT(func(v *Project) ProjectLogsConfigPtrOutput { return v.LogsConfig }).(ProjectLogsConfigPtrOutput)
 }
 
-// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+// Project's name.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -761,7 +761,7 @@ func (o ProjectOutput) SecondarySources() ProjectSecondarySourceArrayOutput {
 	return o.ApplyT(func(v *Project) ProjectSecondarySourceArrayOutput { return v.SecondarySources }).(ProjectSecondarySourceArrayOutput)
 }
 
-// Specifies the service role ARN for the batch build project.
+// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 func (o ProjectOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
 }
@@ -771,7 +771,7 @@ func (o ProjectOutput) Source() ProjectSourceOutput {
 	return o.ApplyT(func(v *Project) ProjectSourceOutput { return v.Source }).(ProjectSourceOutput)
 }
 
-// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+// Version of the build input to be built for this project. If not specified, the latest version is used.
 func (o ProjectOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }

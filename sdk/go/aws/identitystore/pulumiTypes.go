@@ -119,19 +119,19 @@ func (o GroupExternalIdArrayOutput) Index(i pulumi.IntInput) GroupExternalIdOutp
 type UserAddresses struct {
 	// The country that this address is in.
 	Country *string `pulumi:"country"`
-	// The name that is typically displayed when the name is shown for display.
+	// The name that is typically displayed when the address is shown for display.
 	Formatted *string `pulumi:"formatted"`
 	// The address locality.
 	Locality *string `pulumi:"locality"`
 	// The postal code of the address.
 	PostalCode *string `pulumi:"postalCode"`
-	// When `true`, this is the primary phone number associated with the user.
+	// When `true`, this is the primary address associated with the user.
 	Primary *bool `pulumi:"primary"`
 	// The region of the address.
 	Region *string `pulumi:"region"`
 	// The street of the address.
 	StreetAddress *string `pulumi:"streetAddress"`
-	// The type of phone number.
+	// The type of address.
 	Type *string `pulumi:"type"`
 }
 
@@ -149,19 +149,19 @@ type UserAddressesInput interface {
 type UserAddressesArgs struct {
 	// The country that this address is in.
 	Country pulumi.StringPtrInput `pulumi:"country"`
-	// The name that is typically displayed when the name is shown for display.
+	// The name that is typically displayed when the address is shown for display.
 	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
 	// The address locality.
 	Locality pulumi.StringPtrInput `pulumi:"locality"`
 	// The postal code of the address.
 	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// When `true`, this is the primary phone number associated with the user.
+	// When `true`, this is the primary address associated with the user.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 	// The region of the address.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The street of the address.
 	StreetAddress pulumi.StringPtrInput `pulumi:"streetAddress"`
-	// The type of phone number.
+	// The type of address.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -247,7 +247,7 @@ func (o UserAddressesOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
+// The name that is typically displayed when the address is shown for display.
 func (o UserAddressesOutput) Formatted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Formatted }).(pulumi.StringPtrOutput)
 }
@@ -262,7 +262,7 @@ func (o UserAddressesOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
+// When `true`, this is the primary address associated with the user.
 func (o UserAddressesOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
@@ -277,7 +277,7 @@ func (o UserAddressesOutput) StreetAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.StreetAddress }).(pulumi.StringPtrOutput)
 }
 
-// The type of phone number.
+// The type of address.
 func (o UserAddressesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAddresses) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -316,7 +316,7 @@ func (o UserAddressesPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name that is typically displayed when the name is shown for display.
+// The name that is typically displayed when the address is shown for display.
 func (o UserAddressesPtrOutput) Formatted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -346,7 +346,7 @@ func (o UserAddressesPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
+// When `true`, this is the primary address associated with the user.
 func (o UserAddressesPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *bool {
 		if v == nil {
@@ -376,7 +376,7 @@ func (o UserAddressesPtrOutput) StreetAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of phone number.
+// The type of address.
 func (o UserAddressesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserAddresses) *string {
 		if v == nil {
@@ -387,11 +387,11 @@ func (o UserAddressesPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type UserEmails struct {
-	// When `true`, this is the primary phone number associated with the user.
+	// When `true`, this is the primary email associated with the user.
 	Primary *bool `pulumi:"primary"`
-	// The type of phone number.
+	// The type of email.
 	Type *string `pulumi:"type"`
-	// The user's phone number.
+	// The email address. This value must be unique across the identity store.
 	Value *string `pulumi:"value"`
 }
 
@@ -407,11 +407,11 @@ type UserEmailsInput interface {
 }
 
 type UserEmailsArgs struct {
-	// When `true`, this is the primary phone number associated with the user.
+	// When `true`, this is the primary email associated with the user.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// The type of phone number.
+	// The type of email.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The user's phone number.
+	// The email address. This value must be unique across the identity store.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -492,17 +492,17 @@ func (o UserEmailsOutput) ToUserEmailsPtrOutputWithContext(ctx context.Context) 
 	}).(UserEmailsPtrOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
+// When `true`, this is the primary email associated with the user.
 func (o UserEmailsOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserEmails) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
-// The type of phone number.
+// The type of email.
 func (o UserEmailsOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserEmails) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The user's phone number.
+// The email address. This value must be unique across the identity store.
 func (o UserEmailsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserEmails) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -531,7 +531,7 @@ func (o UserEmailsPtrOutput) Elem() UserEmailsOutput {
 	}).(UserEmailsOutput)
 }
 
-// When `true`, this is the primary phone number associated with the user.
+// When `true`, this is the primary email associated with the user.
 func (o UserEmailsPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserEmails) *bool {
 		if v == nil {
@@ -541,7 +541,7 @@ func (o UserEmailsPtrOutput) Primary() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The type of phone number.
+// The type of email.
 func (o UserEmailsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserEmails) *string {
 		if v == nil {
@@ -551,7 +551,7 @@ func (o UserEmailsPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user's phone number.
+// The email address. This value must be unique across the identity store.
 func (o UserEmailsPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserEmails) *string {
 		if v == nil {
@@ -1651,7 +1651,7 @@ func (o GetGroupExternalIdArrayOutput) Index(i pulumi.IntInput) GetGroupExternal
 }
 
 type GetGroupFilter struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 	AttributePath string `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue string `pulumi:"attributeValue"`
@@ -1669,7 +1669,7 @@ type GetGroupFilterInput interface {
 }
 
 type GetGroupFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 	AttributePath pulumi.StringInput `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
@@ -1752,7 +1752,7 @@ func (o GetGroupFilterOutput) ToGetGroupFilterPtrOutputWithContext(ctx context.C
 	}).(GetGroupFilterPtrOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 func (o GetGroupFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
@@ -1786,7 +1786,7 @@ func (o GetGroupFilterPtrOutput) Elem() GetGroupFilterOutput {
 	}).(GetGroupFilterOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
 func (o GetGroupFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGroupFilter) *string {
 		if v == nil {
@@ -2658,7 +2658,7 @@ func (o GetUserExternalIdArrayOutput) Index(i pulumi.IntInput) GetUserExternalId
 }
 
 type GetUserFilter struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
 	AttributePath string `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue string `pulumi:"attributeValue"`
@@ -2676,7 +2676,7 @@ type GetUserFilterInput interface {
 }
 
 type GetUserFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
 	AttributePath pulumi.StringInput `pulumi:"attributePath"`
 	// Value for an attribute.
 	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
@@ -2759,7 +2759,7 @@ func (o GetUserFilterOutput) ToGetUserFilterPtrOutputWithContext(ctx context.Con
 	}).(GetUserFilterPtrOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
 func (o GetUserFilterOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserFilter) string { return v.AttributePath }).(pulumi.StringOutput)
 }
@@ -2793,7 +2793,7 @@ func (o GetUserFilterPtrOutput) Elem() GetUserFilterOutput {
 	}).(GetUserFilterOutput)
 }
 
-// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
 func (o GetUserFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetUserFilter) *string {
 		if v == nil {

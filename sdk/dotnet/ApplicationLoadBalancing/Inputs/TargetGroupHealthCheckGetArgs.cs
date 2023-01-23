@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
     public sealed class TargetGroupHealthCheckGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean to enable / disable `stickiness`. Default is `true`.
+        /// Whether health checks are enabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

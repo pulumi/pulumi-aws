@@ -16,14 +16,14 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
     public static final ApplicationMaximumCapacityArgs Empty = new ApplicationMaximumCapacityArgs();
 
     /**
-     * The CPU requirements for every worker instance of the worker type.
+     * The maximum allowed CPU for an application.
      * 
      */
     @Import(name="cpu", required=true)
     private Output<String> cpu;
 
     /**
-     * @return The CPU requirements for every worker instance of the worker type.
+     * @return The maximum allowed CPU for an application.
      * 
      */
     public Output<String> cpu() {
@@ -31,14 +31,14 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The disk requirements for every worker instance of the worker type.
+     * The maximum allowed disk for an application.
      * 
      */
     @Import(name="disk")
     private @Nullable Output<String> disk;
 
     /**
-     * @return The disk requirements for every worker instance of the worker type.
+     * @return The maximum allowed disk for an application.
      * 
      */
     public Optional<Output<String>> disk() {
@@ -46,14 +46,14 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The memory requirements for every worker instance of the worker type.
+     * The maximum allowed resources for an application.
      * 
      */
     @Import(name="memory", required=true)
     private Output<String> memory;
 
     /**
-     * @return The memory requirements for every worker instance of the worker type.
+     * @return The maximum allowed resources for an application.
      * 
      */
     public Output<String> memory() {
@@ -87,7 +87,7 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cpu The CPU requirements for every worker instance of the worker type.
+         * @param cpu The maximum allowed CPU for an application.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cpu The CPU requirements for every worker instance of the worker type.
+         * @param cpu The maximum allowed CPU for an application.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param disk The disk requirements for every worker instance of the worker type.
+         * @param disk The maximum allowed disk for an application.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param disk The disk requirements for every worker instance of the worker type.
+         * @param disk The maximum allowed disk for an application.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param memory The memory requirements for every worker instance of the worker type.
+         * @param memory The maximum allowed resources for an application.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ApplicationMaximumCapacityArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param memory The memory requirements for every worker instance of the worker type.
+         * @param memory The maximum allowed resources for an application.
          * 
          * @return builder
          * 

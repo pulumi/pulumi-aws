@@ -32,14 +32,14 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name that is typically displayed when the name is shown for display.
+     * The name that is typically displayed when the address is shown for display.
      * 
      */
     @Import(name="formatted")
     private @Nullable Output<String> formatted;
 
     /**
-     * @return The name that is typically displayed when the name is shown for display.
+     * @return The name that is typically displayed when the address is shown for display.
      * 
      */
     public Optional<Output<String>> formatted() {
@@ -77,14 +77,14 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When `true`, this is the primary phone number associated with the user.
+     * When `true`, this is the primary address associated with the user.
      * 
      */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
     /**
-     * @return When `true`, this is the primary phone number associated with the user.
+     * @return When `true`, this is the primary address associated with the user.
      * 
      */
     public Optional<Output<Boolean>> primary() {
@@ -122,14 +122,14 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of phone number.
+     * The type of address.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of phone number.
+     * @return The type of address.
      * 
      */
     public Optional<Output<String>> type() {
@@ -189,7 +189,7 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param formatted The name that is typically displayed when the name is shown for display.
+         * @param formatted The name that is typically displayed when the address is shown for display.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param formatted The name that is typically displayed when the name is shown for display.
+         * @param formatted The name that is typically displayed when the address is shown for display.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primary When `true`, this is the primary phone number associated with the user.
+         * @param primary When `true`, this is the primary address associated with the user.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primary When `true`, this is the primary phone number associated with the user.
+         * @param primary When `true`, this is the primary address associated with the user.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of phone number.
+         * @param type The type of address.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class UserAddressesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of phone number.
+         * @param type The type of address.
          * 
          * @return builder
          * 

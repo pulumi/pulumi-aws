@@ -62,7 +62,7 @@ export interface GetManagedPrefixListArgs {
      */
     id?: string;
     /**
-     * Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * Name of the prefix list to select.
      */
     name?: string;
     /**
@@ -157,7 +157,7 @@ export interface GetManagedPrefixListOutputArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * Name of the prefix list to select.
      */
     name?: pulumi.Input<string>;
     /**

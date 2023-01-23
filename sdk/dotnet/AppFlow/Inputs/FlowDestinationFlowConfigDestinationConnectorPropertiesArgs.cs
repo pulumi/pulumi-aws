@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
         /// </summary>
         [Input("customConnector")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs>? CustomConnector { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs>? LookoutMetrics { get; set; }
 
         /// <summary>
-        /// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Properties that are required to query Marketo. See Generic Destination Properties for more details.
         /// </summary>
         [Input("marketo")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs>? Marketo { get; set; }
@@ -52,19 +52,19 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args>? S3 { get; set; }
 
         /// <summary>
-        /// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
         /// </summary>
         [Input("salesforce")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs>? Salesforce { get; set; }
 
         /// <summary>
-        /// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
         /// </summary>
         [Input("sapoData")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs>? SapoData { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs>? Upsolver { get; set; }
 
         /// <summary>
-        /// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
         /// </summary>
         [Input("zendesk")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs>? Zendesk { get; set; }

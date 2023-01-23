@@ -18,12 +18,12 @@ public final class GetPermissionsTable {
      */
     private String catalogId;
     /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * @return Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     private String databaseName;
     /**
-     * @return Name of the table resource.
+     * @return Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
     private String name;
@@ -42,14 +42,14 @@ public final class GetPermissionsTable {
         return this.catalogId;
     }
     /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * @return Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     public String databaseName() {
         return this.databaseName;
     }
     /**
-     * @return Name of the table resource.
+     * @return Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
     public String name() {

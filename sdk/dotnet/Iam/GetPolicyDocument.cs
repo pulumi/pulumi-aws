@@ -1356,7 +1356,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyDocumentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// - IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
+        /// IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
         /// </summary>
         [Input("overrideJson")]
         public string? OverrideJson { get; set; }
@@ -1380,7 +1380,7 @@ namespace Pulumi.Aws.Iam
         public string? PolicyId { get; set; }
 
         /// <summary>
-        /// - IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+        /// IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
         /// </summary>
         [Input("sourceJson")]
         public string? SourceJson { get; set; }
@@ -1424,7 +1424,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetPolicyDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// - IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
+        /// IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
         /// </summary>
         [Input("overrideJson")]
         public Input<string>? OverrideJson { get; set; }
@@ -1448,7 +1448,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// - IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+        /// IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
         /// </summary>
         [Input("sourceJson")]
         public Input<string>? SourceJson { get; set; }

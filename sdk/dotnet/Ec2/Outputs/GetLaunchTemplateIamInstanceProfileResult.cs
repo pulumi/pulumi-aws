@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly string Arn;
         /// <summary>
-        /// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        /// Name of the launch template.
         /// </summary>
         public readonly string Name;
 

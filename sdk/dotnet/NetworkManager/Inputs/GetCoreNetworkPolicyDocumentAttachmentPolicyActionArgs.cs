@@ -25,7 +25,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public Input<bool>? RequireAcceptance { get; set; }
 
         /// <summary>
-        /// Name of the segment.
+        /// Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
         /// </summary>
         [Input("segment")]
         public Input<string>? Segment { get; set; }

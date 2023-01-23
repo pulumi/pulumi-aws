@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainAdvancedSecurityOptions {
     /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * @return Whether advanced security is enabled.
      * 
      */
     private Boolean enabled;
@@ -30,7 +30,7 @@ public final class DomainAdvancedSecurityOptions {
 
     private DomainAdvancedSecurityOptions() {}
     /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * @return Whether advanced security is enabled.
      * 
      */
     public Boolean enabled() {

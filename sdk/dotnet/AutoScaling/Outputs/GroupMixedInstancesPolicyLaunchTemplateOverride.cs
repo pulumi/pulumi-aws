@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
-        /// Override the instance launch template specification in the Launch Template.
+        /// Nested argument defines the Launch Template. Defined below.
         /// </summary>
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification? LaunchTemplateSpecification;
         /// <summary>

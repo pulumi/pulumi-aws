@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
-        /// Name of the SerDe.
+        /// The name of the Column.
         /// </summary>
         public readonly string Name;
         /// <summary>

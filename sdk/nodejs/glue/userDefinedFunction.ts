@@ -66,6 +66,9 @@ export class UserDefinedFunction extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserDefinedFunction.__pulumiType;
     }
 
+    /**
+     * The ARN of the Glue User Defined Function.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
@@ -75,6 +78,9 @@ export class UserDefinedFunction extends pulumi.CustomResource {
      * The Java class that contains the function code.
      */
     public readonly className!: pulumi.Output<string>;
+    /**
+     * The time at which the function was created.
+     */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * The name of the Database to create the Function.
@@ -152,6 +158,9 @@ export class UserDefinedFunction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserDefinedFunction resources.
  */
 export interface UserDefinedFunctionState {
+    /**
+     * The ARN of the Glue User Defined Function.
+     */
     arn?: pulumi.Input<string>;
     /**
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
@@ -161,6 +170,9 @@ export interface UserDefinedFunctionState {
      * The Java class that contains the function code.
      */
     className?: pulumi.Input<string>;
+    /**
+     * The time at which the function was created.
+     */
     createTime?: pulumi.Input<string>;
     /**
      * The name of the Database to create the Function.

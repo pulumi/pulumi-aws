@@ -118,13 +118,13 @@ namespace Pulumi.Aws.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Data Catalog in which the table resides.
+        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the catalog database that contains the target table.
+        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the target table.
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
+        /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -248,13 +248,13 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Data Catalog in which the table resides.
+        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Name of the catalog database that contains the target table.
+        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the target table.
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
+        /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -364,13 +364,13 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID of the Data Catalog in which the table resides.
+        /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Name of the catalog database that contains the target table.
+        /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the target table.
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
+        /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
         public InputMap<string> Parameters
         {

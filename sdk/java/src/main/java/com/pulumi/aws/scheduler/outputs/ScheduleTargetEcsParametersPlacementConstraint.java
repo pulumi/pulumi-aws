@@ -17,7 +17,7 @@ public final class ScheduleTargetEcsParametersPlacementConstraint {
      */
     private @Nullable String expression;
     /**
-     * @return The type of placement strategy. One of: `random`, `spread`, `binpack`.
+     * @return The type of constraint. One of: `distinctInstance`, `memberOf`.
      * 
      */
     private String type;
@@ -31,7 +31,7 @@ public final class ScheduleTargetEcsParametersPlacementConstraint {
         return Optional.ofNullable(this.expression);
     }
     /**
-     * @return The type of placement strategy. One of: `random`, `spread`, `binpack`.
+     * @return The type of constraint. One of: `distinctInstance`, `memberOf`.
      * 
      */
     public String type() {

@@ -31,14 +31,14 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Name of the target table.
+     * Name of the Partition Key.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the target table.
+     * @return Name of the Partition Key.
      * 
      */
     public Output<String> name() {
@@ -46,14 +46,14 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Datatype of data in the Column.
+     * Datatype of data in the Partition Key.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Datatype of data in the Column.
+     * @return Datatype of data in the Partition Key.
      * 
      */
     public Optional<Output<String>> type() {
@@ -108,7 +108,7 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the Partition Key.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the Partition Key.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Datatype of data in the Column.
+         * @param type Datatype of data in the Partition Key.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CatalogTablePartitionKeyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Datatype of data in the Column.
+         * @param type Datatype of data in the Partition Key.
          * 
          * @return builder
          * 

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesZendesk {
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesZendesk() {}
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public String object() {

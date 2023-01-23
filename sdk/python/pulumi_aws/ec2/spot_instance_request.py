@@ -988,12 +988,12 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[str] spot_bid_status: The current [bid
                status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
                of the Spot Instance Request.
-               * `spot_request_state` The current [request
-               state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-               of the Spot Instance Request.
         :param pulumi.Input[str] spot_instance_id: The Instance ID (if any) that is currently fulfilling
                the Spot Instance request.
         :param pulumi.Input[str] spot_price: The maximum price to request on the spot market.
+        :param pulumi.Input[str] spot_request_state: The current [request
+               state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+               of the Spot Instance Request.
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
                the instance is terminated, the spot request will be closed.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
@@ -1703,9 +1703,6 @@ class _SpotInstanceRequestState:
         The current [bid
         status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
         of the Spot Instance Request.
-        * `spot_request_state` The current [request
-        state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-        of the Spot Instance Request.
         """
         return pulumi.get(self, "spot_bid_status")
 
@@ -1741,6 +1738,11 @@ class _SpotInstanceRequestState:
     @property
     @pulumi.getter(name="spotRequestState")
     def spot_request_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current [request
+        state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+        of the Spot Instance Request.
+        """
         return pulumi.get(self, "spot_request_state")
 
     @spot_request_state.setter
@@ -2386,12 +2388,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] spot_bid_status: The current [bid
                status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
                of the Spot Instance Request.
-               * `spot_request_state` The current [request
-               state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-               of the Spot Instance Request.
         :param pulumi.Input[str] spot_instance_id: The Instance ID (if any) that is currently fulfilling
                the Spot Instance request.
         :param pulumi.Input[str] spot_price: The maximum price to request on the spot market.
+        :param pulumi.Input[str] spot_request_state: The current [request
+               state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+               of the Spot Instance Request.
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
                the instance is terminated, the spot request will be closed.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
@@ -2854,9 +2856,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         The current [bid
         status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
         of the Spot Instance Request.
-        * `spot_request_state` The current [request
-        state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-        of the Spot Instance Request.
         """
         return pulumi.get(self, "spot_bid_status")
 
@@ -2880,6 +2879,11 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @property
     @pulumi.getter(name="spotRequestState")
     def spot_request_state(self) -> pulumi.Output[str]:
+        """
+        The current [request
+        state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+        of the Spot Instance Request.
+        """
         return pulumi.get(self, "spot_request_state")
 
     @property

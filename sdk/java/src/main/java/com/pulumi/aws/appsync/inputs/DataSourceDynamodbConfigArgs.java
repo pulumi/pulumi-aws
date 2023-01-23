@@ -25,14 +25,14 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * AWS Region for RDS HTTP endpoint. Defaults to current region.
+     * AWS region of the DynamoDB table. Defaults to current region.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
+     * @return AWS region of the DynamoDB table. Defaults to current region.
      * 
      */
     public Optional<Output<String>> region() {
@@ -114,7 +114,7 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param region AWS Region for RDS HTTP endpoint. Defaults to current region.
+         * @param region AWS region of the DynamoDB table. Defaults to current region.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DataSourceDynamodbConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param region AWS Region for RDS HTTP endpoint. Defaults to current region.
+         * @param region AWS region of the DynamoDB table. Defaults to current region.
          * 
          * @return builder
          * 

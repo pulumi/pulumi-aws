@@ -4350,9 +4350,9 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination struct {
-	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the bucket.
+	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 	Arn string `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
 	Encryption *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption `pulumi:"encryption"`
@@ -4376,9 +4376,9 @@ type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinati
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs struct {
-	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the bucket.
+	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
 	Encryption StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput `pulumi:"encryption"`
@@ -4467,14 +4467,14 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
 }
 
-// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.AccountId
 	}).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the bucket.
+// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.Arn
@@ -4533,7 +4533,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput)
 }
 
-// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -4543,7 +4543,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the bucket.
+// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {

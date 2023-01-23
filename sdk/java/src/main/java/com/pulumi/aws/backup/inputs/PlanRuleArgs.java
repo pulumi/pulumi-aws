@@ -67,14 +67,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
      * 
      */
     @Import(name="lifecycle")
     private @Nullable Output<PlanRuleLifecycleArgs> lifecycle;
 
     /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
      * 
      */
     public Optional<Output<PlanRuleLifecycleArgs>> lifecycle() {
@@ -262,7 +262,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecycle The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         * @param lifecycle The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lifecycle The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+         * @param lifecycle The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
          * 
          * @return builder
          * 

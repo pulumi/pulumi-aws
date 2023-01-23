@@ -14,6 +14,7 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -127,14 +128,14 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> tags;
+    private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    public Output<Map<String,String>> tags() {
-        return this.tags;
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
     }
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

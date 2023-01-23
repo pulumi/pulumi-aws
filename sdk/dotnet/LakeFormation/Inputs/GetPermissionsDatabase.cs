@@ -19,7 +19,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public string CatalogId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the table resource.
+        /// Name of the database resource. Unique to the Data Catalog.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

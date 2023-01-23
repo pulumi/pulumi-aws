@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
     /**
-     * @return The credentials used to access protected Zendesk resources.
+     * @return The access token used to access the connector on your behalf.
      * 
      */
     private @Nullable String accessToken;
@@ -23,19 +23,19 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private @Nullable String clientCredentialsArn;
     /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest;
     /**
-     * @return The refresh token used to refresh expired access token.
+     * @return The refresh token used to refresh an expired access token.
      * 
      */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce() {}
     /**
-     * @return The credentials used to access protected Zendesk resources.
+     * @return The access token used to access the connector on your behalf.
      * 
      */
     public Optional<String> accessToken() {
@@ -49,14 +49,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return Optional.ofNullable(this.clientCredentialsArn);
     }
     /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
     /**
-     * @return The refresh token used to refresh expired access token.
+     * @return The refresh token used to refresh an expired access token.
      * 
      */
     public Optional<String> refreshToken() {

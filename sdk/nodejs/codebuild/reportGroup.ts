@@ -118,7 +118,7 @@ export class ReportGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+     * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -198,7 +198,7 @@ export interface ReportGroupState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+     * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -224,7 +224,7 @@ export interface ReportGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+     * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      */
     type: pulumi.Input<string>;
 }

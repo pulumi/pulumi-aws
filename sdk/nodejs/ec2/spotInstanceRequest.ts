@@ -260,9 +260,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
      * of the Spot Instance Request.
-     * * `spotRequestState` The current [request
-     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-     * of the Spot Instance Request.
      */
     public /*out*/ readonly spotBidStatus!: pulumi.Output<string>;
     /**
@@ -274,6 +271,11 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * The maximum price to request on the spot market.
      */
     public readonly spotPrice!: pulumi.Output<string>;
+    /**
+     * The current [request
+     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+     * of the Spot Instance Request.
+     */
     public /*out*/ readonly spotRequestState!: pulumi.Output<string>;
     /**
      * If set to `one-time`, after
@@ -668,9 +670,6 @@ export interface SpotInstanceRequestState {
      * The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
      * of the Spot Instance Request.
-     * * `spotRequestState` The current [request
-     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-     * of the Spot Instance Request.
      */
     spotBidStatus?: pulumi.Input<string>;
     /**
@@ -682,6 +681,11 @@ export interface SpotInstanceRequestState {
      * The maximum price to request on the spot market.
      */
     spotPrice?: pulumi.Input<string>;
+    /**
+     * The current [request
+     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+     * of the Spot Instance Request.
+     */
     spotRequestState?: pulumi.Input<string>;
     /**
      * If set to `one-time`, after

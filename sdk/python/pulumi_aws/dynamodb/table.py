@@ -41,12 +41,12 @@ class TableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
-        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
-        :param pulumi.Input[str] name: Name of the index
-        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        :param pulumi.Input[str] range_key: Name of the range key.
-        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[str] name: Unique within a region name of the table.
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
+        :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
+        :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -57,7 +57,7 @@ class TableArgs:
         :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
-        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -140,7 +140,7 @@ class TableArgs:
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the hash key in the index; must be defined as an attribute in the resource.
+        Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         """
         return pulumi.get(self, "hash_key")
 
@@ -164,7 +164,7 @@ class TableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the index
+        Unique within a region name of the table.
         """
         return pulumi.get(self, "name")
 
@@ -176,7 +176,7 @@ class TableArgs:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
         """
-        Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        Enable point-in-time recovery options. See below.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -188,7 +188,7 @@ class TableArgs:
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the range key.
+        Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         """
         return pulumi.get(self, "range_key")
 
@@ -200,7 +200,7 @@ class TableArgs:
     @pulumi.getter(name="readCapacity")
     def read_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         return pulumi.get(self, "read_capacity")
 
@@ -332,7 +332,7 @@ class TableArgs:
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         return pulumi.get(self, "write_capacity")
 
@@ -374,12 +374,12 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
-        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
-        :param pulumi.Input[str] name: Name of the index
-        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        :param pulumi.Input[str] range_key: Name of the range key.
-        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[str] name: Unique within a region name of the table.
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
+        :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
+        :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -393,7 +393,7 @@ class _TableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
-        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -496,7 +496,7 @@ class _TableState:
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the hash key in the index; must be defined as an attribute in the resource.
+        Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         """
         return pulumi.get(self, "hash_key")
 
@@ -520,7 +520,7 @@ class _TableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the index
+        Unique within a region name of the table.
         """
         return pulumi.get(self, "name")
 
@@ -532,7 +532,7 @@ class _TableState:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
         """
-        Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        Enable point-in-time recovery options. See below.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -544,7 +544,7 @@ class _TableState:
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the range key.
+        Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         """
         return pulumi.get(self, "range_key")
 
@@ -556,7 +556,7 @@ class _TableState:
     @pulumi.getter(name="readCapacity")
     def read_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         return pulumi.get(self, "read_capacity")
 
@@ -724,7 +724,7 @@ class _TableState:
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         return pulumi.get(self, "write_capacity")
 
@@ -864,12 +864,12 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
-        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
-        :param pulumi.Input[str] name: Name of the index
-        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        :param pulumi.Input[str] range_key: Name of the range key.
-        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[str] name: Unique within a region name of the table.
+        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Enable point-in-time recovery options. See below.
+        :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
+        :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -880,7 +880,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Configuration block for TTL. See below.
-        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         ...
     @overload
@@ -1101,12 +1101,12 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
-        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
-        :param pulumi.Input[str] name: Name of the index
-        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        :param pulumi.Input[str] range_key: Name of the range key.
-        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[str] name: Unique within a region name of the table.
+        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Enable point-in-time recovery options. See below.
+        :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
+        :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -1120,7 +1120,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Configuration block for TTL. See below.
-        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1188,7 +1188,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> pulumi.Output[str]:
         """
-        Name of the hash key in the index; must be defined as an attribute in the resource.
+        Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         """
         return pulumi.get(self, "hash_key")
 
@@ -1204,7 +1204,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the index
+        Unique within a region name of the table.
         """
         return pulumi.get(self, "name")
 
@@ -1212,7 +1212,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> pulumi.Output['outputs.TablePointInTimeRecovery']:
         """
-        Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        Enable point-in-time recovery options. See below.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -1220,7 +1220,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the range key.
+        Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         """
         return pulumi.get(self, "range_key")
 
@@ -1228,7 +1228,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="readCapacity")
     def read_capacity(self) -> pulumi.Output[int]:
         """
-        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         return pulumi.get(self, "read_capacity")
 
@@ -1340,7 +1340,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> pulumi.Output[int]:
         """
-        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
         return pulumi.get(self, "write_capacity")
 

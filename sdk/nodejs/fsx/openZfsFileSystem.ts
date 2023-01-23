@@ -100,7 +100,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
@@ -273,7 +273,7 @@ export interface OpenZfsFileSystemState {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
      */
     deploymentType?: pulumi.Input<string>;
     /**
@@ -367,7 +367,7 @@ export interface OpenZfsFileSystemArgs {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
      */
     deploymentType: pulumi.Input<string>;
     /**

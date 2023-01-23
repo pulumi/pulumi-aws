@@ -35,7 +35,7 @@ class EventTargetArgs:
                  target_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventTarget resource.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
@@ -90,7 +90,7 @@ class EventTargetArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
+        The Amazon Resource Name (ARN) of the target.
         """
         return pulumi.get(self, "arn")
 
@@ -313,7 +313,7 @@ class _EventTargetState:
                  target_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventTarget resources.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -370,7 +370,7 @@ class _EventTargetState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
+        The Amazon Resource Name (ARN) of the target.
         """
         return pulumi.get(self, "arn")
 
@@ -884,7 +884,7 @@ class EventTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -1292,7 +1292,7 @@ class EventTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -1337,7 +1337,7 @@ class EventTarget(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
+        The Amazon Resource Name (ARN) of the target.
         """
         return pulumi.get(self, "arn")
 

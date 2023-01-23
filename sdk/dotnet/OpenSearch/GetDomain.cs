@@ -198,9 +198,11 @@ namespace Pulumi.Aws.OpenSearch
         public readonly ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> NodeToNodeEncryptions;
         /// <summary>
         /// Status of a configuration change in the domain.
-        /// * `snapshot_options` – Domain snapshot related options.
         /// </summary>
         public readonly bool Processing;
+        /// <summary>
+        /// Domain snapshot related options.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionResult> SnapshotOptions;
         /// <summary>
         /// Tags assigned to the domain.

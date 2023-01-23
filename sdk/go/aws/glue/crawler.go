@@ -266,7 +266,7 @@ type Crawler struct {
 	Classifiers pulumi.StringArrayOutput `pulumi:"classifiers"`
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName pulumi.StringOutput           `pulumi:"databaseName"`
 	DeltaTargets CrawlerDeltaTargetArrayOutput `pulumi:"deltaTargets"`
 	// Description of the crawler.
@@ -345,7 +345,7 @@ type crawlerState struct {
 	Classifiers []string `pulumi:"classifiers"`
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName *string              `pulumi:"databaseName"`
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
@@ -390,7 +390,7 @@ type CrawlerState struct {
 	Classifiers pulumi.StringArrayInput
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrInput
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName pulumi.StringPtrInput
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
@@ -437,7 +437,7 @@ type crawlerArgs struct {
 	Classifiers []string `pulumi:"classifiers"`
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName string               `pulumi:"databaseName"`
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
@@ -479,7 +479,7 @@ type CrawlerArgs struct {
 	Classifiers pulumi.StringArrayInput
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrInput
-	// The name of the Glue database to be synchronized.
+	// Glue database where results are written.
 	DatabaseName pulumi.StringInput
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
@@ -620,7 +620,7 @@ func (o CrawlerOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringPtrOutput { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Glue database to be synchronized.
+// Glue database where results are written.
 func (o CrawlerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }

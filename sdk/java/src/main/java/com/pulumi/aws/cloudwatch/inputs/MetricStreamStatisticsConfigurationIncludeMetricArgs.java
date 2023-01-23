@@ -29,14 +29,14 @@ public final class MetricStreamStatisticsConfigurationIncludeMetricArgs extends 
     }
 
     /**
-     * The namespace of the metric.
+     * Name of the metric namespace in the filter.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return The namespace of the metric.
+     * @return Name of the metric namespace in the filter.
      * 
      */
     public Output<String> namespace() {
@@ -90,7 +90,7 @@ public final class MetricStreamStatisticsConfigurationIncludeMetricArgs extends 
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Name of the metric namespace in the filter.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class MetricStreamStatisticsConfigurationIncludeMetricArgs extends 
         }
 
         /**
-         * @param namespace The namespace of the metric.
+         * @param namespace Name of the metric namespace in the filter.
          * 
          * @return builder
          * 

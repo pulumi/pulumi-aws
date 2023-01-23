@@ -114,7 +114,7 @@ export class CostCategory extends pulumi.CustomResource {
      */
     public readonly ruleVersion!: pulumi.Output<string>;
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
     public readonly rules!: pulumi.Output<outputs.costexplorer.CostCategoryRule[]>;
     /**
@@ -122,7 +122,7 @@ export class CostCategory extends pulumi.CustomResource {
      */
     public readonly splitChargeRules!: pulumi.Output<outputs.costexplorer.CostCategorySplitChargeRule[] | undefined>;
     /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface CostCategoryState {
      */
     ruleVersion?: pulumi.Input<string>;
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[]>;
     /**
@@ -214,7 +214,7 @@ export interface CostCategoryState {
      */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
     /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -244,7 +244,7 @@ export interface CostCategoryArgs {
      */
     ruleVersion: pulumi.Input<string>;
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the Cost Category rules used to categorize costs. See below.
      */
     rules: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRule>[]>;
     /**
@@ -252,7 +252,7 @@ export interface CostCategoryArgs {
      */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
     /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -61,7 +61,6 @@ type LookupClusterResult struct {
 	// ARN of the cluster.
 	Arn string `pulumi:"arn"`
 	// True when the cluster allows automatic minor version upgrades.
-	// * `clusterEndpoint`
 	AutoMinorVersionUpgrade bool                        `pulumi:"autoMinorVersionUpgrade"`
 	ClusterEndpoints        []GetClusterClusterEndpoint `pulumi:"clusterEndpoints"`
 	// True when data tiering is enabled.
@@ -81,7 +80,6 @@ type LookupClusterResult struct {
 	// Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
 	// Name of this node.
-	// * `endpoint`
 	Name string `pulumi:"name"`
 	// Compute and memory capacity of the nodes in the cluster.
 	NodeType string `pulumi:"nodeType"`
@@ -102,8 +100,8 @@ type LookupClusterResult struct {
 	// Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
 	SnapshotWindow string `pulumi:"snapshotWindow"`
 	// ARN of the SNS topic to which cluster notifications are sent.
-	// * `subnetGroupName` -The name of the subnet group used for the cluster.
-	SnsTopicArn     string `pulumi:"snsTopicArn"`
+	SnsTopicArn string `pulumi:"snsTopicArn"`
+	// The name of the subnet group used for the cluster.
 	SubnetGroupName string `pulumi:"subnetGroupName"`
 	// Map of tags assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -162,7 +160,6 @@ func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 }
 
 // True when the cluster allows automatic minor version upgrades.
-// * `clusterEndpoint`
 func (o LookupClusterResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
@@ -212,7 +209,6 @@ func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
 }
 
 // Name of this node.
-// * `endpoint`
 func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -263,11 +259,11 @@ func (o LookupClusterResultOutput) SnapshotWindow() pulumi.StringOutput {
 }
 
 // ARN of the SNS topic to which cluster notifications are sent.
-// * `subnetGroupName` -The name of the subnet group used for the cluster.
 func (o LookupClusterResultOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
+// The name of the subnet group used for the cluster.
 func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.SubnetGroupName }).(pulumi.StringOutput)
 }

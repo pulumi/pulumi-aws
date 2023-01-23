@@ -551,7 +551,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class EventTarget : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// - ARN of the SQS queue specified as the target for the dead-letter queue.
+        /// The Amazon Resource Name (ARN) of the target.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -699,7 +699,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - ARN of the SQS queue specified as the target for the dead-letter queue.
+        /// The Amazon Resource Name (ARN) of the target.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -815,7 +815,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - ARN of the SQS queue specified as the target for the dead-letter queue.
+        /// The Amazon Resource Name (ARN) of the target.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

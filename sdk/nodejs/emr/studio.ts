@@ -61,6 +61,9 @@ export class Studio extends pulumi.CustomResource {
         return obj['__pulumiType'] === Studio.__pulumiType;
     }
 
+    /**
+     * ARN of the studio.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
@@ -108,7 +111,7 @@ export class Studio extends pulumi.CustomResource {
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
     /**
-     * - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+     * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      */
     public readonly userRole!: pulumi.Output<string | undefined>;
     /**
@@ -198,6 +201,9 @@ export class Studio extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Studio resources.
  */
 export interface StudioState {
+    /**
+     * ARN of the studio.
+     */
     arn?: pulumi.Input<string>;
     /**
      * Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
@@ -245,7 +251,7 @@ export interface StudioState {
      */
     url?: pulumi.Input<string>;
     /**
-     * - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+     * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      */
     userRole?: pulumi.Input<string>;
     /**
@@ -303,7 +309,7 @@ export interface StudioArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+     * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      */
     userRole?: pulumi.Input<string>;
     /**

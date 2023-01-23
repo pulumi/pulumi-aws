@@ -110,14 +110,16 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A flag that specifies whether Origin Shield is enabled.
+     * Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     public Output<Boolean> enabled() {
@@ -540,7 +542,8 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled to accept end
+         * user requests for content.
          * 
          * @return builder
          * 
@@ -551,7 +554,8 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled to accept end
+         * user requests for content.
          * 
          * @return builder
          * 

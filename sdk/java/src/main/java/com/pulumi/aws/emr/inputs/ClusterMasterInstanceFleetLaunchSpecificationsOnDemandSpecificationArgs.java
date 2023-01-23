@@ -14,14 +14,14 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecifi
     public static final ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs Empty = new ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs();
 
     /**
-     * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
      * 
      */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
     /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
      * 
      */
     public Output<String> allocationStrategy() {
@@ -53,7 +53,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecifi
         }
 
         /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * @param allocationStrategy Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecifi
         }
 
         /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * @param allocationStrategy Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
     public static final DomainAdvancedSecurityOptionsArgs Empty = new DomainAdvancedSecurityOptionsArgs();
 
     /**
-     * Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * Whether advanced security is enabled.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * @return Whether advanced security is enabled.
      * 
      */
     public Output<Boolean> enabled() {
@@ -88,7 +88,7 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+         * @param enabled Whether advanced security is enabled.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+         * @param enabled Whether advanced security is enabled.
          * 
          * @return builder
          * 

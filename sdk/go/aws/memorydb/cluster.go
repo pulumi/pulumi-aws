@@ -63,7 +63,6 @@ type Cluster struct {
 	// The name of the Access Control List to associate with the cluster.
 	AclName pulumi.StringOutput `pulumi:"aclName"`
 	// The ARN of the cluster.
-	// * `clusterEndpoint`
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrOutput              `pulumi:"autoMinorVersionUpgrade"`
@@ -158,7 +157,6 @@ type clusterState struct {
 	// The name of the Access Control List to associate with the cluster.
 	AclName *string `pulumi:"aclName"`
 	// The ARN of the cluster.
-	// * `clusterEndpoint`
 	Arn *string `pulumi:"arn"`
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade *bool                    `pulumi:"autoMinorVersionUpgrade"`
@@ -219,7 +217,6 @@ type ClusterState struct {
 	// The name of the Access Control List to associate with the cluster.
 	AclName pulumi.StringPtrInput
 	// The ARN of the cluster.
-	// * `clusterEndpoint`
 	Arn pulumi.StringPtrInput
 	// When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
@@ -476,7 +473,6 @@ func (o ClusterOutput) AclName() pulumi.StringOutput {
 }
 
 // The ARN of the cluster.
-// * `clusterEndpoint`
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

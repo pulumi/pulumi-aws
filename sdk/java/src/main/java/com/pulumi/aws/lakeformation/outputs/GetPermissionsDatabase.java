@@ -15,7 +15,7 @@ public final class GetPermissionsDatabase {
      */
     private String catalogId;
     /**
-     * @return Name of the table resource.
+     * @return Name of the database resource. Unique to the Data Catalog.
      * 
      */
     private String name;
@@ -29,7 +29,7 @@ public final class GetPermissionsDatabase {
         return this.catalogId;
     }
     /**
-     * @return Name of the table resource.
+     * @return Name of the database resource. Unique to the Data Catalog.
      * 
      */
     public String name() {

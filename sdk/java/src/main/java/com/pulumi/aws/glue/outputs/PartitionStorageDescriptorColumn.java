@@ -17,7 +17,7 @@ public final class PartitionStorageDescriptorColumn {
      */
     private @Nullable String comment;
     /**
-     * @return Name of the SerDe.
+     * @return The name of the Column.
      * 
      */
     private String name;
@@ -36,7 +36,7 @@ public final class PartitionStorageDescriptorColumn {
         return Optional.ofNullable(this.comment);
     }
     /**
-     * @return Name of the SerDe.
+     * @return The name of the Column.
      * 
      */
     public String name() {

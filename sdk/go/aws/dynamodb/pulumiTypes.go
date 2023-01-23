@@ -108,7 +108,7 @@ func (o GlobalTableReplicaArrayOutput) Index(i pulumi.IntInput) GlobalTableRepli
 }
 
 type TableAttribute struct {
-	// Name of the index
+	// Name of the attribute
 	Name string `pulumi:"name"`
 	// Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
 	Type string `pulumi:"type"`
@@ -126,7 +126,7 @@ type TableAttributeInput interface {
 }
 
 type TableAttributeArgs struct {
-	// Name of the index
+	// Name of the attribute
 	Name pulumi.StringInput `pulumi:"name"`
 	// Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
 	Type pulumi.StringInput `pulumi:"type"`
@@ -183,7 +183,7 @@ func (o TableAttributeOutput) ToTableAttributeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name of the index
+// Name of the attribute
 func (o TableAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -216,13 +216,13 @@ func (o TableAttributeArrayOutput) Index(i pulumi.IntInput) TableAttributeOutput
 type TableGlobalSecondaryIndex struct {
 	// Name of the hash key in the index; must be defined as an attribute in the resource.
 	HashKey string `pulumi:"hashKey"`
-	// Name of the index
+	// Name of the index.
 	Name string `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType string `pulumi:"projectionType"`
-	// Name of the range key.
+	// Name of the range key; must be defined
 	RangeKey *string `pulumi:"rangeKey"`
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
@@ -244,13 +244,13 @@ type TableGlobalSecondaryIndexInput interface {
 type TableGlobalSecondaryIndexArgs struct {
 	// Name of the hash key in the index; must be defined as an attribute in the resource.
 	HashKey pulumi.StringInput `pulumi:"hashKey"`
-	// Name of the index
+	// Name of the index.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
-	// Name of the range key.
+	// Name of the range key; must be defined
 	RangeKey pulumi.StringPtrInput `pulumi:"rangeKey"`
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput `pulumi:"readCapacity"`
@@ -314,7 +314,7 @@ func (o TableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.HashKey }).(pulumi.StringOutput)
 }
 
-// Name of the index
+// Name of the index.
 func (o TableGlobalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -329,7 +329,7 @@ func (o TableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
 }
 
-// Name of the range key.
+// Name of the range key; must be defined
 func (o TableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *string { return v.RangeKey }).(pulumi.StringPtrOutput)
 }
@@ -489,7 +489,7 @@ func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocal
 }
 
 type TablePointInTimeRecovery struct {
-	// Whether TTL is enabled.
+	// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -505,7 +505,7 @@ type TablePointInTimeRecoveryInput interface {
 }
 
 type TablePointInTimeRecoveryArgs struct {
-	// Whether TTL is enabled.
+	// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -586,7 +586,7 @@ func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutputWithC
 	}).(TablePointInTimeRecoveryPtrOutput)
 }
 
-// Whether TTL is enabled.
+// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 func (o TablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -615,7 +615,7 @@ func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput
 	}).(TablePointInTimeRecoveryOutput)
 }
 
-// Whether TTL is enabled.
+// Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TablePointInTimeRecovery) *bool {
 		if v == nil {
@@ -626,7 +626,7 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TableReplicaType struct {
-	// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+	// ARN of the CMK that should be used for the AWS KMS encryption.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
@@ -648,7 +648,7 @@ type TableReplicaTypeInput interface {
 }
 
 type TableReplicaTypeArgs struct {
-	// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+	// ARN of the CMK that should be used for the AWS KMS encryption.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput `pulumi:"pointInTimeRecovery"`
@@ -709,7 +709,7 @@ func (o TableReplicaTypeOutput) ToTableReplicaTypeOutputWithContext(ctx context.
 	return o
 }
 
-// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+// ARN of the CMK that should be used for the AWS KMS encryption.
 func (o TableReplicaTypeOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -750,7 +750,7 @@ func (o TableReplicaTypeArrayOutput) Index(i pulumi.IntInput) TableReplicaTypeOu
 }
 
 type TableServerSideEncryption struct {
-	// Whether TTL is enabled.
+	// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS owned CMK (shown as `DEFAULT` in the AWS console). If `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to AWS managed CMK (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS owned and AWS managed CMKs.
 	Enabled bool `pulumi:"enabled"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -768,7 +768,7 @@ type TableServerSideEncryptionInput interface {
 }
 
 type TableServerSideEncryptionArgs struct {
-	// Whether TTL is enabled.
+	// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS owned CMK (shown as `DEFAULT` in the AWS console). If `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to AWS managed CMK (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS owned and AWS managed CMKs.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
@@ -851,7 +851,7 @@ func (o TableServerSideEncryptionOutput) ToTableServerSideEncryptionPtrOutputWit
 	}).(TableServerSideEncryptionPtrOutput)
 }
 
-// Whether TTL is enabled.
+// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS owned CMK (shown as `DEFAULT` in the AWS console). If `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to AWS managed CMK (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS owned and AWS managed CMKs.
 func (o TableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -885,7 +885,7 @@ func (o TableServerSideEncryptionPtrOutput) Elem() TableServerSideEncryptionOutp
 	}).(TableServerSideEncryptionOutput)
 }
 
-// Whether TTL is enabled.
+// Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS owned CMK (shown as `DEFAULT` in the AWS console). If `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to AWS managed CMK (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS owned and AWS managed CMKs.
 func (o TableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableServerSideEncryption) *bool {
 		if v == nil {

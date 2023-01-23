@@ -266,14 +266,14 @@ public class Rule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.inputParameters);
     }
     /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     * The maximum frequency with which AWS Config runs evaluations for a rule.
      * 
      */
     @Export(name="maximumExecutionFrequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maximumExecutionFrequency;
 
     /**
-     * @return The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     * @return The maximum frequency with which AWS Config runs evaluations for a rule.
      * 
      */
     public Output<Optional<String>> maximumExecutionFrequency() {

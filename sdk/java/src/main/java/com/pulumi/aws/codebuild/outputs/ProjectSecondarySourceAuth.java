@@ -21,7 +21,7 @@ public final class ProjectSecondarySourceAuth {
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
     private @Nullable String resource;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
@@ -43,7 +43,7 @@ public final class ProjectSecondarySourceAuth {
         return Optional.ofNullable(this.resource);
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead

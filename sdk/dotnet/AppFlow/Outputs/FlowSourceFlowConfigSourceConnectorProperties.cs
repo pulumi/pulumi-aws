@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigSourceConnectorProperties
     {
         /// <summary>
-        /// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+        /// Information that is required for querying Amplitude. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesAmplitude? Amplitude;
         /// <summary>
-        /// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector? CustomConnector;
         /// <summary>
-        /// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Datadog. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadog? Datadog;
         /// <summary>
@@ -34,35 +34,35 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics? GoogleAnalytics;
         /// <summary>
-        /// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesInforNexus? InforNexus;
         /// <summary>
-        /// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Marketo. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesMarketo? Marketo;
         /// <summary>
-        /// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Amazon S3. See S3 Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3? S3;
         /// <summary>
-        /// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSalesforce? Salesforce;
         /// <summary>
-        /// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoData? SapoData;
         /// <summary>
-        /// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying ServiceNow. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesServiceNow? ServiceNow;
         /// <summary>
-        /// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Singular. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSingular? Singular;
         /// <summary>
-        /// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Slack. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSlack? Slack;
         /// <summary>
@@ -70,11 +70,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro? Trendmicro;
         /// <summary>
-        /// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Veeva. See Veeva Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesVeeva? Veeva;
         /// <summary>
-        /// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// Information that is required for querying Zendesk. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesZendesk? Zendesk;
 

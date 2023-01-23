@@ -138,7 +138,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      */
     private @Nullable Integer parNumerator;
     /**
-     * @return H264 profile.
+     * @return AAC profile.
      * 
      */
     private @Nullable String profile;
@@ -153,7 +153,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      */
     private @Nullable Integer qvbrQualityLevel;
     /**
-     * @return Rate control mode.
+     * @return The rate control mode.
      * 
      */
     private @Nullable String rateControlMode;
@@ -382,7 +382,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.parNumerator);
     }
     /**
-     * @return H264 profile.
+     * @return AAC profile.
      * 
      */
     public Optional<String> profile() {
@@ -403,7 +403,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.qvbrQualityLevel);
     }
     /**
-     * @return Rate control mode.
+     * @return The rate control mode.
      * 
      */
     public Optional<String> rateControlMode() {

@@ -34,8 +34,6 @@ public final class IdentityPoolProviderPrincipalTagState extends com.pulumi.reso
 
     /**
      * The name of the identity provider.
-     * * `principal_tags`: (Optional: []) - String to string map of variables.
-     * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
      * 
      */
     @Import(name="identityProviderName")
@@ -43,24 +41,38 @@ public final class IdentityPoolProviderPrincipalTagState extends com.pulumi.reso
 
     /**
      * @return The name of the identity provider.
-     * * `principal_tags`: (Optional: []) - String to string map of variables.
-     * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
      * 
      */
     public Optional<Output<String>> identityProviderName() {
         return Optional.ofNullable(this.identityProviderName);
     }
 
+    /**
+     * String to string map of variables.
+     * 
+     */
     @Import(name="principalTags")
     private @Nullable Output<Map<String,String>> principalTags;
 
+    /**
+     * @return String to string map of variables.
+     * 
+     */
     public Optional<Output<Map<String,String>>> principalTags() {
         return Optional.ofNullable(this.principalTags);
     }
 
+    /**
+     * use default (username and clientID) attribute mappings.
+     * 
+     */
     @Import(name="useDefaults")
     private @Nullable Output<Boolean> useDefaults;
 
+    /**
+     * @return use default (username and clientID) attribute mappings.
+     * 
+     */
     public Optional<Output<Boolean>> useDefaults() {
         return Optional.ofNullable(this.useDefaults);
     }
@@ -115,8 +127,6 @@ public final class IdentityPoolProviderPrincipalTagState extends com.pulumi.reso
 
         /**
          * @param identityProviderName The name of the identity provider.
-         * * `principal_tags`: (Optional: []) - String to string map of variables.
-         * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
          * 
          * @return builder
          * 
@@ -128,8 +138,6 @@ public final class IdentityPoolProviderPrincipalTagState extends com.pulumi.reso
 
         /**
          * @param identityProviderName The name of the identity provider.
-         * * `principal_tags`: (Optional: []) - String to string map of variables.
-         * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
          * 
          * @return builder
          * 
@@ -138,20 +146,44 @@ public final class IdentityPoolProviderPrincipalTagState extends com.pulumi.reso
             return identityProviderName(Output.of(identityProviderName));
         }
 
+        /**
+         * @param principalTags String to string map of variables.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalTags(@Nullable Output<Map<String,String>> principalTags) {
             $.principalTags = principalTags;
             return this;
         }
 
+        /**
+         * @param principalTags String to string map of variables.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalTags(Map<String,String> principalTags) {
             return principalTags(Output.of(principalTags));
         }
 
+        /**
+         * @param useDefaults use default (username and clientID) attribute mappings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useDefaults(@Nullable Output<Boolean> useDefaults) {
             $.useDefaults = useDefaults;
             return this;
         }
 
+        /**
+         * @param useDefaults use default (username and clientID) attribute mappings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useDefaults(Boolean useDefaults) {
             return useDefaults(Output.of(useDefaults));
         }

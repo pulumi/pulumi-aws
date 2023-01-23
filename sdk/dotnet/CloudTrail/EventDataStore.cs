@@ -131,7 +131,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<bool?> MultiRegionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the advanced event selector.
+        /// The name of the event data store.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<bool>? MultiRegionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the advanced event selector.
+        /// The name of the event data store.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<bool>? MultiRegionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the advanced event selector.
+        /// The name of the event data store.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

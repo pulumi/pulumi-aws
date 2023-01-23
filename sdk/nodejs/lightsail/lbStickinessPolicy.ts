@@ -68,7 +68,7 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
      */
     public readonly cookieDuration!: pulumi.Output<number>;
     /**
-     * - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -121,7 +121,7 @@ export interface LbStickinessPolicyState {
      */
     cookieDuration?: pulumi.Input<number>;
     /**
-     * - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -139,7 +139,7 @@ export interface LbStickinessPolicyArgs {
      */
     cookieDuration: pulumi.Input<number>;
     /**
-     * - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      */
     enabled: pulumi.Input<boolean>;
     /**

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public Input<string>? MessageBody { get; set; }
 
         /// <summary>
-        /// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        /// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
         /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }

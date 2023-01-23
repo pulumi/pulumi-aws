@@ -31,14 +31,14 @@ public final class TaskDefinitionPlacementConstraintArgs extends com.pulumi.reso
     }
 
     /**
-     * Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+     * Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+     * @return Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
      * 
      */
     public Output<String> type() {
@@ -92,7 +92,7 @@ public final class TaskDefinitionPlacementConstraintArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+         * @param type Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TaskDefinitionPlacementConstraintArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+         * @param type Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
          * 
          * @return builder
          * 

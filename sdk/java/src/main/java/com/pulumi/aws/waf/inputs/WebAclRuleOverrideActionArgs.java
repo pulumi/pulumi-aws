@@ -14,14 +14,16 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
     public static final WebAclRuleOverrideActionArgs Empty = new WebAclRuleOverrideActionArgs();
 
     /**
-     * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+     * Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+     * e.g., `ALLOW` or `BLOCK`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+     * @return Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+     * e.g., `ALLOW` or `BLOCK`
      * 
      */
     public Output<String> type() {
@@ -53,7 +55,8 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+         * @param type Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+         * e.g., `ALLOW` or `BLOCK`
          * 
          * @return builder
          * 
@@ -64,7 +67,8 @@ public final class WebAclRuleOverrideActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+         * @param type Specifies how you want AWS WAF to respond to requests that don&#39;t match the criteria in any of the `rules`.
+         * e.g., `ALLOW` or `BLOCK`
          * 
          * @return builder
          * 

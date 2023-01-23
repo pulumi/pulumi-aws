@@ -14,6 +14,7 @@ import (
 // Executes a Redshift Data Statement.
 //
 // ## Example Usage
+// ### clusterIdentifier
 //
 // ```go
 // package main
@@ -41,6 +42,33 @@ import (
 //	}
 //
 // ```
+// ### workgroupName
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftdata"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
+//				WorkgroupName: pulumi.Any(aws_redshiftserverless_workgroup.Example.Workgroup_name),
+//				Database:      pulumi.String("dev"),
+//				Sql:           pulumi.String("CREATE GROUP group_name;"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -54,8 +82,8 @@ import (
 type Statement struct {
 	pulumi.CustomResourceState
 
-	// The cluster identifier.
-	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+	ClusterIdentifier pulumi.StringPtrOutput `pulumi:"clusterIdentifier"`
 	// The name of the database.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// The database user name.
@@ -69,6 +97,8 @@ type Statement struct {
 	StatementName pulumi.StringPtrOutput `pulumi:"statementName"`
 	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
 	WithEvent pulumi.BoolPtrOutput `pulumi:"withEvent"`
+	// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+	WorkgroupName pulumi.StringPtrOutput `pulumi:"workgroupName"`
 }
 
 // NewStatement registers a new resource with the given unique name, arguments, and options.
@@ -78,9 +108,6 @@ func NewStatement(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ClusterIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
-	}
 	if args.Database == nil {
 		return nil, errors.New("invalid value for required argument 'Database'")
 	}
@@ -109,7 +136,7 @@ func GetStatement(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Statement resources.
 type statementState struct {
-	// The cluster identifier.
+	// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// The name of the database.
 	Database *string `pulumi:"database"`
@@ -124,10 +151,12 @@ type statementState struct {
 	StatementName *string `pulumi:"statementName"`
 	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
 	WithEvent *bool `pulumi:"withEvent"`
+	// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
 type StatementState struct {
-	// The cluster identifier.
+	// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
 	ClusterIdentifier pulumi.StringPtrInput
 	// The name of the database.
 	Database pulumi.StringPtrInput
@@ -142,6 +171,8 @@ type StatementState struct {
 	StatementName pulumi.StringPtrInput
 	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
 	WithEvent pulumi.BoolPtrInput
+	// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+	WorkgroupName pulumi.StringPtrInput
 }
 
 func (StatementState) ElementType() reflect.Type {
@@ -149,8 +180,8 @@ func (StatementState) ElementType() reflect.Type {
 }
 
 type statementArgs struct {
-	// The cluster identifier.
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// The name of the database.
 	Database string `pulumi:"database"`
 	// The database user name.
@@ -164,12 +195,14 @@ type statementArgs struct {
 	StatementName *string `pulumi:"statementName"`
 	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
 	WithEvent *bool `pulumi:"withEvent"`
+	// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
 // The set of arguments for constructing a Statement resource.
 type StatementArgs struct {
-	// The cluster identifier.
-	ClusterIdentifier pulumi.StringInput
+	// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+	ClusterIdentifier pulumi.StringPtrInput
 	// The name of the database.
 	Database pulumi.StringInput
 	// The database user name.
@@ -183,6 +216,8 @@ type StatementArgs struct {
 	StatementName pulumi.StringPtrInput
 	// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
 	WithEvent pulumi.BoolPtrInput
+	// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+	WorkgroupName pulumi.StringPtrInput
 }
 
 func (StatementArgs) ElementType() reflect.Type {
@@ -272,9 +307,9 @@ func (o StatementOutput) ToStatementOutputWithContext(ctx context.Context) State
 	return o
 }
 
-// The cluster identifier.
-func (o StatementOutput) ClusterIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
+// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
+func (o StatementOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Statement) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The name of the database.
@@ -309,6 +344,11 @@ func (o StatementOutput) StatementName() pulumi.StringPtrOutput {
 // A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
 func (o StatementOutput) WithEvent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Statement) pulumi.BoolPtrOutput { return v.WithEvent }).(pulumi.BoolPtrOutput)
+}
+
+// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+func (o StatementOutput) WorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Statement) pulumi.StringPtrOutput { return v.WorkgroupName }).(pulumi.StringPtrOutput)
 }
 
 type StatementArrayOutput struct{ *pulumi.OutputState }

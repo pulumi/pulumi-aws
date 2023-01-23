@@ -96,14 +96,14 @@ public final class ResponseHeadersPolicyCorsConfigArgs extends com.pulumi.resour
     }
 
     /**
-     * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+     * A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
      * 
      */
     @Import(name="accessControlMaxAgeSec")
     private @Nullable Output<Integer> accessControlMaxAgeSec;
 
     /**
-     * @return A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+     * @return A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
      * 
      */
     public Optional<Output<Integer>> accessControlMaxAgeSec() {
@@ -261,7 +261,7 @@ public final class ResponseHeadersPolicyCorsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param accessControlMaxAgeSec A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+         * @param accessControlMaxAgeSec A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class ResponseHeadersPolicyCorsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param accessControlMaxAgeSec A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+         * @param accessControlMaxAgeSec A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
          * 
          * @return builder
          * 

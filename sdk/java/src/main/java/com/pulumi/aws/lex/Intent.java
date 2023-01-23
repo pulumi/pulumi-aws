@@ -236,14 +236,14 @@ public class Intent extends com.pulumi.resources.CustomResource {
         return this.createdDate;
     }
     /**
-     * A description of the bot. Must be less than or equal to 200 characters in length.
+     * A description of the intent. Must be less than or equal to 200 characters in length.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the bot. Must be less than or equal to 200 characters in length.
+     * @return A description of the intent. Must be less than or equal to 200 characters in length.
      * 
      */
     public Output<Optional<String>> description() {
@@ -318,14 +318,14 @@ public class Intent extends com.pulumi.resources.CustomResource {
         return this.lastUpdatedDate;
     }
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+     * @return The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
     public Output<String> name() {
@@ -352,36 +352,38 @@ public class Intent extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentIntentSignature);
     }
     /**
-     * If the user answers &#34;no&#34; to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
+     * When the user answers &#34;no&#34; to the question defined in
+     * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
+     * Attributes are documented under statement.
      * 
      */
     @Export(name="rejectionStatement", refs={IntentRejectionStatement.class}, tree="[0]")
     private Output</* @Nullable */ IntentRejectionStatement> rejectionStatement;
 
     /**
-     * @return If the user answers &#34;no&#34; to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
+     * @return When the user answers &#34;no&#34; to the question defined in
+     * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
+     * Attributes are documented under statement.
      * 
      */
     public Output<Optional<IntentRejectionStatement>> rejectionStatement() {
         return Codegen.optional(this.rejectionStatement);
     }
     /**
-     * If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, &#34;I want {PizzaSize} pizza&#34;, &#34;Order {Quantity} {PizzaSize} pizzas&#34;.
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
     @Export(name="sampleUtterances", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sampleUtterances;
 
     /**
-     * @return If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     * @return An array of utterances (strings) that a user might say to signal
+     * the intent. For example, &#34;I want {PizzaSize} pizza&#34;, &#34;Order {Quantity} {PizzaSize} pizzas&#34;.
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
     public Output<Optional<List<String>>> sampleUtterances() {

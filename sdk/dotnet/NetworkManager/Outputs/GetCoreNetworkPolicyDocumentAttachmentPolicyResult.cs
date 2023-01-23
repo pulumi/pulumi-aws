@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyResult
     {
         /// <summary>
-        /// Action to take for the chosen segment. Valid values `create-route` or `share`.
+        /// Action to take when a condition is true. Detailed Below.
         /// </summary>
         public readonly Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult Action;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult> Conditions;
         /// <summary>
-        /// A user-defined string describing the segment action.
+        /// A user-defined description that further helps identify the rule.
         /// </summary>
         public readonly string? Description;
         /// <summary>

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? PlacementTenancy;
         public readonly ImmutableArray<Outputs.SpotFleetRequestLaunchSpecificationRootBlockDevice> RootBlockDevices;
         /// <summary>
-        /// The maximum spot bid for this override request.
+        /// The maximum bid price per unit hour.
         /// </summary>
         public readonly string? SpotPrice;
         /// <summary>

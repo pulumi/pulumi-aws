@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionConfigurationDistributionFastLaunchConfiguration {
     /**
-     * @return The account ID that this configuration applies to.
+     * @return The owner account ID for the fast-launch enabled Windows AMI.
      * 
      */
     private String accountId;
@@ -43,7 +43,7 @@ public final class DistributionConfigurationDistributionFastLaunchConfiguration 
 
     private DistributionConfigurationDistributionFastLaunchConfiguration() {}
     /**
-     * @return The account ID that this configuration applies to.
+     * @return The owner account ID for the fast-launch enabled Windows AMI.
      * 
      */
     public String accountId() {

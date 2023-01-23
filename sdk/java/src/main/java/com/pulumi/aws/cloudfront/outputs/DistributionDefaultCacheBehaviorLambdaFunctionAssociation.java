@@ -14,7 +14,8 @@ import javax.annotation.Nullable;
 public final class DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
     /**
      * @return The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
+     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+     * `origin-response`
      * 
      */
     private String eventType;
@@ -32,7 +33,8 @@ public final class DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
     private DistributionDefaultCacheBehaviorLambdaFunctionAssociation() {}
     /**
      * @return The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
+     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+     * `origin-response`
      * 
      */
     public String eventType() {

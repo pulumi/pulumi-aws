@@ -69,13 +69,13 @@ type Product struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Time when the product was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+	// Description of the product.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Distributor (i.e., vendor) of the product.
 	Distributor pulumi.StringOutput `pulumi:"distributor"`
 	// Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
 	HasDefaultPath pulumi.BoolOutput `pulumi:"hasDefaultPath"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+	// Name of the product.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the product.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -93,7 +93,7 @@ type Product struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -141,13 +141,13 @@ type productState struct {
 	Arn *string `pulumi:"arn"`
 	// Time when the product was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+	// Description of the product.
 	Description *string `pulumi:"description"`
 	// Distributor (i.e., vendor) of the product.
 	Distributor *string `pulumi:"distributor"`
 	// Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
 	HasDefaultPath *bool `pulumi:"hasDefaultPath"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+	// Name of the product.
 	Name *string `pulumi:"name"`
 	// Owner of the product.
 	Owner *string `pulumi:"owner"`
@@ -165,7 +165,7 @@ type productState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
 	Type *string `pulumi:"type"`
 }
 
@@ -176,13 +176,13 @@ type ProductState struct {
 	Arn pulumi.StringPtrInput
 	// Time when the product was created.
 	CreatedTime pulumi.StringPtrInput
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+	// Description of the product.
 	Description pulumi.StringPtrInput
 	// Distributor (i.e., vendor) of the product.
 	Distributor pulumi.StringPtrInput
 	// Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
 	HasDefaultPath pulumi.BoolPtrInput
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+	// Name of the product.
 	Name pulumi.StringPtrInput
 	// Owner of the product.
 	Owner pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type ProductState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -211,11 +211,11 @@ func (ProductState) ElementType() reflect.Type {
 type productArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+	// Description of the product.
 	Description *string `pulumi:"description"`
 	// Distributor (i.e., vendor) of the product.
 	Distributor *string `pulumi:"distributor"`
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+	// Name of the product.
 	Name *string `pulumi:"name"`
 	// Owner of the product.
 	Owner string `pulumi:"owner"`
@@ -229,7 +229,7 @@ type productArgs struct {
 	SupportUrl *string `pulumi:"supportUrl"`
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
 	Type string `pulumi:"type"`
 }
 
@@ -237,11 +237,11 @@ type productArgs struct {
 type ProductArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput
-	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+	// Description of the product.
 	Description pulumi.StringPtrInput
 	// Distributor (i.e., vendor) of the product.
 	Distributor pulumi.StringPtrInput
-	// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+	// Name of the product.
 	Name pulumi.StringPtrInput
 	// Owner of the product.
 	Owner pulumi.StringInput
@@ -255,7 +255,7 @@ type ProductArgs struct {
 	SupportUrl pulumi.StringPtrInput
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+	// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
 	Type pulumi.StringInput
 }
 
@@ -361,7 +361,7 @@ func (o ProductOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+// Description of the product.
 func (o ProductOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
@@ -376,7 +376,7 @@ func (o ProductOutput) HasDefaultPath() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Product) pulumi.BoolOutput { return v.HasDefaultPath }).(pulumi.BoolOutput)
 }
 
-// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+// Name of the product.
 func (o ProductOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -421,7 +421,7 @@ func (o ProductOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
 func (o ProductOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

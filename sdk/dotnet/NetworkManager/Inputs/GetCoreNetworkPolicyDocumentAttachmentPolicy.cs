@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Action to take for the chosen segment. Valid values `create-route` or `share`.
+        /// Action to take when a condition is true. Detailed Below.
         /// </summary>
         [Input("action", required: true)]
         public Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs Action { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         }
 
         /// <summary>
-        /// A user-defined string describing the segment action.
+        /// A user-defined description that further helps identify the rule.
         /// </summary>
         [Input("description")]
         public string? Description { get; set; }

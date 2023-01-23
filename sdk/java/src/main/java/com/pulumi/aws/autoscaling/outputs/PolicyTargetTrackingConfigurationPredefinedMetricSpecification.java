@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Metric type.
      * 
      */
     private String predefinedMetricType;
     /**
-     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * @return Identifies the resource associated with the metric type.
      * 
      */
     private @Nullable String resourceLabel;
 
     private PolicyTargetTrackingConfigurationPredefinedMetricSpecification() {}
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Metric type.
      * 
      */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
     /**
-     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * @return Identifies the resource associated with the metric type.
      * 
      */
     public Optional<String> resourceLabel() {

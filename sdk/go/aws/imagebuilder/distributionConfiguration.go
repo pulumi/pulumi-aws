@@ -77,11 +77,11 @@ type DistributionConfiguration struct {
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Date the distribution configuration was updated.
 	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
-	// Description of the container distribution configuration.
+	// Description of the distribution configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions DistributionConfigurationDistributionArrayOutput `pulumi:"distributions"`
-	// Name to apply to the distributed AMI.
+	// Name of the distribution configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -127,11 +127,11 @@ type distributionConfigurationState struct {
 	DateCreated *string `pulumi:"dateCreated"`
 	// Date the distribution configuration was updated.
 	DateUpdated *string `pulumi:"dateUpdated"`
-	// Description of the container distribution configuration.
+	// Description of the distribution configuration.
 	Description *string `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
-	// Name to apply to the distributed AMI.
+	// Name of the distribution configuration.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -146,11 +146,11 @@ type DistributionConfigurationState struct {
 	DateCreated pulumi.StringPtrInput
 	// Date the distribution configuration was updated.
 	DateUpdated pulumi.StringPtrInput
-	// Description of the container distribution configuration.
+	// Description of the distribution configuration.
 	Description pulumi.StringPtrInput
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions DistributionConfigurationDistributionArrayInput
-	// Name to apply to the distributed AMI.
+	// Name of the distribution configuration.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -163,11 +163,11 @@ func (DistributionConfigurationState) ElementType() reflect.Type {
 }
 
 type distributionConfigurationArgs struct {
-	// Description of the container distribution configuration.
+	// Description of the distribution configuration.
 	Description *string `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
-	// Name to apply to the distributed AMI.
+	// Name of the distribution configuration.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,11 +175,11 @@ type distributionConfigurationArgs struct {
 
 // The set of arguments for constructing a DistributionConfiguration resource.
 type DistributionConfigurationArgs struct {
-	// Description of the container distribution configuration.
+	// Description of the distribution configuration.
 	Description pulumi.StringPtrInput
 	// One or more configuration blocks with distribution settings. Detailed below.
 	Distributions DistributionConfigurationDistributionArrayInput
-	// Name to apply to the distributed AMI.
+	// Name of the distribution configuration.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags for the distribution configuration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -287,7 +287,7 @@ func (o DistributionConfigurationOutput) DateUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.DateUpdated }).(pulumi.StringOutput)
 }
 
-// Description of the container distribution configuration.
+// Description of the distribution configuration.
 func (o DistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -299,7 +299,7 @@ func (o DistributionConfigurationOutput) Distributions() DistributionConfigurati
 	}).(DistributionConfigurationDistributionArrayOutput)
 }
 
-// Name to apply to the distributed AMI.
+// Name of the distribution configuration.
 func (o DistributionConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

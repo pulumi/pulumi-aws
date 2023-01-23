@@ -48,14 +48,14 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * Name of the prefix list to select.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     * @return Name of the prefix list to select.
      * 
      */
     public Optional<String> name() {
@@ -137,7 +137,7 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+         * @param name Name of the prefix list to select.
          * 
          * @return builder
          * 

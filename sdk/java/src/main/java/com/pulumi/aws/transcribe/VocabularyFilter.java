@@ -160,14 +160,14 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
         return this.vocabularyFilterName;
     }
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
     @Export(name="words", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> words;
 
     /**
-     * @return - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
     public Output<Optional<List<String>>> words() {

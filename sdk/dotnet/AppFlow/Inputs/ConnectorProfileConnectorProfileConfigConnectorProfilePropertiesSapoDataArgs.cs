@@ -49,7 +49,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<int> PortNumber { get; set; } = null!;
 
         /// <summary>
-        /// The Snowflake Private Link service name to be used for private data transfers.
+        /// The SAPOData Private Link service name to be used for private data transfers.
         /// </summary>
         [Input("privateLinkServiceName")]
         public Input<string>? PrivateLinkServiceName { get; set; }

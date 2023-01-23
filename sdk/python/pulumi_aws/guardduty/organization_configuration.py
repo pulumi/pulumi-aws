@@ -21,7 +21,7 @@ class OrganizationConfigurationArgs:
                  datasources: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
-        :param pulumi.Input[bool] auto_enable: Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources.
         """
@@ -34,7 +34,7 @@ class OrganizationConfigurationArgs:
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Input[bool]:
         """
-        Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         return pulumi.get(self, "auto_enable")
 
@@ -75,7 +75,7 @@ class _OrganizationConfigurationState:
                  detector_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
-        :param pulumi.Input[bool] auto_enable: Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
@@ -90,7 +90,7 @@ class _OrganizationConfigurationState:
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         return pulumi.get(self, "auto_enable")
 
@@ -176,7 +176,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_enable: Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
@@ -282,7 +282,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_enable: Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
@@ -299,7 +299,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Output[bool]:
         """
-        Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+        When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         return pulumi.get(self, "auto_enable")
 

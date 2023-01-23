@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
     /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
+     * @return A name for the associated Amazon S3 bucket.
      * 
      */
     private String bucketName;
     /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * @return The object key for the destination bucket in which Amazon AppFlow places the files.
      * 
      */
     private @Nullable String bucketPrefix;
@@ -49,14 +49,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift() {}
     /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
+     * @return A name for the associated Amazon S3 bucket.
      * 
      */
     public String bucketName() {
         return this.bucketName;
     }
     /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * @return The object key for the destination bucket in which Amazon AppFlow places the files.
      * 
      */
     public Optional<String> bucketPrefix() {

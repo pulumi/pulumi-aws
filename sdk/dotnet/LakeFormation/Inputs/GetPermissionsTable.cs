@@ -19,13 +19,13 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public string CatalogId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the database for the table with columns resource. Unique to the Data Catalog.
+        /// Name of the database for the table. Unique to a Data Catalog.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the table resource.
+        /// Name of the table. At least one of `name` or `wildcard` is required.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

@@ -127,14 +127,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.dailyAutomaticBackupStartTime;
     }
     /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * @return The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      * 
      */
     public Output<String> deploymentType() {
@@ -309,14 +309,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageCapacity);
     }
     /**
-     * - The filesystem storage type. defaults to `SSD`.
+     * The filesystem storage type. defaults to `SSD`.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
-     * @return - The filesystem storage type. defaults to `SSD`.
+     * @return The filesystem storage type. defaults to `SSD`.
      * 
      */
     public Output<Optional<String>> storageType() {

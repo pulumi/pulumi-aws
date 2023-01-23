@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _events;
 
         /// <summary>
-        /// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        /// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         /// </summary>
         public InputList<string> Events
         {

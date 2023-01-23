@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs
     {
         /// <summary>
-        /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        /// Whether log delivery to Amazon CloudWatch Logs is enabled.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

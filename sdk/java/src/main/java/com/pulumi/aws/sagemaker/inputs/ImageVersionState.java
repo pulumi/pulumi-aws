@@ -18,7 +18,6 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
     @Import(name="arn")
@@ -26,7 +25,6 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -63,9 +61,17 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.containerImage);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the image the version is based on.
+     * 
+     */
     @Import(name="imageArn")
     private @Nullable Output<String> imageArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the image the version is based on.
+     * 
+     */
     public Optional<Output<String>> imageArn() {
         return Optional.ofNullable(this.imageArn);
     }
@@ -123,7 +129,6 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-         * * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
          * 
          * @return builder
          * 
@@ -135,7 +140,6 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-         * * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
          * 
          * @return builder
          * 
@@ -186,11 +190,23 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
             return containerImage(Output.of(containerImage));
         }
 
+        /**
+         * @param imageArn The Amazon Resource Name (ARN) of the image the version is based on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageArn(@Nullable Output<String> imageArn) {
             $.imageArn = imageArn;
             return this;
         }
 
+        /**
+         * @param imageArn The Amazon Resource Name (ARN) of the image the version is based on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder imageArn(String imageArn) {
             return imageArn(Output.of(imageArn));
         }

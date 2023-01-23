@@ -29,7 +29,7 @@ public final class EntityRecognizerInputDataConfigAugmentedManifest {
      */
     private @Nullable String documentType;
     /**
-     * @return Location of entity list.
+     * @return Location of augmented manifest file.
      * 
      */
     private String s3Uri;
@@ -69,7 +69,7 @@ public final class EntityRecognizerInputDataConfigAugmentedManifest {
         return Optional.ofNullable(this.documentType);
     }
     /**
-     * @return Location of entity list.
+     * @return Location of augmented manifest file.
      * 
      */
     public String s3Uri() {

@@ -16,14 +16,14 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
     public static final FeatureGroupOfflineStoreConfigS3StorageConfigArgs Empty = new FeatureGroupOfflineStoreConfigS3StorageConfigArgs();
 
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+     * The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+     * @return The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -71,7 +71,7 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
         }
 
         /**
-         * @param kmsKeyId The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
         }
 
         /**
-         * @param kmsKeyId The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+         * @param kmsKeyId The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
          * 
          * @return builder
          * 

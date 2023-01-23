@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IpGroupRule {
     /**
-     * @return The description.
+     * @return The description of the IP group.
      * 
      */
     private @Nullable String description;
@@ -24,7 +24,7 @@ public final class IpGroupRule {
 
     private IpGroupRule() {}
     /**
-     * @return The description.
+     * @return The description of the IP group.
      * 
      */
     public Optional<String> description() {

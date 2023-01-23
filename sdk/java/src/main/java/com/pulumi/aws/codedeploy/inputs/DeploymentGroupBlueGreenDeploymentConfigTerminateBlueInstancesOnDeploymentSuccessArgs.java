@@ -18,8 +18,6 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
 
     /**
      * The action to take on instances in the original environment after a successful blue/green deployment.
-     * * `TERMINATE`: Instances are terminated after a specified wait time.
-     * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
      * 
      */
     @Import(name="action")
@@ -27,8 +25,6 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
 
     /**
      * @return The action to take on instances in the original environment after a successful blue/green deployment.
-     * * `TERMINATE`: Instances are terminated after a specified wait time.
-     * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
      * 
      */
     public Optional<Output<String>> action() {
@@ -77,8 +73,6 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
 
         /**
          * @param action The action to take on instances in the original environment after a successful blue/green deployment.
-         * * `TERMINATE`: Instances are terminated after a specified wait time.
-         * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
          * 
          * @return builder
          * 
@@ -90,8 +84,6 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
 
         /**
          * @param action The action to take on instances in the original environment after a successful blue/green deployment.
-         * * `TERMINATE`: Instances are terminated after a specified wait time.
-         * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
          * 
          * @return builder
          * 

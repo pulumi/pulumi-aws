@@ -32,8 +32,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
 
         /// <summary>
         /// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-        /// * `true`: The deployment will proceed even if alarm status information can't be retrieved.
-        /// * `false`: The deployment will stop if alarm status information can't be retrieved.
         /// </summary>
         [Input("ignorePollAlarmFailure")]
         public Input<bool>? IgnorePollAlarmFailure { get; set; }

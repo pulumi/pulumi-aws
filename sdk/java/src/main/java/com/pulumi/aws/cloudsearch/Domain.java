@@ -173,14 +173,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.multiAz;
     }
     /**
-     * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+     * The name of the CloudSearch domain.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+     * @return The name of the CloudSearch domain.
      * 
      */
     public Output<String> name() {

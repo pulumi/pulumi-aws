@@ -142,14 +142,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the dimension.
+     * Name of the policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the dimension.
+     * @return Name of the policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -443,7 +443,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the dimension.
+         * @param name Name of the policy.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the dimension.
+         * @param name Name of the policy.
          * 
          * @return builder
          * 

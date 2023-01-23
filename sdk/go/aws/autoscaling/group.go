@@ -557,7 +557,7 @@ type Group struct {
 	InstanceRefresh GroupInstanceRefreshPtrOutput `pulumi:"instanceRefresh"`
 	// Name of the launch configuration to use.
 	LaunchConfiguration pulumi.StringPtrOutput `pulumi:"launchConfiguration"`
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
@@ -573,7 +573,8 @@ type Group struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity pulumi.IntPtrOutput `pulumi:"minElbCapacity"`
-	// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	// Minimum size of the Auto Scaling Group.
+	// (See also Waiting for Capacity below.)
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrOutput `pulumi:"mixedInstancesPolicy"`
@@ -704,7 +705,7 @@ type groupState struct {
 	InstanceRefresh *GroupInstanceRefresh `pulumi:"instanceRefresh"`
 	// Name of the launch configuration to use.
 	LaunchConfiguration interface{} `pulumi:"launchConfiguration"`
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate *GroupLaunchTemplate `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
@@ -720,7 +721,8 @@ type groupState struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity *int `pulumi:"minElbCapacity"`
-	// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	// Minimum size of the Auto Scaling Group.
+	// (See also Waiting for Capacity below.)
 	MinSize *int `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy *GroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicy"`
@@ -817,7 +819,7 @@ type GroupState struct {
 	InstanceRefresh GroupInstanceRefreshPtrInput
 	// Name of the launch configuration to use.
 	LaunchConfiguration pulumi.Input
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrInput
 	// List of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
@@ -833,7 +835,8 @@ type GroupState struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity pulumi.IntPtrInput
-	// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	// Minimum size of the Auto Scaling Group.
+	// (See also Waiting for Capacity below.)
 	MinSize pulumi.IntPtrInput
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrInput
@@ -932,7 +935,7 @@ type groupArgs struct {
 	InstanceRefresh *GroupInstanceRefresh `pulumi:"instanceRefresh"`
 	// Name of the launch configuration to use.
 	LaunchConfiguration interface{} `pulumi:"launchConfiguration"`
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate *GroupLaunchTemplate `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
@@ -948,7 +951,8 @@ type groupArgs struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity *int `pulumi:"minElbCapacity"`
-	// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	// Minimum size of the Auto Scaling Group.
+	// (See also Waiting for Capacity below.)
 	MinSize int `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy *GroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicy"`
@@ -1044,7 +1048,7 @@ type GroupArgs struct {
 	InstanceRefresh GroupInstanceRefreshPtrInput
 	// Name of the launch configuration to use.
 	LaunchConfiguration pulumi.Input
-	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrInput
 	// List of elastic load balancer names to add to the autoscaling
 	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
@@ -1060,7 +1064,8 @@ type GroupArgs struct {
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
 	MinElbCapacity pulumi.IntPtrInput
-	// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+	// Minimum size of the Auto Scaling Group.
+	// (See also Waiting for Capacity below.)
 	MinSize pulumi.IntInput
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrInput
@@ -1291,7 +1296,7 @@ func (o GroupOutput) LaunchConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.LaunchConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 func (o GroupOutput) LaunchTemplate() GroupLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *Group) GroupLaunchTemplatePtrOutput { return v.LaunchTemplate }).(GroupLaunchTemplatePtrOutput)
 }
@@ -1325,7 +1330,8 @@ func (o GroupOutput) MinElbCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.IntPtrOutput { return v.MinElbCapacity }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+// Minimum size of the Auto Scaling Group.
+// (See also Waiting for Capacity below.)
 func (o GroupOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *Group) pulumi.IntOutput { return v.MinSize }).(pulumi.IntOutput)
 }

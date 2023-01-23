@@ -18,7 +18,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
      */
     private @Nullable Double bitrate;
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     private @Nullable String codingMode;
@@ -37,7 +37,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
         return Optional.ofNullable(this.bitrate);
     }
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<String> codingMode() {

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Emr.Outputs
     public sealed class ClusterBootstrapAction
     {
         /// <summary>
-        /// List of command line arguments passed to the JAR file's main function when executed.
+        /// List of command line arguments to pass to the bootstrap action script.
         /// </summary>
         public readonly ImmutableArray<string> Args;
         /// <summary>
-        /// Name of the step.
+        /// Name of the bootstrap action.
         /// </summary>
         public readonly string Name;
         /// <summary>

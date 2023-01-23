@@ -574,14 +574,14 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+     * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     @Import(name="parquetTimestampInMillisecond")
     private @Nullable Output<Boolean> parquetTimestampInMillisecond;
 
     /**
-     * @return - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+     * @return Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     public Optional<Output<Boolean>> parquetTimestampInMillisecond() {
@@ -1635,7 +1635,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parquetTimestampInMillisecond - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+         * @param parquetTimestampInMillisecond Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 
@@ -1646,7 +1646,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parquetTimestampInMillisecond - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+         * @param parquetTimestampInMillisecond Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
          * 
          * @return builder
          * 

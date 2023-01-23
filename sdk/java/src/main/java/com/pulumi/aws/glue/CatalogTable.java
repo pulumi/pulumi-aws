@@ -153,28 +153,28 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * ID of the Data Catalog in which the table resides.
+     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return ID of the Data Catalog in which the table resides.
+     * @return ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
     public Output<String> catalogId() {
         return this.catalogId;
     }
     /**
-     * Name of the catalog database that contains the target table.
+     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
-     * @return Name of the catalog database that contains the target table.
+     * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
     public Output<String> databaseName() {
@@ -195,14 +195,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of the target table.
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the target table.
+     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
     public Output<String> name() {
@@ -223,14 +223,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.owner);
     }
     /**
-     * Map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return Properties associated with this table, as a list of key-value pairs.
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {

@@ -24,7 +24,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
      */
     private @Nullable String instanceType;
     /**
-     * @return Override the instance launch template specification in the Launch Template.
+     * @return Nested argument defines the Launch Template. Defined below.
      * 
      */
     private @Nullable GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification launchTemplateSpecification;
@@ -50,7 +50,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverride {
         return Optional.ofNullable(this.instanceType);
     }
     /**
-     * @return Override the instance launch template specification in the Launch Template.
+     * @return Nested argument defines the Launch Template. Defined below.
      * 
      */
     public Optional<GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification> launchTemplateSpecification() {

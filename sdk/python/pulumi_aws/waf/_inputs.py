@@ -420,7 +420,7 @@ class RuleGroupActivatedRuleArgs:
         :param pulumi.Input['RuleGroupActivatedRuleActionArgs'] action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         :param pulumi.Input[int] priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
         :param pulumi.Input[str] rule_id: The ID of a rule
-        :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        :param pulumi.Input[str] type: e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "priority", priority)
@@ -468,7 +468,7 @@ class RuleGroupActivatedRuleArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -482,7 +482,7 @@ class RuleGroupActivatedRuleActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        :param pulumi.Input[str] type: e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -490,7 +490,7 @@ class RuleGroupActivatedRuleActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -782,7 +782,8 @@ class WebAclDefaultActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+               e.g., `ALLOW` or `BLOCK`
         """
         pulumi.set(__self__, "type", type)
 
@@ -790,7 +791,8 @@ class WebAclDefaultActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+        e.g., `ALLOW` or `BLOCK`
         """
         return pulumi.get(self, "type")
 
@@ -865,7 +867,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs:
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        :param pulumi.Input[str] type: The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         :param pulumi.Input[str] data: When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         """
         pulumi.set(__self__, "type", type)
@@ -876,7 +878,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         """
         return pulumi.get(self, "type")
 
@@ -989,7 +991,8 @@ class WebAclRuleActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+               e.g., `ALLOW` or `BLOCK`
         """
         pulumi.set(__self__, "type", type)
 
@@ -997,7 +1000,8 @@ class WebAclRuleActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+        e.g., `ALLOW` or `BLOCK`
         """
         return pulumi.get(self, "type")
 
@@ -1011,7 +1015,8 @@ class WebAclRuleOverrideActionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+               e.g., `ALLOW` or `BLOCK`
         """
         pulumi.set(__self__, "type", type)
 
@@ -1019,7 +1024,8 @@ class WebAclRuleOverrideActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+        Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+        e.g., `ALLOW` or `BLOCK`
         """
         return pulumi.get(self, "type")
 

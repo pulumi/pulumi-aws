@@ -87,7 +87,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateAction[]>;
     /**
-     * Description of the action.
+     * Description for the experiment template.
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Action's target, if applicable. See below.
+     * Target of an action. See below.
      */
     public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateTarget[] | undefined>;
 
@@ -164,7 +164,7 @@ export interface ExperimentTemplateState {
      */
     actions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateAction>[]>;
     /**
-     * Description of the action.
+     * Description for the experiment template.
      */
     description?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface ExperimentTemplateState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Action's target, if applicable. See below.
+     * Target of an action. See below.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[]>;
 }
@@ -195,7 +195,7 @@ export interface ExperimentTemplateArgs {
      */
     actions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateAction>[]>;
     /**
-     * Description of the action.
+     * Description for the experiment template.
      */
     description: pulumi.Input<string>;
     /**
@@ -211,7 +211,7 @@ export interface ExperimentTemplateArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Action's target, if applicable. See below.
+     * Target of an action. See below.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTarget>[]>;
 }

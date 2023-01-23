@@ -231,7 +231,7 @@ export class WebAcl extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
-     * Label string.
+     * Friendly name of the WebACL.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -335,7 +335,7 @@ export interface WebAclState {
     description?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
     /**
-     * Label string.
+     * Friendly name of the WebACL.
      */
     name?: pulumi.Input<string>;
     /**
@@ -377,7 +377,7 @@ export interface WebAclArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Label string.
+     * Friendly name of the WebACL.
      */
     name?: pulumi.Input<string>;
     /**

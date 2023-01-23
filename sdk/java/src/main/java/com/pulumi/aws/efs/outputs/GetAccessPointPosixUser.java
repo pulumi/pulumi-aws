@@ -22,7 +22,6 @@ public final class GetAccessPointPosixUser {
     private List<Integer> secondaryGids;
     /**
      * @return User Id
-     * * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      * 
      */
     private Integer uid;
@@ -44,7 +43,6 @@ public final class GetAccessPointPosixUser {
     }
     /**
      * @return User Id
-     * * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      * 
      */
     public Integer uid() {

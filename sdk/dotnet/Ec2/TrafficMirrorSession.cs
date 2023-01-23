@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> PacketLength { get; private set; } = null!;
 
         /// <summary>
-        /// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+        /// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         /// </summary>
         [Output("sessionNumber")]
         public Output<int> SessionNumber { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> TrafficMirrorTargetId { get; private set; } = null!;
 
         /// <summary>
-        /// - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+        /// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         /// </summary>
         [Output("virtualNetworkId")]
         public Output<int> VirtualNetworkId { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? PacketLength { get; set; }
 
         /// <summary>
-        /// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+        /// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         /// </summary>
         [Input("sessionNumber", required: true)]
         public Input<int> SessionNumber { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string> TrafficMirrorTargetId { get; set; } = null!;
 
         /// <summary>
-        /// - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+        /// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<int>? VirtualNetworkId { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? PacketLength { get; set; }
 
         /// <summary>
-        /// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+        /// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         /// </summary>
         [Input("sessionNumber")]
         public Input<int>? SessionNumber { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? TrafficMirrorTargetId { get; set; }
 
         /// <summary>
-        /// - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+        /// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<int>? VirtualNetworkId { get; set; }

@@ -32,14 +32,14 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * @return Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     public Output<String> databaseName() {
@@ -47,14 +47,14 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the table resource.
+     * Name of the table.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the table resource.
+     * @return Name of the table.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * Whether to use a wildcard representing every table under a database. Defaults to `false`.
      * 
      */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
     /**
-     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> wildcard() {
@@ -125,7 +125,7 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param databaseName Name of the database for the table with columns resource. Unique to the Data Catalog.
+         * @param databaseName Name of the database for the table. Unique to a Data Catalog.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param databaseName Name of the database for the table with columns resource. Unique to the Data Catalog.
+         * @param databaseName Name of the database for the table. Unique to a Data Catalog.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the table resource.
+         * @param name Name of the table.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the table resource.
+         * @param name Name of the table.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * @param wildcard Whether to use a wildcard representing every table under a database. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class PermissionsTableArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param wildcard Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+         * @param wildcard Whether to use a wildcard representing every table under a database. Defaults to `false`.
          * 
          * @return builder
          * 

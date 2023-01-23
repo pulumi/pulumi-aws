@@ -16,14 +16,14 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
     public static final FrameworkControlInputParameterArgs Empty = new FrameworkControlInputParameterArgs();
 
     /**
-     * The name of a parameter, for example, BackupPlanFrequency.
+     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
+     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
+         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FrameworkControlInputParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
+         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduleTarget {
     /**
-     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * @return ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
      * 
      */
     private String arn;
@@ -71,7 +71,7 @@ public final class ScheduleTarget {
 
     private ScheduleTarget() {}
     /**
-     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * @return ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
      * 
      */
     public String arn() {

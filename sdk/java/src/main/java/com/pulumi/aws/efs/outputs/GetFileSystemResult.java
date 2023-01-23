@@ -63,7 +63,6 @@ public final class GetFileSystemResult {
     private String performanceMode;
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
-     * * `tags` -A map of tags to assign to the file system.
      * 
      */
     private Double provisionedThroughputInMibps;
@@ -72,6 +71,10 @@ public final class GetFileSystemResult {
      * 
      */
     private Integer sizeInBytes;
+    /**
+     * @return A map of tags to assign to the file system.
+     * 
+     */
     private Map<String,String> tags;
     /**
      * @return Throughput mode for the file system.
@@ -151,7 +154,6 @@ public final class GetFileSystemResult {
     }
     /**
      * @return The throughput, measured in MiB/s, that you want to provision for the file system.
-     * * `tags` -A map of tags to assign to the file system.
      * 
      */
     public Double provisionedThroughputInMibps() {
@@ -164,6 +166,10 @@ public final class GetFileSystemResult {
     public Integer sizeInBytes() {
         return this.sizeInBytes;
     }
+    /**
+     * @return A map of tags to assign to the file system.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

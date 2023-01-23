@@ -130,7 +130,7 @@ class SigningJobSignedObject(dict):
     def __init__(__self__, *,
                  s3s: Optional[Sequence['outputs.SigningJobSignedObjectS3']] = None):
         """
-        :param Sequence['SigningJobSignedObjectS3Args'] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param Sequence['SigningJobSignedObjectS3Args'] s3s: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         if s3s is not None:
             pulumi.set(__self__, "s3s", s3s)
@@ -139,7 +139,7 @@ class SigningJobSignedObject(dict):
     @pulumi.getter
     def s3s(self) -> Optional[Sequence['outputs.SigningJobSignedObjectS3']]:
         """
-        A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         return pulumi.get(self, "s3s")
 
@@ -180,7 +180,7 @@ class SigningJobSource(dict):
     def __init__(__self__, *,
                  s3: 'outputs.SigningJobSourceS3'):
         """
-        :param 'SigningJobSourceS3Args' s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param 'SigningJobSourceS3Args' s3: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -188,7 +188,7 @@ class SigningJobSource(dict):
     @pulumi.getter
     def s3(self) -> 'outputs.SigningJobSourceS3':
         """
-        A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         return pulumi.get(self, "s3")
 

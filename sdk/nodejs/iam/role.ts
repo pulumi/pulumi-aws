@@ -224,7 +224,7 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly maxSessionDuration!: pulumi.Output<number | undefined>;
     /**
-     * Name of the role policy.
+     * Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -340,7 +340,7 @@ export interface RoleState {
      */
     maxSessionDuration?: pulumi.Input<number>;
     /**
-     * Name of the role policy.
+     * Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     name?: pulumi.Input<string>;
     /**
@@ -395,7 +395,7 @@ export interface RoleArgs {
      */
     maxSessionDuration?: pulumi.Input<number>;
     /**
-     * Name of the role policy.
+     * Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
     name?: pulumi.Input<string>;
     /**

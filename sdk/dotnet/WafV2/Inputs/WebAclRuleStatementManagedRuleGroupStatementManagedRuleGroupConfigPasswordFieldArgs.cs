@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the username field.
+        /// The name of the password field.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<string> Identifier { get; set; } = null!;

@@ -47,6 +47,12 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// must be specified.
         /// </summary>
         public readonly string? MinimumProtocolVersion;
+        /// <summary>
+        /// Specifies how you want CloudFront to serve HTTPS
+        /// requests. One of `vip` or `sni-only`. Required if you specify
+        /// `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+        /// CloudFront to use a dedicated IP address and may incur extra charges.
+        /// </summary>
         public readonly string? SslSupportMethod;
 
         [OutputConstructor]

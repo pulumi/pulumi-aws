@@ -17,15 +17,15 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
     public static final DataSourceCredentialsArgs Empty = new DataSourceCredentialsArgs();
 
     /**
-     * - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-     *   When the value is not null, the `credential_pair` from the data source in the ARN is used.
+     * The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+     * When the value is not null, the `credential_pair` from the data source in the ARN is used.
      * 
      */
     @Import(name="copySourceArn")
     private @Nullable Output<String> copySourceArn;
 
     /**
-     * @return - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+     * @return The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
      * When the value is not null, the `credential_pair` from the data source in the ARN is used.
      * 
      */
@@ -34,14 +34,14 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * - Credential pair. See Credential Pair below for more details.
+     * Credential pair. See Credential Pair below for more details.
      * 
      */
     @Import(name="credentialPair")
     private @Nullable Output<DataSourceCredentialsCredentialPairArgs> credentialPair;
 
     /**
-     * @return - Credential pair. See Credential Pair below for more details.
+     * @return Credential pair. See Credential Pair below for more details.
      * 
      */
     public Optional<Output<DataSourceCredentialsCredentialPairArgs>> credentialPair() {
@@ -74,7 +74,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param copySourceArn - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * @param copySourceArn The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
          * When the value is not null, the `credential_pair` from the data source in the ARN is used.
          * 
          * @return builder
@@ -86,7 +86,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param copySourceArn - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * @param copySourceArn The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
          * When the value is not null, the `credential_pair` from the data source in the ARN is used.
          * 
          * @return builder
@@ -97,7 +97,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param credentialPair - Credential pair. See Credential Pair below for more details.
+         * @param credentialPair Credential pair. See Credential Pair below for more details.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param credentialPair - Credential pair. See Credential Pair below for more details.
+         * @param credentialPair Credential pair. See Credential Pair below for more details.
          * 
          * @return builder
          * 

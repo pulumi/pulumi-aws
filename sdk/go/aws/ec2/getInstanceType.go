@@ -111,13 +111,13 @@ type GetInstanceTypeResult struct {
 	// `true` if On-Demand hibernation is supported.
 	HibernationSupported bool `pulumi:"hibernationSupported"`
 	// Hypervisor used for the instance type.
-	// * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
+	Hypervisor string `pulumi:"hypervisor"`
+	// The provider-assigned unique ID for this managed resource.
+	Id string `pulumi:"id"`
+	// Describes the Inference accelerators for the instance type.
 	// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
 	// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
 	// * `inference_accelerators.#.name` - The name of the Inference accelerator.
-	Hypervisor string `pulumi:"hypervisor"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                    string                                `pulumi:"id"`
 	InferenceAccelerators []GetInstanceTypeInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// Describes the disks for the instance type.
 	// * `instance_disks.#.count` - The number of disks with this configuration.
@@ -330,10 +330,6 @@ func (o GetInstanceTypeResultOutput) HibernationSupported() pulumi.BoolOutput {
 }
 
 // Hypervisor used for the instance type.
-// * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
-// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-// * `inference_accelerators.#.name` - The name of the Inference accelerator.
 func (o GetInstanceTypeResultOutput) Hypervisor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.Hypervisor }).(pulumi.StringOutput)
 }
@@ -343,6 +339,10 @@ func (o GetInstanceTypeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Describes the Inference accelerators for the instance type.
+// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+// * `inference_accelerators.#.name` - The name of the Inference accelerator.
 func (o GetInstanceTypeResultOutput) InferenceAccelerators() GetInstanceTypeInferenceAcceleratorArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) []GetInstanceTypeInferenceAccelerator { return v.InferenceAccelerators }).(GetInstanceTypeInferenceAcceleratorArrayOutput)
 }

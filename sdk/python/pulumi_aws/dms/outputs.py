@@ -51,7 +51,7 @@ class EndpointElasticsearchSettings(dict):
                  full_load_error_percentage: Optional[int] = None):
         """
         :param str endpoint_uri: Endpoint for the OpenSearch cluster.
-        :param str service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param str service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         :param int error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
         :param int full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
         """
@@ -74,7 +74,7 @@ class EndpointElasticsearchSettings(dict):
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> str:
         """
-        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -165,19 +165,19 @@ class EndpointKafkaSettings(dict):
                  topic: Optional[str] = None):
         """
         :param str broker: Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-        :param bool include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
-        :param bool include_null_and_empty: Include NULL and empty columns in the target. Default is `false`.
-        :param bool include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
-        :param bool include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
-        :param bool include_transaction_details: Provides detailed transaction information from the source database. Default is `false`.
-        :param str message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+        :param bool include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
+        :param bool include_null_and_empty: Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
+        :param bool include_partition_value: Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
+        :param bool include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
+        :param bool include_transaction_details: Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
+        :param str message_format: Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
         :param int message_max_bytes: Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         :param bool no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-        :param bool partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+        :param bool partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
         :param str sasl_password: Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param str sasl_username: Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param str security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
-        :param str ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        :param str ssl_ca_certificate_arn: ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         :param str ssl_client_certificate_arn: ARN of the client certificate used to securely connect to a Kafka target endpoint.
         :param str ssl_client_key_arn: ARN for the client private key used to securely connect to a Kafka target endpoint.
         :param str ssl_client_key_password: Password for the client private key used to securely connect to a Kafka target endpoint.
@@ -231,7 +231,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="includeControlDetails")
     def include_control_details(self) -> Optional[bool]:
         """
-        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+        Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
         """
         return pulumi.get(self, "include_control_details")
 
@@ -239,7 +239,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="includeNullAndEmpty")
     def include_null_and_empty(self) -> Optional[bool]:
         """
-        Include NULL and empty columns in the target. Default is `false`.
+        Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
         """
         return pulumi.get(self, "include_null_and_empty")
 
@@ -247,7 +247,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="includePartitionValue")
     def include_partition_value(self) -> Optional[bool]:
         """
-        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+        Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
         """
         return pulumi.get(self, "include_partition_value")
 
@@ -255,7 +255,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="includeTableAlterOperations")
     def include_table_alter_operations(self) -> Optional[bool]:
         """
-        Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+        Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
         """
         return pulumi.get(self, "include_table_alter_operations")
 
@@ -263,7 +263,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="includeTransactionDetails")
     def include_transaction_details(self) -> Optional[bool]:
         """
-        Provides detailed transaction information from the source database. Default is `false`.
+        Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
         """
         return pulumi.get(self, "include_transaction_details")
 
@@ -271,7 +271,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[str]:
         """
-        Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+        Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
 
@@ -295,7 +295,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="partitionIncludeSchemaTable")
     def partition_include_schema_table(self) -> Optional[bool]:
         """
-        Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+        Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
         """
         return pulumi.get(self, "partition_include_schema_table")
 
@@ -327,7 +327,7 @@ class EndpointKafkaSettings(dict):
     @pulumi.getter(name="sslCaCertificateArn")
     def ssl_ca_certificate_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
@@ -417,7 +417,7 @@ class EndpointKinesisSettings(dict):
         :param bool include_transaction_details: Provides detailed transaction information from the source database. Default is `false`.
         :param str message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         :param bool partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
-        :param str service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param str service_access_role_arn: ARN of the IAM Role with permissions to write to the Kinesis data stream.
         :param str stream_arn: ARN of the Kinesis data stream.
         """
         if include_control_details is not None:
@@ -499,7 +499,7 @@ class EndpointKinesisSettings(dict):
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[str]:
         """
-        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        ARN of the IAM Role with permissions to write to the Kinesis data stream.
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -551,7 +551,7 @@ class EndpointMongodbSettings(dict):
         """
         :param str auth_mechanism: Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
         :param str auth_source: Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
-        :param str auth_type: The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+        :param str auth_type: Authentication type to access the MongoDB source endpoint. Default is `password`.
         :param str docs_to_investigate: Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
         :param str extract_doc_id: Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         :param str nesting_level: Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
@@ -589,7 +589,7 @@ class EndpointMongodbSettings(dict):
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[str]:
         """
-        The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+        Authentication type to access the MongoDB source endpoint. Default is `password`.
         """
         return pulumi.get(self, "auth_type")
 
@@ -767,11 +767,11 @@ class EndpointRedshiftSettings(dict):
                  server_side_encryption_kms_key_id: Optional[str] = None,
                  service_access_role_arn: Optional[str] = None):
         """
-        :param str bucket_folder: S3 object prefix.
-        :param str bucket_name: S3 bucket name.
-        :param str encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
-        :param str server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
-        :param str service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param str bucket_folder: Custom S3 Bucket Object prefix for intermediate storage.
+        :param str bucket_name: Custom S3 Bucket name for intermediate storage.
+        :param str encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        :param str server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        :param str service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
@@ -788,7 +788,7 @@ class EndpointRedshiftSettings(dict):
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[str]:
         """
-        S3 object prefix.
+        Custom S3 Bucket Object prefix for intermediate storage.
         """
         return pulumi.get(self, "bucket_folder")
 
@@ -796,7 +796,7 @@ class EndpointRedshiftSettings(dict):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[str]:
         """
-        S3 bucket name.
+        Custom S3 Bucket name for intermediate storage.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -804,7 +804,7 @@ class EndpointRedshiftSettings(dict):
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[str]:
         """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+        The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -812,7 +812,7 @@ class EndpointRedshiftSettings(dict):
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[str]:
         """
-        If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+        If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
@@ -820,7 +820,7 @@ class EndpointRedshiftSettings(dict):
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[str]:
         """
-        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         return pulumi.get(self, "service_access_role_arn")
 
@@ -957,8 +957,8 @@ class EndpointS3Settings(dict):
                  use_task_start_time_for_full_load_timestamp: Optional[bool] = None):
         """
         :param bool add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
-        :param str bucket_folder: S3 object prefix.
-        :param str bucket_name: S3 bucket name.
+        :param str bucket_folder: Custom S3 Bucket Object prefix for intermediate storage.
+        :param str bucket_name: Custom S3 Bucket name for intermediate storage.
         :param str canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
         :param bool cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param bool cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
@@ -978,19 +978,19 @@ class EndpointS3Settings(dict):
         :param int dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
         :param bool enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
         :param str encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
-        :param str encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+        :param str encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         :param str external_table_definition: JSON document that describes how AWS DMS should interpret the data.
         :param int ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
         :param int ignore_headers_row: Deprecated. This setting has no effect. Will be removed in a future version.
         :param bool include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param int max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
-        :param bool parquet_timestamp_in_millisecond: - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+        :param bool parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         :param str parquet_version: Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
         :param bool preserve_transactions: Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
         :param bool rfc4180: For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
         :param int row_group_length: Number of rows in a row group. Default is `10000`.
-        :param str server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
-        :param str service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        :param str server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        :param str service_access_role_arn: ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         :param str timestamp_column_name: Column to add with timestamp information to the endpoint data for an Amazon S3 target.
         :param bool use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
         :param bool use_task_start_time_for_full_load_timestamp: When set to true, uses the task start time as the timestamp column value instead of the time data is written to target.
@@ -1086,7 +1086,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="bucketFolder")
     def bucket_folder(self) -> Optional[str]:
         """
-        S3 object prefix.
+        Custom S3 Bucket Object prefix for intermediate storage.
         """
         return pulumi.get(self, "bucket_folder")
 
@@ -1094,7 +1094,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[str]:
         """
-        S3 bucket name.
+        Custom S3 Bucket name for intermediate storage.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -1254,7 +1254,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[str]:
         """
-        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+        The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -1302,7 +1302,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="parquetTimestampInMillisecond")
     def parquet_timestamp_in_millisecond(self) -> Optional[bool]:
         """
-        - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+        Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         """
         return pulumi.get(self, "parquet_timestamp_in_millisecond")
 
@@ -1342,7 +1342,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="serverSideEncryptionKmsKeyId")
     def server_side_encryption_kms_key_id(self) -> Optional[str]:
         """
-        If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+        If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
         """
         return pulumi.get(self, "server_side_encryption_kms_key_id")
 
@@ -1350,7 +1350,7 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> Optional[str]:
         """
-        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         """
         return pulumi.get(self, "service_access_role_arn")
 

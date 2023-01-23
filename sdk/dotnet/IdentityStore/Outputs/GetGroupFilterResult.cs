@@ -14,7 +14,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     public sealed class GetGroupFilterResult
     {
         /// <summary>
-        /// Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+        /// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
         /// </summary>
         public readonly string AttributePath;
         /// <summary>

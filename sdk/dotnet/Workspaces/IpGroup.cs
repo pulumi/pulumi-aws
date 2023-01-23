@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Workspaces
     public partial class IpGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The description.
+        /// The description of the IP group.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class IpGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description.
+        /// The description of the IP group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Workspaces
     public sealed class IpGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description.
+        /// The description of the IP group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

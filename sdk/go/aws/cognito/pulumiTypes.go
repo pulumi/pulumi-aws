@@ -482,7 +482,7 @@ func (o ResourceServerScopeArrayOutput) Index(i pulumi.IntInput) ResourceServerS
 }
 
 type RiskConfigurationAccountTakeoverRiskConfiguration struct {
-	// The compromised credentials risk configuration actions. See details below.
+	// Account takeover risk configuration actions. See details below.
 	Actions RiskConfigurationAccountTakeoverRiskConfigurationActions `pulumi:"actions"`
 	// The notify configuration used to construct email notifications. See details below.
 	NotifyConfiguration RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration `pulumi:"notifyConfiguration"`
@@ -500,7 +500,7 @@ type RiskConfigurationAccountTakeoverRiskConfigurationInput interface {
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationArgs struct {
-	// The compromised credentials risk configuration actions. See details below.
+	// Account takeover risk configuration actions. See details below.
 	Actions RiskConfigurationAccountTakeoverRiskConfigurationActionsInput `pulumi:"actions"`
 	// The notify configuration used to construct email notifications. See details below.
 	NotifyConfiguration RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationInput `pulumi:"notifyConfiguration"`
@@ -583,7 +583,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) ToRiskConfigura
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput)
 }
 
-// The compromised credentials risk configuration actions. See details below.
+// Account takeover risk configuration actions. See details below.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) Actions() RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfiguration) RiskConfigurationAccountTakeoverRiskConfigurationActions {
 		return v.Actions
@@ -621,7 +621,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) Elem() RiskC
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationOutput)
 }
 
-// The compromised credentials risk configuration actions. See details below.
+// Account takeover risk configuration actions. See details below.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) Actions() RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationActions {
 		if v == nil {
@@ -823,10 +823,9 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) Mediu
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction struct {
-	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify bool `pulumi:"notify"`
+	Notify      bool   `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput values.
@@ -841,10 +840,9 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput int
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs struct {
-	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify pulumi.BoolInput `pulumi:"notify"`
+	Notify      pulumi.BoolInput   `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ElementType() reflect.Type {
@@ -924,14 +922,13 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput)
 }
 
-// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) string {
 		return v.EventAction
 	}).(pulumi.StringOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -960,7 +957,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput)
 }
 
-// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *string {
 		if v == nil {
@@ -970,7 +967,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *bool {
 		if v == nil {
@@ -981,10 +977,9 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction struct {
-	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify bool `pulumi:"notify"`
+	Notify      bool   `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput values.
@@ -999,10 +994,9 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput inte
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs struct {
-	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify pulumi.BoolInput `pulumi:"notify"`
+	Notify      pulumi.BoolInput   `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ElementType() reflect.Type {
@@ -1082,12 +1076,11 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput)
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput)
 }
 
-// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) string { return v.EventAction }).(pulumi.StringOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1116,7 +1109,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput)
 }
 
-// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *string {
 		if v == nil {
@@ -1126,7 +1119,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *bool {
 		if v == nil {
@@ -1137,10 +1129,9 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction struct {
-	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify bool `pulumi:"notify"`
+	Notify      bool   `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput values.
@@ -1155,10 +1146,9 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput i
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs struct {
-	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify pulumi.BoolInput `pulumi:"notify"`
+	Notify      pulumi.BoolInput   `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ElementType() reflect.Type {
@@ -1238,14 +1228,13 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutp
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput)
 }
 
-// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) string {
 		return v.EventAction
 	}).(pulumi.StringOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1274,7 +1263,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrO
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput)
 }
 
-// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *string {
 		if v == nil {
@@ -1284,7 +1273,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *bool {
 		if v == nil {
@@ -2668,7 +2656,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolAc
 }
 
 type UserPoolAccountRecoverySettingRecoveryMechanism struct {
-	// Name of the attribute.
+	// Name of the user pool.
 	Name string `pulumi:"name"`
 	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority int `pulumi:"priority"`
@@ -2686,7 +2674,7 @@ type UserPoolAccountRecoverySettingRecoveryMechanismInput interface {
 }
 
 type UserPoolAccountRecoverySettingRecoveryMechanismArgs struct {
-	// Name of the attribute.
+	// Name of the user pool.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority pulumi.IntInput `pulumi:"priority"`
@@ -2743,7 +2731,7 @@ func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) ToUserPoolAccount
 	return o
 }
 
-// Name of the attribute.
+// Name of the user pool.
 func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySettingRecoveryMechanism) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2932,11 +2920,11 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 }
 
 type UserPoolAdminCreateUserConfigInviteMessageTemplate struct {
-	// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	// Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 	EmailMessage *string `pulumi:"emailMessage"`
-	// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	// Subject line for email messages.
 	EmailSubject *string `pulumi:"emailSubject"`
-	// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	// Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 	SmsMessage *string `pulumi:"smsMessage"`
 }
 
@@ -2952,11 +2940,11 @@ type UserPoolAdminCreateUserConfigInviteMessageTemplateInput interface {
 }
 
 type UserPoolAdminCreateUserConfigInviteMessageTemplateArgs struct {
-	// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+	// Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 	EmailMessage pulumi.StringPtrInput `pulumi:"emailMessage"`
-	// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+	// Subject line for email messages.
 	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
-	// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+	// Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 	SmsMessage pulumi.StringPtrInput `pulumi:"smsMessage"`
 }
 
@@ -3037,17 +3025,17 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToUserPoolAdmi
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput)
 }
 
-// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+// Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *string { return v.EmailMessage }).(pulumi.StringPtrOutput)
 }
 
-// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+// Subject line for email messages.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
 
-// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+// Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *string { return v.SmsMessage }).(pulumi.StringPtrOutput)
 }
@@ -3076,7 +3064,7 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) Elem() User
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
 }
 
-// Email message template. Must contain the `{####}` placeholder. Conflicts with `emailVerificationMessage` argument.
+// Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfigInviteMessageTemplate) *string {
 		if v == nil {
@@ -3086,7 +3074,7 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailMessag
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subject line for the email message template. Conflicts with `emailVerificationSubject` argument.
+// Subject line for email messages.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfigInviteMessageTemplate) *string {
 		if v == nil {
@@ -3096,7 +3084,7 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) EmailSubjec
 	}).(pulumi.StringPtrOutput)
 }
 
-// SMS message template. Must contain the `{####}` placeholder. Conflicts with `smsVerificationMessage` argument.
+// Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfigInviteMessageTemplate) *string {
 		if v == nil {
@@ -4229,9 +4217,9 @@ func (o UserPoolLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.Stri
 }
 
 type UserPoolLambdaConfigCustomEmailSender struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 	LambdaArn string `pulumi:"lambdaArn"`
-	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 	LambdaVersion string `pulumi:"lambdaVersion"`
 }
 
@@ -4247,9 +4235,9 @@ type UserPoolLambdaConfigCustomEmailSenderInput interface {
 }
 
 type UserPoolLambdaConfigCustomEmailSenderArgs struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
-	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
 }
 
@@ -4330,12 +4318,12 @@ func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCusto
 	}).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolLambdaConfigCustomEmailSenderOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
 
-// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 func (o UserPoolLambdaConfigCustomEmailSenderOutput) LambdaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) string { return v.LambdaVersion }).(pulumi.StringOutput)
 }
@@ -4364,7 +4352,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) Elem() UserPoolLambdaCon
 	}).(UserPoolLambdaConfigCustomEmailSenderOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) *string {
 		if v == nil {
@@ -4374,7 +4362,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) *string {
 		if v == nil {
@@ -6200,9 +6188,9 @@ type GetUserPoolClientAnalyticsConfiguration struct {
 	// (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
 	ExternalId string `pulumi:"externalId"`
 	// (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-	// * `userDataShared` (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-	RoleArn        string `pulumi:"roleArn"`
-	UserDataShared bool   `pulumi:"userDataShared"`
+	RoleArn string `pulumi:"roleArn"`
+	// (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	UserDataShared bool `pulumi:"userDataShared"`
 }
 
 // GetUserPoolClientAnalyticsConfigurationInput is an input type that accepts GetUserPoolClientAnalyticsConfigurationArgs and GetUserPoolClientAnalyticsConfigurationOutput values.
@@ -6224,9 +6212,9 @@ type GetUserPoolClientAnalyticsConfigurationArgs struct {
 	// (Optional) ID for the Analytics Configuration. Conflicts with `applicationArn`.
 	ExternalId pulumi.StringInput `pulumi:"externalId"`
 	// (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-	// * `userDataShared` (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
-	RoleArn        pulumi.StringInput `pulumi:"roleArn"`
-	UserDataShared pulumi.BoolInput   `pulumi:"userDataShared"`
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	UserDataShared pulumi.BoolInput `pulumi:"userDataShared"`
 }
 
 func (GetUserPoolClientAnalyticsConfigurationArgs) ElementType() reflect.Type {
@@ -6296,11 +6284,11 @@ func (o GetUserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.Strin
 }
 
 // (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
-// * `userDataShared` (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 func (o GetUserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 func (o GetUserPoolClientAnalyticsConfigurationOutput) UserDataShared() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUserPoolClientAnalyticsConfiguration) bool { return v.UserDataShared }).(pulumi.BoolOutput)
 }

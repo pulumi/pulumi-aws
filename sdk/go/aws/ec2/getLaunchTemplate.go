@@ -84,7 +84,7 @@ type LookupLaunchTemplateArgs struct {
 	Filters []GetLaunchTemplateFilter `pulumi:"filters"`
 	// ID of the specific launch template to retrieve.
 	Id *string `pulumi:"id"`
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the launch template.
 	Name *string `pulumi:"name"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]string `pulumi:"tags"`
@@ -153,7 +153,7 @@ type LookupLaunchTemplateOutputArgs struct {
 	Filters GetLaunchTemplateFilterArrayInput `pulumi:"filters"`
 	// ID of the specific launch template to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+	// Name of the launch template.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

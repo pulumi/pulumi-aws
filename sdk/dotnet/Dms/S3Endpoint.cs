@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Dms
         public Output<int?> MaxFileSize { get; private set; } = null!;
 
         /// <summary>
-        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+        /// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Output("parquetTimestampInMillisecond")]
         public Output<bool?> ParquetTimestampInMillisecond { get; private set; } = null!;
@@ -683,7 +683,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? MaxFileSize { get; set; }
 
         /// <summary>
-        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+        /// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Input("parquetTimestampInMillisecond")]
         public Input<bool>? ParquetTimestampInMillisecond { get; set; }
@@ -991,7 +991,7 @@ namespace Pulumi.Aws.Dms
         public Input<int>? MaxFileSize { get; set; }
 
         /// <summary>
-        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+        /// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
         /// </summary>
         [Input("parquetTimestampInMillisecond")]
         public Input<bool>? ParquetTimestampInMillisecond { get; set; }

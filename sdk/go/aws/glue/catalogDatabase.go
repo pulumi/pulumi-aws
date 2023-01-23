@@ -87,7 +87,7 @@ type CatalogDatabase struct {
 
 	// ARN of the Glue Catalog Database.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Data Catalog in which the database resides.
+	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
@@ -134,7 +134,7 @@ func GetCatalogDatabase(ctx *pulumi.Context,
 type catalogDatabaseState struct {
 	// ARN of the Glue Catalog Database.
 	Arn *string `pulumi:"arn"`
-	// ID of the Data Catalog in which the database resides.
+	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
 	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
@@ -153,7 +153,7 @@ type catalogDatabaseState struct {
 type CatalogDatabaseState struct {
 	// ARN of the Glue Catalog Database.
 	Arn pulumi.StringPtrInput
-	// ID of the Data Catalog in which the database resides.
+	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
 	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
@@ -174,7 +174,7 @@ func (CatalogDatabaseState) ElementType() reflect.Type {
 }
 
 type catalogDatabaseArgs struct {
-	// ID of the Data Catalog in which the database resides.
+	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
 	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
 	CreateTableDefaultPermissions []CatalogDatabaseCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
@@ -192,7 +192,7 @@ type catalogDatabaseArgs struct {
 
 // The set of arguments for constructing a CatalogDatabase resource.
 type CatalogDatabaseArgs struct {
-	// ID of the Data Catalog in which the database resides.
+	// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
 	// Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
 	CreateTableDefaultPermissions CatalogDatabaseCreateTableDefaultPermissionArrayInput
@@ -300,7 +300,7 @@ func (o CatalogDatabaseOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the Data Catalog in which the database resides.
+// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
 func (o CatalogDatabaseOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }

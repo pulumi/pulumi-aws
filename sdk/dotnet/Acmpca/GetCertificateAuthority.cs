@@ -75,26 +75,6 @@ namespace Pulumi.Aws.Acmpca
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
-        [Input("revocationConfigurations")]
-        private List<Inputs.GetCertificateAuthorityRevocationConfigurationArgs>? _revocationConfigurations;
-
-        /// <summary>
-        /// Nested attribute containing revocation configuration.
-        /// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-        /// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
-        /// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
-        /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
-        /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
-        /// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
-        /// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
-        /// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
-        /// </summary>
-        public List<Inputs.GetCertificateAuthorityRevocationConfigurationArgs> RevocationConfigurations
-        {
-            get => _revocationConfigurations ?? (_revocationConfigurations = new List<Inputs.GetCertificateAuthorityRevocationConfigurationArgs>());
-            set => _revocationConfigurations = value;
-        }
-
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -120,26 +100,6 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
-
-        [Input("revocationConfigurations")]
-        private InputList<Inputs.GetCertificateAuthorityRevocationConfigurationInputArgs>? _revocationConfigurations;
-
-        /// <summary>
-        /// Nested attribute containing revocation configuration.
-        /// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-        /// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
-        /// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
-        /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
-        /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
-        /// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
-        /// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
-        /// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
-        /// </summary>
-        public InputList<Inputs.GetCertificateAuthorityRevocationConfigurationInputArgs> RevocationConfigurations
-        {
-            get => _revocationConfigurations ?? (_revocationConfigurations = new InputList<Inputs.GetCertificateAuthorityRevocationConfigurationInputArgs>());
-            set => _revocationConfigurations = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

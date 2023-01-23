@@ -202,14 +202,14 @@ public class ReportGroup extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+     * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+     * @return The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      * 
      */
     public Output<String> type() {

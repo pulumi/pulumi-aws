@@ -149,16 +149,18 @@ export interface GetInstanceTypeResult {
     readonly hibernationSupported: boolean;
     /**
      * Hypervisor used for the instance type.
-     * * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
-     * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-     * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-     * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      */
     readonly hypervisor: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Describes the Inference accelerators for the instance type.
+     * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+     * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+     * * `inference_accelerators.#.name` - The name of the Inference accelerator.
+     */
     readonly inferenceAccelerators: outputs.ec2.GetInstanceTypeInferenceAccelerator[];
     /**
      * Describes the disks for the instance type.

@@ -16,14 +16,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     public static final EndpointRedshiftSettingsArgs Empty = new EndpointRedshiftSettingsArgs();
 
     /**
-     * S3 object prefix.
+     * Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     @Import(name="bucketFolder")
     private @Nullable Output<String> bucketFolder;
 
     /**
-     * @return S3 object prefix.
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     public Optional<Output<String>> bucketFolder() {
@@ -31,14 +31,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * S3 bucket name.
+     * Custom S3 Bucket name for intermediate storage.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return S3 bucket name.
+     * @return Custom S3 Bucket name for intermediate storage.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -46,14 +46,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
     /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     public Optional<Output<String>> encryptionMode() {
@@ -61,14 +61,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
@@ -76,14 +76,14 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
     @Import(name="serviceAccessRoleArn")
     private @Nullable Output<String> serviceAccessRoleArn;
 
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
     public Optional<Output<String>> serviceAccessRoleArn() {
@@ -119,7 +119,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucketFolder S3 object prefix.
+         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucketFolder S3 object prefix.
+         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucketName S3 bucket name.
+         * @param bucketName Custom S3 Bucket name for intermediate storage.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param bucketName S3 bucket name.
+         * @param bucketName Custom S3 Bucket name for intermediate storage.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+         * @param serviceAccessRoleArn Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+         * @param serviceAccessRoleArn Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
          * 
          * @return builder
          * 

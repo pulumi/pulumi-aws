@@ -137,7 +137,7 @@ namespace Pulumi.Aws.CostExplorer
         public Output<string> RuleVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
+        /// Configuration block for the Cost Category rules used to categorize costs. See below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.CostCategoryRule>> Rules { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.CostExplorer
         public Output<ImmutableArray<Outputs.CostCategorySplitChargeRule>> SplitChargeRules { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputList<Inputs.CostCategoryRuleArgs>? _rules;
 
         /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
+        /// Configuration block for the Cost Category rules used to categorize costs. See below.
         /// </summary>
         public InputList<Inputs.CostCategoryRuleArgs> Rules
         {
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputList<Inputs.CostCategoryRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
+        /// Configuration block for the Cost Category rules used to categorize costs. See below.
         /// </summary>
         public InputList<Inputs.CostCategoryRuleGetArgs> Rules
         {
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

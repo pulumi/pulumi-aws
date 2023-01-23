@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Backup
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
+        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
+        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Backup
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
+        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -1087,7 +1087,7 @@ func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInpu
 type DistributionConfigurationDistributionAmiDistributionConfiguration struct {
 	// Key-value map of tags to apply to the distributed AMI.
 	AmiTags map[string]string `pulumi:"amiTags"`
-	// Description of the container distribution configuration.
+	// Description to apply to the distributed AMI.
 	Description *string `pulumi:"description"`
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -1113,7 +1113,7 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationInput inte
 type DistributionConfigurationDistributionAmiDistributionConfigurationArgs struct {
 	// Key-value map of tags to apply to the distributed AMI.
 	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
-	// Description of the container distribution configuration.
+	// Description to apply to the distributed AMI.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -1209,7 +1209,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 	}).(pulumi.StringMapOutput)
 }
 
-// Description of the container distribution configuration.
+// Description to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		return v.Description
@@ -1274,7 +1274,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// Description of the container distribution configuration.
+// Description to apply to the distributed AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) *string {
 		if v == nil {
@@ -1868,7 +1868,7 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 }
 
 type DistributionConfigurationDistributionFastLaunchConfiguration struct {
-	// The account ID that this configuration applies to.
+	// The owner account ID for the fast-launch enabled Windows AMI.
 	AccountId string `pulumi:"accountId"`
 	// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
 	Enabled bool `pulumi:"enabled"`
@@ -1892,7 +1892,7 @@ type DistributionConfigurationDistributionFastLaunchConfigurationInput interface
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationArgs struct {
-	// The account ID that this configuration applies to.
+	// The owner account ID for the fast-launch enabled Windows AMI.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -1955,7 +1955,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) ToDi
 	return o
 }
 
-// The account ID that this configuration applies to.
+// The owner account ID for the fast-launch enabled Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
 }
@@ -2007,7 +2007,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate struct {
-	// The ID of the Amazon EC2 launch template to use.
+	// The ID of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateId *string `pulumi:"launchTemplateId"`
 	// The name of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
@@ -2027,7 +2027,7 @@ type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateI
 }
 
 type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs struct {
-	// The ID of the Amazon EC2 launch template to use.
+	// The ID of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	// The name of the launch template to use for faster launching for a Windows AMI.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
@@ -2112,7 +2112,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
 }
 
-// The ID of the Amazon EC2 launch template to use.
+// The ID of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		return v.LaunchTemplateId
@@ -2157,7 +2157,7 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
 }
 
-// The ID of the Amazon EC2 launch template to use.
+// The ID of the launch template to use for faster launching for a Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
 		if v == nil {

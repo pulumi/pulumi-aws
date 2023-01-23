@@ -33,14 +33,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
     }
 
     /**
-     * How many snapshots to keep. Must be an integer between `1` and `1000`.
+     * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return How many snapshots to keep. Must be an integer between `1` and `1000`.
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -48,14 +48,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
     }
 
     /**
-     * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -63,14 +63,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
     }
 
     /**
-     * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
      * 
      */
     @Import(name="intervalUnit")
     private @Nullable Output<String> intervalUnit;
 
     /**
-     * @return The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
      * 
      */
     public Optional<Output<String>> intervalUnit() {
@@ -136,7 +136,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param count How many snapshots to keep. Must be an integer between `1` and `1000`.
+         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param count How many snapshots to keep. Must be an integer between `1` and `1000`.
+         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param interval The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param interval The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param intervalUnit The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param intervalUnit The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
          * 
          * @return builder
          * 

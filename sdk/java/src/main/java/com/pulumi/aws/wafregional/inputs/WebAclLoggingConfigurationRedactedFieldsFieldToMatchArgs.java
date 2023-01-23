@@ -31,14 +31,14 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs exte
     }
 
     /**
-     * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+     * The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+     * @return The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
      * 
      */
     public Output<String> type() {
@@ -92,7 +92,7 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs exte
         }
 
         /**
-         * @param type Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+         * @param type The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs exte
         }
 
         /**
-         * @param type Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+         * @param type The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
          * 
          * @return builder
          * 

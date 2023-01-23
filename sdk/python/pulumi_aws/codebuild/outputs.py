@@ -78,13 +78,13 @@ class ProjectArtifacts(dict):
                  packaging: Optional[str] = None,
                  path: Optional[str] = None):
         """
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         :param str artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
         :param str bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param bool encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param str location: Location of the source code from git or s3.
+        :param str location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
         :param str name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param str namespace_type: Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+        :param str namespace_type: Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
         :param bool override_artifact_name: Whether a name specified in the build specification overrides the artifact name.
         :param str packaging: Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
         :param str path: If `type` is set to `S3`, this is the path to the output artifact.
@@ -113,7 +113,7 @@ class ProjectArtifacts(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
         return pulumi.get(self, "type")
 
@@ -145,7 +145,7 @@ class ProjectArtifacts(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Location of the source code from git or s3.
+        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
         """
         return pulumi.get(self, "location")
 
@@ -161,7 +161,7 @@ class ProjectArtifacts(dict):
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[str]:
         """
-        Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+        Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
         """
         return pulumi.get(self, "namespace_type")
 
@@ -322,9 +322,9 @@ class ProjectCache(dict):
                  modes: Optional[Sequence[str]] = None,
                  type: Optional[str] = None):
         """
-        :param str location: Location of the source code from git or s3.
+        :param str location: Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
         :param Sequence[str] modes: Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -337,7 +337,7 @@ class ProjectCache(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Location of the source code from git or s3.
+        Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
         """
         return pulumi.get(self, "location")
 
@@ -353,7 +353,7 @@ class ProjectCache(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
         """
         return pulumi.get(self, "type")
 
@@ -397,7 +397,7 @@ class ProjectEnvironment(dict):
         """
         :param str compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
         :param str image: Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         :param str certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         :param Sequence['ProjectEnvironmentEnvironmentVariableArgs'] environment_variables: Configuration block. Detailed below.
         :param str image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -438,7 +438,7 @@ class ProjectEnvironment(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         """
         return pulumi.get(self, "type")
 
@@ -490,9 +490,9 @@ class ProjectEnvironmentEnvironmentVariable(dict):
                  value: str,
                  type: Optional[str] = None):
         """
-        :param str name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        :param str name: Project's name.
         :param str value: Environment variable's value.
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -503,7 +503,7 @@ class ProjectEnvironmentEnvironmentVariable(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        Project's name.
         """
         return pulumi.get(self, "name")
 
@@ -519,7 +519,7 @@ class ProjectEnvironmentEnvironmentVariable(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
         return pulumi.get(self, "type")
 
@@ -599,10 +599,10 @@ class ProjectFileSystemLocation(dict):
                  type: Optional[str] = None):
         """
         :param str identifier: The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-        :param str location: Location of the source code from git or s3.
+        :param str location: A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
         :param str mount_options: The mount options for a file system created by AWS EFS.
         :param str mount_point: The location in the container where you mount the file system.
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: The type of the file system. The one supported type is `EFS`.
         """
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
@@ -627,7 +627,7 @@ class ProjectFileSystemLocation(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Location of the source code from git or s3.
+        A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
         """
         return pulumi.get(self, "location")
 
@@ -651,7 +651,7 @@ class ProjectFileSystemLocation(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        The type of the file system. The one supported type is `EFS`.
         """
         return pulumi.get(self, "type")
 
@@ -733,7 +733,7 @@ class ProjectLogsConfigCloudwatchLogs(dict):
                  stream_name: Optional[str] = None):
         """
         :param str group_name: Group name of the logs in CloudWatch Logs.
-        :param str status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        :param str status: Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         :param str stream_name: Stream name of the logs in CloudWatch Logs.
         """
         if group_name is not None:
@@ -755,7 +755,7 @@ class ProjectLogsConfigCloudwatchLogs(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -797,8 +797,8 @@ class ProjectLogsConfigS3Logs(dict):
         """
         :param str bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param bool encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param str location: Location of the source code from git or s3.
-        :param str status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        :param str location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        :param str status: Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         """
         if bucket_owner_access is not None:
             pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
@@ -829,7 +829,7 @@ class ProjectLogsConfigS3Logs(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Location of the source code from git or s3.
+        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
         """
         return pulumi.get(self, "location")
 
@@ -837,7 +837,7 @@ class ProjectLogsConfigS3Logs(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -882,10 +882,10 @@ class ProjectSecondaryArtifact(dict):
                  path: Optional[str] = None):
         """
         :param str artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Build output artifact's type. The only valid value is `S3`.
         :param str bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param bool encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param str location: Location of the source code from git or s3.
+        :param str location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
         :param str name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param str namespace_type: Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
         :param bool override_artifact_name: Whether a name specified in the build specification overrides the artifact name.
@@ -923,7 +923,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Build output artifact's type. The only valid value is `S3`.
         """
         return pulumi.get(self, "type")
 
@@ -947,7 +947,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Location of the source code from git or s3.
+        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
         """
         return pulumi.get(self, "location")
 
@@ -1033,16 +1033,16 @@ class ProjectSecondarySource(dict):
                  location: Optional[str] = None,
                  report_build_status: Optional[bool] = None):
         """
-        :param str source_identifier: An identifier for a source in the build project.
+        :param str source_identifier: An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
         :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
         :param 'ProjectSecondarySourceAuthArgs' auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param 'ProjectSecondarySourceBuildStatusConfigArgs' build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
-        :param str buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        :param str buildspec: The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
         :param int git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param 'ProjectSecondarySourceGitSubmodulesConfigArgs' git_submodules_config: Configuration block. Detailed below.
         :param bool insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param str location: Location of the source code from git or s3.
-        :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "type", type)
@@ -1067,7 +1067,7 @@ class ProjectSecondarySource(dict):
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> str:
         """
-        An identifier for a source in the build project.
+        An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
         """
         return pulumi.get(self, "source_identifier")
 
@@ -1099,7 +1099,7 @@ class ProjectSecondarySource(dict):
     @pulumi.getter
     def buildspec(self) -> Optional[str]:
         """
-        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+        The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
         """
         return pulumi.get(self, "buildspec")
 
@@ -1139,7 +1139,7 @@ class ProjectSecondarySource(dict):
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[bool]:
         """
-        Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         """
         return pulumi.get(self, "report_build_status")
 
@@ -1150,7 +1150,7 @@ class ProjectSecondarySourceAuth(dict):
                  type: str,
                  resource: Optional[str] = None):
         """
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         :param str resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
         pulumi.set(__self__, "type", type)
@@ -1161,7 +1161,7 @@ class ProjectSecondarySourceAuth(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
         return pulumi.get(self, "type")
 
@@ -1450,7 +1450,7 @@ class ProjectSourceAuth(dict):
                  type: str,
                  resource: Optional[str] = None):
         """
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         :param str resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
         pulumi.set(__self__, "type", type)
@@ -1461,7 +1461,7 @@ class ProjectSourceAuth(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
         return pulumi.get(self, "type")
 

@@ -53,7 +53,7 @@ public final class DistributionOrigin {
      */
     private @Nullable String originAccessControlId;
     /**
-     * @return The unique identifier of the member origin
+     * @return A unique identifier for the origin.
      * 
      */
     private String originId;
@@ -127,7 +127,7 @@ public final class DistributionOrigin {
         return Optional.ofNullable(this.originAccessControlId);
     }
     /**
-     * @return The unique identifier of the member origin
+     * @return A unique identifier for the origin.
      * 
      */
     public String originId() {

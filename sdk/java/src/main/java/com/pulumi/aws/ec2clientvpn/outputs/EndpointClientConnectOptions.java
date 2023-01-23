@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointClientConnectOptions {
     /**
-     * @return Indicates whether connection logging is enabled.
+     * @return Indicates whether client connect options are enabled. The default is `false` (not enabled).
      * 
      */
     private @Nullable Boolean enabled;
@@ -25,7 +25,7 @@ public final class EndpointClientConnectOptions {
 
     private EndpointClientConnectOptions() {}
     /**
-     * @return Indicates whether connection logging is enabled.
+     * @return Indicates whether client connect options are enabled. The default is `false` (not enabled).
      * 
      */
     public Optional<Boolean> enabled() {

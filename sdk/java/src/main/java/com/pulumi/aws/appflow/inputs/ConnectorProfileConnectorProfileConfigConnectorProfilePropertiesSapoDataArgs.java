@@ -108,14 +108,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The Snowflake Private Link service name to be used for private data transfers.
+     * The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     @Import(name="privateLinkServiceName")
     private @Nullable Output<String> privateLinkServiceName;
 
     /**
-     * @return The Snowflake Private Link service name to be used for private data transfers.
+     * @return The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     public Optional<Output<String>> privateLinkServiceName() {
@@ -279,7 +279,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param privateLinkServiceName The Snowflake Private Link service name to be used for private data transfers.
+         * @param privateLinkServiceName The SAPOData Private Link service name to be used for private data transfers.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param privateLinkServiceName The Snowflake Private Link service name to be used for private data transfers.
+         * @param privateLinkServiceName The SAPOData Private Link service name to be used for private data transfers.
          * 
          * @return builder
          * 

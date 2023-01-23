@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu
     {
         /// <summary>
-        /// Maximum.
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
         /// </summary>
         public readonly double? Max;
         /// <summary>

@@ -17,14 +17,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
     public static final FlowSourceFlowConfigSourceConnectorPropertiesS3Args Empty = new FlowSourceFlowConfigSourceConnectorPropertiesS3Args();
 
     /**
-     * Amazon S3 bucket name where the source files are stored.
+     * Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     public Output<String> bucketName() {
@@ -32,14 +32,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
     }
 
     /**
-     * Object key for the Amazon S3 bucket in which the source files are stored.
+     * Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -88,7 +88,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
          * 
          * @return builder
          * 

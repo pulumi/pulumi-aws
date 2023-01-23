@@ -101,9 +101,15 @@ namespace Pulumi.Aws.Emr
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of instances currently running in this instance group.
+        /// </summary>
         [Output("runningInstanceCount")]
         public Output<int> RunningInstanceCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the instance group.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -281,9 +287,15 @@ namespace Pulumi.Aws.Emr
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The number of instances currently running in this instance group.
+        /// </summary>
         [Input("runningInstanceCount")]
         public Input<int>? RunningInstanceCount { get; set; }
 
+        /// <summary>
+        /// The current status of the instance group.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

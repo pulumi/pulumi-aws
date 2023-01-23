@@ -14,14 +14,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs();
 
     /**
-     * The name of the username field.
+     * The name of the password field.
      * 
      */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
     /**
-     * @return The name of the username field.
+     * @return The name of the password field.
      * 
      */
     public Output<String> identifier() {
@@ -53,7 +53,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param identifier The name of the username field.
+         * @param identifier The name of the password field.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param identifier The name of the username field.
+         * @param identifier The name of the password field.
          * 
          * @return builder
          * 

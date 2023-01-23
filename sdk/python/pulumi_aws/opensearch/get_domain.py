@@ -247,13 +247,15 @@ class GetDomainResult:
     def processing(self) -> bool:
         """
         Status of a configuration change in the domain.
-        * `snapshot_options` – Domain snapshot related options.
         """
         return pulumi.get(self, "processing")
 
     @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Sequence['outputs.GetDomainSnapshotOptionResult']:
+        """
+        Domain snapshot related options.
+        """
         return pulumi.get(self, "snapshot_options")
 
     @property

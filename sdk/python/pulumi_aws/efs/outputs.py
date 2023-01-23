@@ -409,7 +409,6 @@ class GetAccessPointPosixUserResult(dict):
         :param int gid: Group ID
         :param Sequence[int] secondary_gids: Secondary group IDs
         :param int uid: User Id
-               * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
         """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "secondary_gids", secondary_gids)
@@ -436,7 +435,6 @@ class GetAccessPointPosixUserResult(dict):
     def uid(self) -> int:
         """
         User Id
-        * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
         """
         return pulumi.get(self, "uid")
 

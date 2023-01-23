@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainCognitoOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        /// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

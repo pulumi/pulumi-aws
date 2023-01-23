@@ -46,14 +46,14 @@ public final class EndpointMongodbSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+     * Authentication type to access the MongoDB source endpoint. Default is `password`.
      * 
      */
     @Import(name="authType")
     private @Nullable Output<String> authType;
 
     /**
-     * @return The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+     * @return Authentication type to access the MongoDB source endpoint. Default is `password`.
      * 
      */
     public Optional<Output<String>> authType() {
@@ -177,7 +177,7 @@ public final class EndpointMongodbSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authType The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+         * @param authType Authentication type to access the MongoDB source endpoint. Default is `password`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class EndpointMongodbSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authType The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+         * @param authType Authentication type to access the MongoDB source endpoint. Default is `password`.
          * 
          * @return builder
          * 

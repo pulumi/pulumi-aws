@@ -55,7 +55,7 @@ type Image struct {
 
 	// Amazon Resource Name (ARN) of the image.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// - Amazon Resource Name (ARN) of the container recipe.
+	// Amazon Resource Name (ARN) of the container recipe.
 	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
@@ -119,7 +119,7 @@ func GetImage(ctx *pulumi.Context,
 type imageState struct {
 	// Amazon Resource Name (ARN) of the image.
 	Arn *string `pulumi:"arn"`
-	// - Amazon Resource Name (ARN) of the container recipe.
+	// Amazon Resource Name (ARN) of the container recipe.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Date the image was created.
 	DateCreated *string `pulumi:"dateCreated"`
@@ -152,7 +152,7 @@ type imageState struct {
 type ImageState struct {
 	// Amazon Resource Name (ARN) of the image.
 	Arn pulumi.StringPtrInput
-	// - Amazon Resource Name (ARN) of the container recipe.
+	// Amazon Resource Name (ARN) of the container recipe.
 	ContainerRecipeArn pulumi.StringPtrInput
 	// Date the image was created.
 	DateCreated pulumi.StringPtrInput
@@ -187,7 +187,7 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// - Amazon Resource Name (ARN) of the container recipe.
+	// Amazon Resource Name (ARN) of the container recipe.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
@@ -205,7 +205,7 @@ type imageArgs struct {
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// - Amazon Resource Name (ARN) of the container recipe.
+	// Amazon Resource Name (ARN) of the container recipe.
 	ContainerRecipeArn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
@@ -313,7 +313,7 @@ func (o ImageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// - Amazon Resource Name (ARN) of the container recipe.
+// Amazon Resource Name (ARN) of the container recipe.
 func (o ImageOutput) ContainerRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ContainerRecipeArn }).(pulumi.StringPtrOutput)
 }

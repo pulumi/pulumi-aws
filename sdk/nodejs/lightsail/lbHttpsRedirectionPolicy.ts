@@ -71,7 +71,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -115,7 +115,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
  */
 export interface LbHttpsRedirectionPolicyState {
     /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -129,7 +129,7 @@ export interface LbHttpsRedirectionPolicyState {
  */
 export interface LbHttpsRedirectionPolicyArgs {
     /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      */
     enabled: pulumi.Input<boolean>;
     /**

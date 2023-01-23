@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Transmission Control Protocol (TCP) port for the endpoint.
+        /// Port used by the endpoint database.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> SecretsManagerArn { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified domain name of the endpoint.
+        /// Host name of the server.
         /// </summary>
         [Output("serverName")]
         public Output<string?> ServerName { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Dms
         }
 
         /// <summary>
-        /// Transmission Control Protocol (TCP) port for the endpoint.
+        /// Port used by the endpoint database.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SecretsManagerArn { get; set; }
 
         /// <summary>
-        /// Fully qualified domain name of the endpoint.
+        /// Host name of the server.
         /// </summary>
         [Input("serverName")]
         public Input<string>? ServerName { get; set; }
@@ -501,7 +501,7 @@ namespace Pulumi.Aws.Dms
         }
 
         /// <summary>
-        /// Transmission Control Protocol (TCP) port for the endpoint.
+        /// Port used by the endpoint database.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -534,7 +534,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SecretsManagerArn { get; set; }
 
         /// <summary>
-        /// Fully qualified domain name of the endpoint.
+        /// Host name of the server.
         /// </summary>
         [Input("serverName")]
         public Input<string>? ServerName { get; set; }

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         /// <summary>
-        /// The name of the connection to use to connect to the Delta table target.
+        /// The name of the connection to use to connect to the JDBC target.
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
-        /// A valid Amazon SQS ARN.
+        /// The ARN of the dead-letter SQS queue.
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>
-        /// A valid Amazon SQS ARN.
+        /// The ARN of the SQS queue to receive S3 notifications from.
         /// </summary>
         public readonly string? EventQueueArn;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         public readonly string Path;
         /// <summary>

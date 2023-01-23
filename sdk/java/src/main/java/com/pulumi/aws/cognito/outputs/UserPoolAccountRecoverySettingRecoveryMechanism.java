@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class UserPoolAccountRecoverySettingRecoveryMechanism {
     /**
-     * @return Name of the attribute.
+     * @return Name of the user pool.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
 
     private UserPoolAccountRecoverySettingRecoveryMechanism() {}
     /**
-     * @return Name of the attribute.
+     * @return Name of the user pool.
      * 
      */
     public String name() {

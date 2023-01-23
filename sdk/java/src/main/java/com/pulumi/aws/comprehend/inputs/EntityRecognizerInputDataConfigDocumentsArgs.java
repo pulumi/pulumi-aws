@@ -33,14 +33,14 @@ public final class EntityRecognizerInputDataConfigDocumentsArgs extends com.pulu
     }
 
     /**
-     * Location of entity list.
+     * Location of training documents.
      * 
      */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
     /**
-     * @return Location of entity list.
+     * @return Location of training documents.
      * 
      */
     public Output<String> s3Uri() {
@@ -104,7 +104,7 @@ public final class EntityRecognizerInputDataConfigDocumentsArgs extends com.pulu
         }
 
         /**
-         * @param s3Uri Location of entity list.
+         * @param s3Uri Location of training documents.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class EntityRecognizerInputDataConfigDocumentsArgs extends com.pulu
         }
 
         /**
-         * @param s3Uri Location of entity list.
+         * @param s3Uri Location of training documents.
          * 
          * @return builder
          * 

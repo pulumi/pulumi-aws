@@ -95,14 +95,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * The video codec settings. See Video Codec Settings for more details.
+     * Audio codec settings. See Audio Codec Settings for more details.
      * 
      */
     @Import(name="codecSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs> codecSettings;
 
     /**
-     * @return The video codec settings. See Video Codec Settings for more details.
+     * @return Audio codec settings. See Audio Codec Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs>> codecSettings() {
@@ -132,14 +132,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * The name of the video description.
+     * The name of this audio description.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the video description.
+     * @return The name of this audio description.
      * 
      */
     public Output<String> name() {
@@ -308,7 +308,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * @param codecSettings Audio codec settings. See Audio Codec Settings for more details.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param codecSettings The video codec settings. See Video Codec Settings for more details.
+         * @param codecSettings Audio codec settings. See Audio Codec Settings for more details.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name The name of this audio description.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name The name of this audio description.
          * 
          * @return builder
          * 

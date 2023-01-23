@@ -167,9 +167,21 @@ namespace Pulumi.Aws.Iam
     [OutputType]
     public sealed class GetServerCertificateResult
     {
+        /// <summary>
+        /// is set to the ARN of the IAM Server Certificate
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
+        /// </summary>
         public readonly string CertificateBody;
+        /// <summary>
+        /// is the public key certificate chain (PEM-encoded) if exists, empty otherwise
+        /// </summary>
         public readonly string CertificateChain;
+        /// <summary>
+        /// is set to the expiration date of the IAM Server Certificate
+        /// </summary>
         public readonly string ExpirationDate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -178,8 +190,14 @@ namespace Pulumi.Aws.Iam
         public readonly bool? Latest;
         public readonly string Name;
         public readonly string? NamePrefix;
+        /// <summary>
+        /// is set to the path of the IAM Server Certificate
+        /// </summary>
         public readonly string Path;
         public readonly string? PathPrefix;
+        /// <summary>
+        /// is the date when the server certificate was uploaded
+        /// </summary>
         public readonly string UploadDate;
 
         [OutputConstructor]

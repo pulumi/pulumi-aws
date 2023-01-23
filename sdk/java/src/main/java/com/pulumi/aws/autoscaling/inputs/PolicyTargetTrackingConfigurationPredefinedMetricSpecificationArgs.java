@@ -16,14 +16,14 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
     public static final PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs Empty = new PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs();
 
     /**
-     * Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * Metric type.
      * 
      */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Metric type.
      * 
      */
     public Output<String> predefinedMetricType() {
@@ -31,14 +31,14 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
     }
 
     /**
-     * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * Identifies the resource associated with the metric type.
      * 
      */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
     /**
-     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+     * @return Identifies the resource associated with the metric type.
      * 
      */
     public Optional<Output<String>> resourceLabel() {
@@ -71,7 +71,7 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
         }
 
         /**
-         * @param predefinedMetricType Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+         * @param predefinedMetricType Metric type.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
         }
 
         /**
-         * @param predefinedMetricType Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+         * @param predefinedMetricType Metric type.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
         }
 
         /**
-         * @param resourceLabel Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * @param resourceLabel Identifies the resource associated with the metric type.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PolicyTargetTrackingConfigurationPredefinedMetricSpecificatio
         }
 
         /**
-         * @param resourceLabel Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * @param resourceLabel Identifies the resource associated with the metric type.
          * 
          * @return builder
          * 

@@ -66,14 +66,14 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the component parameter.
+     * Name of the image recipe.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the component parameter.
+     * @return Name of the image recipe.
      * 
      */
     public Optional<Output<String>> name() {
@@ -287,7 +287,7 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the component parameter.
+         * @param name Name of the image recipe.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class ImageRecipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the component parameter.
+         * @param name Name of the image recipe.
          * 
          * @return builder
          * 

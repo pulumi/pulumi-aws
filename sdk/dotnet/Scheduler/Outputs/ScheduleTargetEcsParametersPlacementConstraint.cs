@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Scheduler.Outputs
         /// </summary>
         public readonly string? Expression;
         /// <summary>
-        /// The type of placement strategy. One of: `random`, `spread`, `binpack`.
+        /// The type of constraint. One of: `distinctInstance`, `memberOf`.
         /// </summary>
         public readonly string Type;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Waf.Inputs
     public sealed class RuleGroupActivatedRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        /// e.g., `BLOCK`, `ALLOW`, or `COUNT`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

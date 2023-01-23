@@ -52,14 +52,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
     }
 
     /**
-     * - Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * Eac3 Atmos Settings. See EAC3 Atmos Settings
      * 
      */
     @Import(name="eac3AtmosSettings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs> eac3AtmosSettings;
 
     /**
-     * @return - Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs>> eac3AtmosSettings() {
@@ -67,14 +67,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
     }
 
     /**
-     * - Eac3 Settings. See EAC3 Settings
+     * Eac3 Settings. See EAC3 Settings
      * 
      */
     @Import(name="eac3Settings")
     private @Nullable Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs> eac3Settings;
 
     /**
-     * @return - Eac3 Settings. See EAC3 Settings
+     * @return Eac3 Settings. See EAC3 Settings
      * 
      */
     public Optional<Output<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs>> eac3Settings() {
@@ -175,7 +175,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3AtmosSettings - Eac3 Atmos Settings. See EAC3 Atmos Settings
+         * @param eac3AtmosSettings Eac3 Atmos Settings. See EAC3 Atmos Settings
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3AtmosSettings - Eac3 Atmos Settings. See EAC3 Atmos Settings
+         * @param eac3AtmosSettings Eac3 Atmos Settings. See EAC3 Atmos Settings
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3Settings - Eac3 Settings. See EAC3 Settings
+         * @param eac3Settings Eac3 Settings. See EAC3 Settings
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs exten
         }
 
         /**
-         * @param eac3Settings - Eac3 Settings. See EAC3 Settings
+         * @param eac3Settings Eac3 Settings. See EAC3 Settings
          * 
          * @return builder
          * 

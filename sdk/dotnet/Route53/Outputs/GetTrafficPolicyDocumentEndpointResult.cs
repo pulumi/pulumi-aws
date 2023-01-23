@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Route53.Outputs
     public sealed class GetTrafficPolicyDocumentEndpointResult
     {
         /// <summary>
-        /// ID of a rule you want to assign.
+        /// ID of an endpoint you want to assign.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Region code for the AWS Region that you created the resource in.
+        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// Type of the rule.
+        /// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
         /// </summary>
         public readonly string? Type;
         /// <summary>

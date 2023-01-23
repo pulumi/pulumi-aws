@@ -24,7 +24,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
      */
     private @Nullable List<String> denyFilters;
     /**
-     * @return A user-defined string describing the segment action.
+     * @return A user-defined string describing the segment.
      * 
      */
     private @Nullable String description;
@@ -65,7 +65,7 @@ public final class GetCoreNetworkPolicyDocumentSegment {
         return this.denyFilters == null ? List.of() : this.denyFilters;
     }
     /**
-     * @return A user-defined string describing the segment action.
+     * @return A user-defined string describing the segment.
      * 
      */
     public Optional<String> description() {

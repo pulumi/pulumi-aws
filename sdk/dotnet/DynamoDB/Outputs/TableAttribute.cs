@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableAttribute
     {
         /// <summary>
-        /// Name of the index
+        /// Name of the attribute
         /// </summary>
         public readonly string Name;
         /// <summary>

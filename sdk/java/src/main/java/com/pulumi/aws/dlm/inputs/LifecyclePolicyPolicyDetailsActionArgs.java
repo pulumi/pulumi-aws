@@ -31,14 +31,14 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
     }
 
     /**
-     * A name for the schedule.
+     * A descriptive name for the action.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the schedule.
+     * @return A descriptive name for the action.
      * 
      */
     public Output<String> name() {
@@ -102,7 +102,7 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
         }
 
         /**
-         * @param name A name for the schedule.
+         * @param name A descriptive name for the action.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class LifecyclePolicyPolicyDetailsActionArgs extends com.pulumi.res
         }
 
         /**
-         * @param name A name for the schedule.
+         * @param name A descriptive name for the action.
          * 
          * @return builder
          * 

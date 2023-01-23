@@ -114,14 +114,14 @@ public class CatalogDatabase extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * ID of the Data Catalog in which the database resides.
+     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return ID of the Data Catalog in which the database resides.
+     * @return ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
     public Output<String> catalogId() {

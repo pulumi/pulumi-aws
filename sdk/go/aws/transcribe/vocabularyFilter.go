@@ -74,7 +74,7 @@ type VocabularyFilter struct {
 	VocabularyFilterFileUri pulumi.StringPtrOutput `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
 	VocabularyFilterName pulumi.StringOutput `pulumi:"vocabularyFilterName"`
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Words pulumi.StringArrayOutput `pulumi:"words"`
 }
 
@@ -126,7 +126,7 @@ type vocabularyFilterState struct {
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
 	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Words []string `pulumi:"words"`
 }
 
@@ -144,7 +144,7 @@ type VocabularyFilterState struct {
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
 	VocabularyFilterName pulumi.StringPtrInput
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Words pulumi.StringArrayInput
 }
 
@@ -161,7 +161,7 @@ type vocabularyFilterArgs struct {
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
 	VocabularyFilterName string `pulumi:"vocabularyFilterName"`
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Words []string `pulumi:"words"`
 }
 
@@ -175,7 +175,7 @@ type VocabularyFilterArgs struct {
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
 	VocabularyFilterName pulumi.StringInput
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Words pulumi.StringArrayInput
 }
 
@@ -300,7 +300,7 @@ func (o VocabularyFilterOutput) VocabularyFilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.VocabularyFilterName }).(pulumi.StringOutput)
 }
 
-// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 func (o VocabularyFilterOutput) Words() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringArrayOutput { return v.Words }).(pulumi.StringArrayOutput)
 }

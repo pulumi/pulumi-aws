@@ -26,7 +26,7 @@ class DomainArgs:
         :param pulumi.Input['DomainEndpointOptionsArgs'] endpoint_options: Domain endpoint options. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-        :param pulumi.Input[str] name: A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        :param pulumi.Input[str] name: The name of the CloudSearch domain.
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         """
         if endpoint_options is not None:
@@ -80,7 +80,7 @@ class DomainArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        The name of the CloudSearch domain.
         """
         return pulumi.get(self, "name")
 
@@ -121,7 +121,7 @@ class _DomainState:
         :param pulumi.Input['DomainEndpointOptionsArgs'] endpoint_options: Domain endpoint options. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-        :param pulumi.Input[str] name: A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        :param pulumi.Input[str] name: The name of the CloudSearch domain.
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
@@ -220,7 +220,7 @@ class _DomainState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        The name of the CloudSearch domain.
         """
         return pulumi.get(self, "name")
 
@@ -314,7 +314,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']] endpoint_options: Domain endpoint options. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainIndexFieldArgs']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-        :param pulumi.Input[str] name: A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        :param pulumi.Input[str] name: The name of the CloudSearch domain.
         :param pulumi.Input[pulumi.InputType['DomainScalingParametersArgs']] scaling_parameters: Domain scaling parameters. Documented below.
         """
         ...
@@ -438,7 +438,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']] endpoint_options: Domain endpoint options. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainIndexFieldArgs']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
-        :param pulumi.Input[str] name: A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        :param pulumi.Input[str] name: The name of the CloudSearch domain.
         :param pulumi.Input[pulumi.InputType['DomainScalingParametersArgs']] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
@@ -509,7 +509,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        The name of the CloudSearch domain.
         """
         return pulumi.get(self, "name")
 

@@ -27,8 +27,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
         /// </summary>
         public readonly string? DocumentType;
         /// <summary>
-        /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `output_s3_uri`.
+        /// Location of augmented manifest file.
         /// </summary>
         public readonly string S3Uri;
         /// <summary>

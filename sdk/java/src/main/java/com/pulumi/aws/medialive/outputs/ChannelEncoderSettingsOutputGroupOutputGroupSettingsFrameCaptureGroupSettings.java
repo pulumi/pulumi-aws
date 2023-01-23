@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings {
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination;
@@ -21,7 +21,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings() {}
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination() {

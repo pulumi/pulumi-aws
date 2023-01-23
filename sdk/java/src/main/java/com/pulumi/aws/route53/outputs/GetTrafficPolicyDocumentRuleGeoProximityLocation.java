@@ -43,7 +43,7 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
      */
     private @Nullable String longitude;
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
      * 
      */
     private @Nullable String region;
@@ -97,7 +97,7 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation {
         return Optional.ofNullable(this.longitude);
     }
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
      * 
      */
     public Optional<String> region() {

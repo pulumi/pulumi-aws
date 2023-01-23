@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetUserFilter {
     /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     private String attributePath;
@@ -22,7 +22,7 @@ public final class GetUserFilter {
 
     private GetUserFilter() {}
     /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     public String attributePath() {

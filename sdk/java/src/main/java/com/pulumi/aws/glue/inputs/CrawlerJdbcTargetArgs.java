@@ -17,14 +17,14 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
     public static final CrawlerJdbcTargetArgs Empty = new CrawlerJdbcTargetArgs();
 
     /**
-     * The name of the connection to use to connect to the Delta table target.
+     * The name of the connection to use to connect to the JDBC target.
      * 
      */
     @Import(name="connectionName", required=true)
     private Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the JDBC target.
      * 
      */
     public Output<String> connectionName() {
@@ -62,14 +62,14 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * The path of the JDBC target.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The path of the JDBC target.
      * 
      */
     public Output<String> path() {
@@ -104,7 +104,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection to use to connect to the JDBC target.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection to use to connect to the JDBC target.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path The path of the JDBC target.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class CrawlerJdbcTargetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path The path of the JDBC target.
          * 
          * @return builder
          * 

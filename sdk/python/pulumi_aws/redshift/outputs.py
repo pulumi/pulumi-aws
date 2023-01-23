@@ -500,7 +500,7 @@ class ScheduledActionTargetActionPauseCluster(dict):
     def __init__(__self__, *,
                  cluster_identifier: str):
         """
-        :param str cluster_identifier: The identifier of the cluster to be resumed.
+        :param str cluster_identifier: The identifier of the cluster to be paused.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
@@ -508,7 +508,7 @@ class ScheduledActionTargetActionPauseCluster(dict):
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> str:
         """
-        The identifier of the cluster to be resumed.
+        The identifier of the cluster to be paused.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -545,7 +545,7 @@ class ScheduledActionTargetActionResizeCluster(dict):
                  node_type: Optional[str] = None,
                  number_of_nodes: Optional[int] = None):
         """
-        :param str cluster_identifier: The identifier of the cluster to be resumed.
+        :param str cluster_identifier: The unique identifier for the cluster to resize.
         :param bool classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
         :param str cluster_type: The new cluster type for the specified cluster.
         :param str node_type: The new node type for the nodes you are adding.
@@ -565,7 +565,7 @@ class ScheduledActionTargetActionResizeCluster(dict):
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> str:
         """
-        The identifier of the cluster to be resumed.
+        The unique identifier for the cluster to resize.
         """
         return pulumi.get(self, "cluster_identifier")
 

@@ -90,7 +90,7 @@ export class VocabularyFilter extends pulumi.CustomResource {
      */
     public readonly vocabularyFilterName!: pulumi.Output<string>;
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     public readonly words!: pulumi.Output<string[] | undefined>;
 
@@ -167,7 +167,7 @@ export interface VocabularyFilterState {
      */
     vocabularyFilterName?: pulumi.Input<string>;
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     words?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -193,7 +193,7 @@ export interface VocabularyFilterArgs {
      */
     vocabularyFilterName: pulumi.Input<string>;
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     words?: pulumi.Input<pulumi.Input<string>[]>;
 }

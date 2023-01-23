@@ -25,13 +25,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs>? Ac3Settings { get; set; }
 
         /// <summary>
-        /// - Eac3 Atmos Settings. See EAC3 Atmos Settings
+        /// Eac3 Atmos Settings. See EAC3 Atmos Settings
         /// </summary>
         [Input("eac3AtmosSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs>? Eac3AtmosSettings { get; set; }
 
         /// <summary>
-        /// - Eac3 Settings. See EAC3 Settings
+        /// Eac3 Settings. See EAC3 Settings
         /// </summary>
         [Input("eac3Settings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs>? Eac3Settings { get; set; }

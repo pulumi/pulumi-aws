@@ -585,7 +585,7 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
                  target_account_ids: Optional[Sequence[str]] = None):
         """
         :param Mapping[str, str] ami_tags: Key-value map of tags to apply to the distributed AMI.
-        :param str description: Description of the container distribution configuration.
+        :param str description: Description to apply to the distributed AMI.
         :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
         :param 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs' launch_permission: Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
         :param str name: Name to apply to the distributed AMI.
@@ -616,7 +616,7 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Description of the container distribution configuration.
+        Description to apply to the distributed AMI.
         """
         return pulumi.get(self, "description")
 
@@ -870,7 +870,7 @@ class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
                  max_parallel_launches: Optional[int] = None,
                  snapshot_configuration: Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration'] = None):
         """
-        :param str account_id: The account ID that this configuration applies to.
+        :param str account_id: The owner account ID for the fast-launch enabled Windows AMI.
         :param bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
         :param 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs' launch_template: Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
         :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
@@ -889,7 +889,7 @@ class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
         """
-        The account ID that this configuration applies to.
+        The owner account ID for the fast-launch enabled Windows AMI.
         """
         return pulumi.get(self, "account_id")
 
@@ -954,7 +954,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
                  launch_template_name: Optional[str] = None,
                  launch_template_version: Optional[str] = None):
         """
-        :param str launch_template_id: The ID of the Amazon EC2 launch template to use.
+        :param str launch_template_id: The ID of the launch template to use for faster launching for a Windows AMI.
         :param str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
         :param str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
         """
@@ -969,7 +969,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[str]:
         """
-        The ID of the Amazon EC2 launch template to use.
+        The ID of the launch template to use for faster launching for a Windows AMI.
         """
         return pulumi.get(self, "launch_template_id")
 

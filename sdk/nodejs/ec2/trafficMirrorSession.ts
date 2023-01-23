@@ -87,7 +87,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly packetLength!: pulumi.Output<number | undefined>;
     /**
-     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+     * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     public readonly sessionNumber!: pulumi.Output<number>;
     /**
@@ -107,7 +107,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly trafficMirrorTargetId!: pulumi.Output<string>;
     /**
-     * - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
     public readonly virtualNetworkId!: pulumi.Output<number>;
 
@@ -191,7 +191,7 @@ export interface TrafficMirrorSessionState {
      */
     packetLength?: pulumi.Input<number>;
     /**
-     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+     * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     sessionNumber?: pulumi.Input<number>;
     /**
@@ -211,7 +211,7 @@ export interface TrafficMirrorSessionState {
      */
     trafficMirrorTargetId?: pulumi.Input<string>;
     /**
-     * - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
     virtualNetworkId?: pulumi.Input<number>;
 }
@@ -233,7 +233,7 @@ export interface TrafficMirrorSessionArgs {
      */
     packetLength?: pulumi.Input<number>;
     /**
-     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+     * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
     sessionNumber: pulumi.Input<number>;
     /**
@@ -249,7 +249,7 @@ export interface TrafficMirrorSessionArgs {
      */
     trafficMirrorTargetId: pulumi.Input<string>;
     /**
-     * - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
     virtualNetworkId?: pulumi.Input<number>;
 }

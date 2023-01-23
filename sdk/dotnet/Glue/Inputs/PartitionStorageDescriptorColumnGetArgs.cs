@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Name of the SerDe.
+        /// The name of the Column.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

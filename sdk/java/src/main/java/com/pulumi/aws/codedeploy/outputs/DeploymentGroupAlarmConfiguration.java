@@ -25,8 +25,6 @@ public final class DeploymentGroupAlarmConfiguration {
     private @Nullable Boolean enabled;
     /**
      * @return Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
      * 
      */
     private @Nullable Boolean ignorePollAlarmFailure;
@@ -48,8 +46,6 @@ public final class DeploymentGroupAlarmConfiguration {
     }
     /**
      * @return Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
      * 
      */
     public Optional<Boolean> ignorePollAlarmFailure() {

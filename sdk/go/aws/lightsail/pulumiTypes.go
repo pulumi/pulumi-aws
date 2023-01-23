@@ -808,7 +808,10 @@ func (o ContainerServicePrivateRegistryAccessPtrOutput) EcrImagePullerRole() Con
 
 type ContainerServicePrivateRegistryAccessEcrImagePullerRole struct {
 	// A Boolean value that indicates whether to activate the role. The default is `false`.
-	IsActive     *bool   `pulumi:"isActive"`
+	IsActive *bool `pulumi:"isActive"`
+	// The principal ARN of the container service. The principal ARN can be used to create a trust
+	// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+	// service permission to access resources in your standard AWS account.
 	PrincipalArn *string `pulumi:"principalArn"`
 }
 
@@ -825,7 +828,10 @@ type ContainerServicePrivateRegistryAccessEcrImagePullerRoleInput interface {
 
 type ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs struct {
 	// A Boolean value that indicates whether to activate the role. The default is `false`.
-	IsActive     pulumi.BoolPtrInput   `pulumi:"isActive"`
+	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
+	// The principal ARN of the container service. The principal ARN can be used to create a trust
+	// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+	// service permission to access resources in your standard AWS account.
 	PrincipalArn pulumi.StringPtrInput `pulumi:"principalArn"`
 }
 
@@ -911,6 +917,9 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) IsActive(
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
 
+// The principal ARN of the container service. The principal ARN can be used to create a trust
+// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+// service permission to access resources in your standard AWS account.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) PrincipalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *string { return v.PrincipalArn }).(pulumi.StringPtrOutput)
 }
@@ -949,6 +958,9 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) IsActi
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The principal ARN of the container service. The principal ARN can be used to create a trust
+// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+// service permission to access resources in your standard AWS account.
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) PrincipalArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServicePrivateRegistryAccessEcrImagePullerRole) *string {
 		if v == nil {

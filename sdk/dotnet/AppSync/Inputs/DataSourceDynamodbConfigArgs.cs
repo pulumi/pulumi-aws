@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<Inputs.DataSourceDynamodbConfigDeltaSyncConfigArgs>? DeltaSyncConfig { get; set; }
 
         /// <summary>
-        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
+        /// AWS region of the DynamoDB table. Defaults to current region.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

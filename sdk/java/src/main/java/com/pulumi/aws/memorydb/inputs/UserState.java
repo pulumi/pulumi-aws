@@ -64,7 +64,6 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The minimum engine version supported for the user.
-     * * `authentication_mode` configuration block
      * 
      */
     @Import(name="minimumEngineVersion")
@@ -72,7 +71,6 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The minimum engine version supported for the user.
-     * * `authentication_mode` configuration block
      * 
      */
     public Optional<Output<String>> minimumEngineVersion() {
@@ -219,7 +217,6 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param minimumEngineVersion The minimum engine version supported for the user.
-         * * `authentication_mode` configuration block
          * 
          * @return builder
          * 
@@ -231,7 +228,6 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param minimumEngineVersion The minimum engine version supported for the user.
-         * * `authentication_mode` configuration block
          * 
          * @return builder
          * 

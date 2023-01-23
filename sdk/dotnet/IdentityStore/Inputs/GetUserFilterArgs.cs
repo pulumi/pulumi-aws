@@ -13,7 +13,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
     public sealed class GetUserFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+        /// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         /// </summary>
         [Input("attributePath", required: true)]
         public Input<string> AttributePath { get; set; } = null!;

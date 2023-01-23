@@ -63,16 +63,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewAuthorizer(ctx, "example", &apigatewayv2.AuthorizerArgs{
 //				ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				AuthorizerType: pulumi.String("JWT"),
+//				AuthorizerType: pulumi.String("REQUEST"),
+//				AuthorizerUri:  pulumi.Any(aws_lambda_function.Example.Invoke_arn),
 //				IdentitySources: pulumi.StringArray{
 //					pulumi.String(fmt.Sprintf("$request.header.Authorization")),
 //				},
-//				JwtConfiguration: &apigatewayv2.AuthorizerJwtConfigurationArgs{
-//					Audiences: pulumi.StringArray{
-//						pulumi.String("example"),
-//					},
-//					Issuer: pulumi.String(fmt.Sprintf("https://%v", aws_cognito_user_pool.Example.Endpoint)),
-//				},
+//				AuthorizerPayloadFormatVersion: pulumi.String("2.0"),
 //			})
 //			if err != nil {
 //				return err

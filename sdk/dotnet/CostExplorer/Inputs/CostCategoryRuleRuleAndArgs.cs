@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public Input<Inputs.CostCategoryRuleRuleAndDimensionArgs>? Dimension { get; set; }
 
         /// <summary>
-        /// Configuration block for the specific `Tag` to use for `Expression`. See below.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Input("tags")]
         public Input<Inputs.CostCategoryRuleRuleAndTagsArgs>? Tags { get; set; }

@@ -18,6 +18,10 @@ public final class GetAvailabilityZonesResult {
     private @Nullable List<String> excludeNames;
     private @Nullable List<String> excludeZoneIds;
     private @Nullable List<GetAvailabilityZonesFilter> filters;
+    /**
+     * @return A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     * 
+     */
     private List<String> groupNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -49,6 +53,10 @@ public final class GetAvailabilityZonesResult {
     public List<GetAvailabilityZonesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
+    /**
+     * @return A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     * 
+     */
     public List<String> groupNames() {
         return this.groupNames;
     }

@@ -167,14 +167,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.dailyAutomaticBackupStartTime;
     }
     /**
-     * - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * @return The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
      * 
      */
     public Output<String> deploymentType() {

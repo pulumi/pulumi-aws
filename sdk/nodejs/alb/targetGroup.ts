@@ -139,7 +139,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
-     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+     * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
@@ -147,7 +147,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly preserveClientIp!: pulumi.Output<string>;
     /**
-     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -299,7 +299,7 @@ export interface TargetGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+     * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     port?: pulumi.Input<number>;
     /**
@@ -307,7 +307,7 @@ export interface TargetGroupState {
      */
     preserveClientIp?: pulumi.Input<string>;
     /**
-     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -385,7 +385,7 @@ export interface TargetGroupArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+     * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     port?: pulumi.Input<number>;
     /**
@@ -393,7 +393,7 @@ export interface TargetGroupArgs {
      */
     preserveClientIp?: pulumi.Input<string>;
     /**
-     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+     * Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
     protocol?: pulumi.Input<string>;
     /**

@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
         /// </summary>
         public readonly string? DocumentType;
         /// <summary>
-        /// Location of entity list.
+        /// Location of augmented manifest file.
         /// </summary>
         public readonly string S3Uri;
         /// <summary>

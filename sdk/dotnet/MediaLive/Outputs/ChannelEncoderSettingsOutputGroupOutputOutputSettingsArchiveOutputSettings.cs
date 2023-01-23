@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     {
         /// <summary>
-        /// UDP container settings. See Container Settings for more details.
+        /// Settings specific to the container type of the file. See Container Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings? ContainerSettings;
         /// <summary>

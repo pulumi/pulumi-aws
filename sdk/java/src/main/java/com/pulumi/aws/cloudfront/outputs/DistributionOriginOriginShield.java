@@ -11,7 +11,8 @@ import java.util.Objects;
 @CustomType
 public final class DistributionOriginOriginShield {
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     private Boolean enabled;
@@ -23,7 +24,8 @@ public final class DistributionOriginOriginShield {
 
     private DistributionOriginOriginShield() {}
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     public Boolean enabled() {

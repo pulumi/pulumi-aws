@@ -50,6 +50,9 @@ namespace Pulumi.Aws.Emr
     [AwsResourceType("aws:emr/studio:Studio")]
     public partial class Studio : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the studio.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -123,7 +126,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         /// </summary>
         [Output("userRole")]
         public Output<string?> UserRole { get; private set; } = null!;
@@ -259,7 +262,7 @@ namespace Pulumi.Aws.Emr
         }
 
         /// <summary>
-        /// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         /// </summary>
         [Input("userRole")]
         public Input<string>? UserRole { get; set; }
@@ -284,6 +287,9 @@ namespace Pulumi.Aws.Emr
 
     public sealed class StudioState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the studio.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -374,7 +380,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+        /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         /// </summary>
         [Input("userRole")]
         public Input<string>? UserRole { get; set; }

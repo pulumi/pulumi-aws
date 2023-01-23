@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableStorageDescriptorSerDeInfo
     {
         /// <summary>
-        /// Name of the target table.
+        /// Name of the SerDe.
         /// </summary>
         public readonly string? Name;
         /// <summary>

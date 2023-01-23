@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrameworkControlInputParameter {
     /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
+     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     private @Nullable String name;
@@ -24,7 +24,7 @@ public final class FrameworkControlInputParameter {
 
     private FrameworkControlInputParameter() {}
     /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
+     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Optional<String> name() {

@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Fis
         public Output<ImmutableArray<Outputs.ExperimentTemplateAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the action.
+        /// Description for the experiment template.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Fis
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Action's target, if applicable. See below.
+        /// Target of an action. See below.
         /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateTarget>> Targets { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Fis
         }
 
         /// <summary>
-        /// Description of the action.
+        /// Description for the experiment template.
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Fis
         private InputList<Inputs.ExperimentTemplateTargetArgs>? _targets;
 
         /// <summary>
-        /// Action's target, if applicable. See below.
+        /// Target of an action. See below.
         /// </summary>
         public InputList<Inputs.ExperimentTemplateTargetArgs> Targets
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Fis
         }
 
         /// <summary>
-        /// Description of the action.
+        /// Description for the experiment template.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Fis
         private InputList<Inputs.ExperimentTemplateTargetGetArgs>? _targets;
 
         /// <summary>
-        /// Action's target, if applicable. See below.
+        /// Target of an action. See below.
         /// </summary>
         public InputList<Inputs.ExperimentTemplateTargetGetArgs> Targets
         {

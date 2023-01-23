@@ -38,7 +38,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The ARN of the cluster.
-     * * `cluster_endpoint`
      * 
      */
     @Import(name="arn")
@@ -46,7 +45,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The ARN of the cluster.
-     * * `cluster_endpoint`
      * 
      */
     public Optional<Output<String>> arn() {
@@ -525,7 +523,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn The ARN of the cluster.
-         * * `cluster_endpoint`
          * 
          * @return builder
          * 
@@ -537,7 +534,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn The ARN of the cluster.
-         * * `cluster_endpoint`
          * 
          * @return builder
          * 

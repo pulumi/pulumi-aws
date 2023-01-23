@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
     public sealed class WebAclRuleOverrideAction
     {
         /// <summary>
-        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         /// </summary>
         public readonly string Type;
 

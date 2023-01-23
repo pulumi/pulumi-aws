@@ -14,14 +14,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs();
 
     /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> destination;
 
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs> destination() {
@@ -53,7 +53,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPack
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 

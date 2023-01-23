@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServiceObservabilityConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +17,18 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
     public static final ServiceObservabilityConfigurationArgs Empty = new ServiceObservabilityConfigurationArgs();
 
     /**
-     * ARN of the observability configuration that is associated with the service.
+     * ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
      * 
      */
-    @Import(name="observabilityConfigurationArn", required=true)
-    private Output<String> observabilityConfigurationArn;
+    @Import(name="observabilityConfigurationArn")
+    private @Nullable Output<String> observabilityConfigurationArn;
 
     /**
-     * @return ARN of the observability configuration that is associated with the service.
+     * @return ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
      * 
      */
-    public Output<String> observabilityConfigurationArn() {
-        return this.observabilityConfigurationArn;
+    public Optional<Output<String>> observabilityConfigurationArn() {
+        return Optional.ofNullable(this.observabilityConfigurationArn);
     }
 
     /**
@@ -70,18 +72,18 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service.
+         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder observabilityConfigurationArn(Output<String> observabilityConfigurationArn) {
+        public Builder observabilityConfigurationArn(@Nullable Output<String> observabilityConfigurationArn) {
             $.observabilityConfigurationArn = observabilityConfigurationArn;
             return this;
         }
 
         /**
-         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service.
+         * @param observabilityConfigurationArn ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
          * 
          * @return builder
          * 
@@ -112,7 +114,6 @@ public final class ServiceObservabilityConfigurationArgs extends com.pulumi.reso
         }
 
         public ServiceObservabilityConfigurationArgs build() {
-            $.observabilityConfigurationArn = Objects.requireNonNull($.observabilityConfigurationArn, "expected parameter 'observabilityConfigurationArn' to be non-null");
             $.observabilityEnabled = Objects.requireNonNull($.observabilityEnabled, "expected parameter 'observabilityEnabled' to be non-null");
             return $;
         }

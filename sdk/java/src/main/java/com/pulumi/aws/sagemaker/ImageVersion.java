@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
 public class ImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -70,7 +69,6 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
     public Output<String> arn() {
@@ -104,9 +102,17 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
     public Output<String> containerImage() {
         return this.containerImage;
     }
+    /**
+     * The Amazon Resource Name (ARN) of the image the version is based on.
+     * 
+     */
     @Export(name="imageArn", refs={String.class}, tree="[0]")
     private Output<String> imageArn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the image the version is based on.
+     * 
+     */
     public Output<String> imageArn() {
         return this.imageArn;
     }

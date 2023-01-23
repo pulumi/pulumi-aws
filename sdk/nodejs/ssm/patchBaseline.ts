@@ -244,7 +244,7 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly globalFilters!: pulumi.Output<outputs.ssm.PatchBaselineGlobalFilter[] | undefined>;
     /**
-     * The name specified to identify the patch source.
+     * The name of the patch baseline.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -381,7 +381,7 @@ export interface PatchBaselineState {
      */
     globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
     /**
-     * The name specified to identify the patch source.
+     * The name of the patch baseline.
      */
     name?: pulumi.Input<string>;
     /**
@@ -466,7 +466,7 @@ export interface PatchBaselineArgs {
      */
     globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
     /**
-     * The name specified to identify the patch source.
+     * The name of the patch baseline.
      */
     name?: pulumi.Input<string>;
     /**

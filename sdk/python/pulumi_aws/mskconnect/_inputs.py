@@ -161,7 +161,7 @@ class ConnectorCapacityAutoscalingScaleInPolicyArgs:
     def __init__(__self__, *,
                  cpu_utilization_percentage: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] cpu_utilization_percentage: The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+        :param pulumi.Input[int] cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
         """
         if cpu_utilization_percentage is not None:
             pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
@@ -170,7 +170,7 @@ class ConnectorCapacityAutoscalingScaleInPolicyArgs:
     @pulumi.getter(name="cpuUtilizationPercentage")
     def cpu_utilization_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+        Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
         """
         return pulumi.get(self, "cpu_utilization_percentage")
 
@@ -465,7 +465,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
                  enabled: pulumi.Input[bool],
                  log_group: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        :param pulumi.Input[bool] enabled: Whether log delivery to Amazon CloudWatch Logs is enabled.
         :param pulumi.Input[str] log_group: The name of the CloudWatch log group that is the destination for log delivery.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -476,7 +476,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        Whether log delivery to Amazon CloudWatch Logs is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -503,7 +503,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
                  enabled: pulumi.Input[bool],
                  delivery_stream: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        :param pulumi.Input[bool] enabled: Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
         :param pulumi.Input[str] delivery_stream: The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -514,7 +514,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
         """
         return pulumi.get(self, "enabled")
 
@@ -542,7 +542,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
                  bucket: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        :param pulumi.Input[bool] enabled: Whether log delivery to Amazon CloudWatch Logs is enabled.
         :param pulumi.Input[str] bucket: The name of the S3 bucket that is the destination for log delivery.
         :param pulumi.Input[str] prefix: The S3 prefix that is the destination for log delivery.
         """
@@ -556,7 +556,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        Whether log delivery to Amazon CloudWatch Logs is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -617,8 +617,8 @@ class ConnectorPluginCustomPluginArgs:
                  arn: pulumi.Input[str],
                  revision: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the worker configuration.
-        :param pulumi.Input[int] revision: The revision of the worker configuration.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the custom plugin.
+        :param pulumi.Input[int] revision: The revision of the custom plugin.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "revision", revision)
@@ -627,7 +627,7 @@ class ConnectorPluginCustomPluginArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the worker configuration.
+        The Amazon Resource Name (ARN) of the custom plugin.
         """
         return pulumi.get(self, "arn")
 
@@ -639,7 +639,7 @@ class ConnectorPluginCustomPluginArgs:
     @pulumi.getter
     def revision(self) -> pulumi.Input[int]:
         """
-        The revision of the worker configuration.
+        The revision of the custom plugin.
         """
         return pulumi.get(self, "revision")
 

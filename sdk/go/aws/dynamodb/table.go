@@ -159,17 +159,17 @@ type Table struct {
 	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
+	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringOutput `pulumi:"hashKey"`
 	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
-	// Name of the index
+	// Unique within a region name of the table.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryOutput `pulumi:"pointInTimeRecovery"`
-	// Name of the range key.
+	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
-	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntOutput `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayOutput `pulumi:"replicas"`
@@ -197,7 +197,7 @@ type Table struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for TTL. See below.
 	Ttl TableTtlOutput `pulumi:"ttl"`
-	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity pulumi.IntOutput `pulumi:"writeCapacity"`
 }
 
@@ -238,17 +238,17 @@ type tableState struct {
 	BillingMode *string `pulumi:"billingMode"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
+	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
 	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
-	// Name of the index
+	// Unique within a region name of the table.
 	Name *string `pulumi:"name"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
-	// Name of the range key.
+	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
 	RangeKey *string `pulumi:"rangeKey"`
-	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity *int `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
@@ -276,7 +276,7 @@ type tableState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for TTL. See below.
 	Ttl *TableTtl `pulumi:"ttl"`
-	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity *int `pulumi:"writeCapacity"`
 }
 
@@ -289,17 +289,17 @@ type TableState struct {
 	BillingMode pulumi.StringPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
+	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
 	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
-	// Name of the index
+	// Unique within a region name of the table.
 	Name pulumi.StringPtrInput
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
-	// Name of the range key.
+	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
 	RangeKey pulumi.StringPtrInput
-	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
@@ -327,7 +327,7 @@ type TableState struct {
 	TagsAll pulumi.StringMapInput
 	// Configuration block for TTL. See below.
 	Ttl TableTtlPtrInput
-	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity pulumi.IntPtrInput
 }
 
@@ -342,17 +342,17 @@ type tableArgs struct {
 	BillingMode *string `pulumi:"billingMode"`
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
+	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
 	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
-	// Name of the index
+	// Unique within a region name of the table.
 	Name *string `pulumi:"name"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
-	// Name of the range key.
+	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
 	RangeKey *string `pulumi:"rangeKey"`
-	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity *int `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas []TableReplicaType `pulumi:"replicas"`
@@ -374,7 +374,7 @@ type tableArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for TTL. See below.
 	Ttl *TableTtl `pulumi:"ttl"`
-	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity *int `pulumi:"writeCapacity"`
 }
 
@@ -386,17 +386,17 @@ type TableArgs struct {
 	BillingMode pulumi.StringPtrInput
 	// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
+	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
 	// Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
-	// Name of the index
+	// Unique within a region name of the table.
 	Name pulumi.StringPtrInput
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
-	// Name of the range key.
+	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
 	RangeKey pulumi.StringPtrInput
-	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	ReadCapacity pulumi.IntPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
 	Replicas TableReplicaTypeArrayInput
@@ -418,7 +418,7 @@ type TableArgs struct {
 	Tags pulumi.StringMapInput
 	// Configuration block for TTL. See below.
 	Ttl TableTtlPtrInput
-	// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+	// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 	WriteCapacity pulumi.IntPtrInput
 }
 
@@ -529,7 +529,7 @@ func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutp
 	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
 }
 
-// Name of the hash key in the index; must be defined as an attribute in the resource.
+// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 func (o TableOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.HashKey }).(pulumi.StringOutput)
 }
@@ -539,22 +539,22 @@ func (o TableOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput
 	return o.ApplyT(func(v *Table) TableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(TableLocalSecondaryIndexArrayOutput)
 }
 
-// Name of the index
+// Unique within a region name of the table.
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+// Enable point-in-time recovery options. See below.
 func (o TableOutput) PointInTimeRecovery() TablePointInTimeRecoveryOutput {
 	return o.ApplyT(func(v *Table) TablePointInTimeRecoveryOutput { return v.PointInTimeRecovery }).(TablePointInTimeRecoveryOutput)
 }
 
-// Name of the range key.
+// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
 func (o TableOutput) RangeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.RangeKey }).(pulumi.StringPtrOutput)
 }
 
-// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+// Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 func (o TableOutput) ReadCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.ReadCapacity }).(pulumi.IntOutput)
 }
@@ -624,7 +624,7 @@ func (o TableOutput) Ttl() TableTtlOutput {
 	return o.ApplyT(func(v *Table) TableTtlOutput { return v.Ttl }).(TableTtlOutput)
 }
 
-// Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+// Number of write units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
 func (o TableOutput) WriteCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.WriteCapacity }).(pulumi.IntOutput)
 }

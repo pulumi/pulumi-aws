@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultSpaceSettings {
     /**
-     * @return The execution role ARN for the user.
+     * @return The execution role for the space.
      * 
      */
     private String executionRole;
@@ -30,14 +30,14 @@ public final class DomainDefaultSpaceSettings {
      */
     private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
     /**
-     * @return A list of security group IDs that will be attached to the user.
+     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
      * 
      */
     private @Nullable List<String> securityGroups;
 
     private DomainDefaultSpaceSettings() {}
     /**
-     * @return The execution role ARN for the user.
+     * @return The execution role for the space.
      * 
      */
     public String executionRole() {
@@ -58,7 +58,7 @@ public final class DomainDefaultSpaceSettings {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
     /**
-     * @return A list of security group IDs that will be attached to the user.
+     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
      * 
      */
     public List<String> securityGroups() {

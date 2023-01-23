@@ -19,14 +19,14 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
     public static final DistributionConfigurationArgs Empty = new DistributionConfigurationArgs();
 
     /**
-     * Description of the container distribution configuration.
+     * Description of the distribution configuration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the container distribution configuration.
+     * @return Description of the distribution configuration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Name to apply to the distributed AMI.
+     * Name of the distribution configuration.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name to apply to the distributed AMI.
+     * @return Name of the distribution configuration.
      * 
      */
     public Optional<Output<String>> name() {
@@ -106,7 +106,7 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description Description of the container distribution configuration.
+         * @param description Description of the distribution configuration.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description Description of the container distribution configuration.
+         * @param description Description of the distribution configuration.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Name to apply to the distributed AMI.
+         * @param name Name of the distribution configuration.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Name to apply to the distributed AMI.
+         * @param name Name of the distribution configuration.
          * 
          * @return builder
          * 

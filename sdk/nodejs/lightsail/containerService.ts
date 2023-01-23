@@ -141,11 +141,13 @@ export class ContainerService extends pulumi.CustomResource {
     public readonly power!: pulumi.Output<string>;
     /**
      * The ID of the power of the container service.
-     * * `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
+     */
+    public /*out*/ readonly powerId!: pulumi.Output<string>;
+    /**
+     * The principal ARN of the container service. The principal ARN can be used to create a trust
      * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
      * service permission to access resources in your standard AWS account.
      */
-    public /*out*/ readonly powerId!: pulumi.Output<string>;
     public /*out*/ readonly principalArn!: pulumi.Output<string>;
     /**
      * The private domain name of the container service. The private domain name is accessible only
@@ -286,11 +288,13 @@ export interface ContainerServiceState {
     power?: pulumi.Input<string>;
     /**
      * The ID of the power of the container service.
-     * * `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
+     */
+    powerId?: pulumi.Input<string>;
+    /**
+     * The principal ARN of the container service. The principal ARN can be used to create a trust
      * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
      * service permission to access resources in your standard AWS account.
      */
-    powerId?: pulumi.Input<string>;
     principalArn?: pulumi.Input<string>;
     /**
      * The private domain name of the container service. The private domain name is accessible only

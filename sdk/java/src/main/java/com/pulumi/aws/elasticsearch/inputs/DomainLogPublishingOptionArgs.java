@@ -32,14 +32,14 @@ public final class DomainLogPublishingOptionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * Whether given log publishing option is enabled or not.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * @return Whether given log publishing option is enabled or not.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -109,7 +109,7 @@ public final class DomainLogPublishingOptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+         * @param enabled Whether given log publishing option is enabled or not.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DomainLogPublishingOptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+         * @param enabled Whether given log publishing option is enabled or not.
          * 
          * @return builder
          * 

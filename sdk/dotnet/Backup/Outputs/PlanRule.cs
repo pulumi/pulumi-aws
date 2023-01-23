@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly bool? EnableContinuousBackup;
         /// <summary>
-        /// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         /// </summary>
         public readonly Outputs.PlanRuleLifecycle? Lifecycle;
         /// <summary>

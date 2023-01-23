@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CostCategoryRuleRuleAndCostCategory {
     /**
-     * @return Key for the tag.
+     * @return Unique name of the Cost Category.
      * 
      */
     private @Nullable String key;
@@ -23,14 +23,14 @@ public final class CostCategoryRuleRuleAndCostCategory {
      */
     private @Nullable List<String> matchOptions;
     /**
-     * @return Parameter values.
+     * @return Specific value of the Cost Category.
      * 
      */
     private @Nullable List<String> values;
 
     private CostCategoryRuleRuleAndCostCategory() {}
     /**
-     * @return Key for the tag.
+     * @return Unique name of the Cost Category.
      * 
      */
     public Optional<String> key() {
@@ -44,7 +44,7 @@ public final class CostCategoryRuleRuleAndCostCategory {
         return this.matchOptions == null ? List.of() : this.matchOptions;
     }
     /**
-     * @return Parameter values.
+     * @return Specific value of the Cost Category.
      * 
      */
     public List<String> values() {

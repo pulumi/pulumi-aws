@@ -18,7 +18,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
      */
     private @Nullable Double bitrate;
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     private @Nullable String codingMode;
@@ -28,7 +28,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
      */
     private @Nullable String inputType;
     /**
-     * @return H264 profile.
+     * @return AAC profile.
      * 
      */
     private @Nullable String profile;
@@ -62,7 +62,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         return Optional.ofNullable(this.bitrate);
     }
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<String> codingMode() {
@@ -76,7 +76,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         return Optional.ofNullable(this.inputType);
     }
     /**
-     * @return H264 profile.
+     * @return AAC profile.
      * 
      */
     public Optional<String> profile() {

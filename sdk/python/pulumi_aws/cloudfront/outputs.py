@@ -251,18 +251,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] items: A list of item names (cookies, headers, or query strings).
-        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[Sequence[str]]:
-        """
-        A list of item names (cookies, headers, or query strings).
-        """
         return pulumi.get(self, "items")
 
 
@@ -318,18 +312,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] items: A list of item names (cookies, headers, or query strings).
-        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[Sequence[str]]:
-        """
-        A list of item names (cookies, headers, or query strings).
-        """
         return pulumi.get(self, "items")
 
 
@@ -386,18 +374,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] items: A list of item names (cookies, headers, or query strings).
-        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[Sequence[str]]:
-        """
-        A list of item names (cookies, headers, or query strings).
-        """
         return pulumi.get(self, "items")
 
 
@@ -1046,7 +1028,8 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
                  include_body: Optional[bool] = None):
         """
         :param str event_type: The specific event to trigger this function.
-               Valid values: `viewer-request` or `viewer-response`
+               Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+               `origin-response`
         :param str lambda_arn: ARN of the Lambda function.
         :param bool include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
@@ -1060,7 +1043,8 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
     def event_type(self) -> str:
         """
         The specific event to trigger this function.
-        Valid values: `viewer-request` or `viewer-response`
+        Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+        `origin-response`
         """
         return pulumi.get(self, "event_type")
 
@@ -1719,7 +1703,8 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
                  include_body: Optional[bool] = None):
         """
         :param str event_type: The specific event to trigger this function.
-               Valid values: `viewer-request` or `viewer-response`
+               Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+               `origin-response`
         :param str lambda_arn: ARN of the Lambda function.
         :param bool include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
@@ -1733,7 +1718,8 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
     def event_type(self) -> str:
         """
         The specific event to trigger this function.
-        Valid values: `viewer-request` or `viewer-response`
+        Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+        `origin-response`
         """
         return pulumi.get(self, "event_type")
 
@@ -1805,7 +1791,7 @@ class DistributionOrigin(dict):
         """
         :param str domain_name: The DNS domain name of either the S3 bucket, or
                web site of your custom origin.
-        :param str origin_id: The unique identifier of the member origin
+        :param str origin_id: A unique identifier for the origin.
         :param int connection_attempts: The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
         :param int connection_timeout: The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
         :param Sequence['DistributionOriginCustomHeaderArgs'] custom_headers: One or more sub-resources with `name` and
@@ -1856,7 +1842,7 @@ class DistributionOrigin(dict):
     @pulumi.getter(name="originId")
     def origin_id(self) -> str:
         """
-        The unique identifier of the member origin
+        A unique identifier for the origin.
         """
         return pulumi.get(self, "origin_id")
 
@@ -2089,7 +2075,7 @@ class DistributionOriginGroup(dict):
         """
         :param 'DistributionOriginGroupFailoverCriteriaArgs' failover_criteria: The failover criteria for when to failover to the secondary origin
         :param Sequence['DistributionOriginGroupMemberArgs'] members: Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
-        :param str origin_id: The unique identifier of the member origin
+        :param str origin_id: A unique identifier for the origin.
         """
         pulumi.set(__self__, "failover_criteria", failover_criteria)
         pulumi.set(__self__, "members", members)
@@ -2115,7 +2101,7 @@ class DistributionOriginGroup(dict):
     @pulumi.getter(name="originId")
     def origin_id(self) -> str:
         """
-        The unique identifier of the member origin
+        A unique identifier for the origin.
         """
         return pulumi.get(self, "origin_id")
 
@@ -2177,7 +2163,7 @@ class DistributionOriginGroupMember(dict):
     def __init__(__self__, *,
                  origin_id: str):
         """
-        :param str origin_id: The unique identifier of the member origin
+        :param str origin_id: A unique identifier for the origin.
         """
         pulumi.set(__self__, "origin_id", origin_id)
 
@@ -2185,7 +2171,7 @@ class DistributionOriginGroupMember(dict):
     @pulumi.getter(name="originId")
     def origin_id(self) -> str:
         """
-        The unique identifier of the member origin
+        A unique identifier for the origin.
         """
         return pulumi.get(self, "origin_id")
 
@@ -2213,7 +2199,8 @@ class DistributionOriginOriginShield(dict):
                  enabled: bool,
                  origin_shield_region: str):
         """
-        :param bool enabled: A flag that specifies whether Origin Shield is enabled.
+        :param bool enabled: Whether the distribution is enabled to accept end
+               user requests for content.
         :param str origin_shield_region: The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -2223,7 +2210,8 @@ class DistributionOriginOriginShield(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        A flag that specifies whether Origin Shield is enabled.
+        Whether the distribution is enabled to accept end
+        user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2361,7 +2349,8 @@ class DistributionTrustedKeyGroup(dict):
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']] = None):
         """
-        :param bool enabled: A flag that specifies whether Origin Shield is enabled.
+        :param bool enabled: Whether the distribution is enabled to accept end
+               user requests for content.
         :param Sequence['DistributionTrustedKeyGroupItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2373,7 +2362,8 @@ class DistributionTrustedKeyGroup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        A flag that specifies whether Origin Shield is enabled.
+        Whether the distribution is enabled to accept end
+        user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2442,7 +2432,8 @@ class DistributionTrustedSigner(dict):
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedSignerItem']] = None):
         """
-        :param bool enabled: A flag that specifies whether Origin Shield is enabled.
+        :param bool enabled: Whether the distribution is enabled to accept end
+               user requests for content.
         :param Sequence['DistributionTrustedSignerItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2454,7 +2445,8 @@ class DistributionTrustedSigner(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        A flag that specifies whether Origin Shield is enabled.
+        Whether the distribution is enabled to accept end
+        user requests for content.
         """
         return pulumi.get(self, "enabled")
 
@@ -2573,6 +2565,10 @@ class DistributionViewerCertificate(dict):
                specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be
                specified. If you have specified `cloudfront_default_certificate`, `TLSv1`
                must be specified.
+        :param str ssl_support_method: Specifies how you want CloudFront to serve HTTPS
+               requests. One of `vip` or `sni-only`. Required if you specify
+               `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+               CloudFront to use a dedicated IP address and may incur extra charges.
         """
         if acm_certificate_arn is not None:
             pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
@@ -2638,6 +2634,12 @@ class DistributionViewerCertificate(dict):
     @property
     @pulumi.getter(name="sslSupportMethod")
     def ssl_support_method(self) -> Optional[str]:
+        """
+        Specifies how you want CloudFront to serve HTTPS
+        requests. One of `vip` or `sni-only`. Required if you specify
+        `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+        CloudFront to use a dedicated IP address and may incur extra charges.
+        """
         return pulumi.get(self, "ssl_support_method")
 
 
@@ -2729,7 +2731,7 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(
         """
         :param str content_type: he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
         :param str format: The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
-        :param str profile_id: ID of profile to use for field-level encryption query argument-profile mapping
+        :param str profile_id: The profile ID for a field-level encryption content type-profile mapping.
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "format", format)
@@ -2756,7 +2758,7 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(
     @pulumi.getter(name="profileId")
     def profile_id(self) -> Optional[str]:
         """
-        ID of profile to use for field-level encryption query argument-profile mapping
+        The profile ID for a field-level encryption content type-profile mapping.
         """
         return pulumi.get(self, "profile_id")
 
@@ -2848,7 +2850,7 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
                  profile_id: str,
                  query_arg: str):
         """
-        :param str profile_id: ID of profile to use for field-level encryption query argument-profile mapping
+        :param str profile_id: The profile ID for a field-level encryption content type-profile mapping.
         :param str query_arg: Query argument for field-level encryption query argument-profile mapping.
         """
         pulumi.set(__self__, "profile_id", profile_id)
@@ -2858,7 +2860,7 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
     @pulumi.getter(name="profileId")
     def profile_id(self) -> str:
         """
-        ID of profile to use for field-level encryption query argument-profile mapping
+        The profile ID for a field-level encryption content type-profile mapping.
         """
         return pulumi.get(self, "profile_id")
 
@@ -3325,7 +3327,7 @@ class ResponseHeadersPolicyCorsConfig(dict):
         :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs' access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
         :param bool origin_override: A Boolean value that determines how CloudFront behaves for the HTTP response header.
         :param 'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs' access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
-        :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+        :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
         """
         pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
         pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
@@ -3389,7 +3391,7 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @pulumi.getter(name="accessControlMaxAgeSec")
     def access_control_max_age_sec(self) -> Optional[int]:
         """
-        A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+        A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
         """
         return pulumi.get(self, "access_control_max_age_sec")
 
@@ -3467,7 +3469,7 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
                  value: str):
         """
         :param str header: The HTTP response header name.
-        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
         :param str value: The value for the HTTP response header.
         """
         pulumi.set(__self__, "header", header)
@@ -3486,7 +3488,7 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
         """
         return pulumi.get(self, "override")
 
@@ -3536,10 +3538,10 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
                  strict_transport_security: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity'] = None,
                  xss_protection: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection'] = None):
         """
-        :param 'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs' content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+        :param 'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs' content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
         :param 'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs' content_type_options: Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
         :param 'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs' frame_options: Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs' referrer_policy: The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        :param 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs' referrer_policy: Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
         :param 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs' strict_transport_security: Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
         :param 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs' xss_protection: Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
         """
@@ -3560,7 +3562,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="contentSecurityPolicy")
     def content_security_policy(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy']:
         """
-        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
         """
         return pulumi.get(self, "content_security_policy")
 
@@ -3584,7 +3586,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy']:
         """
-        The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
         """
         return pulumi.get(self, "referrer_policy")
 
@@ -3629,7 +3631,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
                  override: bool):
         """
         :param str content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "content_security_policy", content_security_policy)
         pulumi.set(__self__, "override", override)
@@ -3646,7 +3648,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3656,7 +3658,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
     def __init__(__self__, *,
                  override: bool):
         """
-        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "override", override)
 
@@ -3664,7 +3666,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3693,7 +3695,7 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
                  override: bool):
         """
         :param str frame_option: The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "frame_option", frame_option)
         pulumi.set(__self__, "override", override)
@@ -3710,7 +3712,7 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3738,7 +3740,7 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
                  override: bool,
                  referrer_policy: str):
         """
-        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         :param str referrer_policy: The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         """
         pulumi.set(__self__, "override", override)
@@ -3748,7 +3750,7 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3789,7 +3791,7 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
                  preload: Optional[bool] = None):
         """
         :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-        :param bool override: Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool override: Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
         :param bool include_subdomains: Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
         :param bool preload: Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
         """
@@ -3812,7 +3814,7 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 

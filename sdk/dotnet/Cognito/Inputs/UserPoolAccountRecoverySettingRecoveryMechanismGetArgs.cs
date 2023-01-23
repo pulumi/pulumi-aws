@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanismGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the attribute.
+        /// Name of the user pool.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

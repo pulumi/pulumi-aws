@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
     public sealed class ResourceSetResourceDnsTargetResourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Domain name that is targeted.
+        /// DNS Name that acts as the ingress point to a portion of application.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
         public Input<string>? HostedZoneArn { get; set; }
 
         /// <summary>
-        /// Resource record set ID that is targeted.
+        /// Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         /// </summary>
         [Input("recordSetId")]
         public Input<string>? RecordSetId { get; set; }

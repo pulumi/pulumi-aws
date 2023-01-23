@@ -1202,13 +1202,13 @@ func (o DeviceFleetOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOut
 }
 
 type DomainDefaultSpaceSettings struct {
-	// The execution role ARN for the user.
+	// The execution role for the space.
 	ExecutionRole string `pulumi:"executionRole"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings *DomainDefaultSpaceSettingsJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings *DomainDefaultSpaceSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	// A list of security group IDs that will be attached to the user.
+	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
 }
 
@@ -1224,13 +1224,13 @@ type DomainDefaultSpaceSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsArgs struct {
-	// The execution role ARN for the user.
+	// The execution role for the space.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
 	// The Jupyter server's app settings. See Jupyter Server App Settings below.
 	JupyterServerAppSettings DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings. See Kernel Gateway App Settings below.
 	KernelGatewayAppSettings DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	// A list of security group IDs that will be attached to the user.
+	// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 }
 
@@ -1311,7 +1311,7 @@ func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutputW
 	}).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
-// The execution role ARN for the user.
+// The execution role for the space.
 func (o DomainDefaultSpaceSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
 }
@@ -1330,7 +1330,7 @@ func (o DomainDefaultSpaceSettingsOutput) KernelGatewayAppSettings() DomainDefau
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// A list of security group IDs that will be attached to the user.
+// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 func (o DomainDefaultSpaceSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
@@ -1359,7 +1359,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsOu
 	}).(DomainDefaultSpaceSettingsOutput)
 }
 
-// The execution role ARN for the user.
+// The execution role for the space.
 func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *string {
 		if v == nil {
@@ -1389,7 +1389,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) KernelGatewayAppSettings() DomainDe
 	}).(DomainDefaultSpaceSettingsKernelGatewayAppSettingsPtrOutput)
 }
 
-// A list of security group IDs that will be attached to the user.
+// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
 func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) []string {
 		if v == nil {
@@ -5865,7 +5865,7 @@ type EndpointConfigurationDataCaptureConfig struct {
 	EnableCapture *bool `pulumi:"enableCapture"`
 	// Portion of data to capture. Should be between 0 and 100.
 	InitialSamplingPercentage int `pulumi:"initialSamplingPercentage"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -5891,7 +5891,7 @@ type EndpointConfigurationDataCaptureConfigArgs struct {
 	EnableCapture pulumi.BoolPtrInput `pulumi:"enableCapture"`
 	// Portion of data to capture. Should be between 0 and 100.
 	InitialSamplingPercentage pulumi.IntInput `pulumi:"initialSamplingPercentage"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -6001,7 +6001,7 @@ func (o EndpointConfigurationDataCaptureConfigOutput) InitialSamplingPercentage(
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) int { return v.InitialSamplingPercentage }).(pulumi.IntOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
 func (o EndpointConfigurationDataCaptureConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -6080,7 +6080,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) InitialSamplingPercenta
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
 		if v == nil {
@@ -6541,9 +6541,9 @@ func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInp
 }
 
 type EndpointConfigurationProductionVariantCoreDumpConfig struct {
-	// The URL for S3 location where the captured data is stored.
+	// The Amazon S3 bucket to send the core dump to.
 	DestinationS3Uri string `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -6559,9 +6559,9 @@ type EndpointConfigurationProductionVariantCoreDumpConfigInput interface {
 }
 
 type EndpointConfigurationProductionVariantCoreDumpConfigArgs struct {
-	// The URL for S3 location where the captured data is stored.
+	// The Amazon S3 bucket to send the core dump to.
 	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -6642,12 +6642,12 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) ToEndpointCo
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput)
 }
 
-// The URL for S3 location where the captured data is stored.
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantCoreDumpConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantCoreDumpConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -6676,7 +6676,7 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) Elem() En
 	}).(EndpointConfigurationProductionVariantCoreDumpConfigOutput)
 }
 
-// The URL for S3 location where the captured data is stored.
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -6686,7 +6686,7 @@ func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) Destinati
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationProductionVariantCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -7046,9 +7046,9 @@ func (o EndpointConfigurationShadowProductionVariantArrayOutput) Index(i pulumi.
 }
 
 type EndpointConfigurationShadowProductionVariantCoreDumpConfig struct {
-	// The URL for S3 location where the captured data is stored.
+	// The Amazon S3 bucket to send the core dump to.
 	DestinationS3Uri string `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
@@ -7064,9 +7064,9 @@ type EndpointConfigurationShadowProductionVariantCoreDumpConfigInput interface {
 }
 
 type EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs struct {
-	// The URL for S3 location where the captured data is stored.
+	// The Amazon S3 bucket to send the core dump to.
 	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
-	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 }
 
@@ -7147,12 +7147,12 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) ToEndp
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput)
 }
 
-// The URL for S3 location where the captured data is stored.
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) DestinationS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantCoreDumpConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantCoreDumpConfig) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -7181,7 +7181,7 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Ele
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigOutput)
 }
 
-// The URL for S3 location where the captured data is stored.
+// The Amazon S3 bucket to send the core dump to.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -7191,7 +7191,7 @@ func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) Des
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
 func (o EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantCoreDumpConfig) *string {
 		if v == nil {
@@ -7935,7 +7935,7 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration st
 	CanarySize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize `pulumi:"canarySize"`
 	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
 	LinearStepSize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize `pulumi:"linearStepSize"`
-	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 	Type string `pulumi:"type"`
 	// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
 	WaitIntervalInSeconds int `pulumi:"waitIntervalInSeconds"`
@@ -7957,7 +7957,7 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArg
 	CanarySize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput `pulumi:"canarySize"`
 	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
 	LinearStepSize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput `pulumi:"linearStepSize"`
-	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
 	WaitIntervalInSeconds pulumi.IntInput `pulumi:"waitIntervalInSeconds"`
@@ -8054,7 +8054,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
 }
 
-// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8110,7 +8110,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
 }
 
-// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *string {
 		if v == nil {
@@ -8911,7 +8911,7 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) TableName() pu
 }
 
 type FeatureGroupOfflineStoreConfigS3StorageConfig struct {
-	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The S3 URI, or location in Amazon S3, of OfflineStore.
 	S3Uri string `pulumi:"s3Uri"`
@@ -8929,7 +8929,7 @@ type FeatureGroupOfflineStoreConfigS3StorageConfigInput interface {
 }
 
 type FeatureGroupOfflineStoreConfigS3StorageConfigArgs struct {
-	// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The S3 URI, or location in Amazon S3, of OfflineStore.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
@@ -9012,7 +9012,7 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOffli
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -9046,7 +9046,7 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) Elem() FeatureGr
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
 		if v == nil {
@@ -16086,7 +16086,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 }
 
 type WorkforceCognitoConfig struct {
-	// The OIDC IdP client ID used to configure your private workforce.
+	// The client ID for your Amazon Cognito user pool.
 	ClientId string `pulumi:"clientId"`
 	// ID for your Amazon Cognito user pool.
 	UserPool string `pulumi:"userPool"`
@@ -16104,7 +16104,7 @@ type WorkforceCognitoConfigInput interface {
 }
 
 type WorkforceCognitoConfigArgs struct {
-	// The OIDC IdP client ID used to configure your private workforce.
+	// The client ID for your Amazon Cognito user pool.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// ID for your Amazon Cognito user pool.
 	UserPool pulumi.StringInput `pulumi:"userPool"`
@@ -16187,7 +16187,7 @@ func (o WorkforceCognitoConfigOutput) ToWorkforceCognitoConfigPtrOutputWithConte
 	}).(WorkforceCognitoConfigPtrOutput)
 }
 
-// The OIDC IdP client ID used to configure your private workforce.
+// The client ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
@@ -16221,7 +16221,7 @@ func (o WorkforceCognitoConfigPtrOutput) Elem() WorkforceCognitoConfigOutput {
 	}).(WorkforceCognitoConfigOutput)
 }
 
-// The OIDC IdP client ID used to configure your private workforce.
+// The client ID for your Amazon Cognito user pool.
 func (o WorkforceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceCognitoConfig) *string {
 		if v == nil {

@@ -75,6 +75,11 @@ class GetKeyMultiRegionConfigurationResult(dict):
                  multi_region_key_type: str,
                  primary_keys: Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult'],
                  replica_keys: Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']):
+        """
+        :param str multi_region_key_type: Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+        :param Sequence['GetKeyMultiRegionConfigurationPrimaryKeyArgs'] primary_keys: The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+        :param Sequence['GetKeyMultiRegionConfigurationReplicaKeyArgs'] replica_keys: The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+        """
         pulumi.set(__self__, "multi_region_key_type", multi_region_key_type)
         pulumi.set(__self__, "primary_keys", primary_keys)
         pulumi.set(__self__, "replica_keys", replica_keys)
@@ -82,16 +87,25 @@ class GetKeyMultiRegionConfigurationResult(dict):
     @property
     @pulumi.getter(name="multiRegionKeyType")
     def multi_region_key_type(self) -> str:
+        """
+        Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+        """
         return pulumi.get(self, "multi_region_key_type")
 
     @property
     @pulumi.getter(name="primaryKeys")
     def primary_keys(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult']:
+        """
+        The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+        """
         return pulumi.get(self, "primary_keys")
 
     @property
     @pulumi.getter(name="replicaKeys")
     def replica_keys(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']:
+        """
+        The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+        """
         return pulumi.get(self, "replica_keys")
 
 
@@ -100,17 +114,27 @@ class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  region: str):
+        """
+        :param str arn: The key ARN of a primary or replica key of a multi-Region key.
+        :param str region: The AWS Region of a primary or replica key in a multi-Region key.
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The key ARN of a primary or replica key of a multi-Region key.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def region(self) -> str:
+        """
+        The AWS Region of a primary or replica key in a multi-Region key.
+        """
         return pulumi.get(self, "region")
 
 
@@ -119,17 +143,27 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  region: str):
+        """
+        :param str arn: The key ARN of a primary or replica key of a multi-Region key.
+        :param str region: The AWS Region of a primary or replica key in a multi-Region key.
+        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        The key ARN of a primary or replica key of a multi-Region key.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def region(self) -> str:
+        """
+        The AWS Region of a primary or replica key in a multi-Region key.
+        """
         return pulumi.get(self, "region")
 
 

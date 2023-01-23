@@ -17,14 +17,14 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableReplicaArgs Empty = new TableReplicaArgs();
 
     /**
-     * ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+     * ARN of the CMK that should be used for the AWS KMS encryption.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -104,7 +104,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
          * 
          * @return builder
          * 

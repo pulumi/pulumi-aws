@@ -106,7 +106,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly multiAz!: pulumi.Output<boolean>;
     /**
-     * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+     * The name of the CloudSearch domain.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface DomainState {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
-     * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+     * The name of the CloudSearch domain.
      */
     name?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface DomainArgs {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
-     * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+     * The name of the CloudSearch domain.
      */
     name?: pulumi.Input<string>;
     /**

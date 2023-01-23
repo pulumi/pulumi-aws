@@ -335,7 +335,7 @@ type RuleGroup struct {
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// The label string.
+	// A friendly name of the rule group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
@@ -396,7 +396,7 @@ type ruleGroupState struct {
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// The label string.
+	// A friendly name of the rule group.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -420,7 +420,7 @@ type RuleGroupState struct {
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// The label string.
+	// A friendly name of the rule group.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
@@ -445,7 +445,7 @@ type ruleGroupArgs struct {
 	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
-	// The label string.
+	// A friendly name of the rule group.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -465,7 +465,7 @@ type RuleGroupArgs struct {
 	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
-	// The label string.
+	// A friendly name of the rule group.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
@@ -588,7 +588,7 @@ func (o RuleGroupOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
 }
 
-// The label string.
+// A friendly name of the rule group.
 func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

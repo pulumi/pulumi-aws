@@ -62,14 +62,14 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Location of the source code from git or s3.
+     * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
      * 
      */
     public Optional<Output<String>> location() {
@@ -152,14 +152,14 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * Build output artifact&#39;s type. The only valid value is `S3`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. The only valid value is `S3`.
      * 
      */
     public Output<String> type() {
@@ -263,7 +263,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Build output artifact&#39;s type. The only valid value is `S3`.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class ProjectSecondaryArtifactArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Build output artifact&#39;s type. The only valid value is `S3`.
          * 
          * @return builder
          * 

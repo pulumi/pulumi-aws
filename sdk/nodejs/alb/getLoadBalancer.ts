@@ -71,6 +71,7 @@ export interface GetLoadBalancerResult {
     readonly desyncMitigationMode: string;
     readonly dnsName: string;
     readonly dropInvalidHeaderFields: boolean;
+    readonly enableCrossZoneLoadBalancing: boolean;
     readonly enableDeletionProtection: boolean;
     readonly enableHttp2: boolean;
     readonly enableWafFailOpen: boolean;

@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// - State of the instance. Valid values are `stopped`, `running`.
+        /// State of the instance. Valid values are `stopped`, `running`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
-        /// - State of the instance. Valid values are `stopped`, `running`.
+        /// State of the instance. Valid values are `stopped`, `running`.
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// - State of the instance. Valid values are `stopped`, `running`.
+        /// State of the instance. Valid values are `stopped`, `running`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

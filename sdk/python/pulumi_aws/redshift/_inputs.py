@@ -443,7 +443,7 @@ class ScheduledActionTargetActionPauseClusterArgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be resumed.
+        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be paused.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
 
@@ -451,7 +451,7 @@ class ScheduledActionTargetActionPauseClusterArgs:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
         """
-        The identifier of the cluster to be resumed.
+        The identifier of the cluster to be paused.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -469,7 +469,7 @@ class ScheduledActionTargetActionResizeClusterArgs:
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be resumed.
+        :param pulumi.Input[str] cluster_identifier: The unique identifier for the cluster to resize.
         :param pulumi.Input[bool] classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
         :param pulumi.Input[str] cluster_type: The new cluster type for the specified cluster.
         :param pulumi.Input[str] node_type: The new node type for the nodes you are adding.
@@ -489,7 +489,7 @@ class ScheduledActionTargetActionResizeClusterArgs:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
         """
-        The identifier of the cluster to be resumed.
+        The unique identifier for the cluster to resize.
         """
         return pulumi.get(self, "cluster_identifier")
 

@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CapacityProviderAutoScalingGroupProvider {
     /**
-     * @return - ARN of the associated auto scaling group.
+     * @return ARN of the associated auto scaling group.
      * 
      */
     private String autoScalingGroupArn;
     /**
-     * @return - Configuration block defining the parameters of the auto scaling. Detailed below.
+     * @return Configuration block defining the parameters of the auto scaling. Detailed below.
      * 
      */
     private @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling;
     /**
-     * @return - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+     * @return Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     private @Nullable String managedTerminationProtection;
 
     private CapacityProviderAutoScalingGroupProvider() {}
     /**
-     * @return - ARN of the associated auto scaling group.
+     * @return ARN of the associated auto scaling group.
      * 
      */
     public String autoScalingGroupArn() {
         return this.autoScalingGroupArn;
     }
     /**
-     * @return - Configuration block defining the parameters of the auto scaling. Detailed below.
+     * @return Configuration block defining the parameters of the auto scaling. Detailed below.
      * 
      */
     public Optional<CapacityProviderAutoScalingGroupProviderManagedScaling> managedScaling() {
         return Optional.ofNullable(this.managedScaling);
     }
     /**
-     * @return - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+     * @return Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<String> managedTerminationProtection() {

@@ -25,14 +25,14 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The description for the subnet group.
+     * Description for the subnet group.
      * 
      */
     @Import(name="replicationSubnetGroupDescription")
     private @Nullable Output<String> replicationSubnetGroupDescription;
 
     /**
-     * @return The description for the subnet group.
+     * @return Description for the subnet group.
      * 
      */
     public Optional<Output<String>> replicationSubnetGroupDescription() {
@@ -40,14 +40,14 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name for the replication subnet group. This value is stored as a lowercase string.
+     * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      * 
      */
     @Import(name="replicationSubnetGroupId")
     private @Nullable Output<String> replicationSubnetGroupId;
 
     /**
-     * @return The name for the replication subnet group. This value is stored as a lowercase string.
+     * @return Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      * 
      */
     public Optional<Output<String>> replicationSubnetGroupId() {
@@ -55,14 +55,14 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of the EC2 subnet IDs for the subnet group.
+     * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return A list of the EC2 subnet IDs for the subnet group.
+     * @return List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -70,14 +70,14 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -154,7 +154,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param replicationSubnetGroupDescription The description for the subnet group.
+         * @param replicationSubnetGroupDescription Description for the subnet group.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param replicationSubnetGroupDescription The description for the subnet group.
+         * @param replicationSubnetGroupDescription Description for the subnet group.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param replicationSubnetGroupId The name for the replication subnet group. This value is stored as a lowercase string.
+         * @param replicationSubnetGroupId Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param replicationSubnetGroupId The name for the replication subnet group. This value is stored as a lowercase string.
+         * @param replicationSubnetGroupId Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param subnetIds A list of the EC2 subnet IDs for the subnet group.
+         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param subnetIds A list of the EC2 subnet IDs for the subnet group.
+         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param subnetIds A list of the EC2 subnet IDs for the subnet group.
+         * @param subnetIds List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -657,14 +657,16 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.numCacheClusters;
     }
     /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * Number of node groups (shards) for this Redis replication group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
      * 
      */
     @Export(name="numNodeGroups", refs={Integer.class}, tree="[0]")
     private Output<Integer> numNodeGroups;
 
     /**
-     * @return Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * @return Number of node groups (shards) for this Redis replication group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
      * 
      */
     public Output<Integer> numNodeGroups() {
@@ -759,14 +761,18 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.readerEndpointAddress;
     }
     /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * Number of replica nodes in each node group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
+     * Valid values are 0 to 5.
      * 
      */
     @Export(name="replicasPerNodeGroup", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicasPerNodeGroup;
 
     /**
-     * @return Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * @return Number of replica nodes in each node group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
+     * Valid values are 0 to 5.
      * 
      */
     public Output<Integer> replicasPerNodeGroup() {

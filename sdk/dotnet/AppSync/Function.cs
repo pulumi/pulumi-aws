@@ -165,7 +165,7 @@ namespace Pulumi.Aws.AppSync
         public Output<int?> MaxBatchSize { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        /// Function name. The function name does not have to be unique.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        /// Function name. The function name does not have to be unique.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.AppSync
         public Input<int>? MaxBatchSize { get; set; }
 
         /// <summary>
-        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        /// Function name. The function name does not have to be unique.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

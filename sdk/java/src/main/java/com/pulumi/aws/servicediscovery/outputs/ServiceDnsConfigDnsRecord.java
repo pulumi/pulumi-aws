@@ -16,7 +16,7 @@ public final class ServiceDnsConfigDnsRecord {
      */
     private Integer ttl;
     /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+     * @return The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
      * 
      */
     private String type;
@@ -30,7 +30,7 @@ public final class ServiceDnsConfigDnsRecord {
         return this.ttl;
     }
     /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+     * @return The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
      * 
      */
     public String type() {

@@ -34,8 +34,8 @@ public final class DocumentClassifierInputDataConfig {
      */
     private @Nullable String labelDelimiter;
     /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * @return Location of training documents.
+     * Used if `data_format` is `COMPREHEND_CSV`.
      * 
      */
     private @Nullable String s3Uri;
@@ -69,8 +69,8 @@ public final class DocumentClassifierInputDataConfig {
         return Optional.ofNullable(this.labelDelimiter);
     }
     /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * @return Location of training documents.
+     * Used if `data_format` is `COMPREHEND_CSV`.
      * 
      */
     public Optional<String> s3Uri() {

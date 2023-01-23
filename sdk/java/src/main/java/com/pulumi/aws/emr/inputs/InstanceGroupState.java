@@ -154,16 +154,32 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The number of instances currently running in this instance group.
+     * 
+     */
     @Import(name="runningInstanceCount")
     private @Nullable Output<Integer> runningInstanceCount;
 
+    /**
+     * @return The number of instances currently running in this instance group.
+     * 
+     */
     public Optional<Output<Integer>> runningInstanceCount() {
         return Optional.ofNullable(this.runningInstanceCount);
     }
 
+    /**
+     * The current status of the instance group.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The current status of the instance group.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -401,20 +417,44 @@ public final class InstanceGroupState extends com.pulumi.resources.ResourceArgs 
             return name(Output.of(name));
         }
 
+        /**
+         * @param runningInstanceCount The number of instances currently running in this instance group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runningInstanceCount(@Nullable Output<Integer> runningInstanceCount) {
             $.runningInstanceCount = runningInstanceCount;
             return this;
         }
 
+        /**
+         * @param runningInstanceCount The number of instances currently running in this instance group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runningInstanceCount(Integer runningInstanceCount) {
             return runningInstanceCount(Output.of(runningInstanceCount));
         }
 
+        /**
+         * @param status The current status of the instance group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The current status of the instance group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

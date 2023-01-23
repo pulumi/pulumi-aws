@@ -1152,11 +1152,11 @@ func (o GetResolverFirewallRulesFirewallRuleArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetTrafficPolicyDocumentEndpoint struct {
-	// ID of a rule you want to assign.
+	// ID of an endpoint you want to assign.
 	Id string `pulumi:"id"`
-	// Region code for the AWS Region that you created the resource in.
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Region *string `pulumi:"region"`
-	// Type of the rule.
+	// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
 	Type *string `pulumi:"type"`
 	// Value of the `type`.
 	Value *string `pulumi:"value"`
@@ -1174,11 +1174,11 @@ type GetTrafficPolicyDocumentEndpointInput interface {
 }
 
 type GetTrafficPolicyDocumentEndpointArgs struct {
-	// ID of a rule you want to assign.
+	// ID of an endpoint you want to assign.
 	Id pulumi.StringInput `pulumi:"id"`
-	// Region code for the AWS Region that you created the resource in.
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of the rule.
+	// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Value of the `type`.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -1235,17 +1235,17 @@ func (o GetTrafficPolicyDocumentEndpointOutput) ToGetTrafficPolicyDocumentEndpoi
 	return o
 }
 
-// ID of a rule you want to assign.
+// ID of an endpoint you want to assign.
 func (o GetTrafficPolicyDocumentEndpointOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Region code for the AWS Region that you created the resource in.
+// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 func (o GetTrafficPolicyDocumentEndpointOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// Type of the rule.
+// Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
 func (o GetTrafficPolicyDocumentEndpointOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1286,7 +1286,7 @@ type GetTrafficPolicyDocumentRule struct {
 	Locations []GetTrafficPolicyDocumentRuleLocation `pulumi:"locations"`
 	// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
 	Primary *GetTrafficPolicyDocumentRulePrimary `pulumi:"primary"`
-	// Region code for the AWS Region that you created the resource in.
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Regions []GetTrafficPolicyDocumentRuleRegion `pulumi:"regions"`
 	// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
 	Secondary *GetTrafficPolicyDocumentRuleSecondary `pulumi:"secondary"`
@@ -1316,7 +1316,7 @@ type GetTrafficPolicyDocumentRuleArgs struct {
 	Locations GetTrafficPolicyDocumentRuleLocationArrayInput `pulumi:"locations"`
 	// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
 	Primary GetTrafficPolicyDocumentRulePrimaryPtrInput `pulumi:"primary"`
-	// Region code for the AWS Region that you created the resource in.
+	// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 	Regions GetTrafficPolicyDocumentRuleRegionArrayInput `pulumi:"regions"`
 	// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
 	Secondary GetTrafficPolicyDocumentRuleSecondaryPtrInput `pulumi:"secondary"`
@@ -1402,7 +1402,7 @@ func (o GetTrafficPolicyDocumentRuleOutput) Primary() GetTrafficPolicyDocumentRu
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) *GetTrafficPolicyDocumentRulePrimary { return v.Primary }).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
 }
 
-// Region code for the AWS Region that you created the resource in.
+// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
 func (o GetTrafficPolicyDocumentRuleOutput) Regions() GetTrafficPolicyDocumentRuleRegionArrayOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleRegion { return v.Regions }).(GetTrafficPolicyDocumentRuleRegionArrayOutput)
 }
@@ -1450,7 +1450,7 @@ type GetTrafficPolicyDocumentRuleGeoProximityLocation struct {
 	Latitude *string `pulumi:"latitude"`
 	// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
 	Longitude *string `pulumi:"longitude"`
-	// Region code for the AWS Region that you created the resource in.
+	// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
 	Region *string `pulumi:"region"`
 	// References to a rule.
 	RuleReference *string `pulumi:"ruleReference"`
@@ -1480,7 +1480,7 @@ type GetTrafficPolicyDocumentRuleGeoProximityLocationArgs struct {
 	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
 	// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
 	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
-	// Region code for the AWS Region that you created the resource in.
+	// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// References to a rule.
 	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
@@ -1567,7 +1567,7 @@ func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Longitude() pulu
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
 }
 
-// Region code for the AWS Region that you created the resource in.
+// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Region }).(pulumi.StringPtrOutput)
 }

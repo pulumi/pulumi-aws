@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector
     {
         /// <summary>
-        /// Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+        /// Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomProperties;
         /// <summary>
-        /// Entity specified in the custom connector as a source in the flow.
+        /// Entity specified in the custom connector as a destination in the flow.
         /// </summary>
         public readonly string EntityName;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
-        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
         /// <summary>
-        /// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        /// Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         /// </summary>
         public readonly string? WriteOperationType;
 

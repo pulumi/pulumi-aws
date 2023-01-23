@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fis.Outputs
         /// </summary>
         public readonly string Source;
         /// <summary>
-        /// Tag value.
+        /// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
         /// </summary>
         public readonly string? Value;
 

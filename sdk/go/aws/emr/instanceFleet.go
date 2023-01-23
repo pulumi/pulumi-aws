@@ -101,9 +101,13 @@ type InstanceFleet struct {
 	// Configuration block for launch specification
 	LaunchSpecifications InstanceFleetLaunchSpecificationsPtrOutput `pulumi:"launchSpecifications"`
 	// Friendly name given to the instance fleet.
-	Name                        pulumi.StringOutput `pulumi:"name"`
-	ProvisionedOnDemandCapacity pulumi.IntOutput    `pulumi:"provisionedOnDemandCapacity"`
-	ProvisionedSpotCapacity     pulumi.IntOutput    `pulumi:"provisionedSpotCapacity"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The number of On-Demand units that have been provisioned for the instance
+	// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+	ProvisionedOnDemandCapacity pulumi.IntOutput `pulumi:"provisionedOnDemandCapacity"`
+	// The number of Spot units that have been provisioned for this instance fleet
+	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+	ProvisionedSpotCapacity pulumi.IntOutput `pulumi:"provisionedSpotCapacity"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity pulumi.IntPtrOutput `pulumi:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -149,9 +153,13 @@ type instanceFleetState struct {
 	// Configuration block for launch specification
 	LaunchSpecifications *InstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
 	// Friendly name given to the instance fleet.
-	Name                        *string `pulumi:"name"`
-	ProvisionedOnDemandCapacity *int    `pulumi:"provisionedOnDemandCapacity"`
-	ProvisionedSpotCapacity     *int    `pulumi:"provisionedSpotCapacity"`
+	Name *string `pulumi:"name"`
+	// The number of On-Demand units that have been provisioned for the instance
+	// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+	ProvisionedOnDemandCapacity *int `pulumi:"provisionedOnDemandCapacity"`
+	// The number of Spot units that have been provisioned for this instance fleet
+	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+	ProvisionedSpotCapacity *int `pulumi:"provisionedSpotCapacity"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -166,9 +174,13 @@ type InstanceFleetState struct {
 	// Configuration block for launch specification
 	LaunchSpecifications InstanceFleetLaunchSpecificationsPtrInput
 	// Friendly name given to the instance fleet.
-	Name                        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The number of On-Demand units that have been provisioned for the instance
+	// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
 	ProvisionedOnDemandCapacity pulumi.IntPtrInput
-	ProvisionedSpotCapacity     pulumi.IntPtrInput
+	// The number of Spot units that have been provisioned for this instance fleet
+	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+	ProvisionedSpotCapacity pulumi.IntPtrInput
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity pulumi.IntPtrInput
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -317,10 +329,14 @@ func (o InstanceFleetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The number of On-Demand units that have been provisioned for the instance
+// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
 func (o InstanceFleetOutput) ProvisionedOnDemandCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.IntOutput { return v.ProvisionedOnDemandCapacity }).(pulumi.IntOutput)
 }
 
+// The number of Spot units that have been provisioned for this instance fleet
+// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
 func (o InstanceFleetOutput) ProvisionedSpotCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.IntOutput { return v.ProvisionedSpotCapacity }).(pulumi.IntOutput)
 }

@@ -51,14 +51,14 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the name of the advanced event selector.
+     * The name of the event data store.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return The name of the event data store.
      * 
      */
     public Optional<Output<String>> name() {
@@ -208,7 +208,7 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the name of the advanced event selector.
+         * @param name The name of the event data store.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the name of the advanced event selector.
+         * @param name The name of the event data store.
          * 
          * @return builder
          * 

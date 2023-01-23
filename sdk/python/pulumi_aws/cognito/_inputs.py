@@ -283,7 +283,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
                  actions: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'],
                  notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
         """
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'] actions: The compromised credentials risk configuration actions. See details below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'] actions: Account takeover risk configuration actions. See details below.
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs'] notify_configuration: The notify configuration used to construct email notifications. See details below.
         """
         pulumi.set(__self__, "actions", actions)
@@ -293,7 +293,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs']:
         """
-        The compromised credentials risk configuration actions. See details below.
+        Account takeover risk configuration actions. See details below.
         """
         return pulumi.get(self, "actions")
 
@@ -375,8 +375,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
         """
-        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
-        :param pulumi.Input[bool] notify: Whether to send a notification.
+        :param pulumi.Input[str] event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
@@ -385,7 +384,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
     @pulumi.getter(name="eventAction")
     def event_action(self) -> pulumi.Input[str]:
         """
-        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         """
         return pulumi.get(self, "event_action")
 
@@ -396,9 +395,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
     @property
     @pulumi.getter
     def notify(self) -> pulumi.Input[bool]:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
     @notify.setter
@@ -412,8 +408,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
         """
-        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
-        :param pulumi.Input[bool] notify: Whether to send a notification.
+        :param pulumi.Input[str] event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
@@ -422,7 +417,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
     @pulumi.getter(name="eventAction")
     def event_action(self) -> pulumi.Input[str]:
         """
-        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         """
         return pulumi.get(self, "event_action")
 
@@ -433,9 +428,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
     @property
     @pulumi.getter
     def notify(self) -> pulumi.Input[bool]:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
     @notify.setter
@@ -449,8 +441,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
         """
-        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
-        :param pulumi.Input[bool] notify: Whether to send a notification.
+        :param pulumi.Input[str] event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
@@ -459,7 +450,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
     @pulumi.getter(name="eventAction")
     def event_action(self) -> pulumi.Input[str]:
         """
-        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         """
         return pulumi.get(self, "event_action")
 
@@ -470,9 +461,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
     @property
     @pulumi.getter
     def notify(self) -> pulumi.Input[bool]:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
     @notify.setter
@@ -865,7 +853,7 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] name: Name of the attribute.
+        :param pulumi.Input[str] name: Name of the user pool.
         :param pulumi.Input[int] priority: Positive integer specifying priority of a method with 1 being the highest priority.
         """
         pulumi.set(__self__, "name", name)
@@ -875,7 +863,7 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the attribute.
+        Name of the user pool.
         """
         return pulumi.get(self, "name")
 
@@ -942,9 +930,9 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
                  email_subject: Optional[pulumi.Input[str]] = None,
                  sms_message: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] email_message: Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-        :param pulumi.Input[str] email_subject: Subject line for the email message template. Conflicts with `email_verification_subject` argument.
-        :param pulumi.Input[str] sms_message: SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        :param pulumi.Input[str] email_message: Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
+        :param pulumi.Input[str] email_subject: Subject line for email messages.
+        :param pulumi.Input[str] sms_message: Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
         """
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
@@ -957,7 +945,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
     @pulumi.getter(name="emailMessage")
     def email_message(self) -> Optional[pulumi.Input[str]]:
         """
-        Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
         """
         return pulumi.get(self, "email_message")
 
@@ -969,7 +957,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> Optional[pulumi.Input[str]]:
         """
-        Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        Subject line for email messages.
         """
         return pulumi.get(self, "email_subject")
 
@@ -981,7 +969,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
     @pulumi.getter(name="smsMessage")
     def sms_message(self) -> Optional[pulumi.Input[str]]:
         """
-        SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
         """
         return pulumi.get(self, "sms_message")
 
@@ -1479,8 +1467,8 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
                  lambda_arn: pulumi.Input[str],
                  lambda_version: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-        :param pulumi.Input[str] lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        :param pulumi.Input[str] lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        :param pulumi.Input[str] lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
@@ -1489,7 +1477,7 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[str]:
         """
-        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -1501,7 +1489,7 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> pulumi.Input[str]:
         """
-        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
         """
         return pulumi.get(self, "lambda_version")
 

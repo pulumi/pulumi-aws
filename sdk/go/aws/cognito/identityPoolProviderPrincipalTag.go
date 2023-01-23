@@ -28,11 +28,11 @@ type IdentityPoolProviderPrincipalTag struct {
 	// An identity pool ID.
 	IdentityPoolId pulumi.StringOutput `pulumi:"identityPoolId"`
 	// The name of the identity provider.
-	// * `principalTags`: (Optional: []) - String to string map of variables.
-	// * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
-	IdentityProviderName pulumi.StringOutput    `pulumi:"identityProviderName"`
-	PrincipalTags        pulumi.StringMapOutput `pulumi:"principalTags"`
-	UseDefaults          pulumi.BoolPtrOutput   `pulumi:"useDefaults"`
+	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
+	// String to string map of variables.
+	PrincipalTags pulumi.StringMapOutput `pulumi:"principalTags"`
+	// use default (username and clientID) attribute mappings.
+	UseDefaults pulumi.BoolPtrOutput `pulumi:"useDefaults"`
 }
 
 // NewIdentityPoolProviderPrincipalTag registers a new resource with the given unique name, arguments, and options.
@@ -73,22 +73,22 @@ type identityPoolProviderPrincipalTagState struct {
 	// An identity pool ID.
 	IdentityPoolId *string `pulumi:"identityPoolId"`
 	// The name of the identity provider.
-	// * `principalTags`: (Optional: []) - String to string map of variables.
-	// * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
-	IdentityProviderName *string           `pulumi:"identityProviderName"`
-	PrincipalTags        map[string]string `pulumi:"principalTags"`
-	UseDefaults          *bool             `pulumi:"useDefaults"`
+	IdentityProviderName *string `pulumi:"identityProviderName"`
+	// String to string map of variables.
+	PrincipalTags map[string]string `pulumi:"principalTags"`
+	// use default (username and clientID) attribute mappings.
+	UseDefaults *bool `pulumi:"useDefaults"`
 }
 
 type IdentityPoolProviderPrincipalTagState struct {
 	// An identity pool ID.
 	IdentityPoolId pulumi.StringPtrInput
 	// The name of the identity provider.
-	// * `principalTags`: (Optional: []) - String to string map of variables.
-	// * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
 	IdentityProviderName pulumi.StringPtrInput
-	PrincipalTags        pulumi.StringMapInput
-	UseDefaults          pulumi.BoolPtrInput
+	// String to string map of variables.
+	PrincipalTags pulumi.StringMapInput
+	// use default (username and clientID) attribute mappings.
+	UseDefaults pulumi.BoolPtrInput
 }
 
 func (IdentityPoolProviderPrincipalTagState) ElementType() reflect.Type {
@@ -99,11 +99,11 @@ type identityPoolProviderPrincipalTagArgs struct {
 	// An identity pool ID.
 	IdentityPoolId string `pulumi:"identityPoolId"`
 	// The name of the identity provider.
-	// * `principalTags`: (Optional: []) - String to string map of variables.
-	// * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
-	IdentityProviderName string            `pulumi:"identityProviderName"`
-	PrincipalTags        map[string]string `pulumi:"principalTags"`
-	UseDefaults          *bool             `pulumi:"useDefaults"`
+	IdentityProviderName string `pulumi:"identityProviderName"`
+	// String to string map of variables.
+	PrincipalTags map[string]string `pulumi:"principalTags"`
+	// use default (username and clientID) attribute mappings.
+	UseDefaults *bool `pulumi:"useDefaults"`
 }
 
 // The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
@@ -111,11 +111,11 @@ type IdentityPoolProviderPrincipalTagArgs struct {
 	// An identity pool ID.
 	IdentityPoolId pulumi.StringInput
 	// The name of the identity provider.
-	// * `principalTags`: (Optional: []) - String to string map of variables.
-	// * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
 	IdentityProviderName pulumi.StringInput
-	PrincipalTags        pulumi.StringMapInput
-	UseDefaults          pulumi.BoolPtrInput
+	// String to string map of variables.
+	PrincipalTags pulumi.StringMapInput
+	// use default (username and clientID) attribute mappings.
+	UseDefaults pulumi.BoolPtrInput
 }
 
 func (IdentityPoolProviderPrincipalTagArgs) ElementType() reflect.Type {
@@ -211,16 +211,16 @@ func (o IdentityPoolProviderPrincipalTagOutput) IdentityPoolId() pulumi.StringOu
 }
 
 // The name of the identity provider.
-// * `principalTags`: (Optional: []) - String to string map of variables.
-// * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
 func (o IdentityPoolProviderPrincipalTagOutput) IdentityProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringOutput { return v.IdentityProviderName }).(pulumi.StringOutput)
 }
 
+// String to string map of variables.
 func (o IdentityPoolProviderPrincipalTagOutput) PrincipalTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringMapOutput { return v.PrincipalTags }).(pulumi.StringMapOutput)
 }
 
+// use default (username and clientID) attribute mappings.
 func (o IdentityPoolProviderPrincipalTagOutput) UseDefaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.BoolPtrOutput { return v.UseDefaults }).(pulumi.BoolPtrOutput)
 }

@@ -218,7 +218,7 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Name of the advanced event selector.
+     * Name of the trail.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -361,7 +361,7 @@ export interface TrailState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Name of the advanced event selector.
+     * Name of the trail.
      */
     name?: pulumi.Input<string>;
     /**
@@ -435,7 +435,7 @@ export interface TrailArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Name of the advanced event selector.
+     * Name of the trail.
      */
     name?: pulumi.Input<string>;
     /**

@@ -28,6 +28,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
@@ -139,6 +141,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
@@ -154,6 +158,11 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{matrix.nodeversion}}
+        registry-url: https://registry.npmjs.org
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@v2
     - if: github.event_name == 'pull_request'
@@ -214,6 +223,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
@@ -270,6 +281,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
@@ -324,6 +337,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
@@ -425,6 +440,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
         public Input<string>? Country { get; set; }
 
         /// <summary>
-        /// The name that is typically displayed when the name is shown for display.
+        /// The name that is typically displayed when the address is shown for display.
         /// </summary>
         [Input("formatted")]
         public Input<string>? Formatted { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
         public Input<string>? PostalCode { get; set; }
 
         /// <summary>
-        /// When `true`, this is the primary phone number associated with the user.
+        /// When `true`, this is the primary address associated with the user.
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.IdentityStore.Inputs
         public Input<string>? StreetAddress { get; set; }
 
         /// <summary>
-        /// The type of phone number.
+        /// The type of address.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

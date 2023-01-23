@@ -171,7 +171,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the hash key in the index; must be defined as an attribute in the resource.
+        /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         /// </summary>
         [Output("hashKey")]
         public Output<string> HashKey { get; private set; } = null!;
@@ -183,25 +183,25 @@ namespace Pulumi.Aws.DynamoDB
         public Output<ImmutableArray<Outputs.TableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the index
+        /// Unique within a region name of the table.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Enable point-in-time recovery options. See below.
         /// </summary>
         [Output("pointInTimeRecovery")]
         public Output<Outputs.TablePointInTimeRecovery> PointInTimeRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the range key.
+        /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         /// </summary>
         [Output("rangeKey")]
         public Output<string?> RangeKey { get; private set; } = null!;
 
         /// <summary>
-        /// Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Output("readCapacity")]
         public Output<int> ReadCapacity { get; private set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<Outputs.TableTtl> Ttl { get; private set; } = null!;
 
         /// <summary>
-        /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Output("writeCapacity")]
         public Output<int> WriteCapacity { get; private set; } = null!;
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
-        /// Name of the hash key in the index; must be defined as an attribute in the resource.
+        /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         /// </summary>
         [Input("hashKey")]
         public Input<string>? HashKey { get; set; }
@@ -385,25 +385,25 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
-        /// Name of the index
+        /// Unique within a region name of the table.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Enable point-in-time recovery options. See below.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<Inputs.TablePointInTimeRecoveryArgs>? PointInTimeRecovery { get; set; }
 
         /// <summary>
-        /// Name of the range key.
+        /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         /// </summary>
         [Input("rangeKey")]
         public Input<string>? RangeKey { get; set; }
 
         /// <summary>
-        /// Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<Inputs.TableTtlArgs>? Ttl { get; set; }
 
         /// <summary>
-        /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("writeCapacity")]
         public Input<int>? WriteCapacity { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
-        /// Name of the hash key in the index; must be defined as an attribute in the resource.
+        /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         /// </summary>
         [Input("hashKey")]
         public Input<string>? HashKey { get; set; }
@@ -549,25 +549,25 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
-        /// Name of the index
+        /// Unique within a region name of the table.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Enable point-in-time recovery options. See below.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<Inputs.TablePointInTimeRecoveryGetArgs>? PointInTimeRecovery { get; set; }
 
         /// <summary>
-        /// Name of the range key.
+        /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         /// </summary>
         [Input("rangeKey")]
         public Input<string>? RangeKey { get; set; }
 
         /// <summary>
-        /// Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
@@ -669,7 +669,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<Inputs.TableTtlGetArgs>? Ttl { get; set; }
 
         /// <summary>
-        /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
         [Input("writeCapacity")]
         public Input<int>? WriteCapacity { get; set; }

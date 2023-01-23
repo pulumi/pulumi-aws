@@ -119,7 +119,7 @@ class ScheduleTarget(dict):
                  sagemaker_pipeline_parameters: Optional['outputs.ScheduleTargetSagemakerPipelineParameters'] = None,
                  sqs_parameters: Optional['outputs.ScheduleTargetSqsParameters'] = None):
         """
-        :param str arn: ARN of the SQS queue specified as the destination for the dead-letter queue.
+        :param str arn: ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
         :param str role_arn: ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
         :param 'ScheduleTargetDeadLetterConfigArgs' dead_letter_config: Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
         :param 'ScheduleTargetEcsParametersArgs' ecs_parameters: Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
@@ -153,7 +153,7 @@ class ScheduleTarget(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        ARN of the SQS queue specified as the destination for the dead-letter queue.
+        ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
         """
         return pulumi.get(self, "arn")
 
@@ -588,7 +588,7 @@ class ScheduleTargetEcsParametersPlacementConstraint(dict):
                  type: str,
                  expression: Optional[str] = None):
         """
-        :param str type: The type of placement strategy. One of: `random`, `spread`, `binpack`.
+        :param str type: The type of constraint. One of: `distinctInstance`, `memberOf`.
         :param str expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
         """
         pulumi.set(__self__, "type", type)
@@ -599,7 +599,7 @@ class ScheduleTargetEcsParametersPlacementConstraint(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of placement strategy. One of: `random`, `spread`, `binpack`.
+        The type of constraint. One of: `distinctInstance`, `memberOf`.
         """
         return pulumi.get(self, "type")
 

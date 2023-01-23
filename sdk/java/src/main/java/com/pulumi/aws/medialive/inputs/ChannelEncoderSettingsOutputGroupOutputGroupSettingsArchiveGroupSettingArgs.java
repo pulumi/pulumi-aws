@@ -33,14 +33,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
     }
 
     /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination;
 
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination() {
@@ -110,7 +110,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 

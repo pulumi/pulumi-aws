@@ -14,14 +14,14 @@ public final class GetUserFilterArgs extends com.pulumi.resources.ResourceArgs {
     public static final GetUserFilterArgs Empty = new GetUserFilterArgs();
 
     /**
-     * Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+     * Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     @Import(name="attributePath", required=true)
     private Output<String> attributePath;
 
     /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     public Output<String> attributePath() {
@@ -69,7 +69,7 @@ public final class GetUserFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetUserFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
          * 
          * @return builder
          * 

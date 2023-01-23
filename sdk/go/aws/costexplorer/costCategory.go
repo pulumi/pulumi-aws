@@ -107,11 +107,11 @@ type CostCategory struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Rule schema version in this particular Cost Category.
 	RuleVersion pulumi.StringOutput `pulumi:"ruleVersion"`
-	// Configuration block for the `Expression` object used to categorize costs. See below.
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
 	Rules CostCategoryRuleArrayOutput `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayOutput `pulumi:"splitChargeRules"`
-	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -164,11 +164,11 @@ type costCategoryState struct {
 	Name *string `pulumi:"name"`
 	// Rule schema version in this particular Cost Category.
 	RuleVersion *string `pulumi:"ruleVersion"`
-	// Configuration block for the `Expression` object used to categorize costs. See below.
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -187,11 +187,11 @@ type CostCategoryState struct {
 	Name pulumi.StringPtrInput
 	// Rule schema version in this particular Cost Category.
 	RuleVersion pulumi.StringPtrInput
-	// Configuration block for the `Expression` object used to categorize costs. See below.
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -210,11 +210,11 @@ type costCategoryArgs struct {
 	Name *string `pulumi:"name"`
 	// Rule schema version in this particular Cost Category.
 	RuleVersion string `pulumi:"ruleVersion"`
-	// Configuration block for the `Expression` object used to categorize costs. See below.
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -228,11 +228,11 @@ type CostCategoryArgs struct {
 	Name pulumi.StringPtrInput
 	// Rule schema version in this particular Cost Category.
 	RuleVersion pulumi.StringInput
-	// Configuration block for the `Expression` object used to categorize costs. See below.
+	// Configuration block for the Cost Category rules used to categorize costs. See below.
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	// Configuration block for the specific `Tag` to use for `Expression`. See below.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -353,7 +353,7 @@ func (o CostCategoryOutput) RuleVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringOutput { return v.RuleVersion }).(pulumi.StringOutput)
 }
 
-// Configuration block for the `Expression` object used to categorize costs. See below.
+// Configuration block for the Cost Category rules used to categorize costs. See below.
 func (o CostCategoryOutput) Rules() CostCategoryRuleArrayOutput {
 	return o.ApplyT(func(v *CostCategory) CostCategoryRuleArrayOutput { return v.Rules }).(CostCategoryRuleArrayOutput)
 }
@@ -363,7 +363,7 @@ func (o CostCategoryOutput) SplitChargeRules() CostCategorySplitChargeRuleArrayO
 	return o.ApplyT(func(v *CostCategory) CostCategorySplitChargeRuleArrayOutput { return v.SplitChargeRules }).(CostCategorySplitChargeRuleArrayOutput)
 }
 
-// Configuration block for the specific `Tag` to use for `Expression`. See below.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

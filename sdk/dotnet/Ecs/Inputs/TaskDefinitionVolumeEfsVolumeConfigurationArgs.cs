@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskDefinitionVolumeEfsVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        /// Configuration block for authorization for the Amazon EFS file system. Detailed below.
         /// </summary>
         [Input("authorizationConfig")]
         public Input<Inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
 
         /// <summary>
-        /// The Amazon FSx for Windows File Server file system ID to use.
+        /// ID of the EFS File System.
         /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
         /// <summary>
-        /// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        /// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
         /// </summary>
         [Input("rootDirectory")]
         public Input<string>? RootDirectory { get; set; }

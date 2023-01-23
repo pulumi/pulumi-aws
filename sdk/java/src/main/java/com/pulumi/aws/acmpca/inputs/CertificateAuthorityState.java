@@ -96,14 +96,14 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Boolean value that specifies whether a custom OCSP responder is enabled.
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
+     * @return Whether the certificate authority is enabled or disabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -413,7 +413,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Boolean value that specifies whether a custom OCSP responder is enabled.
+         * @param enabled Whether the certificate authority is enabled or disabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Boolean value that specifies whether a custom OCSP responder is enabled.
+         * @param enabled Whether the certificate authority is enabled or disabled. Defaults to `true`.
          * 
          * @return builder
          * 

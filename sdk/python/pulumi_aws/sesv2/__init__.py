@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .configuration_set import *
+from .configuration_set_event_destination import *
 from .dedicated_ip_assignment import *
 from .dedicated_ip_pool import *
 from .email_identity import *

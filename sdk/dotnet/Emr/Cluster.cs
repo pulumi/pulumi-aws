@@ -725,6 +725,9 @@ namespace Pulumi.Aws.Emr
         [Output("applications")]
         public Output<ImmutableArray<string>> Applications { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the cluster.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -750,7 +753,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         /// </summary>
         [Output("configurations")]
         public Output<string?> Configurations { get; private set; } = null!;
@@ -840,7 +843,7 @@ namespace Pulumi.Aws.Emr
         public Output<string> MasterPublicDns { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the step.
+        /// Name of the job flow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -994,7 +997,7 @@ namespace Pulumi.Aws.Emr
         }
 
         /// <summary>
-        /// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         /// </summary>
         [Input("configurations")]
         public Input<string>? Configurations { get; set; }
@@ -1084,7 +1087,7 @@ namespace Pulumi.Aws.Emr
         public Input<Inputs.ClusterMasterInstanceGroupArgs>? MasterInstanceGroup { get; set; }
 
         /// <summary>
-        /// Name of the step.
+        /// Name of the job flow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1181,6 +1184,9 @@ namespace Pulumi.Aws.Emr
             set => _applications = value;
         }
 
+        /// <summary>
+        /// ARN of the cluster.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -1212,7 +1218,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         /// </summary>
         [Input("configurations")]
         public Input<string>? Configurations { get; set; }
@@ -1308,7 +1314,7 @@ namespace Pulumi.Aws.Emr
         public Input<string>? MasterPublicDns { get; set; }
 
         /// <summary>
-        /// Name of the step.
+        /// Name of the job flow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

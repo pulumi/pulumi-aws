@@ -93,14 +93,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
     }
 
     /**
-     * Specifies behavior of last resort when input video os lost.
+     * Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     @Import(name="inputLossAction")
     private @Nullable Output<String> inputLossAction;
 
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     public Optional<Output<String>> inputLossAction() {
@@ -268,7 +268,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
+         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         }
 
         /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
+         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
          * 
          * @return builder
          * 

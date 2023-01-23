@@ -24,12 +24,12 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
      */
     private @Nullable String bitstreamMode;
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     private @Nullable String codingMode;
     /**
-     * @return Sets the dialnorm for the output.
+     * @return Sets the dialnorm of the output.
      * 
      */
     private @Nullable Integer dialnorm;
@@ -65,14 +65,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         return Optional.ofNullable(this.bitstreamMode);
     }
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
     /**
-     * @return Sets the dialnorm for the output.
+     * @return Sets the dialnorm of the output.
      * 
      */
     public Optional<Integer> dialnorm() {

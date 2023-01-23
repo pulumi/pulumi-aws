@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs> CertificateAuthorityConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? CertificateSigningRequest { get; set; }
 
         /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
+        /// Whether the certificate authority is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

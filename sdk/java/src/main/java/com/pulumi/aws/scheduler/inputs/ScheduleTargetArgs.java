@@ -23,14 +23,14 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
     public static final ScheduleTargetArgs Empty = new ScheduleTargetArgs();
 
     /**
-     * ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * @return ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
      * 
      */
     public Output<String> arn() {
@@ -206,7 +206,7 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn ARN of the SQS queue specified as the destination for the dead-letter queue.
+         * @param arn ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ScheduleTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn ARN of the SQS queue specified as the destination for the dead-letter queue.
+         * @param arn ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
          * 
          * @return builder
          * 

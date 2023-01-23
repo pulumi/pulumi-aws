@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     private String bucketName;
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     private @Nullable String bucketPrefix;
     /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig s3OutputFormatConfig;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesS3() {}
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     public String bucketName() {
         return this.bucketName;
     }
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
     /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig> s3OutputFormatConfig() {

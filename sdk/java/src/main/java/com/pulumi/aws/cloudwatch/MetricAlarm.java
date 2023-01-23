@@ -369,14 +369,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.datapointsToAlarm);
     }
     /**
-     * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     * The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
     @Export(name="dimensions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> dimensions;
 
     /**
-     * @return The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     * @return The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
     public Output<Optional<Map<String,String>>> dimensions() {
@@ -449,7 +449,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.insufficientDataActions);
     }
     /**
-     * The name for this metric.
+     * The name for the alarm&#39;s associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -457,7 +457,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> metricName;
 
     /**
-     * @return The name for this metric.
+     * @return The name for the alarm&#39;s associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -493,7 +493,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * The namespace for the alarm&#39;s associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -501,7 +501,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> namespace;
 
     /**
-     * @return The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * @return The namespace for the alarm&#39;s associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -523,14 +523,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.okActions);
     }
     /**
-     * The period in seconds over which the specified `stat` is applied.
+     * The period in seconds over which the specified `statistic` is applied.
      * 
      */
     @Export(name="period", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> period;
 
     /**
-     * @return The period in seconds over which the specified `stat` is applied.
+     * @return The period in seconds over which the specified `statistic` is applied.
      * 
      */
     public Output<Optional<Integer>> period() {
@@ -623,14 +623,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.treatMissingData);
     }
     /**
-     * The unit for this metric.
+     * The unit for the alarm&#39;s associated metric.
      * 
      */
     @Export(name="unit", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> unit;
 
     /**
-     * @return The unit for this metric.
+     * @return The unit for the alarm&#39;s associated metric.
      * 
      */
     public Output<Optional<String>> unit() {

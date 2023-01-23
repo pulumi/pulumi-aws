@@ -16,14 +16,14 @@ public final class EntityRecognizerInputDataConfigAnnotationsArgs extends com.pu
     public static final EntityRecognizerInputDataConfigAnnotationsArgs Empty = new EntityRecognizerInputDataConfigAnnotationsArgs();
 
     /**
-     * Location of entity list.
+     * Location of training annotations.
      * 
      */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
     /**
-     * @return Location of entity list.
+     * @return Location of training annotations.
      * 
      */
     public Output<String> s3Uri() {
@@ -63,7 +63,7 @@ public final class EntityRecognizerInputDataConfigAnnotationsArgs extends com.pu
         }
 
         /**
-         * @param s3Uri Location of entity list.
+         * @param s3Uri Location of training annotations.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class EntityRecognizerInputDataConfigAnnotationsArgs extends com.pu
         }
 
         /**
-         * @param s3Uri Location of entity list.
+         * @param s3Uri Location of training annotations.
          * 
          * @return builder
          * 

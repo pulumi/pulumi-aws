@@ -40,7 +40,7 @@ public final class SpotFleetRequestLaunchSpecification {
     private @Nullable String placementTenancy;
     private @Nullable List<SpotFleetRequestLaunchSpecificationRootBlockDevice> rootBlockDevices;
     /**
-     * @return The maximum spot bid for this override request.
+     * @return The maximum bid price per unit hour.
      * 
      */
     private @Nullable String spotPrice;
@@ -114,7 +114,7 @@ public final class SpotFleetRequestLaunchSpecification {
         return this.rootBlockDevices == null ? List.of() : this.rootBlockDevices;
     }
     /**
-     * @return The maximum spot bid for this override request.
+     * @return The maximum bid price per unit hour.
      * 
      */
     public Optional<String> spotPrice() {

@@ -96,9 +96,17 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enhancedVpcRouting);
     }
 
+    /**
+     * The name of the namespace.
+     * 
+     */
     @Import(name="namespaceName")
     private @Nullable Output<String> namespaceName;
 
+    /**
+     * @return The name of the namespace.
+     * 
+     */
     public Optional<Output<String>> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -369,11 +377,23 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
             return enhancedVpcRouting(Output.of(enhancedVpcRouting));
         }
 
+        /**
+         * @param namespaceName The name of the namespace.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceName(@Nullable Output<String> namespaceName) {
             $.namespaceName = namespaceName;
             return this;
         }
 
+        /**
+         * @param namespaceName The name of the namespace.
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespaceName(String namespaceName) {
             return namespaceName(Output.of(namespaceName));
         }

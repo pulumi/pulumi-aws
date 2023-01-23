@@ -11,7 +11,7 @@ import (
 )
 
 type DataLakeSettingsCreateDatabaseDefaultPermission struct {
-	// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions []string `pulumi:"permissions"`
 	// Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
 	Principal *string `pulumi:"principal"`
@@ -29,7 +29,7 @@ type DataLakeSettingsCreateDatabaseDefaultPermissionInput interface {
 }
 
 type DataLakeSettingsCreateDatabaseDefaultPermissionArgs struct {
-	// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 	// Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
 	Principal pulumi.StringPtrInput `pulumi:"principal"`
@@ -86,7 +86,7 @@ func (o DataLakeSettingsCreateDatabaseDefaultPermissionOutput) ToDataLakeSetting
 	return o
 }
 
-// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+// List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 func (o DataLakeSettingsCreateDatabaseDefaultPermissionOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataLakeSettingsCreateDatabaseDefaultPermission) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
@@ -225,7 +225,7 @@ func (o DataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulumi.
 type PermissionsDataLocation struct {
 	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 	Arn string `pulumi:"arn"`
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 }
 
@@ -243,7 +243,7 @@ type PermissionsDataLocationInput interface {
 type PermissionsDataLocationArgs struct {
 	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 }
 
@@ -329,7 +329,7 @@ func (o PermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 func (o PermissionsDataLocationOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDataLocation) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
@@ -368,7 +368,7 @@ func (o PermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 func (o PermissionsDataLocationPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsDataLocation) *string {
 		if v == nil {
@@ -381,7 +381,7 @@ func (o PermissionsDataLocationPtrOutput) CatalogId() pulumi.StringPtrOutput {
 type PermissionsDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the table resource.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name string `pulumi:"name"`
 }
 
@@ -399,7 +399,7 @@ type PermissionsDatabaseInput interface {
 type PermissionsDatabaseArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// Name of the table resource.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -485,7 +485,7 @@ func (o PermissionsDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the database resource. Unique to the Data Catalog.
 func (o PermissionsDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsDatabase) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -524,7 +524,7 @@ func (o PermissionsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the database resource. Unique to the Data Catalog.
 func (o PermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsDatabase) *string {
 		if v == nil {
@@ -537,9 +537,9 @@ func (o PermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 type PermissionsLfTag struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// The key-name of an LF-Tag.
+	// The key-name for the tag.
 	Key string `pulumi:"key"`
-	// A list of possible values of an LF-Tag.
+	// A list of possible values an attribute can take.
 	Values []string `pulumi:"values"`
 }
 
@@ -557,9 +557,9 @@ type PermissionsLfTagInput interface {
 type PermissionsLfTagArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// The key-name of an LF-Tag.
+	// The key-name for the tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// A list of possible values of an LF-Tag.
+	// A list of possible values an attribute can take.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -645,12 +645,12 @@ func (o PermissionsLfTagOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// The key-name of an LF-Tag.
+// The key-name for the tag.
 func (o PermissionsLfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsLfTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// A list of possible values of an LF-Tag.
+// A list of possible values an attribute can take.
 func (o PermissionsLfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -689,7 +689,7 @@ func (o PermissionsLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key-name of an LF-Tag.
+// The key-name for the tag.
 func (o PermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsLfTag) *string {
 		if v == nil {
@@ -699,7 +699,7 @@ func (o PermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of possible values of an LF-Tag.
+// A list of possible values an attribute can take.
 func (o PermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionsLfTag) []string {
 		if v == nil {
@@ -993,11 +993,11 @@ func (o PermissionsLfTagPolicyExpressionArrayOutput) Index(i pulumi.IntInput) Pe
 type PermissionsTable struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	// Name of the database for the table. Unique to a Data Catalog.
 	DatabaseName string `pulumi:"databaseName"`
-	// Name of the table resource.
+	// Name of the table.
 	Name *string `pulumi:"name"`
-	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 	Wildcard *bool `pulumi:"wildcard"`
 }
 
@@ -1015,11 +1015,11 @@ type PermissionsTableInput interface {
 type PermissionsTableArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	// Name of the database for the table. Unique to a Data Catalog.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Name of the table resource.
+	// Name of the table.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1105,17 +1105,17 @@ func (o PermissionsTableOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the database for the table with columns resource. Unique to the Data Catalog.
+// Name of the database for the table. Unique to a Data Catalog.
 func (o PermissionsTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionsTable) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Name of the table resource.
+// Name of the table.
 func (o PermissionsTableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 func (o PermissionsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PermissionsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1154,7 +1154,7 @@ func (o PermissionsTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the database for the table with columns resource. Unique to the Data Catalog.
+// Name of the database for the table. Unique to a Data Catalog.
 func (o PermissionsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsTable) *string {
 		if v == nil {
@@ -1164,7 +1164,7 @@ func (o PermissionsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the table.
 func (o PermissionsTablePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionsTable) *string {
 		if v == nil {
@@ -1174,7 +1174,7 @@ func (o PermissionsTablePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 func (o PermissionsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PermissionsTable) *bool {
 		if v == nil {
@@ -1419,7 +1419,7 @@ func (o PermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 type ResourceLfTagsDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the table resource.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name string `pulumi:"name"`
 }
 
@@ -1437,7 +1437,7 @@ type ResourceLfTagsDatabaseInput interface {
 type ResourceLfTagsDatabaseArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// Name of the table resource.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1523,7 +1523,7 @@ func (o ResourceLfTagsDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the database resource. Unique to the Data Catalog.
 func (o ResourceLfTagsDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceLfTagsDatabase) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1562,7 +1562,7 @@ func (o ResourceLfTagsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the database resource. Unique to the Data Catalog.
 func (o ResourceLfTagsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsDatabase) *string {
 		if v == nil {
@@ -1690,11 +1690,11 @@ func (o ResourceLfTagsLfTagArrayOutput) Index(i pulumi.IntInput) ResourceLfTagsL
 type ResourceLfTagsTable struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	// Name of the database for the table. Unique to a Data Catalog.
 	DatabaseName string `pulumi:"databaseName"`
-	// Name of the table resource.
+	// Name of the table.
 	Name *string `pulumi:"name"`
-	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 	Wildcard *bool `pulumi:"wildcard"`
 }
 
@@ -1712,11 +1712,11 @@ type ResourceLfTagsTableInput interface {
 type ResourceLfTagsTableArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	// Name of the database for the table. Unique to a Data Catalog.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Name of the table resource.
+	// Name of the table.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
 }
 
@@ -1802,17 +1802,17 @@ func (o ResourceLfTagsTableOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the database for the table with columns resource. Unique to the Data Catalog.
+// Name of the database for the table. Unique to a Data Catalog.
 func (o ResourceLfTagsTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Name of the table resource.
+// Name of the table.
 func (o ResourceLfTagsTableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 func (o ResourceLfTagsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceLfTagsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
@@ -1851,7 +1851,7 @@ func (o ResourceLfTagsTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the database for the table with columns resource. Unique to the Data Catalog.
+// Name of the database for the table. Unique to a Data Catalog.
 func (o ResourceLfTagsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTable) *string {
 		if v == nil {
@@ -1861,7 +1861,7 @@ func (o ResourceLfTagsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the table.
 func (o ResourceLfTagsTablePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTable) *string {
 		if v == nil {
@@ -1871,7 +1871,7 @@ func (o ResourceLfTagsTablePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to use a column wildcard. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+// Whether to use a wildcard representing every table under a database. Defaults to `false`.
 func (o ResourceLfTagsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceLfTagsTable) *bool {
 		if v == nil {
@@ -2328,7 +2328,7 @@ func (o GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput) Index(i pulu
 type GetPermissionsDataLocation struct {
 	// ARN that uniquely identifies the data location resource.
 	Arn string `pulumi:"arn"`
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
 }
 
@@ -2346,7 +2346,7 @@ type GetPermissionsDataLocationInput interface {
 type GetPermissionsDataLocationArgs struct {
 	// ARN that uniquely identifies the data location resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 }
 
@@ -2432,7 +2432,7 @@ func (o GetPermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 func (o GetPermissionsDataLocationOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.CatalogId }).(pulumi.StringOutput)
 }
@@ -2471,7 +2471,7 @@ func (o GetPermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 func (o GetPermissionsDataLocationPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsDataLocation) *string {
 		if v == nil {
@@ -2484,7 +2484,7 @@ func (o GetPermissionsDataLocationPtrOutput) CatalogId() pulumi.StringPtrOutput 
 type GetPermissionsDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	// Name of the table resource.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name string `pulumi:"name"`
 }
 
@@ -2502,7 +2502,7 @@ type GetPermissionsDatabaseInput interface {
 type GetPermissionsDatabaseArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	// Name of the table resource.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2588,7 +2588,7 @@ func (o GetPermissionsDatabaseOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDatabase) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Name of the table resource.
+// Name of the database resource. Unique to the Data Catalog.
 func (o GetPermissionsDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDatabase) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2627,7 +2627,7 @@ func (o GetPermissionsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the database resource. Unique to the Data Catalog.
 func (o GetPermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsDatabase) *string {
 		if v == nil {
@@ -2640,9 +2640,9 @@ func (o GetPermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 type GetPermissionsLfTag struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	// Key-name of an LF-Tag.
+	// Key-name for the tag.
 	Key string `pulumi:"key"`
-	// List of possible values of an LF-Tag.
+	// List of possible values an attribute can take.
 	Values []string `pulumi:"values"`
 }
 
@@ -2660,9 +2660,9 @@ type GetPermissionsLfTagInput interface {
 type GetPermissionsLfTagArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	// Key-name of an LF-Tag.
+	// Key-name for the tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// List of possible values of an LF-Tag.
+	// List of possible values an attribute can take.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2748,12 +2748,12 @@ func (o GetPermissionsLfTagOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Key-name of an LF-Tag.
+// Key-name for the tag.
 func (o GetPermissionsLfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// List of possible values of an LF-Tag.
+// List of possible values an attribute can take.
 func (o GetPermissionsLfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPermissionsLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2792,7 +2792,7 @@ func (o GetPermissionsLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-name of an LF-Tag.
+// Key-name for the tag.
 func (o GetPermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTag) *string {
 		if v == nil {
@@ -2802,7 +2802,7 @@ func (o GetPermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of possible values of an LF-Tag.
+// List of possible values an attribute can take.
 func (o GetPermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetPermissionsLfTag) []string {
 		if v == nil {
@@ -3096,9 +3096,9 @@ func (o GetPermissionsLfTagPolicyExpressionArrayOutput) Index(i pulumi.IntInput)
 type GetPermissionsTable struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	// Name of the database for the table. Unique to a Data Catalog.
 	DatabaseName string `pulumi:"databaseName"`
-	// Name of the table resource.
+	// Name of the table. At least one of `name` or `wildcard` is required.
 	Name string `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 	Wildcard *bool `pulumi:"wildcard"`
@@ -3118,9 +3118,9 @@ type GetPermissionsTableInput interface {
 type GetPermissionsTableArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	// Name of the database for the table. Unique to a Data Catalog.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Name of the table resource.
+	// Name of the table. At least one of `name` or `wildcard` is required.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
@@ -3208,12 +3208,12 @@ func (o GetPermissionsTableOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTable) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Name of the database for the table with columns resource. Unique to the Data Catalog.
+// Name of the database for the table. Unique to a Data Catalog.
 func (o GetPermissionsTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTable) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Name of the table resource.
+// Name of the table. At least one of `name` or `wildcard` is required.
 func (o GetPermissionsTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTable) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3257,7 +3257,7 @@ func (o GetPermissionsTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the database for the table with columns resource. Unique to the Data Catalog.
+// Name of the database for the table. Unique to a Data Catalog.
 func (o GetPermissionsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsTable) *string {
 		if v == nil {
@@ -3267,7 +3267,7 @@ func (o GetPermissionsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the table resource.
+// Name of the table. At least one of `name` or `wildcard` is required.
 func (o GetPermissionsTablePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetPermissionsTable) *string {
 		if v == nil {

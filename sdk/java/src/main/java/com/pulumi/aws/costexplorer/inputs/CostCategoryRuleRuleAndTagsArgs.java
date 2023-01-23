@@ -47,14 +47,14 @@ public final class CostCategoryRuleRuleAndTagsArgs extends com.pulumi.resources.
     }
 
     /**
-     * Parameter values.
+     * Specific value of the Cost Category.
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return Parameter values.
+     * @return Specific value of the Cost Category.
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -140,7 +140,7 @@ public final class CostCategoryRuleRuleAndTagsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param values Parameter values.
+         * @param values Specific value of the Cost Category.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CostCategoryRuleRuleAndTagsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param values Parameter values.
+         * @param values Specific value of the Cost Category.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CostCategoryRuleRuleAndTagsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param values Parameter values.
+         * @param values Specific value of the Cost Category.
          * 
          * @return builder
          * 

@@ -20,10 +20,10 @@ class ReplicationSubnetGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSubnetGroup resource.
-        :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
-        :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] replication_subnet_group_description: Description for the subnet group.
+        :param pulumi.Input[str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "replication_subnet_group_description", replication_subnet_group_description)
         pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
@@ -35,7 +35,7 @@ class ReplicationSubnetGroupArgs:
     @pulumi.getter(name="replicationSubnetGroupDescription")
     def replication_subnet_group_description(self) -> pulumi.Input[str]:
         """
-        The description for the subnet group.
+        Description for the subnet group.
         """
         return pulumi.get(self, "replication_subnet_group_description")
 
@@ -47,7 +47,7 @@ class ReplicationSubnetGroupArgs:
     @pulumi.getter(name="replicationSubnetGroupId")
     def replication_subnet_group_id(self) -> pulumi.Input[str]:
         """
-        The name for the replication subnet group. This value is stored as a lowercase string.
+        Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         """
         return pulumi.get(self, "replication_subnet_group_id")
 
@@ -59,7 +59,7 @@ class ReplicationSubnetGroupArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of the EC2 subnet IDs for the subnet group.
+        List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -71,7 +71,7 @@ class ReplicationSubnetGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -92,10 +92,10 @@ class _ReplicationSubnetGroupState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationSubnetGroup resources.
-        :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
-        :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] replication_subnet_group_description: Description for the subnet group.
+        :param pulumi.Input[str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet group is in.
         """
@@ -127,7 +127,7 @@ class _ReplicationSubnetGroupState:
     @pulumi.getter(name="replicationSubnetGroupDescription")
     def replication_subnet_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description for the subnet group.
+        Description for the subnet group.
         """
         return pulumi.get(self, "replication_subnet_group_description")
 
@@ -139,7 +139,7 @@ class _ReplicationSubnetGroupState:
     @pulumi.getter(name="replicationSubnetGroupId")
     def replication_subnet_group_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for the replication subnet group. This value is stored as a lowercase string.
+        Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         """
         return pulumi.get(self, "replication_subnet_group_id")
 
@@ -151,7 +151,7 @@ class _ReplicationSubnetGroupState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the EC2 subnet IDs for the subnet group.
+        List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -163,7 +163,7 @@ class _ReplicationSubnetGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -209,20 +209,62 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         """
         Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
 
+        > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
+
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new replication subnet group
-        test = aws.dms.ReplicationSubnetGroup("test",
-            replication_subnet_group_description="Test replication subnet group",
-            replication_subnet_group_id="test-dms-replication-subnet-group-tf",
-            subnet_ids=["subnet-12345678"],
+        example = aws.dms.ReplicationSubnetGroup("example",
+            replication_subnet_group_description="Example replication subnet group",
+            replication_subnet_group_id="example-dms-replication-subnet-group-tf",
+            subnet_ids=[
+                "subnet-12345678",
+                "subnet-12345679",
+            ],
             tags={
-                "Name": "test",
+                "Name": "example",
             })
+        ```
+        ### Creating special IAM role
+
+        If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        dms_vpc_role = aws.iam.Role("dms-vpc-role",
+            description="Allows DMS to manage VPC",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "dms.amazonaws.com",
+                    },
+                    "Action": "sts:AssumeRole",
+                }],
+            }))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+            role=dms_vpc_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
+        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
+            replication_subnet_group_description="Example",
+            replication_subnet_group_id="example-id",
+            subnet_ids=[
+                "subnet-12345678",
+                "subnet-12345679",
+            ],
+            tags={
+                "Name": "example-id",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 
         ## Import
@@ -235,10 +277,10 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
-        :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] replication_subnet_group_description: Description for the subnet group.
+        :param pulumi.Input[str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -249,20 +291,62 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         """
         Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
 
+        > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
+
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         # Create a new replication subnet group
-        test = aws.dms.ReplicationSubnetGroup("test",
-            replication_subnet_group_description="Test replication subnet group",
-            replication_subnet_group_id="test-dms-replication-subnet-group-tf",
-            subnet_ids=["subnet-12345678"],
+        example = aws.dms.ReplicationSubnetGroup("example",
+            replication_subnet_group_description="Example replication subnet group",
+            replication_subnet_group_id="example-dms-replication-subnet-group-tf",
+            subnet_ids=[
+                "subnet-12345678",
+                "subnet-12345679",
+            ],
             tags={
-                "Name": "test",
+                "Name": "example",
             })
+        ```
+        ### Creating special IAM role
+
+        If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        dms_vpc_role = aws.iam.Role("dms-vpc-role",
+            description="Allows DMS to manage VPC",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "dms.amazonaws.com",
+                    },
+                    "Action": "sts:AssumeRole",
+                }],
+            }))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment",
+            role=dms_vpc_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
+        example_replication_subnet_group = aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup",
+            replication_subnet_group_description="Example",
+            replication_subnet_group_id="example-id",
+            subnet_ids=[
+                "subnet-12345678",
+                "subnet-12345679",
+            ],
+            tags={
+                "Name": "example-id",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 
         ## Import
@@ -338,10 +422,10 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] replication_subnet_group_description: The description for the subnet group.
-        :param pulumi.Input[str] replication_subnet_group_id: The name for the replication subnet group. This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of the EC2 subnet IDs for the subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] replication_subnet_group_description: Description for the subnet group.
+        :param pulumi.Input[str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The ID of the VPC the subnet group is in.
         """
@@ -367,7 +451,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="replicationSubnetGroupDescription")
     def replication_subnet_group_description(self) -> pulumi.Output[str]:
         """
-        The description for the subnet group.
+        Description for the subnet group.
         """
         return pulumi.get(self, "replication_subnet_group_description")
 
@@ -375,7 +459,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="replicationSubnetGroupId")
     def replication_subnet_group_id(self) -> pulumi.Output[str]:
         """
-        The name for the replication subnet group. This value is stored as a lowercase string.
+        Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         """
         return pulumi.get(self, "replication_subnet_group_id")
 
@@ -383,7 +467,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of the EC2 subnet IDs for the subnet group.
+        List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -391,7 +475,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

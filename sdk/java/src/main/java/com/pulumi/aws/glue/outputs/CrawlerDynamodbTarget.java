@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerDynamodbTarget {
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The name of the DynamoDB table to crawl.
      * 
      */
     private String path;
     /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
      * 
      */
     private @Nullable Boolean scanAll;
@@ -31,14 +31,14 @@ public final class CrawlerDynamodbTarget {
 
     private CrawlerDynamodbTarget() {}
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The name of the DynamoDB table to crawl.
      * 
      */
     public String path() {
         return this.path;
     }
     /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
      * 
      */
     public Optional<Boolean> scanAll() {

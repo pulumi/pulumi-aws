@@ -211,14 +211,14 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+     * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      * 
      */
     @Import(name="storageCapacity")
     private @Nullable Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+     * @return The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      * 
      */
     public Optional<Output<Integer>> storageCapacity() {
@@ -633,7 +633,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageCapacity The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+         * @param storageCapacity The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class FileCacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageCapacity The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+         * @param storageCapacity The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
          * 
          * @return builder
          * 

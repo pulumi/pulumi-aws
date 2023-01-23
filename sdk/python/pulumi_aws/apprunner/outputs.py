@@ -439,10 +439,10 @@ class ServiceObservabilityConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "observabilityConfigurationArn":
-            suggest = "observability_configuration_arn"
-        elif key == "observabilityEnabled":
+        if key == "observabilityEnabled":
             suggest = "observability_enabled"
+        elif key == "observabilityConfigurationArn":
+            suggest = "observability_configuration_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceObservabilityConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -456,22 +456,15 @@ class ServiceObservabilityConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 observability_configuration_arn: str,
-                 observability_enabled: bool):
+                 observability_enabled: bool,
+                 observability_configuration_arn: Optional[str] = None):
         """
-        :param str observability_configuration_arn: ARN of the observability configuration that is associated with the service.
         :param bool observability_enabled: When `true`, an observability configuration resource is associated with the service.
+        :param str observability_configuration_arn: ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
         """
-        pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
         pulumi.set(__self__, "observability_enabled", observability_enabled)
-
-    @property
-    @pulumi.getter(name="observabilityConfigurationArn")
-    def observability_configuration_arn(self) -> str:
-        """
-        ARN of the observability configuration that is associated with the service.
-        """
-        return pulumi.get(self, "observability_configuration_arn")
+        if observability_configuration_arn is not None:
+            pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
 
     @property
     @pulumi.getter(name="observabilityEnabled")
@@ -480,6 +473,14 @@ class ServiceObservabilityConfiguration(dict):
         When `true`, an observability configuration resource is associated with the service.
         """
         return pulumi.get(self, "observability_enabled")
+
+    @property
+    @pulumi.getter(name="observabilityConfigurationArn")
+    def observability_configuration_arn(self) -> Optional[str]:
+        """
+        ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+        """
+        return pulumi.get(self, "observability_configuration_arn")
 
 
 @pulumi.output_type

@@ -105,7 +105,7 @@ namespace Pulumi.Aws.MskConnect
     public partial class Connector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the worker configuration.
+        /// The Amazon Resource Name (ARN) of the custom plugin.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.MskConnect
     public sealed class ConnectorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the worker configuration.
+        /// The Amazon Resource Name (ARN) of the custom plugin.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

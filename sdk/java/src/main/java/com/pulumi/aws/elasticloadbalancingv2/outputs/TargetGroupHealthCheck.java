@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TargetGroupHealthCheck {
     /**
-     * @return Boolean to enable / disable `stickiness`. Default is `true`.
+     * @return Whether health checks are enabled. Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -61,7 +61,7 @@ public final class TargetGroupHealthCheck {
 
     private TargetGroupHealthCheck() {}
     /**
-     * @return Boolean to enable / disable `stickiness`. Default is `true`.
+     * @return Whether health checks are enabled. Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

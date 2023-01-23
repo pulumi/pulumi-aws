@@ -17,14 +17,14 @@ public final class ServiceHealthCheckConfigArgs extends com.pulumi.resources.Res
     public static final ServiceHealthCheckConfigArgs Empty = new ServiceHealthCheckConfigArgs();
 
     /**
-     * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+     * The number of consecutive health checks. Maximum value of 10.
      * 
      */
     @Import(name="failureThreshold")
     private @Nullable Output<Integer> failureThreshold;
 
     /**
-     * @return The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+     * @return The number of consecutive health checks. Maximum value of 10.
      * 
      */
     public Optional<Output<Integer>> failureThreshold() {
@@ -88,7 +88,7 @@ public final class ServiceHealthCheckConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+         * @param failureThreshold The number of consecutive health checks. Maximum value of 10.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ServiceHealthCheckConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param failureThreshold The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+         * @param failureThreshold The number of consecutive health checks. Maximum value of 10.
          * 
          * @return builder
          * 

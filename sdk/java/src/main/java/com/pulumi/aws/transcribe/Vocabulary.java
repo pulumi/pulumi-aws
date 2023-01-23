@@ -132,14 +132,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
         return this.languageCode;
     }
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
     @Export(name="phrases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> phrases;
 
     /**
-     * @return - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
     public Output<Optional<List<String>>> phrases() {

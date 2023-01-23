@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+        /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
         /// </summary>
         [Input("contentSecurityPolicy")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyGetArgs>? ContentSecurityPolicy { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptionsGetArgs>? FrameOptions { get; set; }
 
         /// <summary>
-        /// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        /// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
         /// </summary>
         [Input("referrerPolicy")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyGetArgs>? ReferrerPolicy { get; set; }

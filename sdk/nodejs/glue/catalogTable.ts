@@ -117,11 +117,11 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * ID of the Data Catalog in which the table resides.
+     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
     public readonly catalogId!: pulumi.Output<string>;
     /**
-     * Name of the catalog database that contains the target table.
+     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of the target table.
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly owner!: pulumi.Output<string | undefined>;
     /**
-     * Map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -236,11 +236,11 @@ export interface CatalogTableState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * ID of the Data Catalog in which the table resides.
+     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
     catalogId?: pulumi.Input<string>;
     /**
-     * Name of the catalog database that contains the target table.
+     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
     databaseName?: pulumi.Input<string>;
     /**
@@ -248,7 +248,7 @@ export interface CatalogTableState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the target table.
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     name?: pulumi.Input<string>;
     /**
@@ -256,7 +256,7 @@ export interface CatalogTableState {
      */
     owner?: pulumi.Input<string>;
     /**
-     * Map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -298,11 +298,11 @@ export interface CatalogTableState {
  */
 export interface CatalogTableArgs {
     /**
-     * ID of the Data Catalog in which the table resides.
+     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      */
     catalogId?: pulumi.Input<string>;
     /**
-     * Name of the catalog database that contains the target table.
+     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -310,7 +310,7 @@ export interface CatalogTableArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the target table.
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
      */
     name?: pulumi.Input<string>;
     /**
@@ -318,7 +318,7 @@ export interface CatalogTableArgs {
      */
     owner?: pulumi.Input<string>;
     /**
-     * Map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

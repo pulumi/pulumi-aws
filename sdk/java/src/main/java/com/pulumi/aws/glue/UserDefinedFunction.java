@@ -75,9 +75,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:glue/userDefinedFunction:UserDefinedFunction")
 public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the Glue User Defined Function.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The ARN of the Glue User Defined Function.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -109,9 +117,17 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
     public Output<String> className() {
         return this.className;
     }
+    /**
+     * The time at which the function was created.
+     * 
+     */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
+    /**
+     * @return The time at which the function was created.
+     * 
+     */
     public Output<String> createTime() {
         return this.createTime;
     }

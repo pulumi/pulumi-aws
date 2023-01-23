@@ -17,17 +17,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable String accountName;
     /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
+     * @return A name for the associated Amazon S3 bucket.
      * 
      */
     private String bucketName;
     /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * @return The object key for the destination bucket in which Amazon AppFlow places the files.
      * 
      */
     private @Nullable String bucketPrefix;
     /**
-     * @return The Snowflake Private Link service name to be used for private data transfers.
+     * @return The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     private @Nullable String privateLinkServiceName;
@@ -56,21 +56,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.accountName);
     }
     /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
+     * @return A name for the associated Amazon S3 bucket.
      * 
      */
     public String bucketName() {
         return this.bucketName;
     }
     /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * @return The object key for the destination bucket in which Amazon AppFlow places the files.
      * 
      */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
     /**
-     * @return The Snowflake Private Link service name to be used for private data transfers.
+     * @return The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     public Optional<String> privateLinkServiceName() {

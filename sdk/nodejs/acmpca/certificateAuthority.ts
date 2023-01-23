@@ -154,7 +154,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
-     * Boolean value that specifies whether a custom OCSP responder is enabled.
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -281,7 +281,7 @@ export interface CertificateAuthorityState {
      */
     certificateSigningRequest?: pulumi.Input<string>;
     /**
-     * Boolean value that specifies whether a custom OCSP responder is enabled.
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -337,7 +337,7 @@ export interface CertificateAuthorityArgs {
      */
     certificateAuthorityConfiguration: pulumi.Input<inputs.acmpca.CertificateAuthorityCertificateAuthorityConfiguration>;
     /**
-     * Boolean value that specifies whether a custom OCSP responder is enabled.
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

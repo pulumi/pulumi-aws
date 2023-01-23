@@ -32,7 +32,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable String codecSpecification;
     private @Nullable String constantIv;
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination;
@@ -45,7 +45,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable String incompleteSegmentBehavior;
     private @Nullable Integer indexNSegments;
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     private @Nullable String inputLossAction;
@@ -112,7 +112,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.constantIv);
     }
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination() {
@@ -143,7 +143,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.indexNSegments);
     }
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     public Optional<String> inputLossAction() {

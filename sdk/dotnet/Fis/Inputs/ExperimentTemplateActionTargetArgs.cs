@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fis.Inputs
     public sealed class ExperimentTemplateActionTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Tag key.
+        /// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Tag value.
+        /// Target name, referencing a corresponding target.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// Name of the step.
+        /// Friendly name given to the instance group.
         /// </summary>
         public readonly string? Name;
 

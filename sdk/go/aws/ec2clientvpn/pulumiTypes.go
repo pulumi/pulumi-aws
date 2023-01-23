@@ -144,7 +144,7 @@ func (o EndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) Endpoi
 }
 
 type EndpointClientConnectOptions struct {
-	// Indicates whether connection logging is enabled.
+	// Indicates whether client connect options are enabled. The default is `false` (not enabled).
 	Enabled *bool `pulumi:"enabled"`
 	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
 	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
@@ -162,7 +162,7 @@ type EndpointClientConnectOptionsInput interface {
 }
 
 type EndpointClientConnectOptionsArgs struct {
-	// Indicates whether connection logging is enabled.
+	// Indicates whether client connect options are enabled. The default is `false` (not enabled).
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
 	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
@@ -245,7 +245,7 @@ func (o EndpointClientConnectOptionsOutput) ToEndpointClientConnectOptionsPtrOut
 	}).(EndpointClientConnectOptionsPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
+// Indicates whether client connect options are enabled. The default is `false` (not enabled).
 func (o EndpointClientConnectOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointClientConnectOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -279,7 +279,7 @@ func (o EndpointClientConnectOptionsPtrOutput) Elem() EndpointClientConnectOptio
 	}).(EndpointClientConnectOptionsOutput)
 }
 
-// Indicates whether connection logging is enabled.
+// Indicates whether client connect options are enabled. The default is `false` (not enabled).
 func (o EndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointClientConnectOptions) *bool {
 		if v == nil {
@@ -302,7 +302,7 @@ func (o EndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.String
 type EndpointClientLoginBannerOptions struct {
 	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
 	BannerText *string `pulumi:"bannerText"`
-	// Indicates whether connection logging is enabled.
+	// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -320,7 +320,7 @@ type EndpointClientLoginBannerOptionsInput interface {
 type EndpointClientLoginBannerOptionsArgs struct {
 	// Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
 	BannerText pulumi.StringPtrInput `pulumi:"bannerText"`
-	// Indicates whether connection logging is enabled.
+	// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -406,7 +406,7 @@ func (o EndpointClientLoginBannerOptionsOutput) BannerText() pulumi.StringPtrOut
 	return o.ApplyT(func(v EndpointClientLoginBannerOptions) *string { return v.BannerText }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
+// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
 func (o EndpointClientLoginBannerOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointClientLoginBannerOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -445,7 +445,7 @@ func (o EndpointClientLoginBannerOptionsPtrOutput) BannerText() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether connection logging is enabled.
+// Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
 func (o EndpointClientLoginBannerOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointClientLoginBannerOptions) *bool {
 		if v == nil {

@@ -135,14 +135,14 @@ public class Partition extends com.pulumi.resources.CustomResource {
         return this.lastAnalyzedTime;
     }
     /**
-     * A map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
-     * @return A map of initialization parameters for the SerDe, in key-value form.
+     * @return Properties associated with this table, as a list of key-value pairs.
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {

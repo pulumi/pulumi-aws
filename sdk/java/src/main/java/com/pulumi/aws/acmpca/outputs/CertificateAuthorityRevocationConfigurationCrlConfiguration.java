@@ -19,7 +19,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
      */
     private @Nullable String customCname;
     /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
+     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -48,7 +48,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
         return Optional.ofNullable(this.customCname);
     }
     /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
+     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
      * 
      */
     public Optional<Boolean> enabled() {

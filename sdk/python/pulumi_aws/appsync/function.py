@@ -35,7 +35,7 @@ class FunctionArgs:
         :param pulumi.Input[str] description: Function description.
         :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
         :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -138,7 +138,7 @@ class FunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -221,7 +221,7 @@ class _FunctionState:
         :param pulumi.Input[str] function_id: Unique ID representing the Function object.
         :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
         :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -354,7 +354,7 @@ class _FunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -517,7 +517,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] description: Function description.
         :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
         :param pulumi.Input[pulumi.InputType['FunctionRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -700,7 +700,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] function_id: Unique ID representing the Function object.
         :param pulumi.Input[str] function_version: Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         :param pulumi.Input[int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        :param pulumi.Input[str] name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
         :param pulumi.Input[pulumi.InputType['FunctionRuntimeArgs']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -793,7 +793,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        Function name. The function name does not have to be unique.
         """
         return pulumi.get(self, "name")
 

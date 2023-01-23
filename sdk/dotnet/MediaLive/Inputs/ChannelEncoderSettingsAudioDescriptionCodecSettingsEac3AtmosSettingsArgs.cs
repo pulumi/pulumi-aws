@@ -19,13 +19,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<double>? Bitrate { get; set; }
 
         /// <summary>
-        /// Dolby Digital Plus coding mode.
+        /// Mono, Stereo, or 5.1 channel layout.
         /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
 
         /// <summary>
-        /// Sets the dialnorm for the output.
+        /// Sets the dialnorm of the output.
         /// </summary>
         [Input("dialnorm")]
         public Input<double>? Dialnorm { get; set; }

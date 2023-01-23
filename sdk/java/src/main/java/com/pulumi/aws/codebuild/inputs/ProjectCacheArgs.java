@@ -17,14 +17,14 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProjectCacheArgs Empty = new ProjectCacheArgs();
 
     /**
-     * Location of the source code from git or s3.
+     * Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Location of the source code from git or s3.
+     * @return Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
     public Optional<Output<String>> location() {
@@ -47,14 +47,14 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -88,7 +88,7 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
          * 
          * @return builder
          * 

@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// - Amazon Resource Name (ARN) of the container recipe.
+        /// Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
         [Output("containerRecipeArn")]
         public Output<string?> ContainerRecipeArn { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - Amazon Resource Name (ARN) of the container recipe.
+        /// Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// - Amazon Resource Name (ARN) of the container recipe.
+        /// Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }

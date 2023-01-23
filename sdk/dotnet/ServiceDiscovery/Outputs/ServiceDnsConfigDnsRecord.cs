@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
         /// </summary>
         public readonly int Ttl;
         /// <summary>
-        /// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        /// The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
         /// </summary>
         public readonly string Type;
 

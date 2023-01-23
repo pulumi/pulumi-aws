@@ -32,14 +32,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
     }
 
     /**
-     * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * @return Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
      * 
      */
     public Output<Boolean> enabled() {
@@ -93,7 +93,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
         }
 
         /**
-         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         * @param enabled Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs extends com
         }
 
         /**
-         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         * @param enabled Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
          * 
          * @return builder
          * 

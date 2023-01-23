@@ -32,14 +32,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+     * The token URL required for OAuth 2.0 authentication.
      * 
      */
     @Import(name="tokenUrl", required=true)
     private Output<String> tokenUrl;
 
     /**
-     * @return The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+     * @return The token URL required for OAuth 2.0 authentication.
      * 
      */
     public Output<String> tokenUrl() {
@@ -109,7 +109,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param tokenUrl The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+         * @param tokenUrl The token URL required for OAuth 2.0 authentication.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param tokenUrl The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+         * @param tokenUrl The token URL required for OAuth 2.0 authentication.
          * 
          * @return builder
          * 

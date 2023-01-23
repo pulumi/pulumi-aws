@@ -14,14 +14,14 @@ public final class WorkforceCognitoConfigArgs extends com.pulumi.resources.Resou
     public static final WorkforceCognitoConfigArgs Empty = new WorkforceCognitoConfigArgs();
 
     /**
-     * The OIDC IdP client ID used to configure your private workforce.
+     * The client ID for your Amazon Cognito user pool.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The OIDC IdP client ID used to configure your private workforce.
+     * @return The client ID for your Amazon Cognito user pool.
      * 
      */
     public Output<String> clientId() {
@@ -69,7 +69,7 @@ public final class WorkforceCognitoConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clientId The OIDC IdP client ID used to configure your private workforce.
+         * @param clientId The client ID for your Amazon Cognito user pool.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class WorkforceCognitoConfigArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clientId The OIDC IdP client ID used to configure your private workforce.
+         * @param clientId The client ID for your Amazon Cognito user pool.
          * 
          * @return builder
          * 

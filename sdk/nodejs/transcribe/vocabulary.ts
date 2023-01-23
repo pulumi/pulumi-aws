@@ -82,7 +82,7 @@ export class Vocabulary extends pulumi.CustomResource {
      */
     public readonly languageCode!: pulumi.Output<string>;
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     public readonly phrases!: pulumi.Output<string[] | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface VocabularyState {
      */
     languageCode?: pulumi.Input<string>;
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     phrases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -186,7 +186,7 @@ export interface VocabularyArgs {
      */
     languageCode: pulumi.Input<string>;
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      */
     phrases?: pulumi.Input<pulumi.Input<string>[]>;
     /**

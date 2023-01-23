@@ -75,6 +75,9 @@ class GetAvailabilityZonesResult:
     @property
     @pulumi.getter(name="groupNames")
     def group_names(self) -> Sequence[str]:
+        """
+        A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+        """
         return pulumi.get(self, "group_names")
 
     @property

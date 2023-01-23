@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ivs.Inputs
         public Input<string>? RecordingMode { get; set; }
 
         /// <summary>
-        /// - The targeted thumbnail-generation interval in seconds.
+        /// The targeted thumbnail-generation interval in seconds.
         /// </summary>
         [Input("targetIntervalSeconds")]
         public Input<int>? TargetIntervalSeconds { get; set; }

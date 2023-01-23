@@ -188,6 +188,8 @@ class _InstanceGroupState:
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] running_instance_count: The number of instances currently running in this instance group.
+        :param pulumi.Input[str] status: The current status of the instance group.
         """
         if autoscaling_policy is not None:
             pulumi.set(__self__, "autoscaling_policy", autoscaling_policy)
@@ -323,6 +325,9 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="runningInstanceCount")
     def running_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of instances currently running in this instance group.
+        """
         return pulumi.get(self, "running_instance_count")
 
     @running_instance_count.setter
@@ -332,6 +337,9 @@ class _InstanceGroupState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of the instance group.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -513,6 +521,8 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] running_instance_count: The number of instances currently running in this instance group.
+        :param pulumi.Input[str] status: The current status of the instance group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -606,10 +616,16 @@ class InstanceGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="runningInstanceCount")
     def running_instance_count(self) -> pulumi.Output[int]:
+        """
+        The number of instances currently running in this instance group.
+        """
         return pulumi.get(self, "running_instance_count")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The current status of the instance group.
+        """
         return pulumi.get(self, "status")
 

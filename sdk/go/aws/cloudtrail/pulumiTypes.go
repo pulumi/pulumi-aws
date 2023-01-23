@@ -13,7 +13,7 @@ import (
 type EventDataStoreAdvancedEventSelector struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors []EventDataStoreAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
-	// Specifies the name of the advanced event selector.
+	// The name of the event data store.
 	Name *string `pulumi:"name"`
 }
 
@@ -31,7 +31,7 @@ type EventDataStoreAdvancedEventSelectorInput interface {
 type EventDataStoreAdvancedEventSelectorArgs struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
-	// Specifies the name of the advanced event selector.
+	// The name of the event data store.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -93,7 +93,7 @@ func (o EventDataStoreAdvancedEventSelectorOutput) FieldSelectors() EventDataSto
 	}).(EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput)
 }
 
-// Specifies the name of the advanced event selector.
+// The name of the event data store.
 func (o EventDataStoreAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventDataStoreAdvancedEventSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -272,7 +272,7 @@ func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pul
 type TrailAdvancedEventSelector struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors []TrailAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
-	// Name of the advanced event selector.
+	// Name of the trail.
 	Name *string `pulumi:"name"`
 }
 
@@ -290,7 +290,7 @@ type TrailAdvancedEventSelectorInput interface {
 type TrailAdvancedEventSelectorArgs struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors TrailAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
-	// Name of the advanced event selector.
+	// Name of the trail.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -350,7 +350,7 @@ func (o TrailAdvancedEventSelectorOutput) FieldSelectors() TrailAdvancedEventSel
 	return o.ApplyT(func(v TrailAdvancedEventSelector) []TrailAdvancedEventSelectorFieldSelector { return v.FieldSelectors }).(TrailAdvancedEventSelectorFieldSelectorArrayOutput)
 }
 
-// Name of the advanced event selector.
+// Name of the trail.
 func (o TrailAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrailAdvancedEventSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

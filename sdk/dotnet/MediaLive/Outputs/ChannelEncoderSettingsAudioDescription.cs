@@ -34,7 +34,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings? AudioWatermarkSettings;
         /// <summary>
-        /// The video codec settings. See Video Codec Settings for more details.
+        /// Audio codec settings. See Audio Codec Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings? CodecSettings;
         /// <summary>
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? LanguageCode;
         public readonly string? LanguageCodeControl;
         /// <summary>
-        /// The name of the video description.
+        /// The name of this audio description.
         /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings? RemixSettings;

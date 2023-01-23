@@ -64,14 +64,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     * The maximum frequency with which AWS Config runs evaluations for a rule.
      * 
      */
     @Import(name="maximumExecutionFrequency")
     private @Nullable Output<String> maximumExecutionFrequency;
 
     /**
-     * @return The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+     * @return The maximum frequency with which AWS Config runs evaluations for a rule.
      * 
      */
     public Optional<Output<String>> maximumExecutionFrequency() {
@@ -265,7 +265,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumExecutionFrequency The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+         * @param maximumExecutionFrequency The maximum frequency with which AWS Config runs evaluations for a rule.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumExecutionFrequency The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+         * @param maximumExecutionFrequency The maximum frequency with which AWS Config runs evaluations for a rule.
          * 
          * @return builder
          * 

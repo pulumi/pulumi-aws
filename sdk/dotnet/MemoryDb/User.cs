@@ -79,7 +79,6 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The minimum engine version supported for the user.
-        /// * `authentication_mode` configuration block
         /// </summary>
         [Output("minimumEngineVersion")]
         public Output<string> MinimumEngineVersion { get; private set; } = null!;
@@ -206,7 +205,6 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The minimum engine version supported for the user.
-        /// * `authentication_mode` configuration block
         /// </summary>
         [Input("minimumEngineVersion")]
         public Input<string>? MinimumEngineVersion { get; set; }

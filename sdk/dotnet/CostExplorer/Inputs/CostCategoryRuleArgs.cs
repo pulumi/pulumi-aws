@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public Input<Inputs.CostCategoryRuleRuleArgs>? Rule { get; set; }
 
         /// <summary>
-        /// Parameter type.
+        /// You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -27,7 +27,6 @@ public final class GetClusterResult {
     private String arn;
     /**
      * @return True when the cluster allows automatic minor version upgrades.
-     * * `cluster_endpoint`
      * 
      */
     private Boolean autoMinorVersionUpgrade;
@@ -74,7 +73,6 @@ public final class GetClusterResult {
     private String maintenanceWindow;
     /**
      * @return Name of this node.
-     * * `endpoint`
      * 
      */
     private String name;
@@ -125,10 +123,13 @@ public final class GetClusterResult {
     private String snapshotWindow;
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
-     * * `subnet_group_name` -The name of the subnet group used for the cluster.
      * 
      */
     private String snsTopicArn;
+    /**
+     * @return The name of the subnet group used for the cluster.
+     * 
+     */
     private String subnetGroupName;
     /**
      * @return Map of tags assigned to the cluster.
@@ -158,7 +159,6 @@ public final class GetClusterResult {
     }
     /**
      * @return True when the cluster allows automatic minor version upgrades.
-     * * `cluster_endpoint`
      * 
      */
     public Boolean autoMinorVersionUpgrade() {
@@ -225,7 +225,6 @@ public final class GetClusterResult {
     }
     /**
      * @return Name of this node.
-     * * `endpoint`
      * 
      */
     public String name() {
@@ -296,12 +295,15 @@ public final class GetClusterResult {
     }
     /**
      * @return ARN of the SNS topic to which cluster notifications are sent.
-     * * `subnet_group_name` -The name of the subnet group used for the cluster.
      * 
      */
     public String snsTopicArn() {
         return this.snsTopicArn;
     }
+    /**
+     * @return The name of the subnet group used for the cluster.
+     * 
+     */
     public String subnetGroupName() {
         return this.subnetGroupName;
     }

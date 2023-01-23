@@ -18,15 +18,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
-        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
         /// <summary>
-        /// Object specified in the Veeva flow source.
+        /// Object specified in the flow destination.
         /// </summary>
         public readonly string Object;
         /// <summary>
-        /// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        /// Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         /// </summary>
         public readonly string? WriteOperationType;
 

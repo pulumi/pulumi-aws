@@ -234,14 +234,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.defaultCapacityProviderStrategies;
     }
     /**
-     * Name of the setting to manage. Valid values: `containerInsights`.
+     * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the setting to manage. Valid values: `containerInsights`.
+     * @return Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
      */
     public Output<String> name() {

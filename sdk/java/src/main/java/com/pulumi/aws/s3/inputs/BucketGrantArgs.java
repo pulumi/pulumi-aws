@@ -47,14 +47,14 @@ public final class BucketGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+     * Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+     * @return Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
      * 
      */
     public Output<String> type() {
@@ -156,7 +156,7 @@ public final class BucketGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+         * @param type Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class BucketGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+         * @param type Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
          * 
          * @return builder
          * 

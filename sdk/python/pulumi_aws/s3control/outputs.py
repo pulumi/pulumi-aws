@@ -1303,8 +1303,8 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  encryption: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption'] = None,
                  prefix: Optional[str] = None):
         """
-        :param str account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
-        :param str arn: The Amazon Resource Name (ARN) of the bucket.
+        :param str account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        :param str arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         :param str format: The export format. Valid values: `CSV`, `Parquet`.
         :param str output_schema_version: The schema version of the export file. Valid values: `V_1`.
         :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs' encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
@@ -1323,7 +1323,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
         """
-        The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -1331,7 +1331,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the bucket.
+        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         """
         return pulumi.get(self, "arn")
 

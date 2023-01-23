@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class MetricStreamExcludeFilter {
     /**
-     * @return The namespace of the metric.
+     * @return Name of the metric namespace in the filter.
      * 
      */
     private String namespace;
 
     private MetricStreamExcludeFilter() {}
     /**
-     * @return The namespace of the metric.
+     * @return Name of the metric namespace in the filter.
      * 
      */
     public String namespace() {

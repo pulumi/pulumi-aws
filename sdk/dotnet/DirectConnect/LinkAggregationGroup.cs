@@ -74,6 +74,9 @@ namespace Pulumi.Aws.DirectConnect
         [Output("hasLogicalRedundancy")]
         public Output<string> HasLogicalRedundancy { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether jumbo frames (9001 MTU) are supported.
+        /// </summary>
         [Output("jumboFrameCapable")]
         public Output<bool> JumboFrameCapable { get; private set; } = null!;
 
@@ -245,6 +248,9 @@ namespace Pulumi.Aws.DirectConnect
         [Input("hasLogicalRedundancy")]
         public Input<string>? HasLogicalRedundancy { get; set; }
 
+        /// <summary>
+        /// Indicates whether jumbo frames (9001 MTU) are supported.
+        /// </summary>
         [Input("jumboFrameCapable")]
         public Input<bool>? JumboFrameCapable { get; set; }
 

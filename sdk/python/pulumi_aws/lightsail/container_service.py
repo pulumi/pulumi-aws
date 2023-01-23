@@ -184,7 +184,7 @@ class _ContainerServiceState:
                the number of vCPUs, and the monthly price of each node of the container service.
                Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         :param pulumi.Input[str] power_id: The ID of the power of the container service.
-               * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
+        :param pulumi.Input[str] principal_arn: The principal ARN of the container service. The principal ARN can be used to create a trust
                relationship between your standard AWS account and your Lightsail container service. This allows you to give your
                service permission to access resources in your standard AWS account.
         :param pulumi.Input[str] private_domain_name: The private domain name of the container service. The private domain name is accessible only
@@ -320,9 +320,6 @@ class _ContainerServiceState:
     def power_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the power of the container service.
-        * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-        relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-        service permission to access resources in your standard AWS account.
         """
         return pulumi.get(self, "power_id")
 
@@ -333,6 +330,11 @@ class _ContainerServiceState:
     @property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal ARN of the container service. The principal ARN can be used to create a trust
+        relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+        service permission to access resources in your standard AWS account.
+        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -750,7 +752,7 @@ class ContainerService(pulumi.CustomResource):
                the number of vCPUs, and the monthly price of each node of the container service.
                Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         :param pulumi.Input[str] power_id: The ID of the power of the container service.
-               * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
+        :param pulumi.Input[str] principal_arn: The principal ARN of the container service. The principal ARN can be used to create a trust
                relationship between your standard AWS account and your Lightsail container service. This allows you to give your
                service permission to access resources in your standard AWS account.
         :param pulumi.Input[str] private_domain_name: The private domain name of the container service. The private domain name is accessible only
@@ -850,15 +852,17 @@ class ContainerService(pulumi.CustomResource):
     def power_id(self) -> pulumi.Output[str]:
         """
         The ID of the power of the container service.
-        * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-        relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-        service permission to access resources in your standard AWS account.
         """
         return pulumi.get(self, "power_id")
 
     @property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[str]:
+        """
+        The principal ARN of the container service. The principal ARN can be used to create a trust
+        relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+        service permission to access resources in your standard AWS account.
+        """
         return pulumi.get(self, "principal_arn")
 
     @property

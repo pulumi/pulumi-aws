@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
     /**
-     * @return The ID of the Amazon EC2 launch template to use.
+     * @return The ID of the launch template to use for faster launching for a Windows AMI.
      * 
      */
     private @Nullable String launchTemplateId;
@@ -29,7 +29,7 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
 
     private DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate() {}
     /**
-     * @return The ID of the Amazon EC2 launch template to use.
+     * @return The ID of the launch template to use for faster launching for a Windows AMI.
      * 
      */
     public Optional<String> launchTemplateId() {

@@ -170,14 +170,14 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.multiRegionEnabled);
     }
     /**
-     * Specifies the name of the advanced event selector.
+     * The name of the event data store.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return The name of the event data store.
      * 
      */
     public Output<String> name() {

@@ -62,10 +62,9 @@ class BotAbortStatement(dict):
                  messages: Sequence['outputs.BotAbortStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['BotAbortStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type. You
-               can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-               are documented under message.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         """
@@ -76,11 +75,6 @@ class BotAbortStatement(dict):
     @property
     @pulumi.getter
     def messages(self) -> Sequence['outputs.BotAbortStatementMessage']:
-        """
-        A set of messages, each of which provides a message string and its type. You
-        can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-        are documented under message.
-        """
         return pulumi.get(self, "messages")
 
     @property
@@ -88,6 +82,8 @@ class BotAbortStatement(dict):
     def response_card(self) -> Optional[str]:
         """
         The response card. Amazon Lex will substitute session attributes and
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         slot values into the response card. For more information, see
         [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         """
@@ -319,10 +315,9 @@ class BotClarificationPrompt(dict):
                  response_card: Optional[str] = None):
         """
         :param int max_attempts: The number of times to prompt the user for information.
-        :param Sequence['BotClarificationPromptMessageArgs'] messages: A set of messages, each of which provides a message string and its type. You
-               can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-               are documented under message.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         """
@@ -342,11 +337,6 @@ class BotClarificationPrompt(dict):
     @property
     @pulumi.getter
     def messages(self) -> Sequence['outputs.BotClarificationPromptMessage']:
-        """
-        A set of messages, each of which provides a message string and its type. You
-        can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-        are documented under message.
-        """
         return pulumi.get(self, "messages")
 
     @property
@@ -354,6 +344,8 @@ class BotClarificationPrompt(dict):
     def response_card(self) -> Optional[str]:
         """
         The response card. Amazon Lex will substitute session attributes and
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         slot values into the response card. For more information, see
         [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         """
@@ -493,10 +485,11 @@ class IntentConclusionStatement(dict):
                  messages: Sequence['outputs.IntentConclusionStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['IntentConclusionStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
-               You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -507,11 +500,6 @@ class IntentConclusionStatement(dict):
     @property
     @pulumi.getter
     def messages(self) -> Sequence['outputs.IntentConclusionStatementMessage']:
-        """
-        A set of messages, each of which provides a message string and its type.
-        You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message. Must contain between 1 and 15 messages.
-        """
         return pulumi.get(self, "messages")
 
     @property
@@ -519,6 +507,10 @@ class IntentConclusionStatement(dict):
     def response_card(self) -> Optional[str]:
         """
         The response card. Amazon Lex will substitute session attributes and
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         slot values into the response card. For more information, see
         [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -614,10 +606,11 @@ class IntentConfirmationPrompt(dict):
                  response_card: Optional[str] = None):
         """
         :param int max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param Sequence['IntentConfirmationPromptMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
-               You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -637,11 +630,6 @@ class IntentConfirmationPrompt(dict):
     @property
     @pulumi.getter
     def messages(self) -> Sequence['outputs.IntentConfirmationPromptMessage']:
-        """
-        A set of messages, each of which provides a message string and its type.
-        You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message. Must contain between 1 and 15 messages.
-        """
         return pulumi.get(self, "messages")
 
     @property
@@ -649,6 +637,10 @@ class IntentConfirmationPrompt(dict):
     def response_card(self) -> Optional[str]:
         """
         The response card. Amazon Lex will substitute session attributes and
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         slot values into the response card. For more information, see
         [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -970,10 +962,11 @@ class IntentFollowUpPromptRejectionStatement(dict):
                  messages: Sequence['outputs.IntentFollowUpPromptRejectionStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['IntentFollowUpPromptRejectionStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
-               You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -984,11 +977,6 @@ class IntentFollowUpPromptRejectionStatement(dict):
     @property
     @pulumi.getter
     def messages(self) -> Sequence['outputs.IntentFollowUpPromptRejectionStatementMessage']:
-        """
-        A set of messages, each of which provides a message string and its type.
-        You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message. Must contain between 1 and 15 messages.
-        """
         return pulumi.get(self, "messages")
 
     @property
@@ -996,6 +984,10 @@ class IntentFollowUpPromptRejectionStatement(dict):
     def response_card(self) -> Optional[str]:
         """
         The response card. Amazon Lex will substitute session attributes and
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         slot values into the response card. For more information, see
         [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -1188,10 +1180,11 @@ class IntentRejectionStatement(dict):
                  messages: Sequence['outputs.IntentRejectionStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['IntentRejectionStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
-               You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -1202,11 +1195,6 @@ class IntentRejectionStatement(dict):
     @property
     @pulumi.getter
     def messages(self) -> Sequence['outputs.IntentRejectionStatementMessage']:
-        """
-        A set of messages, each of which provides a message string and its type.
-        You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message. Must contain between 1 and 15 messages.
-        """
         return pulumi.get(self, "messages")
 
     @property
@@ -1214,6 +1202,10 @@ class IntentRejectionStatement(dict):
     def response_card(self) -> Optional[str]:
         """
         The response card. Amazon Lex will substitute session attributes and
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         slot values into the response card. For more information, see
         [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -1466,10 +1458,11 @@ class IntentSlotValueElicitationPrompt(dict):
                  response_card: Optional[str] = None):
         """
         :param int max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param Sequence['IntentSlotValueElicitationPromptMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
-               You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-               Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+               slot values into the response card. For more information, see
+               [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
@@ -1489,11 +1482,6 @@ class IntentSlotValueElicitationPrompt(dict):
     @property
     @pulumi.getter
     def messages(self) -> Sequence['outputs.IntentSlotValueElicitationPromptMessage']:
-        """
-        A set of messages, each of which provides a message string and its type.
-        You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-        Attributes are documented under message. Must contain between 1 and 15 messages.
-        """
         return pulumi.get(self, "messages")
 
     @property
@@ -1501,6 +1489,10 @@ class IntentSlotValueElicitationPrompt(dict):
     def response_card(self) -> Optional[str]:
         """
         The response card. Amazon Lex will substitute session attributes and
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
+        slot values into the response card. For more information, see
+        [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         slot values into the response card. For more information, see
         [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """

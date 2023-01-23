@@ -15,14 +15,14 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
     public static final LbHttpsRedirectionPolicyArgs Empty = new LbHttpsRedirectionPolicyArgs();
 
     /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+     * @return The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      * 
      */
     public Output<Boolean> enabled() {
@@ -70,7 +70,7 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+         * @param enabled The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+         * @param enabled The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
          * 
          * @return builder
          * 

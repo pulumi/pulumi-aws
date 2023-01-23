@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class TableAttribute {
     /**
-     * @return Name of the index
+     * @return Name of the attribute
      * 
      */
     private String name;
@@ -22,7 +22,7 @@ public final class TableAttribute {
 
     private TableAttribute() {}
     /**
-     * @return Name of the index
+     * @return Name of the attribute
      * 
      */
     public String name() {

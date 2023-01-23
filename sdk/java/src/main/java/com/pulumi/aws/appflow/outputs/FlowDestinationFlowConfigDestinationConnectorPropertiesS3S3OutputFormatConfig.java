@@ -19,7 +19,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig aggregationConfig;
     /**
-     * @return File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     private @Nullable String fileType;
@@ -38,7 +38,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         return Optional.ofNullable(this.aggregationConfig);
     }
     /**
-     * @return File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     public Optional<String> fileType() {

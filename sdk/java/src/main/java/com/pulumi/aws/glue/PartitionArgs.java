@@ -49,14 +49,14 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return A map of initialization parameters for the SerDe, in key-value form.
+     * @return Properties associated with this table, as a list of key-value pairs.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -172,7 +172,7 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters A map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters Properties associated with this table, as a list of key-value pairs.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PartitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters A map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters Properties associated with this table, as a list of key-value pairs.
          * 
          * @return builder
          * 

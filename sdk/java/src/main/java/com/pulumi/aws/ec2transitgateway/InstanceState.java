@@ -115,14 +115,14 @@ public class InstanceState extends com.pulumi.resources.CustomResource {
         return this.instanceId;
     }
     /**
-     * - State of the instance. Valid values are `stopped`, `running`.
+     * State of the instance. Valid values are `stopped`, `running`.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return - State of the instance. Valid values are `stopped`, `running`.
+     * @return State of the instance. Valid values are `stopped`, `running`.
      * 
      */
     public Output<String> state() {

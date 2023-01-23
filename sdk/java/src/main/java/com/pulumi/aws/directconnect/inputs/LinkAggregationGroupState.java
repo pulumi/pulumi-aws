@@ -92,9 +92,17 @@ public final class LinkAggregationGroupState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.hasLogicalRedundancy);
     }
 
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * 
+     */
     @Import(name="jumboFrameCapable")
     private @Nullable Output<Boolean> jumboFrameCapable;
 
+    /**
+     * @return Indicates whether jumbo frames (9001 MTU) are supported.
+     * 
+     */
     public Optional<Output<Boolean>> jumboFrameCapable() {
         return Optional.ofNullable(this.jumboFrameCapable);
     }
@@ -329,11 +337,23 @@ public final class LinkAggregationGroupState extends com.pulumi.resources.Resour
             return hasLogicalRedundancy(Output.of(hasLogicalRedundancy));
         }
 
+        /**
+         * @param jumboFrameCapable Indicates whether jumbo frames (9001 MTU) are supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jumboFrameCapable(@Nullable Output<Boolean> jumboFrameCapable) {
             $.jumboFrameCapable = jumboFrameCapable;
             return this;
         }
 
+        /**
+         * @param jumboFrameCapable Indicates whether jumbo frames (9001 MTU) are supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jumboFrameCapable(Boolean jumboFrameCapable) {
             return jumboFrameCapable(Output.of(jumboFrameCapable));
         }

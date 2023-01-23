@@ -31,7 +31,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      */
     private @Nullable Double bloomFilterFalsePositiveProbability;
     /**
-     * @return The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+     * @return The compression code to use over data blocks. The default is `SNAPPY`.
      * 
      */
     private @Nullable String compression;
@@ -89,7 +89,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         return Optional.ofNullable(this.bloomFilterFalsePositiveProbability);
     }
     /**
-     * @return The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+     * @return The compression code to use over data blocks. The default is `SNAPPY`.
      * 
      */
     public Optional<String> compression() {

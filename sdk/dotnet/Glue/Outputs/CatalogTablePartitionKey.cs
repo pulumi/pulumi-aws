@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
-        /// Name of the target table.
+        /// Name of the Partition Key.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Datatype of data in the Column.
+        /// Datatype of data in the Partition Key.
         /// </summary>
         public readonly string? Type;
 

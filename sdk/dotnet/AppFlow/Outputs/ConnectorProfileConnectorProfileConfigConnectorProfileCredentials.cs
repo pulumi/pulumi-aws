@@ -18,15 +18,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude? Amplitude;
         /// <summary>
-        /// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+        /// The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector? CustomConnector;
         /// <summary>
-        /// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog? Datadog;
         /// <summary>
-        /// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace? Dynatrace;
         /// <summary>
@@ -38,27 +38,27 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode? Honeycode;
         /// <summary>
-        /// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus? InforNexus;
         /// <summary>
-        /// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo? Marketo;
         /// <summary>
-        /// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift? Redshift;
         /// <summary>
-        /// The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce? Salesforce;
         /// <summary>
-        /// The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData? SapoData;
         /// <summary>
-        /// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow? ServiceNow;
         /// <summary>
@@ -66,11 +66,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular? Singular;
         /// <summary>
-        /// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack? Slack;
         /// <summary>
-        /// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake? Snowflake;
         /// <summary>
@@ -78,11 +78,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro? Trendmicro;
         /// <summary>
-        /// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva? Veeva;
         /// <summary>
-        /// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk? Zendesk;
 

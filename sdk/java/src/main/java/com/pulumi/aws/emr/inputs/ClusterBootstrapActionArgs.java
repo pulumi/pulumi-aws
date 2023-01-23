@@ -17,14 +17,14 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
     public static final ClusterBootstrapActionArgs Empty = new ClusterBootstrapActionArgs();
 
     /**
-     * List of command line arguments passed to the JAR file&#39;s main function when executed.
+     * List of command line arguments to pass to the bootstrap action script.
      * 
      */
     @Import(name="args")
     private @Nullable Output<List<String>> args;
 
     /**
-     * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
+     * @return List of command line arguments to pass to the bootstrap action script.
      * 
      */
     public Optional<Output<List<String>>> args() {
@@ -32,14 +32,14 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Name of the step.
+     * Name of the bootstrap action.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the step.
+     * @return Name of the bootstrap action.
      * 
      */
     public Output<String> name() {
@@ -88,7 +88,7 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param args List of command line arguments passed to the JAR file&#39;s main function when executed.
+         * @param args List of command line arguments to pass to the bootstrap action script.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param args List of command line arguments passed to the JAR file&#39;s main function when executed.
+         * @param args List of command line arguments to pass to the bootstrap action script.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param args List of command line arguments passed to the JAR file&#39;s main function when executed.
+         * @param args List of command line arguments to pass to the bootstrap action script.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Name of the bootstrap action.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Name of the bootstrap action.
          * 
          * @return builder
          * 

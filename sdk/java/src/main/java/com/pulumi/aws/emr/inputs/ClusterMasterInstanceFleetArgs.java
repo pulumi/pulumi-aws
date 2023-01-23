@@ -65,14 +65,14 @@ public final class ClusterMasterInstanceFleetArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Name of the step.
+     * Friendly name given to the instance fleet.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance fleet.
      * 
      */
     public Optional<Output<String>> name() {
@@ -228,7 +228,7 @@ public final class ClusterMasterInstanceFleetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Friendly name given to the instance fleet.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ClusterMasterInstanceFleetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Friendly name given to the instance fleet.
          * 
          * @return builder
          * 

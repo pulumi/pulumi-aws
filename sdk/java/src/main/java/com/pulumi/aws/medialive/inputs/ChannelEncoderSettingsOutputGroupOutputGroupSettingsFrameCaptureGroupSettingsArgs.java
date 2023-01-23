@@ -17,14 +17,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs();
 
     /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination;
 
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination() {
@@ -64,7 +64,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 

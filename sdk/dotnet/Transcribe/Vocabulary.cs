@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Transcribe
         public Output<string> LanguageCode { get; private set; } = null!;
 
         /// <summary>
-        /// - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         /// </summary>
         [Output("phrases")]
         public Output<ImmutableArray<string>> Phrases { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Transcribe
         private InputList<string>? _phrases;
 
         /// <summary>
-        /// - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         /// </summary>
         public InputList<string> Phrases
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Transcribe
         private InputList<string>? _phrases;
 
         /// <summary>
-        /// - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         /// </summary>
         public InputList<string> Phrases
         {

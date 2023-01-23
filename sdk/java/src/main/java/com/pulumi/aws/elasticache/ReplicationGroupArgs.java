@@ -342,14 +342,16 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * Number of node groups (shards) for this Redis replication group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
      * 
      */
     @Import(name="numNodeGroups")
     private @Nullable Output<Integer> numNodeGroups;
 
     /**
-     * @return Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+     * @return Number of node groups (shards) for this Redis replication group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
      * 
      */
     public Optional<Output<Integer>> numNodeGroups() {
@@ -425,14 +427,18 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * Number of replica nodes in each node group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
+     * Valid values are 0 to 5.
      * 
      */
     @Import(name="replicasPerNodeGroup")
     private @Nullable Output<Integer> replicasPerNodeGroup;
 
     /**
-     * @return Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * @return Number of replica nodes in each node group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
+     * Valid values are 0 to 5.
      * 
      */
     public Optional<Output<Integer>> replicasPerNodeGroup() {
@@ -1149,7 +1155,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param numNodeGroups Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+         * @param numNodeGroups Number of node groups (shards) for this Redis replication group.
+         * Changing this number will trigger a resizing operation before other settings modifications.
          * 
          * @return builder
          * 
@@ -1160,7 +1167,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param numNodeGroups Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+         * @param numNodeGroups Number of node groups (shards) for this Redis replication group.
+         * Changing this number will trigger a resizing operation before other settings modifications.
          * 
          * @return builder
          * 
@@ -1272,7 +1280,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param replicasPerNodeGroup Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+         * @param replicasPerNodeGroup Number of replica nodes in each node group.
+         * Changing this number will trigger a resizing operation before other settings modifications.
+         * Valid values are 0 to 5.
          * 
          * @return builder
          * 
@@ -1283,7 +1293,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param replicasPerNodeGroup Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+         * @param replicasPerNodeGroup Number of replica nodes in each node group.
+         * Changing this number will trigger a resizing operation before other settings modifications.
+         * Valid values are 0 to 5.
          * 
          * @return builder
          * 

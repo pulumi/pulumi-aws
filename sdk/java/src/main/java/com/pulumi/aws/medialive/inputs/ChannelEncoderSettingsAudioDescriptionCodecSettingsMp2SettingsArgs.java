@@ -32,14 +32,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
     }
 
     /**
-     * Dolby Digital Plus coding mode.
+     * Mono, Stereo, or 5.1 channel layout.
      * 
      */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<Output<String>> codingMode() {
@@ -109,7 +109,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
         }
 
         /**
-         * @param codingMode Dolby Digital Plus coding mode.
+         * @param codingMode Mono, Stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
         }
 
         /**
-         * @param codingMode Dolby Digital Plus coding mode.
+         * @param codingMode Mono, Stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 

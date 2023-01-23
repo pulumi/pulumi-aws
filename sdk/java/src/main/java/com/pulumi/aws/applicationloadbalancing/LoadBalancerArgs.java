@@ -221,14 +221,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -250,9 +250,17 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.preserveHostHeader);
     }
 
+    /**
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * 
+     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
+    /**
+     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
@@ -626,7 +634,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -637,7 +645,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -667,15 +675,33 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
             return preserveHostHeader(Output.of(preserveHostHeader));
         }
 
+        /**
+         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
+        /**
+         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
+        /**
+         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }

@@ -31,14 +31,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The name of the Amazon S3 bucket associated with Snowflake.
+     * A name for the associated Amazon S3 bucket.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
+     * @return A name for the associated Amazon S3 bucket.
      * 
      */
     public Output<String> bucketName() {
@@ -46,14 +46,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * The object key for the destination bucket in which Amazon AppFlow places the files.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * @return The object key for the destination bucket in which Amazon AppFlow places the files.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -61,14 +61,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The Snowflake Private Link service name to be used for private data transfers.
+     * The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     @Import(name="privateLinkServiceName")
     private @Nullable Output<String> privateLinkServiceName;
 
     /**
-     * @return The Snowflake Private Link service name to be used for private data transfers.
+     * @return The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     public Optional<Output<String>> privateLinkServiceName() {
@@ -172,7 +172,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param bucketName The name of the Amazon S3 bucket associated with Snowflake.
+         * @param bucketName A name for the associated Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param bucketName The name of the Amazon S3 bucket associated with Snowflake.
+         * @param bucketName A name for the associated Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param bucketPrefix The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         * @param bucketPrefix The object key for the destination bucket in which Amazon AppFlow places the files.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param bucketPrefix The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         * @param bucketPrefix The object key for the destination bucket in which Amazon AppFlow places the files.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param privateLinkServiceName The Snowflake Private Link service name to be used for private data transfers.
+         * @param privateLinkServiceName The SAPOData Private Link service name to be used for private data transfers.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param privateLinkServiceName The Snowflake Private Link service name to be used for private data transfers.
+         * @param privateLinkServiceName The SAPOData Private Link service name to be used for private data transfers.
          * 
          * @return builder
          * 

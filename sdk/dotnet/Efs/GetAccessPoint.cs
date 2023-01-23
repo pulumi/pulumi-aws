@@ -145,6 +145,9 @@ namespace Pulumi.Aws.Efs
         /// Single element list containing operating system user and group applied to all file system requests made using the access point.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointPosixUserResult> PosixUsers;
+        /// <summary>
+        /// Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointRootDirectoryResult> RootDirectories;
         /// <summary>
         /// Key-value mapping of resource tags.

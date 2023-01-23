@@ -71,6 +71,9 @@ namespace Pulumi.Aws.RedshiftServerless
         [Output("enhancedVpcRouting")]
         public Output<bool?> EnhancedVpcRouting { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the namespace.
+        /// </summary>
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
 
@@ -186,6 +189,9 @@ namespace Pulumi.Aws.RedshiftServerless
         [Input("enhancedVpcRouting")]
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
+        /// <summary>
+        /// The name of the namespace.
+        /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
@@ -287,6 +293,9 @@ namespace Pulumi.Aws.RedshiftServerless
         [Input("enhancedVpcRouting")]
         public Input<bool>? EnhancedVpcRouting { get; set; }
 
+        /// <summary>
+        /// The name of the namespace.
+        /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 

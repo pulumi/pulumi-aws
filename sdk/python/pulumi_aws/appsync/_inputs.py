@@ -47,7 +47,7 @@ class DataSourceDynamodbConfigArgs:
                  versioned: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] table_name: Name of the DynamoDB table.
-        :param pulumi.Input[str] region: AWS Region for RDS HTTP endpoint. Defaults to current region.
+        :param pulumi.Input[str] region: AWS region of the DynamoDB table. Defaults to current region.
         :param pulumi.Input[bool] use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
         """
         pulumi.set(__self__, "table_name", table_name)
@@ -85,7 +85,7 @@ class DataSourceDynamodbConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS Region for RDS HTTP endpoint. Defaults to current region.
+        AWS region of the DynamoDB table. Defaults to current region.
         """
         return pulumi.get(self, "region")
 
@@ -161,8 +161,8 @@ class DataSourceElasticsearchConfigArgs:
                  endpoint: pulumi.Input[str],
                  region: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] endpoint: HTTP URL.
-        :param pulumi.Input[str] region: AWS Region for RDS HTTP endpoint. Defaults to current region.
+        :param pulumi.Input[str] endpoint: HTTP endpoint of the Elasticsearch domain.
+        :param pulumi.Input[str] region: AWS region of Elasticsearch domain. Defaults to current region.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -172,7 +172,7 @@ class DataSourceElasticsearchConfigArgs:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
-        HTTP URL.
+        HTTP endpoint of the Elasticsearch domain.
         """
         return pulumi.get(self, "endpoint")
 
@@ -184,7 +184,7 @@ class DataSourceElasticsearchConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS Region for RDS HTTP endpoint. Defaults to current region.
+        AWS region of Elasticsearch domain. Defaults to current region.
         """
         return pulumi.get(self, "region")
 

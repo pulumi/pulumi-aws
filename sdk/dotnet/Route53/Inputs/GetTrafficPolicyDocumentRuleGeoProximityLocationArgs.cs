@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Route53.Inputs
         public Input<string>? Longitude { get; set; }
 
         /// <summary>
-        /// Region code for the AWS Region that you created the resource in.
+        /// If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

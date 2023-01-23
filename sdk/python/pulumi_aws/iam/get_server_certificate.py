@@ -59,21 +59,33 @@ class GetServerCertificateResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
+        """
+        is set to the ARN of the IAM Server Certificate
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> str:
+        """
+        is the public key certificate (PEM-encoded). This is useful when [configuring back-end instance authentication](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html) policy for load balancer
+        """
         return pulumi.get(self, "certificate_body")
 
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
+        """
+        is the public key certificate chain (PEM-encoded) if exists, empty otherwise
+        """
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> str:
+        """
+        is set to the expiration date of the IAM Server Certificate
+        """
         return pulumi.get(self, "expiration_date")
 
     @property
@@ -102,6 +114,9 @@ class GetServerCertificateResult:
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        is set to the path of the IAM Server Certificate
+        """
         return pulumi.get(self, "path")
 
     @property
@@ -112,6 +127,9 @@ class GetServerCertificateResult:
     @property
     @pulumi.getter(name="uploadDate")
     def upload_date(self) -> str:
+        """
+        is the date when the server certificate was uploaded
+        """
         return pulumi.get(self, "upload_date")
 
 

@@ -336,7 +336,8 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// A flag that specifies whether Origin Shield is enabled.
+        /// Whether the distribution is enabled to accept end
+        /// user requests for content.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -590,7 +591,8 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? DefaultRootObject { get; set; }
 
         /// <summary>
-        /// A flag that specifies whether Origin Shield is enabled.
+        /// Whether the distribution is enabled to accept end
+        /// user requests for content.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -794,7 +796,8 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// A flag that specifies whether Origin Shield is enabled.
+        /// Whether the distribution is enabled to accept end
+        /// user requests for content.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

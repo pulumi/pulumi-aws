@@ -18,12 +18,12 @@ public final class CatalogTableStorageDescriptorColumn {
      */
     private @Nullable String comment;
     /**
-     * @return Name of the target table.
+     * @return Name of the Column.
      * 
      */
     private String name;
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return Key-value pairs defining properties associated with the column.
      * 
      */
     private @Nullable Map<String,String> parameters;
@@ -42,14 +42,14 @@ public final class CatalogTableStorageDescriptorColumn {
         return Optional.ofNullable(this.comment);
     }
     /**
-     * @return Name of the target table.
+     * @return Name of the Column.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return Key-value pairs defining properties associated with the column.
      * 
      */
     public Map<String,String> parameters() {

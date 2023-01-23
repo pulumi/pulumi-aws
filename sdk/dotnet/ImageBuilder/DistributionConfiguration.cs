@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> DateUpdated { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the container distribution configuration.
+        /// Description of the distribution configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableArray<Outputs.DistributionConfigurationDistribution>> Distributions { get; private set; } = null!;
 
         /// <summary>
-        /// Name to apply to the distributed AMI.
+        /// Name of the distribution configuration.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class DistributionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the container distribution configuration.
+        /// Description of the distribution configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Name to apply to the distributed AMI.
+        /// Name of the distribution configuration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? DateUpdated { get; set; }
 
         /// <summary>
-        /// Description of the container distribution configuration.
+        /// Description of the distribution configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Name to apply to the distributed AMI.
+        /// Name of the distribution configuration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

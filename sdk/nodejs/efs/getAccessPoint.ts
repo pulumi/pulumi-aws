@@ -70,6 +70,9 @@ export interface GetAccessPointResult {
      * Single element list containing operating system user and group applied to all file system requests made using the access point.
      */
     readonly posixUsers: outputs.efs.GetAccessPointPosixUser[];
+    /**
+     * Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+     */
     readonly rootDirectories: outputs.efs.GetAccessPointRootDirectory[];
     /**
      * Key-value mapping of resource tags.

@@ -32,7 +32,8 @@ type GetVpcAttachmentsArgs struct {
 type GetVpcAttachmentsResult struct {
 	Filters []GetVpcAttachmentsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id  string   `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
 	Ids []string `pulumi:"ids"`
 }
 
@@ -83,6 +84,7 @@ func (o GetVpcAttachmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcAttachmentsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
 func (o GetVpcAttachmentsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVpcAttachmentsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }

@@ -14,14 +14,14 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
     public static final ExperimentTemplateActionParameterArgs Empty = new ExperimentTemplateActionParameterArgs();
 
     /**
-     * Tag key.
+     * Parameter name.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Tag key.
+     * @return Parameter name.
      * 
      */
     public Output<String> key() {
@@ -29,14 +29,14 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
     }
 
     /**
-     * Tag value.
+     * Parameter value.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Tag value.
+     * @return Parameter value.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param key Tag key.
+         * @param key Parameter name.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param key Tag key.
+         * @param key Parameter name.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param value Tag value.
+         * @param value Parameter value.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param value Tag value.
+         * @param value Parameter value.
          * 
          * @return builder
          * 

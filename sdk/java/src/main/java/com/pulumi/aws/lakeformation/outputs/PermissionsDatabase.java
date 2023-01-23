@@ -17,7 +17,7 @@ public final class PermissionsDatabase {
      */
     private @Nullable String catalogId;
     /**
-     * @return Name of the table resource.
+     * @return Name of the database resource. Unique to the Data Catalog.
      * 
      */
     private String name;
@@ -31,7 +31,7 @@ public final class PermissionsDatabase {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return Name of the table resource.
+     * @return Name of the database resource. Unique to the Data Catalog.
      * 
      */
     public String name() {

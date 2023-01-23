@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Amazon S3 bucket associated with Snowflake.
+        /// A name for the associated Amazon S3 bucket.
         /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
-        /// The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        /// The object key for the destination bucket in which Amazon AppFlow places the files.
         /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }

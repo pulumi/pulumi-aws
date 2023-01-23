@@ -19,19 +19,19 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// Name of the database for the table with columns resource. Unique to the Data Catalog.
+        /// Name of the database for the table. Unique to a Data Catalog.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the table resource.
+        /// Name of the table.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// Whether to use a wildcard representing every table under a database. Defaults to `false`.
         /// </summary>
         [Input("wildcard")]
         public Input<bool>? Wildcard { get; set; }

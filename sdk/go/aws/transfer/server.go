@@ -243,10 +243,6 @@ type Server struct {
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner pulumi.StringPtrOutput `pulumi:"preAuthenticationLoginBanner"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-	// * `AS2`: File transfer over Applicability Statement 2
-	// * `SFTP`: File transfer over SSH
-	// * `FTPS`: File transfer with TLS encryption
-	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
@@ -254,7 +250,7 @@ type Server struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
+	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
 	// Specifies the workflow details. See Workflow Details below.
 	WorkflowDetails ServerWorkflowDetailsPtrOutput `pulumi:"workflowDetails"`
@@ -337,10 +333,6 @@ type serverState struct {
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner *string `pulumi:"preAuthenticationLoginBanner"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-	// * `AS2`: File transfer over Applicability Statement 2
-	// * `SFTP`: File transfer over SSH
-	// * `FTPS`: File transfer with TLS encryption
-	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
@@ -348,7 +340,7 @@ type serverState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
+	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 	// Specifies the workflow details. See Workflow Details below.
 	WorkflowDetails *ServerWorkflowDetails `pulumi:"workflowDetails"`
@@ -388,10 +380,6 @@ type ServerState struct {
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner pulumi.StringPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-	// * `AS2`: File transfer over Applicability Statement 2
-	// * `SFTP`: File transfer over SSH
-	// * `FTPS`: File transfer with TLS encryption
-	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
@@ -399,7 +387,7 @@ type ServerState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
+	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 	// Specifies the workflow details. See Workflow Details below.
 	WorkflowDetails ServerWorkflowDetailsPtrInput
@@ -437,16 +425,12 @@ type serverArgs struct {
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner *string `pulumi:"preAuthenticationLoginBanner"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-	// * `AS2`: File transfer over Applicability Statement 2
-	// * `SFTP`: File transfer over SSH
-	// * `FTPS`: File transfer with TLS encryption
-	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
+	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 	// Specifies the workflow details. See Workflow Details below.
 	WorkflowDetails *ServerWorkflowDetails `pulumi:"workflowDetails"`
@@ -481,16 +465,12 @@ type ServerArgs struct {
 	// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
 	PreAuthenticationLoginBanner pulumi.StringPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-	// * `AS2`: File transfer over Applicability Statement 2
-	// * `SFTP`: File transfer over SSH
-	// * `FTPS`: File transfer with TLS encryption
-	// * `FTP`: Unencrypted file transfer
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
+	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 	// Specifies the workflow details. See Workflow Details below.
 	WorkflowDetails ServerWorkflowDetailsPtrInput
@@ -664,10 +644,6 @@ func (o ServerOutput) PreAuthenticationLoginBanner() pulumi.StringPtrOutput {
 }
 
 // Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-// * `AS2`: File transfer over Applicability Statement 2
-// * `SFTP`: File transfer over SSH
-// * `FTPS`: File transfer with TLS encryption
-// * `FTP`: Unencrypted file transfer
 func (o ServerOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
@@ -687,7 +663,7 @@ func (o ServerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
+// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 func (o ServerOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }

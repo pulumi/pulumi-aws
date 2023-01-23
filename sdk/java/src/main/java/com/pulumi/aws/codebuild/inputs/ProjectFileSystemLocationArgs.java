@@ -31,14 +31,14 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Location of the source code from git or s3.
+     * A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Location of the source code from git or s3.
+     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
      * 
      */
     public Optional<Output<String>> location() {
@@ -76,14 +76,14 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * The type of the file system. The one supported type is `EFS`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return The type of the file system. The one supported type is `EFS`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -140,7 +140,7 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type The type of the file system. The one supported type is `EFS`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type The type of the file system. The one supported type is `EFS`.
          * 
          * @return builder
          * 

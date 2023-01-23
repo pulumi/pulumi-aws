@@ -97,14 +97,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     * The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<Map<String,String>> dimensions;
 
     /**
-     * @return The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+     * @return The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
     public Optional<Output<Map<String,String>>> dimensions() {
@@ -182,7 +182,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for this metric.
+     * The name for the alarm&#39;s associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -190,7 +190,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> metricName;
 
     /**
-     * @return The name for this metric.
+     * @return The name for the alarm&#39;s associated metric.
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -229,7 +229,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * The namespace for the alarm&#39;s associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -237,7 +237,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+     * @return The namespace for the alarm&#39;s associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
@@ -261,14 +261,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The period in seconds over which the specified `stat` is applied.
+     * The period in seconds over which the specified `statistic` is applied.
      * 
      */
     @Import(name="period")
     private @Nullable Output<Integer> period;
 
     /**
-     * @return The period in seconds over which the specified `stat` is applied.
+     * @return The period in seconds over which the specified `statistic` is applied.
      * 
      */
     public Optional<Output<Integer>> period() {
@@ -353,14 +353,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unit for this metric.
+     * The unit for the alarm&#39;s associated metric.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return The unit for this metric.
+     * @return The unit for the alarm&#39;s associated metric.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -528,7 +528,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dimensions The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+         * @param dimensions The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dimensions The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+         * @param dimensions The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricName The name for this metric.
+         * @param metricName The name for the alarm&#39;s associated metric.
          * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          * 
          * @return builder
@@ -665,7 +665,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricName The name for this metric.
+         * @param metricName The name for the alarm&#39;s associated metric.
          * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          * 
          * @return builder
@@ -728,7 +728,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+         * @param namespace The namespace for the alarm&#39;s associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
          * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          * 
          * @return builder
@@ -740,7 +740,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+         * @param namespace The namespace for the alarm&#39;s associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
          * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
          * 
          * @return builder
@@ -782,7 +782,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period The period in seconds over which the specified `stat` is applied.
+         * @param period The period in seconds over which the specified `statistic` is applied.
          * 
          * @return builder
          * 
@@ -793,7 +793,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param period The period in seconds over which the specified `stat` is applied.
+         * @param period The period in seconds over which the specified `statistic` is applied.
          * 
          * @return builder
          * 
@@ -910,7 +910,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unit The unit for this metric.
+         * @param unit The unit for the alarm&#39;s associated metric.
          * 
          * @return builder
          * 
@@ -921,7 +921,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unit The unit for this metric.
+         * @param unit The unit for the alarm&#39;s associated metric.
          * 
          * @return builder
          * 

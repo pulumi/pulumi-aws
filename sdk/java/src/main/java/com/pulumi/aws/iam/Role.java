@@ -417,14 +417,14 @@ public class Role extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxSessionDuration);
     }
     /**
-     * Name of the role policy.
+     * Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the role policy.
+     * @return Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
     public Output<String> name() {

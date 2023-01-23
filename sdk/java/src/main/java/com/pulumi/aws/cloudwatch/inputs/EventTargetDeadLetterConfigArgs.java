@@ -16,14 +16,14 @@ public final class EventTargetDeadLetterConfigArgs extends com.pulumi.resources.
     public static final EventTargetDeadLetterConfigArgs Empty = new EventTargetDeadLetterConfigArgs();
 
     /**
-     * - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * ARN of the SQS queue specified as the target for the dead-letter queue.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * @return ARN of the SQS queue specified as the target for the dead-letter queue.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -55,7 +55,7 @@ public final class EventTargetDeadLetterConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param arn - ARN of the SQS queue specified as the target for the dead-letter queue.
+         * @param arn ARN of the SQS queue specified as the target for the dead-letter queue.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EventTargetDeadLetterConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param arn - ARN of the SQS queue specified as the target for the dead-letter queue.
+         * @param arn ARN of the SQS queue specified as the target for the dead-letter queue.
          * 
          * @return builder
          * 

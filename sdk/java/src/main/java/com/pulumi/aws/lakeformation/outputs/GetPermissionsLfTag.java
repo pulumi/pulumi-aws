@@ -16,12 +16,12 @@ public final class GetPermissionsLfTag {
      */
     private String catalogId;
     /**
-     * @return Key-name of an LF-Tag.
+     * @return Key-name for the tag.
      * 
      */
     private String key;
     /**
-     * @return List of possible values of an LF-Tag.
+     * @return List of possible values an attribute can take.
      * 
      */
     private List<String> values;
@@ -35,14 +35,14 @@ public final class GetPermissionsLfTag {
         return this.catalogId;
     }
     /**
-     * @return Key-name of an LF-Tag.
+     * @return Key-name for the tag.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return List of possible values of an LF-Tag.
+     * @return List of possible values an attribute can take.
      * 
      */
     public List<String> values() {

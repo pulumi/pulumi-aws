@@ -27,7 +27,7 @@ public final class ChannelDestinationSetting {
      */
     private @Nullable String url;
     /**
-     * @return . Username to be used.
+     * @return Username for destination.
      * 
      */
     private @Nullable String username;
@@ -55,7 +55,7 @@ public final class ChannelDestinationSetting {
         return Optional.ofNullable(this.url);
     }
     /**
-     * @return . Username to be used.
+     * @return Username for destination.
      * 
      */
     public Optional<String> username() {

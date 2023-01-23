@@ -32,14 +32,14 @@ public final class EndpointClientLoginBannerOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * Indicates whether connection logging is enabled.
+     * Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether connection logging is enabled.
+     * @return Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -93,7 +93,7 @@ public final class EndpointClientLoginBannerOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enabled Indicates whether connection logging is enabled.
+         * @param enabled Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EndpointClientLoginBannerOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enabled Indicates whether connection logging is enabled.
+         * @param enabled Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
          * 
          * @return builder
          * 

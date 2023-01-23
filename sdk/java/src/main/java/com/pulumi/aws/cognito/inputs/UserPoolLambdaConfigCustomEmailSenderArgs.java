@@ -14,14 +14,14 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
     public static final UserPoolLambdaConfigCustomEmailSenderArgs Empty = new UserPoolLambdaConfigCustomEmailSenderArgs();
 
     /**
-     * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+     * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
      * 
      */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
     /**
-     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
      * 
      */
     public Output<String> lambdaArn() {
@@ -29,14 +29,14 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
     }
 
     /**
-     * The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+     * The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
      * 
      */
     @Import(name="lambdaVersion", required=true)
     private Output<String> lambdaVersion;
 
     /**
-     * @return The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+     * @return The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
      * 
      */
     public Output<String> lambdaVersion() {
@@ -69,7 +69,7 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
         }
 
         /**
-         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
         }
 
         /**
-         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
         }
 
         /**
-         * @param lambdaVersion The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+         * @param lambdaVersion The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs extends com.pulumi.
         }
 
         /**
-         * @param lambdaVersion The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+         * @param lambdaVersion The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
          * 
          * @return builder
          * 

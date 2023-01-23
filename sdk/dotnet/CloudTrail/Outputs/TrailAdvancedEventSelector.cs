@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudTrail.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TrailAdvancedEventSelectorFieldSelector> FieldSelectors;
         /// <summary>
-        /// Name of the advanced event selector.
+        /// Name of the trail.
         /// </summary>
         public readonly string? Name;
 

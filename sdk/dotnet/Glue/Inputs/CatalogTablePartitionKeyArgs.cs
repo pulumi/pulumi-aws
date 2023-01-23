@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Name of the target table.
+        /// Name of the Partition Key.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Datatype of data in the Column.
+        /// Datatype of data in the Partition Key.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

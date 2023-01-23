@@ -30,7 +30,7 @@ class SnapshotImportArgs:
         The set of arguments for constructing a SnapshotImport resource.
         :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
-        :param pulumi.Input[str] description: The description of the disk image being imported.
+        :param pulumi.Input[str] description: The description string for the import snapshot task.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
@@ -87,7 +87,7 @@ class SnapshotImportArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the disk image being imported.
+        The description string for the import snapshot task.
         """
         return pulumi.get(self, "description")
 
@@ -206,7 +206,7 @@ class _SnapshotImportState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
         :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
-        :param pulumi.Input[str] description: The description of the disk image being imported.
+        :param pulumi.Input[str] description: The description string for the import snapshot task.
         :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
@@ -297,7 +297,7 @@ class _SnapshotImportState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the disk image being imported.
+        The description string for the import snapshot task.
         """
         return pulumi.get(self, "description")
 
@@ -510,7 +510,7 @@ class SnapshotImport(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SnapshotImportClientDataArgs']] client_data: The client-specific data. Detailed below.
-        :param pulumi.Input[str] description: The description of the disk image being imported.
+        :param pulumi.Input[str] description: The description string for the import snapshot task.
         :param pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
@@ -641,7 +641,7 @@ class SnapshotImport(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
         :param pulumi.Input[pulumi.InputType['SnapshotImportClientDataArgs']] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
-        :param pulumi.Input[str] description: The description of the disk image being imported.
+        :param pulumi.Input[str] description: The description string for the import snapshot task.
         :param pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
@@ -707,7 +707,7 @@ class SnapshotImport(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        The description of the disk image being imported.
+        The description string for the import snapshot task.
         """
         return pulumi.get(self, "description")
 

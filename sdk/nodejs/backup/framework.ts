@@ -153,7 +153,7 @@ export class Framework extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of a parameter, for example, BackupPlanFrequency.
+     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export class Framework extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -236,7 +236,7 @@ export interface FrameworkState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of a parameter, for example, BackupPlanFrequency.
+     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      */
     name?: pulumi.Input<string>;
     /**
@@ -244,7 +244,7 @@ export interface FrameworkState {
      */
     status?: pulumi.Input<string>;
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -266,11 +266,11 @@ export interface FrameworkArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of a parameter, for example, BackupPlanFrequency.
+     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      */
     name?: pulumi.Input<string>;
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

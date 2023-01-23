@@ -32,14 +32,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
-     * Dolby Digital Plus coding mode.
+     * Mono, Stereo, or 5.1 channel layout.
      * 
      */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<Output<String>> codingMode() {
@@ -62,14 +62,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
-     * H264 profile.
+     * AAC profile.
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return H264 profile.
+     * @return AAC profile.
      * 
      */
     public Optional<Output<String>> profile() {
@@ -189,7 +189,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param codingMode Dolby Digital Plus coding mode.
+         * @param codingMode Mono, Stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param codingMode Dolby Digital Plus coding mode.
+         * @param codingMode Mono, Stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param profile H264 profile.
+         * @param profile AAC profile.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         }
 
         /**
-         * @param profile H264 profile.
+         * @param profile AAC profile.
          * 
          * @return builder
          * 

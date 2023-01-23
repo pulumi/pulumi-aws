@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableStorageDescriptorSerDeInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the target table.
+        /// Name of the SerDe.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

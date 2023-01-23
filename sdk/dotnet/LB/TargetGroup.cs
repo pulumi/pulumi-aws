@@ -170,7 +170,7 @@ namespace Pulumi.Aws.LB
         public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.LB
         public Output<string> PreserveClientIp { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+        /// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? PreserveClientIp { get; set; }
 
         /// <summary>
-        /// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+        /// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. Default is traffic-port.
+        /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? PreserveClientIp { get; set; }
 
         /// <summary>
-        /// Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
+        /// Protocol to use for routing traffic to the targets. Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

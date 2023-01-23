@@ -11,6 +11,12 @@ from .. import _utilities
 
 __all__ = [
     'ConfigurationSetDeliveryOptionsArgs',
+    'ConfigurationSetEventDestinationEventDestinationArgs',
+    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs',
+    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs',
+    'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs',
+    'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs',
+    'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs',
     'ConfigurationSetReputationOptionsArgs',
     'ConfigurationSetSendingOptionsArgs',
     'ConfigurationSetSuppressionOptionsArgs',
@@ -55,6 +61,255 @@ class ConfigurationSetDeliveryOptionsArgs:
     @tls_policy.setter
     def tls_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_policy", value)
+
+
+@pulumi.input_type
+class ConfigurationSetEventDestinationEventDestinationArgs:
+    def __init__(__self__, *,
+                 matching_event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']] = None,
+                 pinpoint_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']] = None,
+                 sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs'] cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        :param pulumi.Input[bool] enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs'] kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs'] pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs'] sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        """
+        pulumi.set(__self__, "matching_event_types", matching_event_types)
+        if cloud_watch_destination is not None:
+            pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kinesis_firehose_destination is not None:
+            pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
+        if pinpoint_destination is not None:
+            pulumi.set(__self__, "pinpoint_destination", pinpoint_destination)
+        if sns_destination is not None:
+            pulumi.set(__self__, "sns_destination", sns_destination)
+
+    @property
+    @pulumi.getter(name="matchingEventTypes")
+    def matching_event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+        """
+        return pulumi.get(self, "matching_event_types")
+
+    @matching_event_types.setter
+    def matching_event_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "matching_event_types", value)
+
+    @property
+    @pulumi.getter(name="cloudWatchDestination")
+    def cloud_watch_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']]:
+        """
+        An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        """
+        return pulumi.get(self, "cloud_watch_destination")
+
+    @cloud_watch_destination.setter
+    def cloud_watch_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']]):
+        pulumi.set(self, "cloud_watch_destination", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="kinesisFirehoseDestination")
+    def kinesis_firehose_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']]:
+        """
+        An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        """
+        return pulumi.get(self, "kinesis_firehose_destination")
+
+    @kinesis_firehose_destination.setter
+    def kinesis_firehose_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']]):
+        pulumi.set(self, "kinesis_firehose_destination", value)
+
+    @property
+    @pulumi.getter(name="pinpointDestination")
+    def pinpoint_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']]:
+        """
+        An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        """
+        return pulumi.get(self, "pinpoint_destination")
+
+    @pinpoint_destination.setter
+    def pinpoint_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']]):
+        pulumi.set(self, "pinpoint_destination", value)
+
+    @property
+    @pulumi.getter(name="snsDestination")
+    def sns_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']]:
+        """
+        An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        """
+        return pulumi.get(self, "sns_destination")
+
+    @sns_destination.setter
+    def sns_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']]):
+        pulumi.set(self, "sns_destination", value)
+
+
+@pulumi.input_type
+class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs:
+    def __init__(__self__, *,
+                 dimension_configurations: pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        """
+        pulumi.set(__self__, "dimension_configurations", dimension_configurations)
+
+    @property
+    @pulumi.getter(name="dimensionConfigurations")
+    def dimension_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]]:
+        """
+        An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        """
+        return pulumi.get(self, "dimension_configurations")
+
+    @dimension_configurations.setter
+    def dimension_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]]):
+        pulumi.set(self, "dimension_configurations", value)
+
+
+@pulumi.input_type
+class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs:
+    def __init__(__self__, *,
+                 default_dimension_value: pulumi.Input[str],
+                 dimension_name: pulumi.Input[str],
+                 dimension_value_source: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] default_dimension_value: The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+               ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        :param pulumi.Input[str] dimension_value_source: The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+        """
+        pulumi.set(__self__, "default_dimension_value", default_dimension_value)
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        pulumi.set(__self__, "dimension_value_source", dimension_value_source)
+
+    @property
+    @pulumi.getter(name="defaultDimensionValue")
+    def default_dimension_value(self) -> pulumi.Input[str]:
+        """
+        The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+        ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        """
+        return pulumi.get(self, "default_dimension_value")
+
+    @default_dimension_value.setter
+    def default_dimension_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_dimension_value", value)
+
+    @property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dimension_name")
+
+    @dimension_name.setter
+    def dimension_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dimension_name", value)
+
+    @property
+    @pulumi.getter(name="dimensionValueSource")
+    def dimension_value_source(self) -> pulumi.Input[str]:
+        """
+        The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+        """
+        return pulumi.get(self, "dimension_value_source")
+
+    @dimension_value_source.setter
+    def dimension_value_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dimension_value_source", value)
+
+
+@pulumi.input_type
+class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs:
+    def __init__(__self__, *,
+                 delivery_stream_arn: pulumi.Input[str],
+                 iam_role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] delivery_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+        :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+        """
+        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+
+    @property
+    @pulumi.getter(name="deliveryStreamArn")
+    def delivery_stream_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+        """
+        return pulumi.get(self, "delivery_stream_arn")
+
+    @delivery_stream_arn.setter
+    def delivery_stream_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "delivery_stream_arn", value)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iam_role_arn", value)
+
+
+@pulumi.input_type
+class ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs:
+    def __init__(__self__, *,
+                 application_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "application_arn", application_arn)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "application_arn")
+
+    @application_arn.setter
+    def application_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_arn", value)
+
+
+@pulumi.input_type
+class ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs:
+    def __init__(__self__, *,
+                 topic_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        """
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_arn", value)
 
 
 @pulumi.input_type

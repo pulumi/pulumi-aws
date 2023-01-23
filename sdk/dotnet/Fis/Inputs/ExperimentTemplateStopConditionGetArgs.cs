@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fis.Inputs
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// Tag value.
+        /// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

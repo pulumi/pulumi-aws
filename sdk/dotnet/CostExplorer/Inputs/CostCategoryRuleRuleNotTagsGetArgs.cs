@@ -34,7 +34,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// Parameter values.
+        /// Specific value of the Cost Category.
         /// </summary>
         public InputList<string> Values
         {

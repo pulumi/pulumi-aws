@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<double>? BloomFilterFalsePositiveProbability { get; set; }
 
         /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+        /// The compression code to use over data blocks. The default is `SNAPPY`.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }

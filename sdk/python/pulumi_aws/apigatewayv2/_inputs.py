@@ -447,13 +447,13 @@ class StageDefaultRouteSettingsArgs:
                  throttling_burst_limit: Optional[pulumi.Input[int]] = None,
                  throttling_rate_limit: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[bool] data_trace_enabled: Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        :param pulumi.Input[bool] data_trace_enabled: Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Defaults to `false`. Supported only for WebSocket APIs.
-        :param pulumi.Input[bool] detailed_metrics_enabled: Whether detailed metrics are enabled for the route. Defaults to `false`.
-        :param pulumi.Input[str] logging_level: Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        :param pulumi.Input[bool] detailed_metrics_enabled: Whether detailed metrics are enabled for the default route. Defaults to `false`.
+        :param pulumi.Input[str] logging_level: Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
                Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[int] throttling_burst_limit: Throttling burst limit for the route.
-        :param pulumi.Input[float] throttling_rate_limit: Throttling rate limit for the route.
+        :param pulumi.Input[int] throttling_burst_limit: Throttling burst limit for the default route.
+        :param pulumi.Input[float] throttling_rate_limit: Throttling rate limit for the default route.
         """
         if data_trace_enabled is not None:
             pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
@@ -470,7 +470,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
         Defaults to `false`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
@@ -483,7 +483,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="detailedMetricsEnabled")
     def detailed_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether detailed metrics are enabled for the route. Defaults to `false`.
+        Whether detailed metrics are enabled for the default route. Defaults to `false`.
         """
         return pulumi.get(self, "detailed_metrics_enabled")
 
@@ -495,7 +495,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
         """
-        Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
         Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "logging_level")
@@ -508,7 +508,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="throttlingBurstLimit")
     def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        Throttling burst limit for the route.
+        Throttling burst limit for the default route.
         """
         return pulumi.get(self, "throttling_burst_limit")
 
@@ -520,7 +520,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="throttlingRateLimit")
     def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
         """
-        Throttling rate limit for the route.
+        Throttling rate limit for the default route.
         """
         return pulumi.get(self, "throttling_rate_limit")
 

@@ -130,16 +130,14 @@ public class Detector extends com.pulumi.resources.CustomResource {
         return this.datasources;
     }
     /**
-     * If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
+     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
      * 
      */
     @Export(name="enable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enable;
 
     /**
-     * @return If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
+     * @return Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enable() {

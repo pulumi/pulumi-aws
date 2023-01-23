@@ -18,7 +18,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
      */
     private @Nullable String languageCode;
     /**
-     * @return The name of the video description.
+     * @return Name of the Channel.
      * 
      */
     private String name;
@@ -33,7 +33,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
         return Optional.ofNullable(this.languageCode);
     }
     /**
-     * @return The name of the video description.
+     * @return Name of the Channel.
      * 
      */
     public String name() {

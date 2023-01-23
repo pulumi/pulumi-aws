@@ -87,14 +87,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the hash key in the index; must be defined as an attribute in the resource.
+     * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      * 
      */
     @Import(name="hashKey")
     private @Nullable Output<String> hashKey;
 
     /**
-     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
+     * @return Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      * 
      */
     public Optional<Output<String>> hashKey() {
@@ -117,14 +117,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the index
+     * Unique within a region name of the table.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the index
+     * @return Unique within a region name of the table.
      * 
      */
     public Optional<Output<String>> name() {
@@ -132,14 +132,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * Enable point-in-time recovery options. See below.
      * 
      */
     @Import(name="pointInTimeRecovery")
     private @Nullable Output<TablePointInTimeRecoveryArgs> pointInTimeRecovery;
 
     /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * @return Enable point-in-time recovery options. See below.
      * 
      */
     public Optional<Output<TablePointInTimeRecoveryArgs>> pointInTimeRecovery() {
@@ -147,14 +147,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the range key.
+     * Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      * 
      */
     @Import(name="rangeKey")
     private @Nullable Output<String> rangeKey;
 
     /**
-     * @return Name of the range key.
+     * @return Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      * 
      */
     public Optional<Output<String>> rangeKey() {
@@ -162,14 +162,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     @Import(name="readCapacity")
     private @Nullable Output<Integer> readCapacity;
 
     /**
-     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     public Optional<Output<Integer>> readCapacity() {
@@ -372,14 +372,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     @Import(name="writeCapacity")
     private @Nullable Output<Integer> writeCapacity;
 
     /**
-     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     public Optional<Output<Integer>> writeCapacity() {
@@ -538,7 +538,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
+         * @param hashKey Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
+         * @param hashKey Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the index
+         * @param name Unique within a region name of the table.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the index
+         * @param name Unique within a region name of the table.
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
+         * @param pointInTimeRecovery Enable point-in-time recovery options. See below.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
+         * @param pointInTimeRecovery Enable point-in-time recovery options. See below.
          * 
          * @return builder
          * 
@@ -632,7 +632,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rangeKey Name of the range key.
+         * @param rangeKey Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rangeKey Name of the range key.
+         * @param rangeKey Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 
@@ -957,7 +957,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 
@@ -968,7 +968,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
          * 
          * @return builder
          * 

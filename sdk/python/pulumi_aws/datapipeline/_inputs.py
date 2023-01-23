@@ -24,7 +24,7 @@ class PipelineDefinitionParameterObjectArgs:
                  id: pulumi.Input[str],
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]] = None):
         """
-        :param pulumi.Input[str] id: ID of the parameter value.
+        :param pulumi.Input[str] id: ID of the parameter object.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]] attributes: Configuration block for attributes of the parameter object. See below
         """
         pulumi.set(__self__, "id", id)
@@ -35,7 +35,7 @@ class PipelineDefinitionParameterObjectArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        ID of the parameter value.
+        ID of the parameter object.
         """
         return pulumi.get(self, "id")
 
@@ -137,7 +137,7 @@ class PipelineDefinitionPipelineObjectArgs:
                  name: pulumi.Input[str],
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]] = None):
         """
-        :param pulumi.Input[str] id: ID of the parameter value.
+        :param pulumi.Input[str] id: ID of the object.
         :param pulumi.Input[str] name: ARN of the storage connector.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]] fields: Configuration block for Key-value pairs that define the properties of the object. See below
         """
@@ -150,7 +150,7 @@ class PipelineDefinitionPipelineObjectArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        ID of the parameter value.
+        ID of the object.
         """
         return pulumi.get(self, "id")
 

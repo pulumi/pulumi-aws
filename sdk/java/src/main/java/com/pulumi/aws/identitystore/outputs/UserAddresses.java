@@ -18,7 +18,7 @@ public final class UserAddresses {
      */
     private @Nullable String country;
     /**
-     * @return The name that is typically displayed when the name is shown for display.
+     * @return The name that is typically displayed when the address is shown for display.
      * 
      */
     private @Nullable String formatted;
@@ -33,7 +33,7 @@ public final class UserAddresses {
      */
     private @Nullable String postalCode;
     /**
-     * @return When `true`, this is the primary phone number associated with the user.
+     * @return When `true`, this is the primary address associated with the user.
      * 
      */
     private @Nullable Boolean primary;
@@ -48,7 +48,7 @@ public final class UserAddresses {
      */
     private @Nullable String streetAddress;
     /**
-     * @return The type of phone number.
+     * @return The type of address.
      * 
      */
     private @Nullable String type;
@@ -62,7 +62,7 @@ public final class UserAddresses {
         return Optional.ofNullable(this.country);
     }
     /**
-     * @return The name that is typically displayed when the name is shown for display.
+     * @return The name that is typically displayed when the address is shown for display.
      * 
      */
     public Optional<String> formatted() {
@@ -83,7 +83,7 @@ public final class UserAddresses {
         return Optional.ofNullable(this.postalCode);
     }
     /**
-     * @return When `true`, this is the primary phone number associated with the user.
+     * @return When `true`, this is the primary address associated with the user.
      * 
      */
     public Optional<Boolean> primary() {
@@ -104,7 +104,7 @@ public final class UserAddresses {
         return Optional.ofNullable(this.streetAddress);
     }
     /**
-     * @return The type of phone number.
+     * @return The type of address.
      * 
      */
     public Optional<String> type() {

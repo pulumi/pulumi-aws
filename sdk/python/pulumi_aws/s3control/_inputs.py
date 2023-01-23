@@ -1227,8 +1227,8 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  encryption: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs']] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         :param pulumi.Input[str] format: The export format. Valid values: `CSV`, `Parquet`.
         :param pulumi.Input[str] output_schema_version: The schema version of the export file. Valid values: `V_1`.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
@@ -1247,7 +1247,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -1259,7 +1259,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the bucket.
+        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         """
         return pulumi.get(self, "arn")
 

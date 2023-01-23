@@ -17,11 +17,11 @@ type ProjectArtifacts struct {
 	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
-	// Location of the source code from git or s3.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 	Location *string `pulumi:"location"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name *string `pulumi:"name"`
-	// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+	// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
 	NamespaceType *string `pulumi:"namespaceType"`
 	// Whether a name specified in the build specification overrides the artifact name.
 	OverrideArtifactName *bool `pulumi:"overrideArtifactName"`
@@ -29,7 +29,7 @@ type ProjectArtifacts struct {
 	Packaging *string `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path *string `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	Type string `pulumi:"type"`
 }
 
@@ -51,11 +51,11 @@ type ProjectArtifactsArgs struct {
 	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
-	// Location of the source code from git or s3.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+	// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
 	NamespaceType pulumi.StringPtrInput `pulumi:"namespaceType"`
 	// Whether a name specified in the build specification overrides the artifact name.
 	OverrideArtifactName pulumi.BoolPtrInput `pulumi:"overrideArtifactName"`
@@ -63,7 +63,7 @@ type ProjectArtifactsArgs struct {
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -159,7 +159,7 @@ func (o ProjectArtifactsOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// Location of the source code from git or s3.
+// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 func (o ProjectArtifactsOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -169,7 +169,7 @@ func (o ProjectArtifactsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
 func (o ProjectArtifactsOutput) NamespaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
 }
@@ -189,7 +189,7 @@ func (o ProjectArtifactsOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectArtifacts) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 func (o ProjectArtifactsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectArtifacts) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -248,7 +248,7 @@ func (o ProjectArtifactsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Location of the source code from git or s3.
+// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 func (o ProjectArtifactsPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectArtifacts) *string {
 		if v == nil {
@@ -268,7 +268,7 @@ func (o ProjectArtifactsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
 func (o ProjectArtifactsPtrOutput) NamespaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectArtifacts) *string {
 		if v == nil {
@@ -308,7 +308,7 @@ func (o ProjectArtifactsPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 func (o ProjectArtifactsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectArtifacts) *string {
 		if v == nil {
@@ -669,11 +669,11 @@ func (o ProjectBuildBatchConfigRestrictionsPtrOutput) MaximumBuildsAllowed() pul
 }
 
 type ProjectCache struct {
-	// Location of the source code from git or s3.
+	// Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
 	Location *string `pulumi:"location"`
 	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
 	Modes []string `pulumi:"modes"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
 	Type *string `pulumi:"type"`
 }
 
@@ -689,11 +689,11 @@ type ProjectCacheInput interface {
 }
 
 type ProjectCacheArgs struct {
-	// Location of the source code from git or s3.
+	// Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
 	Modes pulumi.StringArrayInput `pulumi:"modes"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -774,7 +774,7 @@ func (o ProjectCacheOutput) ToProjectCachePtrOutputWithContext(ctx context.Conte
 	}).(ProjectCachePtrOutput)
 }
 
-// Location of the source code from git or s3.
+// Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
 func (o ProjectCacheOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectCache) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -784,7 +784,7 @@ func (o ProjectCacheOutput) Modes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProjectCache) []string { return v.Modes }).(pulumi.StringArrayOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
 func (o ProjectCacheOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectCache) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -813,7 +813,7 @@ func (o ProjectCachePtrOutput) Elem() ProjectCacheOutput {
 	}).(ProjectCacheOutput)
 }
 
-// Location of the source code from git or s3.
+// Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
 func (o ProjectCachePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectCache) *string {
 		if v == nil {
@@ -833,7 +833,7 @@ func (o ProjectCachePtrOutput) Modes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
 func (o ProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectCache) *string {
 		if v == nil {
@@ -858,7 +858,7 @@ type ProjectEnvironment struct {
 	PrivilegedMode *bool `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential *ProjectEnvironmentRegistryCredential `pulumi:"registryCredential"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
 	Type string `pulumi:"type"`
 }
 
@@ -888,7 +888,7 @@ type ProjectEnvironmentArgs struct {
 	PrivilegedMode pulumi.BoolPtrInput `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential ProjectEnvironmentRegistryCredentialPtrInput `pulumi:"registryCredential"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1004,7 +1004,7 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectEnvironmentRegistr
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentRegistryCredential { return v.RegistryCredential }).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
 func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1103,7 +1103,7 @@ func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectEnvironmentRegi
 	}).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
 func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -1114,9 +1114,9 @@ func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ProjectEnvironmentEnvironmentVariable struct {
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Project's name.
 	Name string `pulumi:"name"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	Type *string `pulumi:"type"`
 	// Environment variable's value.
 	Value string `pulumi:"value"`
@@ -1134,9 +1134,9 @@ type ProjectEnvironmentEnvironmentVariableInput interface {
 }
 
 type ProjectEnvironmentEnvironmentVariableArgs struct {
-	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+	// Project's name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Environment variable's value.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1193,12 +1193,12 @@ func (o ProjectEnvironmentEnvironmentVariableOutput) ToProjectEnvironmentEnviron
 	return o
 }
 
-// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+// Project's name.
 func (o ProjectEnvironmentEnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 func (o ProjectEnvironmentEnvironmentVariableOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1387,13 +1387,13 @@ func (o ProjectEnvironmentRegistryCredentialPtrOutput) CredentialProvider() pulu
 type ProjectFileSystemLocation struct {
 	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
 	Identifier *string `pulumi:"identifier"`
-	// Location of the source code from git or s3.
+	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
 	Location *string `pulumi:"location"`
 	// The mount options for a file system created by AWS EFS.
 	MountOptions *string `pulumi:"mountOptions"`
 	// The location in the container where you mount the file system.
 	MountPoint *string `pulumi:"mountPoint"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// The type of the file system. The one supported type is `EFS`.
 	Type *string `pulumi:"type"`
 }
 
@@ -1411,13 +1411,13 @@ type ProjectFileSystemLocationInput interface {
 type ProjectFileSystemLocationArgs struct {
 	// The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
-	// Location of the source code from git or s3.
+	// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The mount options for a file system created by AWS EFS.
 	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
 	// The location in the container where you mount the file system.
 	MountPoint pulumi.StringPtrInput `pulumi:"mountPoint"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// The type of the file system. The one supported type is `EFS`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1477,7 +1477,7 @@ func (o ProjectFileSystemLocationOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
 
-// Location of the source code from git or s3.
+// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
 func (o ProjectFileSystemLocationOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -1492,7 +1492,7 @@ func (o ProjectFileSystemLocationOutput) MountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.MountPoint }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// The type of the file system. The one supported type is `EFS`.
 func (o ProjectFileSystemLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1676,7 +1676,7 @@ func (o ProjectLogsConfigPtrOutput) S3Logs() ProjectLogsConfigS3LogsPtrOutput {
 type ProjectLogsConfigCloudwatchLogs struct {
 	// Group name of the logs in CloudWatch Logs.
 	GroupName *string `pulumi:"groupName"`
-	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 	Status *string `pulumi:"status"`
 	// Stream name of the logs in CloudWatch Logs.
 	StreamName *string `pulumi:"streamName"`
@@ -1696,7 +1696,7 @@ type ProjectLogsConfigCloudwatchLogsInput interface {
 type ProjectLogsConfigCloudwatchLogsArgs struct {
 	// Group name of the logs in CloudWatch Logs.
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
-	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Stream name of the logs in CloudWatch Logs.
 	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
@@ -1784,7 +1784,7 @@ func (o ProjectLogsConfigCloudwatchLogsOutput) GroupName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 func (o ProjectLogsConfigCloudwatchLogsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1828,7 +1828,7 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) GroupName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 func (o ProjectLogsConfigCloudwatchLogsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigCloudwatchLogs) *string {
 		if v == nil {
@@ -1853,9 +1853,9 @@ type ProjectLogsConfigS3Logs struct {
 	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
-	// Location of the source code from git or s3.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 	Location *string `pulumi:"location"`
-	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 	Status *string `pulumi:"status"`
 }
 
@@ -1875,9 +1875,9 @@ type ProjectLogsConfigS3LogsArgs struct {
 	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
-	// Location of the source code from git or s3.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -1968,12 +1968,12 @@ func (o ProjectLogsConfigS3LogsOutput) EncryptionDisabled() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// Location of the source code from git or s3.
+// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 func (o ProjectLogsConfigS3LogsOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 func (o ProjectLogsConfigS3LogsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2022,7 +2022,7 @@ func (o ProjectLogsConfigS3LogsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Location of the source code from git or s3.
+// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
 func (o ProjectLogsConfigS3LogsPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) *string {
 		if v == nil {
@@ -2032,7 +2032,7 @@ func (o ProjectLogsConfigS3LogsPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 func (o ProjectLogsConfigS3LogsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) *string {
 		if v == nil {
@@ -2049,7 +2049,7 @@ type ProjectSecondaryArtifact struct {
 	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
-	// Location of the source code from git or s3.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
 	Location *string `pulumi:"location"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name *string `pulumi:"name"`
@@ -2061,7 +2061,7 @@ type ProjectSecondaryArtifact struct {
 	Packaging *string `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path *string `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. The only valid value is `S3`.
 	Type string `pulumi:"type"`
 }
 
@@ -2083,7 +2083,7 @@ type ProjectSecondaryArtifactArgs struct {
 	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
 	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
-	// Location of the source code from git or s3.
+	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2095,7 +2095,7 @@ type ProjectSecondaryArtifactArgs struct {
 	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
 	// If `type` is set to `S3`, this is the path to the output artifact.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. The only valid value is `S3`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2165,7 +2165,7 @@ func (o ProjectSecondaryArtifactOutput) EncryptionDisabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// Location of the source code from git or s3.
+// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
 func (o ProjectSecondaryArtifactOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -2195,7 +2195,7 @@ func (o ProjectSecondaryArtifactOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. The only valid value is `S3`.
 func (o ProjectSecondaryArtifactOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondaryArtifact) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2227,7 +2227,7 @@ type ProjectSecondarySource struct {
 	Auth *ProjectSecondarySourceAuth `pulumi:"auth"`
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig *ProjectSecondarySourceBuildStatusConfig `pulumi:"buildStatusConfig"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
 	Buildspec *string `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth *int `pulumi:"gitCloneDepth"`
@@ -2237,9 +2237,9 @@ type ProjectSecondarySource struct {
 	InsecureSsl *bool `pulumi:"insecureSsl"`
 	// Location of the source code from git or s3.
 	Location *string `pulumi:"location"`
-	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
-	// An identifier for a source in the build project.
+	// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
 	SourceIdentifier string `pulumi:"sourceIdentifier"`
 	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type string `pulumi:"type"`
@@ -2263,7 +2263,7 @@ type ProjectSecondarySourceArgs struct {
 	Auth ProjectSecondarySourceAuthPtrInput `pulumi:"auth"`
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig ProjectSecondarySourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
-	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+	// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
 	Buildspec pulumi.StringPtrInput `pulumi:"buildspec"`
 	// Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
 	GitCloneDepth pulumi.IntPtrInput `pulumi:"gitCloneDepth"`
@@ -2273,9 +2273,9 @@ type ProjectSecondarySourceArgs struct {
 	InsecureSsl pulumi.BoolPtrInput `pulumi:"insecureSsl"`
 	// Location of the source code from git or s3.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
-	// An identifier for a source in the build project.
+	// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
 	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
 	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2344,7 +2344,7 @@ func (o ProjectSecondarySourceOutput) BuildStatusConfig() ProjectSecondarySource
 	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSecondarySourceBuildStatusConfigPtrOutput)
 }
 
-// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
+// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
 func (o ProjectSecondarySourceOutput) Buildspec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *string { return v.Buildspec }).(pulumi.StringPtrOutput)
 }
@@ -2371,12 +2371,12 @@ func (o ProjectSecondarySourceOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
 func (o ProjectSecondarySourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
 
-// An identifier for a source in the build project.
+// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
 func (o ProjectSecondarySourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
 }
@@ -2411,7 +2411,7 @@ type ProjectSecondarySourceAuth struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource *string `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type string `pulumi:"type"`
@@ -2433,7 +2433,7 @@ type ProjectSecondarySourceAuthArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2523,7 +2523,7 @@ func (o ProjectSecondarySourceAuthOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSecondarySourceAuthOutput) Type() pulumi.StringOutput {
@@ -2566,7 +2566,7 @@ func (o ProjectSecondarySourceAuthPtrOutput) Resource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSecondarySourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
@@ -3279,7 +3279,7 @@ type ProjectSourceAuth struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource *string `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type string `pulumi:"type"`
@@ -3301,7 +3301,7 @@ type ProjectSourceAuthArgs struct {
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 	//
 	// Deprecated: Use the aws_codebuild_source_credential resource instead
 	Type pulumi.StringInput `pulumi:"type"`
@@ -3391,7 +3391,7 @@ func (o ProjectSourceAuthOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectSourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourceAuthOutput) Type() pulumi.StringOutput {
@@ -3434,7 +3434,7 @@ func (o ProjectSourceAuthPtrOutput) Resource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
 //
 // Deprecated: Use the aws_codebuild_source_credential resource instead
 func (o ProjectSourceAuthPtrOutput) Type() pulumi.StringPtrOutput {

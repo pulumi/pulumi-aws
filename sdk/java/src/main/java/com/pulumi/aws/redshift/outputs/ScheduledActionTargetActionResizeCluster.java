@@ -19,7 +19,7 @@ public final class ScheduledActionTargetActionResizeCluster {
      */
     private @Nullable Boolean classic;
     /**
-     * @return The identifier of the cluster to be resumed.
+     * @return The unique identifier for the cluster to resize.
      * 
      */
     private String clusterIdentifier;
@@ -48,7 +48,7 @@ public final class ScheduledActionTargetActionResizeCluster {
         return Optional.ofNullable(this.classic);
     }
     /**
-     * @return The identifier of the cluster to be resumed.
+     * @return The unique identifier for the cluster to resize.
      * 
      */
     public String clusterIdentifier() {

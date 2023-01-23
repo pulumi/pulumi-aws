@@ -31,7 +31,7 @@ public final class ProjectSecondarySource {
      */
     private @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig;
     /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * @return The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
      * 
      */
     private @Nullable String buildspec;
@@ -56,12 +56,12 @@ public final class ProjectSecondarySource {
      */
     private @Nullable String location;
     /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
      * 
      */
     private @Nullable Boolean reportBuildStatus;
     /**
-     * @return An identifier for a source in the build project.
+     * @return An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
      * 
      */
     private String sourceIdentifier;
@@ -91,7 +91,7 @@ public final class ProjectSecondarySource {
         return Optional.ofNullable(this.buildStatusConfig);
     }
     /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * @return The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
      * 
      */
     public Optional<String> buildspec() {
@@ -126,14 +126,14 @@ public final class ProjectSecondarySource {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
      * 
      */
     public Optional<Boolean> reportBuildStatus() {
         return Optional.ofNullable(this.reportBuildStatus);
     }
     /**
-     * @return An identifier for a source in the build project.
+     * @return An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
      * 
      */
     public String sourceIdentifier() {

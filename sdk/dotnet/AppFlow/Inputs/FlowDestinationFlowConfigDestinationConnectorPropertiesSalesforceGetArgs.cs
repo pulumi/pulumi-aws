@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputList<string>? _idFieldNames;
 
         /// <summary>
-        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         /// </summary>
         public InputList<string> IdFieldNames
         {
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// Object specified in the Veeva flow source.
+        /// Object specified in the flow destination.
         /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 
         /// <summary>
-        /// This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        /// Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         /// </summary>
         [Input("writeOperationType")]
         public Input<string>? WriteOperationType { get; set; }

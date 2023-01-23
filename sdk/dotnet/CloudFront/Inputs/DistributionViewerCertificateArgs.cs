@@ -54,6 +54,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("minimumProtocolVersion")]
         public Input<string>? MinimumProtocolVersion { get; set; }
 
+        /// <summary>
+        /// Specifies how you want CloudFront to serve HTTPS
+        /// requests. One of `vip` or `sni-only`. Required if you specify
+        /// `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+        /// CloudFront to use a dedicated IP address and may incur extra charges.
+        /// </summary>
         [Input("sslSupportMethod")]
         public Input<string>? SslSupportMethod { get; set; }
 

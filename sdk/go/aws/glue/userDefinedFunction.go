@@ -67,11 +67,13 @@ import (
 type UserDefinedFunction struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the Glue User Defined Function.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// The Java class that contains the function code.
-	ClassName  pulumi.StringOutput `pulumi:"className"`
+	ClassName pulumi.StringOutput `pulumi:"className"`
+	// The time at which the function was created.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// The name of the Database to create the Function.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -126,11 +128,13 @@ func GetUserDefinedFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserDefinedFunction resources.
 type userDefinedFunctionState struct {
+	// The ARN of the Glue User Defined Function.
 	Arn *string `pulumi:"arn"`
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId *string `pulumi:"catalogId"`
 	// The Java class that contains the function code.
-	ClassName  *string `pulumi:"className"`
+	ClassName *string `pulumi:"className"`
+	// The time at which the function was created.
 	CreateTime *string `pulumi:"createTime"`
 	// The name of the Database to create the Function.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -145,11 +149,13 @@ type userDefinedFunctionState struct {
 }
 
 type UserDefinedFunctionState struct {
+	// The ARN of the Glue User Defined Function.
 	Arn pulumi.StringPtrInput
 	// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
 	CatalogId pulumi.StringPtrInput
 	// The Java class that contains the function code.
-	ClassName  pulumi.StringPtrInput
+	ClassName pulumi.StringPtrInput
+	// The time at which the function was created.
 	CreateTime pulumi.StringPtrInput
 	// The name of the Database to create the Function.
 	DatabaseName pulumi.StringPtrInput
@@ -289,6 +295,7 @@ func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutputWithContext(ctx co
 	return o
 }
 
+// The ARN of the Glue User Defined Function.
 func (o UserDefinedFunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -303,6 +310,7 @@ func (o UserDefinedFunctionOutput) ClassName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.ClassName }).(pulumi.StringOutput)
 }
 
+// The time at which the function was created.
 func (o UserDefinedFunctionOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserDefinedFunction) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }

@@ -106,14 +106,14 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation extends com.
     }
 
     /**
-     * Region code for the AWS Region that you created the resource in.
+     * If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
      * 
      */
     public Optional<String> region() {
@@ -233,7 +233,7 @@ public final class GetTrafficPolicyDocumentRuleGeoProximityLocation extends com.
         }
 
         /**
-         * @param region Region code for the AWS Region that you created the resource in.
+         * @param region If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
          * 
          * @return builder
          * 

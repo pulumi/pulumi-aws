@@ -220,14 +220,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Transmission Control Protocol (TCP) port for the endpoint.
+     * Port used by the endpoint database.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Transmission Control Protocol (TCP) port for the endpoint.
+     * @return Port used by the endpoint database.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -302,14 +302,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified domain name of the endpoint.
+     * Host name of the server.
      * 
      */
     @Import(name="serverName")
     private @Nullable Output<String> serverName;
 
     /**
-     * @return Fully qualified domain name of the endpoint.
+     * @return Host name of the server.
      * 
      */
     public Optional<Output<String>> serverName() {
@@ -713,7 +713,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Transmission Control Protocol (TCP) port for the endpoint.
+         * @param port Port used by the endpoint database.
          * 
          * @return builder
          * 
@@ -724,7 +724,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Transmission Control Protocol (TCP) port for the endpoint.
+         * @param port Port used by the endpoint database.
          * 
          * @return builder
          * 
@@ -827,7 +827,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName Fully qualified domain name of the endpoint.
+         * @param serverName Host name of the server.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverName Fully qualified domain name of the endpoint.
+         * @param serverName Host name of the server.
          * 
          * @return builder
          * 

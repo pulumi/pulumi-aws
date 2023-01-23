@@ -34,14 +34,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+     * The name of the crawler to be executed. Conflicts with `job_name`.
      * 
      */
     @Import(name="crawlerName")
     private @Nullable Output<String> crawlerName;
 
     /**
-     * @return The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+     * @return The name of the crawler to be executed. Conflicts with `job_name`.
      * 
      */
     public Optional<Output<String>> crawlerName() {
@@ -49,14 +49,14 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+     * The name of a job to be executed. Conflicts with `crawler_name`.
      * 
      */
     @Import(name="jobName")
     private @Nullable Output<String> jobName;
 
     /**
-     * @return The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+     * @return The name of a job to be executed. Conflicts with `crawler_name`.
      * 
      */
     public Optional<Output<String>> jobName() {
@@ -159,7 +159,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crawlerName The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+         * @param crawlerName The name of the crawler to be executed. Conflicts with `job_name`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crawlerName The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+         * @param crawlerName The name of the crawler to be executed. Conflicts with `job_name`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+         * @param jobName The name of a job to be executed. Conflicts with `crawler_name`.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class TriggerActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobName The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+         * @param jobName The name of a job to be executed. Conflicts with `crawler_name`.
          * 
          * @return builder
          * 

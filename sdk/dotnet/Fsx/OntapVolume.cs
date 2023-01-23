@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> JunctionPath { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string> JunctionPath { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? JunctionPath { get; set; }
 
         /// <summary>
-        /// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

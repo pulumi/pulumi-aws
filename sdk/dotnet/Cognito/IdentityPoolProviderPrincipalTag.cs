@@ -31,15 +31,19 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// The name of the identity provider.
-        /// * `principal_tags`: (Optional: []) - String to string map of variables.
-        /// * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         /// </summary>
         [Output("identityProviderName")]
         public Output<string> IdentityProviderName { get; private set; } = null!;
 
+        /// <summary>
+        /// String to string map of variables.
+        /// </summary>
         [Output("principalTags")]
         public Output<ImmutableDictionary<string, string>?> PrincipalTags { get; private set; } = null!;
 
+        /// <summary>
+        /// use default (username and clientID) attribute mappings.
+        /// </summary>
         [Output("useDefaults")]
         public Output<bool?> UseDefaults { get; private set; } = null!;
 
@@ -97,20 +101,25 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// The name of the identity provider.
-        /// * `principal_tags`: (Optional: []) - String to string map of variables.
-        /// * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         /// </summary>
         [Input("identityProviderName", required: true)]
         public Input<string> IdentityProviderName { get; set; } = null!;
 
         [Input("principalTags")]
         private InputMap<string>? _principalTags;
+
+        /// <summary>
+        /// String to string map of variables.
+        /// </summary>
         public InputMap<string> PrincipalTags
         {
             get => _principalTags ?? (_principalTags = new InputMap<string>());
             set => _principalTags = value;
         }
 
+        /// <summary>
+        /// use default (username and clientID) attribute mappings.
+        /// </summary>
         [Input("useDefaults")]
         public Input<bool>? UseDefaults { get; set; }
 
@@ -130,20 +139,25 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// The name of the identity provider.
-        /// * `principal_tags`: (Optional: []) - String to string map of variables.
-        /// * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         /// </summary>
         [Input("identityProviderName")]
         public Input<string>? IdentityProviderName { get; set; }
 
         [Input("principalTags")]
         private InputMap<string>? _principalTags;
+
+        /// <summary>
+        /// String to string map of variables.
+        /// </summary>
         public InputMap<string> PrincipalTags
         {
             get => _principalTags ?? (_principalTags = new InputMap<string>());
             set => _principalTags = value;
         }
 
+        /// <summary>
+        /// use default (username and clientID) attribute mappings.
+        /// </summary>
         [Input("useDefaults")]
         public Input<bool>? UseDefaults { get; set; }
 

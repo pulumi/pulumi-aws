@@ -20,6 +20,9 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -28,6 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := securityhub.NewAccount(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -40,7 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = securityhub.NewStandardsSubscription(ctx, "pci321", &securityhub.StandardsSubscriptionArgs{
-//				StandardsArn: pulumi.String("arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1"),
+//				StandardsArn: pulumi.String(fmt.Sprintf("arn:aws:securityhub:%v::standards/pci-dss/v/3.2.1", current.Name)),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))

@@ -36,7 +36,7 @@ type GetAvailabilityZoneArgs struct {
 	AllAvailabilityZones *bool `pulumi:"allAvailabilityZones"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetAvailabilityZoneFilter `pulumi:"filters"`
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	// Full name of the availability zone to select.
 	Name *string `pulumi:"name"`
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State *string `pulumi:"state"`
@@ -92,7 +92,7 @@ type GetAvailabilityZoneOutputArgs struct {
 	AllAvailabilityZones pulumi.BoolPtrInput `pulumi:"allAvailabilityZones"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetAvailabilityZoneFilterArrayInput `pulumi:"filters"`
-	// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+	// Full name of the availability zone to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State pulumi.StringPtrInput `pulumi:"state"`

@@ -287,7 +287,7 @@ type MetricAlarm struct {
 	ComparisonOperator pulumi.StringOutput `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrOutput `pulumi:"datapointsToAlarm"`
-	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapOutput `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
@@ -302,19 +302,19 @@ type MetricAlarm struct {
 	ExtendedStatistic pulumi.StringPtrOutput `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
-	// The name for this metric.
+	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName pulumi.StringPtrOutput `pulumi:"metricName"`
 	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
 	MetricQueries MetricAlarmMetricQueryArrayOutput `pulumi:"metricQueries"`
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
-	// The period in seconds over which the specified `stat` is applied.
+	// The period in seconds over which the specified `statistic` is applied.
 	Period pulumi.IntPtrOutput `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -329,7 +329,7 @@ type MetricAlarm struct {
 	ThresholdMetricId pulumi.StringPtrOutput `pulumi:"thresholdMetricId"`
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
 	TreatMissingData pulumi.StringPtrOutput `pulumi:"treatMissingData"`
-	// The unit for this metric.
+	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrOutput `pulumi:"unit"`
 }
 
@@ -380,7 +380,7 @@ type metricAlarmState struct {
 	ComparisonOperator *string `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
-	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions map[string]string `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
@@ -395,19 +395,19 @@ type metricAlarmState struct {
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions []interface{} `pulumi:"insufficientDataActions"`
-	// The name for this metric.
+	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName *string `pulumi:"metricName"`
 	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
 	MetricQueries []MetricAlarmMetricQuery `pulumi:"metricQueries"`
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
 	Name *string `pulumi:"name"`
-	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace *string `pulumi:"namespace"`
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []interface{} `pulumi:"okActions"`
-	// The period in seconds over which the specified `stat` is applied.
+	// The period in seconds over which the specified `statistic` is applied.
 	Period *int `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -422,7 +422,7 @@ type metricAlarmState struct {
 	ThresholdMetricId *string `pulumi:"thresholdMetricId"`
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
 	TreatMissingData *string `pulumi:"treatMissingData"`
-	// The unit for this metric.
+	// The unit for the alarm's associated metric.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -439,7 +439,7 @@ type MetricAlarmState struct {
 	ComparisonOperator pulumi.StringPtrInput
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrInput
-	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapInput
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
@@ -454,19 +454,19 @@ type MetricAlarmState struct {
 	ExtendedStatistic pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions pulumi.ArrayInput
-	// The name for this metric.
+	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName pulumi.StringPtrInput
 	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
 	MetricQueries MetricAlarmMetricQueryArrayInput
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
 	Name pulumi.StringPtrInput
-	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.ArrayInput
-	// The period in seconds over which the specified `stat` is applied.
+	// The period in seconds over which the specified `statistic` is applied.
 	Period pulumi.IntPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -481,7 +481,7 @@ type MetricAlarmState struct {
 	ThresholdMetricId pulumi.StringPtrInput
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
 	TreatMissingData pulumi.StringPtrInput
-	// The unit for this metric.
+	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrInput
 }
 
@@ -500,7 +500,7 @@ type metricAlarmArgs struct {
 	ComparisonOperator string `pulumi:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm *int `pulumi:"datapointsToAlarm"`
-	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions map[string]string `pulumi:"dimensions"`
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
@@ -515,19 +515,19 @@ type metricAlarmArgs struct {
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions []interface{} `pulumi:"insufficientDataActions"`
-	// The name for this metric.
+	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName *string `pulumi:"metricName"`
 	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
 	MetricQueries []MetricAlarmMetricQuery `pulumi:"metricQueries"`
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
 	Name *string `pulumi:"name"`
-	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace *string `pulumi:"namespace"`
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions []interface{} `pulumi:"okActions"`
-	// The period in seconds over which the specified `stat` is applied.
+	// The period in seconds over which the specified `statistic` is applied.
 	Period *int `pulumi:"period"`
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -540,7 +540,7 @@ type metricAlarmArgs struct {
 	ThresholdMetricId *string `pulumi:"thresholdMetricId"`
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
 	TreatMissingData *string `pulumi:"treatMissingData"`
-	// The unit for this metric.
+	// The unit for the alarm's associated metric.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -556,7 +556,7 @@ type MetricAlarmArgs struct {
 	ComparisonOperator pulumi.StringInput
 	// The number of datapoints that must be breaching to trigger the alarm.
 	DatapointsToAlarm pulumi.IntPtrInput
-	// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+	// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Dimensions pulumi.StringMapInput
 	// Used only for alarms
 	// based on percentiles. If you specify `ignore`, the alarm state will not
@@ -571,19 +571,19 @@ type MetricAlarmArgs struct {
 	ExtendedStatistic pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions pulumi.ArrayInput
-	// The name for this metric.
+	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	MetricName pulumi.StringPtrInput
 	// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
 	MetricQueries MetricAlarmMetricQueryArrayInput
 	// The descriptive name for the alarm. This name must be unique within the user's AWS account
 	Name pulumi.StringPtrInput
-	// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrInput
 	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	OkActions pulumi.ArrayInput
-	// The period in seconds over which the specified `stat` is applied.
+	// The period in seconds over which the specified `statistic` is applied.
 	Period pulumi.IntPtrInput
 	// The statistic to apply to the alarm's associated metric.
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
@@ -596,7 +596,7 @@ type MetricAlarmArgs struct {
 	ThresholdMetricId pulumi.StringPtrInput
 	// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
 	TreatMissingData pulumi.StringPtrInput
-	// The unit for this metric.
+	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrInput
 }
 
@@ -717,7 +717,7 @@ func (o MetricAlarmOutput) DatapointsToAlarm() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.DatapointsToAlarm }).(pulumi.IntPtrOutput)
 }
 
-// The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmOutput) Dimensions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringMapOutput { return v.Dimensions }).(pulumi.StringMapOutput)
 }
@@ -747,7 +747,7 @@ func (o MetricAlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringArrayOutput { return v.InsufficientDataActions }).(pulumi.StringArrayOutput)
 }
 
-// The name for this metric.
+// The name for the alarm's associated metric.
 // See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.MetricName }).(pulumi.StringPtrOutput)
@@ -763,7 +763,7 @@ func (o MetricAlarmOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 // See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 func (o MetricAlarmOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
@@ -774,7 +774,7 @@ func (o MetricAlarmOutput) OkActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringArrayOutput { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
-// The period in seconds over which the specified `stat` is applied.
+// The period in seconds over which the specified `statistic` is applied.
 func (o MetricAlarmOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
 }
@@ -810,7 +810,7 @@ func (o MetricAlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.TreatMissingData }).(pulumi.StringPtrOutput)
 }
 
-// The unit for this metric.
+// The unit for the alarm's associated metric.
 func (o MetricAlarmOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
 }

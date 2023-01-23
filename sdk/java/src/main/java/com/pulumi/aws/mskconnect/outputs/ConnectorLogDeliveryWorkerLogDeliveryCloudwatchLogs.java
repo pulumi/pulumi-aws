@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
     /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
      * 
      */
     private Boolean enabled;
@@ -25,7 +25,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
 
     private ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs() {}
     /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
      * 
      */
     public Boolean enabled() {

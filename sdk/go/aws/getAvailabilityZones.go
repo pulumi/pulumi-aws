@@ -159,7 +159,8 @@ type GetAvailabilityZonesResult struct {
 	ExcludeNames         []string                     `pulumi:"excludeNames"`
 	ExcludeZoneIds       []string                     `pulumi:"excludeZoneIds"`
 	Filters              []GetAvailabilityZonesFilter `pulumi:"filters"`
-	GroupNames           []string                     `pulumi:"groupNames"`
+	// A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+	GroupNames []string `pulumi:"groupNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of the Availability Zone names available to the account.
@@ -234,6 +235,7 @@ func (o GetAvailabilityZonesResultOutput) Filters() GetAvailabilityZonesFilterAr
 	return o.ApplyT(func(v GetAvailabilityZonesResult) []GetAvailabilityZonesFilter { return v.Filters }).(GetAvailabilityZonesFilterArrayOutput)
 }
 
+// A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
 func (o GetAvailabilityZonesResultOutput) GroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.GroupNames }).(pulumi.StringArrayOutput)
 }

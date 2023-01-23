@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake
     {
         /// <summary>
-        /// Password that corresponds to the user name.
+        /// The password to use to connect to a resource.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// Name of the user.
+        /// The username to use to connect to a resource.
         /// </summary>
         public readonly string Username;
 

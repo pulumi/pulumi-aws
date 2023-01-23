@@ -13,7 +13,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionOriginOriginShieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag that specifies whether Origin Shield is enabled.
+        /// Whether the distribution is enabled to accept end
+        /// user requests for content.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

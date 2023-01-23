@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification {
     /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
      * 
      */
     private String allocationStrategy;
 
     private ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification() {}
     /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
      * 
      */
     public String allocationStrategy() {

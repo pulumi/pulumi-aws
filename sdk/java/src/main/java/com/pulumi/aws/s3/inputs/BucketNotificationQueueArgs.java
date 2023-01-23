@@ -17,14 +17,14 @@ public final class BucketNotificationQueueArgs extends com.pulumi.resources.Reso
     public static final BucketNotificationQueueArgs Empty = new BucketNotificationQueueArgs();
 
     /**
-     * [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+     * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
      * 
      */
     @Import(name="events", required=true)
     private Output<List<String>> events;
 
     /**
-     * @return [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+     * @return Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
      * 
      */
     public Output<List<String>> events() {
@@ -120,7 +120,7 @@ public final class BucketNotificationQueueArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param events [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+         * @param events Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BucketNotificationQueueArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param events [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+         * @param events Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketNotificationQueueArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param events [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+         * @param events Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          * 
          * @return builder
          * 

@@ -92,7 +92,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
     /**
-     * - The filesystem storage type. defaults to `SSD`.
+     * The filesystem storage type. defaults to `SSD`.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
@@ -270,7 +270,7 @@ export interface OntapFileSystemState {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      */
     deploymentType?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface OntapFileSystemState {
      */
     storageCapacity?: pulumi.Input<number>;
     /**
-     * - The filesystem storage type. defaults to `SSD`.
+     * The filesystem storage type. defaults to `SSD`.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -364,7 +364,7 @@ export interface OntapFileSystemArgs {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      */
     deploymentType: pulumi.Input<string>;
     /**
@@ -400,7 +400,7 @@ export interface OntapFileSystemArgs {
      */
     storageCapacity?: pulumi.Input<number>;
     /**
-     * - The filesystem storage type. defaults to `SSD`.
+     * The filesystem storage type. defaults to `SSD`.
      */
     storageType?: pulumi.Input<string>;
     /**

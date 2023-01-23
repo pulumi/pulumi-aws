@@ -183,23 +183,23 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
                  zendesk: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs']] = None):
         """
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs'] amplitude: The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs'] custom_connector: The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs'] datadog: Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs'] dynatrace: The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs'] custom_connector: The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs'] datadog: Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs'] dynatrace: The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs'] google_analytics: The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs'] honeycode: The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs'] infor_nexus: The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs'] marketo: Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs'] redshift: Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs'] salesforce: The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs'] sapo_data: The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs'] service_now: The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs'] infor_nexus: The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs'] marketo: Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs'] redshift: Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs'] salesforce: The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs'] sapo_data: The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs'] service_now: The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs'] singular: Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs'] slack: Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs'] snowflake: The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs'] slack: Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs'] snowflake: The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs'] trendmicro: The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs'] veeva: Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs'] zendesk: Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs'] veeva: Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs'] zendesk: Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
@@ -254,7 +254,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter(name="customConnector")
     def custom_connector(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs']]:
         """
-        The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+        The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "custom_connector")
 
@@ -266,7 +266,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def datadog(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs']]:
         """
-        Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+        Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "datadog")
 
@@ -278,7 +278,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def dynatrace(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs']]:
         """
-        The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+        The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "dynatrace")
 
@@ -314,7 +314,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter(name="inforNexus")
     def infor_nexus(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs']]:
         """
-        The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+        The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "infor_nexus")
 
@@ -326,7 +326,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs']]:
         """
-        Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+        Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "marketo")
 
@@ -338,7 +338,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def redshift(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs']]:
         """
-        Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+        Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "redshift")
 
@@ -350,7 +350,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs']]:
         """
-        The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+        The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "salesforce")
 
@@ -362,7 +362,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter(name="sapoData")
     def sapo_data(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs']]:
         """
-        The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+        The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "sapo_data")
 
@@ -374,7 +374,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs']]:
         """
-        The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+        The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "service_now")
 
@@ -398,7 +398,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def slack(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs']]:
         """
-        Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+        Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "slack")
 
@@ -410,7 +410,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def snowflake(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs']]:
         """
-        The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+        The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "snowflake")
 
@@ -434,7 +434,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def veeva(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs']]:
         """
-        Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+        Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "veeva")
 
@@ -446,7 +446,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
     @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs']]:
         """
-        Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+        Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
         """
         return pulumi.get(self, "zendesk")
 
@@ -585,7 +585,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
                  api_secret_key: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] api_key: Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-        :param pulumi.Input[str] api_secret_key: The Secret Access Key portion of the credentials.
+        :param pulumi.Input[str] api_secret_key: The API secret key required for API key authentication.
         """
         pulumi.set(__self__, "api_key", api_key)
         if api_secret_key is not None:
@@ -607,7 +607,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @pulumi.getter(name="apiSecretKey")
     def api_secret_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Secret Access Key portion of the credentials.
+        The API secret key required for API key authentication.
         """
         return pulumi.get(self, "api_secret_key")
 
@@ -622,8 +622,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Password that corresponds to the user name.
-        :param pulumi.Input[str] username: Name of the user.
+        :param pulumi.Input[str] password: The password to use to connect to a resource.
+        :param pulumi.Input[str] username: The username to use to connect to a resource.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -632,7 +632,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Password that corresponds to the user name.
+        The password to use to connect to a resource.
         """
         return pulumi.get(self, "password")
 
@@ -644,7 +644,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Name of the user.
+        The username to use to connect to a resource.
         """
         return pulumi.get(self, "username")
 
@@ -700,11 +700,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
                  oauth_request: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs']] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh expired access token.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -721,7 +721,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -757,7 +757,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -769,7 +769,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh expired access token.
+        The refresh token used to refresh an expired access token.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -887,9 +887,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh expired access token.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -928,7 +928,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -940,7 +940,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -952,7 +952,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh expired access token.
+        The refresh token used to refresh an expired access token.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1007,9 +1007,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
                  oauth_request: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs']] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh expired access token.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -1022,7 +1022,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -1034,7 +1034,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1046,7 +1046,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh expired access token.
+        The refresh token used to refresh an expired access token.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1171,8 +1171,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoAr
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1209,7 +1209,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoAr
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -1221,7 +1221,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoAr
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1275,8 +1275,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftA
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Password that corresponds to the user name.
-        :param pulumi.Input[str] username: Name of the user.
+        :param pulumi.Input[str] password: The password to use to connect to a resource.
+        :param pulumi.Input[str] username: The username to use to connect to a resource.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -1285,7 +1285,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftA
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Password that corresponds to the user name.
+        The password to use to connect to a resource.
         """
         return pulumi.get(self, "password")
 
@@ -1297,7 +1297,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftA
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Name of the user.
+        The username to use to connect to a resource.
         """
         return pulumi.get(self, "username")
 
@@ -1314,10 +1314,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
                  oauth_request: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs']] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
         :param pulumi.Input[str] client_credentials_arn: The secret manager ARN, which contains the client ID and client secret of the connected app.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh expired access token.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -1332,7 +1332,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -1356,7 +1356,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1368,7 +1368,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh expired access token.
+        The refresh token used to refresh an expired access token.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1461,8 +1461,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataB
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Password that corresponds to the user name.
-        :param pulumi.Input[str] username: Name of the user.
+        :param pulumi.Input[str] password: The password to use to connect to a resource.
+        :param pulumi.Input[str] username: The username to use to connect to a resource.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -1471,7 +1471,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataB
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Password that corresponds to the user name.
+        The password to use to connect to a resource.
         """
         return pulumi.get(self, "password")
 
@@ -1483,7 +1483,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataB
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Name of the user.
+        The username to use to connect to a resource.
         """
         return pulumi.get(self, "username")
 
@@ -1503,9 +1503,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-        :param pulumi.Input[str] refresh_token: The refresh token used to refresh expired access token.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1544,7 +1544,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -1556,7 +1556,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1568,7 +1568,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The refresh token used to refresh expired access token.
+        The refresh token used to refresh an expired access token.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1622,8 +1622,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNo
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Password that corresponds to the user name.
-        :param pulumi.Input[str] username: Name of the user.
+        :param pulumi.Input[str] password: The password to use to connect to a resource.
+        :param pulumi.Input[str] username: The username to use to connect to a resource.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -1632,7 +1632,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNo
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Password that corresponds to the user name.
+        The password to use to connect to a resource.
         """
         return pulumi.get(self, "password")
 
@@ -1644,7 +1644,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNo
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Name of the user.
+        The username to use to connect to a resource.
         """
         return pulumi.get(self, "username")
 
@@ -1685,8 +1685,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1723,7 +1723,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -1735,7 +1735,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -1789,8 +1789,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Password that corresponds to the user name.
-        :param pulumi.Input[str] username: Name of the user.
+        :param pulumi.Input[str] password: The password to use to connect to a resource.
+        :param pulumi.Input[str] username: The username to use to connect to a resource.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -1799,7 +1799,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Password that corresponds to the user name.
+        The password to use to connect to a resource.
         """
         return pulumi.get(self, "password")
 
@@ -1811,7 +1811,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Name of the user.
+        The username to use to connect to a resource.
         """
         return pulumi.get(self, "username")
 
@@ -1825,7 +1825,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicr
     def __init__(__self__, *,
                  api_secret_key: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] api_secret_key: The Secret Access Key portion of the credentials.
+        :param pulumi.Input[str] api_secret_key: The API secret key required for API key authentication.
         """
         pulumi.set(__self__, "api_secret_key", api_secret_key)
 
@@ -1833,7 +1833,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicr
     @pulumi.getter(name="apiSecretKey")
     def api_secret_key(self) -> pulumi.Input[str]:
         """
-        The Secret Access Key portion of the credentials.
+        The API secret key required for API key authentication.
         """
         return pulumi.get(self, "api_secret_key")
 
@@ -1848,8 +1848,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] password: Password that corresponds to the user name.
-        :param pulumi.Input[str] username: Name of the user.
+        :param pulumi.Input[str] password: The password to use to connect to a resource.
+        :param pulumi.Input[str] username: The username to use to connect to a resource.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -1858,7 +1858,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        Password that corresponds to the user name.
+        The password to use to connect to a resource.
         """
         return pulumi.get(self, "password")
 
@@ -1870,7 +1870,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        Name of the user.
+        The username to use to connect to a resource.
         """
         return pulumi.get(self, "username")
 
@@ -1889,8 +1889,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskAr
         """
         :param pulumi.Input[str] client_id: The identifier for the desired client.
         :param pulumi.Input[str] client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param pulumi.Input[str] access_token: The credentials used to access protected Zendesk resources.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs'] oauth_request: The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1927,7 +1927,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskAr
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        The credentials used to access protected Zendesk resources.
+        The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
@@ -1939,7 +1939,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskAr
     @pulumi.getter(name="oauthRequest")
     def oauth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs']]:
         """
-        The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         return pulumi.get(self, "oauth_request")
 
@@ -2335,7 +2335,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
                  token_url_custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] oauth2_grant_type: The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-        :param pulumi.Input[str] token_url: The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+        :param pulumi.Input[str] token_url: The token URL required for OAuth 2.0 authentication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_url_custom_properties: Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
         """
         pulumi.set(__self__, "oauth2_grant_type", oauth2_grant_type)
@@ -2359,7 +2359,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> pulumi.Input[str]:
         """
-        The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+        The token URL required for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "token_url")
 
@@ -2385,7 +2385,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArg
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -2393,7 +2393,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArg
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -2407,7 +2407,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceA
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -2415,7 +2415,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceA
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -2441,7 +2441,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -2449,7 +2449,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -2463,7 +2463,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArg
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -2471,7 +2471,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArg
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -2491,9 +2491,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftAr
                  database_name: Optional[pulumi.Input[str]] = None,
                  database_url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket_name: The name of the Amazon S3 bucket associated with Snowflake.
+        :param pulumi.Input[str] bucket_name: A name for the associated Amazon S3 bucket.
         :param pulumi.Input[str] role_arn: ARN of the IAM role.
-        :param pulumi.Input[str] bucket_prefix: The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        :param pulumi.Input[str] bucket_prefix: The object key for the destination bucket in which Amazon AppFlow places the files.
         :param pulumi.Input[str] cluster_identifier: The unique ID that's assigned to an Amazon Redshift cluster.
         :param pulumi.Input[str] data_api_role_arn: ARN of the IAM role that permits AppFlow to access the database through Data API.
         :param pulumi.Input[str] database_name: The name of an Amazon Redshift database.
@@ -2516,7 +2516,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftAr
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
-        The name of the Amazon S3 bucket associated with Snowflake.
+        A name for the associated Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -2540,7 +2540,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftAr
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        The object key for the destination bucket in which Amazon AppFlow places the files.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -2603,7 +2603,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
                  instance_url: Optional[pulumi.Input[str]] = None,
                  is_sandbox_environment: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         :param pulumi.Input[bool] is_sandbox_environment: Indicates whether the connector profile applies to a sandbox or production environment.
         """
         if instance_url is not None:
@@ -2615,7 +2615,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -2653,7 +2653,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataAr
         :param pulumi.Input[int] port_number: The port number of the SAPOData instance.
         :param pulumi.Input[str] logon_language: The logon language of SAPOData instance.
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs'] oauth_properties: The SAPOData OAuth properties required for OAuth type authentication.
-        :param pulumi.Input[str] private_link_service_name: The Snowflake Private Link service name to be used for private data transfers.
+        :param pulumi.Input[str] private_link_service_name: The SAPOData Private Link service name to be used for private data transfers.
         """
         pulumi.set(__self__, "application_host_url", application_host_url)
         pulumi.set(__self__, "application_service_path", application_service_path)
@@ -2742,7 +2742,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataAr
     @pulumi.getter(name="privateLinkServiceName")
     def private_link_service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Snowflake Private Link service name to be used for private data transfers.
+        The SAPOData Private Link service name to be used for private data transfers.
         """
         return pulumi.get(self, "private_link_service_name")
 
@@ -2760,7 +2760,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOa
         """
         :param pulumi.Input[str] auth_code_url: The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] oauth_scopes: The OAuth scopes required for OAuth type authentication.
-        :param pulumi.Input[str] token_url: The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+        :param pulumi.Input[str] token_url: The token URL required for OAuth 2.0 authentication.
         """
         pulumi.set(__self__, "auth_code_url", auth_code_url)
         pulumi.set(__self__, "oauth_scopes", oauth_scopes)
@@ -2794,7 +2794,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOa
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> pulumi.Input[str]:
         """
-        The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+        The token URL required for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "token_url")
 
@@ -2808,7 +2808,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -2816,7 +2816,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -2836,7 +2836,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs:
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -2844,7 +2844,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs:
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -2864,12 +2864,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
                  private_link_service_name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket_name: The name of the Amazon S3 bucket associated with Snowflake.
+        :param pulumi.Input[str] bucket_name: A name for the associated Amazon S3 bucket.
         :param pulumi.Input[str] stage: Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
         :param pulumi.Input[str] warehouse: The name of the Snowflake warehouse.
         :param pulumi.Input[str] account_name: The name of the account.
-        :param pulumi.Input[str] bucket_prefix: The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-        :param pulumi.Input[str] private_link_service_name: The Snowflake Private Link service name to be used for private data transfers.
+        :param pulumi.Input[str] bucket_prefix: The object key for the destination bucket in which Amazon AppFlow places the files.
+        :param pulumi.Input[str] private_link_service_name: The SAPOData Private Link service name to be used for private data transfers.
         :param pulumi.Input[str] region: AWS Region of the Snowflake account.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -2888,7 +2888,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
-        The name of the Amazon S3 bucket associated with Snowflake.
+        A name for the associated Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -2936,7 +2936,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        The object key for the destination bucket in which Amazon AppFlow places the files.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -2948,7 +2948,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
     @pulumi.getter(name="privateLinkServiceName")
     def private_link_service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Snowflake Private Link service name to be used for private data transfers.
+        The SAPOData Private Link service name to be used for private data transfers.
         """
         return pulumi.get(self, "private_link_service_name")
 
@@ -2980,7 +2980,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs:
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -2988,7 +2988,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs:
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -3002,7 +3002,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArg
     def __init__(__self__, *,
                  instance_url: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] instance_url: The location of the Salesforce resource.
+        :param pulumi.Input[str] instance_url: The location of the Datadog resource.
         """
         pulumi.set(__self__, "instance_url", instance_url)
 
@@ -3010,7 +3010,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArg
     @pulumi.getter(name="instanceUrl")
     def instance_url(self) -> pulumi.Input[str]:
         """
-        The location of the Salesforce resource.
+        The location of the Datadog resource.
         """
         return pulumi.get(self, "instance_url")
 
@@ -3105,18 +3105,18 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
                  upsolver: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs']] = None,
                  zendesk: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs']] = None):
         """
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs'] custom_connector: Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs'] custom_connector: Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs'] customer_profiles: Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs'] event_bridge: Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs'] honeycode: Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs'] marketo: Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs'] marketo: Properties that are required to query Marketo. See Generic Destination Properties for more details.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs'] redshift: Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args'] s3: Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs'] salesforce: Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs'] sapo_data: Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args'] s3: Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs'] salesforce: Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs'] sapo_data: Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs'] snowflake: Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs'] upsolver: Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs'] zendesk: Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs'] zendesk: Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
         """
         if custom_connector is not None:
             pulumi.set(__self__, "custom_connector", custom_connector)
@@ -3149,7 +3149,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
     @pulumi.getter(name="customConnector")
     def custom_connector(self) -> Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs']]:
         """
-        Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
         """
         return pulumi.get(self, "custom_connector")
 
@@ -3206,7 +3206,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
     @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs']]:
         """
-        Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Properties that are required to query Marketo. See Generic Destination Properties for more details.
         """
         return pulumi.get(self, "marketo")
 
@@ -3230,7 +3230,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args']]:
         """
-        Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
         """
         return pulumi.get(self, "s3")
 
@@ -3242,7 +3242,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs']]:
         """
-        Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
         """
         return pulumi.get(self, "salesforce")
 
@@ -3254,7 +3254,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
     @pulumi.getter(name="sapoData")
     def sapo_data(self) -> Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs']]:
         """
-        Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
         """
         return pulumi.get(self, "sapo_data")
 
@@ -3290,7 +3290,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
     @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs']]:
         """
-        Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
         """
         return pulumi.get(self, "zendesk")
 
@@ -3308,11 +3308,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs
                  id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_operation_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] entity_name: Entity specified in the custom connector as a source in the flow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+        :param pulumi.Input[str] entity_name: Entity specified in the custom connector as a destination in the flow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-        :param pulumi.Input[str] write_operation_type: This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
+        :param pulumi.Input[str] write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         pulumi.set(__self__, "entity_name", entity_name)
         if custom_properties is not None:
@@ -3328,7 +3328,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs
     @pulumi.getter(name="entityName")
     def entity_name(self) -> pulumi.Input[str]:
         """
-        Entity specified in the custom connector as a source in the flow.
+        Entity specified in the custom connector as a destination in the flow.
         """
         return pulumi.get(self, "entity_name")
 
@@ -3340,7 +3340,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs
     @pulumi.getter(name="customProperties")
     def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+        Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
         """
         return pulumi.get(self, "custom_properties")
 
@@ -3364,7 +3364,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs
     @pulumi.getter(name="idFieldNames")
     def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         """
         return pulumi.get(self, "id_field_names")
 
@@ -3376,7 +3376,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs
     @pulumi.getter(name="writeOperationType")
     def write_operation_type(self) -> Optional[pulumi.Input[str]]:
         """
-        This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         return pulumi.get(self, "write_operation_type")
 
@@ -3392,8 +3392,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErro
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -3407,7 +3407,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErro
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -3419,7 +3419,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErro
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -3484,7 +3484,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs:
                  object: pulumi.Input[str],
                  error_handling_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs']] = None):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "object", object)
@@ -3495,7 +3495,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -3523,8 +3523,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHan
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -3538,7 +3538,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHan
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -3550,7 +3550,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHan
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -3577,7 +3577,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs:
                  object: pulumi.Input[str],
                  error_handling_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs']] = None):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "object", object)
@@ -3588,7 +3588,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -3616,8 +3616,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandl
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -3631,7 +3631,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandl
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -3643,7 +3643,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandl
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -3676,7 +3676,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs:
                  object: pulumi.Input[str],
                  error_handling_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs']] = None):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "object", object)
@@ -3687,7 +3687,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -3715,8 +3715,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlin
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -3730,7 +3730,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlin
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -3742,7 +3742,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlin
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -3771,9 +3771,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs:
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  error_handling_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs']] = None):
         """
-        :param pulumi.Input[str] intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
+        :param pulumi.Input[str] bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
@@ -3787,7 +3787,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs:
     @pulumi.getter(name="intermediateBucketName")
     def intermediate_bucket_name(self) -> pulumi.Input[str]:
         """
-        Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+        Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
         """
         return pulumi.get(self, "intermediate_bucket_name")
 
@@ -3799,7 +3799,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -3811,7 +3811,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs:
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Object key for the bucket in which Amazon AppFlow places the destination files.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -3839,8 +3839,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandli
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -3854,7 +3854,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandli
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -3866,7 +3866,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandli
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -3894,9 +3894,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args:
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  s3_output_format_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs']] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs'] s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        :param pulumi.Input[str] bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs'] s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -3908,7 +3908,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -3920,7 +3920,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args:
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Object key for the bucket in which Amazon AppFlow places the destination files.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -3932,7 +3932,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args:
     @pulumi.getter(name="s3OutputFormatConfig")
     def s3_output_format_config(self) -> Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs']]:
         """
-        Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+        Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
         """
         return pulumi.get(self, "s3_output_format_config")
 
@@ -3949,7 +3949,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
                  prefix_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs']] = None):
         """
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs'] aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-        :param pulumi.Input[str] file_type: File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+        :param pulumi.Input[str] file_type: File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs'] prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         """
         if aggregation_config is not None:
@@ -3975,7 +3975,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
     @pulumi.getter(name="fileType")
     def file_type(self) -> Optional[pulumi.Input[str]]:
         """
-        File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+        File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         """
         return pulumi.get(self, "file_type")
 
@@ -4066,10 +4066,10 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
                  id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_operation_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-        :param pulumi.Input[str] write_operation_type: This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
+        :param pulumi.Input[str] write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
@@ -4083,7 +4083,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -4107,7 +4107,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
     @pulumi.getter(name="idFieldNames")
     def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         """
         return pulumi.get(self, "id_field_names")
 
@@ -4119,7 +4119,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
     @pulumi.getter(name="writeOperationType")
     def write_operation_type(self) -> Optional[pulumi.Input[str]]:
         """
-        This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         return pulumi.get(self, "write_operation_type")
 
@@ -4135,8 +4135,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHand
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -4150,7 +4150,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHand
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4162,7 +4162,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHand
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4192,11 +4192,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs:
                  success_response_handling_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs']] = None,
                  write_operation_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object_path: Object path specified in the SAPOData flow source.
+        :param pulumi.Input[str] object_path: Object path specified in the SAPOData flow destination.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs'] success_response_handling_config: Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-        :param pulumi.Input[str] write_operation_type: This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        :param pulumi.Input[str] write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         pulumi.set(__self__, "object_path", object_path)
         if error_handling_config is not None:
@@ -4212,7 +4212,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs:
     @pulumi.getter(name="objectPath")
     def object_path(self) -> pulumi.Input[str]:
         """
-        Object path specified in the SAPOData flow source.
+        Object path specified in the SAPOData flow destination.
         """
         return pulumi.get(self, "object_path")
 
@@ -4236,7 +4236,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs:
     @pulumi.getter(name="idFieldNames")
     def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         """
         return pulumi.get(self, "id_field_names")
 
@@ -4260,7 +4260,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs:
     @pulumi.getter(name="writeOperationType")
     def write_operation_type(self) -> Optional[pulumi.Input[str]]:
         """
-        This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         return pulumi.get(self, "write_operation_type")
 
@@ -4276,8 +4276,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandli
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -4291,7 +4291,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandli
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4303,7 +4303,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandli
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4330,8 +4330,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResp
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
@@ -4342,7 +4342,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResp
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4354,7 +4354,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResp
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4371,9 +4371,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs:
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  error_handling_config: Optional[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs']] = None):
         """
-        :param pulumi.Input[str] intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
+        :param pulumi.Input[str] bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
@@ -4387,7 +4387,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs:
     @pulumi.getter(name="intermediateBucketName")
     def intermediate_bucket_name(self) -> pulumi.Input[str]:
         """
-        Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+        Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
         """
         return pulumi.get(self, "intermediate_bucket_name")
 
@@ -4399,7 +4399,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -4411,7 +4411,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs:
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Object key for the bucket in which Amazon AppFlow places the destination files.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4439,8 +4439,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandl
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -4454,7 +4454,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandl
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4466,7 +4466,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandl
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4494,9 +4494,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs:
                  s3_output_format_config: pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs'],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs'] s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs'] s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
+        :param pulumi.Input[str] bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "s3_output_format_config", s3_output_format_config)
@@ -4507,7 +4507,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4519,7 +4519,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs:
     @pulumi.getter(name="s3OutputFormatConfig")
     def s3_output_format_config(self) -> pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs']:
         """
-        Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+        Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
         """
         return pulumi.get(self, "s3_output_format_config")
 
@@ -4531,7 +4531,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs:
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Object key for the bucket in which Amazon AppFlow places the destination files.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4549,7 +4549,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         """
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs'] prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs'] aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-        :param pulumi.Input[str] file_type: File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+        :param pulumi.Input[str] file_type: File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         """
         pulumi.set(__self__, "prefix_config", prefix_config)
         if aggregation_config is not None:
@@ -4585,7 +4585,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
     @pulumi.getter(name="fileType")
     def file_type(self) -> Optional[pulumi.Input[str]]:
         """
-        File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+        File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         """
         return pulumi.get(self, "file_type")
 
@@ -4663,10 +4663,10 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs:
                  id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_operation_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         :param pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs'] error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-        :param pulumi.Input[str] write_operation_type: This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
+        :param pulumi.Input[str] write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
@@ -4680,7 +4680,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -4704,7 +4704,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs:
     @pulumi.getter(name="idFieldNames")
     def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         """
         return pulumi.get(self, "id_field_names")
 
@@ -4716,7 +4716,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs:
     @pulumi.getter(name="writeOperationType")
     def write_operation_type(self) -> Optional[pulumi.Input[str]]:
         """
-        This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         return pulumi.get(self, "write_operation_type")
 
@@ -4732,8 +4732,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlin
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  fail_on_first_destination_error: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Name of the Amazon S3 bucket.
+        :param pulumi.Input[str] bucket_prefix: Amazon S3 bucket prefix.
         :param pulumi.Input[bool] fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         if bucket_name is not None:
@@ -4747,7 +4747,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlin
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4759,7 +4759,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlin
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4908,22 +4908,22 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
                  veeva: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs']] = None,
                  zendesk: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs']] = None):
         """
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs'] amplitude: Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs'] custom_connector: Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs'] datadog: Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs'] amplitude: Information that is required for querying Amplitude. See Generic Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs'] custom_connector: Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs'] datadog: Information that is required for querying Datadog. See Generic Source Properties for more details.
         :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs'] dynatrace: Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs'] google_analytics: Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs'] infor_nexus: Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs'] marketo: Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3Args'] s3: Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs'] salesforce: Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs'] sapo_data: Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs'] service_now: Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs'] singular: Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs'] slack: Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs'] infor_nexus: Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs'] marketo: Information that is required for querying Marketo. See Generic Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3Args'] s3: Information that is required for querying Amazon S3. See S3 Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs'] salesforce: Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs'] sapo_data: Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs'] service_now: Information that is required for querying ServiceNow. See Generic Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs'] singular: Information that is required for querying Singular. See Generic Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs'] slack: Information that is required for querying Slack. See Generic Source Properties for more details.
         :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs'] trendmicro: Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs'] veeva: Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs'] zendesk: Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs'] veeva: Information that is required for querying Veeva. See Veeva Source Properties for more details.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs'] zendesk: Information that is required for querying Zendesk. See Generic Source Properties for more details.
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
@@ -4962,7 +4962,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def amplitude(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs']]:
         """
-        Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+        Information that is required for querying Amplitude. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "amplitude")
 
@@ -4974,7 +4974,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter(name="customConnector")
     def custom_connector(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs']]:
         """
-        Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
         """
         return pulumi.get(self, "custom_connector")
 
@@ -4986,7 +4986,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def datadog(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs']]:
         """
-        Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Datadog. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "datadog")
 
@@ -5022,7 +5022,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter(name="inforNexus")
     def infor_nexus(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs']]:
         """
-        Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "infor_nexus")
 
@@ -5034,7 +5034,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs']]:
         """
-        Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Marketo. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "marketo")
 
@@ -5046,7 +5046,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3Args']]:
         """
-        Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Amazon S3. See S3 Source Properties for more details.
         """
         return pulumi.get(self, "s3")
 
@@ -5058,7 +5058,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs']]:
         """
-        Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
         """
         return pulumi.get(self, "salesforce")
 
@@ -5070,7 +5070,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter(name="sapoData")
     def sapo_data(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs']]:
         """
-        Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
         """
         return pulumi.get(self, "sapo_data")
 
@@ -5082,7 +5082,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs']]:
         """
-        Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying ServiceNow. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "service_now")
 
@@ -5094,7 +5094,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def singular(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs']]:
         """
-        Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Singular. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "singular")
 
@@ -5106,7 +5106,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def slack(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs']]:
         """
-        Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Slack. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "slack")
 
@@ -5130,7 +5130,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def veeva(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs']]:
         """
-        Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Veeva. See Veeva Source Properties for more details.
         """
         return pulumi.get(self, "veeva")
 
@@ -5142,7 +5142,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
     @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs']]:
         """
-        Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        Information that is required for querying Zendesk. See Generic Source Properties for more details.
         """
         return pulumi.get(self, "zendesk")
 
@@ -5156,7 +5156,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5164,7 +5164,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5179,8 +5179,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs:
                  entity_name: pulumi.Input[str],
                  custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] entity_name: Entity specified in the custom connector as a source in the flow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+        :param pulumi.Input[str] entity_name: Entity specified in the custom connector as a destination in the flow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
         """
         pulumi.set(__self__, "entity_name", entity_name)
         if custom_properties is not None:
@@ -5190,7 +5190,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs:
     @pulumi.getter(name="entityName")
     def entity_name(self) -> pulumi.Input[str]:
         """
-        Entity specified in the custom connector as a source in the flow.
+        Entity specified in the custom connector as a destination in the flow.
         """
         return pulumi.get(self, "entity_name")
 
@@ -5202,7 +5202,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs:
     @pulumi.getter(name="customProperties")
     def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+        Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
         """
         return pulumi.get(self, "custom_properties")
 
@@ -5216,7 +5216,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5224,7 +5224,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5238,7 +5238,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5246,7 +5246,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5260,7 +5260,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5268,7 +5268,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5282,7 +5282,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5290,7 +5290,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5304,7 +5304,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5312,7 +5312,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5328,8 +5328,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  s3_input_format_config: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs']] = None):
         """
-        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name where the source files are stored.
-        :param pulumi.Input[str] bucket_prefix: Object key for the Amazon S3 bucket in which the source files are stored.
+        :param pulumi.Input[str] bucket_name: Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        :param pulumi.Input[str] bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
         :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs'] s3_input_format_config: When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -5342,7 +5342,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
-        Amazon S3 bucket name where the source files are stored.
+        Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -5354,7 +5354,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Object key for the Amazon S3 bucket in which the source files are stored.
+        Object key for the bucket in which Amazon AppFlow places the destination files.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -5405,7 +5405,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
                  enable_dynamic_field_update: Optional[pulumi.Input[bool]] = None,
                  include_deleted_records: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         :param pulumi.Input[bool] enable_dynamic_field_update: Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         :param pulumi.Input[bool] include_deleted_records: Whether Amazon AppFlow includes deleted files in the flow run.
         """
@@ -5419,7 +5419,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5457,7 +5457,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5465,7 +5465,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5479,7 +5479,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5487,7 +5487,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5501,7 +5501,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5509,7 +5509,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5523,7 +5523,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5531,7 +5531,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5545,7 +5545,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5553,7 +5553,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5571,7 +5571,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs:
                  include_renditions: Optional[pulumi.Input[bool]] = None,
                  include_source_files: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         :param pulumi.Input[str] document_type: Document type specified in the Veeva document extract flow.
         :param pulumi.Input[bool] include_all_versions: Boolean value to include All Versions of files in Veeva document extract flow.
         :param pulumi.Input[bool] include_renditions: Boolean value to include file renditions in Veeva document extract flow.
@@ -5591,7 +5591,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 
@@ -5653,7 +5653,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] object: Object specified in the Veeva flow source.
+        :param pulumi.Input[str] object: Object specified in the flow destination.
         """
         pulumi.set(__self__, "object", object)
 
@@ -5661,7 +5661,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs:
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
         """
-        Object specified in the Veeva flow source.
+        Object specified in the flow destination.
         """
         return pulumi.get(self, "object")
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class DistributionConfigurationDistributionFastLaunchConfiguration
     {
         /// <summary>
-        /// The account ID that this configuration applies to.
+        /// The owner account ID for the fast-launch enabled Windows AMI.
         /// </summary>
         public readonly string AccountId;
         /// <summary>

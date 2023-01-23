@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerCatalogTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection to use to connect to the Delta table target.
+        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }

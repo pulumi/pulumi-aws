@@ -127,7 +127,7 @@ class SigningJobSignedObjectArgs:
     def __init__(__self__, *,
                  s3s: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]] s3s: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         if s3s is not None:
             pulumi.set(__self__, "s3s", s3s)
@@ -136,7 +136,7 @@ class SigningJobSignedObjectArgs:
     @pulumi.getter
     def s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]:
         """
-        A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         return pulumi.get(self, "s3s")
 
@@ -189,7 +189,7 @@ class SigningJobSourceArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['SigningJobSourceS3Args']):
         """
-        :param pulumi.Input['SigningJobSourceS3Args'] s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param pulumi.Input['SigningJobSourceS3Args'] s3: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -197,7 +197,7 @@ class SigningJobSourceArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input['SigningJobSourceS3Args']:
         """
-        A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         return pulumi.get(self, "s3")
 

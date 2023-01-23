@@ -79,16 +79,36 @@ public final class InstanceFleetState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The number of On-Demand units that have been provisioned for the instance
+     * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+     * 
+     */
     @Import(name="provisionedOnDemandCapacity")
     private @Nullable Output<Integer> provisionedOnDemandCapacity;
 
+    /**
+     * @return The number of On-Demand units that have been provisioned for the instance
+     * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+     * 
+     */
     public Optional<Output<Integer>> provisionedOnDemandCapacity() {
         return Optional.ofNullable(this.provisionedOnDemandCapacity);
     }
 
+    /**
+     * The number of Spot units that have been provisioned for this instance fleet
+     * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+     * 
+     */
     @Import(name="provisionedSpotCapacity")
     private @Nullable Output<Integer> provisionedSpotCapacity;
 
+    /**
+     * @return The number of Spot units that have been provisioned for this instance fleet
+     * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+     * 
+     */
     public Optional<Output<Integer>> provisionedSpotCapacity() {
         return Optional.ofNullable(this.provisionedSpotCapacity);
     }
@@ -248,20 +268,48 @@ public final class InstanceFleetState extends com.pulumi.resources.ResourceArgs 
             return name(Output.of(name));
         }
 
+        /**
+         * @param provisionedOnDemandCapacity The number of On-Demand units that have been provisioned for the instance
+         * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionedOnDemandCapacity(@Nullable Output<Integer> provisionedOnDemandCapacity) {
             $.provisionedOnDemandCapacity = provisionedOnDemandCapacity;
             return this;
         }
 
+        /**
+         * @param provisionedOnDemandCapacity The number of On-Demand units that have been provisioned for the instance
+         * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionedOnDemandCapacity(Integer provisionedOnDemandCapacity) {
             return provisionedOnDemandCapacity(Output.of(provisionedOnDemandCapacity));
         }
 
+        /**
+         * @param provisionedSpotCapacity The number of Spot units that have been provisioned for this instance fleet
+         * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionedSpotCapacity(@Nullable Output<Integer> provisionedSpotCapacity) {
             $.provisionedSpotCapacity = provisionedSpotCapacity;
             return this;
         }
 
+        /**
+         * @param provisionedSpotCapacity The number of Spot units that have been provisioned for this instance fleet
+         * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder provisionedSpotCapacity(Integer provisionedSpotCapacity) {
             return provisionedSpotCapacity(Output.of(provisionedSpotCapacity));
         }

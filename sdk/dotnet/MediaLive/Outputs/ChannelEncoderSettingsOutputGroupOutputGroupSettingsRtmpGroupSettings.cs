@@ -34,7 +34,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? CaptionData;
         /// <summary>
-        /// Specifies behavior of last resort when input video os lost.
+        /// Controls the behavior of the RTMP group if input becomes unavailable.
         /// </summary>
         public readonly string? InputLossAction;
         /// <summary>

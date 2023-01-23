@@ -19,7 +19,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string> HashKey { get; set; } = null!;
 
         /// <summary>
-        /// Name of the index
+        /// Name of the index.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string> ProjectionType { get; set; } = null!;
 
         /// <summary>
-        /// Name of the range key.
+        /// Name of the range key; must be defined
         /// </summary>
         [Input("rangeKey")]
         public Input<string>? RangeKey { get; set; }

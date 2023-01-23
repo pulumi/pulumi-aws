@@ -18,7 +18,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     private String object;
@@ -32,7 +32,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public String object() {

@@ -63,14 +63,14 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+     * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      * 
      */
     @Import(name="sessionNumber", required=true)
     private Output<Integer> sessionNumber;
 
     /**
-     * @return - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+     * @return The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      * 
      */
     public Output<Integer> sessionNumber() {
@@ -123,14 +123,14 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      * 
      */
     @Import(name="virtualNetworkId")
     private @Nullable Output<Integer> virtualNetworkId;
 
     /**
-     * @return - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+     * @return The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      * 
      */
     public Optional<Output<Integer>> virtualNetworkId() {
@@ -232,7 +232,7 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sessionNumber - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+         * @param sessionNumber The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sessionNumber - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+         * @param sessionNumber The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param virtualNetworkId - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+         * @param virtualNetworkId The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param virtualNetworkId - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
+         * @param virtualNetworkId The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
          * 
          * @return builder
          * 

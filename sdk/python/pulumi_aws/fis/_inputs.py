@@ -30,7 +30,7 @@ class ExperimentTemplateActionArgs:
                  target: Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']] = None):
         """
         :param pulumi.Input[str] action_id: ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        :param pulumi.Input[str] name: Friendly name given to the target.
+        :param pulumi.Input[str] name: Friendly name of the action.
         :param pulumi.Input[str] description: Description of the action.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]] parameters: Parameter(s) for the action, if applicable. See below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] start_afters: Set of action names that must complete before this action can be executed.
@@ -63,7 +63,7 @@ class ExperimentTemplateActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Friendly name given to the target.
+        Friendly name of the action.
         """
         return pulumi.get(self, "name")
 
@@ -126,8 +126,8 @@ class ExperimentTemplateActionParameterArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: Tag key.
-        :param pulumi.Input[str] value: Tag value.
+        :param pulumi.Input[str] key: Parameter name.
+        :param pulumi.Input[str] value: Parameter value.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -136,7 +136,7 @@ class ExperimentTemplateActionParameterArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Tag key.
+        Parameter name.
         """
         return pulumi.get(self, "key")
 
@@ -148,7 +148,7 @@ class ExperimentTemplateActionParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Tag value.
+        Parameter value.
         """
         return pulumi.get(self, "value")
 
@@ -163,8 +163,8 @@ class ExperimentTemplateActionTargetArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] key: Tag key.
-        :param pulumi.Input[str] value: Tag value.
+        :param pulumi.Input[str] key: Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
+        :param pulumi.Input[str] value: Target name, referencing a corresponding target.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -173,7 +173,7 @@ class ExperimentTemplateActionTargetArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Tag key.
+        Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
         """
         return pulumi.get(self, "key")
 
@@ -185,7 +185,7 @@ class ExperimentTemplateActionTargetArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Tag value.
+        Target name, referencing a corresponding target.
         """
         return pulumi.get(self, "value")
 
@@ -201,7 +201,7 @@ class ExperimentTemplateStopConditionArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] source: Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-        :param pulumi.Input[str] value: Tag value.
+        :param pulumi.Input[str] value: ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
         """
         pulumi.set(__self__, "source", source)
         if value is not None:
@@ -223,7 +223,7 @@ class ExperimentTemplateStopConditionArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Tag value.
+        ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
         """
         return pulumi.get(self, "value")
 

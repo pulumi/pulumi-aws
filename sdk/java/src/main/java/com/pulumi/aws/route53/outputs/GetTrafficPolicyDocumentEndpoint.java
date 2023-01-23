@@ -12,17 +12,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTrafficPolicyDocumentEndpoint {
     /**
-     * @return ID of a rule you want to assign.
+     * @return ID of an endpoint you want to assign.
      * 
      */
     private String id;
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     private @Nullable String region;
     /**
-     * @return Type of the rule.
+     * @return Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
      * 
      */
     private @Nullable String type;
@@ -34,21 +34,21 @@ public final class GetTrafficPolicyDocumentEndpoint {
 
     private GetTrafficPolicyDocumentEndpoint() {}
     /**
-     * @return ID of a rule you want to assign.
+     * @return ID of an endpoint you want to assign.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
     /**
-     * @return Type of the rule.
+     * @return Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
      * 
      */
     public Optional<String> type() {

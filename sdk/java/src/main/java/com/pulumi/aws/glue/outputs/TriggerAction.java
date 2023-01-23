@@ -20,12 +20,12 @@ public final class TriggerAction {
      */
     private @Nullable Map<String,String> arguments;
     /**
-     * @return The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+     * @return The name of the crawler to be executed. Conflicts with `job_name`.
      * 
      */
     private @Nullable String crawlerName;
     /**
-     * @return The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+     * @return The name of a job to be executed. Conflicts with `crawler_name`.
      * 
      */
     private @Nullable String jobName;
@@ -54,14 +54,14 @@ public final class TriggerAction {
         return this.arguments == null ? Map.of() : this.arguments;
     }
     /**
-     * @return The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+     * @return The name of the crawler to be executed. Conflicts with `job_name`.
      * 
      */
     public Optional<String> crawlerName() {
         return Optional.ofNullable(this.crawlerName);
     }
     /**
-     * @return The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+     * @return The name of a job to be executed. Conflicts with `crawler_name`.
      * 
      */
     public Optional<String> jobName() {

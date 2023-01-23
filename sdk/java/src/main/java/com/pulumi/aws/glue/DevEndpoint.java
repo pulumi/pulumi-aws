@@ -174,14 +174,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
         return this.failureReason;
     }
     /**
-     * -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+     * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      * 
      */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> glueVersion;
 
     /**
-     * @return -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+     * @return Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      * 
      */
     public Output<Optional<String>> glueVersion() {

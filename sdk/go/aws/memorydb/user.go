@@ -76,7 +76,6 @@ type User struct {
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
 	// The minimum engine version supported for the user.
-	// * `authenticationMode` configuration block
 	MinimumEngineVersion pulumi.StringOutput `pulumi:"minimumEngineVersion"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -131,7 +130,6 @@ type userState struct {
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
 	// The minimum engine version supported for the user.
-	// * `authenticationMode` configuration block
 	MinimumEngineVersion *string `pulumi:"minimumEngineVersion"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -149,7 +147,6 @@ type UserState struct {
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModePtrInput
 	// The minimum engine version supported for the user.
-	// * `authenticationMode` configuration block
 	MinimumEngineVersion pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -289,7 +286,6 @@ func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
 }
 
 // The minimum engine version supported for the user.
-// * `authenticationMode` configuration block
 func (o UserOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.MinimumEngineVersion }).(pulumi.StringOutput)
 }

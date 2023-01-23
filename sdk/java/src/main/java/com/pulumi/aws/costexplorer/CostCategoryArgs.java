@@ -80,14 +80,14 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the Cost Category rules used to categorize costs. See below.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<CostCategoryRuleArgs>> rules;
 
     /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
+     * @return Configuration block for the Cost Category rules used to categorize costs. See below.
      * 
      */
     public Output<List<CostCategoryRuleArgs>> rules() {
@@ -110,14 +110,14 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -239,7 +239,7 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Configuration block for the `Expression` object used to categorize costs. See below.
+         * @param rules Configuration block for the Cost Category rules used to categorize costs. See below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Configuration block for the `Expression` object used to categorize costs. See below.
+         * @param rules Configuration block for the Cost Category rules used to categorize costs. See below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Configuration block for the `Expression` object used to categorize costs. See below.
+         * @param rules Configuration block for the Cost Category rules used to categorize costs. See below.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class CostCategoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

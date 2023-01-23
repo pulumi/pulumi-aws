@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorCapacityAutoscalingScaleInPolicy
     {
         /// <summary>
-        /// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+        /// Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
         /// </summary>
         public readonly int? CpuUtilizationPercentage;
 

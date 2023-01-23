@@ -19,7 +19,7 @@ namespace Pulumi.Aws.RedShift.Inputs
         public Input<bool>? Classic { get; set; }
 
         /// <summary>
-        /// The identifier of the cluster to be resumed.
+        /// The unique identifier for the cluster to resize.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;

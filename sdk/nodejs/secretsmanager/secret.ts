@@ -88,7 +88,7 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly forceOverwriteReplicaSecret!: pulumi.Output<boolean | undefined>;
     /**
-     * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+     * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface SecretState {
      */
     forceOverwriteReplicaSecret?: pulumi.Input<boolean>;
     /**
-     * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+     * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -268,7 +268,7 @@ export interface SecretArgs {
      */
     forceOverwriteReplicaSecret?: pulumi.Input<boolean>;
     /**
-     * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+     * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**

@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.NodeGroupUpdateConfig> UpdateConfig { get; private set; } = null!;
 
         /// <summary>
-        /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupUpdateConfigArgs>? UpdateConfig { get; set; }
 
         /// <summary>
-        /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -635,7 +635,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupUpdateConfigGetArgs>? UpdateConfig { get; set; }
 
         /// <summary>
-        /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

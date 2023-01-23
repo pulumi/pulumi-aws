@@ -21,14 +21,14 @@ public final class ResponseHeadersPolicySecurityHeadersConfigArgs extends com.pu
     public static final ResponseHeadersPolicySecurityHeadersConfigArgs Empty = new ResponseHeadersPolicySecurityHeadersConfigArgs();
 
     /**
-     * The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+     * The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
      * 
      */
     @Import(name="contentSecurityPolicy")
     private @Nullable Output<ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs> contentSecurityPolicy;
 
     /**
-     * @return The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+     * @return The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
      * 
      */
     public Optional<Output<ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs>> contentSecurityPolicy() {
@@ -66,14 +66,14 @@ public final class ResponseHeadersPolicySecurityHeadersConfigArgs extends com.pu
     }
 
     /**
-     * The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+     * Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
      * 
      */
     @Import(name="referrerPolicy")
     private @Nullable Output<ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs> referrerPolicy;
 
     /**
-     * @return The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+     * @return Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
      * 
      */
     public Optional<Output<ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs>> referrerPolicy() {
@@ -140,7 +140,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigArgs extends com.pu
         }
 
         /**
-         * @param contentSecurityPolicy The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+         * @param contentSecurityPolicy The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigArgs extends com.pu
         }
 
         /**
-         * @param contentSecurityPolicy The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+         * @param contentSecurityPolicy The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigArgs extends com.pu
         }
 
         /**
-         * @param referrerPolicy The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         * @param referrerPolicy Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigArgs extends com.pu
         }
 
         /**
-         * @param referrerPolicy The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         * @param referrerPolicy Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
          * 
          * @return builder
          * 

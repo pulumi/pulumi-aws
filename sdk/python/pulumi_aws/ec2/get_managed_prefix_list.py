@@ -182,7 +182,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the prefix list to select.
-    :param str name: Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+    :param str name: Name of the prefix list to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
@@ -241,7 +241,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the prefix list to select.
-    :param str name: Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+    :param str name: Name of the prefix list to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

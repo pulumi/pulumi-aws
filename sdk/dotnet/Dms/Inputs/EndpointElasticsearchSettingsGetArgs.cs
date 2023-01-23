@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<int>? FullLoadErrorPercentage { get; set; }
 
         /// <summary>
-        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         /// </summary>
         [Input("serviceAccessRoleArn", required: true)]
         public Input<string> ServiceAccessRoleArn { get; set; } = null!;

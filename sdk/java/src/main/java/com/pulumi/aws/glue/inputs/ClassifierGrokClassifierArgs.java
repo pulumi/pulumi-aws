@@ -16,14 +16,14 @@ public final class ClassifierGrokClassifierArgs extends com.pulumi.resources.Res
     public static final ClassifierGrokClassifierArgs Empty = new ClassifierGrokClassifierArgs();
 
     /**
-     * An identifier of the data format that the classifier matches.
+     * An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
      * 
      */
     @Import(name="classification", required=true)
     private Output<String> classification;
 
     /**
-     * @return An identifier of the data format that the classifier matches.
+     * @return An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
      * 
      */
     public Output<String> classification() {
@@ -87,7 +87,7 @@ public final class ClassifierGrokClassifierArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param classification An identifier of the data format that the classifier matches.
+         * @param classification An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ClassifierGrokClassifierArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param classification An identifier of the data format that the classifier matches.
+         * @param classification An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
          * 
          * @return builder
          * 

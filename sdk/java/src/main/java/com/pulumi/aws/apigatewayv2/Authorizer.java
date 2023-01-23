@@ -64,7 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigatewayv2.Authorizer;
  * import com.pulumi.aws.apigatewayv2.AuthorizerArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.AuthorizerJwtConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,12 +79,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
  *             .apiId(aws_apigatewayv2_api.example().id())
- *             .authorizerType(&#34;JWT&#34;)
+ *             .authorizerType(&#34;REQUEST&#34;)
+ *             .authorizerUri(aws_lambda_function.example().invoke_arn())
  *             .identitySources(&#34;$request.header.Authorization&#34;)
- *             .jwtConfiguration(AuthorizerJwtConfigurationArgs.builder()
- *                 .audiences(&#34;example&#34;)
- *                 .issuer(String.format(&#34;https://%s&#34;, aws_cognito_user_pool.example().endpoint()))
- *                 .build())
+ *             .authorizerPayloadFormatVersion(&#34;2.0&#34;)
  *             .build());
  * 
  *     }

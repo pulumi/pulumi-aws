@@ -274,7 +274,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly maxFileSize!: pulumi.Output<number | undefined>;
     /**
-     * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+     * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      */
     public readonly parquetTimestampInMillisecond!: pulumi.Output<boolean | undefined>;
     /**
@@ -618,7 +618,7 @@ export interface S3EndpointState {
      */
     maxFileSize?: pulumi.Input<number>;
     /**
-     * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+     * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      */
     parquetTimestampInMillisecond?: pulumi.Input<boolean>;
     /**
@@ -816,7 +816,7 @@ export interface S3EndpointArgs {
      */
     maxFileSize?: pulumi.Input<number>;
     /**
-     * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+     * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      */
     parquetTimestampInMillisecond?: pulumi.Input<boolean>;
     /**

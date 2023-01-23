@@ -23,12 +23,12 @@ public final class ProjectLogsConfigS3Logs {
      */
     private @Nullable Boolean encryptionDisabled;
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     private @Nullable String location;
     /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     private @Nullable String status;
@@ -49,14 +49,14 @@ public final class ProjectLogsConfigS3Logs {
         return Optional.ofNullable(this.encryptionDisabled);
     }
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     public Optional<String> status() {

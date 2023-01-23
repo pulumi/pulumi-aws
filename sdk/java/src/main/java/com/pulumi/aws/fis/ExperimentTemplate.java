@@ -107,14 +107,14 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
         return this.actions;
     }
     /**
-     * Description of the action.
+     * Description for the experiment template.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Description of the action.
+     * @return Description for the experiment template.
      * 
      */
     public Output<String> description() {
@@ -169,14 +169,14 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Action&#39;s target, if applicable. See below.
+     * Target of an action. See below.
      * 
      */
     @Export(name="targets", refs={List.class,ExperimentTemplateTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ExperimentTemplateTarget>> targets;
 
     /**
-     * @return Action&#39;s target, if applicable. See below.
+     * @return Target of an action. See below.
      * 
      */
     public Output<Optional<List<ExperimentTemplateTarget>>> targets() {

@@ -14,14 +14,14 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
     public static final TableAttributeArgs Empty = new TableAttributeArgs();
 
     /**
-     * Name of the index
+     * Name of the attribute
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the index
+     * @return Name of the attribute
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Name of the index
+         * @param name Name of the attribute
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Name of the index
+         * @param name Name of the attribute
          * 
          * @return builder
          * 

@@ -528,9 +528,9 @@ func (o CatalogTablePartitionIndexArrayOutput) Index(i pulumi.IntInput) CatalogT
 type CatalogTablePartitionKey struct {
 	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
-	// Name of the target table.
+	// Name of the Partition Key.
 	Name string `pulumi:"name"`
-	// Datatype of data in the Column.
+	// Datatype of data in the Partition Key.
 	Type *string `pulumi:"type"`
 }
 
@@ -548,9 +548,9 @@ type CatalogTablePartitionKeyInput interface {
 type CatalogTablePartitionKeyArgs struct {
 	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// Name of the target table.
+	// Name of the Partition Key.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Datatype of data in the Column.
+	// Datatype of data in the Partition Key.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -610,12 +610,12 @@ func (o CatalogTablePartitionKeyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTablePartitionKey) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Name of the target table.
+// Name of the Partition Key.
 func (o CatalogTablePartitionKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTablePartitionKey) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Datatype of data in the Column.
+// Datatype of data in the Partition Key.
 func (o CatalogTablePartitionKeyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTablePartitionKey) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -655,7 +655,7 @@ type CatalogTableStorageDescriptor struct {
 	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
 	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat *string `pulumi:"outputFormat"`
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// User-supplied properties in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
 	SchemaReference *CatalogTableStorageDescriptorSchemaReference `pulumi:"schemaReference"`
@@ -695,7 +695,7 @@ type CatalogTableStorageDescriptorArgs struct {
 	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
 	// Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// User-supplied properties in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
 	SchemaReference CatalogTableStorageDescriptorSchemaReferencePtrInput `pulumi:"schemaReference"`
@@ -821,7 +821,7 @@ func (o CatalogTableStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutp
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
-// Map of initialization parameters for the SerDe, in key-value form.
+// User-supplied properties in key-value form.
 func (o CatalogTableStorageDescriptorOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -947,7 +947,7 @@ func (o CatalogTableStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Map of initialization parameters for the SerDe, in key-value form.
+// User-supplied properties in key-value form.
 func (o CatalogTableStorageDescriptorPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptor) map[string]string {
 		if v == nil {
@@ -1010,9 +1010,9 @@ func (o CatalogTableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.
 type CatalogTableStorageDescriptorColumn struct {
 	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
-	// Name of the target table.
+	// Name of the Column.
 	Name string `pulumi:"name"`
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// Key-value pairs defining properties associated with the column.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Datatype of data in the Column.
 	Type *string `pulumi:"type"`
@@ -1032,9 +1032,9 @@ type CatalogTableStorageDescriptorColumnInput interface {
 type CatalogTableStorageDescriptorColumnArgs struct {
 	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// Name of the target table.
+	// Name of the Column.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// Key-value pairs defining properties associated with the column.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Datatype of data in the Column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -1096,12 +1096,12 @@ func (o CatalogTableStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOut
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Name of the target table.
+// Name of the Column.
 func (o CatalogTableStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of initialization parameters for the SerDe, in key-value form.
+// Key-value pairs defining properties associated with the column.
 func (o CatalogTableStorageDescriptorColumnOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorColumn) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -1484,7 +1484,7 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) SchemaNam
 }
 
 type CatalogTableStorageDescriptorSerDeInfo struct {
-	// Name of the target table.
+	// Name of the SerDe.
 	Name *string `pulumi:"name"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -1504,7 +1504,7 @@ type CatalogTableStorageDescriptorSerDeInfoInput interface {
 }
 
 type CatalogTableStorageDescriptorSerDeInfoArgs struct {
-	// Name of the target table.
+	// Name of the SerDe.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of initialization parameters for the SerDe, in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
@@ -1589,7 +1589,7 @@ func (o CatalogTableStorageDescriptorSerDeInfoOutput) ToCatalogTableStorageDescr
 	}).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
 
-// Name of the target table.
+// Name of the SerDe.
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1628,7 +1628,7 @@ func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Elem() CatalogTableStor
 	}).(CatalogTableStorageDescriptorSerDeInfoOutput)
 }
 
-// Name of the target table.
+// Name of the SerDe.
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) *string {
 		if v == nil {
@@ -2387,7 +2387,7 @@ func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 }
 
 type ClassifierGrokClassifier struct {
-	// An identifier of the data format that the classifier matches.
+	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 	Classification string `pulumi:"classification"`
 	// Custom grok patterns used by this classifier.
 	CustomPatterns *string `pulumi:"customPatterns"`
@@ -2407,7 +2407,7 @@ type ClassifierGrokClassifierInput interface {
 }
 
 type ClassifierGrokClassifierArgs struct {
-	// An identifier of the data format that the classifier matches.
+	// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 	Classification pulumi.StringInput `pulumi:"classification"`
 	// Custom grok patterns used by this classifier.
 	CustomPatterns pulumi.StringPtrInput `pulumi:"customPatterns"`
@@ -2492,7 +2492,7 @@ func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutputWithC
 	}).(ClassifierGrokClassifierPtrOutput)
 }
 
-// An identifier of the data format that the classifier matches.
+// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 func (o ClassifierGrokClassifierOutput) Classification() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
 }
@@ -2531,7 +2531,7 @@ func (o ClassifierGrokClassifierPtrOutput) Elem() ClassifierGrokClassifierOutput
 	}).(ClassifierGrokClassifierOutput)
 }
 
-// An identifier of the data format that the classifier matches.
+// An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 func (o ClassifierGrokClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
 		if v == nil {
@@ -3030,7 +3030,7 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.Str
 }
 
 type CrawlerCatalogTarget struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 	ConnectionName *string `pulumi:"connectionName"`
 	// The name of the Glue database to be synchronized.
 	DatabaseName string `pulumi:"databaseName"`
@@ -3054,7 +3054,7 @@ type CrawlerCatalogTargetInput interface {
 }
 
 type CrawlerCatalogTargetArgs struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
@@ -3117,7 +3117,7 @@ func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx 
 	return o
 }
 
-// The name of the connection to use to connect to the Delta table target.
+// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 func (o CrawlerCatalogTargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
@@ -3278,9 +3278,9 @@ func (o CrawlerDeltaTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDeltaTarg
 }
 
 type CrawlerDynamodbTarget struct {
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// The name of the DynamoDB table to crawl.
 	Path string `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
 	ScanAll *bool `pulumi:"scanAll"`
 	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
 	ScanRate *float64 `pulumi:"scanRate"`
@@ -3298,9 +3298,9 @@ type CrawlerDynamodbTargetInput interface {
 }
 
 type CrawlerDynamodbTargetArgs struct {
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// The name of the DynamoDB table to crawl.
 	Path pulumi.StringInput `pulumi:"path"`
-	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+	// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
 	ScanAll pulumi.BoolPtrInput `pulumi:"scanAll"`
 	// The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
 	ScanRate pulumi.Float64PtrInput `pulumi:"scanRate"`
@@ -3357,12 +3357,12 @@ func (o CrawlerDynamodbTargetOutput) ToCrawlerDynamodbTargetOutputWithContext(ct
 	return o
 }
 
-// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+// The name of the DynamoDB table to crawl.
 func (o CrawlerDynamodbTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
 func (o CrawlerDynamodbTargetOutput) ScanAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CrawlerDynamodbTarget) *bool { return v.ScanAll }).(pulumi.BoolPtrOutput)
 }
@@ -3393,13 +3393,13 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 }
 
 type CrawlerJdbcTarget struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName string `pulumi:"connectionName"`
 	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 	EnableAdditionalMetadatas []string `pulumi:"enableAdditionalMetadatas"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// The path of the JDBC target.
 	Path string `pulumi:"path"`
 }
 
@@ -3415,13 +3415,13 @@ type CrawlerJdbcTargetInput interface {
 }
 
 type CrawlerJdbcTargetArgs struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
 	// Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
 	EnableAdditionalMetadatas pulumi.StringArrayInput `pulumi:"enableAdditionalMetadatas"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// The path of the JDBC target.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -3476,7 +3476,7 @@ func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the connection to use to connect to the Delta table target.
+// The name of the connection to use to connect to the JDBC target.
 func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
@@ -3491,7 +3491,7 @@ func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+// The path of the JDBC target.
 func (o CrawlerJdbcTargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerJdbcTarget) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -3810,7 +3810,7 @@ func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.St
 }
 
 type CrawlerMongodbTarget struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName string `pulumi:"connectionName"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
@@ -3830,7 +3830,7 @@ type CrawlerMongodbTargetInput interface {
 }
 
 type CrawlerMongodbTargetArgs struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName pulumi.StringInput `pulumi:"connectionName"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path pulumi.StringInput `pulumi:"path"`
@@ -3889,7 +3889,7 @@ func (o CrawlerMongodbTargetOutput) ToCrawlerMongodbTargetOutputWithContext(ctx 
 	return o
 }
 
-// The name of the connection to use to connect to the Delta table target.
+// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 func (o CrawlerMongodbTargetOutput) ConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerMongodbTarget) string { return v.ConnectionName }).(pulumi.StringOutput)
 }
@@ -4062,15 +4062,15 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 }
 
 type CrawlerS3Target struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName *string `pulumi:"connectionName"`
-	// A valid Amazon SQS ARN.
+	// The ARN of the dead-letter SQS queue.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN.
+	// The ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn *string `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// The name of the DynamoDB table to crawl.
 	Path string `pulumi:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
 	SampleSize *int `pulumi:"sampleSize"`
@@ -4088,15 +4088,15 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
-	// The name of the connection to use to connect to the Delta table target.
+	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// A valid Amazon SQS ARN.
+	// The ARN of the dead-letter SQS queue.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// A valid Amazon SQS ARN.
+	// The ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
-	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+	// The name of the DynamoDB table to crawl.
 	Path pulumi.StringInput `pulumi:"path"`
 	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
@@ -4153,17 +4153,17 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the connection to use to connect to the Delta table target.
+// The name of the connection to use to connect to the JDBC target.
 func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon SQS ARN.
+// The ARN of the dead-letter SQS queue.
 func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon SQS ARN.
+// The ARN of the SQS queue to receive S3 notifications from.
 func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
@@ -4173,7 +4173,7 @@ func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
 }
 
-// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+// The name of the DynamoDB table to crawl.
 func (o CrawlerS3TargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -6056,7 +6056,7 @@ type PartitionStorageDescriptor struct {
 	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
 	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat *string `pulumi:"outputFormat"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// User-supplied properties in key-value form.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Serialization/deserialization (SerDe) information.
 	SerDeInfo *PartitionStorageDescriptorSerDeInfo `pulumi:"serDeInfo"`
@@ -6094,7 +6094,7 @@ type PartitionStorageDescriptorArgs struct {
 	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
 	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
 	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// User-supplied properties in key-value form.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Serialization/deserialization (SerDe) information.
 	SerDeInfo PartitionStorageDescriptorSerDeInfoPtrInput `pulumi:"serDeInfo"`
@@ -6218,7 +6218,7 @@ func (o PartitionStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// User-supplied properties in key-value form.
 func (o PartitionStorageDescriptorOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptor) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -6337,7 +6337,7 @@ func (o PartitionStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// User-supplied properties in key-value form.
 func (o PartitionStorageDescriptorPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PartitionStorageDescriptor) map[string]string {
 		if v == nil {
@@ -6390,7 +6390,7 @@ func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.Boo
 type PartitionStorageDescriptorColumn struct {
 	// Free-form text comment.
 	Comment *string `pulumi:"comment"`
-	// Name of the SerDe.
+	// The name of the Column.
 	Name string `pulumi:"name"`
 	// The datatype of data in the Column.
 	Type *string `pulumi:"type"`
@@ -6410,7 +6410,7 @@ type PartitionStorageDescriptorColumnInput interface {
 type PartitionStorageDescriptorColumnArgs struct {
 	// Free-form text comment.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// Name of the SerDe.
+	// The name of the Column.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The datatype of data in the Column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -6472,7 +6472,7 @@ func (o PartitionStorageDescriptorColumnOutput) Comment() pulumi.StringPtrOutput
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Name of the SerDe.
+// The name of the Column.
 func (o PartitionStorageDescriptorColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PartitionStorageDescriptorColumn) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7606,9 +7606,9 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) S3Enc
 type TriggerAction struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 	Arguments map[string]string `pulumi:"arguments"`
-	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	// The name of the crawler to be executed. Conflicts with `jobName`.
 	CrawlerName *string `pulumi:"crawlerName"`
-	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	// The name of a job to be executed. Conflicts with `crawlerName`.
 	JobName *string `pulumi:"jobName"`
 	// Specifies configuration properties of a job run notification. See Notification Property details below.
 	NotificationProperty *TriggerActionNotificationProperty `pulumi:"notificationProperty"`
@@ -7632,9 +7632,9 @@ type TriggerActionInput interface {
 type TriggerActionArgs struct {
 	// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 	Arguments pulumi.StringMapInput `pulumi:"arguments"`
-	// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+	// The name of the crawler to be executed. Conflicts with `jobName`.
 	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
-	// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+	// The name of a job to be executed. Conflicts with `crawlerName`.
 	JobName pulumi.StringPtrInput `pulumi:"jobName"`
 	// Specifies configuration properties of a job run notification. See Notification Property details below.
 	NotificationProperty TriggerActionNotificationPropertyPtrInput `pulumi:"notificationProperty"`
@@ -7700,12 +7700,12 @@ func (o TriggerActionOutput) Arguments() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TriggerAction) map[string]string { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
-// The name of the crawler to watch. If this is specified, `crawlState` must also be specified. Conflicts with `jobName`.
+// The name of the crawler to be executed. Conflicts with `jobName`.
 func (o TriggerActionOutput) CrawlerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawlerName`.
+// The name of a job to be executed. Conflicts with `crawlerName`.
 func (o TriggerActionOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TriggerAction) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }

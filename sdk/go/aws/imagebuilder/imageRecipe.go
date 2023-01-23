@@ -89,7 +89,7 @@ type ImageRecipe struct {
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
 	// Description of the image recipe.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the component parameter.
+	// Name of the image recipe.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the image recipe.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -159,7 +159,7 @@ type imageRecipeState struct {
 	DateCreated *string `pulumi:"dateCreated"`
 	// Description of the image recipe.
 	Description *string `pulumi:"description"`
-	// The name of the component parameter.
+	// Name of the image recipe.
 	Name *string `pulumi:"name"`
 	// Owner of the image recipe.
 	Owner *string `pulumi:"owner"`
@@ -192,7 +192,7 @@ type ImageRecipeState struct {
 	DateCreated pulumi.StringPtrInput
 	// Description of the image recipe.
 	Description pulumi.StringPtrInput
-	// The name of the component parameter.
+	// Name of the image recipe.
 	Name pulumi.StringPtrInput
 	// Owner of the image recipe.
 	Owner pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type imageRecipeArgs struct {
 	Components []ImageRecipeComponent `pulumi:"components"`
 	// Description of the image recipe.
 	Description *string `pulumi:"description"`
-	// The name of the component parameter.
+	// Name of the image recipe.
 	Name *string `pulumi:"name"`
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage string `pulumi:"parentImage"`
@@ -249,7 +249,7 @@ type ImageRecipeArgs struct {
 	Components ImageRecipeComponentArrayInput
 	// Description of the image recipe.
 	Description pulumi.StringPtrInput
-	// The name of the component parameter.
+	// Name of the image recipe.
 	Name pulumi.StringPtrInput
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage pulumi.StringInput
@@ -377,7 +377,7 @@ func (o ImageRecipeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the component parameter.
+// Name of the image recipe.
 func (o ImageRecipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

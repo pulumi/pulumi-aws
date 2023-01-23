@@ -133,7 +133,6 @@ namespace Pulumi.Aws.MemoryDb
         public readonly string Arn;
         /// <summary>
         /// True when the cluster allows automatic minor version upgrades.
-        /// * `cluster_endpoint`
         /// </summary>
         public readonly bool AutoMinorVersionUpgrade;
         public readonly ImmutableArray<Outputs.GetClusterClusterEndpointResult> ClusterEndpoints;
@@ -171,7 +170,6 @@ namespace Pulumi.Aws.MemoryDb
         public readonly string MaintenanceWindow;
         /// <summary>
         /// Name of this node.
-        /// * `endpoint`
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -212,9 +210,11 @@ namespace Pulumi.Aws.MemoryDb
         public readonly string SnapshotWindow;
         /// <summary>
         /// ARN of the SNS topic to which cluster notifications are sent.
-        /// * `subnet_group_name` -The name of the subnet group used for the cluster.
         /// </summary>
         public readonly string SnsTopicArn;
+        /// <summary>
+        /// The name of the subnet group used for the cluster.
+        /// </summary>
         public readonly string SubnetGroupName;
         /// <summary>
         /// Map of tags assigned to the cluster.

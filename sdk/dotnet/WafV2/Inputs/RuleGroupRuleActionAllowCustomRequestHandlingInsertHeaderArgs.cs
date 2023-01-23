@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The label string.
+        /// A friendly name of the rule group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

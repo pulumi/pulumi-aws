@@ -15,14 +15,14 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
     public static final UserPoolAccountRecoverySettingRecoveryMechanismArgs Empty = new UserPoolAccountRecoverySettingRecoveryMechanismArgs();
 
     /**
-     * Name of the attribute.
+     * Name of the user pool.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the attribute.
+     * @return Name of the user pool.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
         }
 
         /**
-         * @param name Name of the attribute.
+         * @param name Name of the user pool.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
         }
 
         /**
-         * @param name Name of the attribute.
+         * @param name Name of the user pool.
          * 
          * @return builder
          * 

@@ -17,7 +17,7 @@ public final class LifecyclePolicyPolicyDetailsAction {
      */
     private List<LifecyclePolicyPolicyDetailsActionCrossRegionCopy> crossRegionCopies;
     /**
-     * @return A name for the schedule.
+     * @return A descriptive name for the action.
      * 
      */
     private String name;
@@ -31,7 +31,7 @@ public final class LifecyclePolicyPolicyDetailsAction {
         return this.crossRegionCopies;
     }
     /**
-     * @return A name for the schedule.
+     * @return A descriptive name for the action.
      * 
      */
     public String name() {

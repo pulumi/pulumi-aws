@@ -457,7 +457,7 @@ type FileCacheDataRepositoryAssociation struct {
 	FileSystemId          *string `pulumi:"fileSystemId"`
 	FileSystemPath        *string `pulumi:"fileSystemPath"`
 	ImportedFileChunkSize *int    `pulumi:"importedFileChunkSize"`
-	// - (Optional) See the `nfs` configuration block.
+	// (Optional) See the `nfs` configuration block.
 	Nfs         []FileCacheDataRepositoryAssociationNf `pulumi:"nfs"`
 	ResourceArn *string                                `pulumi:"resourceArn"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -488,7 +488,7 @@ type FileCacheDataRepositoryAssociationArgs struct {
 	FileSystemId          pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	FileSystemPath        pulumi.StringPtrInput `pulumi:"fileSystemPath"`
 	ImportedFileChunkSize pulumi.IntPtrInput    `pulumi:"importedFileChunkSize"`
-	// - (Optional) See the `nfs` configuration block.
+	// (Optional) See the `nfs` configuration block.
 	Nfs         FileCacheDataRepositoryAssociationNfArrayInput `pulumi:"nfs"`
 	ResourceArn pulumi.StringPtrInput                          `pulumi:"resourceArn"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -582,7 +582,7 @@ func (o FileCacheDataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *int { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
 }
 
-// - (Optional) See the `nfs` configuration block.
+// (Optional) See the `nfs` configuration block.
 func (o FileCacheDataRepositoryAssociationOutput) Nfs() FileCacheDataRepositoryAssociationNfArrayOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) []FileCacheDataRepositoryAssociationNf { return v.Nfs }).(FileCacheDataRepositoryAssociationNfArrayOutput)
 }
@@ -617,9 +617,9 @@ func (o FileCacheDataRepositoryAssociationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FileCacheDataRepositoryAssociationNf struct {
-	// - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+	// A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
 	DnsIps []string `pulumi:"dnsIps"`
-	// - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+	// The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
 	Version string `pulumi:"version"`
 }
 
@@ -635,9 +635,9 @@ type FileCacheDataRepositoryAssociationNfInput interface {
 }
 
 type FileCacheDataRepositoryAssociationNfArgs struct {
-	// - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+	// A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
 	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
-	// - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+	// The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -692,12 +692,12 @@ func (o FileCacheDataRepositoryAssociationNfOutput) ToFileCacheDataRepositoryAss
 	return o
 }
 
-// - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+// A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
 func (o FileCacheDataRepositoryAssociationNfOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociationNf) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
 }
 
-// - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+// The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
 func (o FileCacheDataRepositoryAssociationNfOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociationNf) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -963,7 +963,7 @@ func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) Index(i pulumi.
 }
 
 type FileCacheLustreConfigurationMetadataConfiguration struct {
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 }
 
@@ -979,7 +979,7 @@ type FileCacheLustreConfigurationMetadataConfigurationInput interface {
 }
 
 type FileCacheLustreConfigurationMetadataConfigurationArgs struct {
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntInput `pulumi:"storageCapacity"`
 }
 
@@ -1034,7 +1034,7 @@ func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLust
 	return o
 }
 
-// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 func (o FileCacheLustreConfigurationMetadataConfigurationOutput) StorageCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v FileCacheLustreConfigurationMetadataConfiguration) int { return v.StorageCapacity }).(pulumi.IntOutput)
 }
@@ -1216,9 +1216,9 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 }
 
 type OntapFileSystemDiskIopsConfiguration struct {
-	// - The total number of SSD IOPS provisioned for the file system.
+	// The total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
-	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -1234,9 +1234,9 @@ type OntapFileSystemDiskIopsConfigurationInput interface {
 }
 
 type OntapFileSystemDiskIopsConfigurationArgs struct {
-	// - The total number of SSD IOPS provisioned for the file system.
+	// The total number of SSD IOPS provisioned for the file system.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -1317,12 +1317,12 @@ func (o OntapFileSystemDiskIopsConfigurationOutput) ToOntapFileSystemDiskIopsCon
 	}).(OntapFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-// - The total number of SSD IOPS provisioned for the file system.
+// The total number of SSD IOPS provisioned for the file system.
 func (o OntapFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OntapFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1351,7 +1351,7 @@ func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Elem() OntapFileSystemDis
 	}).(OntapFileSystemDiskIopsConfigurationOutput)
 }
 
-// - The total number of SSD IOPS provisioned for the file system.
+// The total number of SSD IOPS provisioned for the file system.
 func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapFileSystemDiskIopsConfiguration) *int {
 		if v == nil {
@@ -1361,7 +1361,7 @@ func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapFileSystemDiskIopsConfiguration) *string {
 		if v == nil {
@@ -2790,9 +2790,9 @@ func (o OntapVolumeTieringPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type OpenZfsFileSystemDiskIopsConfiguration struct {
-	// - The total number of SSD IOPS provisioned for the file system.
+	// The total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
-	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -2808,9 +2808,9 @@ type OpenZfsFileSystemDiskIopsConfigurationInput interface {
 }
 
 type OpenZfsFileSystemDiskIopsConfigurationArgs struct {
-	// - The total number of SSD IOPS provisioned for the file system.
+	// The total number of SSD IOPS provisioned for the file system.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -2891,12 +2891,12 @@ func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOpenZfsFileSystemDiskIop
 	}).(OpenZfsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-// - The total number of SSD IOPS provisioned for the file system.
+// The total number of SSD IOPS provisioned for the file system.
 func (o OpenZfsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OpenZfsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -2925,7 +2925,7 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Elem() OpenZfsFileSyste
 	}).(OpenZfsFileSystemDiskIopsConfigurationOutput)
 }
 
-// - The total number of SSD IOPS provisioned for the file system.
+// The total number of SSD IOPS provisioned for the file system.
 func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemDiskIopsConfiguration) *int {
 		if v == nil {
@@ -2935,7 +2935,7 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemDiskIopsConfiguration) *string {
 		if v == nil {
@@ -2946,17 +2946,17 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtr
 }
 
 type OpenZfsFileSystemRootVolumeConfiguration struct {
-	// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
-	// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
-	// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
 	NfsExports *OpenZfsFileSystemRootVolumeConfigurationNfsExports `pulumi:"nfsExports"`
-	// - specifies whether the volume is read-only. Default is false.
+	// specifies whether the volume is read-only. Default is false.
 	ReadOnly *bool `pulumi:"readOnly"`
-	// - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
-	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 }
 
@@ -2972,17 +2972,17 @@ type OpenZfsFileSystemRootVolumeConfigurationInput interface {
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationArgs struct {
-	// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 	CopyTagsToSnapshots pulumi.BoolPtrInput `pulumi:"copyTagsToSnapshots"`
-	// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput `pulumi:"dataCompressionType"`
-	// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
 	NfsExports OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput `pulumi:"nfsExports"`
-	// - specifies whether the volume is read-only. Default is false.
+	// specifies whether the volume is read-only. Default is false.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput `pulumi:"recordSizeKib"`
-	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput `pulumi:"userAndGroupQuotas"`
 }
 
@@ -3063,34 +3063,34 @@ func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOpenZfsFileSystemRootV
 	}).(OpenZfsFileSystemRootVolumeConfigurationPtrOutput)
 }
 
-// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
 }
 
-// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) NfsExports() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfigurationNfsExports {
 		return v.NfsExports
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
 }
 
-// - specifies whether the volume is read-only. Default is false.
+// specifies whether the volume is read-only. Default is false.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *int { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
 }
 
-// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) UserAndGroupQuotas() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
 		return v.UserAndGroupQuotas
@@ -3121,7 +3121,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) Elem() OpenZfsFileSys
 	}).(OpenZfsFileSystemRootVolumeConfigurationOutput)
 }
 
-// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *bool {
 		if v == nil {
@@ -3131,7 +3131,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) CopyTagsToSnapshots()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *string {
 		if v == nil {
@@ -3141,7 +3141,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) DataCompressionType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) NfsExports() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfigurationNfsExports {
 		if v == nil {
@@ -3151,7 +3151,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) NfsExports() OpenZfsF
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
 }
 
-// - specifies whether the volume is read-only. Default is false.
+// specifies whether the volume is read-only. Default is false.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *bool {
 		if v == nil {
@@ -3161,7 +3161,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ReadOnly() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *int {
 		if v == nil {
@@ -3171,7 +3171,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) RecordSizeKib() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
 		if v == nil {
@@ -3182,7 +3182,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() 
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExports struct {
-	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 	ClientConfigurations []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration `pulumi:"clientConfigurations"`
 }
 
@@ -3198,7 +3198,7 @@ type OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput interface {
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs struct {
-	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 	ClientConfigurations OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput `pulumi:"clientConfigurations"`
 }
 
@@ -3279,7 +3279,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileS
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
 }
 
-// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
 		return v.ClientConfigurations
@@ -3310,7 +3310,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) Elem() Open
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput)
 }
 
-// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
 		if v == nil {
@@ -3321,9 +3321,9 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ClientConfi
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration struct {
-	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients string `pulumi:"clients"`
-	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options []string `pulumi:"options"`
 }
 
@@ -3339,9 +3339,9 @@ type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput 
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs struct {
-	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients pulumi.StringInput `pulumi:"clients"`
-	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options pulumi.StringArrayInput `pulumi:"options"`
 }
 
@@ -3396,12 +3396,12 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOut
 	return o
 }
 
-// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) Clients() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) string { return v.Clients }).(pulumi.StringOutput)
 }
 
-// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) []string {
 		return v.Options
@@ -3429,11 +3429,11 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArr
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota struct {
-	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id int `pulumi:"id"`
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib int `pulumi:"storageCapacityQuotaGib"`
-	// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 	Type string `pulumi:"type"`
 }
 
@@ -3449,11 +3449,11 @@ type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput interface {
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs struct {
-	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id pulumi.IntInput `pulumi:"id"`
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib pulumi.IntInput `pulumi:"storageCapacityQuotaGib"`
-	// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3508,19 +3508,19 @@ func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ToOpenZ
 	return o
 }
 
-// - The ID of the user or group. Valid values between `0` and `2147483647`
+// The ID of the user or group. Valid values between `0` and `2147483647`
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) int {
 		return v.StorageCapacityQuotaGib
 	}).(pulumi.IntOutput)
 }
 
-// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3546,7 +3546,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) In
 }
 
 type OpenZfsVolumeNfsExports struct {
-	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 	ClientConfigurations []OpenZfsVolumeNfsExportsClientConfiguration `pulumi:"clientConfigurations"`
 }
 
@@ -3562,7 +3562,7 @@ type OpenZfsVolumeNfsExportsInput interface {
 }
 
 type OpenZfsVolumeNfsExportsArgs struct {
-	// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 	ClientConfigurations OpenZfsVolumeNfsExportsClientConfigurationArrayInput `pulumi:"clientConfigurations"`
 }
 
@@ -3643,7 +3643,7 @@ func (o OpenZfsVolumeNfsExportsOutput) ToOpenZfsVolumeNfsExportsPtrOutputWithCon
 	}).(OpenZfsVolumeNfsExportsPtrOutput)
 }
 
-// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 func (o OpenZfsVolumeNfsExportsOutput) ClientConfigurations() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v OpenZfsVolumeNfsExports) []OpenZfsVolumeNfsExportsClientConfiguration {
 		return v.ClientConfigurations
@@ -3674,7 +3674,7 @@ func (o OpenZfsVolumeNfsExportsPtrOutput) Elem() OpenZfsVolumeNfsExportsOutput {
 	}).(OpenZfsVolumeNfsExportsOutput)
 }
 
-// - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 func (o OpenZfsVolumeNfsExportsPtrOutput) ClientConfigurations() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v *OpenZfsVolumeNfsExports) []OpenZfsVolumeNfsExportsClientConfiguration {
 		if v == nil {
@@ -3685,9 +3685,9 @@ func (o OpenZfsVolumeNfsExportsPtrOutput) ClientConfigurations() OpenZfsVolumeNf
 }
 
 type OpenZfsVolumeNfsExportsClientConfiguration struct {
-	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients string `pulumi:"clients"`
-	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options []string `pulumi:"options"`
 }
 
@@ -3703,9 +3703,9 @@ type OpenZfsVolumeNfsExportsClientConfigurationInput interface {
 }
 
 type OpenZfsVolumeNfsExportsClientConfigurationArgs struct {
-	// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients pulumi.StringInput `pulumi:"clients"`
-	// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options pulumi.StringArrayInput `pulumi:"options"`
 }
 
@@ -3760,12 +3760,12 @@ func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) ToOpenZfsVolumeNfsExpo
 	return o
 }
 
-// - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) Clients() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsVolumeNfsExportsClientConfiguration) string { return v.Clients }).(pulumi.StringOutput)
 }
 
-// -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenZfsVolumeNfsExportsClientConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
 }
@@ -3939,9 +3939,9 @@ func (o OpenZfsVolumeOriginSnapshotPtrOutput) SnapshotArn() pulumi.StringPtrOutp
 }
 
 type OpenZfsVolumeUserAndGroupQuota struct {
-	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id int `pulumi:"id"`
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib int    `pulumi:"storageCapacityQuotaGib"`
 	Type                    string `pulumi:"type"`
 }
@@ -3958,9 +3958,9 @@ type OpenZfsVolumeUserAndGroupQuotaInput interface {
 }
 
 type OpenZfsVolumeUserAndGroupQuotaArgs struct {
-	// - The ID of the user or group. Valid values between `0` and `2147483647`
+	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id pulumi.IntInput `pulumi:"id"`
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib pulumi.IntInput    `pulumi:"storageCapacityQuotaGib"`
 	Type                    pulumi.StringInput `pulumi:"type"`
 }
@@ -4016,12 +4016,12 @@ func (o OpenZfsVolumeUserAndGroupQuotaOutput) ToOpenZfsVolumeUserAndGroupQuotaOu
 	return o
 }
 
-// - The ID of the user or group. Valid values between `0` and `2147483647`
+// The ID of the user or group. Valid values between `0` and `2147483647`
 func (o OpenZfsVolumeUserAndGroupQuotaOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 func (o OpenZfsVolumeUserAndGroupQuotaOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) int { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
 }

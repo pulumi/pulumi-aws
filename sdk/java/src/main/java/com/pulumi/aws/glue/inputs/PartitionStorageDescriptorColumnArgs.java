@@ -31,14 +31,14 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
     }
 
     /**
-     * Name of the SerDe.
+     * The name of the Column.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the SerDe.
+     * @return The name of the Column.
      * 
      */
     public Output<String> name() {
@@ -108,7 +108,7 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Name of the SerDe.
+         * @param name The name of the Column.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class PartitionStorageDescriptorColumnArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Name of the SerDe.
+         * @param name The name of the Column.
          * 
          * @return builder
          * 

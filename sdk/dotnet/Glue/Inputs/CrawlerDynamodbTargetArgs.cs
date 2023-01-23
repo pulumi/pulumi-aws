@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerDynamodbTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
         /// </summary>
         [Input("scanAll")]
         public Input<bool>? ScanAll { get; set; }

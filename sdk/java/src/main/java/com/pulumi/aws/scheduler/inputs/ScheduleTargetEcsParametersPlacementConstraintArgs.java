@@ -31,14 +31,14 @@ public final class ScheduleTargetEcsParametersPlacementConstraintArgs extends co
     }
 
     /**
-     * The type of placement strategy. One of: `random`, `spread`, `binpack`.
+     * The type of constraint. One of: `distinctInstance`, `memberOf`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of placement strategy. One of: `random`, `spread`, `binpack`.
+     * @return The type of constraint. One of: `distinctInstance`, `memberOf`.
      * 
      */
     public Output<String> type() {
@@ -92,7 +92,7 @@ public final class ScheduleTargetEcsParametersPlacementConstraintArgs extends co
         }
 
         /**
-         * @param type The type of placement strategy. One of: `random`, `spread`, `binpack`.
+         * @param type The type of constraint. One of: `distinctInstance`, `memberOf`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ScheduleTargetEcsParametersPlacementConstraintArgs extends co
         }
 
         /**
-         * @param type The type of placement strategy. One of: `random`, `spread`, `binpack`.
+         * @param type The type of constraint. One of: `distinctInstance`, `memberOf`.
          * 
          * @return builder
          * 

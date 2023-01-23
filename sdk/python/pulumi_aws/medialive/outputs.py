@@ -148,7 +148,7 @@ class ChannelCdiInputSpecification(dict):
     def __init__(__self__, *,
                  resolution: str):
         """
-        :param str resolution: - Maximum CDI input resolution.
+        :param str resolution: Maximum CDI input resolution.
         """
         pulumi.set(__self__, "resolution", resolution)
 
@@ -156,7 +156,7 @@ class ChannelCdiInputSpecification(dict):
     @pulumi.getter
     def resolution(self) -> str:
         """
-        - Maximum CDI input resolution.
+        Maximum CDI input resolution.
         """
         return pulumi.get(self, "resolution")
 
@@ -347,7 +347,7 @@ class ChannelDestinationSetting(dict):
         :param str password_param: Key used to extract the password from EC2 Parameter store.
         :param str stream_name: Stream name RTMP destinations (URLs of type rtmp://)
         :param str url: A URL specifying a destination.
-        :param str username: . Username to be used.
+        :param str username: Username for destination.
         """
         if password_param is not None:
             pulumi.set(__self__, "password_param", password_param)
@@ -386,7 +386,7 @@ class ChannelDestinationSetting(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         """
-        . Username to be used.
+        Username for destination.
         """
         return pulumi.get(self, "username")
 
@@ -532,12 +532,12 @@ class ChannelEncoderSettingsAudioDescription(dict):
                  stream_name: Optional[str] = None):
         """
         :param str audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
-        :param str name: The name of the video description.
+        :param str name: The name of this audio description.
         :param 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs' audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
         :param str audio_type: Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
         :param str audio_type_control: Determined how audio type is determined.
         :param 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs' audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs' codec_settings: The video codec settings. See Video Codec Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs' codec_settings: Audio codec settings. See Audio Codec Settings for more details.
         :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
         :param str stream_name: Stream name RTMP destinations (URLs of type rtmp://)
         """
@@ -574,7 +574,7 @@ class ChannelEncoderSettingsAudioDescription(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the video description.
+        The name of this audio description.
         """
         return pulumi.get(self, "name")
 
@@ -614,7 +614,7 @@ class ChannelEncoderSettingsAudioDescription(dict):
     @pulumi.getter(name="codecSettings")
     def codec_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings']:
         """
-        The video codec settings. See Video Codec Settings for more details.
+        Audio codec settings. See Audio Codec Settings for more details.
         """
         return pulumi.get(self, "codec_settings")
 
@@ -940,8 +940,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
         """
         :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs' aac_settings: Aac Settings. See AAC Settings for more details.
         :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs' ac3_settings: Ac3 Settings. See AC3 Settings for more details.
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs' eac3_atmos_settings: - Eac3 Atmos Settings. See EAC3 Atmos Settings
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs' eac3_settings: - Eac3 Settings. See EAC3 Settings
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs' eac3_atmos_settings: Eac3 Atmos Settings. See EAC3 Atmos Settings
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs' eac3_settings: Eac3 Settings. See EAC3 Settings
         """
         if aac_settings is not None:
             pulumi.set(__self__, "aac_settings", aac_settings)
@@ -978,7 +978,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
     @pulumi.getter(name="eac3AtmosSettings")
     def eac3_atmos_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings']:
         """
-        - Eac3 Atmos Settings. See EAC3 Atmos Settings
+        Eac3 Atmos Settings. See EAC3 Atmos Settings
         """
         return pulumi.get(self, "eac3_atmos_settings")
 
@@ -986,7 +986,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
     @pulumi.getter(name="eac3Settings")
     def eac3_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings']:
         """
-        - Eac3 Settings. See EAC3 Settings
+        Eac3 Settings. See EAC3 Settings
         """
         return pulumi.get(self, "eac3_settings")
 
@@ -1044,9 +1044,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
                  vbr_quality: Optional[str] = None):
         """
         :param float bitrate: Average bitrate in bits/second.
-        :param str coding_mode: Dolby Digital Plus coding mode.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
         :param str input_type: Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
-        :param str profile: H264 profile.
+        :param str profile: AAC profile.
         :param str raw_format: Sets LATM/LOAS AAC output for raw containers.
         :param float sample_rate: Sample rate in Hz.
         :param str spec: Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
@@ -1081,7 +1081,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[str]:
         """
-        Dolby Digital Plus coding mode.
+        Mono, Stereo, or 5.1 channel layout.
         """
         return pulumi.get(self, "coding_mode")
 
@@ -1097,7 +1097,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
     @pulumi.getter
     def profile(self) -> Optional[str]:
         """
-        H264 profile.
+        AAC profile.
         """
         return pulumi.get(self, "profile")
 
@@ -1172,8 +1172,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings(dict):
         """
         :param float bitrate: Average bitrate in bits/second.
         :param str bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-        :param str coding_mode: Dolby Digital Plus coding mode.
-        :param int dialnorm: Sets the dialnorm for the output.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param int dialnorm: Sets the dialnorm of the output.
         :param str drc_profile: If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
         :param str lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         :param str metadata_control: Metadata control.
@@ -1213,7 +1213,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings(dict):
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[str]:
         """
-        Dolby Digital Plus coding mode.
+        Mono, Stereo, or 5.1 channel layout.
         """
         return pulumi.get(self, "coding_mode")
 
@@ -1221,7 +1221,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings(dict):
     @pulumi.getter
     def dialnorm(self) -> Optional[int]:
         """
-        Sets the dialnorm for the output.
+        Sets the dialnorm of the output.
         """
         return pulumi.get(self, "dialnorm")
 
@@ -1287,8 +1287,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings(dict)
                  surround_trim: Optional[float] = None):
         """
         :param float bitrate: Average bitrate in bits/second.
-        :param str coding_mode: Dolby Digital Plus coding mode.
-        :param float dialnorm: Sets the dialnorm for the output.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param float dialnorm: Sets the dialnorm of the output.
         :param str drc_line: Sets the Dolby dynamic range compression profile.
         :param str drc_rf: Sets the profile for heavy Dolby dynamic range compression.
         :param float height_trim: Height dimensional trim.
@@ -1321,7 +1321,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings(dict)
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[str]:
         """
-        Dolby Digital Plus coding mode.
+        Mono, Stereo, or 5.1 channel layout.
         """
         return pulumi.get(self, "coding_mode")
 
@@ -1329,7 +1329,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings(dict)
     @pulumi.getter
     def dialnorm(self) -> Optional[float]:
         """
-        Sets the dialnorm for the output.
+        Sets the dialnorm of the output.
         """
         return pulumi.get(self, "dialnorm")
 
@@ -1444,8 +1444,8 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings(dict):
         :param str attenuation_control: Sets the attenuation control.
         :param float bitrate: Average bitrate in bits/second.
         :param str bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
-        :param str coding_mode: Dolby Digital Plus coding mode.
-        :param int dialnorm: Sets the dialnorm for the output.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param int dialnorm: Sets the dialnorm of the output.
         :param str drc_line: Sets the Dolby dynamic range compression profile.
         :param str drc_rf: Sets the profile for heavy Dolby dynamic range compression.
         :param str lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
@@ -1520,7 +1520,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings(dict):
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[str]:
         """
-        Dolby Digital Plus coding mode.
+        Mono, Stereo, or 5.1 channel layout.
         """
         return pulumi.get(self, "coding_mode")
 
@@ -1533,7 +1533,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings(dict):
     @pulumi.getter
     def dialnorm(self) -> Optional[int]:
         """
-        Sets the dialnorm for the output.
+        Sets the dialnorm of the output.
         """
         return pulumi.get(self, "dialnorm")
 
@@ -1647,7 +1647,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings(dict):
                  sample_rate: Optional[float] = None):
         """
         :param float bitrate: Average bitrate in bits/second.
-        :param str coding_mode: Dolby Digital Plus coding mode.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
         :param float sample_rate: Sample rate in Hz.
         """
         if bitrate is not None:
@@ -1669,7 +1669,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings(dict):
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[str]:
         """
-        Dolby Digital Plus coding mode.
+        Mono, Stereo, or 5.1 channel layout.
         """
         return pulumi.get(self, "coding_mode")
 
@@ -1716,7 +1716,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings(dict):
                  coding_mode: Optional[str] = None,
                  sample_rate: Optional[float] = None):
         """
-        :param str coding_mode: Dolby Digital Plus coding mode.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
         :param float sample_rate: Sample rate in Hz.
         """
         if bit_depth is not None:
@@ -1735,7 +1735,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings(dict):
     @pulumi.getter(name="codingMode")
     def coding_mode(self) -> Optional[str]:
         """
-        Dolby Digital Plus coding mode.
+        Mono, Stereo, or 5.1 channel layout.
         """
         return pulumi.get(self, "coding_mode")
 
@@ -2004,7 +2004,7 @@ class ChannelEncoderSettingsOutputGroup(dict):
         """
         :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs' output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
         :param Sequence['ChannelEncoderSettingsOutputGroupOutputArgs'] outputs: List of outputs. See Outputs for more details.
-        :param str name: The name of the video description.
+        :param str name: Custom output group name defined by the user.
         """
         pulumi.set(__self__, "output_group_settings", output_group_settings)
         pulumi.set(__self__, "outputs", outputs)
@@ -2031,7 +2031,7 @@ class ChannelEncoderSettingsOutputGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the video description.
+        Custom output group name defined by the user.
         """
         return pulumi.get(self, "name")
 
@@ -2267,7 +2267,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting(di
                  archive_cdn_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings'] = None,
                  rollover_interval: Optional[int] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs' archive_cdn_settings: Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
         :param int rollover_interval: Number of seconds to write to archive file before closing and starting a new one.
         """
@@ -2281,7 +2281,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting(di
     @pulumi.getter
     def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination':
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
@@ -2432,7 +2432,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination',
                  frame_capture_cdn_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
         if frame_capture_cdn_settings is not None:
@@ -2442,7 +2442,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
     @pulumi.getter
     def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination':
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
@@ -2694,9 +2694,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict)
                  timestamp_delta_milliseconds: Optional[int] = None,
                  ts_file_mode: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         :param Sequence[str] ad_markers: The ad marker type for this output group.
-        :param str input_loss_action: Specifies behavior of last resort when input video os lost.
+        :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
         :param str timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
         """
         pulumi.set(__self__, "destination", destination)
@@ -2787,7 +2787,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict)
     @pulumi.getter
     def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination':
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
@@ -2888,7 +2888,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict)
     @pulumi.getter(name="inputLossAction")
     def input_loss_action(self) -> Optional[str]:
         """
-        Specifies behavior of last resort when input video os lost.
+        Controls the behavior of the RTMP group if input becomes unavailable.
         """
         return pulumi.get(self, "input_loss_action")
 
@@ -3637,7 +3637,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
         """
         :param str uri: Path to a file accessible to the live stream.
         :param str password_param: Key used to extract the password from EC2 Parameter store.
-        :param str username: . Username to be used.
+        :param str username: Username for destination.
         """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
@@ -3665,7 +3665,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
     @pulumi.getter
     def username(self) -> Optional[str]:
         """
-        . Username to be used.
+        Username for destination.
         """
         return pulumi.get(self, "username")
 
@@ -3675,7 +3675,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
     def __init__(__self__, *,
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination'):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -3683,7 +3683,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
     @pulumi.getter
     def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination':
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
@@ -3797,10 +3797,10 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
                  timestamp_offset: Optional[str] = None,
                  timestamp_offset_mode: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         :param str certificate_mode: Setting to allow self signed or verified RTMP certificates.
         :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-        :param str input_loss_action: Specifies behavior of last resort when input video os lost.
+        :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
         :param int num_retries: Number of retry attempts.
         :param int restart_delay: Number of seconds to wait until a restart is initiated.
         """
@@ -3846,7 +3846,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
     @pulumi.getter
     def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination':
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
@@ -3905,7 +3905,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
     @pulumi.getter(name="inputLossAction")
     def input_loss_action(self) -> Optional[str]:
         """
-        Specifies behavior of last resort when input video os lost.
+        Controls the behavior of the RTMP group if input becomes unavailable.
         """
         return pulumi.get(self, "input_loss_action")
 
@@ -4042,7 +4042,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings(dict
         :param str cache_full_behavior: Controls behavior when content cache fills up.
         :param int cache_length: Cache length in seconds, is used to calculate buffer size.
         :param str caption_data: Controls the types of data that passes to onCaptionInfo outputs.
-        :param str input_loss_action: Specifies behavior of last resort when input video os lost.
+        :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
         :param int restart_delay: Number of seconds to wait until a restart is initiated.
         """
         if ad_markers is not None:
@@ -4104,7 +4104,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings(dict
     @pulumi.getter(name="inputLossAction")
     def input_loss_action(self) -> Optional[str]:
         """
-        Specifies behavior of last resort when input video os lost.
+        Controls the behavior of the RTMP group if input becomes unavailable.
         """
         return pulumi.get(self, "input_loss_action")
 
@@ -4325,7 +4325,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  extension: Optional[str] = None,
                  name_modifier: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs' container_settings: UDP container settings. See Container Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs' container_settings: Settings specific to the container type of the file. See Container Settings for more details.
         :param str extension: Output file extension.
         :param str name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         """
@@ -4340,7 +4340,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     @pulumi.getter(name="containerSettings")
     def container_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings']:
         """
-        UDP container settings. See Container Settings for more details.
+        Settings specific to the container type of the file. See Container Settings for more details.
         """
         return pulumi.get(self, "container_settings")
 
@@ -5294,7 +5294,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
         """
         :param str uri: Path to a file accessible to the live stream.
         :param str password_param: Key used to extract the password from EC2 Parameter store.
-        :param str username: . Username to be used.
+        :param str username: Username for destination.
         """
         pulumi.set(__self__, "uri", uri)
         if password_param is not None:
@@ -5322,7 +5322,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
     @pulumi.getter
     def username(self) -> Optional[str]:
         """
-        . Username to be used.
+        Username for destination.
         """
         return pulumi.get(self, "username")
 
@@ -5675,7 +5675,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
     def __init__(__self__, *,
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination'):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs' destination: Destination is a multiplex. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -5683,7 +5683,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
     @pulumi.getter
     def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination':
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        Destination is a multiplex. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
@@ -5752,7 +5752,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(di
                  connection_retry_interval: Optional[int] = None,
                  num_retries: Optional[int] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs' destination: The RTMP endpoint excluding the stream name. See Destination for more details.
         :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         :param int num_retries: Number of retry attempts.
         """
@@ -5768,7 +5768,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(di
     @pulumi.getter
     def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination':
         """
-        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        The RTMP endpoint excluding the stream name. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
@@ -7073,10 +7073,10 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
         :param str par_control: Indicates how the output pixel aspect ratio is specified.
         :param int par_denominator: Pixel Aspect Ratio denominator.
         :param int par_numerator: Pixel Aspect Ratio numerator.
-        :param str profile: H264 profile.
+        :param str profile: AAC profile.
         :param str quality_level: Quality level.
         :param int qvbr_quality_level: Controls the target quality for the video encode.
-        :param str rate_control_mode: Rate control mode.
+        :param str rate_control_mode: The rate control mode.
         :param str scan_type: Sets the scan type of the output.
         :param str scene_change_detect: Scene change detection.
         :param int slices: Number of slices per picture.
@@ -7379,7 +7379,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
     @pulumi.getter
     def profile(self) -> Optional[str]:
         """
-        H264 profile.
+        AAC profile.
         """
         return pulumi.get(self, "profile")
 
@@ -7403,7 +7403,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
     @pulumi.getter(name="rateControlMode")
     def rate_control_mode(self) -> Optional[str]:
         """
-        Rate control mode.
+        The rate control mode.
         """
         return pulumi.get(self, "rate_control_mode")
 
@@ -8077,7 +8077,7 @@ class ChannelInputAttachmentInputSettingsAudioSelector(dict):
                  name: str,
                  selector_settings: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings'] = None):
         """
-        :param str name: The name of the video description.
+        :param str name: Name of the Channel.
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -8087,7 +8087,7 @@ class ChannelInputAttachmentInputSettingsAudioSelector(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the video description.
+        Name of the Channel.
         """
         return pulumi.get(self, "name")
 
@@ -8180,7 +8180,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
                  group_id: str,
                  name: str):
         """
-        :param str name: The name of the video description.
+        :param str name: Name of the Channel.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "name", name)
@@ -8194,7 +8194,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the video description.
+        Name of the Channel.
         """
         return pulumi.get(self, "name")
 
@@ -8306,7 +8306,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
                  language_code: Optional[str] = None,
                  selector_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings'] = None):
         """
-        :param str name: The name of the video description.
+        :param str name: Name of the Channel.
         :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
         """
         pulumi.set(__self__, "name", name)
@@ -8319,7 +8319,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the video description.
+        Name of the Channel.
         """
         return pulumi.get(self, "name")
 

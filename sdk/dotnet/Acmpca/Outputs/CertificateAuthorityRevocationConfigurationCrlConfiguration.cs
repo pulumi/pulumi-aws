@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string? CustomCname;
         /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
+        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

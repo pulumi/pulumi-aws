@@ -41,7 +41,7 @@ public final class ChannelEncoderSettingsAudioDescription {
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings audioWatermarkSettings;
     /**
-     * @return The video codec settings. See Video Codec Settings for more details.
+     * @return Audio codec settings. See Audio Codec Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettings codecSettings;
@@ -52,7 +52,7 @@ public final class ChannelEncoderSettingsAudioDescription {
     private @Nullable String languageCode;
     private @Nullable String languageCodeControl;
     /**
-     * @return The name of the video description.
+     * @return The name of this audio description.
      * 
      */
     private String name;
@@ -100,7 +100,7 @@ public final class ChannelEncoderSettingsAudioDescription {
         return Optional.ofNullable(this.audioWatermarkSettings);
     }
     /**
-     * @return The video codec settings. See Video Codec Settings for more details.
+     * @return Audio codec settings. See Audio Codec Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettings> codecSettings() {
@@ -117,7 +117,7 @@ public final class ChannelEncoderSettingsAudioDescription {
         return Optional.ofNullable(this.languageCodeControl);
     }
     /**
-     * @return The name of the video description.
+     * @return The name of this audio description.
      * 
      */
     public String name() {

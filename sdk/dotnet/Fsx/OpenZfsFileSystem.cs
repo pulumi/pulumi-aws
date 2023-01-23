@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        /// The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        /// The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
         /// </summary>
         [Input("deploymentType", required: true)]
         public Input<string> DeploymentType { get; set; } = null!;
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+        /// The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }

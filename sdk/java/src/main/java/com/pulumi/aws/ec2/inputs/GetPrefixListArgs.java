@@ -33,14 +33,14 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * Name of the prefix list to select.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * @return Name of the prefix list to select.
      * 
      */
     public Optional<Output<String>> name() {
@@ -120,7 +120,7 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+         * @param name Name of the prefix list to select.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GetPrefixListArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+         * @param name Name of the prefix list to select.
          * 
          * @return builder
          * 

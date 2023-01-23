@@ -672,14 +672,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxFileSize);
     }
     /**
-     * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+     * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     @Export(name="parquetTimestampInMillisecond", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> parquetTimestampInMillisecond;
 
     /**
-     * @return - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+     * @return Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
      * 
      */
     public Output<Optional<Boolean>> parquetTimestampInMillisecond() {

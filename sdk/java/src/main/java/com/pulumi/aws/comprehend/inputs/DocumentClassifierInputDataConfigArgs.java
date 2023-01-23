@@ -73,16 +73,16 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
     }
 
     /**
-     * Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * Location of training documents.
+     * Used if `data_format` is `COMPREHEND_CSV`.
      * 
      */
     @Import(name="s3Uri")
     private @Nullable Output<String> s3Uri;
 
     /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * @return Location of training documents.
+     * Used if `data_format` is `COMPREHEND_CSV`.
      * 
      */
     public Optional<Output<String>> s3Uri() {
@@ -210,8 +210,8 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `output_s3_uri`.
+         * @param s3Uri Location of training documents.
+         * Used if `data_format` is `COMPREHEND_CSV`.
          * 
          * @return builder
          * 
@@ -222,8 +222,8 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `output_s3_uri`.
+         * @param s3Uri Location of training documents.
+         * Used if `data_format` is `COMPREHEND_CSV`.
          * 
          * @return builder
          * 

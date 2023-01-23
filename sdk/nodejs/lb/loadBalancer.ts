@@ -195,13 +195,16 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     */
     public readonly securityGroups!: pulumi.Output<string[]>;
     /**
      * A subnet mapping block as documented below.
@@ -371,13 +374,16 @@ export interface LoadBalancerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
+    /**
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.
@@ -463,13 +469,16 @@ export interface LoadBalancerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
+    /**
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.

@@ -18,7 +18,7 @@ public final class EntityRecognizerInputDataConfigDocuments {
      */
     private @Nullable String inputFormat;
     /**
-     * @return Location of entity list.
+     * @return Location of training documents.
      * 
      */
     private String s3Uri;
@@ -34,7 +34,7 @@ public final class EntityRecognizerInputDataConfigDocuments {
         return Optional.ofNullable(this.inputFormat);
     }
     /**
-     * @return Location of entity list.
+     * @return Location of training documents.
      * 
      */
     public String s3Uri() {

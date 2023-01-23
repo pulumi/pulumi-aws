@@ -44,7 +44,7 @@ class EventDataStoreAdvancedEventSelector(dict):
                  name: Optional[str] = None):
         """
         :param Sequence['EventDataStoreAdvancedEventSelectorFieldSelectorArgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
-        :param str name: Specifies the name of the advanced event selector.
+        :param str name: The name of the event data store.
         """
         if field_selectors is not None:
             pulumi.set(__self__, "field_selectors", field_selectors)
@@ -63,7 +63,7 @@ class EventDataStoreAdvancedEventSelector(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Specifies the name of the advanced event selector.
+        The name of the event data store.
         """
         return pulumi.get(self, "name")
 
@@ -208,7 +208,7 @@ class TrailAdvancedEventSelector(dict):
                  name: Optional[str] = None):
         """
         :param Sequence['TrailAdvancedEventSelectorFieldSelectorArgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
-        :param str name: Name of the advanced event selector.
+        :param str name: Name of the trail.
         """
         pulumi.set(__self__, "field_selectors", field_selectors)
         if name is not None:
@@ -226,7 +226,7 @@ class TrailAdvancedEventSelector(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the advanced event selector.
+        Name of the trail.
         """
         return pulumi.get(self, "name")
 

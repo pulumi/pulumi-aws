@@ -158,14 +158,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     @Import(name="storageCapacityQuotaGib")
     private @Nullable Output<Integer> storageCapacityQuotaGib;
 
     /**
-     * @return - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * @return The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     public Optional<Output<Integer>> storageCapacityQuotaGib() {
@@ -218,14 +218,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
     @Import(name="userAndGroupQuotas")
     private @Nullable Output<List<OpenZfsVolumeUserAndGroupQuotaArgs>> userAndGroupQuotas;
 
     /**
-     * @return - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
     public Optional<Output<List<OpenZfsVolumeUserAndGroupQuotaArgs>>> userAndGroupQuotas() {
@@ -467,7 +467,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageCapacityQuotaGib - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * @param storageCapacityQuotaGib The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageCapacityQuotaGib - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * @param storageCapacityQuotaGib The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAndGroupQuotas - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAndGroupQuotas - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
          * 
          * @return builder
          * 
@@ -572,7 +572,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAndGroupQuotas - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
          * 
          * @return builder
          * 

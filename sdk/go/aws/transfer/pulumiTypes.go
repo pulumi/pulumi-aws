@@ -1730,7 +1730,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key *string `pulumi:"key"`
 }
 
@@ -1748,7 +1748,7 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
@@ -1836,7 +1836,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		return v.Key
@@ -1877,7 +1877,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -2415,7 +2415,7 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Tags() WorkflowOnExcepti
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTag struct {
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key string `pulumi:"key"`
 	// The value that corresponds to the key.
 	Value string `pulumi:"value"`
@@ -2433,7 +2433,7 @@ type WorkflowOnExceptionStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTagArgs struct {
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value that corresponds to the key.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -2490,7 +2490,7 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) ToWorkflowOnExceptionSte
 	return o
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3170,7 +3170,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutp
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key *string `pulumi:"key"`
 }
 
@@ -3188,7 +3188,7 @@ type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationInput inter
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
@@ -3274,7 +3274,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) 
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -3313,7 +3313,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -3849,7 +3849,7 @@ func (o WorkflowStepTagStepDetailsPtrOutput) Tags() WorkflowStepTagStepDetailsTa
 }
 
 type WorkflowStepTagStepDetailsTag struct {
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key string `pulumi:"key"`
 	// The value that corresponds to the key.
 	Value string `pulumi:"value"`
@@ -3867,7 +3867,7 @@ type WorkflowStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowStepTagStepDetailsTagArgs struct {
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value that corresponds to the key.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -3924,7 +3924,7 @@ func (o WorkflowStepTagStepDetailsTagOutput) ToWorkflowStepTagStepDetailsTagOutp
 	return o
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepTagStepDetailsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }

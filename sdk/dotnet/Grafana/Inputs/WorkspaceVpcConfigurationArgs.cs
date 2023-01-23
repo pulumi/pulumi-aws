@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Grafana.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+        /// The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Grafana.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+        /// The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
         /// </summary>
         public InputList<string> SubnetIds
         {

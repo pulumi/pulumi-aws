@@ -62,7 +62,8 @@ type Workgroup struct {
 	Endpoints WorkgroupEndpointArrayOutput `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
-	NamespaceName      pulumi.StringOutput  `pulumi:"namespaceName"`
+	// The name of the namespace.
+	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -123,8 +124,9 @@ type workgroupState struct {
 	// The endpoint that is created from the workgroup. See `Endpoint` below.
 	Endpoints []WorkgroupEndpoint `pulumi:"endpoints"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-	EnhancedVpcRouting *bool   `pulumi:"enhancedVpcRouting"`
-	NamespaceName      *string `pulumi:"namespaceName"`
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The name of the namespace.
+	NamespaceName *string `pulumi:"namespaceName"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -152,7 +154,8 @@ type WorkgroupState struct {
 	Endpoints WorkgroupEndpointArrayInput
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
-	NamespaceName      pulumi.StringPtrInput
+	// The name of the namespace.
+	NamespaceName pulumi.StringPtrInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -179,8 +182,9 @@ type workgroupArgs struct {
 	// An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
 	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-	EnhancedVpcRouting *bool  `pulumi:"enhancedVpcRouting"`
-	NamespaceName      string `pulumi:"namespaceName"`
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
+	// The name of the namespace.
+	NamespaceName string `pulumi:"namespaceName"`
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -201,7 +205,8 @@ type WorkgroupArgs struct {
 	ConfigParameters WorkgroupConfigParameterArrayInput
 	// The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
 	EnhancedVpcRouting pulumi.BoolPtrInput
-	NamespaceName      pulumi.StringInput
+	// The name of the namespace.
+	NamespaceName pulumi.StringInput
 	// A value that specifies whether the workgroup can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// An array of security group IDs to associate with the workgroup.
@@ -326,6 +331,7 @@ func (o WorkgroupOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the namespace.
 func (o WorkgroupOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }

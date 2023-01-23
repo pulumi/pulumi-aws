@@ -17,7 +17,7 @@ public final class ProjectFileSystemLocation {
      */
     private @Nullable String identifier;
     /**
-     * @return Location of the source code from git or s3.
+     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
      * 
      */
     private @Nullable String location;
@@ -32,7 +32,7 @@ public final class ProjectFileSystemLocation {
      */
     private @Nullable String mountPoint;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return The type of the file system. The one supported type is `EFS`.
      * 
      */
     private @Nullable String type;
@@ -46,7 +46,7 @@ public final class ProjectFileSystemLocation {
         return Optional.ofNullable(this.identifier);
     }
     /**
-     * @return Location of the source code from git or s3.
+     * @return A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
      * 
      */
     public Optional<String> location() {
@@ -67,7 +67,7 @@ public final class ProjectFileSystemLocation {
         return Optional.ofNullable(this.mountPoint);
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return The type of the file system. The one supported type is `EFS`.
      * 
      */
     public Optional<String> type() {

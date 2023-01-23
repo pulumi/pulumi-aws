@@ -65,7 +65,7 @@ type ParameterGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
 	Family pulumi.StringOutput `pulumi:"family"`
-	// The name of the parameter.
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -115,7 +115,7 @@ type parameterGroupState struct {
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
 	Family *string `pulumi:"family"`
-	// The name of the parameter.
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -134,7 +134,7 @@ type ParameterGroupState struct {
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
 	Family pulumi.StringPtrInput
-	// The name of the parameter.
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type parameterGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
 	Family string `pulumi:"family"`
-	// The name of the parameter.
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -171,7 +171,7 @@ type ParameterGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
 	Family pulumi.StringInput
-	// The name of the parameter.
+	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// The name of the parameter.
+// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<Inputs.ClusterCoreInstanceFleetLaunchSpecificationsGetArgs>? LaunchSpecifications { get; set; }
 
         /// <summary>
-        /// Name of the step.
+        /// Friendly name given to the instance fleet.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<int>? ProvisionedSpotCapacity { get; set; }
 
         /// <summary>
-        /// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         /// </summary>
         [Input("targetOnDemandCapacity")]
         public Input<int>? TargetOnDemandCapacity { get; set; }

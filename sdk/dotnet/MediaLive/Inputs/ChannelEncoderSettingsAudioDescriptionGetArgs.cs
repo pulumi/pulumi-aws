@@ -43,7 +43,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsGetArgs>? AudioWatermarkSettings { get; set; }
 
         /// <summary>
-        /// The video codec settings. See Video Codec Settings for more details.
+        /// Audio codec settings. See Audio Codec Settings for more details.
         /// </summary>
         [Input("codecSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsGetArgs>? CodecSettings { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? LanguageCodeControl { get; set; }
 
         /// <summary>
-        /// The name of the video description.
+        /// The name of this audio description.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

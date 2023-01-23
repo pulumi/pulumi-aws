@@ -402,14 +402,14 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
         return this.lockToken;
     }
     /**
-     * The label string.
+     * A friendly name of the rule group.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The label string.
+     * @return A friendly name of the rule group.
      * 
      */
     public Output<String> name() {

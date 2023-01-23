@@ -14,14 +14,14 @@ public final class RuleGroupActivatedRuleActionArgs extends com.pulumi.resources
     public static final RuleGroupActivatedRuleActionArgs Empty = new RuleGroupActivatedRuleActionArgs();
 
     /**
-     * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+     * e.g., `BLOCK`, `ALLOW`, or `COUNT`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
      * 
      */
     public Output<String> type() {
@@ -53,7 +53,7 @@ public final class RuleGroupActivatedRuleActionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+         * @param type e.g., `BLOCK`, `ALLOW`, or `COUNT`
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class RuleGroupActivatedRuleActionArgs extends com.pulumi.resources
         }
 
         /**
-         * @param type The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+         * @param type e.g., `BLOCK`, `ALLOW`, or `COUNT`
          * 
          * @return builder
          * 

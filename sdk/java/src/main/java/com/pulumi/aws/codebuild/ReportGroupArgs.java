@@ -79,14 +79,14 @@ public final class ReportGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+     * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+     * @return The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      * 
      */
     public Output<String> type() {
@@ -206,7 +206,7 @@ public final class ReportGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+         * @param type The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ReportGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+         * @param type The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
          * 
          * @return builder
          * 

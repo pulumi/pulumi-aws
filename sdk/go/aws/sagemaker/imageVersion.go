@@ -54,13 +54,13 @@ type ImageVersion struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-	// * `imageArn`- The Amazon Resource Name (ARN) of the image the version is based on.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The registry path of the container image on which this image version is based.
 	BaseImage pulumi.StringOutput `pulumi:"baseImage"`
 	// The registry path of the container image that contains this image version.
 	ContainerImage pulumi.StringOutput `pulumi:"containerImage"`
-	ImageArn       pulumi.StringOutput `pulumi:"imageArn"`
+	// The Amazon Resource Name (ARN) of the image the version is based on.
+	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
 	Version   pulumi.IntOutput    `pulumi:"version"`
@@ -102,13 +102,13 @@ func GetImageVersion(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ImageVersion resources.
 type imageVersionState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-	// * `imageArn`- The Amazon Resource Name (ARN) of the image the version is based on.
 	Arn *string `pulumi:"arn"`
 	// The registry path of the container image on which this image version is based.
 	BaseImage *string `pulumi:"baseImage"`
 	// The registry path of the container image that contains this image version.
 	ContainerImage *string `pulumi:"containerImage"`
-	ImageArn       *string `pulumi:"imageArn"`
+	// The Amazon Resource Name (ARN) of the image the version is based on.
+	ImageArn *string `pulumi:"imageArn"`
 	// The name of the image. Must be unique to your account.
 	ImageName *string `pulumi:"imageName"`
 	Version   *int    `pulumi:"version"`
@@ -116,13 +116,13 @@ type imageVersionState struct {
 
 type ImageVersionState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-	// * `imageArn`- The Amazon Resource Name (ARN) of the image the version is based on.
 	Arn pulumi.StringPtrInput
 	// The registry path of the container image on which this image version is based.
 	BaseImage pulumi.StringPtrInput
 	// The registry path of the container image that contains this image version.
 	ContainerImage pulumi.StringPtrInput
-	ImageArn       pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the image the version is based on.
+	ImageArn pulumi.StringPtrInput
 	// The name of the image. Must be unique to your account.
 	ImageName pulumi.StringPtrInput
 	Version   pulumi.IntPtrInput
@@ -235,7 +235,6 @@ func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context)
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-// * `imageArn`- The Amazon Resource Name (ARN) of the image the version is based on.
 func (o ImageVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -250,6 +249,7 @@ func (o ImageVersionOutput) ContainerImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ContainerImage }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the image the version is based on.
 func (o ImageVersionOutput) ImageArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageArn }).(pulumi.StringOutput)
 }

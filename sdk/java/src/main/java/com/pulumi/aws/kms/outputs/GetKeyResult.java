@@ -13,13 +13,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetKeyResult {
+    /**
+     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * 
+     */
     private String arn;
+    /**
+     * @return The twelve-digit account ID of the AWS account that owns the key
+     * 
+     */
     private String awsAccountId;
+    /**
+     * @return The date and time when the key was created
+     * 
+     */
     private String creationDate;
+    /**
+     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * 
+     */
     private String customerMasterKeySpec;
+    /**
+     * @return The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
+     * 
+     */
     private String deletionDate;
+    /**
+     * @return The description of the key.
+     * 
+     */
     private String description;
+    /**
+     * @return Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Specifies whether the Key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
+     * 
+     */
     private String expirationModel;
     private @Nullable List<String> grantTokens;
     /**
@@ -28,36 +60,96 @@ public final class GetKeyResult {
      */
     private String id;
     private String keyId;
+    /**
+     * @return The key&#39;s manager
+     * 
+     */
     private String keyManager;
+    /**
+     * @return The state of the key
+     * 
+     */
     private String keyState;
+    /**
+     * @return Specifies the intended use of the key
+     * 
+     */
     private String keyUsage;
+    /**
+     * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
+     * 
+     */
     private Boolean multiRegion;
+    /**
+     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
+     * 
+     */
     private List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
+    /**
+     * @return When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
+     * 
+     */
     private String origin;
+    /**
+     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+     * 
+     */
     private String validTo;
 
     private GetKeyResult() {}
+    /**
+     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return The twelve-digit account ID of the AWS account that owns the key
+     * 
+     */
     public String awsAccountId() {
         return this.awsAccountId;
     }
+    /**
+     * @return The date and time when the key was created
+     * 
+     */
     public String creationDate() {
         return this.creationDate;
     }
+    /**
+     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * 
+     */
     public String customerMasterKeySpec() {
         return this.customerMasterKeySpec;
     }
+    /**
+     * @return The date and time after which AWS KMS deletes the key. This value is present only when `key_state` is `PendingDeletion`, otherwise this value is 0
+     * 
+     */
     public String deletionDate() {
         return this.deletionDate;
     }
+    /**
+     * @return The description of the key.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Specifies whether the key is enabled. When `key_state` is `Enabled` this value is true, otherwise it is false
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Specifies whether the Key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
+     * 
+     */
     public String expirationModel() {
         return this.expirationModel;
     }
@@ -74,24 +166,52 @@ public final class GetKeyResult {
     public String keyId() {
         return this.keyId;
     }
+    /**
+     * @return The key&#39;s manager
+     * 
+     */
     public String keyManager() {
         return this.keyManager;
     }
+    /**
+     * @return The state of the key
+     * 
+     */
     public String keyState() {
         return this.keyState;
     }
+    /**
+     * @return Specifies the intended use of the key
+     * 
+     */
     public String keyUsage() {
         return this.keyUsage;
     }
+    /**
+     * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
+     * 
+     */
     public Boolean multiRegion() {
         return this.multiRegion;
     }
+    /**
+     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multi_region` is `true`.
+     * 
+     */
     public List<GetKeyMultiRegionConfiguration> multiRegionConfigurations() {
         return this.multiRegionConfigurations;
     }
+    /**
+     * @return When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
+     * 
+     */
     public String origin() {
         return this.origin;
     }
+    /**
+     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+     * 
+     */
     public String validTo() {
         return this.validTo;
     }

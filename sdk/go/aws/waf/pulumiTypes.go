@@ -783,7 +783,7 @@ type RuleGroupActivatedRule struct {
 	Priority int `pulumi:"priority"`
 	// The ID of a rule
 	RuleId string `pulumi:"ruleId"`
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type *string `pulumi:"type"`
 }
 
@@ -805,7 +805,7 @@ type RuleGroupActivatedRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The ID of a rule
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -875,7 +875,7 @@ func (o RuleGroupActivatedRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 func (o RuleGroupActivatedRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -901,7 +901,7 @@ func (o RuleGroupActivatedRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupAct
 }
 
 type RuleGroupActivatedRuleAction struct {
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type string `pulumi:"type"`
 }
 
@@ -917,7 +917,7 @@ type RuleGroupActivatedRuleActionInput interface {
 }
 
 type RuleGroupActivatedRuleActionArgs struct {
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -947,7 +947,7 @@ func (o RuleGroupActivatedRuleActionOutput) ToRuleGroupActivatedRuleActionOutput
 	return o
 }
 
-// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 func (o RuleGroupActivatedRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1493,7 +1493,8 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput) Type() pul
 }
 
 type WebAclDefaultAction struct {
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+	// e.g., `ALLOW` or `BLOCK`
 	Type string `pulumi:"type"`
 }
 
@@ -1509,7 +1510,8 @@ type WebAclDefaultActionInput interface {
 }
 
 type WebAclDefaultActionArgs struct {
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+	// e.g., `ALLOW` or `BLOCK`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1590,7 +1592,8 @@ func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx
 	}).(WebAclDefaultActionPtrOutput)
 }
 
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+// e.g., `ALLOW` or `BLOCK`
 func (o WebAclDefaultActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclDefaultAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1619,7 +1622,8 @@ func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
 	}).(WebAclDefaultActionOutput)
 }
 
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+// e.g., `ALLOW` or `BLOCK`
 func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultAction) *string {
 		if v == nil {
@@ -1927,7 +1931,7 @@ func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) FieldToMatches() WebA
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatch struct {
 	// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
 	Data *string `pulumi:"data"`
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
 	Type string `pulumi:"type"`
 }
 
@@ -1945,7 +1949,7 @@ type WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput interface {
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs struct {
 	// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
 	Data pulumi.StringPtrInput `pulumi:"data"`
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2005,7 +2009,7 @@ func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) Data() pulum
 	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFieldsFieldToMatch) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
 func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFieldsFieldToMatch) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2167,7 +2171,8 @@ func (o WebAclRuleArrayOutput) Index(i pulumi.IntInput) WebAclRuleOutput {
 }
 
 type WebAclRuleAction struct {
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+	// e.g., `ALLOW` or `BLOCK`
 	Type string `pulumi:"type"`
 }
 
@@ -2183,7 +2188,8 @@ type WebAclRuleActionInput interface {
 }
 
 type WebAclRuleActionArgs struct {
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+	// e.g., `ALLOW` or `BLOCK`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2264,7 +2270,8 @@ func (o WebAclRuleActionOutput) ToWebAclRuleActionPtrOutputWithContext(ctx conte
 	}).(WebAclRuleActionPtrOutput)
 }
 
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+// e.g., `ALLOW` or `BLOCK`
 func (o WebAclRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2293,7 +2300,8 @@ func (o WebAclRuleActionPtrOutput) Elem() WebAclRuleActionOutput {
 	}).(WebAclRuleActionOutput)
 }
 
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+// e.g., `ALLOW` or `BLOCK`
 func (o WebAclRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleAction) *string {
 		if v == nil {
@@ -2304,7 +2312,8 @@ func (o WebAclRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WebAclRuleOverrideAction struct {
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+	// e.g., `ALLOW` or `BLOCK`
 	Type string `pulumi:"type"`
 }
 
@@ -2320,7 +2329,8 @@ type WebAclRuleOverrideActionInput interface {
 }
 
 type WebAclRuleOverrideActionArgs struct {
-	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+	// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+	// e.g., `ALLOW` or `BLOCK`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2401,7 +2411,8 @@ func (o WebAclRuleOverrideActionOutput) ToWebAclRuleOverrideActionPtrOutputWithC
 	}).(WebAclRuleOverrideActionPtrOutput)
 }
 
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+// e.g., `ALLOW` or `BLOCK`
 func (o WebAclRuleOverrideActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleOverrideAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2430,7 +2441,8 @@ func (o WebAclRuleOverrideActionPtrOutput) Elem() WebAclRuleOverrideActionOutput
 	}).(WebAclRuleOverrideActionOutput)
 }
 
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
+// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
+// e.g., `ALLOW` or `BLOCK`
 func (o WebAclRuleOverrideActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleOverrideAction) *string {
 		if v == nil {

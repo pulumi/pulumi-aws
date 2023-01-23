@@ -19,14 +19,14 @@ public final class StatementState extends com.pulumi.resources.ResourceArgs {
     public static final StatementState Empty = new StatementState();
 
     /**
-     * The cluster identifier.
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier.
+     * @return The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
     public Optional<Output<String>> clusterIdentifier() {
@@ -130,6 +130,21 @@ public final class StatementState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.withEvent);
     }
 
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     * 
+     */
+    @Import(name="workgroupName")
+    private @Nullable Output<String> workgroupName;
+
+    /**
+     * @return The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     * 
+     */
+    public Optional<Output<String>> workgroupName() {
+        return Optional.ofNullable(this.workgroupName);
+    }
+
     private StatementState() {}
 
     private StatementState(StatementState $) {
@@ -141,6 +156,7 @@ public final class StatementState extends com.pulumi.resources.ResourceArgs {
         this.sql = $.sql;
         this.statementName = $.statementName;
         this.withEvent = $.withEvent;
+        this.workgroupName = $.workgroupName;
     }
 
     public static Builder builder() {
@@ -162,7 +178,7 @@ public final class StatementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
          * 
          * @return builder
          * 
@@ -173,7 +189,7 @@ public final class StatementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
          * 
          * @return builder
          * 
@@ -319,6 +335,27 @@ public final class StatementState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder withEvent(Boolean withEvent) {
             return withEvent(Output.of(withEvent));
+        }
+
+        /**
+         * @param workgroupName The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workgroupName(@Nullable Output<String> workgroupName) {
+            $.workgroupName = workgroupName;
+            return this;
+        }
+
+        /**
+         * @param workgroupName The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workgroupName(String workgroupName) {
+            return workgroupName(Output.of(workgroupName));
         }
 
         public StatementState build() {

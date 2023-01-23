@@ -19,14 +19,14 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
     public static final DomainDefaultSpaceSettingsArgs Empty = new DomainDefaultSpaceSettingsArgs();
 
     /**
-     * The execution role ARN for the user.
+     * The execution role for the space.
      * 
      */
     @Import(name="executionRole", required=true)
     private Output<String> executionRole;
 
     /**
-     * @return The execution role ARN for the user.
+     * @return The execution role for the space.
      * 
      */
     public Output<String> executionRole() {
@@ -64,14 +64,14 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A list of security group IDs that will be attached to the user.
+     * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group IDs that will be attached to the user.
+     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -106,7 +106,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param executionRole The execution role ARN for the user.
+         * @param executionRole The execution role for the space.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param executionRole The execution role ARN for the user.
+         * @param executionRole The execution role for the space.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups A list of security group IDs that will be attached to the user.
+         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups A list of security group IDs that will be attached to the user.
+         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups A list of security group IDs that will be attached to the user.
+         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
          * 
          * @return builder
          * 

@@ -76,7 +76,7 @@ class ServiceDnsConfigDnsRecordArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[int] ttl: The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-        :param pulumi.Input[str] type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        :param pulumi.Input[str] type: The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
         """
         pulumi.set(__self__, "ttl", ttl)
         pulumi.set(__self__, "type", type)
@@ -97,7 +97,7 @@ class ServiceDnsConfigDnsRecordArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
         """
         return pulumi.get(self, "type")
 
@@ -113,7 +113,7 @@ class ServiceHealthCheckConfigArgs:
                  resource_path: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] failure_threshold: The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        :param pulumi.Input[int] failure_threshold: The number of consecutive health checks. Maximum value of 10.
         :param pulumi.Input[str] resource_path: The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
         :param pulumi.Input[str] type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
         """
@@ -128,7 +128,7 @@ class ServiceHealthCheckConfigArgs:
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        The number of consecutive health checks. Maximum value of 10.
         """
         return pulumi.get(self, "failure_threshold")
 

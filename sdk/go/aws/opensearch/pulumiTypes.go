@@ -13,7 +13,7 @@ import (
 type DomainAdvancedSecurityOptions struct {
 	// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
 	AnonymousAuthEnabled *bool `pulumi:"anonymousAuthEnabled"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether advanced security is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
@@ -35,7 +35,7 @@ type DomainAdvancedSecurityOptionsInput interface {
 type DomainAdvancedSecurityOptionsArgs struct {
 	// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
 	AnonymousAuthEnabled pulumi.BoolPtrInput `pulumi:"anonymousAuthEnabled"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether advanced security is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
@@ -125,7 +125,7 @@ func (o DomainAdvancedSecurityOptionsOutput) AnonymousAuthEnabled() pulumi.BoolP
 	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *bool { return v.AnonymousAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Whether advanced security is enabled.
 func (o DomainAdvancedSecurityOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -176,7 +176,7 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) AnonymousAuthEnabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Whether advanced security is enabled.
 func (o DomainAdvancedSecurityOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
 		if v == nil {
@@ -1064,7 +1064,7 @@ func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutpu
 }
 
 type DomainClusterConfigColdStorageOptions struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1080,7 +1080,7 @@ type DomainClusterConfigColdStorageOptionsInput interface {
 }
 
 type DomainClusterConfigColdStorageOptionsArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1161,7 +1161,7 @@ func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdSt
 	}).(DomainClusterConfigColdStorageOptionsPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
 func (o DomainClusterConfigColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfigColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1190,7 +1190,7 @@ func (o DomainClusterConfigColdStorageOptionsPtrOutput) Elem() DomainClusterConf
 	}).(DomainClusterConfigColdStorageOptionsOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
 func (o DomainClusterConfigColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfigColdStorageOptions) *bool {
 		if v == nil {
@@ -1338,7 +1338,7 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) AvailabilityZoneCount()
 }
 
 type DomainCognitoOptions struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId string `pulumi:"identityPoolId"`
@@ -1360,7 +1360,7 @@ type DomainCognitoOptionsInput interface {
 }
 
 type DomainCognitoOptionsArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
@@ -1447,7 +1447,7 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 	}).(DomainCognitoOptionsPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
 func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1491,7 +1491,7 @@ func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
 	}).(DomainCognitoOptionsOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *bool {
 		if v == nil {
@@ -1958,7 +1958,7 @@ func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type DomainEncryptAtRest struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
 	Enabled bool `pulumi:"enabled"`
 	// KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -1976,7 +1976,7 @@ type DomainEncryptAtRestInput interface {
 }
 
 type DomainEncryptAtRestArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
@@ -2059,7 +2059,7 @@ func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestPtrOutputWithContext(ctx
 	}).(DomainEncryptAtRestPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
 func (o DomainEncryptAtRestOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2093,7 +2093,7 @@ func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
 	}).(DomainEncryptAtRestOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Whether to enable encryption at rest. If the `encryptAtRest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
 func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEncryptAtRest) *bool {
 		if v == nil {
@@ -2116,7 +2116,7 @@ func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 type DomainLogPublishingOption struct {
 	// ARN of the Cloudwatch log group to which log needs to be published.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether given log publishing option is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
 	// Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
 	LogType string `pulumi:"logType"`
@@ -2136,7 +2136,7 @@ type DomainLogPublishingOptionInput interface {
 type DomainLogPublishingOptionArgs struct {
 	// ARN of the Cloudwatch log group to which log needs to be published.
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	// Whether given log publishing option is enabled or not.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
 	LogType pulumi.StringInput `pulumi:"logType"`
@@ -2198,7 +2198,7 @@ func (o DomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOu
 	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+// Whether given log publishing option is enabled or not.
 func (o DomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3096,11 +3096,11 @@ func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type OutboundConnectionLocalDomainInfo struct {
-	// The name of the remote domain.
+	// The name of the local domain.
 	DomainName string `pulumi:"domainName"`
-	// The Account ID of the owner of the remote domain.
+	// The Account ID of the owner of the local domain.
 	OwnerId string `pulumi:"ownerId"`
-	// The region of the remote domain.
+	// The region of the local domain.
 	Region string `pulumi:"region"`
 }
 
@@ -3116,11 +3116,11 @@ type OutboundConnectionLocalDomainInfoInput interface {
 }
 
 type OutboundConnectionLocalDomainInfoArgs struct {
-	// The name of the remote domain.
+	// The name of the local domain.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The Account ID of the owner of the remote domain.
+	// The Account ID of the owner of the local domain.
 	OwnerId pulumi.StringInput `pulumi:"ownerId"`
-	// The region of the remote domain.
+	// The region of the local domain.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -3201,17 +3201,17 @@ func (o OutboundConnectionLocalDomainInfoOutput) ToOutboundConnectionLocalDomain
 	}).(OutboundConnectionLocalDomainInfoPtrOutput)
 }
 
-// The name of the remote domain.
+// The name of the local domain.
 func (o OutboundConnectionLocalDomainInfoOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v OutboundConnectionLocalDomainInfo) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The Account ID of the owner of the remote domain.
+// The Account ID of the owner of the local domain.
 func (o OutboundConnectionLocalDomainInfoOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v OutboundConnectionLocalDomainInfo) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The region of the remote domain.
+// The region of the local domain.
 func (o OutboundConnectionLocalDomainInfoOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v OutboundConnectionLocalDomainInfo) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -3240,7 +3240,7 @@ func (o OutboundConnectionLocalDomainInfoPtrOutput) Elem() OutboundConnectionLoc
 	}).(OutboundConnectionLocalDomainInfoOutput)
 }
 
-// The name of the remote domain.
+// The name of the local domain.
 func (o OutboundConnectionLocalDomainInfoPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OutboundConnectionLocalDomainInfo) *string {
 		if v == nil {
@@ -3250,7 +3250,7 @@ func (o OutboundConnectionLocalDomainInfoPtrOutput) DomainName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Account ID of the owner of the remote domain.
+// The Account ID of the owner of the local domain.
 func (o OutboundConnectionLocalDomainInfoPtrOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OutboundConnectionLocalDomainInfo) *string {
 		if v == nil {
@@ -3260,7 +3260,7 @@ func (o OutboundConnectionLocalDomainInfoPtrOutput) OwnerId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The region of the remote domain.
+// The region of the local domain.
 func (o OutboundConnectionLocalDomainInfoPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OutboundConnectionLocalDomainInfo) *string {
 		if v == nil {

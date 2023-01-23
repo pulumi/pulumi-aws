@@ -113,7 +113,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? ParNumerator;
         /// <summary>
-        /// H264 profile.
+        /// AAC profile.
         /// </summary>
         public readonly string? Profile;
         /// <summary>
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly int? QvbrQualityLevel;
         /// <summary>
-        /// Rate control mode.
+        /// The rate control mode.
         /// </summary>
         public readonly string? RateControlMode;
         /// <summary>

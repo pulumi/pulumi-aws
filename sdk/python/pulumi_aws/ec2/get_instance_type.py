@@ -370,10 +370,6 @@ class GetInstanceTypeResult:
     def hypervisor(self) -> str:
         """
         Hypervisor used for the instance type.
-        * `inference_accelerators` Describes the Inference accelerators for the instance type.
-        * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-        * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-        * `inference_accelerators.#.name` - The name of the Inference accelerator.
         """
         return pulumi.get(self, "hypervisor")
 
@@ -388,6 +384,12 @@ class GetInstanceTypeResult:
     @property
     @pulumi.getter(name="inferenceAccelerators")
     def inference_accelerators(self) -> Sequence['outputs.GetInstanceTypeInferenceAcceleratorResult']:
+        """
+        Describes the Inference accelerators for the instance type.
+        * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+        * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+        * `inference_accelerators.#.name` - The name of the Inference accelerator.
+        """
         return pulumi.get(self, "inference_accelerators")
 
     @property

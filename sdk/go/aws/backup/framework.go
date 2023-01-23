@@ -144,11 +144,11 @@ type Framework struct {
 	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
 	// The description of the framework with a maximum of 1,024 characters
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -196,11 +196,11 @@ type frameworkState struct {
 	DeploymentStatus *string `pulumi:"deploymentStatus"`
 	// The description of the framework with a maximum of 1,024 characters
 	Description *string `pulumi:"description"`
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name *string `pulumi:"name"`
 	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status *string `pulumi:"status"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -217,11 +217,11 @@ type FrameworkState struct {
 	DeploymentStatus pulumi.StringPtrInput
 	// The description of the framework with a maximum of 1,024 characters
 	Description pulumi.StringPtrInput
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringPtrInput
 	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status pulumi.StringPtrInput
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -236,9 +236,9 @@ type frameworkArgs struct {
 	Controls []FrameworkControl `pulumi:"controls"`
 	// The description of the framework with a maximum of 1,024 characters
 	Description *string `pulumi:"description"`
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name *string `pulumi:"name"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -248,9 +248,9 @@ type FrameworkArgs struct {
 	Controls FrameworkControlArrayInput
 	// The description of the framework with a maximum of 1,024 characters
 	Description pulumi.StringPtrInput
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringPtrInput
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -366,7 +366,7 @@ func (o FrameworkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of a parameter, for example, BackupPlanFrequency.
+// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 func (o FrameworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -376,7 +376,7 @@ func (o FrameworkOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FrameworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

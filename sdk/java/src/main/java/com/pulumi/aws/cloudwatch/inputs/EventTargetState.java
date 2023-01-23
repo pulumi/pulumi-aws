@@ -27,14 +27,14 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
     public static final EventTargetState Empty = new EventTargetState();
 
     /**
-     * - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * The Amazon Resource Name (ARN) of the target.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * @return The Amazon Resource Name (ARN) of the target.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -322,7 +322,7 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn - ARN of the SQS queue specified as the target for the dead-letter queue.
+         * @param arn The Amazon Resource Name (ARN) of the target.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn - ARN of the SQS queue specified as the target for the dead-letter queue.
+         * @param arn The Amazon Resource Name (ARN) of the target.
          * 
          * @return builder
          * 

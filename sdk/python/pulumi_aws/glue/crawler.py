@@ -38,7 +38,7 @@ class CrawlerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Crawler resource.
-        :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
+        :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
@@ -100,7 +100,7 @@ class CrawlerArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        The name of the Glue database to be synchronized.
+        Glue database where results are written.
         """
         return pulumi.get(self, "database_name")
 
@@ -361,7 +361,7 @@ class _CrawlerState:
         :param pulumi.Input[str] arn: The ARN of the crawler
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
-        :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
+        :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
@@ -473,7 +473,7 @@ class _CrawlerState:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Glue database to be synchronized.
+        Glue database where results are written.
         """
         return pulumi.get(self, "database_name")
 
@@ -831,7 +831,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
-        :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
+        :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
@@ -1084,7 +1084,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the crawler
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
-        :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
+        :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
@@ -1163,7 +1163,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
         """
-        The name of the Glue database to be synchronized.
+        Glue database where results are written.
         """
         return pulumi.get(self, "database_name")
 

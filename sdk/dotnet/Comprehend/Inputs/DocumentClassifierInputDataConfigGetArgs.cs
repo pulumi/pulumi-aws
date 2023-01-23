@@ -42,8 +42,8 @@ namespace Pulumi.Aws.Comprehend.Inputs
         public Input<string>? LabelDelimiter { get; set; }
 
         /// <summary>
-        /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `output_s3_uri`.
+        /// Location of training documents.
+        /// Used if `data_format` is `COMPREHEND_CSV`.
         /// </summary>
         [Input("s3Uri")]
         public Input<string>? S3Uri { get; set; }

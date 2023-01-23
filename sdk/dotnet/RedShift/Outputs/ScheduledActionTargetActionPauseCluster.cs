@@ -14,7 +14,7 @@ namespace Pulumi.Aws.RedShift.Outputs
     public sealed class ScheduledActionTargetActionPauseCluster
     {
         /// <summary>
-        /// The identifier of the cluster to be resumed.
+        /// The identifier of the cluster to be paused.
         /// </summary>
         public readonly string ClusterIdentifier;
 

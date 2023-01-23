@@ -871,7 +871,7 @@ class EventTargetDeadLetterConfigArgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
+        :param pulumi.Input[str] arn: ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -880,7 +880,7 @@ class EventTargetDeadLetterConfigArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
+        ARN of the SQS queue specified as the target for the dead-letter queue.
         """
         return pulumi.get(self, "arn")
 
@@ -1869,7 +1869,7 @@ class MetricStreamExcludeFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] namespace: The namespace of the metric.
+        :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
         """
         pulumi.set(__self__, "namespace", namespace)
 
@@ -1877,7 +1877,7 @@ class MetricStreamExcludeFilterArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
-        The namespace of the metric.
+        Name of the metric namespace in the filter.
         """
         return pulumi.get(self, "namespace")
 
@@ -1891,7 +1891,7 @@ class MetricStreamIncludeFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] namespace: The namespace of the metric.
+        :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
         """
         pulumi.set(__self__, "namespace", namespace)
 
@@ -1899,7 +1899,7 @@ class MetricStreamIncludeFilterArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
-        The namespace of the metric.
+        Name of the metric namespace in the filter.
         """
         return pulumi.get(self, "namespace")
 
@@ -1952,7 +1952,7 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
                  namespace: pulumi.Input[str]):
         """
         :param pulumi.Input[str] metric_name: The name of the metric.
-        :param pulumi.Input[str] namespace: The namespace of the metric.
+        :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -1973,7 +1973,7 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
-        The namespace of the metric.
+        Name of the metric namespace in the filter.
         """
         return pulumi.get(self, "namespace")
 

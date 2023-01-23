@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class ExperimentTemplateActionParameter {
     /**
-     * @return Tag key.
+     * @return Parameter name.
      * 
      */
     private String key;
     /**
-     * @return Tag value.
+     * @return Parameter value.
      * 
      */
     private String value;
 
     private ExperimentTemplateActionParameter() {}
     /**
-     * @return Tag key.
+     * @return Parameter name.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return Tag value.
+     * @return Parameter value.
      * 
      */
     public String value() {

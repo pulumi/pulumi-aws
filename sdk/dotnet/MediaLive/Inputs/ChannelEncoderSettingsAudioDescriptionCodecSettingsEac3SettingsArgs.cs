@@ -31,7 +31,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? BitstreamMode { get; set; }
 
         /// <summary>
-        /// Dolby Digital Plus coding mode.
+        /// Mono, Stereo, or 5.1 channel layout.
         /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? DcFilter { get; set; }
 
         /// <summary>
-        /// Sets the dialnorm for the output.
+        /// Sets the dialnorm of the output.
         /// </summary>
         [Input("dialnorm")]
         public Input<int>? Dialnorm { get; set; }

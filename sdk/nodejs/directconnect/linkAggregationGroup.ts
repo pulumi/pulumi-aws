@@ -78,6 +78,9 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
     public /*out*/ readonly hasLogicalRedundancy!: pulumi.Output<string>;
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
     public /*out*/ readonly jumboFrameCapable!: pulumi.Output<boolean>;
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
@@ -179,6 +182,9 @@ export interface LinkAggregationGroupState {
      * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      */
     hasLogicalRedundancy?: pulumi.Input<string>;
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     */
     jumboFrameCapable?: pulumi.Input<boolean>;
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.

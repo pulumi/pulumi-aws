@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// The ARN of the role that provides access to the source Kinesis stream.
         /// </summary>
         public readonly string RoleArn;
 

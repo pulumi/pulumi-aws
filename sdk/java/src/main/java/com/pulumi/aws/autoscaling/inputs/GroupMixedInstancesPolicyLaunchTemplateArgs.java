@@ -18,14 +18,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateArgs extends com.pulum
     public static final GroupMixedInstancesPolicyLaunchTemplateArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateArgs();
 
     /**
-     * Override the instance launch template specification in the Launch Template.
+     * Nested argument defines the Launch Template. Defined below.
      * 
      */
     @Import(name="launchTemplateSpecification", required=true)
     private Output<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> launchTemplateSpecification;
 
     /**
-     * @return Override the instance launch template specification in the Launch Template.
+     * @return Nested argument defines the Launch Template. Defined below.
      * 
      */
     public Output<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> launchTemplateSpecification() {
@@ -73,7 +73,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateArgs extends com.pulum
         }
 
         /**
-         * @param launchTemplateSpecification Override the instance launch template specification in the Launch Template.
+         * @param launchTemplateSpecification Nested argument defines the Launch Template. Defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateArgs extends com.pulum
         }
 
         /**
-         * @param launchTemplateSpecification Override the instance launch template specification in the Launch Template.
+         * @param launchTemplateSpecification Nested argument defines the Launch Template. Defined below.
          * 
          * @return builder
          * 

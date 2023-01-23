@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleActionBlockCustomResponseResponseHeader {
     /**
-     * @return The label string.
+     * @return A friendly name of the rule group.
      * 
      */
     private String name;
@@ -22,7 +22,7 @@ public final class RuleGroupRuleActionBlockCustomResponseResponseHeader {
 
     private RuleGroupRuleActionBlockCustomResponseResponseHeader() {}
     /**
-     * @return The label string.
+     * @return A friendly name of the rule group.
      * 
      */
     public String name() {

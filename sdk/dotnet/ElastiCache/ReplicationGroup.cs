@@ -378,7 +378,8 @@ namespace Pulumi.Aws.ElastiCache
         public Output<int> NumCacheClusters { get; private set; } = null!;
 
         /// <summary>
-        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        /// Number of node groups (shards) for this Redis replication group.
+        /// Changing this number will trigger a resizing operation before other settings modifications.
         /// </summary>
         [Output("numNodeGroups")]
         public Output<int> NumNodeGroups { get; private set; } = null!;
@@ -420,7 +421,9 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ReaderEndpointAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// Number of replica nodes in each node group.
+        /// Changing this number will trigger a resizing operation before other settings modifications.
+        /// Valid values are 0 to 5.
         /// </summary>
         [Output("replicasPerNodeGroup")]
         public Output<int> ReplicasPerNodeGroup { get; private set; } = null!;
@@ -702,7 +705,8 @@ namespace Pulumi.Aws.ElastiCache
         public Input<int>? NumCacheClusters { get; set; }
 
         /// <summary>
-        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        /// Number of node groups (shards) for this Redis replication group.
+        /// Changing this number will trigger a resizing operation before other settings modifications.
         /// </summary>
         [Input("numNodeGroups")]
         public Input<int>? NumNodeGroups { get; set; }
@@ -738,7 +742,9 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// Number of replica nodes in each node group.
+        /// Changing this number will trigger a resizing operation before other settings modifications.
+        /// Valid values are 0 to 5.
         /// </summary>
         [Input("replicasPerNodeGroup")]
         public Input<int>? ReplicasPerNodeGroup { get; set; }
@@ -1038,7 +1044,8 @@ namespace Pulumi.Aws.ElastiCache
         public Input<int>? NumCacheClusters { get; set; }
 
         /// <summary>
-        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
+        /// Number of node groups (shards) for this Redis replication group.
+        /// Changing this number will trigger a resizing operation before other settings modifications.
         /// </summary>
         [Input("numNodeGroups")]
         public Input<int>? NumNodeGroups { get; set; }
@@ -1086,7 +1093,9 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ReaderEndpointAddress { get; set; }
 
         /// <summary>
-        /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// Number of replica nodes in each node group.
+        /// Changing this number will trigger a resizing operation before other settings modifications.
+        /// Valid values are 0 to 5.
         /// </summary>
         [Input("replicasPerNodeGroup")]
         public Input<int>? ReplicasPerNodeGroup { get; set; }

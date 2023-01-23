@@ -48,14 +48,14 @@ public final class CostCategoryRuleRuleAndArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<CostCategoryRuleRuleAndTagsArgs> tags;
 
     /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<CostCategoryRuleRuleAndTagsArgs>> tags() {
@@ -131,7 +131,7 @@ public final class CostCategoryRuleRuleAndArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class CostCategoryRuleRuleAndArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags Configuration block for the specific `Tag` to use for `Expression`. See below.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

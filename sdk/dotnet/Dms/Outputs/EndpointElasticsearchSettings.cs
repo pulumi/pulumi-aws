@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? FullLoadErrorPercentage;
         /// <summary>
-        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         /// </summary>
         public readonly string ServiceAccessRoleArn;
 

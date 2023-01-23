@@ -16,14 +16,14 @@ public final class GetTagsFilterCostCategory extends com.pulumi.resources.Invoke
     public static final GetTagsFilterCostCategory Empty = new GetTagsFilterCostCategory();
 
     /**
-     * key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+     * Unique name of the Cost Category.
      * 
      */
     @Import(name="key")
     private @Nullable String key;
 
     /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+     * @return Unique name of the Cost Category.
      * 
      */
     public Optional<String> key() {
@@ -87,7 +87,7 @@ public final class GetTagsFilterCostCategory extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param key key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         * @param key Unique name of the Cost Category.
          * 
          * @return builder
          * 

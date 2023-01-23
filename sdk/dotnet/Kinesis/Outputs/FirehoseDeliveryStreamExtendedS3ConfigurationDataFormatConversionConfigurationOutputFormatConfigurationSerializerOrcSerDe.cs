@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly double? BloomFilterFalsePositiveProbability;
         /// <summary>
-        /// The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+        /// The compression code to use over data blocks. The default is `SNAPPY`.
         /// </summary>
         public readonly string? Compression;
         /// <summary>

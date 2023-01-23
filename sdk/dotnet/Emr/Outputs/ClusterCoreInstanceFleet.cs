@@ -26,13 +26,13 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly Outputs.ClusterCoreInstanceFleetLaunchSpecifications? LaunchSpecifications;
         /// <summary>
-        /// Name of the step.
+        /// Friendly name given to the instance fleet.
         /// </summary>
         public readonly string? Name;
         public readonly int? ProvisionedOnDemandCapacity;
         public readonly int? ProvisionedSpotCapacity;
         /// <summary>
-        /// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         /// </summary>
         public readonly int? TargetOnDemandCapacity;
         /// <summary>

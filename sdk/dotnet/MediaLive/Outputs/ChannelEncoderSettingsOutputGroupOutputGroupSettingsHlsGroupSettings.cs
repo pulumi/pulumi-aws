@@ -27,7 +27,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? CodecSpecification;
         public readonly string? ConstantIv;
         /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
+        /// A director and base filename where archive files should be written. See Destination for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination Destination;
         public readonly string? DirectoryStructure;
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? IncompleteSegmentBehavior;
         public readonly int? IndexNSegments;
         /// <summary>
-        /// Specifies behavior of last resort when input video os lost.
+        /// Controls the behavior of the RTMP group if input becomes unavailable.
         /// </summary>
         public readonly string? InputLossAction;
         public readonly string? IvInManifest;

@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerS3Target {
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the JDBC target.
      * 
      */
     private @Nullable String connectionName;
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the dead-letter SQS queue.
      * 
      */
     private @Nullable String dlqEventQueueArn;
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     private @Nullable String eventQueueArn;
@@ -34,7 +34,7 @@ public final class CrawlerS3Target {
      */
     private @Nullable List<String> exclusions;
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The name of the DynamoDB table to crawl.
      * 
      */
     private String path;
@@ -46,21 +46,21 @@ public final class CrawlerS3Target {
 
     private CrawlerS3Target() {}
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the JDBC target.
      * 
      */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the dead-letter SQS queue.
      * 
      */
     public Optional<String> dlqEventQueueArn() {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     public Optional<String> eventQueueArn() {
@@ -74,7 +74,7 @@ public final class CrawlerS3Target {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The name of the DynamoDB table to crawl.
      * 
      */
     public String path() {

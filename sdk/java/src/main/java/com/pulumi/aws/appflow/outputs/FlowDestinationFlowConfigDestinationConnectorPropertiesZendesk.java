@@ -19,17 +19,17 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     private @Nullable List<String> idFieldNames;
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     private String object;
     /**
-     * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     private @Nullable String writeOperationType;
@@ -43,21 +43,21 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendes
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     public List<String> idFieldNames() {
         return this.idFieldNames == null ? List.of() : this.idFieldNames;
     }
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public String object() {
         return this.object;
     }
     /**
-     * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     public Optional<String> writeOperationType() {

@@ -349,7 +349,7 @@ export class EventTarget extends pulumi.CustomResource {
     }
 
     /**
-     * - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * The Amazon Resource Name (ARN) of the target.
      */
     public readonly arn!: pulumi.Output<string>;
     /**
@@ -483,7 +483,7 @@ export class EventTarget extends pulumi.CustomResource {
  */
 export interface EventTargetState {
     /**
-     * - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * The Amazon Resource Name (ARN) of the target.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -557,7 +557,7 @@ export interface EventTargetState {
  */
 export interface EventTargetArgs {
     /**
-     * - ARN of the SQS queue specified as the target for the dead-letter queue.
+     * The Amazon Resource Name (ARN) of the target.
      */
     arn: pulumi.Input<string>;
     /**

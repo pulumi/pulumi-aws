@@ -109,14 +109,14 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -124,14 +124,14 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * @return The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
     public Output<String> type() {
@@ -296,7 +296,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+         * @param type The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+         * @param type The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
          * 
          * @return builder
          * 

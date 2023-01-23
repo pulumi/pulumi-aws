@@ -24,7 +24,7 @@ public final class CostCategoryRuleRuleNot {
      */
     private @Nullable CostCategoryRuleRuleNotDimension dimension;
     /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable CostCategoryRuleRuleNotTags tags;
@@ -45,7 +45,7 @@ public final class CostCategoryRuleRuleNot {
         return Optional.ofNullable(this.dimension);
     }
     /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<CostCategoryRuleRuleNotTags> tags() {

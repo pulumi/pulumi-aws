@@ -171,9 +171,9 @@ func (o ListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) ListenerDefau
 }
 
 type ListenerDefaultActionAuthenticateCognito struct {
-	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
-	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+	// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
 	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
 	// Set of user claims to be requested from the IdP.
 	Scope *string `pulumi:"scope"`
@@ -201,9 +201,9 @@ type ListenerDefaultActionAuthenticateCognitoInput interface {
 }
 
 type ListenerDefaultActionAuthenticateCognitoArgs struct {
-	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+	// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
 	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
 	// Set of user claims to be requested from the IdP.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
@@ -296,14 +296,14 @@ func (o ListenerDefaultActionAuthenticateCognitoOutput) ToListenerDefaultActionA
 	}).(ListenerDefaultActionAuthenticateCognitoPtrOutput)
 }
 
-// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) map[string]string {
 		return v.AuthenticationRequestExtraParams
 	}).(pulumi.StringMapOutput)
 }
 
-// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) *string { return v.OnUnauthenticatedRequest }).(pulumi.StringPtrOutput)
 }
@@ -362,7 +362,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Elem() ListenerDefaul
 	}).(ListenerDefaultActionAuthenticateCognitoOutput)
 }
 
-// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) map[string]string {
 		if v == nil {
@@ -372,7 +372,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequest
 	}).(pulumi.StringMapOutput)
 }
 
-// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -776,7 +776,7 @@ type ListenerDefaultActionFixedResponse struct {
 	ContentType string `pulumi:"contentType"`
 	// Message body.
 	MessageBody *string `pulumi:"messageBody"`
-	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+	// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 	StatusCode *string `pulumi:"statusCode"`
 }
 
@@ -796,7 +796,7 @@ type ListenerDefaultActionFixedResponseArgs struct {
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Message body.
 	MessageBody pulumi.StringPtrInput `pulumi:"messageBody"`
-	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+	// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
 }
 
@@ -887,7 +887,7 @@ func (o ListenerDefaultActionFixedResponseOutput) MessageBody() pulumi.StringPtr
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) *string { return v.MessageBody }).(pulumi.StringPtrOutput)
 }
 
-// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 func (o ListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
@@ -936,7 +936,7 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) MessageBody() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
 func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) *string {
 		if v == nil {
@@ -4437,7 +4437,7 @@ func (o LoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) LoadBalan
 }
 
 type TargetGroupHealthCheck struct {
-	// Boolean to enable / disable `stickiness`. Default is `true`.
+	// Whether health checks are enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
@@ -4469,7 +4469,7 @@ type TargetGroupHealthCheckInput interface {
 }
 
 type TargetGroupHealthCheckArgs struct {
-	// Boolean to enable / disable `stickiness`. Default is `true`.
+	// Whether health checks are enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
@@ -4566,7 +4566,7 @@ func (o TargetGroupHealthCheckOutput) ToTargetGroupHealthCheckPtrOutputWithConte
 	}).(TargetGroupHealthCheckPtrOutput)
 }
 
-// Boolean to enable / disable `stickiness`. Default is `true`.
+// Whether health checks are enabled. Defaults to `true`.
 func (o TargetGroupHealthCheckOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4635,7 +4635,7 @@ func (o TargetGroupHealthCheckPtrOutput) Elem() TargetGroupHealthCheckOutput {
 	}).(TargetGroupHealthCheckOutput)
 }
 
-// Boolean to enable / disable `stickiness`. Default is `true`.
+// Whether health checks are enabled. Defaults to `true`.
 func (o TargetGroupHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *bool {
 		if v == nil {

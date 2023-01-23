@@ -14,14 +14,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
     public static final ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs();
 
     /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * Destination is a multiplex. See Destination for more details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination;
 
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return Destination is a multiplex. See Destination for more details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination() {
@@ -53,7 +53,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination Destination is a multiplex. See Destination for more details.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination Destination is a multiplex. See Destination for more details.
          * 
          * @return builder
          * 

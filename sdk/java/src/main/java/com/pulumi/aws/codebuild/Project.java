@@ -449,14 +449,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logsConfig);
     }
     /**
-     * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * Project&#39;s name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * @return Project&#39;s name.
      * 
      */
     public Output<String> name() {
@@ -561,14 +561,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secondarySources);
     }
     /**
-     * Specifies the service role ARN for the batch build project.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
-     * @return Specifies the service role ARN for the batch build project.
+     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     public Output<String> serviceRole() {
@@ -589,14 +589,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.source;
     }
     /**
-     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * Version of the build input to be built for this project. If not specified, the latest version is used.
      * 
      */
     @Export(name="sourceVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceVersion;
 
     /**
-     * @return The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * @return Version of the build input to be built for this project. If not specified, the latest version is used.
      * 
      */
     public Output<Optional<String>> sourceVersion() {

@@ -121,7 +121,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        /// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        /// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        /// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -228,14 +228,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.globalSecondaryIndexes);
     }
     /**
-     * Name of the hash key in the index; must be defined as an attribute in the resource.
+     * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      * 
      */
     @Export(name="hashKey", refs={String.class}, tree="[0]")
     private Output<String> hashKey;
 
     /**
-     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
+     * @return Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      * 
      */
     public Output<String> hashKey() {
@@ -256,56 +256,56 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.localSecondaryIndexes);
     }
     /**
-     * Name of the index
+     * Unique within a region name of the table.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the index
+     * @return Unique within a region name of the table.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * Enable point-in-time recovery options. See below.
      * 
      */
     @Export(name="pointInTimeRecovery", refs={TablePointInTimeRecovery.class}, tree="[0]")
     private Output<TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * @return Enable point-in-time recovery options. See below.
      * 
      */
     public Output<TablePointInTimeRecovery> pointInTimeRecovery() {
         return this.pointInTimeRecovery;
     }
     /**
-     * Name of the range key.
+     * Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      * 
      */
     @Export(name="rangeKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rangeKey;
 
     /**
-     * @return Name of the range key.
+     * @return Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      * 
      */
     public Output<Optional<String>> rangeKey() {
         return Codegen.optional(this.rangeKey);
     }
     /**
-     * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     @Export(name="readCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> readCapacity;
 
     /**
-     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     public Output<Integer> readCapacity() {
@@ -494,14 +494,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.ttl;
     }
     /**
-     * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     @Export(name="writeCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> writeCapacity;
 
     /**
-     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
     public Output<Integer> writeCapacity() {

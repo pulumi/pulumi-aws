@@ -19,14 +19,14 @@ public final class IpGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final IpGroupArgs Empty = new IpGroupArgs();
 
     /**
-     * The description.
+     * The description of the IP group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description.
+     * @return The description of the IP group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -106,7 +106,7 @@ public final class IpGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description.
+         * @param description The description of the IP group.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class IpGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description.
+         * @param description The description of the IP group.
          * 
          * @return builder
          * 

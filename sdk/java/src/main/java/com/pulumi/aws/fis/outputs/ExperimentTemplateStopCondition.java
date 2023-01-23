@@ -17,7 +17,7 @@ public final class ExperimentTemplateStopCondition {
      */
     private String source;
     /**
-     * @return Tag value.
+     * @return ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
      * 
      */
     private @Nullable String value;
@@ -31,7 +31,7 @@ public final class ExperimentTemplateStopCondition {
         return this.source;
     }
     /**
-     * @return Tag value.
+     * @return ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
      * 
      */
     public Optional<String> value() {

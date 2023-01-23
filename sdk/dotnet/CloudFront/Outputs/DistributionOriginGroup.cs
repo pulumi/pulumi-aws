@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOriginGroupMember> Members;
         /// <summary>
-        /// The unique identifier of the member origin
+        /// A unique identifier for the origin.
         /// </summary>
         public readonly string OriginId;
 

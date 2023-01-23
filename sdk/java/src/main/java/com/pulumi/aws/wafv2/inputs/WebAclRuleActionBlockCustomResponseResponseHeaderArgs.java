@@ -14,14 +14,14 @@ public final class WebAclRuleActionBlockCustomResponseResponseHeaderArgs extends
     public static final WebAclRuleActionBlockCustomResponseResponseHeaderArgs Empty = new WebAclRuleActionBlockCustomResponseResponseHeaderArgs();
 
     /**
-     * Label string.
+     * Friendly name of the WebACL.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Label string.
+     * @return Friendly name of the WebACL.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class WebAclRuleActionBlockCustomResponseResponseHeaderArgs extends
         }
 
         /**
-         * @param name Label string.
+         * @param name Friendly name of the WebACL.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class WebAclRuleActionBlockCustomResponseResponseHeaderArgs extends
         }
 
         /**
-         * @param name Label string.
+         * @param name Friendly name of the WebACL.
          * 
          * @return builder
          * 

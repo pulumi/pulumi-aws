@@ -64,7 +64,7 @@ namespace Pulumi.Aws.LightSail
     public partial class LbHttpsRedirectionPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbHttpsRedirectionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.LightSail
     public sealed class LbHttpsRedirectionPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
+        /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

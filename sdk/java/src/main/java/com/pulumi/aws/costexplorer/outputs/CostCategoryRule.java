@@ -24,7 +24,7 @@ public final class CostCategoryRule {
      */
     private @Nullable CostCategoryRuleRule rule;
     /**
-     * @return Parameter type.
+     * @return You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
      * 
      */
     private @Nullable String type;
@@ -50,7 +50,7 @@ public final class CostCategoryRule {
         return Optional.ofNullable(this.rule);
     }
     /**
-     * @return Parameter type.
+     * @return You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
      * 
      */
     public Optional<String> type() {

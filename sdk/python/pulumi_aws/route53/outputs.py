@@ -490,9 +490,9 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
                  type: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str id: ID of a rule you want to assign.
-        :param str region: Region code for the AWS Region that you created the resource in.
-        :param str type: Type of the rule.
+        :param str id: ID of an endpoint you want to assign.
+        :param str region: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+        :param str type: Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
         :param str value: Value of the `type`.
         """
         pulumi.set(__self__, "id", id)
@@ -507,7 +507,7 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of a rule you want to assign.
+        ID of an endpoint you want to assign.
         """
         return pulumi.get(self, "id")
 
@@ -515,7 +515,7 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        Region code for the AWS Region that you created the resource in.
+        To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
         """
         return pulumi.get(self, "region")
 
@@ -523,7 +523,7 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Type of the rule.
+        Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
         """
         return pulumi.get(self, "type")
 
@@ -553,7 +553,7 @@ class GetTrafficPolicyDocumentRuleResult(dict):
         :param Sequence['GetTrafficPolicyDocumentRuleItemArgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
         :param Sequence['GetTrafficPolicyDocumentRuleLocationArgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
         :param 'GetTrafficPolicyDocumentRulePrimaryArgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleRegionArgs'] regions: Region code for the AWS Region that you created the resource in.
+        :param Sequence['GetTrafficPolicyDocumentRuleRegionArgs'] regions: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
         :param 'GetTrafficPolicyDocumentRuleSecondaryArgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
         :param str type: Type of the rule.
         """
@@ -617,7 +617,7 @@ class GetTrafficPolicyDocumentRuleResult(dict):
     @pulumi.getter
     def regions(self) -> Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleRegionResult']]:
         """
-        Region code for the AWS Region that you created the resource in.
+        To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
         """
         return pulumi.get(self, "regions")
 
@@ -656,7 +656,7 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
         :param str health_check: If you want to associate a health check with the endpoint or rule.
         :param str latitude: Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
         :param str longitude: Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
-        :param str region: Region code for the AWS Region that you created the resource in.
+        :param str region: If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
         :param str rule_reference: References to a rule.
         """
         if bias is not None:
@@ -728,7 +728,7 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        Region code for the AWS Region that you created the resource in.
+        If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
         """
         return pulumi.get(self, "region")
 

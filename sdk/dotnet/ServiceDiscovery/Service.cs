@@ -149,7 +149,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the namespace to use for DNS configuration.
+        /// The ID of the namespace that you want to use to create the service.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
@@ -165,6 +165,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+        /// </summary>
+        [Output("type")]
+        public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -249,7 +255,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the namespace to use for DNS configuration.
+        /// The ID of the namespace that you want to use to create the service.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
@@ -265,6 +271,12 @@ namespace Pulumi.Aws.ServiceDiscovery
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceArgs()
         {
@@ -317,7 +329,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the namespace to use for DNS configuration.
+        /// The ID of the namespace that you want to use to create the service.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
@@ -345,6 +357,12 @@ namespace Pulumi.Aws.ServiceDiscovery
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceState()
         {

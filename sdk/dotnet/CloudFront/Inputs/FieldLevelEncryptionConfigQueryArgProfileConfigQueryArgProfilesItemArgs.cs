@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of profile to use for field-level encryption query argument-profile mapping
+        /// The profile ID for a field-level encryption content type-profile mapping.
         /// </summary>
         [Input("profileId", required: true)]
         public Input<string> ProfileId { get; set; } = null!;

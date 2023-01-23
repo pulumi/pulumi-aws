@@ -33,12 +33,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.apigatewayv2.Authorizer("example", {
  *     apiId: aws_apigatewayv2_api.example.id,
- *     authorizerType: "JWT",
+ *     authorizerType: "REQUEST",
+ *     authorizerUri: aws_lambda_function.example.invoke_arn,
  *     identitySources: [`$request.header.Authorization`],
- *     jwtConfiguration: {
- *         audiences: ["example"],
- *         issuer: `https://${aws_cognito_user_pool.example.endpoint}`,
- *     },
+ *     authorizerPayloadFormatVersion: "2.0",
  * });
  * ```
  *

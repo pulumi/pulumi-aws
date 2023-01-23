@@ -92,7 +92,7 @@ type InstanceState struct {
 	Force pulumi.BoolPtrOutput `pulumi:"force"`
 	// ID of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// - State of the instance. Valid values are `stopped`, `running`.
+	// State of the instance. Valid values are `stopped`, `running`.
 	State pulumi.StringOutput `pulumi:"state"`
 }
 
@@ -135,7 +135,7 @@ type instanceStateState struct {
 	Force *bool `pulumi:"force"`
 	// ID of the instance.
 	InstanceId *string `pulumi:"instanceId"`
-	// - State of the instance. Valid values are `stopped`, `running`.
+	// State of the instance. Valid values are `stopped`, `running`.
 	State *string `pulumi:"state"`
 }
 
@@ -144,7 +144,7 @@ type InstanceStateState struct {
 	Force pulumi.BoolPtrInput
 	// ID of the instance.
 	InstanceId pulumi.StringPtrInput
-	// - State of the instance. Valid values are `stopped`, `running`.
+	// State of the instance. Valid values are `stopped`, `running`.
 	State pulumi.StringPtrInput
 }
 
@@ -157,7 +157,7 @@ type instanceStateArgs struct {
 	Force *bool `pulumi:"force"`
 	// ID of the instance.
 	InstanceId string `pulumi:"instanceId"`
-	// - State of the instance. Valid values are `stopped`, `running`.
+	// State of the instance. Valid values are `stopped`, `running`.
 	State string `pulumi:"state"`
 }
 
@@ -167,7 +167,7 @@ type InstanceStateArgs struct {
 	Force pulumi.BoolPtrInput
 	// ID of the instance.
 	InstanceId pulumi.StringInput
-	// - State of the instance. Valid values are `stopped`, `running`.
+	// State of the instance. Valid values are `stopped`, `running`.
 	State pulumi.StringInput
 }
 
@@ -268,7 +268,7 @@ func (o InstanceStateOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// - State of the instance. Valid values are `stopped`, `running`.
+// State of the instance. Valid values are `stopped`, `running`.
 func (o InstanceStateOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

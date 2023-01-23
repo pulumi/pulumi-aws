@@ -14,14 +14,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs();
 
     /**
-     * - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
     /**
-     * @return - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     public Output<String> fallbackBehavior() {
@@ -29,14 +29,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
     }
 
     /**
-     * - Name of the HTTP header to use for the IP address.
+     * Name of the HTTP header to use for the IP address.
      * 
      */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
     /**
-     * @return - Name of the HTTP header to use for the IP address.
+     * @return Name of the HTTP header to use for the IP address.
      * 
      */
     public Output<String> headerName() {
@@ -44,14 +44,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
     }
 
     /**
-     * - Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+     * Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
      * 
      */
     @Import(name="position", required=true)
     private Output<String> position;
 
     /**
-     * @return - Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+     * @return Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
      * 
      */
     public Output<String> position() {
@@ -85,7 +85,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         }
 
         /**
-         * @param fallbackBehavior - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         }
 
         /**
-         * @param fallbackBehavior - Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         }
 
         /**
-         * @param headerName - Name of the HTTP header to use for the IP address.
+         * @param headerName Name of the HTTP header to use for the IP address.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         }
 
         /**
-         * @param headerName - Name of the HTTP header to use for the IP address.
+         * @param headerName Name of the HTTP header to use for the IP address.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         }
 
         /**
-         * @param position - Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         * @param position Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetR
         }
 
         /**
-         * @param position - Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         * @param position Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          * 
          * @return builder
          * 

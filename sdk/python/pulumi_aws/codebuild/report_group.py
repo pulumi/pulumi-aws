@@ -24,7 +24,7 @@ class ReportGroupArgs:
         """
         The set of arguments for constructing a ReportGroup resource.
         :param pulumi.Input['ReportGroupExportConfigArgs'] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
-        :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        :param pulumi.Input[str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         :param pulumi.Input[bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
         :param pulumi.Input[str] name: The name of a Report Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -54,7 +54,7 @@ class ReportGroupArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         return pulumi.get(self, "type")
 
@@ -119,7 +119,7 @@ class _ReportGroupState:
         :param pulumi.Input[str] name: The name of a Report Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        :param pulumi.Input[str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -226,7 +226,7 @@ class _ReportGroupState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         return pulumi.get(self, "type")
 
@@ -304,7 +304,7 @@ class ReportGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ReportGroupExportConfigArgs']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         :param pulumi.Input[str] name: The name of a Report Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        :param pulumi.Input[str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         ...
     @overload
@@ -437,7 +437,7 @@ class ReportGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of a Report Group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        :param pulumi.Input[str] type: The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -513,7 +513,7 @@ class ReportGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
+        The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         """
         return pulumi.get(self, "type")
 

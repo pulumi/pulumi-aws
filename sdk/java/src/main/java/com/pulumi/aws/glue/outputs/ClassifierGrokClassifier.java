@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassifierGrokClassifier {
     /**
-     * @return An identifier of the data format that the classifier matches.
+     * @return An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
      * 
      */
     private String classification;
@@ -29,7 +29,7 @@ public final class ClassifierGrokClassifier {
 
     private ClassifierGrokClassifier() {}
     /**
-     * @return An identifier of the data format that the classifier matches.
+     * @return An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
      * 
      */
     public String classification() {

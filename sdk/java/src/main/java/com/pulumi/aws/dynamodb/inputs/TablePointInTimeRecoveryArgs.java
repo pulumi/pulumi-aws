@@ -14,14 +14,14 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
     public static final TablePointInTimeRecoveryArgs Empty = new TablePointInTimeRecoveryArgs();
 
     /**
-     * Whether TTL is enabled.
+     * Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether TTL is enabled.
+     * @return Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
      * 
      */
     public Output<Boolean> enabled() {
@@ -53,7 +53,7 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Whether TTL is enabled.
+         * @param enabled Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Whether TTL is enabled.
+         * @param enabled Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
          * 
          * @return builder
          * 

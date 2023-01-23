@@ -224,9 +224,9 @@ class CatalogTablePartitionKeyArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] name: Name of the Partition Key.
         :param pulumi.Input[str] comment: Free-form text comment.
-        :param pulumi.Input[str] type: Datatype of data in the Column.
+        :param pulumi.Input[str] type: Datatype of data in the Partition Key.
         """
         pulumi.set(__self__, "name", name)
         if comment is not None:
@@ -238,7 +238,7 @@ class CatalogTablePartitionKeyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the target table.
+        Name of the Partition Key.
         """
         return pulumi.get(self, "name")
 
@@ -262,7 +262,7 @@ class CatalogTablePartitionKeyArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Datatype of data in the Column.
+        Datatype of data in the Partition Key.
         """
         return pulumi.get(self, "type")
 
@@ -295,7 +295,7 @@ class CatalogTableStorageDescriptorArgs:
         :param pulumi.Input[str] location: Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         :param pulumi.Input[int] number_of_buckets: Must be specified if the table contains any dimension columns.
         :param pulumi.Input[str] output_format: Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: User-supplied properties in key-value form.
         :param pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs'] schema_reference: Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
         :param pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgs'] ser_de_info: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
         :param pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgs'] skewed_info: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
@@ -417,7 +417,7 @@ class CatalogTableStorageDescriptorArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of initialization parameters for the SerDe, in key-value form.
+        User-supplied properties in key-value form.
         """
         return pulumi.get(self, "parameters")
 
@@ -494,9 +494,9 @@ class CatalogTableStorageDescriptorColumnArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] name: Name of the Column.
         :param pulumi.Input[str] comment: Free-form text comment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value pairs defining properties associated with the column.
         :param pulumi.Input[str] type: Datatype of data in the Column.
         """
         pulumi.set(__self__, "name", name)
@@ -511,7 +511,7 @@ class CatalogTableStorageDescriptorColumnArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the target table.
+        Name of the Column.
         """
         return pulumi.get(self, "name")
 
@@ -535,7 +535,7 @@ class CatalogTableStorageDescriptorColumnArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of initialization parameters for the SerDe, in key-value form.
+        Key-value pairs defining properties associated with the column.
         """
         return pulumi.get(self, "parameters")
 
@@ -672,7 +672,7 @@ class CatalogTableStorageDescriptorSerDeInfoArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  serialization_library: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] name: Name of the SerDe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
         :param pulumi.Input[str] serialization_library: Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
         """
@@ -687,7 +687,7 @@ class CatalogTableStorageDescriptorSerDeInfoArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the target table.
+        Name of the SerDe.
         """
         return pulumi.get(self, "name")
 
@@ -1006,7 +1006,7 @@ class ClassifierGrokClassifierArgs:
                  grok_pattern: pulumi.Input[str],
                  custom_patterns: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] classification: An identifier of the data format that the classifier matches.
+        :param pulumi.Input[str] classification: An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
         :param pulumi.Input[str] grok_pattern: The grok pattern used by this classifier.
         :param pulumi.Input[str] custom_patterns: Custom grok patterns used by this classifier.
         """
@@ -1019,7 +1019,7 @@ class ClassifierGrokClassifierArgs:
     @pulumi.getter
     def classification(self) -> pulumi.Input[str]:
         """
-        An identifier of the data format that the classifier matches.
+        An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
         """
         return pulumi.get(self, "classification")
 
@@ -1177,7 +1177,7 @@ class CrawlerCatalogTargetArgs:
         """
         :param pulumi.Input[str] database_name: The name of the Glue database to be synchronized.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: A list of catalog tables to be synchronized.
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
+        :param pulumi.Input[str] connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
         :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon SQS ARN.
         :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN.
         """
@@ -1218,7 +1218,7 @@ class CrawlerCatalogTargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection to use to connect to the Delta table target.
+        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1311,8 +1311,8 @@ class CrawlerDynamodbTargetArgs:
                  scan_all: Optional[pulumi.Input[bool]] = None,
                  scan_rate: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
-        :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
+        :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
         :param pulumi.Input[float] scan_rate: The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
         """
         pulumi.set(__self__, "path", path)
@@ -1325,7 +1325,7 @@ class CrawlerDynamodbTargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        The name of the DynamoDB table to crawl.
         """
         return pulumi.get(self, "path")
 
@@ -1337,7 +1337,7 @@ class CrawlerDynamodbTargetArgs:
     @pulumi.getter(name="scanAll")
     def scan_all(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
         """
         return pulumi.get(self, "scan_all")
 
@@ -1366,8 +1366,8 @@ class CrawlerJdbcTargetArgs:
                  enable_additional_metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
-        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
+        :param pulumi.Input[str] path: The path of the JDBC target.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_additional_metadatas: Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         """
@@ -1382,7 +1382,7 @@ class CrawlerJdbcTargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Input[str]:
         """
-        The name of the connection to use to connect to the Delta table target.
+        The name of the connection to use to connect to the JDBC target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1394,7 +1394,7 @@ class CrawlerJdbcTargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        The path of the JDBC target.
         """
         return pulumi.get(self, "path")
 
@@ -1496,7 +1496,7 @@ class CrawlerMongodbTargetArgs:
                  path: pulumi.Input[str],
                  scan_all: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param pulumi.Input[bool] scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
         """
@@ -1509,7 +1509,7 @@ class CrawlerMongodbTargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Input[str]:
         """
-        The name of the connection to use to connect to the Delta table target.
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1575,10 +1575,10 @@ class CrawlerS3TargetArgs:
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sample_size: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
-        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Delta table target.
-        :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon SQS ARN.
-        :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN.
+        :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
+        :param pulumi.Input[str] dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
+        :param pulumi.Input[str] event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         :param pulumi.Input[int] sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
@@ -1598,7 +1598,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        The name of the DynamoDB table to crawl.
         """
         return pulumi.get(self, "path")
 
@@ -1610,7 +1610,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the connection to use to connect to the Delta table target.
+        The name of the connection to use to connect to the JDBC target.
         """
         return pulumi.get(self, "connection_name")
 
@@ -1622,7 +1622,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon SQS ARN.
+        The ARN of the dead-letter SQS queue.
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -1634,7 +1634,7 @@ class CrawlerS3TargetArgs:
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid Amazon SQS ARN.
+        The ARN of the SQS queue to receive S3 notifications from.
         """
         return pulumi.get(self, "event_queue_arn")
 
@@ -2209,7 +2209,7 @@ class PartitionStorageDescriptorArgs:
         :param pulumi.Input[str] location: The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         :param pulumi.Input[int] number_of_buckets: Must be specified if the table contains any dimension columns.
         :param pulumi.Input[str] output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: User-supplied properties in key-value form.
         :param pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs'] ser_de_info: Serialization/deserialization (SerDe) information.
         :param pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs'] skewed_info: Information about values that appear very frequently in a column (skewed values).
         :param pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
@@ -2328,7 +2328,7 @@ class PartitionStorageDescriptorArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of initialization parameters for the SerDe, in key-value form.
+        User-supplied properties in key-value form.
         """
         return pulumi.get(self, "parameters")
 
@@ -2392,7 +2392,7 @@ class PartitionStorageDescriptorColumnArgs:
                  comment: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of the SerDe.
+        :param pulumi.Input[str] name: The name of the Column.
         :param pulumi.Input[str] comment: Free-form text comment.
         :param pulumi.Input[str] type: The datatype of data in the Column.
         """
@@ -2406,7 +2406,7 @@ class PartitionStorageDescriptorColumnArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the SerDe.
+        The name of the Column.
         """
         return pulumi.get(self, "name")
 
@@ -2758,8 +2758,8 @@ class TriggerActionArgs:
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-        :param pulumi.Input[str] crawler_name: The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-        :param pulumi.Input[str] job_name: The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        :param pulumi.Input[str] crawler_name: The name of the crawler to be executed. Conflicts with `job_name`.
+        :param pulumi.Input[str] job_name: The name of a job to be executed. Conflicts with `crawler_name`.
         :param pulumi.Input['TriggerActionNotificationPropertyArgs'] notification_property: Specifies configuration properties of a job run notification. See Notification Property details below.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this action.
         :param pulumi.Input[int] timeout: The job run timeout in minutes. It overrides the timeout value of the job.
@@ -2793,7 +2793,7 @@ class TriggerActionArgs:
     @pulumi.getter(name="crawlerName")
     def crawler_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        The name of the crawler to be executed. Conflicts with `job_name`.
         """
         return pulumi.get(self, "crawler_name")
 
@@ -2805,7 +2805,7 @@ class TriggerActionArgs:
     @pulumi.getter(name="jobName")
     def job_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        The name of a job to be executed. Conflicts with `crawler_name`.
         """
         return pulumi.get(self, "job_name")
 

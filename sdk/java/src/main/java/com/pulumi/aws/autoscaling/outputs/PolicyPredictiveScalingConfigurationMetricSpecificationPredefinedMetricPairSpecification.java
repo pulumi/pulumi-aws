@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group&#39;s total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
      * 
      */
     private String predefinedMetricType;
@@ -22,7 +22,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification() {}
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group&#39;s total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
      * 
      */
     public String predefinedMetricType() {

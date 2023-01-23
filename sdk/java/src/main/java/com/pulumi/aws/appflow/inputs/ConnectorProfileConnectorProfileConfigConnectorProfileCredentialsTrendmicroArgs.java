@@ -14,14 +14,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs();
 
     /**
-     * The Secret Access Key portion of the credentials.
+     * The API secret key required for API key authentication.
      * 
      */
     @Import(name="apiSecretKey", required=true)
     private Output<String> apiSecretKey;
 
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return The API secret key required for API key authentication.
      * 
      */
     public Output<String> apiSecretKey() {
@@ -53,7 +53,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiSecretKey The Secret Access Key portion of the credentials.
+         * @param apiSecretKey The API secret key required for API key authentication.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiSecretKey The Secret Access Key portion of the credentials.
+         * @param apiSecretKey The API secret key required for API key authentication.
          * 
          * @return builder
          * 

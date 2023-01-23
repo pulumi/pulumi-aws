@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fsx.Inputs
     public sealed class OpenZfsVolumeUserAndGroupQuotaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - The ID of the user or group. Valid values between `0` and `2147483647`
+        /// The ID of the user or group. Valid values between `0` and `2147483647`
         /// </summary>
         [Input("id", required: true)]
         public Input<int> Id { get; set; } = null!;
 
         /// <summary>
-        /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        /// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         /// </summary>
         [Input("storageCapacityQuotaGib", required: true)]
         public Input<int> StorageCapacityQuotaGib { get; set; } = null!;

@@ -267,14 +267,14 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxBatchSize);
     }
     /**
-     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * Function name. The function name does not have to be unique.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * @return Function name. The function name does not have to be unique.
      * 
      */
     public Output<String> name() {

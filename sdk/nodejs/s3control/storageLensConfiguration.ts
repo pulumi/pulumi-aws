@@ -93,11 +93,11 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the bucket.
+     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -161,11 +161,11 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
  */
 export interface StorageLensConfigurationState {
     /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the bucket.
+     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -191,7 +191,7 @@ export interface StorageLensConfigurationState {
  */
 export interface StorageLensConfigurationArgs {
     /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string>;
     /**

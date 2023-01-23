@@ -133,6 +133,10 @@ class _InstanceFleetState:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
         :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[str] name: Friendly name given to the instance fleet.
+        :param pulumi.Input[int] provisioned_on_demand_capacity: The number of On-Demand units that have been provisioned for the instance
+               fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+        :param pulumi.Input[int] provisioned_spot_capacity: The number of Spot units that have been provisioned for this instance fleet
+               to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
         :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -204,6 +208,10 @@ class _InstanceFleetState:
     @property
     @pulumi.getter(name="provisionedOnDemandCapacity")
     def provisioned_on_demand_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of On-Demand units that have been provisioned for the instance
+        fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+        """
         return pulumi.get(self, "provisioned_on_demand_capacity")
 
     @provisioned_on_demand_capacity.setter
@@ -213,6 +221,10 @@ class _InstanceFleetState:
     @property
     @pulumi.getter(name="provisionedSpotCapacity")
     def provisioned_spot_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of Spot units that have been provisioned for this instance fleet
+        to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+        """
         return pulumi.get(self, "provisioned_spot_capacity")
 
     @provisioned_spot_capacity.setter
@@ -456,6 +468,10 @@ class InstanceFleet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceFleetInstanceTypeConfigArgs']]]] instance_type_configs: Configuration block for instance fleet
         :param pulumi.Input[pulumi.InputType['InstanceFleetLaunchSpecificationsArgs']] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[str] name: Friendly name given to the instance fleet.
+        :param pulumi.Input[int] provisioned_on_demand_capacity: The number of On-Demand units that have been provisioned for the instance
+               fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+        :param pulumi.Input[int] provisioned_spot_capacity: The number of Spot units that have been provisioned for this instance fleet
+               to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
         :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -508,11 +524,19 @@ class InstanceFleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="provisionedOnDemandCapacity")
     def provisioned_on_demand_capacity(self) -> pulumi.Output[int]:
+        """
+        The number of On-Demand units that have been provisioned for the instance
+        fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+        """
         return pulumi.get(self, "provisioned_on_demand_capacity")
 
     @property
     @pulumi.getter(name="provisionedSpotCapacity")
     def provisioned_spot_capacity(self) -> pulumi.Output[int]:
+        """
+        The number of Spot units that have been provisioned for this instance fleet
+        to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+        """
         return pulumi.get(self, "provisioned_spot_capacity")
 
     @property

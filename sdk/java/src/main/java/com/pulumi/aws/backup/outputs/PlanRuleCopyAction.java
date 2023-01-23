@@ -18,7 +18,7 @@ public final class PlanRuleCopyAction {
      */
     private String destinationVaultArn;
     /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
      * 
      */
     private @Nullable PlanRuleCopyActionLifecycle lifecycle;
@@ -32,7 +32,7 @@ public final class PlanRuleCopyAction {
         return this.destinationVaultArn;
     }
     /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+     * @return The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
      * 
      */
     public Optional<PlanRuleCopyActionLifecycle> lifecycle() {

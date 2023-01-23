@@ -58,7 +58,6 @@ export class ImageVersion extends pulumi.CustomResource {
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * * `imageArn`- The Amazon Resource Name (ARN) of the image the version is based on.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -69,6 +68,9 @@ export class ImageVersion extends pulumi.CustomResource {
      * The registry path of the container image that contains this image version.
      */
     public /*out*/ readonly containerImage!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the image the version is based on.
+     */
     public /*out*/ readonly imageArn!: pulumi.Output<string>;
     /**
      * The name of the image. Must be unique to your account.
@@ -121,7 +123,6 @@ export class ImageVersion extends pulumi.CustomResource {
 export interface ImageVersionState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-     * * `imageArn`- The Amazon Resource Name (ARN) of the image the version is based on.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -132,6 +133,9 @@ export interface ImageVersionState {
      * The registry path of the container image that contains this image version.
      */
     containerImage?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the image the version is based on.
+     */
     imageArn?: pulumi.Input<string>;
     /**
      * The name of the image. Must be unique to your account.

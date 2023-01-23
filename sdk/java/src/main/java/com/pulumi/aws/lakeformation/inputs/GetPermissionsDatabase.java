@@ -28,14 +28,14 @@ public final class GetPermissionsDatabase extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Name of the table resource.
+     * Name of the database resource. Unique to the Data Catalog.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the table resource.
+     * @return Name of the database resource. Unique to the Data Catalog.
      * 
      */
     public String name() {
@@ -79,7 +79,7 @@ public final class GetPermissionsDatabase extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param name Name of the table resource.
+         * @param name Name of the database resource. Unique to the Data Catalog.
          * 
          * @return builder
          * 

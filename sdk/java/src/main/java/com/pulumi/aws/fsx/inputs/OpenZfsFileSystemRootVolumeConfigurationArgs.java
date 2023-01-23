@@ -21,14 +21,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     public static final OpenZfsFileSystemRootVolumeConfigurationArgs Empty = new OpenZfsFileSystemRootVolumeConfigurationArgs();
 
     /**
-     * - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
      */
     @Import(name="copyTagsToSnapshots")
     private @Nullable Output<Boolean> copyTagsToSnapshots;
 
     /**
-     * @return - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToSnapshots() {
@@ -36,14 +36,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     @Import(name="dataCompressionType")
     private @Nullable Output<String> dataCompressionType;
 
     /**
-     * @return - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * @return Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     public Optional<Output<String>> dataCompressionType() {
@@ -51,14 +51,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
      * 
      */
     @Import(name="nfsExports")
     private @Nullable Output<OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs> nfsExports;
 
     /**
-     * @return - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * @return NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
      * 
      */
     public Optional<Output<OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs>> nfsExports() {
@@ -66,14 +66,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * - specifies whether the volume is read-only. Default is false.
+     * specifies whether the volume is read-only. Default is false.
      * 
      */
     @Import(name="readOnly")
     private @Nullable Output<Boolean> readOnly;
 
     /**
-     * @return - specifies whether the volume is read-only. Default is false.
+     * @return specifies whether the volume is read-only. Default is false.
      * 
      */
     public Optional<Output<Boolean>> readOnly() {
@@ -81,14 +81,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      * 
      */
     @Import(name="recordSizeKib")
     private @Nullable Output<Integer> recordSizeKib;
 
     /**
-     * @return - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * @return Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      * 
      */
     public Optional<Output<Integer>> recordSizeKib() {
@@ -96,14 +96,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
     @Import(name="userAndGroupQuotas")
     private @Nullable Output<List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>> userAndGroupQuotas;
 
     /**
-     * @return - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
     public Optional<Output<List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>>> userAndGroupQuotas() {
@@ -140,7 +140,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param copyTagsToSnapshots - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToSnapshots A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param copyTagsToSnapshots - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToSnapshots A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param dataCompressionType - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+         * @param dataCompressionType Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param dataCompressionType - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+         * @param dataCompressionType Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param nfsExports - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param nfsExports - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param readOnly - specifies whether the volume is read-only. Default is false.
+         * @param readOnly specifies whether the volume is read-only. Default is false.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param readOnly - specifies whether the volume is read-only. Default is false.
+         * @param readOnly specifies whether the volume is read-only. Default is false.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param recordSizeKib - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * @param recordSizeKib Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param recordSizeKib - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * @param recordSizeKib Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param userAndGroupQuotas - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param userAndGroupQuotas - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param userAndGroupQuotas - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
          * 
          * @return builder
          * 

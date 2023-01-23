@@ -65,9 +65,9 @@ class DataSourceCredentials(dict):
                  copy_source_arn: Optional[str] = None,
                  credential_pair: Optional['outputs.DataSourceCredentialsCredentialPair'] = None):
         """
-        :param str copy_source_arn: - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        :param str copy_source_arn: The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
                When the value is not null, the `credential_pair` from the data source in the ARN is used.
-        :param 'DataSourceCredentialsCredentialPairArgs' credential_pair: - Credential pair. See Credential Pair below for more details.
+        :param 'DataSourceCredentialsCredentialPairArgs' credential_pair: Credential pair. See Credential Pair below for more details.
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
@@ -78,7 +78,7 @@ class DataSourceCredentials(dict):
     @pulumi.getter(name="copySourceArn")
     def copy_source_arn(self) -> Optional[str]:
         """
-        - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
         When the value is not null, the `credential_pair` from the data source in the ARN is used.
         """
         return pulumi.get(self, "copy_source_arn")
@@ -87,7 +87,7 @@ class DataSourceCredentials(dict):
     @pulumi.getter(name="credentialPair")
     def credential_pair(self) -> Optional['outputs.DataSourceCredentialsCredentialPair']:
         """
-        - Credential pair. See Credential Pair below for more details.
+        Credential pair. See Credential Pair below for more details.
         """
         return pulumi.get(self, "credential_pair")
 

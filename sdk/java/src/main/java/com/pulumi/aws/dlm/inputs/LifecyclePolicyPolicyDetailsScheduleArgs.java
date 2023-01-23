@@ -25,14 +25,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     public static final LifecyclePolicyPolicyDetailsScheduleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArgs();
 
     /**
-     * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+     * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
      * 
      */
     @Import(name="copyTags")
     private @Nullable Output<Boolean> copyTags;
 
     /**
-     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+     * @return Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
      * 
      */
     public Optional<Output<Boolean>> copyTags() {
@@ -70,14 +70,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+     * See the `deprecate_rule` block. Max of 1 per schedule.
      * 
      */
     @Import(name="deprecateRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs> deprecateRule;
 
     /**
-     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+     * @return See the `deprecate_rule` block. Max of 1 per schedule.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs>> deprecateRule() {
@@ -100,14 +100,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * A name for the schedule.
+     * A descriptive name for the action.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A name for the schedule.
+     * @return A descriptive name for the action.
      * 
      */
     public Output<String> name() {
@@ -115,14 +115,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     @Import(name="retainRule", required=true)
     private Output<LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs> retainRule;
 
     /**
-     * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     public Output<LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs> retainRule() {
@@ -208,7 +208,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+         * @param copyTags Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+         * @param copyTags Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+         * @param deprecateRule See the `deprecate_rule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+         * @param deprecateRule See the `deprecate_rule` block. Max of 1 per schedule.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param name A name for the schedule.
+         * @param name A descriptive name for the action.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param name A name for the schedule.
+         * @param name A descriptive name for the action.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param retainRule The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param retainRule The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
          * 
          * @return builder
          * 

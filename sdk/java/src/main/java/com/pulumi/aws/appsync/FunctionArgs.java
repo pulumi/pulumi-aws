@@ -109,14 +109,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * Function name. The function name does not have to be unique.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * @return Function name. The function name does not have to be unique.
      * 
      */
     public Optional<Output<String>> name() {
@@ -344,7 +344,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+         * @param name Function name. The function name does not have to be unique.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+         * @param name Function name. The function name does not have to be unique.
          * 
          * @return builder
          * 

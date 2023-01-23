@@ -13,38 +13,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
     /**
-     * @return The credentials used to access protected Zendesk resources.
+     * @return The access token used to access the connector on your behalf.
      * 
      */
     private @Nullable String accessToken;
     /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest;
     /**
-     * @return The refresh token used to refresh expired access token.
+     * @return The refresh token used to refresh an expired access token.
      * 
      */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode() {}
     /**
-     * @return The credentials used to access protected Zendesk resources.
+     * @return The access token used to access the connector on your behalf.
      * 
      */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
     /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
     /**
-     * @return The refresh token used to refresh expired access token.
+     * @return The refresh token used to refresh an expired access token.
      * 
      */
     public Optional<String> refreshToken() {

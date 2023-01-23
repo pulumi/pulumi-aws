@@ -56,6 +56,9 @@ export interface GetTargetGroupArgs {
      * Unique name of the target group.
      */
     name?: string;
+    /**
+     * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -127,5 +130,8 @@ export interface GetTargetGroupOutputArgs {
      * Unique name of the target group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

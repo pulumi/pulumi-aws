@@ -50,16 +50,6 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 type LookupCertificateAuthorityArgs struct {
 	// ARN of the certificate authority.
 	Arn string `pulumi:"arn"`
-	// Nested attribute containing revocation configuration.
-	// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-	// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
-	// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
-	// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
-	// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
-	// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
-	// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
-	// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
-	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
 	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -118,16 +108,6 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 type LookupCertificateAuthorityOutputArgs struct {
 	// ARN of the certificate authority.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Nested attribute containing revocation configuration.
-	// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-	// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
-	// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
-	// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
-	// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
-	// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
-	// * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
-	// * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
-	RevocationConfigurations GetCertificateAuthorityRevocationConfigurationArrayInput `pulumi:"revocationConfigurations"`
 	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

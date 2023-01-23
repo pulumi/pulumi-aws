@@ -165,15 +165,15 @@ type SpotInstanceRequest struct {
 	// The current [bid
 	// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// of the Spot Instance Request.
-	// * `spotRequestState` The current [request
-	//   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-	//   of the Spot Instance Request.
 	SpotBidStatus pulumi.StringOutput `pulumi:"spotBidStatus"`
 	// The Instance ID (if any) that is currently fulfilling
 	// the Spot Instance request.
 	SpotInstanceId pulumi.StringOutput `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice        pulumi.StringOutput `pulumi:"spotPrice"`
+	SpotPrice pulumi.StringOutput `pulumi:"spotPrice"`
+	// The current [request
+	// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+	// of the Spot Instance Request.
 	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
@@ -334,15 +334,15 @@ type spotInstanceRequestState struct {
 	// The current [bid
 	// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// of the Spot Instance Request.
-	// * `spotRequestState` The current [request
-	//   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-	//   of the Spot Instance Request.
 	SpotBidStatus *string `pulumi:"spotBidStatus"`
 	// The Instance ID (if any) that is currently fulfilling
 	// the Spot Instance request.
 	SpotInstanceId *string `pulumi:"spotInstanceId"`
 	// The maximum price to request on the spot market.
-	SpotPrice        *string `pulumi:"spotPrice"`
+	SpotPrice *string `pulumi:"spotPrice"`
+	// The current [request
+	// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+	// of the Spot Instance Request.
 	SpotRequestState *string `pulumi:"spotRequestState"`
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
@@ -475,15 +475,15 @@ type SpotInstanceRequestState struct {
 	// The current [bid
 	// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 	// of the Spot Instance Request.
-	// * `spotRequestState` The current [request
-	//   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-	//   of the Spot Instance Request.
 	SpotBidStatus pulumi.StringPtrInput
 	// The Instance ID (if any) that is currently fulfilling
 	// the Spot Instance request.
 	SpotInstanceId pulumi.StringPtrInput
 	// The maximum price to request on the spot market.
-	SpotPrice        pulumi.StringPtrInput
+	SpotPrice pulumi.StringPtrInput
+	// The current [request
+	// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+	// of the Spot Instance Request.
 	SpotRequestState pulumi.StringPtrInput
 	// If set to `one-time`, after
 	// the instance is terminated, the spot request will be closed.
@@ -1086,9 +1086,6 @@ func (o SpotInstanceRequestOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 // The current [bid
 // status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
 // of the Spot Instance Request.
-//   - `spotRequestState` The current [request
-//     state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-//     of the Spot Instance Request.
 func (o SpotInstanceRequestOutput) SpotBidStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotBidStatus }).(pulumi.StringOutput)
 }
@@ -1104,6 +1101,9 @@ func (o SpotInstanceRequestOutput) SpotPrice() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotPrice }).(pulumi.StringOutput)
 }
 
+// The current [request
+// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+// of the Spot Instance Request.
 func (o SpotInstanceRequestOutput) SpotRequestState() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.SpotRequestState }).(pulumi.StringOutput)
 }

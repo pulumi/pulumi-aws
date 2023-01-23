@@ -116,6 +116,9 @@ export interface GetAvailabilityZonesResult {
     readonly excludeNames?: string[];
     readonly excludeZoneIds?: string[];
     readonly filters?: outputs.GetAvailabilityZonesFilter[];
+    /**
+     * A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     */
     readonly groupNames: string[];
     /**
      * The provider-assigned unique ID for this managed resource.

@@ -14,14 +14,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs();
 
     /**
-     * The location of the Salesforce resource.
+     * The location of the Datadog resource.
      * 
      */
     @Import(name="instanceUrl", required=true)
     private Output<String> instanceUrl;
 
     /**
-     * @return The location of the Salesforce resource.
+     * @return The location of the Datadog resource.
      * 
      */
     public Output<String> instanceUrl() {
@@ -53,7 +53,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param instanceUrl The location of the Salesforce resource.
+         * @param instanceUrl The location of the Datadog resource.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param instanceUrl The location of the Salesforce resource.
+         * @param instanceUrl The location of the Datadog resource.
          * 
          * @return builder
          * 

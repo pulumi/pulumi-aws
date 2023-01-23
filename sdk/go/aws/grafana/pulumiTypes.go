@@ -11,9 +11,9 @@ import (
 )
 
 type WorkspaceVpcConfiguration struct {
-	// - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+	// The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+	// The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -29,9 +29,9 @@ type WorkspaceVpcConfigurationInput interface {
 }
 
 type WorkspaceVpcConfigurationArgs struct {
-	// - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+	// The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+	// The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -112,12 +112,12 @@ func (o WorkspaceVpcConfigurationOutput) ToWorkspaceVpcConfigurationPtrOutputWit
 	}).(WorkspaceVpcConfigurationPtrOutput)
 }
 
-// - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+// The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 func (o WorkspaceVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+// The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
 func (o WorkspaceVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -146,7 +146,7 @@ func (o WorkspaceVpcConfigurationPtrOutput) Elem() WorkspaceVpcConfigurationOutp
 	}).(WorkspaceVpcConfigurationOutput)
 }
 
-// - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+// The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 func (o WorkspaceVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceVpcConfiguration) []string {
 		if v == nil {
@@ -156,7 +156,7 @@ func (o WorkspaceVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+// The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
 func (o WorkspaceVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WorkspaceVpcConfiguration) []string {
 		if v == nil {

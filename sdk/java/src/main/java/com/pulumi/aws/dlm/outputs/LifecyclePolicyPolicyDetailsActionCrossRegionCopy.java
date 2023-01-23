@@ -19,7 +19,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
      */
     private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration;
     /**
-     * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule;
@@ -38,7 +38,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
         return this.encryptionConfiguration;
     }
     /**
-     * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule> retainRule() {

@@ -36,14 +36,14 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Description of the action.
+     * Description for the experiment template.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the action.
+     * @return Description for the experiment template.
      * 
      */
     public Optional<Output<String>> description() {
@@ -103,14 +103,14 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Action&#39;s target, if applicable. See below.
+     * Target of an action. See below.
      * 
      */
     @Import(name="targets")
     private @Nullable Output<List<ExperimentTemplateTargetArgs>> targets;
 
     /**
-     * @return Action&#39;s target, if applicable. See below.
+     * @return Target of an action. See below.
      * 
      */
     public Optional<Output<List<ExperimentTemplateTargetArgs>>> targets() {
@@ -179,7 +179,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description Description of the action.
+         * @param description Description for the experiment template.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description Description of the action.
+         * @param description Description for the experiment template.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targets Action&#39;s target, if applicable. See below.
+         * @param targets Target of an action. See below.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targets Action&#39;s target, if applicable. See below.
+         * @param targets Target of an action. See below.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targets Action&#39;s target, if applicable. See below.
+         * @param targets Target of an action. See below.
          * 
          * @return builder
          * 

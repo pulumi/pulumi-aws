@@ -34,14 +34,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Description of this egress rule.
+     * Description of this ingress rule.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of this egress rule.
+     * @return Description of this ingress rule.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Start port (or ICMP type number if protocol is `icmp`)
+     * Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
      * 
      */
     @Import(name="fromPort", required=true)
     private Output<Integer> fromPort;
 
     /**
-     * @return Start port (or ICMP type number if protocol is `icmp`)
+     * @return Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
      * 
      */
     public Output<Integer> fromPort() {
@@ -94,14 +94,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+     * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
      * 
      */
     public Output<String> protocol() {
@@ -124,14 +124,14 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether the security group itself will be added as a source to this egress rule.
+     * Whether the security group itself will be added as a source to this ingress rule.
      * 
      */
     @Import(name="self")
     private @Nullable Output<Boolean> self;
 
     /**
-     * @return Whether the security group itself will be added as a source to this egress rule.
+     * @return Whether the security group itself will be added as a source to this ingress rule.
      * 
      */
     public Optional<Output<Boolean>> self() {
@@ -217,7 +217,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description Description of this egress rule.
+         * @param description Description of this ingress rule.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param description Description of this egress rule.
+         * @param description Description of this ingress rule.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fromPort Start port (or ICMP type number if protocol is `icmp`)
+         * @param fromPort Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fromPort Start port (or ICMP type number if protocol is `icmp`)
+         * @param fromPort Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+         * @param protocol Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param self Whether the security group itself will be added as a source to this egress rule.
+         * @param self Whether the security group itself will be added as a source to this ingress rule.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class SecurityGroupIngressArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param self Whether the security group itself will be added as a source to this egress rule.
+         * @param self Whether the security group itself will be added as a source to this ingress rule.
          * 
          * @return builder
          * 

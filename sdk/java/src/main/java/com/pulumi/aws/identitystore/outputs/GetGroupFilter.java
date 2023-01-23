@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupFilter {
     /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
      * 
      */
     private String attributePath;
@@ -22,7 +22,7 @@ public final class GetGroupFilter {
 
     private GetGroupFilter() {}
     /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
      * 
      */
     public String attributePath() {

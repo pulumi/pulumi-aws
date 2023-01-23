@@ -69,7 +69,7 @@ class DataSourceDynamodbConfig(dict):
                  versioned: Optional[bool] = None):
         """
         :param str table_name: Name of the DynamoDB table.
-        :param str region: AWS Region for RDS HTTP endpoint. Defaults to current region.
+        :param str region: AWS region of the DynamoDB table. Defaults to current region.
         :param bool use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
         """
         pulumi.set(__self__, "table_name", table_name)
@@ -99,7 +99,7 @@ class DataSourceDynamodbConfig(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        AWS Region for RDS HTTP endpoint. Defaults to current region.
+        AWS region of the DynamoDB table. Defaults to current region.
         """
         return pulumi.get(self, "region")
 
@@ -172,8 +172,8 @@ class DataSourceElasticsearchConfig(dict):
                  endpoint: str,
                  region: Optional[str] = None):
         """
-        :param str endpoint: HTTP URL.
-        :param str region: AWS Region for RDS HTTP endpoint. Defaults to current region.
+        :param str endpoint: HTTP endpoint of the Elasticsearch domain.
+        :param str region: AWS region of Elasticsearch domain. Defaults to current region.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -183,7 +183,7 @@ class DataSourceElasticsearchConfig(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        HTTP URL.
+        HTTP endpoint of the Elasticsearch domain.
         """
         return pulumi.get(self, "endpoint")
 
@@ -191,7 +191,7 @@ class DataSourceElasticsearchConfig(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        AWS Region for RDS HTTP endpoint. Defaults to current region.
+        AWS region of Elasticsearch domain. Defaults to current region.
         """
         return pulumi.get(self, "region")
 

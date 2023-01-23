@@ -26,12 +26,12 @@ class CostCategoryArgs:
         """
         The set of arguments for constructing a CostCategory resource.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the `Expression` object used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[str] default_value: Default value for the cost category.
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "rule_version", rule_version)
         pulumi.set(__self__, "rules", rules)
@@ -62,7 +62,7 @@ class CostCategoryArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]:
         """
-        Configuration block for the `Expression` object used to categorize costs. See below.
+        Configuration block for the Cost Category rules used to categorize costs. See below.
         """
         return pulumi.get(self, "rules")
 
@@ -122,7 +122,7 @@ class CostCategoryArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -152,9 +152,9 @@ class _CostCategoryState:
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the `Expression` object used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -254,7 +254,7 @@ class _CostCategoryState:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]]:
         """
-        Configuration block for the `Expression` object used to categorize costs. See below.
+        Configuration block for the Cost Category rules used to categorize costs. See below.
         """
         return pulumi.get(self, "rules")
 
@@ -278,7 +278,7 @@ class _CostCategoryState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -371,9 +371,9 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the `Expression` object used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -512,9 +512,9 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the `Expression` object used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -585,7 +585,7 @@ class CostCategory(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.CostCategoryRule']]:
         """
-        Configuration block for the `Expression` object used to categorize costs. See below.
+        Configuration block for the Cost Category rules used to categorize costs. See below.
         """
         return pulumi.get(self, "rules")
 
@@ -601,7 +601,7 @@ class CostCategory(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Configuration block for the specific `Tag` to use for `Expression`. See below.
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

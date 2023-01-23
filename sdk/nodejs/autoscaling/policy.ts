@@ -50,6 +50,18 @@ import * as utilities from "../utilities";
  *     predictiveScalingConfiguration: {
  *         metricSpecification: {
  *             customizedCapacityMetricSpecification: {
+ *                 metricDataQueries: [{
+ *                     expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
+ *                     id: "capacity_sum",
+ *                 }],
+ *             },
+ *             customizedLoadMetricSpecification: {
+ *                 metricDataQueries: [{
+ *                     expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
+ *                     id: "load_sum",
+ *                 }],
+ *             },
+ *             customizedScalingMetricSpecification: {
  *                 metricDataQueries: [
  *                     {
  *                         expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
@@ -62,32 +74,10 @@ import * as utilities from "../utilities";
  *                         returnData: false,
  *                     },
  *                     {
- *                         expression: "load_sum / capacity_sum",
+ *                         expression: "load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
  *                         id: "weighted_average",
  *                     },
  *                 ],
- *             },
- *             customizedLoadMetricSpecification: {
- *                 metricDataQueries: [{
- *                     expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
- *                     id: "load_sum",
- *                 }],
- *             },
- *             customizedScalingMetricSpecification: {
- *                 metricDataQueries: [{
- *                     id: "scaling",
- *                     metricStat: {
- *                         metric: {
- *                             dimensions: [{
- *                                 name: "AutoScalingGroupName",
- *                                 value: "my-test-asg",
- *                             }],
- *                             metricName: "CPUUtilization",
- *                             namespace: "AWS/EC2",
- *                         },
- *                         stat: "Average",
- *                     },
- *                 }],
  *             },
  *             targetValue: 10,
  *         },
@@ -200,7 +190,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly minAdjustmentMagnitude!: pulumi.Output<number | undefined>;
     /**
-     * Name of the dimension.
+     * Name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -316,7 +306,7 @@ export interface PolicyState {
      */
     minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
-     * Name of the dimension.
+     * Name of the policy.
      */
     name?: pulumi.Input<string>;
     /**
@@ -377,7 +367,7 @@ export interface PolicyArgs {
      */
     minAdjustmentMagnitude?: pulumi.Input<number>;
     /**
-     * Name of the dimension.
+     * Name of the policy.
      */
     name?: pulumi.Input<string>;
     /**

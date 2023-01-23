@@ -181,14 +181,14 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
         return this.ruleVersion;
     }
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the Cost Category rules used to categorize costs. See below.
      * 
      */
     @Export(name="rules", refs={List.class,CostCategoryRule.class}, tree="[0,1]")
     private Output<List<CostCategoryRule>> rules;
 
     /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
+     * @return Configuration block for the Cost Category rules used to categorize costs. See below.
      * 
      */
     public Output<List<CostCategoryRule>> rules() {
@@ -209,14 +209,14 @@ public class CostCategory extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.splitChargeRules);
     }
     /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

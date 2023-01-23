@@ -59,7 +59,7 @@ namespace Pulumi.Aws.LightSail
         public Output<int> CookieDuration { get; private set; } = null!;
 
         /// <summary>
-        /// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        /// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.LightSail
         public Input<int> CookieDuration { get; set; } = null!;
 
         /// <summary>
-        /// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        /// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.LightSail
         public Input<int>? CookieDuration { get; set; }
 
         /// <summary>
-        /// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        /// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

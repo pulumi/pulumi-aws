@@ -23,7 +23,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
      */
     private @Nullable Boolean requireAcceptance;
     /**
-     * @return Name of the segment.
+     * @return Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
      * 
      */
     private @Nullable String segment;
@@ -49,7 +49,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
         return Optional.ofNullable(this.requireAcceptance);
     }
     /**
-     * @return Name of the segment.
+     * @return Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
      * 
      */
     public Optional<String> segment() {

@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader {
     /**
-     * @return Label string.
+     * @return Friendly name of the WebACL.
      * 
      */
     private String name;
@@ -22,7 +22,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader() {}
     /**
-     * @return Label string.
+     * @return Friendly name of the WebACL.
      * 
      */
     public String name() {

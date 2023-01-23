@@ -49,14 +49,14 @@ public final class ExperimentTemplateActionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Friendly name given to the target.
+     * Friendly name of the action.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Friendly name given to the target.
+     * @return Friendly name of the action.
      * 
      */
     public Output<String> name() {
@@ -180,7 +180,7 @@ public final class ExperimentTemplateActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Friendly name given to the target.
+         * @param name Friendly name of the action.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ExperimentTemplateActionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Friendly name given to the target.
+         * @param name Friendly name of the action.
          * 
          * @return builder
          * 

@@ -1803,7 +1803,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
                  s3_backup_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the source Kinesis stream.
         :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -1862,7 +1862,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        The ARN of the role that provides access to the source Kinesis stream.
         """
         return pulumi.get(self, "role_arn")
 
@@ -2083,7 +2083,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs'] input_format_configuration: Nested argument that specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. More details below.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs'] output_format_configuration: Nested argument that specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. More details below.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs'] schema_configuration: Nested argument that specifies the AWS Glue Data Catalog table that contains the column information. More details below.
-        :param pulumi.Input[bool] enabled: Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
         """
         pulumi.set(__self__, "input_format_configuration", input_format_configuration)
         pulumi.set(__self__, "output_format_configuration", output_format_configuration)
@@ -2131,7 +2131,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+        Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
         """
         return pulumi.get(self, "enabled")
 
@@ -2357,7 +2357,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         :param pulumi.Input[int] block_size_bytes: The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bloom_filter_columns: A list of column names for which you want Kinesis Data Firehose to create bloom filters.
         :param pulumi.Input[float] bloom_filter_false_positive_probability: The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
-        :param pulumi.Input[str] compression: The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+        :param pulumi.Input[str] compression: The compression code to use over data blocks. The default is `SNAPPY`.
         :param pulumi.Input[float] dictionary_key_threshold: A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
         :param pulumi.Input[bool] enable_padding: Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
         :param pulumi.Input[str] format_version: The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
@@ -2426,7 +2426,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
     @pulumi.getter
     def compression(self) -> Optional[pulumi.Input[str]]:
         """
-        The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+        The compression code to use over data blocks. The default is `SNAPPY`.
         """
         return pulumi.get(self, "compression")
 
@@ -2877,7 +2877,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the source Kinesis stream.
         :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -2921,7 +2921,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        The ARN of the role that provides access to the source Kinesis stream.
         """
         return pulumi.get(self, "role_arn")
 
@@ -3912,7 +3912,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the source Kinesis stream.
         :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -3956,7 +3956,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        The ARN of the role that provides access to the source Kinesis stream.
         """
         return pulumi.get(self, "role_arn")
 
@@ -4120,7 +4120,7 @@ class FirehoseDeliveryStreamS3ConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
-        :param pulumi.Input[str] role_arn: The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the source Kinesis stream.
         :param pulumi.Input[int] buffer_interval: Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
         :param pulumi.Input[int] buffer_size: Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
                We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
@@ -4164,7 +4164,7 @@ class FirehoseDeliveryStreamS3ConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        The ARN of the role that provides access to the source Kinesis stream.
         """
         return pulumi.get(self, "role_arn")
 

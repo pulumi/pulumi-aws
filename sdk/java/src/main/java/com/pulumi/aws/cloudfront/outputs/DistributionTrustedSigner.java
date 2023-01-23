@@ -14,7 +14,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionTrustedSigner {
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     private @Nullable Boolean enabled;
@@ -26,7 +27,8 @@ public final class DistributionTrustedSigner {
 
     private DistributionTrustedSigner() {}
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     public Optional<Boolean> enabled() {

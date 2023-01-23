@@ -89,8 +89,7 @@ export class Detector extends pulumi.CustomResource {
      */
     public readonly datasources!: pulumi.Output<outputs.guardduty.DetectorDatasources>;
     /**
-     * If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
+     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
     public readonly enable!: pulumi.Output<boolean | undefined>;
     /**
@@ -158,8 +157,7 @@ export interface DetectorState {
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
     /**
-     * If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
+     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
     enable?: pulumi.Input<boolean>;
     /**
@@ -185,8 +183,7 @@ export interface DetectorArgs {
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
     /**
-     * If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
+     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
      */
     enable?: pulumi.Input<boolean>;
     /**

@@ -57,7 +57,8 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[int] max_size: Maximum size of the Auto Scaling Group.
-        :param pulumi.Input[int] min_size: Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
+               (See also Waiting for Capacity below.)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
@@ -86,7 +87,7 @@ class GroupArgs:
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input['GroupLaunchTemplateArgs'] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        :param pulumi.Input['GroupLaunchTemplateArgs'] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -218,7 +219,8 @@ class GroupArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Input[int]:
         """
-        Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        Minimum size of the Auto Scaling Group.
+        (See also Waiting for Capacity below.)
         """
         return pulumi.get(self, "min_size")
 
@@ -421,7 +423,7 @@ class GroupArgs:
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArgs']]:
         """
-        Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
         return pulumi.get(self, "launch_template")
 
@@ -749,7 +751,7 @@ class _GroupState:
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input['GroupLaunchTemplateArgs'] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        :param pulumi.Input['GroupLaunchTemplateArgs'] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -759,7 +761,8 @@ class _GroupState:
                this number of instances from this Auto Scaling Group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[int] min_size: Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
+               (See also Waiting for Capacity below.)
         :param pulumi.Input['GroupMixedInstancesPolicyArgs'] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         :param pulumi.Input[str] name: Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -1078,7 +1081,7 @@ class _GroupState:
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArgs']]:
         """
-        Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
         return pulumi.get(self, "launch_template")
 
@@ -1154,7 +1157,8 @@ class _GroupState:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        Minimum size of the Auto Scaling Group.
+        (See also Waiting for Capacity below.)
         """
         return pulumi.get(self, "min_size")
 
@@ -1747,7 +1751,7 @@ class Group(pulumi.CustomResource):
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -1757,7 +1761,8 @@ class Group(pulumi.CustomResource):
                this number of instances from this Auto Scaling Group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[int] min_size: Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
+               (See also Waiting for Capacity below.)
         :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         :param pulumi.Input[str] name: Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -2301,7 +2306,7 @@ class Group(pulumi.CustomResource):
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']] launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -2311,7 +2316,8 @@ class Group(pulumi.CustomResource):
                this number of instances from this Auto Scaling Group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[int] min_size: Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
+               (See also Waiting for Capacity below.)
         :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         :param pulumi.Input[str] name: Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -2530,7 +2536,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output[Optional['outputs.GroupLaunchTemplate']]:
         """
-        Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
         return pulumi.get(self, "launch_template")
 
@@ -2582,7 +2588,8 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[int]:
         """
-        Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        Minimum size of the Auto Scaling Group.
+        (See also Waiting for Capacity below.)
         """
         return pulumi.get(self, "min_size")
 

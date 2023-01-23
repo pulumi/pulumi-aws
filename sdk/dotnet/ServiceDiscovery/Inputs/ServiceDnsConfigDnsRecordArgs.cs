@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Inputs
         public Input<int> Ttl { get; set; } = null!;
 
         /// <summary>
-        /// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+        /// The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -2072,7 +2072,7 @@ type BucketGrant struct {
 	Id *string `pulumi:"id"`
 	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions []string `pulumi:"permissions"`
-	// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+	// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
 	Type string `pulumi:"type"`
 	// Uri address to grant for. Used only when `type` is `Group`.
 	Uri *string `pulumi:"uri"`
@@ -2094,7 +2094,7 @@ type BucketGrantArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+	// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
 	Type pulumi.StringInput `pulumi:"type"`
 	// Uri address to grant for. Used only when `type` is `Group`.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -2161,7 +2161,7 @@ func (o BucketGrantOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketGrant) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
 func (o BucketGrantOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketGrant) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5202,7 +5202,7 @@ func (o BucketNotificationLambdaFunctionArrayOutput) Index(i pulumi.IntInput) Bu
 }
 
 type BucketNotificationQueue struct {
-	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events []string `pulumi:"events"`
 	// Object key name prefix.
 	FilterPrefix *string `pulumi:"filterPrefix"`
@@ -5226,7 +5226,7 @@ type BucketNotificationQueueInput interface {
 }
 
 type BucketNotificationQueueArgs struct {
-	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 	// Object key name prefix.
 	FilterPrefix pulumi.StringPtrInput `pulumi:"filterPrefix"`
@@ -5289,7 +5289,7 @@ func (o BucketNotificationQueueOutput) ToBucketNotificationQueueOutputWithContex
 	return o
 }
 
-// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 func (o BucketNotificationQueueOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketNotificationQueue) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
@@ -16096,7 +16096,7 @@ type ObjectCopyGrant struct {
 	Id *string `pulumi:"id"`
 	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions []string `pulumi:"permissions"`
-	// - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+	// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
 	Type string `pulumi:"type"`
 	// URI of the grantee group. Used only when `type` is `Group`.
 	Uri *string `pulumi:"uri"`
@@ -16120,7 +16120,7 @@ type ObjectCopyGrantArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+	// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
 	Type pulumi.StringInput `pulumi:"type"`
 	// URI of the grantee group. Used only when `type` is `Group`.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -16192,7 +16192,7 @@ func (o ObjectCopyGrantOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectCopyGrant) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
 
-// - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
 func (o ObjectCopyGrantOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectCopyGrant) string { return v.Type }).(pulumi.StringOutput)
 }

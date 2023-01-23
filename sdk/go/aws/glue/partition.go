@@ -35,7 +35,7 @@ type Partition struct {
 	LastAccessedTime pulumi.StringOutput `pulumi:"lastAccessedTime"`
 	// The last time at which column statistics were computed for this partition.
 	LastAnalyzedTime pulumi.StringOutput `pulumi:"lastAnalyzedTime"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The values that define the partition.
 	PartitionValues pulumi.StringArrayOutput `pulumi:"partitionValues"`
@@ -92,7 +92,7 @@ type partitionState struct {
 	LastAccessedTime *string `pulumi:"lastAccessedTime"`
 	// The last time at which column statistics were computed for this partition.
 	LastAnalyzedTime *string `pulumi:"lastAnalyzedTime"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The values that define the partition.
 	PartitionValues []string `pulumi:"partitionValues"`
@@ -112,7 +112,7 @@ type PartitionState struct {
 	LastAccessedTime pulumi.StringPtrInput
 	// The last time at which column statistics were computed for this partition.
 	LastAnalyzedTime pulumi.StringPtrInput
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters pulumi.StringMapInput
 	// The values that define the partition.
 	PartitionValues pulumi.StringArrayInput
@@ -130,7 +130,7 @@ type partitionArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName string `pulumi:"databaseName"`
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The values that define the partition.
 	PartitionValues []string `pulumi:"partitionValues"`
@@ -145,7 +145,7 @@ type PartitionArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringInput
-	// A map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters pulumi.StringMapInput
 	// The values that define the partition.
 	PartitionValues pulumi.StringArrayInput
@@ -266,7 +266,7 @@ func (o PartitionOutput) LastAnalyzedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringOutput { return v.LastAnalyzedTime }).(pulumi.StringOutput)
 }
 
-// A map of initialization parameters for the SerDe, in key-value form.
+// Properties associated with this table, as a list of key-value pairs.
 func (o PartitionOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Partition) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }

@@ -423,14 +423,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.lockToken;
     }
     /**
-     * Label string.
+     * Friendly name of the WebACL.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Label string.
+     * @return Friendly name of the WebACL.
      * 
      */
     public Output<String> name() {

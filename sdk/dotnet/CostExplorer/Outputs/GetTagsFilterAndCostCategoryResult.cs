@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     public sealed class GetTagsFilterAndCostCategoryResult
     {
         /// <summary>
-        /// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+        /// Unique name of the Cost Category.
         /// </summary>
         public readonly string? Key;
         /// <summary>

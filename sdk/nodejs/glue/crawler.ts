@@ -172,7 +172,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<string | undefined>;
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      */
     public readonly databaseName!: pulumi.Output<string>;
     public readonly deltaTargets!: pulumi.Output<outputs.glue.CrawlerDeltaTarget[] | undefined>;
@@ -330,7 +330,7 @@ export interface CrawlerState {
      */
     configuration?: pulumi.Input<string>;
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      */
     databaseName?: pulumi.Input<string>;
     deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
@@ -414,7 +414,7 @@ export interface CrawlerArgs {
      */
     configuration?: pulumi.Input<string>;
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      */
     databaseName: pulumi.Input<string>;
     deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;

@@ -18,7 +18,8 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs
 
     /**
      * The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
+     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+     * `origin-response`
      * 
      */
     @Import(name="eventType", required=true)
@@ -26,7 +27,8 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs
 
     /**
      * @return The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
+     * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+     * `origin-response`
      * 
      */
     public Output<String> eventType() {
@@ -91,7 +93,8 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs
 
         /**
          * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request` or `viewer-response`
+         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+         * `origin-response`
          * 
          * @return builder
          * 
@@ -103,7 +106,8 @@ public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs
 
         /**
          * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request` or `viewer-response`
+         * Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+         * `origin-response`
          * 
          * @return builder
          * 

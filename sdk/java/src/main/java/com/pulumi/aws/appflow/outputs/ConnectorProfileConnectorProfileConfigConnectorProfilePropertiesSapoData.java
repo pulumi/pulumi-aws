@@ -44,7 +44,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private Integer portNumber;
     /**
-     * @return The Snowflake Private Link service name to be used for private data transfers.
+     * @return The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     private @Nullable String privateLinkServiceName;
@@ -93,7 +93,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return this.portNumber;
     }
     /**
-     * @return The Snowflake Private Link service name to be used for private data transfers.
+     * @return The SAPOData Private Link service name to be used for private data transfers.
      * 
      */
     public Optional<String> privateLinkServiceName() {

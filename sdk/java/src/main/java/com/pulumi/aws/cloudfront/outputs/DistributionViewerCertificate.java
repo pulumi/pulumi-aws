@@ -50,6 +50,13 @@ public final class DistributionViewerCertificate {
      * 
      */
     private @Nullable String minimumProtocolVersion;
+    /**
+     * @return Specifies how you want CloudFront to serve HTTPS
+     * requests. One of `vip` or `sni-only`. Required if you specify
+     * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+     * CloudFront to use a dedicated IP address and may incur extra charges.
+     * 
+     */
     private @Nullable String sslSupportMethod;
 
     private DistributionViewerCertificate() {}
@@ -99,6 +106,13 @@ public final class DistributionViewerCertificate {
     public Optional<String> minimumProtocolVersion() {
         return Optional.ofNullable(this.minimumProtocolVersion);
     }
+    /**
+     * @return Specifies how you want CloudFront to serve HTTPS
+     * requests. One of `vip` or `sni-only`. Required if you specify
+     * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+     * CloudFront to use a dedicated IP address and may incur extra charges.
+     * 
+     */
     public Optional<String> sslSupportMethod() {
         return Optional.ofNullable(this.sslSupportMethod);
     }

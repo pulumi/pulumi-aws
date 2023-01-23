@@ -147,10 +147,6 @@ public final class GetInstanceTypeResult {
     private Boolean hibernationSupported;
     /**
      * @return Hypervisor used for the instance type.
-     * * `inference_accelerators` Describes the Inference accelerators for the instance type.
-     * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-     * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-     * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      * 
      */
     private String hypervisor;
@@ -159,6 +155,13 @@ public final class GetInstanceTypeResult {
      * 
      */
     private String id;
+    /**
+     * @return Describes the Inference accelerators for the instance type.
+     * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+     * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+     * * `inference_accelerators.#.name` - The name of the Inference accelerator.
+     * 
+     */
     private List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators;
     /**
      * @return Describes the disks for the instance type.
@@ -439,10 +442,6 @@ public final class GetInstanceTypeResult {
     }
     /**
      * @return Hypervisor used for the instance type.
-     * * `inference_accelerators` Describes the Inference accelerators for the instance type.
-     * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-     * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-     * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      * 
      */
     public String hypervisor() {
@@ -455,6 +454,13 @@ public final class GetInstanceTypeResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Describes the Inference accelerators for the instance type.
+     * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+     * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+     * * `inference_accelerators.#.name` - The name of the Inference accelerator.
+     * 
+     */
     public List<GetInstanceTypeInferenceAccelerator> inferenceAccelerators() {
         return this.inferenceAccelerators;
     }

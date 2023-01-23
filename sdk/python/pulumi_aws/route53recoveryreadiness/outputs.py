@@ -126,9 +126,9 @@ class ResourceSetResourceDnsTargetResource(dict):
                  record_type: Optional[str] = None,
                  target_resource: Optional['outputs.ResourceSetResourceDnsTargetResourceTargetResource'] = None):
         """
-        :param str domain_name: Domain name that is targeted.
+        :param str domain_name: DNS Name that acts as the ingress point to a portion of application.
         :param str hosted_zone_arn: Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-        :param str record_set_id: Resource record set ID that is targeted.
+        :param str record_set_id: Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         :param str record_type: Type of DNS Record of target resource.
         :param 'ResourceSetResourceDnsTargetResourceTargetResourceArgs' target_resource: Target resource the R53 record specified with the above params points to.
         """
@@ -146,7 +146,7 @@ class ResourceSetResourceDnsTargetResource(dict):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
         """
-        Domain name that is targeted.
+        DNS Name that acts as the ingress point to a portion of application.
         """
         return pulumi.get(self, "domain_name")
 
@@ -162,7 +162,7 @@ class ResourceSetResourceDnsTargetResource(dict):
     @pulumi.getter(name="recordSetId")
     def record_set_id(self) -> Optional[str]:
         """
-        Resource record set ID that is targeted.
+        Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         return pulumi.get(self, "record_set_id")
 
@@ -277,8 +277,8 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(dict):
                  domain_name: Optional[str] = None,
                  record_set_id: Optional[str] = None):
         """
-        :param str domain_name: Domain name that is targeted.
-        :param str record_set_id: Resource record set ID that is targeted.
+        :param str domain_name: DNS Name that acts as the ingress point to a portion of application.
+        :param str record_set_id: Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -289,7 +289,7 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(dict):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[str]:
         """
-        Domain name that is targeted.
+        DNS Name that acts as the ingress point to a portion of application.
         """
         return pulumi.get(self, "domain_name")
 
@@ -297,7 +297,7 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(dict):
     @pulumi.getter(name="recordSetId")
     def record_set_id(self) -> Optional[str]:
         """
-        Resource record set ID that is targeted.
+        Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         return pulumi.get(self, "record_set_id")
 

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string CatalogId;
         /// <summary>
-        /// Name of the database for the table with columns resource. Unique to the Data Catalog.
+        /// Name of the database for the table. Unique to a Data Catalog.
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// Name of the table resource.
+        /// Name of the table. At least one of `name` or `wildcard` is required.
         /// </summary>
         public readonly string Name;
         /// <summary>

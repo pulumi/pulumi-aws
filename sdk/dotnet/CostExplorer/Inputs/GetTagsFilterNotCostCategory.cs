@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
     public sealed class GetTagsFilterNotCostCategoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+        /// Unique name of the Cost Category.
         /// </summary>
         [Input("key")]
         public string? Key { get; set; }

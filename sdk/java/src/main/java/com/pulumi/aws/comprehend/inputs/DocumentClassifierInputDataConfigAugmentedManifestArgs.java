@@ -64,16 +64,14 @@ public final class DocumentClassifierInputDataConfigAugmentedManifestArgs extend
     }
 
     /**
-     * Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * Location of augmented manifest file.
      * 
      */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
     /**
-     * @return Destination path for the output documents.
-     * The full path to the output file will be returned in `output_s3_uri`.
+     * @return Location of augmented manifest file.
      * 
      */
     public Output<String> s3Uri() {
@@ -217,8 +215,7 @@ public final class DocumentClassifierInputDataConfigAugmentedManifestArgs extend
         }
 
         /**
-         * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `output_s3_uri`.
+         * @param s3Uri Location of augmented manifest file.
          * 
          * @return builder
          * 
@@ -229,8 +226,7 @@ public final class DocumentClassifierInputDataConfigAugmentedManifestArgs extend
         }
 
         /**
-         * @param s3Uri Destination path for the output documents.
-         * The full path to the output file will be returned in `output_s3_uri`.
+         * @param s3Uri Location of augmented manifest file.
          * 
          * @return builder
          * 

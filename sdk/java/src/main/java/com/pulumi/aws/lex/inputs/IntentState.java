@@ -131,14 +131,14 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the bot. Must be less than or equal to 200 characters in length.
+     * A description of the intent. Must be less than or equal to 200 characters in length.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the bot. Must be less than or equal to 200 characters in length.
+     * @return A description of the intent. Must be less than or equal to 200 characters in length.
      * 
      */
     public Optional<Output<String>> description() {
@@ -218,14 +218,14 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+     * @return The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -254,18 +254,20 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If the user answers &#34;no&#34; to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
+     * When the user answers &#34;no&#34; to the question defined in
+     * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
+     * Attributes are documented under statement.
      * 
      */
     @Import(name="rejectionStatement")
     private @Nullable Output<IntentRejectionStatementArgs> rejectionStatement;
 
     /**
-     * @return If the user answers &#34;no&#34; to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
+     * @return When the user answers &#34;no&#34; to the question defined in
+     * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
+     * Attributes are documented under statement.
      * 
      */
     public Optional<Output<IntentRejectionStatementArgs>> rejectionStatement() {
@@ -273,18 +275,18 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, &#34;I want {PizzaSize} pizza&#34;, &#34;Order {Quantity} {PizzaSize} pizzas&#34;.
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
     @Import(name="sampleUtterances")
     private @Nullable Output<List<String>> sampleUtterances;
 
     /**
-     * @return If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     * @return An array of utterances (strings) that a user might say to signal
+     * the intent. For example, &#34;I want {PizzaSize} pizza&#34;, &#34;Order {Quantity} {PizzaSize} pizzas&#34;.
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
     public Optional<Output<List<String>>> sampleUtterances() {
@@ -506,7 +508,7 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the bot. Must be less than or equal to 200 characters in length.
+         * @param description A description of the intent. Must be less than or equal to 200 characters in length.
          * 
          * @return builder
          * 
@@ -517,7 +519,7 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the bot. Must be less than or equal to 200 characters in length.
+         * @param description A description of the intent. Must be less than or equal to 200 characters in length.
          * 
          * @return builder
          * 
@@ -623,7 +625,7 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+         * @param name The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
          * 
          * @return builder
          * 
@@ -634,7 +636,7 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+         * @param name The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
          * 
          * @return builder
          * 
@@ -671,9 +673,10 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rejectionStatement If the user answers &#34;no&#34; to the question defined in the prompt field,
-         * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-         * documented below under statement.
+         * @param rejectionStatement When the user answers &#34;no&#34; to the question defined in
+         * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+         * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
+         * Attributes are documented under statement.
          * 
          * @return builder
          * 
@@ -684,9 +687,10 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rejectionStatement If the user answers &#34;no&#34; to the question defined in the prompt field,
-         * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-         * documented below under statement.
+         * @param rejectionStatement When the user answers &#34;no&#34; to the question defined in
+         * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+         * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
+         * Attributes are documented under statement.
          * 
          * @return builder
          * 
@@ -696,9 +700,9 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sampleUtterances If you know a specific pattern with which users might respond to
-         * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-         * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+         * @param sampleUtterances An array of utterances (strings) that a user might say to signal
+         * the intent. For example, &#34;I want {PizzaSize} pizza&#34;, &#34;Order {Quantity} {PizzaSize} pizzas&#34;.
+         * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
          * 
          * @return builder
          * 
@@ -709,9 +713,9 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sampleUtterances If you know a specific pattern with which users might respond to
-         * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-         * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+         * @param sampleUtterances An array of utterances (strings) that a user might say to signal
+         * the intent. For example, &#34;I want {PizzaSize} pizza&#34;, &#34;Order {Quantity} {PizzaSize} pizzas&#34;.
+         * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
          * 
          * @return builder
          * 
@@ -721,9 +725,9 @@ public final class IntentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sampleUtterances If you know a specific pattern with which users might respond to
-         * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-         * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+         * @param sampleUtterances An array of utterances (strings) that a user might say to signal
+         * the intent. For example, &#34;I want {PizzaSize} pizza&#34;, &#34;Order {Quantity} {PizzaSize} pizzas&#34;.
+         * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ import (
 type FrameworkControl struct {
 	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters []FrameworkControlInputParameter `pulumi:"inputParameters"`
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name string `pulumi:"name"`
 	// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 	Scope *FrameworkControlScope `pulumi:"scope"`
@@ -33,7 +33,7 @@ type FrameworkControlInput interface {
 type FrameworkControlArgs struct {
 	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
 	InputParameters FrameworkControlInputParameterArrayInput `pulumi:"inputParameters"`
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
 	Scope FrameworkControlScopePtrInput `pulumi:"scope"`
@@ -95,7 +95,7 @@ func (o FrameworkControlOutput) InputParameters() FrameworkControlInputParameter
 	return o.ApplyT(func(v FrameworkControl) []FrameworkControlInputParameter { return v.InputParameters }).(FrameworkControlInputParameterArrayOutput)
 }
 
-// The name of a parameter, for example, BackupPlanFrequency.
+// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 func (o FrameworkControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FrameworkControl) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -126,7 +126,7 @@ func (o FrameworkControlArrayOutput) Index(i pulumi.IntInput) FrameworkControlOu
 }
 
 type FrameworkControlInputParameter struct {
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name *string `pulumi:"name"`
 	// The value of parameter, for example, hourly.
 	Value *string `pulumi:"value"`
@@ -144,7 +144,7 @@ type FrameworkControlInputParameterInput interface {
 }
 
 type FrameworkControlInputParameterArgs struct {
-	// The name of a parameter, for example, BackupPlanFrequency.
+	// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The value of parameter, for example, hourly.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -201,7 +201,7 @@ func (o FrameworkControlInputParameterOutput) ToFrameworkControlInputParameterOu
 	return o
 }
 
-// The name of a parameter, for example, BackupPlanFrequency.
+// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 func (o FrameworkControlInputParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrameworkControlInputParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -236,7 +236,7 @@ type FrameworkControlScope struct {
 	ComplianceResourceIds []string `pulumi:"complianceResourceIds"`
 	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -256,7 +256,7 @@ type FrameworkControlScopeArgs struct {
 	ComplianceResourceIds pulumi.StringArrayInput `pulumi:"complianceResourceIds"`
 	// Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+	// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -347,7 +347,7 @@ func (o FrameworkControlScopeOutput) ComplianceResourceTypes() pulumi.StringArra
 	return o.ApplyT(func(v FrameworkControlScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FrameworkControlScopeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FrameworkControlScope) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -396,7 +396,7 @@ func (o FrameworkControlScopePtrOutput) ComplianceResourceTypes() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FrameworkControlScopePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FrameworkControlScope) map[string]string {
 		if v == nil {
@@ -519,7 +519,7 @@ type PlanRule struct {
 	CopyActions []PlanRuleCopyAction `pulumi:"copyActions"`
 	// Enable continuous backups for supported resources.
 	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
-	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 	Lifecycle *PlanRuleLifecycle `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
@@ -551,7 +551,7 @@ type PlanRuleArgs struct {
 	CopyActions PlanRuleCopyActionArrayInput `pulumi:"copyActions"`
 	// Enable continuous backups for supported resources.
 	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
-	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 	Lifecycle PlanRuleLifecyclePtrInput `pulumi:"lifecycle"`
 	// Metadata that you can assign to help organize the resources that you create.
 	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
@@ -631,7 +631,7 @@ func (o PlanRuleOutput) EnableContinuousBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PlanRule) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
 }
 
-// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 func (o PlanRuleOutput) Lifecycle() PlanRuleLifecyclePtrOutput {
 	return o.ApplyT(func(v PlanRule) *PlanRuleLifecycle { return v.Lifecycle }).(PlanRuleLifecyclePtrOutput)
 }
@@ -684,7 +684,7 @@ func (o PlanRuleArrayOutput) Index(i pulumi.IntInput) PlanRuleOutput {
 type PlanRuleCopyAction struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
 	DestinationVaultArn string `pulumi:"destinationVaultArn"`
-	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 	Lifecycle *PlanRuleCopyActionLifecycle `pulumi:"lifecycle"`
 }
 
@@ -702,7 +702,7 @@ type PlanRuleCopyActionInput interface {
 type PlanRuleCopyActionArgs struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
 	DestinationVaultArn pulumi.StringInput `pulumi:"destinationVaultArn"`
-	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 	Lifecycle PlanRuleCopyActionLifecyclePtrInput `pulumi:"lifecycle"`
 }
 
@@ -762,7 +762,7 @@ func (o PlanRuleCopyActionOutput) DestinationVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRuleCopyAction) string { return v.DestinationVaultArn }).(pulumi.StringOutput)
 }
 
-// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
 func (o PlanRuleCopyActionOutput) Lifecycle() PlanRuleCopyActionLifecyclePtrOutput {
 	return o.ApplyT(func(v PlanRuleCopyAction) *PlanRuleCopyActionLifecycle { return v.Lifecycle }).(PlanRuleCopyActionLifecyclePtrOutput)
 }

@@ -20,7 +20,7 @@ class LbStickinessPolicyArgs:
         """
         The set of arguments for constructing a LbStickinessPolicy resource.
         :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
-        :param pulumi.Input[bool] enabled: - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         pulumi.set(__self__, "cookie_duration", cookie_duration)
@@ -43,7 +43,7 @@ class LbStickinessPolicyArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         """
         return pulumi.get(self, "enabled")
 
@@ -73,7 +73,7 @@ class _LbStickinessPolicyState:
         """
         Input properties used for looking up and filtering LbStickinessPolicy resources.
         :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
-        :param pulumi.Input[bool] enabled: - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         if cookie_duration is not None:
@@ -99,7 +99,7 @@ class _LbStickinessPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         """
         return pulumi.get(self, "enabled")
 
@@ -161,7 +161,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
-        :param pulumi.Input[bool] enabled: - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         ...
@@ -256,7 +256,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cookie_duration: The cookie duration in seconds. This determines the length of the session stickiness.
-        :param pulumi.Input[bool] enabled: - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        :param pulumi.Input[bool] enabled: The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable session stickiness.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -280,7 +280,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+        The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
         """
         return pulumi.get(self, "enabled")
 

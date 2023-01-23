@@ -91,7 +91,7 @@ type Endpoint struct {
 	MongodbSettings EndpointMongodbSettingsPtrOutput `pulumi:"mongodbSettings"`
 	// Password to be used to login to the endpoint database.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// Transmission Control Protocol (TCP) port for the endpoint.
+	// Port used by the endpoint database.
 	Port          pulumi.IntPtrOutput            `pulumi:"port"`
 	RedisSettings EndpointRedisSettingsPtrOutput `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
@@ -102,7 +102,7 @@ type Endpoint struct {
 	SecretsManagerAccessRoleArn pulumi.StringPtrOutput `pulumi:"secretsManagerAccessRoleArn"`
 	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
 	SecretsManagerArn pulumi.StringPtrOutput `pulumi:"secretsManagerArn"`
-	// Fully qualified domain name of the endpoint.
+	// Host name of the server.
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
 	// ARN used by the service access IAM role for dynamodb endpoints.
 	ServiceAccessRole pulumi.StringPtrOutput `pulumi:"serviceAccessRole"`
@@ -187,7 +187,7 @@ type endpointState struct {
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
 	// Password to be used to login to the endpoint database.
 	Password *string `pulumi:"password"`
-	// Transmission Control Protocol (TCP) port for the endpoint.
+	// Port used by the endpoint database.
 	Port          *int                   `pulumi:"port"`
 	RedisSettings *EndpointRedisSettings `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
@@ -198,7 +198,7 @@ type endpointState struct {
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
-	// Fully qualified domain name of the endpoint.
+	// Host name of the server.
 	ServerName *string `pulumi:"serverName"`
 	// ARN used by the service access IAM role for dynamodb endpoints.
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
@@ -239,7 +239,7 @@ type EndpointState struct {
 	MongodbSettings EndpointMongodbSettingsPtrInput
 	// Password to be used to login to the endpoint database.
 	Password pulumi.StringPtrInput
-	// Transmission Control Protocol (TCP) port for the endpoint.
+	// Port used by the endpoint database.
 	Port          pulumi.IntPtrInput
 	RedisSettings EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
@@ -250,7 +250,7 @@ type EndpointState struct {
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput
 	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
 	SecretsManagerArn pulumi.StringPtrInput
-	// Fully qualified domain name of the endpoint.
+	// Host name of the server.
 	ServerName pulumi.StringPtrInput
 	// ARN used by the service access IAM role for dynamodb endpoints.
 	ServiceAccessRole pulumi.StringPtrInput
@@ -293,7 +293,7 @@ type endpointArgs struct {
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
 	// Password to be used to login to the endpoint database.
 	Password *string `pulumi:"password"`
-	// Transmission Control Protocol (TCP) port for the endpoint.
+	// Port used by the endpoint database.
 	Port          *int                   `pulumi:"port"`
 	RedisSettings *EndpointRedisSettings `pulumi:"redisSettings"`
 	// Configuration block for Redshift settings. See below.
@@ -304,7 +304,7 @@ type endpointArgs struct {
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
-	// Fully qualified domain name of the endpoint.
+	// Host name of the server.
 	ServerName *string `pulumi:"serverName"`
 	// ARN used by the service access IAM role for dynamodb endpoints.
 	ServiceAccessRole *string `pulumi:"serviceAccessRole"`
@@ -342,7 +342,7 @@ type EndpointArgs struct {
 	MongodbSettings EndpointMongodbSettingsPtrInput
 	// Password to be used to login to the endpoint database.
 	Password pulumi.StringPtrInput
-	// Transmission Control Protocol (TCP) port for the endpoint.
+	// Port used by the endpoint database.
 	Port          pulumi.IntPtrInput
 	RedisSettings EndpointRedisSettingsPtrInput
 	// Configuration block for Redshift settings. See below.
@@ -353,7 +353,7 @@ type EndpointArgs struct {
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput
 	// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
 	SecretsManagerArn pulumi.StringPtrInput
-	// Fully qualified domain name of the endpoint.
+	// Host name of the server.
 	ServerName pulumi.StringPtrInput
 	// ARN used by the service access IAM role for dynamodb endpoints.
 	ServiceAccessRole pulumi.StringPtrInput
@@ -517,7 +517,7 @@ func (o EndpointOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Transmission Control Protocol (TCP) port for the endpoint.
+// Port used by the endpoint database.
 func (o EndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -546,7 +546,7 @@ func (o EndpointOutput) SecretsManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.SecretsManagerArn }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified domain name of the endpoint.
+// Host name of the server.
 func (o EndpointOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
 }

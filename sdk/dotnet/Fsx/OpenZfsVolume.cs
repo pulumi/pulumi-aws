@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Fsx
         public Output<int?> RecordSizeKib { get; private set; } = null!;
 
         /// <summary>
-        /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Output("storageCapacityQuotaGib")]
         public Output<int> StorageCapacityQuotaGib { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         /// </summary>
         [Output("userAndGroupQuotas")]
         public Output<ImmutableArray<Outputs.OpenZfsVolumeUserAndGroupQuota>> UserAndGroupQuotas { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? RecordSizeKib { get; set; }
 
         /// <summary>
-        /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Input("storageCapacityQuotaGib")]
         public Input<int>? StorageCapacityQuotaGib { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaArgs> UserAndGroupQuotas
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? RecordSizeKib { get; set; }
 
         /// <summary>
-        /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Input("storageCapacityQuotaGib")]
         public Input<int>? StorageCapacityQuotaGib { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs>? _userAndGroupQuotas;
 
         /// <summary>
-        /// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         /// </summary>
         public InputList<Inputs.OpenZfsVolumeUserAndGroupQuotaGetArgs> UserAndGroupQuotas
         {

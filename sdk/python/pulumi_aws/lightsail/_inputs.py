@@ -352,6 +352,9 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs:
                  principal_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] is_active: A Boolean value that indicates whether to activate the role. The default is `false`.
+        :param pulumi.Input[str] principal_arn: The principal ARN of the container service. The principal ARN can be used to create a trust
+               relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+               service permission to access resources in your standard AWS account.
         """
         if is_active is not None:
             pulumi.set(__self__, "is_active", is_active)
@@ -373,6 +376,11 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs:
     @property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal ARN of the container service. The principal ARN can be used to create a trust
+        relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+        service permission to access resources in your standard AWS account.
+        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter

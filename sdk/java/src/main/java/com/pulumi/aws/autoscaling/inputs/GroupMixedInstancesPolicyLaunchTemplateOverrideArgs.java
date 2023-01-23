@@ -48,14 +48,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
     }
 
     /**
-     * Override the instance launch template specification in the Launch Template.
+     * Nested argument defines the Launch Template. Defined below.
      * 
      */
     @Import(name="launchTemplateSpecification")
     private @Nullable Output<GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs> launchTemplateSpecification;
 
     /**
-     * @return Override the instance launch template specification in the Launch Template.
+     * @return Nested argument defines the Launch Template. Defined below.
      * 
      */
     public Optional<Output<GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs>> launchTemplateSpecification() {
@@ -147,7 +147,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
         }
 
         /**
-         * @param launchTemplateSpecification Override the instance launch template specification in the Launch Template.
+         * @param launchTemplateSpecification Nested argument defines the Launch Template. Defined below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
         }
 
         /**
-         * @param launchTemplateSpecification Override the instance launch template specification in the Launch Template.
+         * @param launchTemplateSpecification Nested argument defines the Launch Template. Defined below.
          * 
          * @return builder
          * 

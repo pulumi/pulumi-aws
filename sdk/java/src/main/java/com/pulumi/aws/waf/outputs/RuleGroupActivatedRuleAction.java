@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupActivatedRuleAction {
     /**
-     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
      * 
      */
     private String type;
 
     private RuleGroupActivatedRuleAction() {}
     /**
-     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
      * 
      */
     public String type() {

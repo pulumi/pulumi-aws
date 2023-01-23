@@ -20,12 +20,12 @@ public final class SecurityGroupIngress {
      */
     private @Nullable List<String> cidrBlocks;
     /**
-     * @return Description of this egress rule.
+     * @return Description of this ingress rule.
      * 
      */
     private @Nullable String description;
     /**
-     * @return Start port (or ICMP type number if protocol is `icmp`)
+     * @return Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
      * 
      */
     private Integer fromPort;
@@ -40,7 +40,7 @@ public final class SecurityGroupIngress {
      */
     private @Nullable List<String> prefixListIds;
     /**
-     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
      * 
      */
     private String protocol;
@@ -50,7 +50,7 @@ public final class SecurityGroupIngress {
      */
     private @Nullable List<String> securityGroups;
     /**
-     * @return Whether the security group itself will be added as a source to this egress rule.
+     * @return Whether the security group itself will be added as a source to this ingress rule.
      * 
      */
     private @Nullable Boolean self;
@@ -69,14 +69,14 @@ public final class SecurityGroupIngress {
         return this.cidrBlocks == null ? List.of() : this.cidrBlocks;
     }
     /**
-     * @return Description of this egress rule.
+     * @return Description of this ingress rule.
      * 
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Start port (or ICMP type number if protocol is `icmp`)
+     * @return Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
      * 
      */
     public Integer fromPort() {
@@ -97,7 +97,7 @@ public final class SecurityGroupIngress {
         return this.prefixListIds == null ? List.of() : this.prefixListIds;
     }
     /**
-     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+     * @return Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
      * 
      */
     public String protocol() {
@@ -111,7 +111,7 @@ public final class SecurityGroupIngress {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
     /**
-     * @return Whether the security group itself will be added as a source to this egress rule.
+     * @return Whether the security group itself will be added as a source to this ingress rule.
      * 
      */
     public Optional<Boolean> self() {

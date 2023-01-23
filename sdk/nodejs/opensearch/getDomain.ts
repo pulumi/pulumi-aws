@@ -123,9 +123,11 @@ export interface GetDomainResult {
     readonly nodeToNodeEncryptions: outputs.opensearch.GetDomainNodeToNodeEncryption[];
     /**
      * Status of a configuration change in the domain.
-     * * `snapshotOptions` – Domain snapshot related options.
      */
     readonly processing: boolean;
+    /**
+     * Domain snapshot related options.
+     */
     readonly snapshotOptions: outputs.opensearch.GetDomainSnapshotOption[];
     /**
      * Tags assigned to the domain.

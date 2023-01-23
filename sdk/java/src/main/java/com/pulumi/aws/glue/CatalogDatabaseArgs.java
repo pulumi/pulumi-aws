@@ -20,14 +20,14 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
     public static final CatalogDatabaseArgs Empty = new CatalogDatabaseArgs();
 
     /**
-     * ID of the Data Catalog in which the database resides.
+     * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return ID of the Data Catalog in which the database resides.
+     * @return ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -155,7 +155,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catalogId ID of the Data Catalog in which the database resides.
+         * @param catalogId ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catalogId ID of the Data Catalog in which the database resides.
+         * @param catalogId ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
          * 
          * @return builder
          * 

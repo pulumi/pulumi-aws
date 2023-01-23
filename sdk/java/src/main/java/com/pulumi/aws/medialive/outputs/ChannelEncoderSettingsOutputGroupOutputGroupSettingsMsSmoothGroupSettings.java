@@ -26,7 +26,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
      */
     private @Nullable Integer connectionRetryInterval;
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
@@ -36,7 +36,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     private @Nullable Integer filecacheDuration;
     private @Nullable Integer fragmentLength;
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     private @Nullable String inputLossAction;
@@ -79,7 +79,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         return Optional.ofNullable(this.connectionRetryInterval);
     }
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination() {
@@ -101,7 +101,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         return Optional.ofNullable(this.fragmentLength);
     }
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     public Optional<String> inputLossAction() {

@@ -87,7 +87,7 @@ export class InstanceState extends pulumi.CustomResource {
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
-     * - State of the instance. Valid values are `stopped`, `running`.
+     * State of the instance. Valid values are `stopped`, `running`.
      */
     public readonly state!: pulumi.Output<string>;
 
@@ -137,7 +137,7 @@ export interface InstanceStateState {
      */
     instanceId?: pulumi.Input<string>;
     /**
-     * - State of the instance. Valid values are `stopped`, `running`.
+     * State of the instance. Valid values are `stopped`, `running`.
      */
     state?: pulumi.Input<string>;
 }
@@ -155,7 +155,7 @@ export interface InstanceStateArgs {
      */
     instanceId: pulumi.Input<string>;
     /**
-     * - State of the instance. Valid values are `stopped`, `running`.
+     * State of the instance. Valid values are `stopped`, `running`.
      */
     state: pulumi.Input<string>;
 }

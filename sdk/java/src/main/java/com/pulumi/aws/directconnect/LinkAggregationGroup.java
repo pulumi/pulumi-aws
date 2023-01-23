@@ -134,9 +134,17 @@ public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
     public Output<String> hasLogicalRedundancy() {
         return this.hasLogicalRedundancy;
     }
+    /**
+     * Indicates whether jumbo frames (9001 MTU) are supported.
+     * 
+     */
     @Export(name="jumboFrameCapable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jumboFrameCapable;
 
+    /**
+     * @return Indicates whether jumbo frames (9001 MTU) are supported.
+     * 
+     */
     public Output<Boolean> jumboFrameCapable() {
         return this.jumboFrameCapable;
     }

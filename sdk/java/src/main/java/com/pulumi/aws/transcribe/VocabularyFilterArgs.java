@@ -78,14 +78,14 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
     @Import(name="words")
     private @Nullable Output<List<String>> words;
 
     /**
-     * @return - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+     * @return A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
      * 
      */
     public Optional<Output<List<String>>> words() {
@@ -205,7 +205,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param words - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param words - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param words - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
          * 
          * @return builder
          * 

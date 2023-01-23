@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LaunchTemplateInstanceRequirementsAcceleratorCount {
     /**
-     * @return Maximum.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     private @Nullable Integer max;
@@ -24,7 +24,7 @@ public final class LaunchTemplateInstanceRequirementsAcceleratorCount {
 
     private LaunchTemplateInstanceRequirementsAcceleratorCount() {}
     /**
-     * @return Maximum.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     public Optional<Integer> max() {

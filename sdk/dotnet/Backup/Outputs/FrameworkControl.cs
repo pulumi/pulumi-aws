@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FrameworkControlInputParameter> InputParameters;
         /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
+        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader {
     /**
-     * @return Label string.
+     * @return Friendly name of the WebACL.
      * 
      */
     private String name;
@@ -22,7 +22,7 @@ public final class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader {
 
     private WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader() {}
     /**
-     * @return Label string.
+     * @return Friendly name of the WebACL.
      * 
      */
     public String name() {

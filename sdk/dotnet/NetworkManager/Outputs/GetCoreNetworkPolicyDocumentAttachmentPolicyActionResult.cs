@@ -22,7 +22,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly bool? RequireAcceptance;
         /// <summary>
-        /// Name of the segment.
+        /// Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
         /// </summary>
         public readonly string? Segment;
         /// <summary>

@@ -313,7 +313,7 @@ export class RuleGroup extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
-     * The label string.
+     * A friendly name of the rule group.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -411,7 +411,7 @@ export interface RuleGroupState {
     description?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
     /**
-     * The label string.
+     * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
     /**
@@ -453,7 +453,7 @@ export interface RuleGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The label string.
+     * A friendly name of the rule group.
      */
     name?: pulumi.Input<string>;
     /**

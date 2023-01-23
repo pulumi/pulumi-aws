@@ -34,14 +34,14 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
     }
 
     /**
-     * Description of the container distribution configuration.
+     * Description to apply to the distributed AMI.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the container distribution configuration.
+     * @return Description to apply to the distributed AMI.
      * 
      */
     public Optional<Output<String>> description() {
@@ -159,7 +159,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
 
         /**
-         * @param description Description of the container distribution configuration.
+         * @param description Description to apply to the distributed AMI.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
 
         /**
-         * @param description Description of the container distribution configuration.
+         * @param description Description to apply to the distributed AMI.
          * 
          * @return builder
          * 

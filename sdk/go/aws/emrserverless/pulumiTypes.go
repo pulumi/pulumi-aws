@@ -11,7 +11,7 @@ import (
 )
 
 type ApplicationAutoStartConfiguration struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+	// Enables the application to automatically start on job submission. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -27,7 +27,7 @@ type ApplicationAutoStartConfigurationInput interface {
 }
 
 type ApplicationAutoStartConfigurationArgs struct {
-	// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+	// Enables the application to automatically start on job submission. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -108,7 +108,7 @@ func (o ApplicationAutoStartConfigurationOutput) ToApplicationAutoStartConfigura
 	}).(ApplicationAutoStartConfigurationPtrOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+// Enables the application to automatically start on job submission. Defaults to `true`.
 func (o ApplicationAutoStartConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStartConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -137,7 +137,7 @@ func (o ApplicationAutoStartConfigurationPtrOutput) Elem() ApplicationAutoStartC
 	}).(ApplicationAutoStartConfigurationOutput)
 }
 
-// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+// Enables the application to automatically start on job submission. Defaults to `true`.
 func (o ApplicationAutoStartConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationAutoStartConfiguration) *bool {
 		if v == nil {
@@ -745,11 +745,11 @@ func (o ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationPtrOut
 }
 
 type ApplicationMaximumCapacity struct {
-	// The CPU requirements for every worker instance of the worker type.
+	// The maximum allowed CPU for an application.
 	Cpu string `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
+	// The maximum allowed disk for an application.
 	Disk *string `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
+	// The maximum allowed resources for an application.
 	Memory string `pulumi:"memory"`
 }
 
@@ -765,11 +765,11 @@ type ApplicationMaximumCapacityInput interface {
 }
 
 type ApplicationMaximumCapacityArgs struct {
-	// The CPU requirements for every worker instance of the worker type.
+	// The maximum allowed CPU for an application.
 	Cpu pulumi.StringInput `pulumi:"cpu"`
-	// The disk requirements for every worker instance of the worker type.
+	// The maximum allowed disk for an application.
 	Disk pulumi.StringPtrInput `pulumi:"disk"`
-	// The memory requirements for every worker instance of the worker type.
+	// The maximum allowed resources for an application.
 	Memory pulumi.StringInput `pulumi:"memory"`
 }
 
@@ -850,17 +850,17 @@ func (o ApplicationMaximumCapacityOutput) ToApplicationMaximumCapacityPtrOutputW
 	}).(ApplicationMaximumCapacityPtrOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
+// The maximum allowed CPU for an application.
 func (o ApplicationMaximumCapacityOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) string { return v.Cpu }).(pulumi.StringOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
+// The maximum allowed disk for an application.
 func (o ApplicationMaximumCapacityOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) *string { return v.Disk }).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
+// The maximum allowed resources for an application.
 func (o ApplicationMaximumCapacityOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationMaximumCapacity) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -889,7 +889,7 @@ func (o ApplicationMaximumCapacityPtrOutput) Elem() ApplicationMaximumCapacityOu
 	}).(ApplicationMaximumCapacityOutput)
 }
 
-// The CPU requirements for every worker instance of the worker type.
+// The maximum allowed CPU for an application.
 func (o ApplicationMaximumCapacityPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -899,7 +899,7 @@ func (o ApplicationMaximumCapacityPtrOutput) Cpu() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disk requirements for every worker instance of the worker type.
+// The maximum allowed disk for an application.
 func (o ApplicationMaximumCapacityPtrOutput) Disk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {
@@ -909,7 +909,7 @@ func (o ApplicationMaximumCapacityPtrOutput) Disk() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The memory requirements for every worker instance of the worker type.
+// The maximum allowed resources for an application.
 func (o ApplicationMaximumCapacityPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationMaximumCapacity) *string {
 		if v == nil {

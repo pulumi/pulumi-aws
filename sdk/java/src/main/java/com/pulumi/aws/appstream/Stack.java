@@ -71,11 +71,23 @@ import javax.annotation.Nullable;
  *                     .permission(&#34;ENABLED&#34;)
  *                     .build(),
  *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;DOMAIN_PASSWORD_SIGNIN&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;DOMAIN_SMART_CARD_SIGNIN&#34;)
+ *                     .permission(&#34;DISABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
+ *                     .action(&#34;FILE_DOWNLOAD&#34;)
+ *                     .permission(&#34;ENABLED&#34;)
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
  *                     .action(&#34;FILE_UPLOAD&#34;)
  *                     .permission(&#34;ENABLED&#34;)
  *                     .build(),
  *                 StackUserSettingArgs.builder()
- *                     .action(&#34;FILE_DOWNLOAD&#34;)
+ *                     .action(&#34;PRINTING_TO_LOCAL_DEVICE&#34;)
  *                     .permission(&#34;ENABLED&#34;)
  *                     .build())
  *             .build());
@@ -160,28 +172,28 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
     /**
      * @return Description for the AppStream stack.
      * 
      */
-    public Output<String> description() {
-        return this.description;
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * Stack name to display.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
+    private Output</* @Nullable */ String> displayName;
 
     /**
      * @return Stack name to display.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Output<Optional<String>> displayName() {
+        return Codegen.optional(this.displayName);
     }
     /**
      * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
@@ -276,7 +288,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `user_settings` below.
      * 
      */
@@ -284,7 +296,7 @@ public class Stack extends com.pulumi.resources.CustomResource {
     private Output<List<StackUserSetting>> userSettings;
 
     /**
-     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `user_settings` below.
      * 
      */

@@ -31,9 +31,21 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
         return Optional.ofNullable(this.isActive);
     }
 
+    /**
+     * The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
+    /**
+     * @return The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     public Optional<Output<String>> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }
@@ -84,11 +96,27 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
             return isActive(Output.of(isActive));
         }
 
+        /**
+         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
+         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+         * service permission to access resources in your standard AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(@Nullable Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
+        /**
+         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
+         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+         * service permission to access resources in your standard AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }

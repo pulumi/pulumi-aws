@@ -37,9 +37,6 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-     * * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-     *   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     @Import(name="dnsName")
@@ -47,9 +44,6 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-     * * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-     *   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     *   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -71,9 +65,21 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * -  The Global Accelerator Route 53 zone ID that can be used to
+     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * 
+     */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
+    /**
+     * @return -  The Global Accelerator Route 53 zone ID that can be used to
+     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     * 
+     */
     public Optional<Output<String>> hostedZoneId() {
         return Optional.ofNullable(this.hostedZoneId);
     }
@@ -224,9 +230,6 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dnsName The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-         * * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-         *   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-         *   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
          * 
          * @return builder
          * 
@@ -238,9 +241,6 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dnsName The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-         * * `hosted_zone_id` --  The Global Accelerator Route 53 zone ID that can be used to
-         *   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-         *   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
          * 
          * @return builder
          * 
@@ -270,11 +270,27 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param hostedZoneId -  The Global Accelerator Route 53 zone ID that can be used to
+         * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+         * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostedZoneId(@Nullable Output<String> hostedZoneId) {
             $.hostedZoneId = hostedZoneId;
             return this;
         }
 
+        /**
+         * @param hostedZoneId -  The Global Accelerator Route 53 zone ID that can be used to
+         * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+         * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
         }

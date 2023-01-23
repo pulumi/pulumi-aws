@@ -738,9 +738,17 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> applications() {
         return Codegen.optional(this.applications);
     }
+    /**
+     * ARN of the cluster.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the cluster.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -793,14 +801,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterState;
     }
     /**
-     * Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+     * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      * 
      */
     @Export(name="configurations", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurations;
 
     /**
-     * @return Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+     * @return List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      * 
      */
     public Output<Optional<String>> configurations() {
@@ -1003,14 +1011,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.masterPublicDns;
     }
     /**
-     * Name of the step.
+     * Name of the job flow.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the step.
+     * @return Name of the job flow.
      * 
      */
     public Output<String> name() {

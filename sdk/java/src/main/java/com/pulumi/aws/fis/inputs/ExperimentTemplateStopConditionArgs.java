@@ -31,14 +31,14 @@ public final class ExperimentTemplateStopConditionArgs extends com.pulumi.resour
     }
 
     /**
-     * Tag value.
+     * ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return Tag value.
+     * @return ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
      * 
      */
     public Optional<Output<String>> value() {
@@ -92,7 +92,7 @@ public final class ExperimentTemplateStopConditionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param value Tag value.
+         * @param value ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ExperimentTemplateStopConditionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param value Tag value.
+         * @param value ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
          * 
          * @return builder
          * 

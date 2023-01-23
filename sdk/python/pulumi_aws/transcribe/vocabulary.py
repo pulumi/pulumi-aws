@@ -23,7 +23,7 @@ class VocabularyArgs:
         The set of arguments for constructing a Vocabulary resource.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """
@@ -64,7 +64,7 @@ class VocabularyArgs:
     @pulumi.getter
     def phrases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         """
         return pulumi.get(self, "phrases")
 
@@ -113,7 +113,7 @@ class _VocabularyState:
         :param pulumi.Input[str] arn: ARN of the Vocabulary.
         :param pulumi.Input[str] download_uri: Generated download URI.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
@@ -175,7 +175,7 @@ class _VocabularyState:
     @pulumi.getter
     def phrases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         """
         return pulumi.get(self, "phrases")
 
@@ -277,7 +277,7 @@ class Vocabulary(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
@@ -391,7 +391,7 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Vocabulary.
         :param pulumi.Input[str] download_uri: Generated download URI.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
@@ -438,7 +438,7 @@ class Vocabulary(pulumi.CustomResource):
     @pulumi.getter
     def phrases(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
+        A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         """
         return pulumi.get(self, "phrases")
 

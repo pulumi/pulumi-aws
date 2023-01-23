@@ -57,6 +57,9 @@ namespace Pulumi.Aws.Glue
     [AwsResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
     public partial class UserDefinedFunction : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the Glue User Defined Function.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -72,6 +75,9 @@ namespace Pulumi.Aws.Glue
         [Output("className")]
         public Output<string> ClassName { get; private set; } = null!;
 
+        /// <summary>
+        /// The time at which the function was created.
+        /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
@@ -207,6 +213,9 @@ namespace Pulumi.Aws.Glue
 
     public sealed class UserDefinedFunctionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the Glue User Defined Function.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -222,6 +231,9 @@ namespace Pulumi.Aws.Glue
         [Input("className")]
         public Input<string>? ClassName { get; set; }
 
+        /// <summary>
+        /// The time at which the function was created.
+        /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 

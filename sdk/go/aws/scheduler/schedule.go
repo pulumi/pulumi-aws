@@ -115,7 +115,7 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -127,7 +127,7 @@ type Schedule struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -181,7 +181,7 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 	Arn *string `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description *string `pulumi:"description"`
@@ -193,7 +193,7 @@ type scheduleState struct {
 	GroupName *string `pulumi:"groupName"`
 	// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -210,7 +210,7 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 	Arn pulumi.StringPtrInput
 	// Brief description of the schedule.
 	Description pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type ScheduleState struct {
 	GroupName pulumi.StringPtrInput
 	// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
 	KmsKeyArn pulumi.StringPtrInput
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -253,7 +253,7 @@ type scheduleArgs struct {
 	GroupName *string `pulumi:"groupName"`
 	// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -281,7 +281,7 @@ type ScheduleArgs struct {
 	GroupName pulumi.StringPtrInput
 	// ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
 	KmsKeyArn pulumi.StringPtrInput
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -384,7 +384,7 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
+// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
 func (o ScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -414,7 +414,7 @@ func (o ScheduleOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+// Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o ScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

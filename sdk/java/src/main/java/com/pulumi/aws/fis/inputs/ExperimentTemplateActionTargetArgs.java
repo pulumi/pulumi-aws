@@ -14,14 +14,14 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
     public static final ExperimentTemplateActionTargetArgs Empty = new ExperimentTemplateActionTargetArgs();
 
     /**
-     * Tag key.
+     * Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Tag key.
+     * @return Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
      * 
      */
     public Output<String> key() {
@@ -29,14 +29,14 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
     }
 
     /**
-     * Tag value.
+     * Target name, referencing a corresponding target.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return Tag value.
+     * @return Target name, referencing a corresponding target.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param key Tag key.
+         * @param key Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param key Tag key.
+         * @param key Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value Tag value.
+         * @param value Target name, referencing a corresponding target.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ExperimentTemplateActionTargetArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value Tag value.
+         * @param value Target name, referencing a corresponding target.
          * 
          * @return builder
          * 

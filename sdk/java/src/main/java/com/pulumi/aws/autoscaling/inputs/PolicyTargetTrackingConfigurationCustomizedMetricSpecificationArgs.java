@@ -78,14 +78,14 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
     }
 
     /**
-     * Unit of the metrics to return.
+     * Unit of the metric.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return Unit of the metrics to return.
+     * @return Unit of the metric.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -215,7 +215,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param unit Unit of the metrics to return.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
         }
 
         /**
-         * @param unit Unit of the metrics to return.
+         * @param unit Unit of the metric.
          * 
          * @return builder
          * 

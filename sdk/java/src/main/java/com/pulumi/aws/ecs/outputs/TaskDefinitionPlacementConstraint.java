@@ -17,7 +17,7 @@ public final class TaskDefinitionPlacementConstraint {
      */
     private @Nullable String expression;
     /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+     * @return Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
      * 
      */
     private String type;
@@ -31,7 +31,7 @@ public final class TaskDefinitionPlacementConstraint {
         return Optional.ofNullable(this.expression);
     }
     /**
-     * @return Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+     * @return Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
      * 
      */
     public String type() {

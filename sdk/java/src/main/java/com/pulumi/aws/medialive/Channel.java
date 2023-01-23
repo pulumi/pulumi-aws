@@ -274,14 +274,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.maintenance;
     }
     /**
-     * The name of the video description.
+     * Name of the Channel.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the video description.
+     * @return Name of the Channel.
      * 
      */
     public Output<String> name() {

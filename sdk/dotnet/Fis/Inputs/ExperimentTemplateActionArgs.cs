@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Fis.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Friendly name given to the target.
+        /// Friendly name of the action.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

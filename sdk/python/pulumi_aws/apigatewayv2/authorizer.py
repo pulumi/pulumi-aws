@@ -436,12 +436,10 @@ class Authorizer(pulumi.CustomResource):
 
         example = aws.apigatewayv2.Authorizer("example",
             api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="JWT",
+            authorizer_type="REQUEST",
+            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
             identity_sources=["$request.header.Authorization"],
-            jwt_configuration=aws.apigatewayv2.AuthorizerJwtConfigurationArgs(
-                audiences=["example"],
-                issuer=f"https://{aws_cognito_user_pool['example']['endpoint']}",
-            ))
+            authorizer_payload_format_version="2.0")
         ```
 
         ## Import
@@ -508,12 +506,10 @@ class Authorizer(pulumi.CustomResource):
 
         example = aws.apigatewayv2.Authorizer("example",
             api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="JWT",
+            authorizer_type="REQUEST",
+            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
             identity_sources=["$request.header.Authorization"],
-            jwt_configuration=aws.apigatewayv2.AuthorizerJwtConfigurationArgs(
-                audiences=["example"],
-                issuer=f"https://{aws_cognito_user_pool['example']['endpoint']}",
-            ))
+            authorizer_payload_format_version="2.0")
         ```
 
         ## Import

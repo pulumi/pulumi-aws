@@ -115,10 +115,13 @@ public final class GetDomainResult {
     private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
     /**
      * @return Status of a configuration change in the domain.
-     * * `snapshot_options` – Domain snapshot related options.
      * 
      */
     private Boolean processing;
+    /**
+     * @return Domain snapshot related options.
+     * 
+     */
     private List<GetDomainSnapshotOption> snapshotOptions;
     /**
      * @return Tags assigned to the domain.
@@ -263,12 +266,15 @@ public final class GetDomainResult {
     }
     /**
      * @return Status of a configuration change in the domain.
-     * * `snapshot_options` – Domain snapshot related options.
      * 
      */
     public Boolean processing() {
         return this.processing;
     }
+    /**
+     * @return Domain snapshot related options.
+     * 
+     */
     public List<GetDomainSnapshotOption> snapshotOptions() {
         return this.snapshotOptions;
     }

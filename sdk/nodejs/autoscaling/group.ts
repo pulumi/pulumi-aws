@@ -447,7 +447,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly launchConfiguration!: pulumi.Output<string | undefined>;
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      */
     public readonly launchTemplate!: pulumi.Output<outputs.autoscaling.GroupLaunchTemplate | undefined>;
     /**
@@ -475,7 +475,8 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly minElbCapacity!: pulumi.Output<number | undefined>;
     /**
-     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * Minimum size of the Auto Scaling Group.
+     * (See also Waiting for Capacity below.)
      */
     public readonly minSize!: pulumi.Output<number>;
     /**
@@ -739,7 +740,7 @@ export interface GroupState {
      */
     launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.autoscaling.GroupLaunchTemplate>;
     /**
@@ -767,7 +768,8 @@ export interface GroupState {
      */
     minElbCapacity?: pulumi.Input<number>;
     /**
-     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * Minimum size of the Auto Scaling Group.
+     * (See also Waiting for Capacity below.)
      */
     minSize?: pulumi.Input<number>;
     /**
@@ -925,7 +927,7 @@ export interface GroupArgs {
      */
     launchConfiguration?: pulumi.Input<string | LaunchConfiguration>;
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.autoscaling.GroupLaunchTemplate>;
     /**
@@ -953,7 +955,8 @@ export interface GroupArgs {
      */
     minElbCapacity?: pulumi.Input<number>;
     /**
-     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * Minimum size of the Auto Scaling Group.
+     * (See also Waiting for Capacity below.)
      */
     minSize: pulumi.Input<number>;
     /**

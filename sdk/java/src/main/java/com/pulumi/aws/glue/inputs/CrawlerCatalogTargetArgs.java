@@ -17,14 +17,14 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
     public static final CrawlerCatalogTargetArgs Empty = new CrawlerCatalogTargetArgs();
 
     /**
-     * The name of the connection to use to connect to the Delta table target.
+     * The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -120,7 +120,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class CrawlerCatalogTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
          * 
          * @return builder
          * 

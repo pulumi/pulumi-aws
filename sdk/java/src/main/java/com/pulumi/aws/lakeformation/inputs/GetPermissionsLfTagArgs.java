@@ -30,14 +30,14 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Key-name of an LF-Tag.
+     * Key-name for the tag.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Key-name of an LF-Tag.
+     * @return Key-name for the tag.
      * 
      */
     public Output<String> key() {
@@ -45,14 +45,14 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * List of possible values of an LF-Tag.
+     * List of possible values an attribute can take.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return List of possible values of an LF-Tag.
+     * @return List of possible values an attribute can take.
      * 
      */
     public Output<List<String>> values() {
@@ -107,7 +107,7 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key Key-name of an LF-Tag.
+         * @param key Key-name for the tag.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key Key-name of an LF-Tag.
+         * @param key Key-name for the tag.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param values List of possible values of an LF-Tag.
+         * @param values List of possible values an attribute can take.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param values List of possible values of an LF-Tag.
+         * @param values List of possible values an attribute can take.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetPermissionsLfTagArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param values List of possible values of an LF-Tag.
+         * @param values List of possible values an attribute can take.
          * 
          * @return builder
          * 

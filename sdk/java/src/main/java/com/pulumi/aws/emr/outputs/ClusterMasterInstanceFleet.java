@@ -31,7 +31,7 @@ public final class ClusterMasterInstanceFleet {
      */
     private @Nullable ClusterMasterInstanceFleetLaunchSpecifications launchSpecifications;
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance fleet.
      * 
      */
     private @Nullable String name;
@@ -71,7 +71,7 @@ public final class ClusterMasterInstanceFleet {
         return Optional.ofNullable(this.launchSpecifications);
     }
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance fleet.
      * 
      */
     public Optional<String> name() {

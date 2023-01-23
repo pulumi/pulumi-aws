@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<double>? BitDepth { get; set; }
 
         /// <summary>
-        /// Dolby Digital Plus coding mode.
+        /// Mono, Stereo, or 5.1 channel layout.
         /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }

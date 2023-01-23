@@ -65,7 +65,8 @@ type LinkAggregationGroup struct {
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
-	JumboFrameCapable    pulumi.BoolOutput   `pulumi:"jumboFrameCapable"`
+	// Indicates whether jumbo frames (9001 MTU) are supported.
+	JumboFrameCapable pulumi.BoolOutput `pulumi:"jumboFrameCapable"`
 	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the LAG.
@@ -125,7 +126,8 @@ type linkAggregationGroupState struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy *string `pulumi:"hasLogicalRedundancy"`
-	JumboFrameCapable    *bool   `pulumi:"jumboFrameCapable"`
+	// Indicates whether jumbo frames (9001 MTU) are supported.
+	JumboFrameCapable *bool `pulumi:"jumboFrameCapable"`
 	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location *string `pulumi:"location"`
 	// The name of the LAG.
@@ -151,7 +153,8 @@ type LinkAggregationGroupState struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringPtrInput
-	JumboFrameCapable    pulumi.BoolPtrInput
+	// Indicates whether jumbo frames (9001 MTU) are supported.
+	JumboFrameCapable pulumi.BoolPtrInput
 	// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
 	Location pulumi.StringPtrInput
 	// The name of the LAG.
@@ -317,6 +320,7 @@ func (o LinkAggregationGroupOutput) HasLogicalRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.HasLogicalRedundancy }).(pulumi.StringOutput)
 }
 
+// Indicates whether jumbo frames (9001 MTU) are supported.
 func (o LinkAggregationGroupOutput) JumboFrameCapable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.BoolOutput { return v.JumboFrameCapable }).(pulumi.BoolOutput)
 }

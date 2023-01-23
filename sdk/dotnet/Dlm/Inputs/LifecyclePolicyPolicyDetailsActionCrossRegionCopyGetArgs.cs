@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationGetArgs> EncryptionConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+        /// Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         /// </summary>
         [Input("retainRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleGetArgs>? RetainRule { get; set; }

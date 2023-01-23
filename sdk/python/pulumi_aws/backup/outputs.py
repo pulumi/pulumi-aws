@@ -58,7 +58,7 @@ class FrameworkControl(dict):
                  input_parameters: Optional[Sequence['outputs.FrameworkControlInputParameter']] = None,
                  scope: Optional['outputs.FrameworkControlScope'] = None):
         """
-        :param str name: The name of a parameter, for example, BackupPlanFrequency.
+        :param str name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param Sequence['FrameworkControlInputParameterArgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
         :param 'FrameworkControlScopeArgs' scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
@@ -72,7 +72,7 @@ class FrameworkControl(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of a parameter, for example, BackupPlanFrequency.
+        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         """
         return pulumi.get(self, "name")
 
@@ -99,7 +99,7 @@ class FrameworkControlInputParameter(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        :param str name: The name of a parameter, for example, BackupPlanFrequency.
+        :param str name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param str value: The value of parameter, for example, hourly.
         """
         if name is not None:
@@ -111,7 +111,7 @@ class FrameworkControlInputParameter(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of a parameter, for example, BackupPlanFrequency.
+        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         """
         return pulumi.get(self, "name")
 
@@ -152,7 +152,7 @@ class FrameworkControlScope(dict):
         """
         :param Sequence[str] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
         :param Sequence[str] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-        :param Mapping[str, str] tags: The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        :param Mapping[str, str] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if compliance_resource_ids is not None:
             pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
@@ -181,7 +181,7 @@ class FrameworkControlScope(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+        Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -281,7 +281,7 @@ class PlanRule(dict):
         :param int completion_window: The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         :param Sequence['PlanRuleCopyActionArgs'] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
         :param bool enable_continuous_backup: Enable continuous backups for supported resources.
-        :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         :param Mapping[str, str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
         :param str schedule: A CRON expression specifying when AWS Backup initiates a backup job.
         :param int start_window: The amount of time in minutes before beginning a backup.
@@ -347,7 +347,7 @@ class PlanRule(dict):
     @pulumi.getter
     def lifecycle(self) -> Optional['outputs.PlanRuleLifecycle']:
         """
-        The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         """
         return pulumi.get(self, "lifecycle")
 
@@ -400,7 +400,7 @@ class PlanRuleCopyAction(dict):
                  lifecycle: Optional['outputs.PlanRuleCopyActionLifecycle'] = None):
         """
         :param str destination_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-        :param 'PlanRuleCopyActionLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        :param 'PlanRuleCopyActionLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
         if lifecycle is not None:
@@ -418,7 +418,7 @@ class PlanRuleCopyAction(dict):
     @pulumi.getter
     def lifecycle(self) -> Optional['outputs.PlanRuleCopyActionLifecycle']:
         """
-        The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         """
         return pulumi.get(self, "lifecycle")
 

@@ -302,14 +302,14 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the attribute.
+     * Name of the user pool.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the attribute.
+     * @return Name of the user pool.
      * 
      */
     public Optional<Output<String>> name() {
@@ -965,7 +965,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the attribute.
+         * @param name Name of the user pool.
          * 
          * @return builder
          * 
@@ -976,7 +976,7 @@ public final class UserPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the attribute.
+         * @param name Name of the user pool.
          * 
          * @return builder
          * 

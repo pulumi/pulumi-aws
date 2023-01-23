@@ -16,14 +16,14 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
     public static final UserPoolAdminCreateUserConfigInviteMessageTemplateArgs Empty = new UserPoolAdminCreateUserConfigInviteMessageTemplateArgs();
 
     /**
-     * Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+     * Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
      * 
      */
     @Import(name="emailMessage")
     private @Nullable Output<String> emailMessage;
 
     /**
-     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+     * @return Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
      * 
      */
     public Optional<Output<String>> emailMessage() {
@@ -31,14 +31,14 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
     }
 
     /**
-     * Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+     * Subject line for email messages.
      * 
      */
     @Import(name="emailSubject")
     private @Nullable Output<String> emailSubject;
 
     /**
-     * @return Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+     * @return Subject line for email messages.
      * 
      */
     public Optional<Output<String>> emailSubject() {
@@ -46,14 +46,14 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
     }
 
     /**
-     * SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+     * Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
      * 
      */
     @Import(name="smsMessage")
     private @Nullable Output<String> smsMessage;
 
     /**
-     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+     * @return Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
      * 
      */
     public Optional<Output<String>> smsMessage() {
@@ -87,7 +87,7 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
         }
 
         /**
-         * @param emailMessage Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+         * @param emailMessage Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
         }
 
         /**
-         * @param emailMessage Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+         * @param emailMessage Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
         }
 
         /**
-         * @param emailSubject Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+         * @param emailSubject Subject line for email messages.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
         }
 
         /**
-         * @param emailSubject Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+         * @param emailSubject Subject line for email messages.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
         }
 
         /**
-         * @param smsMessage SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+         * @param smsMessage Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs extend
         }
 
         /**
-         * @param smsMessage SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+         * @param smsMessage Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
          * 
          * @return builder
          * 

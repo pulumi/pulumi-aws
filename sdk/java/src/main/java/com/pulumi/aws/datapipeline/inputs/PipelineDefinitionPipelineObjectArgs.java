@@ -33,14 +33,14 @@ public final class PipelineDefinitionPipelineObjectArgs extends com.pulumi.resou
     }
 
     /**
-     * ID of the parameter value.
+     * ID of the object.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return ID of the parameter value.
+     * @return ID of the object.
      * 
      */
     public Output<String> id() {
@@ -120,7 +120,7 @@ public final class PipelineDefinitionPipelineObjectArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id ID of the parameter value.
+         * @param id ID of the object.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PipelineDefinitionPipelineObjectArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id ID of the parameter value.
+         * @param id ID of the object.
          * 
          * @return builder
          * 

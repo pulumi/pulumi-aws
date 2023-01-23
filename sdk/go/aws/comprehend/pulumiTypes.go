@@ -22,8 +22,8 @@ type DocumentClassifierInputDataConfig struct {
 	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
 	// Default is `|`.
 	LabelDelimiter *string `pulumi:"labelDelimiter"`
-	// Destination path for the output documents.
-	// The full path to the output file will be returned in `outputS3Uri`.
+	// Location of training documents.
+	// Used if `dataFormat` is `COMPREHEND_CSV`.
 	S3Uri     *string `pulumi:"s3Uri"`
 	TestS3Uri *string `pulumi:"testS3Uri"`
 }
@@ -51,8 +51,8 @@ type DocumentClassifierInputDataConfigArgs struct {
 	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
 	// Default is `|`.
 	LabelDelimiter pulumi.StringPtrInput `pulumi:"labelDelimiter"`
-	// Destination path for the output documents.
-	// The full path to the output file will be returned in `outputS3Uri`.
+	// Location of training documents.
+	// Used if `dataFormat` is `COMPREHEND_CSV`.
 	S3Uri     pulumi.StringPtrInput `pulumi:"s3Uri"`
 	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
 }
@@ -156,8 +156,8 @@ func (o DocumentClassifierInputDataConfigOutput) LabelDelimiter() pulumi.StringP
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.LabelDelimiter }).(pulumi.StringPtrOutput)
 }
 
-// Destination path for the output documents.
-// The full path to the output file will be returned in `outputS3Uri`.
+// Location of training documents.
+// Used if `dataFormat` is `COMPREHEND_CSV`.
 func (o DocumentClassifierInputDataConfigOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -225,8 +225,8 @@ func (o DocumentClassifierInputDataConfigPtrOutput) LabelDelimiter() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Destination path for the output documents.
-// The full path to the output file will be returned in `outputS3Uri`.
+// Location of training documents.
+// Used if `dataFormat` is `COMPREHEND_CSV`.
 func (o DocumentClassifierInputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {
 		if v == nil {
@@ -253,8 +253,7 @@ type DocumentClassifierInputDataConfigAugmentedManifest struct {
 	// Type of augmented manifest.
 	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
 	DocumentType *string `pulumi:"documentType"`
-	// Destination path for the output documents.
-	// The full path to the output file will be returned in `outputS3Uri`.
+	// Location of augmented manifest file.
 	S3Uri string `pulumi:"s3Uri"`
 	// Location of source PDF files.
 	SourceDocumentsS3Uri *string `pulumi:"sourceDocumentsS3Uri"`
@@ -282,8 +281,7 @@ type DocumentClassifierInputDataConfigAugmentedManifestArgs struct {
 	// Type of augmented manifest.
 	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
 	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
-	// Destination path for the output documents.
-	// The full path to the output file will be returned in `outputS3Uri`.
+	// Location of augmented manifest file.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 	// Location of source PDF files.
 	SourceDocumentsS3Uri pulumi.StringPtrInput `pulumi:"sourceDocumentsS3Uri"`
@@ -359,8 +357,7 @@ func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) DocumentType()
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
 
-// Destination path for the output documents.
-// The full path to the output file will be returned in `outputS3Uri`.
+// Location of augmented manifest file.
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfigAugmentedManifest) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -1020,7 +1017,7 @@ func (o EntityRecognizerInputDataConfigPtrOutput) EntityTypes() EntityRecognizer
 }
 
 type EntityRecognizerInputDataConfigAnnotations struct {
-	// Location of entity list.
+	// Location of training annotations.
 	S3Uri     string  `pulumi:"s3Uri"`
 	TestS3Uri *string `pulumi:"testS3Uri"`
 }
@@ -1037,7 +1034,7 @@ type EntityRecognizerInputDataConfigAnnotationsInput interface {
 }
 
 type EntityRecognizerInputDataConfigAnnotationsArgs struct {
-	// Location of entity list.
+	// Location of training annotations.
 	S3Uri     pulumi.StringInput    `pulumi:"s3Uri"`
 	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
 }
@@ -1119,7 +1116,7 @@ func (o EntityRecognizerInputDataConfigAnnotationsOutput) ToEntityRecognizerInpu
 	}).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-// Location of entity list.
+// Location of training annotations.
 func (o EntityRecognizerInputDataConfigAnnotationsOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAnnotations) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -1152,7 +1149,7 @@ func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) Elem() EntityRecogn
 	}).(EntityRecognizerInputDataConfigAnnotationsOutput)
 }
 
-// Location of entity list.
+// Location of training annotations.
 func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfigAnnotations) *string {
 		if v == nil {
@@ -1179,7 +1176,7 @@ type EntityRecognizerInputDataConfigAugmentedManifest struct {
 	// Type of augmented manifest.
 	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
 	DocumentType *string `pulumi:"documentType"`
-	// Location of entity list.
+	// Location of augmented manifest file.
 	S3Uri string `pulumi:"s3Uri"`
 	// Location of source PDF files.
 	SourceDocumentsS3Uri *string `pulumi:"sourceDocumentsS3Uri"`
@@ -1207,7 +1204,7 @@ type EntityRecognizerInputDataConfigAugmentedManifestArgs struct {
 	// Type of augmented manifest.
 	// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
 	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
-	// Location of entity list.
+	// Location of augmented manifest file.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 	// Location of source PDF files.
 	SourceDocumentsS3Uri pulumi.StringPtrInput `pulumi:"sourceDocumentsS3Uri"`
@@ -1283,7 +1280,7 @@ func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) DocumentType() p
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
 
-// Location of entity list.
+// Location of augmented manifest file.
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAugmentedManifest) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -1323,7 +1320,7 @@ type EntityRecognizerInputDataConfigDocuments struct {
 	// Specifies how the input files should be processed.
 	// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
 	InputFormat *string `pulumi:"inputFormat"`
-	// Location of entity list.
+	// Location of training documents.
 	S3Uri     string  `pulumi:"s3Uri"`
 	TestS3Uri *string `pulumi:"testS3Uri"`
 }
@@ -1343,7 +1340,7 @@ type EntityRecognizerInputDataConfigDocumentsArgs struct {
 	// Specifies how the input files should be processed.
 	// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
 	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
-	// Location of entity list.
+	// Location of training documents.
 	S3Uri     pulumi.StringInput    `pulumi:"s3Uri"`
 	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
 }
@@ -1431,7 +1428,7 @@ func (o EntityRecognizerInputDataConfigDocumentsOutput) InputFormat() pulumi.Str
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigDocuments) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
 }
 
-// Location of entity list.
+// Location of training documents.
 func (o EntityRecognizerInputDataConfigDocumentsOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigDocuments) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -1475,7 +1472,7 @@ func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) InputFormat() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of entity list.
+// Location of training documents.
 func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityRecognizerInputDataConfigDocuments) *string {
 		if v == nil {

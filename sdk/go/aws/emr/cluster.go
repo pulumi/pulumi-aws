@@ -728,7 +728,8 @@ type Cluster struct {
 	AdditionalInfo pulumi.StringPtrOutput `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
-	Arn          pulumi.StringOutput      `pulumi:"arn"`
+	// ARN of the cluster.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
 	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrOutput `pulumi:"autoTerminationPolicy"`
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -736,7 +737,7 @@ type Cluster struct {
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions ClusterBootstrapActionArrayOutput `pulumi:"bootstrapActions"`
 	ClusterState     pulumi.StringOutput               `pulumi:"clusterState"`
-	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrOutput `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
 	ConfigurationsJson pulumi.StringPtrOutput `pulumi:"configurationsJson"`
@@ -766,7 +767,7 @@ type Cluster struct {
 	MasterInstanceGroup ClusterMasterInstanceGroupOutput `pulumi:"masterInstanceGroup"`
 	// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
 	MasterPublicDns pulumi.StringOutput `pulumi:"masterPublicDns"`
-	// Name of the step.
+	// Name of the job flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
@@ -829,7 +830,8 @@ type clusterState struct {
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications []string `pulumi:"applications"`
-	Arn          *string  `pulumi:"arn"`
+	// ARN of the cluster.
+	Arn *string `pulumi:"arn"`
 	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
 	AutoTerminationPolicy *ClusterAutoTerminationPolicy `pulumi:"autoTerminationPolicy"`
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -837,7 +839,7 @@ type clusterState struct {
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
 	ClusterState     *string                  `pulumi:"clusterState"`
-	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations *string `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
@@ -867,7 +869,7 @@ type clusterState struct {
 	MasterInstanceGroup *ClusterMasterInstanceGroup `pulumi:"masterInstanceGroup"`
 	// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
 	MasterPublicDns *string `pulumi:"masterPublicDns"`
-	// Name of the step.
+	// Name of the job flow.
 	Name *string `pulumi:"name"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
@@ -896,7 +898,8 @@ type ClusterState struct {
 	AdditionalInfo pulumi.StringPtrInput
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayInput
-	Arn          pulumi.StringPtrInput
+	// ARN of the cluster.
+	Arn pulumi.StringPtrInput
 	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
 	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrInput
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
@@ -904,7 +907,7 @@ type ClusterState struct {
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions ClusterBootstrapActionArrayInput
 	ClusterState     pulumi.StringPtrInput
-	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrInput
 	// JSON string for supplying list of configurations for the EMR cluster.
 	ConfigurationsJson pulumi.StringPtrInput
@@ -934,7 +937,7 @@ type ClusterState struct {
 	MasterInstanceGroup ClusterMasterInstanceGroupPtrInput
 	// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
 	MasterPublicDns pulumi.StringPtrInput
-	// Name of the step.
+	// Name of the job flow.
 	Name pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringPtrInput
@@ -973,7 +976,7 @@ type clusterArgs struct {
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions []ClusterBootstrapAction `pulumi:"bootstrapActions"`
-	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations *string `pulumi:"configurations"`
 	// JSON string for supplying list of configurations for the EMR cluster.
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
@@ -1001,7 +1004,7 @@ type clusterArgs struct {
 	MasterInstanceFleet *ClusterMasterInstanceFleet `pulumi:"masterInstanceFleet"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
 	MasterInstanceGroup *ClusterMasterInstanceGroup `pulumi:"masterInstanceGroup"`
-	// Name of the step.
+	// Name of the job flow.
 	Name *string `pulumi:"name"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel string `pulumi:"releaseLabel"`
@@ -1035,7 +1038,7 @@ type ClusterArgs struct {
 	AutoscalingRole pulumi.StringPtrInput
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
 	BootstrapActions ClusterBootstrapActionArrayInput
-	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+	// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 	Configurations pulumi.StringPtrInput
 	// JSON string for supplying list of configurations for the EMR cluster.
 	ConfigurationsJson pulumi.StringPtrInput
@@ -1063,7 +1066,7 @@ type ClusterArgs struct {
 	MasterInstanceFleet ClusterMasterInstanceFleetPtrInput
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
 	MasterInstanceGroup ClusterMasterInstanceGroupPtrInput
-	// Name of the step.
+	// Name of the job flow.
 	Name pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringInput
@@ -1182,6 +1185,7 @@ func (o ClusterOutput) Applications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.Applications }).(pulumi.StringArrayOutput)
 }
 
+// ARN of the cluster.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1205,7 +1209,7 @@ func (o ClusterOutput) ClusterState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterState }).(pulumi.StringOutput)
 }
 
-// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
 func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Configurations }).(pulumi.StringPtrOutput)
 }
@@ -1280,7 +1284,7 @@ func (o ClusterOutput) MasterPublicDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPublicDns }).(pulumi.StringOutput)
 }
 
-// Name of the step.
+// Name of the job flow.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

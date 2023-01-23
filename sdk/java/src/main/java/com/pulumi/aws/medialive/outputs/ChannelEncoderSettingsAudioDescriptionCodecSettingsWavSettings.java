@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
     private @Nullable Double bitDepth;
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     private @Nullable String codingMode;
@@ -29,7 +29,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSetting
         return Optional.ofNullable(this.bitDepth);
     }
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<String> codingMode() {

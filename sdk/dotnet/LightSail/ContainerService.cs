@@ -165,13 +165,15 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// The ID of the power of the container service.
-        /// * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-        /// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-        /// service permission to access resources in your standard AWS account.
         /// </summary>
         [Output("powerId")]
         public Output<string> PowerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The principal ARN of the container service. The principal ARN can be used to create a trust
+        /// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+        /// service permission to access resources in your standard AWS account.
+        /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
@@ -391,13 +393,15 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// The ID of the power of the container service.
-        /// * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-        /// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-        /// service permission to access resources in your standard AWS account.
         /// </summary>
         [Input("powerId")]
         public Input<string>? PowerId { get; set; }
 
+        /// <summary>
+        /// The principal ARN of the container service. The principal ARN can be used to create a trust
+        /// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+        /// service permission to access resources in your standard AWS account.
+        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 

@@ -122,14 +122,14 @@ public final class EndpointKinesisSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * ARN of the IAM Role with permissions to write to the Kinesis data stream.
      * 
      */
     @Import(name="serviceAccessRoleArn")
     private @Nullable Output<String> serviceAccessRoleArn;
 
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the Kinesis data stream.
      * 
      */
     public Optional<Output<String>> serviceAccessRoleArn() {
@@ -331,7 +331,7 @@ public final class EndpointKinesisSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to write to the Kinesis data stream.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class EndpointKinesisSettingsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to write to the Kinesis data stream.
          * 
          * @return builder
          * 

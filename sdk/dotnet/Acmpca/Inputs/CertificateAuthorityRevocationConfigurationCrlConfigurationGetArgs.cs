@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public Input<string>? CustomCname { get; set; }
 
         /// <summary>
-        /// Boolean value that specifies whether a custom OCSP responder is enabled.
+        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

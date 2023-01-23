@@ -57,7 +57,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? ConstantIv { get; set; }
 
         /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
+        /// A director and base filename where archive files should be written. See Destination for more details.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs> Destination { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? IndexNSegments { get; set; }
 
         /// <summary>
-        /// Specifies behavior of last resort when input video os lost.
+        /// Controls the behavior of the RTMP group if input becomes unavailable.
         /// </summary>
         [Input("inputLossAction")]
         public Input<string>? InputLossAction { get; set; }

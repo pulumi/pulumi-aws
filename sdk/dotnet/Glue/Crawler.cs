@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Glue database to be synchronized.
+        /// Glue database where results are written.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// The name of the Glue database to be synchronized.
+        /// Glue database where results are written.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -577,7 +577,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Configuration { get; set; }
 
         /// <summary>
-        /// The name of the Glue database to be synchronized.
+        /// Glue database where results are written.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }

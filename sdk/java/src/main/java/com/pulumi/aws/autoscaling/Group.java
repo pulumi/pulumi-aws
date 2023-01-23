@@ -779,14 +779,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.launchConfiguration);
     }
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      * 
      */
     @Export(name="launchTemplate", refs={GroupLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ GroupLaunchTemplate> launchTemplate;
 
     /**
-     * @return Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+     * @return Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      * 
      */
     public Output<Optional<GroupLaunchTemplate>> launchTemplate() {
@@ -871,14 +871,16 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minElbCapacity);
     }
     /**
-     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * Minimum size of the Auto Scaling Group.
+     * (See also Waiting for Capacity below.)
      * 
      */
     @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> minSize;
 
     /**
-     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * @return Minimum size of the Auto Scaling Group.
+     * (See also Waiting for Capacity below.)
      * 
      */
     public Output<Integer> minSize() {

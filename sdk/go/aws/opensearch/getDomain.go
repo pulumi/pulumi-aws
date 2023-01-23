@@ -94,8 +94,8 @@ type LookupDomainResult struct {
 	// Domain in transit encryption related options.
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
 	// Status of a configuration change in the domain.
-	// * `snapshotOptions` – Domain snapshot related options.
-	Processing      bool                      `pulumi:"processing"`
+	Processing bool `pulumi:"processing"`
+	// Domain snapshot related options.
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
@@ -238,11 +238,11 @@ func (o LookupDomainResultOutput) NodeToNodeEncryptions() GetDomainNodeToNodeEnc
 }
 
 // Status of a configuration change in the domain.
-// * `snapshotOptions` – Domain snapshot related options.
 func (o LookupDomainResultOutput) Processing() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Processing }).(pulumi.BoolOutput)
 }
 
+// Domain snapshot related options.
 func (o LookupDomainResultOutput) SnapshotOptions() GetDomainSnapshotOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainSnapshotOption { return v.SnapshotOptions }).(GetDomainSnapshotOptionArrayOutput)
 }

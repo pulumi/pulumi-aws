@@ -8,9 +8,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ConfigurationSetDeliveryOptions',
+    'ConfigurationSetEventDestinationEventDestination',
+    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestination',
+    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration',
+    'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination',
+    'ConfigurationSetEventDestinationEventDestinationPinpointDestination',
+    'ConfigurationSetEventDestinationEventDestinationSnsDestination',
     'ConfigurationSetReputationOptions',
     'ConfigurationSetSendingOptions',
     'ConfigurationSetSuppressionOptions',
@@ -67,6 +74,315 @@ class ConfigurationSetDeliveryOptions(dict):
         Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
         """
         return pulumi.get(self, "tls_policy")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationEventDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchingEventTypes":
+            suggest = "matching_event_types"
+        elif key == "cloudWatchDestination":
+            suggest = "cloud_watch_destination"
+        elif key == "kinesisFirehoseDestination":
+            suggest = "kinesis_firehose_destination"
+        elif key == "pinpointDestination":
+            suggest = "pinpoint_destination"
+        elif key == "snsDestination":
+            suggest = "sns_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 matching_event_types: Sequence[str],
+                 cloud_watch_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination'] = None,
+                 enabled: Optional[bool] = None,
+                 kinesis_firehose_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination'] = None,
+                 pinpoint_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination'] = None,
+                 sns_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination'] = None):
+        """
+        :param Sequence[str] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+        :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        :param bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+        :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        """
+        pulumi.set(__self__, "matching_event_types", matching_event_types)
+        if cloud_watch_destination is not None:
+            pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kinesis_firehose_destination is not None:
+            pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
+        if pinpoint_destination is not None:
+            pulumi.set(__self__, "pinpoint_destination", pinpoint_destination)
+        if sns_destination is not None:
+            pulumi.set(__self__, "sns_destination", sns_destination)
+
+    @property
+    @pulumi.getter(name="matchingEventTypes")
+    def matching_event_types(self) -> Sequence[str]:
+        """
+        An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+        """
+        return pulumi.get(self, "matching_event_types")
+
+    @property
+    @pulumi.getter(name="cloudWatchDestination")
+    def cloud_watch_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination']:
+        """
+        An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        """
+        return pulumi.get(self, "cloud_watch_destination")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="kinesisFirehoseDestination")
+    def kinesis_firehose_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination']:
+        """
+        An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        """
+        return pulumi.get(self, "kinesis_firehose_destination")
+
+    @property
+    @pulumi.getter(name="pinpointDestination")
+    def pinpoint_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination']:
+        """
+        An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        """
+        return pulumi.get(self, "pinpoint_destination")
+
+    @property
+    @pulumi.getter(name="snsDestination")
+    def sns_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination']:
+        """
+        An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        """
+        return pulumi.get(self, "sns_destination")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionConfigurations":
+            suggest = "dimension_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestinationCloudWatchDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventDestinationCloudWatchDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventDestinationCloudWatchDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_configurations: Sequence['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration']):
+        """
+        :param Sequence['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs'] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        """
+        pulumi.set(__self__, "dimension_configurations", dimension_configurations)
+
+    @property
+    @pulumi.getter(name="dimensionConfigurations")
+    def dimension_configurations(self) -> Sequence['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration']:
+        """
+        An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        """
+        return pulumi.get(self, "dimension_configurations")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultDimensionValue":
+            suggest = "default_dimension_value"
+        elif key == "dimensionName":
+            suggest = "dimension_name"
+        elif key == "dimensionValueSource":
+            suggest = "dimension_value_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_dimension_value: str,
+                 dimension_name: str,
+                 dimension_value_source: str):
+        """
+        :param str default_dimension_value: The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+               ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        :param str dimension_value_source: The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+        """
+        pulumi.set(__self__, "default_dimension_value", default_dimension_value)
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        pulumi.set(__self__, "dimension_value_source", dimension_value_source)
+
+    @property
+    @pulumi.getter(name="defaultDimensionValue")
+    def default_dimension_value(self) -> str:
+        """
+        The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+        ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        """
+        return pulumi.get(self, "default_dimension_value")
+
+    @property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> str:
+        return pulumi.get(self, "dimension_name")
+
+    @property
+    @pulumi.getter(name="dimensionValueSource")
+    def dimension_value_source(self) -> str:
+        """
+        The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+        """
+        return pulumi.get(self, "dimension_value_source")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStreamArn":
+            suggest = "delivery_stream_arn"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_stream_arn: str,
+                 iam_role_arn: str):
+        """
+        :param str delivery_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+        :param str iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+        """
+        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+
+    @property
+    @pulumi.getter(name="deliveryStreamArn")
+    def delivery_stream_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+        """
+        return pulumi.get(self, "delivery_stream_arn")
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationEventDestinationPinpointDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationArn":
+            suggest = "application_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestinationPinpointDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventDestinationPinpointDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventDestinationPinpointDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_arn: str):
+        pulumi.set(__self__, "application_arn", application_arn)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> str:
+        return pulumi.get(self, "application_arn")
+
+
+@pulumi.output_type
+class ConfigurationSetEventDestinationEventDestinationSnsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationEventDestinationSnsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetEventDestinationEventDestinationSnsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetEventDestinationEventDestinationSnsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: str):
+        """
+        :param str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        """
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        """
+        return pulumi.get(self, "topic_arn")
 
 
 @pulumi.output_type

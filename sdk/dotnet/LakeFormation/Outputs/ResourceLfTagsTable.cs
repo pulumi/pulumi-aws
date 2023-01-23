@@ -18,15 +18,15 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string? CatalogId;
         /// <summary>
-        /// Name of the database for the table with columns resource. Unique to the Data Catalog.
+        /// Name of the database for the table. Unique to a Data Catalog.
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// Name of the table resource.
+        /// Name of the table.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// Whether to use a wildcard representing every table under a database. Defaults to `false`.
         /// </summary>
         public readonly bool? Wildcard;
 

@@ -44,7 +44,7 @@ public final class GetTrafficPolicyDocumentRule {
      */
     private @Nullable GetTrafficPolicyDocumentRulePrimary primary;
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     private @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
@@ -96,7 +96,7 @@ public final class GetTrafficPolicyDocumentRule {
         return Optional.ofNullable(this.primary);
     }
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     public List<GetTrafficPolicyDocumentRuleRegion> regions() {

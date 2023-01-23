@@ -65,7 +65,7 @@ type LbStickinessPolicy struct {
 
 	// The cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration pulumi.IntOutput `pulumi:"cookieDuration"`
-	// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+	// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
@@ -111,7 +111,7 @@ func GetLbStickinessPolicy(ctx *pulumi.Context,
 type lbStickinessPolicyState struct {
 	// The cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration *int `pulumi:"cookieDuration"`
-	// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+	// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName *string `pulumi:"lbName"`
@@ -120,7 +120,7 @@ type lbStickinessPolicyState struct {
 type LbStickinessPolicyState struct {
 	// The cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration pulumi.IntPtrInput
-	// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+	// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
 	Enabled pulumi.BoolPtrInput
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringPtrInput
@@ -133,7 +133,7 @@ func (LbStickinessPolicyState) ElementType() reflect.Type {
 type lbStickinessPolicyArgs struct {
 	// The cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration int `pulumi:"cookieDuration"`
-	// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+	// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
 	Enabled bool `pulumi:"enabled"`
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName string `pulumi:"lbName"`
@@ -143,7 +143,7 @@ type lbStickinessPolicyArgs struct {
 type LbStickinessPolicyArgs struct {
 	// The cookie duration in seconds. This determines the length of the session stickiness.
 	CookieDuration pulumi.IntInput
-	// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+	// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
 	Enabled pulumi.BoolInput
 	// The name of the load balancer to which you want to enable session stickiness.
 	LbName pulumi.StringInput
@@ -241,7 +241,7 @@ func (o LbStickinessPolicyOutput) CookieDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.IntOutput { return v.CookieDuration }).(pulumi.IntOutput)
 }
 
-// - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+// The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
 func (o LbStickinessPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }

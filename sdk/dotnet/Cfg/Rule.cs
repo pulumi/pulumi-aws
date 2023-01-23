@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string?> InputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The maximum frequency with which AWS Config runs evaluations for a rule.
         /// </summary>
         [Output("maximumExecutionFrequency")]
         public Output<string?> MaximumExecutionFrequency { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? InputParameters { get; set; }
 
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The maximum frequency with which AWS Config runs evaluations for a rule.
         /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? InputParameters { get; set; }
 
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The maximum frequency with which AWS Config runs evaluations for a rule.
         /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }

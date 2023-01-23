@@ -325,7 +325,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableArray<Outputs.PatchBaselineGlobalFilter>> GlobalFilters { get; private set; } = null!;
 
         /// <summary>
-        /// The name specified to identify the patch source.
+        /// The name of the patch baseline.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The name specified to identify the patch source.
+        /// The name of the patch baseline.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -643,7 +643,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The name specified to identify the patch source.
+        /// The name of the patch baseline.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<int>? ConnectionRetryInterval { get; set; }
 
         /// <summary>
-        /// Destination address and port number for RTP or UDP packets. See Destination for more details.
+        /// The RTMP endpoint excluding the stream name. See Destination for more details.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationGetArgs> Destination { get; set; } = null!;

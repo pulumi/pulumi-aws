@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class DomainCognitoOptions
     {
         /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+        /// Whether Amazon Cognito authentication with Kibana is enabled or not.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

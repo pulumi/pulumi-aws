@@ -62,6 +62,7 @@ import (
 type Studio struct {
 	pulumi.CustomResourceState
 
+	// ARN of the studio.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
 	AuthMode pulumi.StringOutput `pulumi:"authMode"`
@@ -86,7 +87,7 @@ type Studio struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The unique access URL of the Amazon EMR Studio.
 	Url pulumi.StringOutput `pulumi:"url"`
-	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrOutput `pulumi:"userRole"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -144,6 +145,7 @@ func GetStudio(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Studio resources.
 type studioState struct {
+	// ARN of the studio.
 	Arn *string `pulumi:"arn"`
 	// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
 	AuthMode *string `pulumi:"authMode"`
@@ -168,7 +170,7 @@ type studioState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The unique access URL of the Amazon EMR Studio.
 	Url *string `pulumi:"url"`
-	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole *string `pulumi:"userRole"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId *string `pulumi:"vpcId"`
@@ -177,6 +179,7 @@ type studioState struct {
 }
 
 type StudioState struct {
+	// ARN of the studio.
 	Arn pulumi.StringPtrInput
 	// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
 	AuthMode pulumi.StringPtrInput
@@ -201,7 +204,7 @@ type StudioState struct {
 	TagsAll pulumi.StringMapInput
 	// The unique access URL of the Amazon EMR Studio.
 	Url pulumi.StringPtrInput
-	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrInput
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringPtrInput
@@ -234,7 +237,7 @@ type studioArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole *string `pulumi:"userRole"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId string `pulumi:"vpcId"`
@@ -264,7 +267,7 @@ type StudioArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrInput
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringInput
@@ -359,6 +362,7 @@ func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutpu
 	return o
 }
 
+// ARN of the studio.
 func (o StudioOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -422,7 +426,7 @@ func (o StudioOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
-// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 func (o StudioOutput) UserRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.UserRole }).(pulumi.StringPtrOutput)
 }

@@ -64,14 +64,14 @@ public final class EntityRecognizerInputDataConfigAugmentedManifestArgs extends 
     }
 
     /**
-     * Location of entity list.
+     * Location of augmented manifest file.
      * 
      */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
     /**
-     * @return Location of entity list.
+     * @return Location of augmented manifest file.
      * 
      */
     public Output<String> s3Uri() {
@@ -215,7 +215,7 @@ public final class EntityRecognizerInputDataConfigAugmentedManifestArgs extends 
         }
 
         /**
-         * @param s3Uri Location of entity list.
+         * @param s3Uri Location of augmented manifest file.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class EntityRecognizerInputDataConfigAugmentedManifestArgs extends 
         }
 
         /**
-         * @param s3Uri Location of entity list.
+         * @param s3Uri Location of augmented manifest file.
          * 
          * @return builder
          * 

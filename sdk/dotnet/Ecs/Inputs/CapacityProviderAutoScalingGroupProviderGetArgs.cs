@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class CapacityProviderAutoScalingGroupProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// - ARN of the associated auto scaling group.
+        /// ARN of the associated auto scaling group.
         /// </summary>
         [Input("autoScalingGroupArn", required: true)]
         public Input<string> AutoScalingGroupArn { get; set; } = null!;
 
         /// <summary>
-        /// - Configuration block defining the parameters of the auto scaling. Detailed below.
+        /// Configuration block defining the parameters of the auto scaling. Detailed below.
         /// </summary>
         [Input("managedScaling")]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingGetArgs>? ManagedScaling { get; set; }
 
         /// <summary>
-        /// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+        /// Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("managedTerminationProtection")]
         public Input<string>? ManagedTerminationProtection { get; set; }

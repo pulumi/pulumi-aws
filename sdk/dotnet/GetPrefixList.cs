@@ -201,7 +201,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        /// Name of the prefix list to select.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        /// Name of the prefix list to select.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

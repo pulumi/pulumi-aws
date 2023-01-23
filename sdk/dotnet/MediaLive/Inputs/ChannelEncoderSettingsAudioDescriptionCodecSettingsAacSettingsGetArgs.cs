@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<double>? Bitrate { get; set; }
 
         /// <summary>
-        /// Dolby Digital Plus coding mode.
+        /// Mono, Stereo, or 5.1 channel layout.
         /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? InputType { get; set; }
 
         /// <summary>
-        /// H264 profile.
+        /// AAC profile.
         /// </summary>
         [Input("profile")]
         public Input<string>? Profile { get; set; }

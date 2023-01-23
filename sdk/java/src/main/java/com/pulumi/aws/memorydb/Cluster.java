@@ -87,7 +87,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * The ARN of the cluster.
-     * * `cluster_endpoint`
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -95,7 +94,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The ARN of the cluster.
-     * * `cluster_endpoint`
      * 
      */
     public Output<String> arn() {

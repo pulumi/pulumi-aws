@@ -17,14 +17,14 @@ public final class CostCategoryRuleRuleNotCostCategoryArgs extends com.pulumi.re
     public static final CostCategoryRuleRuleNotCostCategoryArgs Empty = new CostCategoryRuleRuleNotCostCategoryArgs();
 
     /**
-     * Key for the tag.
+     * Unique name of the Cost Category.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Key for the tag.
+     * @return Unique name of the Cost Category.
      * 
      */
     public Optional<Output<String>> key() {
@@ -47,14 +47,14 @@ public final class CostCategoryRuleRuleNotCostCategoryArgs extends com.pulumi.re
     }
 
     /**
-     * Parameter values.
+     * Specific value of the Cost Category.
      * 
      */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
     /**
-     * @return Parameter values.
+     * @return Specific value of the Cost Category.
      * 
      */
     public Optional<Output<List<String>>> values() {
@@ -88,7 +88,7 @@ public final class CostCategoryRuleRuleNotCostCategoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param key Key for the tag.
+         * @param key Unique name of the Cost Category.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CostCategoryRuleRuleNotCostCategoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param key Key for the tag.
+         * @param key Unique name of the Cost Category.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CostCategoryRuleRuleNotCostCategoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param values Parameter values.
+         * @param values Specific value of the Cost Category.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CostCategoryRuleRuleNotCostCategoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param values Parameter values.
+         * @param values Specific value of the Cost Category.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CostCategoryRuleRuleNotCostCategoryArgs extends com.pulumi.re
         }
 
         /**
-         * @param values Parameter values.
+         * @param values Specific value of the Cost Category.
          * 
          * @return builder
          * 

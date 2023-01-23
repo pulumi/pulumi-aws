@@ -909,8 +909,7 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 }
 
 type DetectorDatasourcesS3Logs struct {
-	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-	// Defaults to `true`.
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -926,8 +925,7 @@ type DetectorDatasourcesS3LogsInput interface {
 }
 
 type DetectorDatasourcesS3LogsArgs struct {
-	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-	// Defaults to `true`.
+	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -1008,8 +1006,7 @@ func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutputWit
 	}).(DetectorDatasourcesS3LogsPtrOutput)
 }
 
-// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-// Defaults to `true`.
+// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 func (o DetectorDatasourcesS3LogsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorDatasourcesS3Logs) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -1038,8 +1035,7 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Elem() DetectorDatasourcesS3LogsOutp
 	}).(DetectorDatasourcesS3LogsOutput)
 }
 
-// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-// Defaults to `true`.
+// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) *bool {
 		if v == nil {
@@ -2228,7 +2224,7 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 }
 
 type OrganizationConfigurationDatasourcesS3Logs struct {
-	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable bool `pulumi:"autoEnable"`
 }
 
@@ -2244,7 +2240,7 @@ type OrganizationConfigurationDatasourcesS3LogsInput interface {
 }
 
 type OrganizationConfigurationDatasourcesS3LogsArgs struct {
-	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
 }
 
@@ -2325,7 +2321,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigur
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
-// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) bool { return v.AutoEnable }).(pulumi.BoolOutput)
 }
@@ -2354,7 +2350,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() Organization
 	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
 }
 
-// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) *bool {
 		if v == nil {

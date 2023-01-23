@@ -17,7 +17,7 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
      */
     private @Nullable String data;
     /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+     * @return The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
      * 
      */
     private String type;
@@ -31,7 +31,7 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
         return Optional.ofNullable(this.data);
     }
     /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+     * @return The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
      * 
      */
     public String type() {

@@ -186,7 +186,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
-     * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -194,7 +194,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -293,7 +293,7 @@ export interface ComputeEnvironmentState {
      */
     statusReason?: pulumi.Input<string>;
     /**
-     * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -301,7 +301,7 @@ export interface ComputeEnvironmentState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type?: pulumi.Input<string>;
 }
@@ -335,11 +335,11 @@ export interface ComputeEnvironmentArgs {
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+     * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      */
     type: pulumi.Input<string>;
 }

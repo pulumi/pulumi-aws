@@ -70,7 +70,7 @@ type OpenZfsVolume struct {
 	ReadOnly pulumi.BoolOutput `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrOutput `pulumi:"recordSizeKib"`
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntOutput `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntOutput `pulumi:"storageCapacityReservationGib"`
@@ -78,7 +78,7 @@ type OpenZfsVolume struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayOutput `pulumi:"userAndGroupQuotas"`
 	VolumeType         pulumi.StringPtrOutput                    `pulumi:"volumeType"`
 }
@@ -133,7 +133,7 @@ type openZfsVolumeState struct {
 	ReadOnly *bool `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
@@ -141,7 +141,7 @@ type openZfsVolumeState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 	VolumeType         *string                          `pulumi:"volumeType"`
 }
@@ -165,7 +165,7 @@ type OpenZfsVolumeState struct {
 	ReadOnly pulumi.BoolPtrInput
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
@@ -173,7 +173,7 @@ type OpenZfsVolumeState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
 	VolumeType         pulumi.StringPtrInput
 }
@@ -199,13 +199,13 @@ type openZfsVolumeArgs struct {
 	ReadOnly *bool `pulumi:"readOnly"`
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
 	VolumeType         *string                          `pulumi:"volumeType"`
 }
@@ -228,13 +228,13 @@ type OpenZfsVolumeArgs struct {
 	ReadOnly pulumi.BoolPtrInput
 	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput
-	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
 	VolumeType         pulumi.StringPtrInput
 }
@@ -371,7 +371,7 @@ func (o OpenZfsVolumeOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntPtrOutput { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
 }
 
-// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
 func (o OpenZfsVolumeOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
 }
@@ -391,7 +391,7 @@ func (o OpenZfsVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 func (o OpenZfsVolumeOutput) UserAndGroupQuotas() OpenZfsVolumeUserAndGroupQuotaArrayOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) OpenZfsVolumeUserAndGroupQuotaArrayOutput { return v.UserAndGroupQuotas }).(OpenZfsVolumeUserAndGroupQuotaArrayOutput)
 }

@@ -148,14 +148,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lakeformation/resourceLfTags:ResourceLfTags")
 public class ResourceLfTags extends com.pulumi.resources.CustomResource {
     /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     public Output<String> catalogId() {

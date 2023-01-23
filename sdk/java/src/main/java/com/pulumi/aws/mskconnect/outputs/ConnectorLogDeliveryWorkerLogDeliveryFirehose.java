@@ -18,7 +18,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehose {
      */
     private @Nullable String deliveryStream;
     /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * @return Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
      * 
      */
     private Boolean enabled;
@@ -32,7 +32,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehose {
         return Optional.ofNullable(this.deliveryStream);
     }
     /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
+     * @return Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
      * 
      */
     public Boolean enabled() {

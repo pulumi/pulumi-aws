@@ -94,14 +94,14 @@ public final class ClusterMasterInstanceGroupArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Name of the step.
+     * Friendly name given to the instance group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -253,7 +253,7 @@ public final class ClusterMasterInstanceGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Friendly name given to the instance group.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ClusterMasterInstanceGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Friendly name given to the instance group.
          * 
          * @return builder
          * 

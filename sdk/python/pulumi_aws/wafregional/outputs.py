@@ -399,7 +399,7 @@ class RuleGroupActivatedRule(dict):
         :param 'RuleGroupActivatedRuleActionArgs' action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         :param int priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
         :param str rule_id: The ID of a rule
-        :param str type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        :param str type: e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "priority", priority)
@@ -435,7 +435,7 @@ class RuleGroupActivatedRule(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -445,7 +445,7 @@ class RuleGroupActivatedRuleAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        :param str type: e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -453,7 +453,7 @@ class RuleGroupActivatedRuleAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+        e.g., `BLOCK`, `ALLOW`, or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -726,7 +726,7 @@ class WebAclDefaultAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -734,7 +734,7 @@ class WebAclDefaultAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -829,7 +829,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
                  type: str,
                  data: Optional[str] = None):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        :param str type: The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         :param str data: When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         """
         pulumi.set(__self__, "type", type)
@@ -840,7 +840,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         """
         return pulumi.get(self, "type")
 
@@ -886,7 +886,7 @@ class WebAclRule(dict):
         :param str rule_id: ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
         :param 'WebAclRuleActionArgs' action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
         :param 'WebAclRuleOverrideActionArgs' override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        :param str type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -934,7 +934,7 @@ class WebAclRule(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         return pulumi.get(self, "type")
 
@@ -962,7 +962,7 @@ class WebAclRuleOverrideAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -970,7 +970,7 @@ class WebAclRuleOverrideAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
 

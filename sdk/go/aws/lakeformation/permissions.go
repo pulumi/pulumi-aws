@@ -268,7 +268,7 @@ import (
 type Permissions struct {
 	pulumi.CustomResourceState
 
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrOutput `pulumi:"catalogResource"`
@@ -327,7 +327,7 @@ func GetPermissions(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Permissions resources.
 type permissionsState struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
@@ -352,7 +352,7 @@ type permissionsState struct {
 }
 
 type PermissionsState struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId pulumi.StringPtrInput
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput
@@ -381,7 +381,7 @@ func (PermissionsState) ElementType() reflect.Type {
 }
 
 type permissionsArgs struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
@@ -407,7 +407,7 @@ type permissionsArgs struct {
 
 // The set of arguments for constructing a Permissions resource.
 type PermissionsArgs struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId pulumi.StringPtrInput
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput
@@ -518,7 +518,7 @@ func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 func (o PermissionsOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permissions) pulumi.StringPtrOutput { return v.CatalogId }).(pulumi.StringPtrOutput)
 }

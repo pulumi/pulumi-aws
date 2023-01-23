@@ -163,7 +163,7 @@ type Cluster struct {
 	//
 	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configures a default Service Connect namespace. Detailed below.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrOutput `pulumi:"serviceConnectDefaults"`
@@ -216,7 +216,7 @@ type clusterState struct {
 	//
 	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name *string `pulumi:"name"`
 	// Configures a default Service Connect namespace. Detailed below.
 	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
@@ -241,7 +241,7 @@ type ClusterState struct {
 	//
 	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringPtrInput
 	// Configures a default Service Connect namespace. Detailed below.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
@@ -268,7 +268,7 @@ type clusterArgs struct {
 	//
 	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name *string `pulumi:"name"`
 	// Configures a default Service Connect namespace. Detailed below.
 	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
@@ -290,7 +290,7 @@ type ClusterArgs struct {
 	//
 	// Deprecated: Use the aws_ecs_cluster_capacity_providers resource instead
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 	Name pulumi.StringPtrInput
 	// Configures a default Service Connect namespace. Detailed below.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
@@ -413,7 +413,7 @@ func (o ClusterOutput) DefaultCapacityProviderStrategies() ClusterDefaultCapacit
 	}).(ClusterDefaultCapacityProviderStrategyArrayOutput)
 }
 
-// Name of the setting to manage. Valid values: `containerInsights`.
+// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

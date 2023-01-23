@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> FailureReason { get; private set; } = null!;
 
         /// <summary>
-        /// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         /// </summary>
         [Output("glueVersion")]
         public Output<string?> GlueVersion { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? ExtraPythonLibsS3Path { get; set; }
 
         /// <summary>
-        /// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? FailureReason { get; set; }
 
         /// <summary>
-        /// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }

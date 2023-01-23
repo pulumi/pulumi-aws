@@ -45,7 +45,7 @@ class PatchBaselineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]] global_filters: A set of global filters used to exclude patches from the baseline.
                Up to 4 global filters can be specified using Key/Value pairs.
                Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
-        :param pulumi.Input[str] name: The name specified to identify the patch source.
+        :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
                `AMAZON_LINUX`,
@@ -180,7 +180,7 @@ class PatchBaselineArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name specified to identify the patch source.
+        The name of the patch baseline.
         """
         return pulumi.get(self, "name")
 
@@ -302,7 +302,7 @@ class _PatchBaselineState:
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]] global_filters: A set of global filters used to exclude patches from the baseline.
                Up to 4 global filters can be specified using Key/Value pairs.
                Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
-        :param pulumi.Input[str] name: The name specified to identify the patch source.
+        :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
                `AMAZON_LINUX`,
@@ -454,7 +454,7 @@ class _PatchBaselineState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name specified to identify the patch source.
+        The name of the patch baseline.
         """
         return pulumi.get(self, "name")
 
@@ -756,7 +756,7 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineGlobalFilterArgs']]]] global_filters: A set of global filters used to exclude patches from the baseline.
                Up to 4 global filters can be specified using Key/Value pairs.
                Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
-        :param pulumi.Input[str] name: The name specified to identify the patch source.
+        :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
                `AMAZON_LINUX`,
@@ -1052,7 +1052,7 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PatchBaselineGlobalFilterArgs']]]] global_filters: A set of global filters used to exclude patches from the baseline.
                Up to 4 global filters can be specified using Key/Value pairs.
                Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
-        :param pulumi.Input[str] name: The name specified to identify the patch source.
+        :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
                `AMAZON_LINUX`,
@@ -1167,7 +1167,7 @@ class PatchBaseline(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name specified to identify the patch source.
+        The name of the patch baseline.
         """
         return pulumi.get(self, "name")
 

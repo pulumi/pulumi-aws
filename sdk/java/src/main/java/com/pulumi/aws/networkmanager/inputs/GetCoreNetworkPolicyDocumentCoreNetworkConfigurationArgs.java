@@ -34,14 +34,14 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
     }
 
     /**
-     * A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+     * A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
      * 
      */
     @Import(name="edgeLocations", required=true)
     private Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs>> edgeLocations;
 
     /**
-     * @return A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+     * @return A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
      * 
      */
     public Output<List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs>> edgeLocations() {
@@ -49,14 +49,14 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
     }
 
     /**
-     * The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+     * The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
      * 
      */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
     /**
-     * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+     * @return The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
      * 
      */
     public Optional<Output<List<String>>> insideCidrBlocks() {
@@ -137,7 +137,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
         }
 
         /**
-         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+         * @param edgeLocations A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
         }
 
         /**
-         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+         * @param edgeLocations A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
         }
 
         /**
-         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+         * @param edgeLocations A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
         }
 
         /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+         * @param insideCidrBlocks The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
         }
 
         /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+         * @param insideCidrBlocks The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs exte
         }
 
         /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+         * @param insideCidrBlocks The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
          * 
          * @return builder
          * 

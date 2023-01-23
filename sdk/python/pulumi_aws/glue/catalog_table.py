@@ -32,12 +32,12 @@ class CatalogTableArgs:
                  view_original_text: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CatalogTable resource.
-        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
+        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
@@ -79,7 +79,7 @@ class CatalogTableArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        Name of the catalog database that contains the target table.
+        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         """
         return pulumi.get(self, "database_name")
 
@@ -91,7 +91,7 @@ class CatalogTableArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Data Catalog in which the table resides.
+        ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -115,7 +115,7 @@ class CatalogTableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the target table.
+        Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         return pulumi.get(self, "name")
 
@@ -139,7 +139,7 @@ class CatalogTableArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of initialization parameters for the SerDe, in key-value form.
+        Properties associated with this table, as a list of key-value pairs.
         """
         return pulumi.get(self, "parameters")
 
@@ -265,12 +265,12 @@ class _CatalogTableState:
         """
         Input properties used for looking up and filtering CatalogTable resources.
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
-        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
@@ -327,7 +327,7 @@ class _CatalogTableState:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Data Catalog in which the table resides.
+        ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -339,7 +339,7 @@ class _CatalogTableState:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the catalog database that contains the target table.
+        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         """
         return pulumi.get(self, "database_name")
 
@@ -363,7 +363,7 @@ class _CatalogTableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the target table.
+        Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         return pulumi.get(self, "name")
 
@@ -387,7 +387,7 @@ class _CatalogTableState:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of initialization parameters for the SerDe, in key-value form.
+        Properties associated with this table, as a list of key-value pairs.
         """
         return pulumi.get(self, "parameters")
 
@@ -589,12 +589,12 @@ class CatalogTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
-        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
@@ -773,12 +773,12 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
-        :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
+        :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[str] description: Description of the table.
-        :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] owner: Owner of the table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of initialization parameters for the SerDe, in key-value form.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
@@ -821,7 +821,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[str]:
         """
-        ID of the Data Catalog in which the table resides.
+        ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -829,7 +829,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
         """
-        Name of the catalog database that contains the target table.
+        Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         """
         return pulumi.get(self, "database_name")
 
@@ -845,7 +845,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the target table.
+        Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         return pulumi.get(self, "name")
 
@@ -861,7 +861,7 @@ class CatalogTable(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of initialization parameters for the SerDe, in key-value form.
+        Properties associated with this table, as a list of key-value pairs.
         """
         return pulumi.get(self, "parameters")
 

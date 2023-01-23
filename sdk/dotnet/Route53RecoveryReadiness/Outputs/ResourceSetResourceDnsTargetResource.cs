@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Outputs
     public sealed class ResourceSetResourceDnsTargetResource
     {
         /// <summary>
-        /// Domain name that is targeted.
+        /// DNS Name that acts as the ingress point to a portion of application.
         /// </summary>
         public readonly string DomainName;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Outputs
         /// </summary>
         public readonly string? HostedZoneArn;
         /// <summary>
-        /// Resource record set ID that is targeted.
+        /// Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         /// </summary>
         public readonly string? RecordSetId;
         /// <summary>

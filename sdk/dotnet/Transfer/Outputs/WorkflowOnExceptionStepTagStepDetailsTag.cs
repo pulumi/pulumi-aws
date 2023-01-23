@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class WorkflowOnExceptionStepTagStepDetailsTag
     {
         /// <summary>
-        /// The name assigned to the tag that you create.
+        /// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         /// </summary>
         public readonly string Key;
         /// <summary>

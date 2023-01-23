@@ -68,7 +68,8 @@ type LookupTargetGroupArgs struct {
 	// Full ARN of the target group.
 	Arn *string `pulumi:"arn"`
 	// Unique name of the target group.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -115,6 +116,7 @@ type LookupTargetGroupOutputArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Unique name of the target group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

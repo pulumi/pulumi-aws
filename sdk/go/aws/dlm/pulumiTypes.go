@@ -15,7 +15,7 @@ type LifecyclePolicyPolicyDetails struct {
 	Action *LifecyclePolicyPolicyDetailsAction `pulumi:"action"`
 	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
 	EventSource *LifecyclePolicyPolicyDetailsEventSource `pulumi:"eventSource"`
-	// Information about the event. See the `parameters` configuration block.
+	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 	Parameters *LifecyclePolicyPolicyDetailsParameters `pulumi:"parameters"`
 	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 	PolicyType *string `pulumi:"policyType"`
@@ -45,7 +45,7 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	Action LifecyclePolicyPolicyDetailsActionPtrInput `pulumi:"action"`
 	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
 	EventSource LifecyclePolicyPolicyDetailsEventSourcePtrInput `pulumi:"eventSource"`
-	// Information about the event. See the `parameters` configuration block.
+	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 	Parameters LifecyclePolicyPolicyDetailsParametersPtrInput `pulumi:"parameters"`
 	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -146,7 +146,7 @@ func (o LifecyclePolicyPolicyDetailsOutput) EventSource() LifecyclePolicyPolicyD
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsEventSource { return v.EventSource }).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
-// Information about the event. See the `parameters` configuration block.
+// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsOutput) Parameters() LifecyclePolicyPolicyDetailsParametersPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsParameters { return v.Parameters }).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
 }
@@ -220,7 +220,7 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyPoli
 	}).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
-// Information about the event. See the `parameters` configuration block.
+// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Parameters() LifecyclePolicyPolicyDetailsParametersPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsParameters {
 		if v == nil {
@@ -283,7 +283,7 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutp
 type LifecyclePolicyPolicyDetailsAction struct {
 	// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
 	CrossRegionCopies []LifecyclePolicyPolicyDetailsActionCrossRegionCopy `pulumi:"crossRegionCopies"`
-	// A name for the schedule.
+	// A descriptive name for the action.
 	Name string `pulumi:"name"`
 }
 
@@ -301,7 +301,7 @@ type LifecyclePolicyPolicyDetailsActionInput interface {
 type LifecyclePolicyPolicyDetailsActionArgs struct {
 	// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
 	CrossRegionCopies LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput `pulumi:"crossRegionCopies"`
-	// A name for the schedule.
+	// A descriptive name for the action.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -389,7 +389,7 @@ func (o LifecyclePolicyPolicyDetailsActionOutput) CrossRegionCopies() LifecycleP
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput)
 }
 
-// A name for the schedule.
+// A descriptive name for the action.
 func (o LifecyclePolicyPolicyDetailsActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -428,7 +428,7 @@ func (o LifecyclePolicyPolicyDetailsActionPtrOutput) CrossRegionCopies() Lifecyc
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput)
 }
 
-// A name for the schedule.
+// A descriptive name for the action.
 func (o LifecyclePolicyPolicyDetailsActionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsAction) *string {
 		if v == nil {
@@ -441,7 +441,7 @@ func (o LifecyclePolicyPolicyDetailsActionPtrOutput) Name() pulumi.StringPtrOutp
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopy struct {
 	// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
 	EncryptionConfiguration LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule `pulumi:"retainRule"`
 	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	Target string `pulumi:"target"`
@@ -461,7 +461,7 @@ type LifecyclePolicyPolicyDetailsActionCrossRegionCopyInput interface {
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs struct {
 	// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
 	EncryptionConfiguration LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInput `pulumi:"encryptionConfiguration"`
-	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput `pulumi:"retainRule"`
 	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	Target pulumi.StringInput `pulumi:"target"`
@@ -525,7 +525,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) EncryptionConfi
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput)
 }
 
-// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) RetainRule() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopy) *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
 		return v.RetainRule
@@ -558,9 +558,9 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) Index(i pu
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
 	CmkArn *string `pulumi:"cmkArn"`
-	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
 	Encrypted *bool `pulumi:"encrypted"`
 }
 
@@ -576,9 +576,9 @@ type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInp
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
 	CmkArn pulumi.StringPtrInput `pulumi:"cmkArn"`
-	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 }
 
@@ -608,14 +608,14 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) CmkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration) *string {
 		return v.CmkArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration) *bool {
 		return v.Encrypted
@@ -623,9 +623,9 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule struct {
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval int `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -641,9 +641,9 @@ type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleInput interface 
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs struct {
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -724,12 +724,12 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToLif
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) string { return v.IntervalUnit }).(pulumi.StringOutput)
 }
@@ -758,7 +758,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) El
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *int {
 		if v == nil {
@@ -768,7 +768,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *string {
 		if v == nil {
@@ -779,7 +779,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) In
 }
 
 type LifecyclePolicyPolicyDetailsEventSource struct {
-	// Information about the event. See the `parameters` configuration block.
+	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 	Parameters LifecyclePolicyPolicyDetailsEventSourceParameters `pulumi:"parameters"`
 	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
 	Type string `pulumi:"type"`
@@ -797,7 +797,7 @@ type LifecyclePolicyPolicyDetailsEventSourceInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsEventSourceArgs struct {
-	// Information about the event. See the `parameters` configuration block.
+	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 	Parameters LifecyclePolicyPolicyDetailsEventSourceParametersInput `pulumi:"parameters"`
 	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -880,7 +880,7 @@ func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToLifecyclePolicyPolicyDe
 	}).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
-// Information about the event. See the `parameters` configuration block.
+// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsEventSourceOutput) Parameters() LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSource) LifecyclePolicyPolicyDetailsEventSourceParameters {
 		return v.Parameters
@@ -916,7 +916,7 @@ func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Elem() LifecyclePolicy
 	}).(LifecyclePolicyPolicyDetailsEventSourceOutput)
 }
 
-// Information about the event. See the `parameters` configuration block.
+// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Parameters() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSource) *LifecyclePolicyPolicyDetailsEventSourceParameters {
 		if v == nil {
@@ -1268,19 +1268,19 @@ func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) NoReboot() pulumi.BoolP
 }
 
 type LifecyclePolicyPolicyDetailsSchedule struct {
-	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 	CopyTags *bool `pulumi:"copyTags"`
 	// See the `createRule` block. Max of 1 per schedule.
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRule `pulumi:"createRule"`
 	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
 	CrossRegionCopyRules []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule `pulumi:"crossRegionCopyRules"`
-	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	// See the `deprecateRule` block. Max of 1 per schedule.
 	DeprecateRule *LifecyclePolicyPolicyDetailsScheduleDeprecateRule `pulumi:"deprecateRule"`
 	// See the `fastRestoreRule` block. Max of 1 per schedule.
 	FastRestoreRule *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule `pulumi:"fastRestoreRule"`
-	// A name for the schedule.
+	// A descriptive name for the action.
 	Name string `pulumi:"name"`
-	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRule `pulumi:"retainRule"`
 	// See the `shareRule` block. Max of 1 per schedule.
 	ShareRule *LifecyclePolicyPolicyDetailsScheduleShareRule `pulumi:"shareRule"`
@@ -1302,19 +1302,19 @@ type LifecyclePolicyPolicyDetailsScheduleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArgs struct {
-	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 	CopyTags pulumi.BoolPtrInput `pulumi:"copyTags"`
 	// See the `createRule` block. Max of 1 per schedule.
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRuleInput `pulumi:"createRule"`
 	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
 	CrossRegionCopyRules LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput `pulumi:"crossRegionCopyRules"`
-	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	// See the `deprecateRule` block. Max of 1 per schedule.
 	DeprecateRule LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput `pulumi:"deprecateRule"`
 	// See the `fastRestoreRule` block. Max of 1 per schedule.
 	FastRestoreRule LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput `pulumi:"fastRestoreRule"`
-	// A name for the schedule.
+	// A descriptive name for the action.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRuleInput `pulumi:"retainRule"`
 	// See the `shareRule` block. Max of 1 per schedule.
 	ShareRule LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput `pulumi:"shareRule"`
@@ -1375,7 +1375,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) ToLifecyclePolicyPolicyDetai
 	return o
 }
 
-// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
@@ -1394,7 +1394,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) CrossRegionCopyRules() Lifec
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput)
 }
 
-// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+// See the `deprecateRule` block. Max of 1 per schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) DeprecateRule() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
 		return v.DeprecateRule
@@ -1408,12 +1408,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) FastRestoreRule() LifecycleP
 	}).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput)
 }
 
-// A name for the schedule.
+// A descriptive name for the action.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) RetainRule() LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) LifecyclePolicyPolicyDetailsScheduleRetainRule {
 		return v.RetainRule
@@ -1460,9 +1460,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput
 type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
 	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
 	CronExpression *string `pulumi:"cronExpression"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval *int `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
 	Location *string `pulumi:"location"`
@@ -1484,9 +1484,9 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs struct {
 	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
 	CronExpression pulumi.StringPtrInput `pulumi:"cronExpression"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
 	Location pulumi.StringPtrInput `pulumi:"location"`
@@ -1525,12 +1525,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) CronExpression() p
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.CronExpression }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -1546,15 +1546,15 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Times() pulumi.Str
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
 	CmkArn *string `pulumi:"cmkArn"`
-	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 	CopyTags *bool `pulumi:"copyTags"`
-	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	// See the `deprecateRule` block. Max of 1 per schedule.
 	DeprecateRule *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule `pulumi:"deprecateRule"`
-	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
 	Encrypted bool `pulumi:"encrypted"`
-	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule `pulumi:"retainRule"`
 	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	Target string `pulumi:"target"`
@@ -1572,15 +1572,15 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
 	CmkArn pulumi.StringPtrInput `pulumi:"cmkArn"`
-	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 	CopyTags pulumi.BoolPtrInput `pulumi:"copyTags"`
-	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	// See the `deprecateRule` block. Max of 1 per schedule.
 	DeprecateRule LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput `pulumi:"deprecateRule"`
-	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
-	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput `pulumi:"retainRule"`
 	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
 	Target pulumi.StringInput `pulumi:"target"`
@@ -1637,29 +1637,29 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ToLifecyc
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) CmkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *string { return v.CmkArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
 
-// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+// See the `deprecateRule` block. Max of 1 per schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) DeprecateRule() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
 		return v.DeprecateRule
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
 }
 
-// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) RetainRule() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
 		return v.RetainRule
@@ -1692,9 +1692,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) Inde
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule struct {
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval int `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -1710,9 +1710,9 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleInput i
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs struct {
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -1793,12 +1793,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutp
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) string {
 		return v.IntervalUnit
@@ -1829,7 +1829,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *int {
 		if v == nil {
@@ -1839,7 +1839,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *string {
 		if v == nil {
@@ -1850,9 +1850,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule struct {
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval int `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -1868,9 +1868,9 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput inte
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs struct {
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -1951,12 +1951,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) string {
 		return v.IntervalUnit
@@ -1987,7 +1987,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *int {
 		if v == nil {
@@ -1997,7 +1997,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *string {
 		if v == nil {
@@ -2008,11 +2008,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 }
 
 type LifecyclePolicyPolicyDetailsScheduleDeprecateRule struct {
-	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 	Count *int `pulumi:"count"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval *int `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2028,11 +2028,11 @@ type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs struct {
-	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2113,17 +2113,17 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToLifecyclePoli
 	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
 }
 
-// How many snapshots to keep. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2152,7 +2152,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Elem() Lifec
 	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput)
 }
 
-// How many snapshots to keep. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
 		if v == nil {
@@ -2162,7 +2162,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Count() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
 		if v == nil {
@@ -2172,7 +2172,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Interval() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string {
 		if v == nil {
@@ -2185,11 +2185,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRule struct {
 	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 	Count *int `pulumi:"count"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval *int `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2207,11 +2207,11 @@ type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput interface {
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs struct {
 	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2297,17 +2297,17 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) AvailabilityZ
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// How many snapshots to keep. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2346,7 +2346,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Availabili
 	}).(pulumi.StringArrayOutput)
 }
 
-// How many snapshots to keep. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
 		if v == nil {
@@ -2356,7 +2356,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
 		if v == nil {
@@ -2366,7 +2366,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Interval()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string {
 		if v == nil {
@@ -2377,11 +2377,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) IntervalUn
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRule struct {
-	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 	Count *int `pulumi:"count"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval *int `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2397,11 +2397,11 @@ type LifecyclePolicyPolicyDetailsScheduleRetainRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs struct {
-	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2431,17 +2431,17 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// How many snapshots to keep. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }

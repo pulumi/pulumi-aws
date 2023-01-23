@@ -585,7 +585,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> LaunchConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.GroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
@@ -625,7 +625,8 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int?> MinElbCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// Minimum size of the Auto Scaling Group.
+        /// (See also Waiting for Capacity below.)
         /// </summary>
         [Output("minSize")]
         public Output<int> MinSize { get; private set; } = null!;
@@ -901,7 +902,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? LaunchConfiguration { get; set; }
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.GroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
@@ -947,7 +948,8 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinElbCapacity { get; set; }
 
         /// <summary>
-        /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// Minimum size of the Auto Scaling Group.
+        /// (See also Waiting for Capacity below.)
         /// </summary>
         [Input("minSize", required: true)]
         public Input<int> MinSize { get; set; } = null!;
@@ -1228,7 +1230,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? LaunchConfiguration { get; set; }
 
         /// <summary>
-        /// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.GroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
@@ -1274,7 +1276,8 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinElbCapacity { get; set; }
 
         /// <summary>
-        /// Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+        /// Minimum size of the Auto Scaling Group.
+        /// (See also Waiting for Capacity below.)
         /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }

@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class WorkforceCognitoConfig {
     /**
-     * @return The OIDC IdP client ID used to configure your private workforce.
+     * @return The client ID for your Amazon Cognito user pool.
      * 
      */
     private String clientId;
@@ -22,7 +22,7 @@ public final class WorkforceCognitoConfig {
 
     private WorkforceCognitoConfig() {}
     /**
-     * @return The OIDC IdP client ID used to configure your private workforce.
+     * @return The client ID for your Amazon Cognito user pool.
      * 
      */
     public String clientId() {

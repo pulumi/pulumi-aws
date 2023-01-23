@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
     public sealed class IpGroupRule
     {
         /// <summary>
-        /// The description.
+        /// The description of the IP group.
         /// </summary>
         public readonly string? Description;
         /// <summary>

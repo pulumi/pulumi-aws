@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
+        /// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         /// </summary>
         public readonly int? InstanceCount;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// Name of the step.
+        /// Friendly name given to the instance group.
         /// </summary>
         public readonly string? Name;
 

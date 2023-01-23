@@ -123,7 +123,6 @@ class GetClusterResult:
     def auto_minor_version_upgrade(self) -> bool:
         """
         True when the cluster allows automatic minor version upgrades.
-        * `cluster_endpoint`
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -201,7 +200,6 @@ class GetClusterResult:
     def name(self) -> str:
         """
         Name of this node.
-        * `endpoint`
         """
         return pulumi.get(self, "name")
 
@@ -282,13 +280,15 @@ class GetClusterResult:
     def sns_topic_arn(self) -> str:
         """
         ARN of the SNS topic to which cluster notifications are sent.
-        * `subnet_group_name` -The name of the subnet group used for the cluster.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @property
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> str:
+        """
+        The name of the subnet group used for the cluster.
+        """
         return pulumi.get(self, "subnet_group_name")
 
     @property

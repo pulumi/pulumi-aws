@@ -115,14 +115,14 @@ public class Product extends com.pulumi.resources.CustomResource {
         return this.createdTime;
     }
     /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+     * Description of the product.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+     * @return Description of the product.
      * 
      */
     public Output<String> description() {
@@ -157,14 +157,14 @@ public class Product extends com.pulumi.resources.CustomResource {
         return this.hasDefaultPath;
     }
     /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+     * Name of the product.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+     * @return Name of the product.
      * 
      */
     public Output<String> name() {
@@ -283,14 +283,14 @@ public class Product extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * @return Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
      * 
      */
     public Output<String> type() {

@@ -73,7 +73,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        /// Description of the product.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<bool> HasDefaultPath { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// Name of the product.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? AcceptLanguage { get; set; }
 
         /// <summary>
-        /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        /// Description of the product.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? Distributor { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// Name of the product.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         /// <summary>
-        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        /// Description of the product.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<bool>? HasDefaultPath { get; set; }
 
         /// <summary>
-        /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        /// Name of the product.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         /// <summary>
-        /// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        /// Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

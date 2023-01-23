@@ -193,14 +193,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.recordSizeKib);
     }
     /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     @Export(name="storageCapacityQuotaGib", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacityQuotaGib;
 
     /**
-     * @return - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * @return The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     public Output<Integer> storageCapacityQuotaGib() {
@@ -249,14 +249,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
     @Export(name="userAndGroupQuotas", refs={List.class,OpenZfsVolumeUserAndGroupQuota.class}, tree="[0,1]")
     private Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas;
 
     /**
-     * @return - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
     public Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas() {

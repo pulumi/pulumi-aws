@@ -89,9 +89,9 @@ class ClusterBootstrapAction(dict):
                  path: str,
                  args: Optional[Sequence[str]] = None):
         """
-        :param str name: Name of the step.
+        :param str name: Name of the bootstrap action.
         :param str path: Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-        :param Sequence[str] args: List of command line arguments passed to the JAR file's main function when executed.
+        :param Sequence[str] args: List of command line arguments to pass to the bootstrap action script.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
@@ -102,7 +102,7 @@ class ClusterBootstrapAction(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the step.
+        Name of the bootstrap action.
         """
         return pulumi.get(self, "name")
 
@@ -118,7 +118,7 @@ class ClusterBootstrapAction(dict):
     @pulumi.getter
     def args(self) -> Optional[Sequence[str]]:
         """
-        List of command line arguments passed to the JAR file's main function when executed.
+        List of command line arguments to pass to the bootstrap action script.
         """
         return pulumi.get(self, "args")
 
@@ -165,8 +165,8 @@ class ClusterCoreInstanceFleet(dict):
         :param str id: ID of the cluster.
         :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigArgs'] instance_type_configs: Configuration block for instance fleet.
         :param 'ClusterCoreInstanceFleetLaunchSpecificationsArgs' launch_specifications: Configuration block for launch specification.
-        :param str name: Name of the step.
-        :param int target_on_demand_capacity: Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        :param str name: Friendly name given to the instance fleet.
+        :param int target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param int target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
         if id is not None:
@@ -214,7 +214,7 @@ class ClusterCoreInstanceFleet(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the step.
+        Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
@@ -232,7 +232,7 @@ class ClusterCoreInstanceFleet(dict):
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> Optional[int]:
         """
-        Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         """
         return pulumi.get(self, "target_on_demand_capacity")
 
@@ -280,8 +280,8 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
                  ebs_configs: Optional[Sequence['outputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig']] = None,
                  weighted_capacity: Optional[int] = None):
         """
-        :param str instance_type: EC2 instance type for all instances in the instance group.
-        :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        :param str instance_type: EC2 instance type, such as m4.xlarge.
+        :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
@@ -303,7 +303,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        EC2 instance type for all instances in the instance group.
+        EC2 instance type, such as m4.xlarge.
         """
         return pulumi.get(self, "instance_type")
 
@@ -311,7 +311,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[str]:
         """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price")
 
@@ -355,7 +355,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
                  properties: Optional[Mapping[str, Any]] = None):
         """
         :param str classification: Classification within a configuration.
-        :param Mapping[str, Any] properties: Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        :param Mapping[str, Any] properties: Map of properties specified within a configuration classification.
         """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -374,7 +374,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, Any]]:
         """
-        Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        Map of properties specified within a configuration classification.
         """
         return pulumi.get(self, "properties")
 
@@ -521,7 +521,7 @@ class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     def __init__(__self__, *,
                  allocation_strategy: str):
         """
-        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param str allocation_strategy: Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
@@ -529,7 +529,7 @@ class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> str:
         """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -650,8 +650,8 @@ class ClusterCoreInstanceGroup(dict):
         :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param Sequence['ClusterCoreInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param str id: ID of the cluster.
-        :param int instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        :param str name: Name of the step.
+        :param int instance_count: Target number of instances for the instance group. Must be at least 1. Defaults to 1.
+        :param str name: Friendly name given to the instance group.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if autoscaling_policy is not None:
@@ -711,7 +711,7 @@ class ClusterCoreInstanceGroup(dict):
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[int]:
         """
-        Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
+        Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         """
         return pulumi.get(self, "instance_count")
 
@@ -719,7 +719,7 @@ class ClusterCoreInstanceGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the step.
+        Friendly name given to the instance group.
         """
         return pulumi.get(self, "name")
 
@@ -1083,7 +1083,7 @@ class ClusterMasterInstanceFleet(dict):
         :param str id: ID of the cluster.
         :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigArgs'] instance_type_configs: Configuration block for instance fleet.
         :param 'ClusterMasterInstanceFleetLaunchSpecificationsArgs' launch_specifications: Configuration block for launch specification.
-        :param str name: Name of the step.
+        :param str name: Friendly name given to the instance fleet.
         :param int target_on_demand_capacity: Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param int target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -1132,7 +1132,7 @@ class ClusterMasterInstanceFleet(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the step.
+        Friendly name given to the instance fleet.
         """
         return pulumi.get(self, "name")
 
@@ -1198,8 +1198,8 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
                  ebs_configs: Optional[Sequence['outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig']] = None,
                  weighted_capacity: Optional[int] = None):
         """
-        :param str instance_type: EC2 instance type for all instances in the instance group.
-        :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        :param str instance_type: EC2 instance type, such as m4.xlarge.
+        :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
@@ -1221,7 +1221,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        EC2 instance type for all instances in the instance group.
+        EC2 instance type, such as m4.xlarge.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1229,7 +1229,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[str]:
         """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price")
 
@@ -1273,7 +1273,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
                  properties: Optional[Mapping[str, Any]] = None):
         """
         :param str classification: Classification within a configuration.
-        :param Mapping[str, Any] properties: Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        :param Mapping[str, Any] properties: Map of properties specified within a configuration classification.
         """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
@@ -1292,7 +1292,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, Any]]:
         """
-        Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        Map of properties specified within a configuration classification.
         """
         return pulumi.get(self, "properties")
 
@@ -1439,7 +1439,7 @@ class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     def __init__(__self__, *,
                  allocation_strategy: str):
         """
-        :param str allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        :param str allocation_strategy: Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
@@ -1447,7 +1447,7 @@ class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> str:
         """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -1565,7 +1565,7 @@ class ClusterMasterInstanceGroup(dict):
         :param Sequence['ClusterMasterInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param str id: ID of the cluster.
         :param int instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        :param str name: Name of the step.
+        :param str name: Friendly name given to the instance group.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
@@ -1623,7 +1623,7 @@ class ClusterMasterInstanceGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the step.
+        Friendly name given to the instance group.
         """
         return pulumi.get(self, "name")
 

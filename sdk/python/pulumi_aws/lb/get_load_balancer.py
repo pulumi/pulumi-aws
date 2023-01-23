@@ -22,7 +22,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, enable_waf_fail_open=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_waf_fail_open=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -44,6 +44,9 @@ class GetLoadBalancerResult:
         if drop_invalid_header_fields and not isinstance(drop_invalid_header_fields, bool):
             raise TypeError("Expected argument 'drop_invalid_header_fields' to be a bool")
         pulumi.set(__self__, "drop_invalid_header_fields", drop_invalid_header_fields)
+        if enable_cross_zone_load_balancing and not isinstance(enable_cross_zone_load_balancing, bool):
+            raise TypeError("Expected argument 'enable_cross_zone_load_balancing' to be a bool")
+        pulumi.set(__self__, "enable_cross_zone_load_balancing", enable_cross_zone_load_balancing)
         if enable_deletion_protection and not isinstance(enable_deletion_protection, bool):
             raise TypeError("Expected argument 'enable_deletion_protection' to be a bool")
         pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
@@ -127,6 +130,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="dropInvalidHeaderFields")
     def drop_invalid_header_fields(self) -> bool:
         return pulumi.get(self, "drop_invalid_header_fields")
+
+    @property
+    @pulumi.getter(name="enableCrossZoneLoadBalancing")
+    def enable_cross_zone_load_balancing(self) -> bool:
+        return pulumi.get(self, "enable_cross_zone_load_balancing")
 
     @property
     @pulumi.getter(name="enableDeletionProtection")
@@ -225,6 +233,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             desync_mitigation_mode=self.desync_mitigation_mode,
             dns_name=self.dns_name,
             drop_invalid_header_fields=self.drop_invalid_header_fields,
+            enable_cross_zone_load_balancing=self.enable_cross_zone_load_balancing,
             enable_deletion_protection=self.enable_deletion_protection,
             enable_http2=self.enable_http2,
             enable_waf_fail_open=self.enable_waf_fail_open,
@@ -293,6 +302,7 @@ def get_load_balancer(arn: Optional[str] = None,
         desync_mitigation_mode=__ret__.desync_mitigation_mode,
         dns_name=__ret__.dns_name,
         drop_invalid_header_fields=__ret__.drop_invalid_header_fields,
+        enable_cross_zone_load_balancing=__ret__.enable_cross_zone_load_balancing,
         enable_deletion_protection=__ret__.enable_deletion_protection,
         enable_http2=__ret__.enable_http2,
         enable_waf_fail_open=__ret__.enable_waf_fail_open,

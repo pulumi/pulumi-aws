@@ -16,14 +16,14 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
     public static final DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs Empty = new DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs();
 
     /**
-     * The ID of the Amazon EC2 launch template to use.
+     * The ID of the launch template to use for faster launching for a Windows AMI.
      * 
      */
     @Import(name="launchTemplateId")
     private @Nullable Output<String> launchTemplateId;
 
     /**
-     * @return The ID of the Amazon EC2 launch template to use.
+     * @return The ID of the launch template to use for faster launching for a Windows AMI.
      * 
      */
     public Optional<Output<String>> launchTemplateId() {
@@ -87,7 +87,7 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
         }
 
         /**
-         * @param launchTemplateId The ID of the Amazon EC2 launch template to use.
+         * @param launchTemplateId The ID of the launch template to use for faster launching for a Windows AMI.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
         }
 
         /**
-         * @param launchTemplateId The ID of the Amazon EC2 launch template to use.
+         * @param launchTemplateId The ID of the launch template to use for faster launching for a Windows AMI.
          * 
          * @return builder
          * 

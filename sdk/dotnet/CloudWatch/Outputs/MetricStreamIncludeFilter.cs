@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class MetricStreamIncludeFilter
     {
         /// <summary>
-        /// The namespace of the metric.
+        /// Name of the metric namespace in the filter.
         /// </summary>
         public readonly string Namespace;
 

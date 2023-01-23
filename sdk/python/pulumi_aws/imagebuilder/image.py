@@ -26,7 +26,7 @@ class ImageArgs:
         """
         The set of arguments for constructing a Image resource.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        :param pulumi.Input[str] container_recipe_arn: - Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
@@ -63,7 +63,7 @@ class ImageArgs:
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        - Amazon Resource Name (ARN) of the container recipe.
+        Amazon Resource Name (ARN) of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -153,7 +153,7 @@ class _ImageState:
         """
         Input properties used for looking up and filtering Image resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image.
-        :param pulumi.Input[str] container_recipe_arn: - Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] date_created: Date the image was created.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
@@ -215,7 +215,7 @@ class _ImageState:
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        - Amazon Resource Name (ARN) of the container recipe.
+        Amazon Resource Name (ARN) of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -418,7 +418,7 @@ class Image(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] container_recipe_arn: - Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
@@ -536,7 +536,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image.
-        :param pulumi.Input[str] container_recipe_arn: - Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[str] container_recipe_arn: Amazon Resource Name (ARN) of the container recipe.
         :param pulumi.Input[str] date_created: Date the image was created.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
@@ -584,7 +584,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        - Amazon Resource Name (ARN) of the container recipe.
+        Amazon Resource Name (ARN) of the container recipe.
         """
         return pulumi.get(self, "container_recipe_arn")
 

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableStorageDescriptorSerDeInfo {
     /**
-     * @return Name of the target table.
+     * @return Name of the SerDe.
      * 
      */
     private @Nullable String name;
@@ -30,7 +30,7 @@ public final class CatalogTableStorageDescriptorSerDeInfo {
 
     private CatalogTableStorageDescriptorSerDeInfo() {}
     /**
-     * @return Name of the target table.
+     * @return Name of the SerDe.
      * 
      */
     public Optional<String> name() {

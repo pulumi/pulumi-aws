@@ -22,14 +22,14 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetPermissionsPlainArgs Empty = new GetPermissionsPlainArgs();
 
     /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     @Import(name="catalogId")
     private @Nullable String catalogId;
 
     /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     public Optional<String> catalogId() {
@@ -189,7 +189,7 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * @param catalogId Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
          * 
          * @return builder
          * 

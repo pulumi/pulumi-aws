@@ -55,7 +55,7 @@ public final class PartitionStorageDescriptor {
      */
     private @Nullable String outputFormat;
     /**
-     * @return A map of initialization parameters for the SerDe, in key-value form.
+     * @return User-supplied properties in key-value form.
      * 
      */
     private @Nullable Map<String,String> parameters;
@@ -131,7 +131,7 @@ public final class PartitionStorageDescriptor {
         return Optional.ofNullable(this.outputFormat);
     }
     /**
-     * @return A map of initialization parameters for the SerDe, in key-value form.
+     * @return User-supplied properties in key-value form.
      * 
      */
     public Map<String,String> parameters() {

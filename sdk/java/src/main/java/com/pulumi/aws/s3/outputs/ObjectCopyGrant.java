@@ -28,7 +28,7 @@ public final class ObjectCopyGrant {
      */
     private List<String> permissions;
     /**
-     * @return - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+     * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
      * 
      */
     private String type;
@@ -61,7 +61,7 @@ public final class ObjectCopyGrant {
         return this.permissions;
     }
     /**
-     * @return - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+     * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
      * 
      */
     public String type() {

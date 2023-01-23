@@ -2231,7 +2231,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -2243,7 +2243,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2270,7 +2270,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -2282,7 +2282,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2309,7 +2309,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -2321,7 +2321,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2348,7 +2348,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[float] min: Minimum.
         """
         if max is not None:
@@ -2360,7 +2360,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2388,7 +2388,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
                  max: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] min: Minimum.
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         """
         pulumi.set(__self__, "min", min)
         if max is not None:
@@ -2410,7 +2410,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2425,7 +2425,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -2437,7 +2437,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2464,7 +2464,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[float] min: Minimum.
         """
         if max is not None:
@@ -2476,7 +2476,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2504,7 +2504,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
                  max: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] min: Minimum.
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         """
         pulumi.set(__self__, "min", min)
         if max is not None:
@@ -2526,7 +2526,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -2540,7 +2540,7 @@ class FleetOnDemandOptionsArgs:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] allocation_strategy: How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
+        :param pulumi.Input[str] allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -2549,7 +2549,7 @@ class FleetOnDemandOptionsArgs:
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> Optional[pulumi.Input[str]]:
         """
-        How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
+        The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -4862,7 +4862,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -4874,7 +4874,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -4901,7 +4901,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -4913,7 +4913,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -4940,7 +4940,7 @@ class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -4952,7 +4952,7 @@ class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -4979,7 +4979,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[float] min: Minimum.
         """
         if max is not None:
@@ -4991,7 +4991,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -5019,7 +5019,7 @@ class LaunchTemplateInstanceRequirementsMemoryMibArgs:
                  max: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] min: Minimum.
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         """
         pulumi.set(__self__, "min", min)
         if max is not None:
@@ -5041,7 +5041,7 @@ class LaunchTemplateInstanceRequirementsMemoryMibArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -5056,7 +5056,7 @@ class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs:
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -5068,7 +5068,7 @@ class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -5095,7 +5095,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[float] min: Minimum.
         """
         if max is not None:
@@ -5107,7 +5107,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -5135,7 +5135,7 @@ class LaunchTemplateInstanceRequirementsVcpuCountArgs:
                  max: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] min: Minimum.
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         """
         pulumi.set(__self__, "min", min)
         if max is not None:
@@ -5157,7 +5157,7 @@ class LaunchTemplateInstanceRequirementsVcpuCountArgs:
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -11779,15 +11779,15 @@ class SecurityGroupIngressArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
-        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
-        :param pulumi.Input[str] description: Description of this egress rule.
+        :param pulumi.Input[str] description: Description of this ingress rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
-        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -11809,7 +11809,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
         """
-        Start port (or ICMP type number if protocol is `icmp`)
+        Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
         """
         return pulumi.get(self, "from_port")
 
@@ -11821,7 +11821,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         """
         return pulumi.get(self, "protocol")
 
@@ -11857,7 +11857,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of this egress rule.
+        Description of this ingress rule.
         """
         return pulumi.get(self, "description")
 
@@ -11905,7 +11905,7 @@ class SecurityGroupIngressArgs:
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the security group itself will be added as a source to this egress rule.
+        Whether the security group itself will be added as a source to this ingress rule.
         """
         return pulumi.get(self, "self")
 
@@ -11940,7 +11940,7 @@ class SpotFleetRequestLaunchSpecificationArgs:
         """
         :param pulumi.Input[str] instance_type: The type of instance to request.
         :param pulumi.Input[str] availability_zone: The availability zone in which to place the request.
-        :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
+        :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
         :param pulumi.Input[str] subnet_id: The subnet in which to launch the requested instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weighted_capacity: The capacity added to the fleet by a fulfilled request.
@@ -12120,7 +12120,7 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> Optional[pulumi.Input[str]]:
         """
-        The maximum spot bid for this override request.
+        The maximum bid price per unit hour.
         """
         return pulumi.get(self, "spot_price")
 
@@ -12972,7 +12972,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -12984,7 +12984,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13011,7 +13011,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -13023,7 +13023,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13050,7 +13050,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEb
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -13062,7 +13062,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEb
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13089,7 +13089,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[float] min: Minimum.
         """
         if max is not None:
@@ -13101,7 +13101,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13128,7 +13128,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibA
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -13140,7 +13140,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibA
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13167,7 +13167,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInt
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -13179,7 +13179,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInt
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13206,7 +13206,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[float] min: Minimum.
         """
         if max is not None:
@@ -13218,7 +13218,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 
@@ -13245,7 +13245,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountA
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] max: Maximum. Set to `0` to exclude instance types with accelerators.
         :param pulumi.Input[int] min: Minimum.
         """
         if max is not None:
@@ -13257,7 +13257,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountA
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum.
+        Maximum. Set to `0` to exclude instance types with accelerators.
         """
         return pulumi.get(self, "max")
 

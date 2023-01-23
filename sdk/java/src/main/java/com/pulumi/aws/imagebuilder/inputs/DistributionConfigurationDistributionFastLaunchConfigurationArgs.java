@@ -20,14 +20,14 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationA
     public static final DistributionConfigurationDistributionFastLaunchConfigurationArgs Empty = new DistributionConfigurationDistributionFastLaunchConfigurationArgs();
 
     /**
-     * The account ID that this configuration applies to.
+     * The owner account ID for the fast-launch enabled Windows AMI.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return The account ID that this configuration applies to.
+     * @return The owner account ID for the fast-launch enabled Windows AMI.
      * 
      */
     public Output<String> accountId() {
@@ -123,7 +123,7 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationA
         }
 
         /**
-         * @param accountId The account ID that this configuration applies to.
+         * @param accountId The owner account ID for the fast-launch enabled Windows AMI.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationA
         }
 
         /**
-         * @param accountId The account ID that this configuration applies to.
+         * @param accountId The owner account ID for the fast-launch enabled Windows AMI.
          * 
          * @return builder
          * 

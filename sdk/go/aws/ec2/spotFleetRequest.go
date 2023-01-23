@@ -241,7 +241,7 @@ type SpotFleetRequest struct {
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
 	SpotMaintenanceStrategies SpotFleetRequestSpotMaintenanceStrategiesPtrOutput `pulumi:"spotMaintenanceStrategies"`
-	// The maximum spot bid for this override request.
+	// The maximum bid price per unit hour.
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
@@ -353,7 +353,7 @@ type spotFleetRequestState struct {
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
 	SpotMaintenanceStrategies *SpotFleetRequestSpotMaintenanceStrategies `pulumi:"spotMaintenanceStrategies"`
-	// The maximum spot bid for this override request.
+	// The maximum bid price per unit hour.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The state of the Spot fleet request.
 	SpotRequestState *string `pulumi:"spotRequestState"`
@@ -431,7 +431,7 @@ type SpotFleetRequestState struct {
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
 	SpotMaintenanceStrategies SpotFleetRequestSpotMaintenanceStrategiesPtrInput
-	// The maximum spot bid for this override request.
+	// The maximum bid price per unit hour.
 	SpotPrice pulumi.StringPtrInput
 	// The state of the Spot fleet request.
 	SpotRequestState pulumi.StringPtrInput
@@ -512,7 +512,7 @@ type spotFleetRequestArgs struct {
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
 	SpotMaintenanceStrategies *SpotFleetRequestSpotMaintenanceStrategies `pulumi:"spotMaintenanceStrategies"`
-	// The maximum spot bid for this override request.
+	// The maximum bid price per unit hour.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -586,7 +586,7 @@ type SpotFleetRequestArgs struct {
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
 	SpotMaintenanceStrategies SpotFleetRequestSpotMaintenanceStrategiesPtrInput
-	// The maximum spot bid for this override request.
+	// The maximum bid price per unit hour.
 	SpotPrice pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -797,7 +797,7 @@ func (o SpotFleetRequestOutput) SpotMaintenanceStrategies() SpotFleetRequestSpot
 	}).(SpotFleetRequestSpotMaintenanceStrategiesPtrOutput)
 }
 
-// The maximum spot bid for this override request.
+// The maximum bid price per unit hour.
 func (o SpotFleetRequestOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.SpotPrice }).(pulumi.StringPtrOutput)
 }

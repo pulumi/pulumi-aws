@@ -125,7 +125,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * Transmission Control Protocol (TCP) port for the endpoint.
+     * Port used by the endpoint database.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     public readonly redisSettings!: pulumi.Output<outputs.dms.EndpointRedisSettings | undefined>;
@@ -146,7 +146,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
     /**
-     * Fully qualified domain name of the endpoint.
+     * Host name of the server.
      */
     public readonly serverName!: pulumi.Output<string | undefined>;
     /**
@@ -309,7 +309,7 @@ export interface EndpointState {
      */
     password?: pulumi.Input<string>;
     /**
-     * Transmission Control Protocol (TCP) port for the endpoint.
+     * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
     redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
@@ -330,7 +330,7 @@ export interface EndpointState {
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
-     * Fully qualified domain name of the endpoint.
+     * Host name of the server.
      */
     serverName?: pulumi.Input<string>;
     /**
@@ -408,7 +408,7 @@ export interface EndpointArgs {
      */
     password?: pulumi.Input<string>;
     /**
-     * Transmission Control Protocol (TCP) port for the endpoint.
+     * Port used by the endpoint database.
      */
     port?: pulumi.Input<number>;
     redisSettings?: pulumi.Input<inputs.dms.EndpointRedisSettings>;
@@ -429,7 +429,7 @@ export interface EndpointArgs {
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
-     * Fully qualified domain name of the endpoint.
+     * Host name of the server.
      */
     serverName?: pulumi.Input<string>;
     /**

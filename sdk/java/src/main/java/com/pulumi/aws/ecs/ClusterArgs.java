@@ -83,14 +83,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the setting to manage. Valid values: `containerInsights`.
+     * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the setting to manage. Valid values: `containerInsights`.
+     * @return Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
      */
     public Optional<Output<String>> name() {
@@ -280,7 +280,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the setting to manage. Valid values: `containerInsights`.
+         * @param name Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the setting to manage. Valid values: `containerInsights`.
+         * @param name Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
          * 
          * @return builder
          * 

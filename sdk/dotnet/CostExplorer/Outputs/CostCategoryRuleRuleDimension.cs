@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
     public sealed class CostCategoryRuleRuleDimension
     {
         /// <summary>
-        /// Key for the tag.
+        /// Unique name of the Cost Category.
         /// </summary>
         public readonly string? Key;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> MatchOptions;
         /// <summary>
-        /// Parameter values.
+        /// Specific value of the Cost Category.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

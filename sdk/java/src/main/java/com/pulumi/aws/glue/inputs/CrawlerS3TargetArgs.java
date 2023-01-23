@@ -18,14 +18,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     public static final CrawlerS3TargetArgs Empty = new CrawlerS3TargetArgs();
 
     /**
-     * The name of the connection to use to connect to the Delta table target.
+     * The name of the connection to use to connect to the JDBC target.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the JDBC target.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -33,14 +33,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A valid Amazon SQS ARN.
+     * The ARN of the dead-letter SQS queue.
      * 
      */
     @Import(name="dlqEventQueueArn")
     private @Nullable Output<String> dlqEventQueueArn;
 
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the dead-letter SQS queue.
      * 
      */
     public Optional<Output<String>> dlqEventQueueArn() {
@@ -48,14 +48,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A valid Amazon SQS ARN.
+     * The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     @Import(name="eventQueueArn")
     private @Nullable Output<String> eventQueueArn;
 
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     public Optional<Output<String>> eventQueueArn() {
@@ -78,14 +78,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * The name of the DynamoDB table to crawl.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The name of the DynamoDB table to crawl.
      * 
      */
     public Output<String> path() {
@@ -137,7 +137,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection to use to connect to the JDBC target.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the Delta table target.
+         * @param connectionName The name of the connection to use to connect to the JDBC target.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn A valid Amazon SQS ARN.
+         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn A valid Amazon SQS ARN.
+         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn A valid Amazon SQS ARN.
+         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn A valid Amazon SQS ARN.
+         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path The name of the DynamoDB table to crawl.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path The name of the DynamoDB table to crawl.
          * 
          * @return builder
          * 

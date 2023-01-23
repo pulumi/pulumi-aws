@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Fis.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Friendly name given to the target.
+        /// Friendly name of the action.
         /// </summary>
         public readonly string Name;
         /// <summary>

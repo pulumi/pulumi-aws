@@ -80,7 +80,7 @@ export class Intent extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * A description of the bot. Must be less than or equal to 200 characters in length.
+     * A description of the intent. Must be less than or equal to 200 characters in length.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -106,7 +106,7 @@ export class Intent extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -117,15 +117,16 @@ export class Intent extends pulumi.CustomResource {
      */
     public readonly parentIntentSignature!: pulumi.Output<string | undefined>;
     /**
-     * If the user answers "no" to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
+     * When the user answers "no" to the question defined in
+     * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
+     * Attributes are documented under statement.
      */
     public readonly rejectionStatement!: pulumi.Output<outputs.lex.IntentRejectionStatement | undefined>;
     /**
-     * If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      */
     public readonly sampleUtterances!: pulumi.Output<string[] | undefined>;
     /**
@@ -233,7 +234,7 @@ export interface IntentState {
      */
     createdDate?: pulumi.Input<string>;
     /**
-     * A description of the bot. Must be less than or equal to 200 characters in length.
+     * A description of the intent. Must be less than or equal to 200 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
@@ -259,7 +260,7 @@ export interface IntentState {
      */
     lastUpdatedDate?: pulumi.Input<string>;
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -270,15 +271,16 @@ export interface IntentState {
      */
     parentIntentSignature?: pulumi.Input<string>;
     /**
-     * If the user answers "no" to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
+     * When the user answers "no" to the question defined in
+     * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
+     * Attributes are documented under statement.
      */
     rejectionStatement?: pulumi.Input<inputs.lex.IntentRejectionStatement>;
     /**
-     * If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      */
     sampleUtterances?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -316,7 +318,7 @@ export interface IntentArgs {
      */
     createVersion?: pulumi.Input<boolean>;
     /**
-     * A description of the bot. Must be less than or equal to 200 characters in length.
+     * A description of the intent. Must be less than or equal to 200 characters in length.
      */
     description?: pulumi.Input<string>;
     /**
@@ -338,7 +340,7 @@ export interface IntentArgs {
      */
     fulfillmentActivity: pulumi.Input<inputs.lex.IntentFulfillmentActivity>;
     /**
-     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
+     * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -349,15 +351,16 @@ export interface IntentArgs {
      */
     parentIntentSignature?: pulumi.Input<string>;
     /**
-     * If the user answers "no" to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
+     * When the user answers "no" to the question defined in
+     * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
+     * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
+     * Attributes are documented under statement.
      */
     rejectionStatement?: pulumi.Input<inputs.lex.IntentRejectionStatement>;
     /**
-     * If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
+     * An array of utterances (strings) that a user might say to signal
+     * the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+     * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      */
     sampleUtterances?: pulumi.Input<pulumi.Input<string>[]>;
     /**

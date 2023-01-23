@@ -18,6 +18,11 @@ namespace Pulumi.Aws.LightSail.Inputs
         [Input("isActive")]
         public Input<bool>? IsActive { get; set; }
 
+        /// <summary>
+        /// The principal ARN of the container service. The principal ARN can be used to create a trust
+        /// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+        /// service permission to access resources in your standard AWS account.
+        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 

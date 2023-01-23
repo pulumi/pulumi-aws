@@ -65,14 +65,14 @@ public final class CrawlerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of the Glue database to be synchronized.
+     * @return Glue database where results are written.
      * 
      */
     public Output<String> databaseName() {
@@ -420,7 +420,7 @@ public final class CrawlerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseName The name of the Glue database to be synchronized.
+         * @param databaseName Glue database where results are written.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class CrawlerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseName The name of the Glue database to be synchronized.
+         * @param databaseName Glue database where results are written.
          * 
          * @return builder
          * 

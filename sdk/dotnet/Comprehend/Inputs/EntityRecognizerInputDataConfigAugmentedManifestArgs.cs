@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Comprehend.Inputs
         public Input<string>? DocumentType { get; set; }
 
         /// <summary>
-        /// Location of entity list.
+        /// Location of augmented manifest file.
         /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;

@@ -18,7 +18,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     private String object;
@@ -32,7 +32,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public String object() {

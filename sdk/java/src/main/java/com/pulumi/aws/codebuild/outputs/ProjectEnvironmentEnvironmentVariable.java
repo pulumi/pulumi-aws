@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectEnvironmentEnvironmentVariable {
     /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * @return Project&#39;s name.
      * 
      */
     private String name;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     private @Nullable String type;
@@ -29,14 +29,14 @@ public final class ProjectEnvironmentEnvironmentVariable {
 
     private ProjectEnvironmentEnvironmentVariable() {}
     /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * @return Project&#39;s name.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     public Optional<String> type() {

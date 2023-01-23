@@ -16,14 +16,14 @@ public final class DataSourceElasticsearchConfigArgs extends com.pulumi.resource
     public static final DataSourceElasticsearchConfigArgs Empty = new DataSourceElasticsearchConfigArgs();
 
     /**
-     * HTTP URL.
+     * HTTP endpoint of the Elasticsearch domain.
      * 
      */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
     /**
-     * @return HTTP URL.
+     * @return HTTP endpoint of the Elasticsearch domain.
      * 
      */
     public Output<String> endpoint() {
@@ -31,14 +31,14 @@ public final class DataSourceElasticsearchConfigArgs extends com.pulumi.resource
     }
 
     /**
-     * AWS Region for RDS HTTP endpoint. Defaults to current region.
+     * AWS region of Elasticsearch domain. Defaults to current region.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
+     * @return AWS region of Elasticsearch domain. Defaults to current region.
      * 
      */
     public Optional<Output<String>> region() {
@@ -71,7 +71,7 @@ public final class DataSourceElasticsearchConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param endpoint HTTP URL.
+         * @param endpoint HTTP endpoint of the Elasticsearch domain.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DataSourceElasticsearchConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param endpoint HTTP URL.
+         * @param endpoint HTTP endpoint of the Elasticsearch domain.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DataSourceElasticsearchConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param region AWS Region for RDS HTTP endpoint. Defaults to current region.
+         * @param region AWS region of Elasticsearch domain. Defaults to current region.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSourceElasticsearchConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param region AWS Region for RDS HTTP endpoint. Defaults to current region.
+         * @param region AWS region of Elasticsearch domain. Defaults to current region.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTagsFilterNotTags {
     /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+     * @return Unique name of the Cost Category.
      * 
      */
     private @Nullable String key;
@@ -30,7 +30,7 @@ public final class GetTagsFilterNotTags {
 
     private GetTagsFilterNotTags() {}
     /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+     * @return Unique name of the Cost Category.
      * 
      */
     public Optional<String> key() {

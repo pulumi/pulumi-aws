@@ -535,14 +535,14 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.spotMaintenanceStrategies);
     }
     /**
-     * The maximum spot bid for this override request.
+     * The maximum bid price per unit hour.
      * 
      */
     @Export(name="spotPrice", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spotPrice;
 
     /**
-     * @return The maximum spot bid for this override request.
+     * @return The maximum bid price per unit hour.
      * 
      */
     public Output<Optional<String>> spotPrice() {

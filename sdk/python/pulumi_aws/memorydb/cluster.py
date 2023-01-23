@@ -439,7 +439,6 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[str] arn: The ARN of the cluster.
-               * `cluster_endpoint`
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster.
@@ -543,7 +542,6 @@ class _ClusterState:
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the cluster.
-        * `cluster_endpoint`
         """
         return pulumi.get(self, "arn")
 
@@ -1121,7 +1119,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[str] arn: The ARN of the cluster.
-               * `cluster_endpoint`
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster.
@@ -1197,7 +1194,6 @@ class Cluster(pulumi.CustomResource):
     def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the cluster.
-        * `cluster_endpoint`
         """
         return pulumi.get(self, "arn")
 

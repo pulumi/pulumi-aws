@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     private String bucketName;
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     private @Nullable String bucketPrefix;
@@ -30,14 +30,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
 
     private FlowSourceFlowConfigSourceConnectorPropertiesS3() {}
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     public String bucketName() {
         return this.bucketName;
     }
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     public Optional<String> bucketPrefix() {

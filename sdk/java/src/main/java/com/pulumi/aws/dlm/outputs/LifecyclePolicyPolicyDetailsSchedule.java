@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsSchedule {
     /**
-     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+     * @return Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
      * 
      */
     private @Nullable Boolean copyTags;
@@ -36,7 +36,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
      */
     private @Nullable List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules;
     /**
-     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+     * @return See the `deprecate_rule` block. Max of 1 per schedule.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleDeprecateRule deprecateRule;
@@ -46,12 +46,12 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
      */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleFastRestoreRule fastRestoreRule;
     /**
-     * @return A name for the schedule.
+     * @return A descriptive name for the action.
      * 
      */
     private String name;
     /**
-     * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     private LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule;
@@ -73,7 +73,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
 
     private LifecyclePolicyPolicyDetailsSchedule() {}
     /**
-     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+     * @return Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
      * 
      */
     public Optional<Boolean> copyTags() {
@@ -94,7 +94,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         return this.crossRegionCopyRules == null ? List.of() : this.crossRegionCopyRules;
     }
     /**
-     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+     * @return See the `deprecate_rule` block. Max of 1 per schedule.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsScheduleDeprecateRule> deprecateRule() {
@@ -108,14 +108,14 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         return Optional.ofNullable(this.fastRestoreRule);
     }
     /**
-     * @return A name for the schedule.
+     * @return A descriptive name for the action.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     public LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule() {

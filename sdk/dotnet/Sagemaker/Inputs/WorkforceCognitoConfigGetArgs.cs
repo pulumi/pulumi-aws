@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class WorkforceCognitoConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The OIDC IdP client ID used to configure your private workforce.
+        /// The client ID for your Amazon Cognito user pool.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;

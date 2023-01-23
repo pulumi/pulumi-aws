@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly string? DeliveryStream;
         /// <summary>
-        /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        /// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
         /// </summary>
         public readonly bool Enabled;
 

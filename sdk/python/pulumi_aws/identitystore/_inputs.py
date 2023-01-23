@@ -78,13 +78,13 @@ class UserAddressesArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] country: The country that this address is in.
-        :param pulumi.Input[str] formatted: The name that is typically displayed when the name is shown for display.
+        :param pulumi.Input[str] formatted: The name that is typically displayed when the address is shown for display.
         :param pulumi.Input[str] locality: The address locality.
         :param pulumi.Input[str] postal_code: The postal code of the address.
-        :param pulumi.Input[bool] primary: When `true`, this is the primary phone number associated with the user.
+        :param pulumi.Input[bool] primary: When `true`, this is the primary address associated with the user.
         :param pulumi.Input[str] region: The region of the address.
         :param pulumi.Input[str] street_address: The street of the address.
-        :param pulumi.Input[str] type: The type of phone number.
+        :param pulumi.Input[str] type: The type of address.
         """
         if country is not None:
             pulumi.set(__self__, "country", country)
@@ -119,7 +119,7 @@ class UserAddressesArgs:
     @pulumi.getter
     def formatted(self) -> Optional[pulumi.Input[str]]:
         """
-        The name that is typically displayed when the name is shown for display.
+        The name that is typically displayed when the address is shown for display.
         """
         return pulumi.get(self, "formatted")
 
@@ -155,7 +155,7 @@ class UserAddressesArgs:
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
         """
-        When `true`, this is the primary phone number associated with the user.
+        When `true`, this is the primary address associated with the user.
         """
         return pulumi.get(self, "primary")
 
@@ -191,7 +191,7 @@ class UserAddressesArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of phone number.
+        The type of address.
         """
         return pulumi.get(self, "type")
 
@@ -207,9 +207,9 @@ class UserEmailsArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] primary: When `true`, this is the primary phone number associated with the user.
-        :param pulumi.Input[str] type: The type of phone number.
-        :param pulumi.Input[str] value: The user's phone number.
+        :param pulumi.Input[bool] primary: When `true`, this is the primary email associated with the user.
+        :param pulumi.Input[str] type: The type of email.
+        :param pulumi.Input[str] value: The email address. This value must be unique across the identity store.
         """
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
@@ -222,7 +222,7 @@ class UserEmailsArgs:
     @pulumi.getter
     def primary(self) -> Optional[pulumi.Input[bool]]:
         """
-        When `true`, this is the primary phone number associated with the user.
+        When `true`, this is the primary email associated with the user.
         """
         return pulumi.get(self, "primary")
 
@@ -234,7 +234,7 @@ class UserEmailsArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of phone number.
+        The type of email.
         """
         return pulumi.get(self, "type")
 
@@ -246,7 +246,7 @@ class UserEmailsArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The user's phone number.
+        The email address. This value must be unique across the identity store.
         """
         return pulumi.get(self, "value")
 
@@ -569,7 +569,7 @@ class GetGroupFilterArgs:
                  attribute_path: str,
                  attribute_value: str):
         """
-        :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
         :param str attribute_value: Value for an attribute.
         """
         pulumi.set(__self__, "attribute_path", attribute_path)
@@ -579,7 +579,7 @@ class GetGroupFilterArgs:
     @pulumi.getter(name="attributePath")
     def attribute_path(self) -> str:
         """
-        Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+        Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
         """
         return pulumi.get(self, "attribute_path")
 
@@ -719,7 +719,7 @@ class GetUserFilterArgs:
                  attribute_path: str,
                  attribute_value: str):
         """
-        :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         :param str attribute_value: Value for an attribute.
         """
         pulumi.set(__self__, "attribute_path", attribute_path)
@@ -729,7 +729,7 @@ class GetUserFilterArgs:
     @pulumi.getter(name="attributePath")
     def attribute_path(self) -> str:
         """
-        Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+        Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         """
         return pulumi.get(self, "attribute_path")
 

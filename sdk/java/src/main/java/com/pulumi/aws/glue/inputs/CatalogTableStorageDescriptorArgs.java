@@ -130,14 +130,14 @@ public final class CatalogTableStorageDescriptorArgs extends com.pulumi.resource
     }
 
     /**
-     * Map of initialization parameters for the SerDe, in key-value form.
+     * User-supplied properties in key-value form.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return User-supplied properties in key-value form.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -423,7 +423,7 @@ public final class CatalogTableStorageDescriptorArgs extends com.pulumi.resource
         }
 
         /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters User-supplied properties in key-value form.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class CatalogTableStorageDescriptorArgs extends com.pulumi.resource
         }
 
         /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters User-supplied properties in key-value form.
          * 
          * @return builder
          * 

@@ -713,9 +713,6 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
      * The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
      * of the Spot Instance Request.
-     * * `spot_request_state` The current [request
-     *   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-     *   of the Spot Instance Request.
      * 
      */
     @Import(name="spotBidStatus")
@@ -725,9 +722,6 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
      * @return The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
      * of the Spot Instance Request.
-     * * `spot_request_state` The current [request
-     *   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-     *   of the Spot Instance Request.
      * 
      */
     public Optional<Output<String>> spotBidStatus() {
@@ -766,9 +760,21 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.spotPrice);
     }
 
+    /**
+     * The current [request
+     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+     * of the Spot Instance Request.
+     * 
+     */
     @Import(name="spotRequestState")
     private @Nullable Output<String> spotRequestState;
 
+    /**
+     * @return The current [request
+     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+     * of the Spot Instance Request.
+     * 
+     */
     public Optional<Output<String>> spotRequestState() {
         return Optional.ofNullable(this.spotRequestState);
     }
@@ -2066,9 +2072,6 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
          * @param spotBidStatus The current [bid
          * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
          * of the Spot Instance Request.
-         * * `spot_request_state` The current [request
-         *   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-         *   of the Spot Instance Request.
          * 
          * @return builder
          * 
@@ -2082,9 +2085,6 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
          * @param spotBidStatus The current [bid
          * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
          * of the Spot Instance Request.
-         * * `spot_request_state` The current [request
-         *   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-         *   of the Spot Instance Request.
          * 
          * @return builder
          * 
@@ -2137,11 +2137,27 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
             return spotPrice(Output.of(spotPrice));
         }
 
+        /**
+         * @param spotRequestState The current [request
+         * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+         * of the Spot Instance Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spotRequestState(@Nullable Output<String> spotRequestState) {
             $.spotRequestState = spotRequestState;
             return this;
         }
 
+        /**
+         * @param spotRequestState The current [request
+         * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+         * of the Spot Instance Request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder spotRequestState(String spotRequestState) {
             return spotRequestState(Output.of(spotRequestState));
         }

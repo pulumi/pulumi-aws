@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> DataEncryptionKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the disk image being imported.
+        /// The description string for the import snapshot task.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ebs
         public Input<Inputs.SnapshotImportClientDataArgs>? ClientData { get; set; }
 
         /// <summary>
-        /// The description of the disk image being imported.
+        /// The description string for the import snapshot task.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? DataEncryptionKeyId { get; set; }
 
         /// <summary>
-        /// The description of the disk image being imported.
+        /// The description string for the import snapshot task.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

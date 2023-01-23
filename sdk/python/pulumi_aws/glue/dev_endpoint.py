@@ -35,7 +35,7 @@ class DevEndpointArgs:
         :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
-        :param pulumi.Input[str] glue_version: -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
         :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
@@ -129,7 +129,7 @@ class DevEndpointArgs:
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> Optional[pulumi.Input[str]]:
         """
-        -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         """
         return pulumi.get(self, "glue_version")
 
@@ -294,7 +294,7 @@ class _DevEndpointState:
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         :param pulumi.Input[str] failure_reason: The reason for a current failure in this endpoint.
-        :param pulumi.Input[str] glue_version: -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
         :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
@@ -441,7 +441,7 @@ class _DevEndpointState:
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> Optional[pulumi.Input[str]]:
         """
-        -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         """
         return pulumi.get(self, "glue_version")
 
@@ -725,7 +725,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
-        :param pulumi.Input[str] glue_version: -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
         :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
@@ -891,7 +891,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         :param pulumi.Input[str] failure_reason: The reason for a current failure in this endpoint.
-        :param pulumi.Input[str] glue_version: -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         :param pulumi.Input[str] name: The name of this endpoint. It must be unique in your account.
         :param pulumi.Input[int] number_of_nodes: The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
@@ -994,7 +994,7 @@ class DevEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="glueVersion")
     def glue_version(self) -> pulumi.Output[Optional[str]]:
         """
-        -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+        Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         """
         return pulumi.get(self, "glue_version")
 

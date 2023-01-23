@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs>? AggregationConfig { get; set; }
 
         /// <summary>
-        /// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+        /// File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         /// </summary>
         [Input("fileType")]
         public Input<string>? FileType { get; set; }

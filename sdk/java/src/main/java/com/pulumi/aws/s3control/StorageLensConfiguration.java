@@ -107,28 +107,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/storageLensConfiguration:StorageLensConfiguration")
 public class StorageLensConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the bucket.
+     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the bucket.
+     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      * 
      */
     public Output<String> arn() {

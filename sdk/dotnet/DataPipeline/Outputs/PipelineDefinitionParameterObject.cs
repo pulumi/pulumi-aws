@@ -18,7 +18,7 @@ namespace Pulumi.Aws.DataPipeline.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineDefinitionParameterObjectAttribute> Attributes;
         /// <summary>
-        /// ID of the parameter value.
+        /// ID of the parameter object.
         /// </summary>
         public readonly string Id;
 

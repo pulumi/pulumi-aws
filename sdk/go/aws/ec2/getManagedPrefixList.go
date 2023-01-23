@@ -93,7 +93,7 @@ type LookupManagedPrefixListArgs struct {
 	Filters []GetManagedPrefixListFilter `pulumi:"filters"`
 	// ID of the prefix list to select.
 	Id *string `pulumi:"id"`
-	// Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+	// Name of the prefix list to select.
 	Name *string `pulumi:"name"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -140,7 +140,7 @@ type LookupManagedPrefixListOutputArgs struct {
 	Filters GetManagedPrefixListFilterArrayInput `pulumi:"filters"`
 	// ID of the prefix list to select.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+	// Name of the prefix list to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

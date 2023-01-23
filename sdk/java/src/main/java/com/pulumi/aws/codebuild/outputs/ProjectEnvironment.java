@@ -51,7 +51,7 @@ public final class ProjectEnvironment {
      */
     private @Nullable ProjectEnvironmentRegistryCredential registryCredential;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
      * 
      */
     private String type;
@@ -107,7 +107,7 @@ public final class ProjectEnvironment {
         return Optional.ofNullable(this.registryCredential);
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
      * 
      */
     public String type() {

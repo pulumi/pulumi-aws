@@ -58,7 +58,6 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The ARN of the cluster.
-        /// * `cluster_endpoint`
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -446,7 +445,6 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The ARN of the cluster.
-        /// * `cluster_endpoint`
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -242,7 +242,7 @@ type WebAcl struct {
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// Label string.
+	// Friendly name of the WebACL.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
@@ -305,7 +305,7 @@ type webAclState struct {
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// Label string.
+	// Friendly name of the WebACL.
 	Name *string `pulumi:"name"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -331,7 +331,7 @@ type WebAclState struct {
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// Label string.
+	// Friendly name of the WebACL.
 	Name pulumi.StringPtrInput
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput
@@ -356,7 +356,7 @@ type webAclArgs struct {
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
-	// Label string.
+	// Friendly name of the WebACL.
 	Name *string `pulumi:"name"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -376,7 +376,7 @@ type WebAclArgs struct {
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
-	// Label string.
+	// Friendly name of the WebACL.
 	Name pulumi.StringPtrInput
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput
@@ -504,7 +504,7 @@ func (o WebAclOutput) LockToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
 }
 
-// Label string.
+// Friendly name of the WebACL.
 func (o WebAclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -123,17 +123,17 @@ type CatalogTable struct {
 
 	// The ARN of the Glue Table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// ID of the Data Catalog in which the table resides.
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// Name of the catalog database that contains the target table.
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of the target table.
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the table.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayOutput `pulumi:"partitionIndices"`
@@ -187,17 +187,17 @@ func GetCatalogTable(ctx *pulumi.Context,
 type catalogTableState struct {
 	// The ARN of the Glue Table.
 	Arn *string `pulumi:"arn"`
-	// ID of the Data Catalog in which the table resides.
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the catalog database that contains the target table.
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
-	// Name of the target table.
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name *string `pulumi:"name"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
@@ -220,17 +220,17 @@ type catalogTableState struct {
 type CatalogTableState struct {
 	// The ARN of the Glue Table.
 	Arn pulumi.StringPtrInput
-	// ID of the Data Catalog in which the table resides.
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
-	// Name of the catalog database that contains the target table.
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringPtrInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
-	// Name of the target table.
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters pulumi.StringMapInput
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayInput
@@ -255,17 +255,17 @@ func (CatalogTableState) ElementType() reflect.Type {
 }
 
 type catalogTableArgs struct {
-	// ID of the Data Catalog in which the table resides.
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the catalog database that contains the target table.
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
-	// Name of the target table.
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name *string `pulumi:"name"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
@@ -287,17 +287,17 @@ type catalogTableArgs struct {
 
 // The set of arguments for constructing a CatalogTable resource.
 type CatalogTableArgs struct {
-	// ID of the Data Catalog in which the table resides.
+	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
-	// Name of the catalog database that contains the target table.
+	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 	DatabaseName pulumi.StringInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
-	// Name of the target table.
+	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
-	// Map of initialization parameters for the SerDe, in key-value form.
+	// Properties associated with this table, as a list of key-value pairs.
 	Parameters pulumi.StringMapInput
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayInput
@@ -409,12 +409,12 @@ func (o CatalogTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// ID of the Data Catalog in which the table resides.
+// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// Name of the catalog database that contains the target table.
+// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 func (o CatalogTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -424,7 +424,7 @@ func (o CatalogTableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of the target table.
+// Name of the table. For Hive compatibility, this must be entirely lowercase.
 func (o CatalogTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -434,7 +434,7 @@ func (o CatalogTableOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// Map of initialization parameters for the SerDe, in key-value form.
+// Properties associated with this table, as a list of key-value pairs.
 func (o CatalogTableOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }

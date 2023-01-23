@@ -93,9 +93,9 @@ class ResourceSetResourceDnsTargetResourceArgs:
                  record_type: Optional[pulumi.Input[str]] = None,
                  target_resource: Optional[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgs']] = None):
         """
-        :param pulumi.Input[str] domain_name: Domain name that is targeted.
+        :param pulumi.Input[str] domain_name: DNS Name that acts as the ingress point to a portion of application.
         :param pulumi.Input[str] hosted_zone_arn: Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-        :param pulumi.Input[str] record_set_id: Resource record set ID that is targeted.
+        :param pulumi.Input[str] record_set_id: Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         :param pulumi.Input[str] record_type: Type of DNS Record of target resource.
         :param pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgs'] target_resource: Target resource the R53 record specified with the above params points to.
         """
@@ -113,7 +113,7 @@ class ResourceSetResourceDnsTargetResourceArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        Domain name that is targeted.
+        DNS Name that acts as the ingress point to a portion of application.
         """
         return pulumi.get(self, "domain_name")
 
@@ -137,7 +137,7 @@ class ResourceSetResourceDnsTargetResourceArgs:
     @pulumi.getter(name="recordSetId")
     def record_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource record set ID that is targeted.
+        Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         return pulumi.get(self, "record_set_id")
 
@@ -238,8 +238,8 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs:
                  domain_name: Optional[pulumi.Input[str]] = None,
                  record_set_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] domain_name: Domain name that is targeted.
-        :param pulumi.Input[str] record_set_id: Resource record set ID that is targeted.
+        :param pulumi.Input[str] domain_name: DNS Name that acts as the ingress point to a portion of application.
+        :param pulumi.Input[str] record_set_id: Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -250,7 +250,7 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Domain name that is targeted.
+        DNS Name that acts as the ingress point to a portion of application.
         """
         return pulumi.get(self, "domain_name")
 
@@ -262,7 +262,7 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs:
     @pulumi.getter(name="recordSetId")
     def record_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource record set ID that is targeted.
+        Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
         return pulumi.get(self, "record_set_id")
 

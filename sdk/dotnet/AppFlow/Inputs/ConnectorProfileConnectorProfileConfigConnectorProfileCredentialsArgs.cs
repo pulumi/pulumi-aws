@@ -19,19 +19,19 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs>? Amplitude { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+        /// The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
         /// </summary>
         [Input("customConnector")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs>? CustomConnector { get; set; }
 
         /// <summary>
-        /// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
         /// </summary>
         [Input("datadog")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs>? Datadog { get; set; }
 
         /// <summary>
-        /// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
         /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs>? Dynatrace { get; set; }
@@ -49,37 +49,37 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs>? Honeycode { get; set; }
 
         /// <summary>
-        /// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
         /// </summary>
         [Input("inforNexus")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs>? InforNexus { get; set; }
 
         /// <summary>
-        /// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
         /// </summary>
         [Input("marketo")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs>? Marketo { get; set; }
 
         /// <summary>
-        /// Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
         /// </summary>
         [Input("redshift")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
         /// </summary>
         [Input("salesforce")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs>? Salesforce { get; set; }
 
         /// <summary>
-        /// The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
         /// </summary>
         [Input("sapoData")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs>? SapoData { get; set; }
 
         /// <summary>
-        /// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
         /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs>? ServiceNow { get; set; }
@@ -91,13 +91,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs>? Singular { get; set; }
 
         /// <summary>
-        /// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
         /// </summary>
         [Input("slack")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs>? Slack { get; set; }
 
         /// <summary>
-        /// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+        /// The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
         /// </summary>
         [Input("snowflake")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs>? Snowflake { get; set; }
@@ -109,13 +109,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs>? Trendmicro { get; set; }
 
         /// <summary>
-        /// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
         /// </summary>
         [Input("veeva")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs>? Veeva { get; set; }
 
         /// <summary>
-        /// Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+        /// Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
         /// </summary>
         [Input("zendesk")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs>? Zendesk { get; set; }

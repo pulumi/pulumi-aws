@@ -31,14 +31,14 @@ public final class ClusterCoreInstanceFleet {
      */
     private @Nullable ClusterCoreInstanceFleetLaunchSpecifications launchSpecifications;
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance fleet.
      * 
      */
     private @Nullable String name;
     private @Nullable Integer provisionedOnDemandCapacity;
     private @Nullable Integer provisionedSpotCapacity;
     /**
-     * @return Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+     * @return The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
     private @Nullable Integer targetOnDemandCapacity;
@@ -71,7 +71,7 @@ public final class ClusterCoreInstanceFleet {
         return Optional.ofNullable(this.launchSpecifications);
     }
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance fleet.
      * 
      */
     public Optional<String> name() {
@@ -84,7 +84,7 @@ public final class ClusterCoreInstanceFleet {
         return Optional.ofNullable(this.provisionedSpotCapacity);
     }
     /**
-     * @return Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+     * @return The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
     public Optional<Integer> targetOnDemandCapacity() {

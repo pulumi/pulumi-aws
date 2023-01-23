@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleRetainRule
     {
         /// <summary>
-        /// How many snapshots to keep. Must be an integer between `1` and `1000`.
+        /// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        /// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
         /// </summary>
         public readonly string? IntervalUnit;
 

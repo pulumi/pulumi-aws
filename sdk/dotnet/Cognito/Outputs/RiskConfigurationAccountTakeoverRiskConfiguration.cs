@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class RiskConfigurationAccountTakeoverRiskConfiguration
     {
         /// <summary>
-        /// The compromised credentials risk configuration actions. See details below.
+        /// Account takeover risk configuration actions. See details below.
         /// </summary>
         public readonly Outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions Actions;
         /// <summary>

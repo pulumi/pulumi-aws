@@ -40,7 +40,7 @@ public final class ClusterMasterInstanceGroup {
      */
     private String instanceType;
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance group.
      * 
      */
     private @Nullable String name;
@@ -82,7 +82,7 @@ public final class ClusterMasterInstanceGroup {
         return this.instanceType;
     }
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance group.
      * 
      */
     public Optional<String> name() {

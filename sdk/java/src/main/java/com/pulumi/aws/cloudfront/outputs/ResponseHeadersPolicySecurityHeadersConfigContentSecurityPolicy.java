@@ -16,7 +16,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
      */
     private String contentSecurityPolicy;
     /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     private Boolean override;
@@ -30,7 +30,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
         return this.contentSecurityPolicy;
     }
     /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Boolean override() {

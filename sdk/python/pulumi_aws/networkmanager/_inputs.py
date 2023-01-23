@@ -390,11 +390,11 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
                  condition_logic: Optional[str] = None,
                  description: Optional[str] = None):
         """
-        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs' action: Action to take for the chosen segment. Valid values `create-route` or `share`.
+        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs' action: Action to take when a condition is true. Detailed Below.
         :param Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs'] conditions: A block argument. Detailed Below.
         :param int rule_number: An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
         :param str condition_logic: Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-        :param str description: A user-defined string describing the segment action.
+        :param str description: A user-defined description that further helps identify the rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "conditions", conditions)
@@ -408,7 +408,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
     @pulumi.getter
     def action(self) -> 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs':
         """
-        Action to take for the chosen segment. Valid values `create-route` or `share`.
+        Action to take when a condition is true. Detailed Below.
         """
         return pulumi.get(self, "action")
 
@@ -456,7 +456,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A user-defined string describing the segment action.
+        A user-defined description that further helps identify the rule.
         """
         return pulumi.get(self, "description")
 
@@ -475,7 +475,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
         """
         :param str association_method: Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
         :param bool require_acceptance: Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
-        :param str segment: Name of the segment.
+        :param str segment: Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
         :param str tag_value_of_key: Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
         """
         pulumi.set(__self__, "association_method", association_method)
@@ -514,7 +514,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
     @pulumi.getter
     def segment(self) -> Optional[str]:
         """
-        Name of the segment.
+        Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
         """
         return pulumi.get(self, "segment")
 
@@ -614,8 +614,8 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
                  vpn_ecmp_support: Optional[bool] = None):
         """
         :param Sequence[str] asn_ranges: List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
-        :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'] edge_locations: A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
-        :param Sequence[str] inside_cidr_blocks: The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+        :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'] edge_locations: A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
+        :param Sequence[str] inside_cidr_blocks: The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         :param bool vpn_ecmp_support: Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
         """
         pulumi.set(__self__, "asn_ranges", asn_ranges)
@@ -641,7 +641,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
     @pulumi.getter(name="edgeLocations")
     def edge_locations(self) -> Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs']:
         """
-        A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+        A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
         """
         return pulumi.get(self, "edge_locations")
 
@@ -653,7 +653,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[Sequence[str]]:
         """
-        The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+        The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -738,7 +738,7 @@ class GetCoreNetworkPolicyDocumentSegmentArgs:
         :param str name: Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
         :param Sequence[str] allow_filters: List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
         :param Sequence[str] deny_filters: An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
-        :param str description: A user-defined string describing the segment action.
+        :param str description: A user-defined string describing the segment.
         :param Sequence[str] edge_locations: A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
         :param bool isolate_attachments: This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
         :param bool require_attachment_acceptance: This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
@@ -797,7 +797,7 @@ class GetCoreNetworkPolicyDocumentSegmentArgs:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A user-defined string describing the segment action.
+        A user-defined string describing the segment.
         """
         return pulumi.get(self, "description")
 

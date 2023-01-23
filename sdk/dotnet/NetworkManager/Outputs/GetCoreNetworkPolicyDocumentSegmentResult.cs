@@ -22,7 +22,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DenyFilters;
         /// <summary>
-        /// A user-defined string describing the segment action.
+        /// A user-defined string describing the segment.
         /// </summary>
         public readonly string? Description;
         /// <summary>

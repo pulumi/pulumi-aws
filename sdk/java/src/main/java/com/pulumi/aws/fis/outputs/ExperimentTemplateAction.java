@@ -25,7 +25,7 @@ public final class ExperimentTemplateAction {
      */
     private @Nullable String description;
     /**
-     * @return Friendly name given to the target.
+     * @return Friendly name of the action.
      * 
      */
     private String name;
@@ -61,7 +61,7 @@ public final class ExperimentTemplateAction {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Friendly name given to the target.
+     * @return Friendly name of the action.
      * 
      */
     public String name() {

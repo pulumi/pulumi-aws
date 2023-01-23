@@ -405,14 +405,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mfaConfiguration);
     }
     /**
-     * Name of the attribute.
+     * Name of the user pool.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the attribute.
+     * @return Name of the user pool.
      * 
      */
     public Output<String> name() {

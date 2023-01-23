@@ -86,7 +86,7 @@ type ExperimentTemplate struct {
 
 	// Action to be performed during an experiment. See below.
 	Actions ExperimentTemplateActionArrayOutput `pulumi:"actions"`
-	// Description of the action.
+	// Description for the experiment template.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -95,7 +95,7 @@ type ExperimentTemplate struct {
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Action's target, if applicable. See below.
+	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayOutput `pulumi:"targets"`
 }
 
@@ -142,7 +142,7 @@ func GetExperimentTemplate(ctx *pulumi.Context,
 type experimentTemplateState struct {
 	// Action to be performed during an experiment. See below.
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
-	// Description of the action.
+	// Description for the experiment template.
 	Description *string `pulumi:"description"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
@@ -151,14 +151,14 @@ type experimentTemplateState struct {
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Action's target, if applicable. See below.
+	// Target of an action. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
 
 type ExperimentTemplateState struct {
 	// Action to be performed during an experiment. See below.
 	Actions ExperimentTemplateActionArrayInput
-	// Description of the action.
+	// Description for the experiment template.
 	Description pulumi.StringPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringPtrInput
@@ -167,7 +167,7 @@ type ExperimentTemplateState struct {
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// Action's target, if applicable. See below.
+	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }
 
@@ -178,7 +178,7 @@ func (ExperimentTemplateState) ElementType() reflect.Type {
 type experimentTemplateArgs struct {
 	// Action to be performed during an experiment. See below.
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
-	// Description of the action.
+	// Description for the experiment template.
 	Description string `pulumi:"description"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn string `pulumi:"roleArn"`
@@ -186,7 +186,7 @@ type experimentTemplateArgs struct {
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Action's target, if applicable. See below.
+	// Target of an action. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
 
@@ -194,7 +194,7 @@ type experimentTemplateArgs struct {
 type ExperimentTemplateArgs struct {
 	// Action to be performed during an experiment. See below.
 	Actions ExperimentTemplateActionArrayInput
-	// Description of the action.
+	// Description for the experiment template.
 	Description pulumi.StringInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringInput
@@ -202,7 +202,7 @@ type ExperimentTemplateArgs struct {
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Action's target, if applicable. See below.
+	// Target of an action. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }
 
@@ -298,7 +298,7 @@ func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionArrayOutput 
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateActionArrayOutput { return v.Actions }).(ExperimentTemplateActionArrayOutput)
 }
 
-// Description of the action.
+// Description for the experiment template.
 func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
@@ -322,7 +322,7 @@ func (o ExperimentTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Action's target, if applicable. See below.
+// Target of an action. See below.
 func (o ExperimentTemplateOutput) Targets() ExperimentTemplateTargetArrayOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateTargetArrayOutput { return v.Targets }).(ExperimentTemplateTargetArrayOutput)
 }

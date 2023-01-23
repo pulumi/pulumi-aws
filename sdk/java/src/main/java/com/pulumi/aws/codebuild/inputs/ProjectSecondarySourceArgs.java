@@ -59,14 +59,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
      * 
      */
     @Import(name="buildspec")
     private @Nullable Output<String> buildspec;
 
     /**
-     * @return Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+     * @return The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
      * 
      */
     public Optional<Output<String>> buildspec() {
@@ -134,14 +134,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+     * Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
      * 
      */
     @Import(name="reportBuildStatus")
     private @Nullable Output<Boolean> reportBuildStatus;
 
     /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
      * 
      */
     public Optional<Output<Boolean>> reportBuildStatus() {
@@ -149,14 +149,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * An identifier for a source in the build project.
+     * An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
      * 
      */
     @Import(name="sourceIdentifier", required=true)
     private Output<String> sourceIdentifier;
 
     /**
-     * @return An identifier for a source in the build project.
+     * @return An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
      * 
      */
     public Output<String> sourceIdentifier() {
@@ -262,7 +262,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+         * @param buildspec The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param buildspec Build specification to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`.
+         * @param buildspec The build spec declaration to use for this build project&#39;s related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sourceIdentifier An identifier for a source in the build project.
+         * @param sourceIdentifier An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param sourceIdentifier An identifier for a source in the build project.
+         * @param sourceIdentifier An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
          * 
          * @return builder
          * 

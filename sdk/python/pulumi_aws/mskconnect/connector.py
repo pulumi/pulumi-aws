@@ -224,7 +224,7 @@ class _ConnectorState:
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Connector resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the worker configuration.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the custom plugin.
         :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input[str] description: A summary description of the connector.
@@ -272,7 +272,7 @@ class _ConnectorState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the worker configuration.
+        The Amazon Resource Name (ARN) of the custom plugin.
         """
         return pulumi.get(self, "arn")
 
@@ -705,7 +705,7 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the worker configuration.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the custom plugin.
         :param pulumi.Input[pulumi.InputType['ConnectorCapacityArgs']] capacity: Information about the capacity allocated to the connector. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input[str] description: A summary description of the connector.
@@ -744,7 +744,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the worker configuration.
+        The Amazon Resource Name (ARN) of the custom plugin.
         """
         return pulumi.get(self, "arn")
 

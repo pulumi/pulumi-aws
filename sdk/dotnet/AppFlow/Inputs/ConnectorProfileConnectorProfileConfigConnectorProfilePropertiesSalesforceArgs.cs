@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location of the Salesforce resource.
+        /// The location of the Datadog resource.
         /// </summary>
         [Input("instanceUrl")]
         public Input<string>? InstanceUrl { get; set; }

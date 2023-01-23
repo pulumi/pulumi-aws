@@ -15,7 +15,7 @@ public final class MetricStreamStatisticsConfigurationIncludeMetric {
      */
     private String metricName;
     /**
-     * @return The namespace of the metric.
+     * @return Name of the metric namespace in the filter.
      * 
      */
     private String namespace;
@@ -29,7 +29,7 @@ public final class MetricStreamStatisticsConfigurationIncludeMetric {
         return this.metricName;
     }
     /**
-     * @return The namespace of the metric.
+     * @return Name of the metric namespace in the filter.
      * 
      */
     public String namespace() {

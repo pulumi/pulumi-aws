@@ -93,14 +93,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of parameter to start execution of a SageMaker Model Building Pipeline.
+     * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of parameter to start execution of a SageMaker Model Building Pipeline.
+     * @return Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -338,7 +338,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of parameter to start execution of a SageMaker Model Building Pipeline.
+         * @param name Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of parameter to start execution of a SageMaker Model Building Pipeline.
+         * @param name Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 

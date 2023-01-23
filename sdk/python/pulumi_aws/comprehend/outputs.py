@@ -66,8 +66,8 @@ class DocumentClassifierInputDataConfig(dict):
         :param str label_delimiter: Delimiter between labels when training a multi-label classifier.
                Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
                Default is `|`.
-        :param str s3_uri: Destination path for the output documents.
-               The full path to the output file will be returned in `output_s3_uri`.
+        :param str s3_uri: Location of training documents.
+               Used if `data_format` is `COMPREHEND_CSV`.
         """
         if augmented_manifests is not None:
             pulumi.set(__self__, "augmented_manifests", augmented_manifests)
@@ -113,8 +113,8 @@ class DocumentClassifierInputDataConfig(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        Destination path for the output documents.
-        The full path to the output file will be returned in `output_s3_uri`.
+        Location of training documents.
+        Used if `data_format` is `COMPREHEND_CSV`.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -160,8 +160,7 @@ class DocumentClassifierInputDataConfigAugmentedManifest(dict):
                  split: Optional[str] = None):
         """
         :param Sequence[str] attribute_names: The JSON attribute that contains the annotations for the training documents.
-        :param str s3_uri: Destination path for the output documents.
-               The full path to the output file will be returned in `output_s3_uri`.
+        :param str s3_uri: Location of augmented manifest file.
         :param str annotation_data_s3_uri: Location of annotation files.
         :param str document_type: Type of augmented manifest.
                One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
@@ -192,8 +191,7 @@ class DocumentClassifierInputDataConfigAugmentedManifest(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        Destination path for the output documents.
-        The full path to the output file will be returned in `output_s3_uri`.
+        Location of augmented manifest file.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -493,7 +491,7 @@ class EntityRecognizerInputDataConfigAnnotations(dict):
                  s3_uri: str,
                  test_s3_uri: Optional[str] = None):
         """
-        :param str s3_uri: Location of entity list.
+        :param str s3_uri: Location of training annotations.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
         if test_s3_uri is not None:
@@ -503,7 +501,7 @@ class EntityRecognizerInputDataConfigAnnotations(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        Location of entity list.
+        Location of training annotations.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -549,7 +547,7 @@ class EntityRecognizerInputDataConfigAugmentedManifest(dict):
                  split: Optional[str] = None):
         """
         :param Sequence[str] attribute_names: The JSON attribute that contains the annotations for the training documents.
-        :param str s3_uri: Location of entity list.
+        :param str s3_uri: Location of augmented manifest file.
         :param str annotation_data_s3_uri: Location of annotation files.
         :param str document_type: Type of augmented manifest.
                One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
@@ -580,7 +578,7 @@ class EntityRecognizerInputDataConfigAugmentedManifest(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        Location of entity list.
+        Location of augmented manifest file.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -647,7 +645,7 @@ class EntityRecognizerInputDataConfigDocuments(dict):
                  input_format: Optional[str] = None,
                  test_s3_uri: Optional[str] = None):
         """
-        :param str s3_uri: Location of entity list.
+        :param str s3_uri: Location of training documents.
         :param str input_format: Specifies how the input files should be processed.
                One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
         """
@@ -661,7 +659,7 @@ class EntityRecognizerInputDataConfigDocuments(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        Location of entity list.
+        Location of training documents.
         """
         return pulumi.get(self, "s3_uri")
 

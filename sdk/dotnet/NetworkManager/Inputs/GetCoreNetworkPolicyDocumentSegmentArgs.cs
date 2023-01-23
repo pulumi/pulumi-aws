@@ -37,7 +37,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         }
 
         /// <summary>
-        /// A user-defined string describing the segment action.
+        /// A user-defined string describing the segment.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

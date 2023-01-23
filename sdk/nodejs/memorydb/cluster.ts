@@ -70,7 +70,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly aclName!: pulumi.Output<string>;
     /**
      * The ARN of the cluster.
-     * * `clusterEndpoint`
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -274,7 +273,6 @@ export interface ClusterState {
     aclName?: pulumi.Input<string>;
     /**
      * The ARN of the cluster.
-     * * `clusterEndpoint`
      */
     arn?: pulumi.Input<string>;
     /**

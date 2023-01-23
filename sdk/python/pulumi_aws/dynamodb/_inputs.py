@@ -49,7 +49,7 @@ class TableAttributeArgs:
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the index
+        :param pulumi.Input[str] name: Name of the attribute
         :param pulumi.Input[str] type: Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
         """
         pulumi.set(__self__, "name", name)
@@ -59,7 +59,7 @@ class TableAttributeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the index
+        Name of the attribute
         """
         return pulumi.get(self, "name")
 
@@ -92,10 +92,10 @@ class TableGlobalSecondaryIndexArgs:
                  write_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
-        :param pulumi.Input[str] name: Name of the index
+        :param pulumi.Input[str] name: Name of the index.
         :param pulumi.Input[str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-        :param pulumi.Input[str] range_key: Name of the range key.
+        :param pulumi.Input[str] range_key: Name of the range key; must be defined
         :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
@@ -127,7 +127,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the index
+        Name of the index.
         """
         return pulumi.get(self, "name")
 
@@ -163,7 +163,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the range key.
+        Name of the range key; must be defined
         """
         return pulumi.get(self, "range_key")
 
@@ -269,7 +269,7 @@ class TablePointInTimeRecoveryArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
-        :param pulumi.Input[bool] enabled: Whether TTL is enabled.
+        :param pulumi.Input[bool] enabled: Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -277,7 +277,7 @@ class TablePointInTimeRecoveryArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether TTL is enabled.
+        Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -295,7 +295,7 @@ class TableReplicaArgs:
                  propagate_tags: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] region_name: Region name of the replica.
-        :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption.
         :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
         :param pulumi.Input[bool] propagate_tags: Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
         """
@@ -323,7 +323,7 @@ class TableReplicaArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        ARN of the CMK that should be used for the AWS KMS encryption.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -362,7 +362,7 @@ class TableServerSideEncryptionArgs:
                  enabled: pulumi.Input[bool],
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether TTL is enabled.
+        :param pulumi.Input[bool] enabled: Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS owned CMK (shown as `DEFAULT` in the AWS console). If `enabled` is `true` and no `kms_key_arn` is specified then server-side encryption is set to AWS managed CMK (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS owned and AWS managed CMKs.
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -373,7 +373,7 @@ class TableServerSideEncryptionArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether TTL is enabled.
+        Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS owned CMK (shown as `DEFAULT` in the AWS console). If `enabled` is `true` and no `kms_key_arn` is specified then server-side encryption is set to AWS managed CMK (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS owned and AWS managed CMKs.
         """
         return pulumi.get(self, "enabled")
 

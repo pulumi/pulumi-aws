@@ -196,14 +196,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * Project&#39;s name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * @return Project&#39;s name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -301,14 +301,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the service role ARN for the batch build project.
+     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     @Import(name="serviceRole", required=true)
     private Output<String> serviceRole;
 
     /**
-     * @return Specifies the service role ARN for the batch build project.
+     * @return Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
     public Output<String> serviceRole() {
@@ -331,14 +331,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * Version of the build input to be built for this project. If not specified, the latest version is used.
      * 
      */
     @Import(name="sourceVersion")
     private @Nullable Output<String> sourceVersion;
 
     /**
-     * @return The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+     * @return Version of the build input to be built for this project. If not specified, the latest version is used.
      * 
      */
     public Optional<Output<String>> sourceVersion() {
@@ -663,7 +663,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+         * @param name Project&#39;s name.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+         * @param name Project&#39;s name.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole Specifies the service role ARN for the batch build project.
+         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole Specifies the service role ARN for the batch build project.
+         * @param serviceRole Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVersion The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+         * @param sourceVersion Version of the build input to be built for this project. If not specified, the latest version is used.
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceVersion The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+         * @param sourceVersion Version of the build input to be built for this project. If not specified, the latest version is used.
          * 
          * @return builder
          * 

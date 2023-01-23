@@ -17,14 +17,14 @@ public final class SigningJobSignedObjectArgs extends com.pulumi.resources.Resou
     public static final SigningJobSignedObjectArgs Empty = new SigningJobSignedObjectArgs();
 
     /**
-     * A configuration block describing the S3 Destination object: See S3 Destination below for details.
+     * A configuration block describing the S3 Source object: See S3 Source below for details.
      * 
      */
     @Import(name="s3s")
     private @Nullable Output<List<SigningJobSignedObjectS3Args>> s3s;
 
     /**
-     * @return A configuration block describing the S3 Destination object: See S3 Destination below for details.
+     * @return A configuration block describing the S3 Source object: See S3 Source below for details.
      * 
      */
     public Optional<Output<List<SigningJobSignedObjectS3Args>>> s3s() {
@@ -56,7 +56,7 @@ public final class SigningJobSignedObjectArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param s3s A configuration block describing the S3 Destination object: See S3 Destination below for details.
+         * @param s3s A configuration block describing the S3 Source object: See S3 Source below for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class SigningJobSignedObjectArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param s3s A configuration block describing the S3 Destination object: See S3 Destination below for details.
+         * @param s3s A configuration block describing the S3 Source object: See S3 Source below for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class SigningJobSignedObjectArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param s3s A configuration block describing the S3 Destination object: See S3 Destination below for details.
+         * @param s3s A configuration block describing the S3 Source object: See S3 Source below for details.
          * 
          * @return builder
          * 

@@ -57,12 +57,27 @@ namespace Pulumi.Aws.AppStream
     ///             },
     ///             new Aws.AppStream.Inputs.StackUserSettingArgs
     ///             {
+    ///                 Action = "DOMAIN_PASSWORD_SIGNIN",
+    ///                 Permission = "ENABLED",
+    ///             },
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             {
+    ///                 Action = "DOMAIN_SMART_CARD_SIGNIN",
+    ///                 Permission = "DISABLED",
+    ///             },
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             {
+    ///                 Action = "FILE_DOWNLOAD",
+    ///                 Permission = "ENABLED",
+    ///             },
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             {
     ///                 Action = "FILE_UPLOAD",
     ///                 Permission = "ENABLED",
     ///             },
     ///             new Aws.AppStream.Inputs.StackUserSettingArgs
     ///             {
-    ///                 Action = "FILE_DOWNLOAD",
+    ///                 Action = "PRINTING_TO_LOCAL_DEVICE",
     ///                 Permission = "ENABLED",
     ///             },
     ///         },
@@ -112,13 +127,13 @@ namespace Pulumi.Aws.AppStream
         /// Description for the AppStream stack.
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// Stack name to display.
         /// </summary>
         [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
@@ -161,7 +176,7 @@ namespace Pulumi.Aws.AppStream
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         /// See `user_settings` below.
         /// </summary>
         [Output("userSettings")]
@@ -304,7 +319,7 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackUserSettingArgs>? _userSettings;
 
         /// <summary>
-        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         /// See `user_settings` below.
         /// </summary>
         public InputList<Inputs.StackUserSettingArgs> UserSettings
@@ -432,7 +447,7 @@ namespace Pulumi.Aws.AppStream
         private InputList<Inputs.StackUserSettingGetArgs>? _userSettings;
 
         /// <summary>
-        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        /// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
         /// See `user_settings` below.
         /// </summary>
         public InputList<Inputs.StackUserSettingGetArgs> UserSettings

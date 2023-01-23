@@ -33,14 +33,14 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
     }
 
     /**
-     * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     @Import(name="retainRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs> retainRule;
 
     /**
-     * @return The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs>> retainRule() {
@@ -110,7 +110,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
         }
 
         /**
-         * @param retainRule The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
         }
 
         /**
-         * @param retainRule The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
          * 
          * @return builder
          * 

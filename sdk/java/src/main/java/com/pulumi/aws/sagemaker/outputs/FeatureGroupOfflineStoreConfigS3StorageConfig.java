@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
     /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+     * @return The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -24,7 +24,7 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
 
     private FeatureGroupOfflineStoreConfigS3StorageConfig() {}
     /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+     * @return The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
      * 
      */
     public Optional<String> kmsKeyId() {

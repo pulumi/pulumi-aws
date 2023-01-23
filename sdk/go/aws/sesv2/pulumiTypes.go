@@ -166,6 +166,938 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConfigurationSetEventDestinationEventDestination struct {
+	// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+	CloudWatchDestination *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination `pulumi:"cloudWatchDestination"`
+	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+	KinesisFirehoseDestination *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
+	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
+	// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+	PinpointDestination *ConfigurationSetEventDestinationEventDestinationPinpointDestination `pulumi:"pinpointDestination"`
+	// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+	SnsDestination *ConfigurationSetEventDestinationEventDestinationSnsDestination `pulumi:"snsDestination"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs and ConfigurationSetEventDestinationEventDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationOutput() ConfigurationSetEventDestinationEventDestinationOutput
+	ToConfigurationSetEventDestinationEventDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationArgs struct {
+	// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+	CloudWatchDestination ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput `pulumi:"cloudWatchDestination"`
+	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+	KinesisFirehoseDestination ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
+	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
+	// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+	PinpointDestination ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput `pulumi:"pinpointDestination"`
+	// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+	SnsDestination ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput `pulumi:"snsDestination"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationOutput() ConfigurationSetEventDestinationEventDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput).ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs, ConfigurationSetEventDestinationEventDestinationPtr and ConfigurationSetEventDestinationEventDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationPtrInput` via:
+//
+//	        ConfigurationSetEventDestinationEventDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetEventDestinationEventDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventDestinationPtrType ConfigurationSetEventDestinationEventDestinationArgs
+
+func ConfigurationSetEventDestinationEventDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationArgs) ConfigurationSetEventDestinationEventDestinationPtrInput {
+	return (*configurationSetEventDestinationEventDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationOutput() ConfigurationSetEventDestinationEventDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
+}
+
+// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestination() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
+		return v.CloudWatchDestination
+	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
+		return v.KinesisFirehoseDestination
+	}).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
+}
+
+// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
+		return v.PinpointDestination
+	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
+}
+
+// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) SnsDestination() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationSnsDestination {
+		return v.SnsDestination
+	}).(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) ConfigurationSetEventDestinationEventDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationOutput)
+}
+
+// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDestination() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchDestination
+	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisFirehoseDestination
+	}).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingEventTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
+		if v == nil {
+			return nil
+		}
+		return v.PinpointDestination
+	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
+}
+
+// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) SnsDestination() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationSnsDestination {
+		if v == nil {
+			return nil
+		}
+		return v.SnsDestination
+	}).(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestination struct {
+	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+	DimensionConfigurations []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration `pulumi:"dimensionConfigurations"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs and ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs struct {
+	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+	DimensionConfigurations ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput `pulumi:"dimensionConfigurations"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput).ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs, ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtr and ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput` via:
+//
+//	        ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventDestinationCloudWatchDestinationPtrType ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs
+
+func ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput {
+	return (*configurationSetEventDestinationEventDestinationCloudWatchDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventDestinationCloudWatchDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventDestinationCloudWatchDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventDestinationCloudWatchDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) DimensionConfigurations() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
+		return v.DimensionConfigurations
+	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestinationCloudWatchDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput)
+}
+
+// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) DimensionConfigurations() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DimensionConfigurations
+	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration struct {
+	// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+	// ( `dimensionName` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	DefaultDimensionValue string `pulumi:"defaultDimensionValue"`
+	DimensionName         string `pulumi:"dimensionName"`
+	// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+	DimensionValueSource string `pulumi:"dimensionValueSource"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs and ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs struct {
+	// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+	// ( `dimensionName` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	DefaultDimensionValue pulumi.StringInput `pulumi:"defaultDimensionValue"`
+	DimensionName         pulumi.StringInput `pulumi:"dimensionName"`
+	// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+	DimensionValueSource pulumi.StringInput `pulumi:"dimensionValueSource"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput)
+}
+
+// ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray and ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray{ ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs{...} }
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput
+	ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationInput
+
+func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput {
+	return o
+}
+
+// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+// ( `dimensionName` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DefaultDimensionValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
+		return v.DefaultDimensionValue
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DimensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
+		return v.DimensionName
+	}).(pulumi.StringOutput)
+}
+
+// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DimensionValueSource() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
+		return v.DimensionValueSource
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
+		return vs[0].([]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration)[vs[1].(int)]
+	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination struct {
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+	DeliveryStreamArn string `pulumi:"deliveryStreamArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs and ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput
+	ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+	DeliveryStreamArn pulumi.StringInput `pulumi:"deliveryStreamArn"`
+	// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput).ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs, ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtr and ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput` via:
+//
+//	        ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrType ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs
+
+func ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput {
+	return (*configurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) string {
+		return v.DeliveryStreamArn
+	}).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) string {
+		return v.IamRoleArn
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) DeliveryStreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeliveryStreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationPinpointDestination struct {
+	ApplicationArn string `pulumi:"applicationArn"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationPinpointDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs and ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationPinpointDestinationInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationPinpointDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput
+	ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs struct {
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationPinpointDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput).ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs, ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtr and ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput` via:
+//
+//	        ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventDestinationPinpointDestinationPtrType ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs
+
+func ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput {
+	return (*configurationSetEventDestinationEventDestinationPinpointDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventDestinationPinpointDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationPinpointDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventDestinationPinpointDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventDestinationPinpointDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationPinpointDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestinationPinpointDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationPinpointDestination) string {
+		return v.ApplicationArn
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationPinpointDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationPinpointDestination) ConfigurationSetEventDestinationEventDestinationPinpointDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestinationPinpointDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput)
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationPinpointDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationSnsDestination struct {
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationSnsDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs and ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationSnsDestinationInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationSnsDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput
+	ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput).ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs, ConfigurationSetEventDestinationEventDestinationSnsDestinationPtr and ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput` via:
+//
+//	        ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventDestinationSnsDestinationPtrType ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs
+
+func ConfigurationSetEventDestinationEventDestinationSnsDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput {
+	return (*configurationSetEventDestinationEventDestinationSnsDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventDestinationSnsDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventDestinationSnsDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventDestinationSnsDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestinationSnsDestination) *ConfigurationSetEventDestinationEventDestinationSnsDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationSnsDestination) ConfigurationSetEventDestinationEventDestinationSnsDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestinationSnsDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationSnsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationSetReputationOptions struct {
 	// The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
 	LastFreshStart *string `pulumi:"lastFreshStart"`
@@ -1121,6 +2053,18 @@ func (o GetDedicatedIpPoolDedicatedIpArrayOutput) Index(i pulumi.IntInput) GetDe
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationPinpointDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationSnsDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetReputationOptionsInput)(nil)).Elem(), ConfigurationSetReputationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetReputationOptionsPtrInput)(nil)).Elem(), ConfigurationSetReputationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSendingOptionsInput)(nil)).Elem(), ConfigurationSetSendingOptionsArgs{})
@@ -1135,6 +2079,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpArrayInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArray{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetSendingOptionsOutput{})

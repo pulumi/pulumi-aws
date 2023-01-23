@@ -411,7 +411,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
-        /// The label string.
+        /// A friendly name of the rule group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -517,7 +517,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The label string.
+        /// A friendly name of the rule group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -600,7 +600,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? LockToken { get; set; }
 
         /// <summary>
-        /// The label string.
+        /// A friendly name of the rule group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

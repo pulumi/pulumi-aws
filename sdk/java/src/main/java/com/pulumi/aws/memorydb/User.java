@@ -120,7 +120,6 @@ public class User extends com.pulumi.resources.CustomResource {
     }
     /**
      * The minimum engine version supported for the user.
-     * * `authentication_mode` configuration block
      * 
      */
     @Export(name="minimumEngineVersion", refs={String.class}, tree="[0]")
@@ -128,7 +127,6 @@ public class User extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The minimum engine version supported for the user.
-     * * `authentication_mode` configuration block
      * 
      */
     public Output<String> minimumEngineVersion() {

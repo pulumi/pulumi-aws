@@ -18,14 +18,14 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
     public static final TaskDefinitionVolumeEfsVolumeConfigurationArgs Empty = new TaskDefinitionVolumeEfsVolumeConfigurationArgs();
 
     /**
-     * Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+     * Configuration block for authorization for the Amazon EFS file system. Detailed below.
      * 
      */
     @Import(name="authorizationConfig")
     private @Nullable Output<TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs> authorizationConfig;
 
     /**
-     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+     * @return Configuration block for authorization for the Amazon EFS file system. Detailed below.
      * 
      */
     public Optional<Output<TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs>> authorizationConfig() {
@@ -33,14 +33,14 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
     }
 
     /**
-     * The Amazon FSx for Windows File Server file system ID to use.
+     * ID of the EFS File System.
      * 
      */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
     /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
+     * @return ID of the EFS File System.
      * 
      */
     public Output<String> fileSystemId() {
@@ -48,14 +48,14 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
     }
 
     /**
-     * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
      * 
      */
     @Import(name="rootDirectory")
     private @Nullable Output<String> rootDirectory;
 
     /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
      * 
      */
     public Optional<Output<String>> rootDirectory() {
@@ -121,7 +121,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
         }
 
         /**
-         * @param authorizationConfig Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+         * @param authorizationConfig Configuration block for authorization for the Amazon EFS file system. Detailed below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
         }
 
         /**
-         * @param authorizationConfig Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+         * @param authorizationConfig Configuration block for authorization for the Amazon EFS file system. Detailed below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
         }
 
         /**
-         * @param fileSystemId The Amazon FSx for Windows File Server file system ID to use.
+         * @param fileSystemId ID of the EFS File System.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
         }
 
         /**
-         * @param fileSystemId The Amazon FSx for Windows File Server file system ID to use.
+         * @param fileSystemId ID of the EFS File System.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
         }
 
         /**
-         * @param rootDirectory The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         * @param rootDirectory Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs extends com.pu
         }
 
         /**
-         * @param rootDirectory The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         * @param rootDirectory Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
     public static final ChannelEncoderSettingsOutputGroupArgs Empty = new ChannelEncoderSettingsOutputGroupArgs();
 
     /**
-     * The name of the video description.
+     * Custom output group name defined by the user.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the video description.
+     * @return Custom output group name defined by the user.
      * 
      */
     public Optional<Output<String>> name() {
@@ -90,7 +90,7 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Custom output group name defined by the user.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ChannelEncoderSettingsOutputGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Custom output group name defined by the user.
          * 
          * @return builder
          * 

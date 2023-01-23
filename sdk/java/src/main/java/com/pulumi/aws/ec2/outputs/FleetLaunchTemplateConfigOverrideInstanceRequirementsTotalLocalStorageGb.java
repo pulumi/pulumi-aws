@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
     /**
-     * @return Maximum.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     private @Nullable Double max;
@@ -24,7 +24,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 
     private FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb() {}
     /**
-     * @return Maximum.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     public Optional<Double> max() {

@@ -93,9 +93,9 @@ type ContainerRecipe struct {
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// The KMS key used to encrypt the container image.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The name of the component parameter.
+	// The name of the container recipe.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the container recipe.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -177,9 +177,9 @@ type containerRecipeState struct {
 	Encrypted *bool `pulumi:"encrypted"`
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// The KMS key used to encrypt the container image.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The name of the component parameter.
+	// The name of the container recipe.
 	Name *string `pulumi:"name"`
 	// Owner of the container recipe.
 	Owner *string `pulumi:"owner"`
@@ -218,9 +218,9 @@ type ContainerRecipeState struct {
 	Encrypted pulumi.BoolPtrInput
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// The KMS key used to encrypt the container image.
 	KmsKeyId pulumi.StringPtrInput
-	// The name of the component parameter.
+	// The name of the container recipe.
 	Name pulumi.StringPtrInput
 	// Owner of the container recipe.
 	Owner pulumi.StringPtrInput
@@ -257,9 +257,9 @@ type containerRecipeArgs struct {
 	DockerfileTemplateUri *string `pulumi:"dockerfileTemplateUri"`
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// The KMS key used to encrypt the container image.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The name of the component parameter.
+	// The name of the container recipe.
 	Name *string `pulumi:"name"`
 	// The base image for the container recipe.
 	ParentImage string `pulumi:"parentImage"`
@@ -287,9 +287,9 @@ type ContainerRecipeArgs struct {
 	DockerfileTemplateUri pulumi.StringPtrInput
 	// Configuration block used to configure an instance for building and testing container images. Detailed below.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+	// The KMS key used to encrypt the container image.
 	KmsKeyId pulumi.StringPtrInput
-	// The name of the component parameter.
+	// The name of the container recipe.
 	Name pulumi.StringPtrInput
 	// The base image for the container recipe.
 	ParentImage pulumi.StringInput
@@ -435,12 +435,12 @@ func (o ContainerRecipeOutput) InstanceConfiguration() ContainerRecipeInstanceCo
 	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeInstanceConfigurationPtrOutput { return v.InstanceConfiguration }).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+// The KMS key used to encrypt the container image.
 func (o ContainerRecipeOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the component parameter.
+// The name of the container recipe.
 func (o ContainerRecipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public final class DataSourceDynamodbConfig {
     private @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
     /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
+     * @return AWS region of the DynamoDB table. Defaults to current region.
      * 
      */
     private @Nullable String region;
@@ -36,7 +36,7 @@ public final class DataSourceDynamodbConfig {
         return Optional.ofNullable(this.deltaSyncConfig);
     }
     /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
+     * @return AWS region of the DynamoDB table. Defaults to current region.
      * 
      */
     public Optional<String> region() {

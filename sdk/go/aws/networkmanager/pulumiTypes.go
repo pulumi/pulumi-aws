@@ -1192,13 +1192,13 @@ func (o VpcAttachmentOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 }
 
 type GetCoreNetworkPolicyDocumentAttachmentPolicy struct {
-	// Action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take when a condition is true. Detailed Below.
 	Action GetCoreNetworkPolicyDocumentAttachmentPolicyAction `pulumi:"action"`
 	// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
 	ConditionLogic *string `pulumi:"conditionLogic"`
 	// A block argument. Detailed Below.
 	Conditions []GetCoreNetworkPolicyDocumentAttachmentPolicyCondition `pulumi:"conditions"`
-	// A user-defined string describing the segment action.
+	// A user-defined description that further helps identify the rule.
 	Description *string `pulumi:"description"`
 	// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
 	RuleNumber int `pulumi:"ruleNumber"`
@@ -1216,13 +1216,13 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyInput interface {
 }
 
 type GetCoreNetworkPolicyDocumentAttachmentPolicyArgs struct {
-	// Action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take when a condition is true. Detailed Below.
 	Action GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput `pulumi:"action"`
 	// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
 	ConditionLogic pulumi.StringPtrInput `pulumi:"conditionLogic"`
 	// A block argument. Detailed Below.
 	Conditions GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput `pulumi:"conditions"`
-	// A user-defined string describing the segment action.
+	// A user-defined description that further helps identify the rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
 	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
@@ -1279,7 +1279,7 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ToGetCoreNetworkPoli
 	return o
 }
 
-// Action to take for the chosen segment. Valid values `create-route` or `share`.
+// Action to take when a condition is true. Detailed Below.
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) Action() GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
 		return v.Action
@@ -1298,7 +1298,7 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) Conditions() GetCore
 	}).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput)
 }
 
-// A user-defined string describing the segment action.
+// A user-defined description that further helps identify the rule.
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1333,7 +1333,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyAction struct {
 	AssociationMethod string `pulumi:"associationMethod"`
 	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
 	RequireAcceptance *bool `pulumi:"requireAcceptance"`
-	// Name of the segment.
+	// Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
 	Segment *string `pulumi:"segment"`
 	// Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
 	TagValueOfKey *string `pulumi:"tagValueOfKey"`
@@ -1355,7 +1355,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs struct {
 	AssociationMethod pulumi.StringInput `pulumi:"associationMethod"`
 	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
 	RequireAcceptance pulumi.BoolPtrInput `pulumi:"requireAcceptance"`
-	// Name of the segment.
+	// Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
 	Segment pulumi.StringPtrInput `pulumi:"segment"`
 	// Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
 	TagValueOfKey pulumi.StringPtrInput `pulumi:"tagValueOfKey"`
@@ -1397,7 +1397,7 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) RequireAccepta
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *bool { return v.RequireAcceptance }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the segment.
+// Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) Segment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *string { return v.Segment }).(pulumi.StringPtrOutput)
 }
@@ -1534,9 +1534,9 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) Index(
 type GetCoreNetworkPolicyDocumentCoreNetworkConfiguration struct {
 	// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
 	AsnRanges []string `pulumi:"asnRanges"`
-	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+	// A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
 	EdgeLocations []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation `pulumi:"edgeLocations"`
-	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+	// The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
 	VpnEcmpSupport *bool `pulumi:"vpnEcmpSupport"`
@@ -1556,9 +1556,9 @@ type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput interface {
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs struct {
 	// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
 	AsnRanges pulumi.StringArrayInput `pulumi:"asnRanges"`
-	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+	// A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
 	EdgeLocations GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput `pulumi:"edgeLocations"`
-	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+	// The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
 	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
 	// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
 	VpnEcmpSupport pulumi.BoolPtrInput `pulumi:"vpnEcmpSupport"`
@@ -1620,14 +1620,14 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) AsnRanges() 
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []string { return v.AsnRanges }).(pulumi.StringArrayOutput)
 }
 
-// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+// A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) EdgeLocations() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation {
 		return v.EdgeLocations
 	}).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput)
 }
 
-// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+// The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
@@ -1776,7 +1776,7 @@ type GetCoreNetworkPolicyDocumentSegment struct {
 	AllowFilters []string `pulumi:"allowFilters"`
 	// An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
 	DenyFilters []string `pulumi:"denyFilters"`
-	// A user-defined string describing the segment action.
+	// A user-defined string describing the segment.
 	Description *string `pulumi:"description"`
 	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
 	EdgeLocations []string `pulumi:"edgeLocations"`
@@ -1804,7 +1804,7 @@ type GetCoreNetworkPolicyDocumentSegmentArgs struct {
 	AllowFilters pulumi.StringArrayInput `pulumi:"allowFilters"`
 	// An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
 	DenyFilters pulumi.StringArrayInput `pulumi:"denyFilters"`
-	// A user-defined string describing the segment action.
+	// A user-defined string describing the segment.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
 	EdgeLocations pulumi.StringArrayInput `pulumi:"edgeLocations"`
@@ -1877,7 +1877,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentOutput) DenyFilters() pulumi.StringAr
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) []string { return v.DenyFilters }).(pulumi.StringArrayOutput)
 }
 
-// A user-defined string describing the segment action.
+// A user-defined string describing the segment.
 func (o GetCoreNetworkPolicyDocumentSegmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -236,14 +236,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The ID of the namespace to use for DNS configuration.
+     * The ID of the namespace that you want to use to create the service.
      * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
-     * @return The ID of the namespace to use for DNS configuration.
+     * @return The ID of the namespace that you want to use to create the service.
      * 
      */
     public Output<String> namespaceId() {
@@ -276,6 +276,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+     * 
+     */
+    @Export(name="type", refs={String.class}, tree="[0]")
+    private Output<String> type;
+
+    /**
+     * @return If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+     * 
+     */
+    public Output<String> type() {
+        return this.type;
     }
 
     /**

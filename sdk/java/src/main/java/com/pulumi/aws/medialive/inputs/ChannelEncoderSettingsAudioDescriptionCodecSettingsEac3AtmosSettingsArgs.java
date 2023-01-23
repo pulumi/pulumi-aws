@@ -32,14 +32,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
     }
 
     /**
-     * Dolby Digital Plus coding mode.
+     * Mono, Stereo, or 5.1 channel layout.
      * 
      */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<Output<String>> codingMode() {
@@ -47,14 +47,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
     }
 
     /**
-     * Sets the dialnorm for the output.
+     * Sets the dialnorm of the output.
      * 
      */
     @Import(name="dialnorm")
     private @Nullable Output<Double> dialnorm;
 
     /**
-     * @return Sets the dialnorm for the output.
+     * @return Sets the dialnorm of the output.
      * 
      */
     public Optional<Output<Double>> dialnorm() {
@@ -173,7 +173,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param codingMode Dolby Digital Plus coding mode.
+         * @param codingMode Mono, Stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param codingMode Dolby Digital Plus coding mode.
+         * @param codingMode Mono, Stereo, or 5.1 channel layout.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param dialnorm Sets the dialnorm for the output.
+         * @param dialnorm Sets the dialnorm of the output.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
         }
 
         /**
-         * @param dialnorm Sets the dialnorm for the output.
+         * @param dialnorm Sets the dialnorm of the output.
          * 
          * @return builder
          * 

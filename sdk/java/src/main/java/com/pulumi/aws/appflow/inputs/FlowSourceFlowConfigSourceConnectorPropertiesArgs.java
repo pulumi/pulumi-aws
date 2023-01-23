@@ -31,14 +31,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     public static final FlowSourceFlowConfigSourceConnectorPropertiesArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesArgs();
 
     /**
-     * Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+     * Information that is required for querying Amplitude. See Generic Source Properties for more details.
      * 
      */
     @Import(name="amplitude")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs> amplitude;
 
     /**
-     * @return Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+     * @return Information that is required for querying Amplitude. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs>> amplitude() {
@@ -46,14 +46,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
      * 
      */
     @Import(name="customConnector")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs> customConnector;
 
     /**
-     * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs>> customConnector() {
@@ -61,14 +61,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Datadog. See Generic Source Properties for more details.
      * 
      */
     @Import(name="datadog")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs> datadog;
 
     /**
-     * @return Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Datadog. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs>> datadog() {
@@ -106,14 +106,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
      * 
      */
     @Import(name="inforNexus")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs> inforNexus;
 
     /**
-     * @return Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs>> inforNexus() {
@@ -121,14 +121,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Marketo. See Generic Source Properties for more details.
      * 
      */
     @Import(name="marketo")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs> marketo;
 
     /**
-     * @return Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Marketo. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs>> marketo() {
@@ -136,14 +136,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Amazon S3. See S3 Source Properties for more details.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3Args> s3;
 
     /**
-     * @return Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Amazon S3. See S3 Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesS3Args>> s3() {
@@ -151,14 +151,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
      * 
      */
     @Import(name="salesforce")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs> salesforce;
 
     /**
-     * @return Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs>> salesforce() {
@@ -166,14 +166,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
      * 
      */
     @Import(name="sapoData")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs> sapoData;
 
     /**
-     * @return Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs>> sapoData() {
@@ -181,14 +181,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying ServiceNow. See Generic Source Properties for more details.
      * 
      */
     @Import(name="serviceNow")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs> serviceNow;
 
     /**
-     * @return Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying ServiceNow. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs>> serviceNow() {
@@ -196,14 +196,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Singular. See Generic Source Properties for more details.
      * 
      */
     @Import(name="singular")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs> singular;
 
     /**
-     * @return Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Singular. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs>> singular() {
@@ -211,14 +211,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Slack. See Generic Source Properties for more details.
      * 
      */
     @Import(name="slack")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs> slack;
 
     /**
-     * @return Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Slack. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs>> slack() {
@@ -241,14 +241,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Veeva. See Veeva Source Properties for more details.
      * 
      */
     @Import(name="veeva")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs> veeva;
 
     /**
-     * @return Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Veeva. See Veeva Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs>> veeva() {
@@ -256,14 +256,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
     }
 
     /**
-     * Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * Information that is required for querying Zendesk. See Generic Source Properties for more details.
      * 
      */
     @Import(name="zendesk")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs> zendesk;
 
     /**
-     * @return Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+     * @return Information that is required for querying Zendesk. See Generic Source Properties for more details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs>> zendesk() {
@@ -310,7 +310,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param amplitude Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+         * @param amplitude Information that is required for querying Amplitude. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param amplitude Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+         * @param amplitude Information that is required for querying Amplitude. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param customConnector Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param customConnector Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param customConnector Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param customConnector Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param datadog Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param datadog Information that is required for querying Datadog. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param datadog Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param datadog Information that is required for querying Datadog. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param inforNexus Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param inforNexus Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param inforNexus Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param inforNexus Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param marketo Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param marketo Information that is required for querying Marketo. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param marketo Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param marketo Information that is required for querying Marketo. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param s3 Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param s3 Information that is required for querying Amazon S3. See S3 Source Properties for more details.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param s3 Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param s3 Information that is required for querying Amazon S3. See S3 Source Properties for more details.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param salesforce Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param salesforce Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param salesforce Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param salesforce Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param sapoData Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param sapoData Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param sapoData Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param sapoData Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param serviceNow Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param serviceNow Information that is required for querying ServiceNow. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param serviceNow Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param serviceNow Information that is required for querying ServiceNow. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param singular Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param singular Information that is required for querying Singular. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param singular Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param singular Information that is required for querying Singular. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param slack Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param slack Information that is required for querying Slack. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param slack Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param slack Information that is required for querying Slack. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param veeva Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param veeva Information that is required for querying Veeva. See Veeva Source Properties for more details.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param veeva Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param veeva Information that is required for querying Veeva. See Veeva Source Properties for more details.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param zendesk Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param zendesk Information that is required for querying Zendesk. See Generic Source Properties for more details.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         }
 
         /**
-         * @param zendesk Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         * @param zendesk Information that is required for querying Zendesk. See Generic Source Properties for more details.
          * 
          * @return builder
          * 

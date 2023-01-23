@@ -14,14 +14,14 @@ public final class RuleGroupRuleStatementNotStatementStatementOrStatementStateme
     public static final RuleGroupRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigArgs Empty = new RuleGroupRuleStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigArgs();
 
     /**
-     * - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
     /**
-     * @return - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     public Output<String> fallbackBehavior() {
@@ -29,14 +29,14 @@ public final class RuleGroupRuleStatementNotStatementStatementOrStatementStateme
     }
 
     /**
-     * - The name of the HTTP header to use for the IP address.
+     * The name of the HTTP header to use for the IP address.
      * 
      */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
     /**
-     * @return - The name of the HTTP header to use for the IP address.
+     * @return The name of the HTTP header to use for the IP address.
      * 
      */
     public Output<String> headerName() {
@@ -69,7 +69,7 @@ public final class RuleGroupRuleStatementNotStatementStatementOrStatementStateme
         }
 
         /**
-         * @param fallbackBehavior - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class RuleGroupRuleStatementNotStatementStatementOrStatementStateme
         }
 
         /**
-         * @param fallbackBehavior - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class RuleGroupRuleStatementNotStatementStatementOrStatementStateme
         }
 
         /**
-         * @param headerName - The name of the HTTP header to use for the IP address.
+         * @param headerName The name of the HTTP header to use for the IP address.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RuleGroupRuleStatementNotStatementStatementOrStatementStateme
         }
 
         /**
-         * @param headerName - The name of the HTTP header to use for the IP address.
+         * @param headerName The name of the HTTP header to use for the IP address.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string ApiKey;
         /// <summary>
-        /// The Secret Access Key portion of the credentials.
+        /// The API secret key required for API key authentication.
         /// </summary>
         public readonly string? ApiSecretKey;
 

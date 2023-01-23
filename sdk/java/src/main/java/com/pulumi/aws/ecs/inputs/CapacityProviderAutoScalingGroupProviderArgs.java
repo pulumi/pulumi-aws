@@ -17,14 +17,14 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
     public static final CapacityProviderAutoScalingGroupProviderArgs Empty = new CapacityProviderAutoScalingGroupProviderArgs();
 
     /**
-     * - ARN of the associated auto scaling group.
+     * ARN of the associated auto scaling group.
      * 
      */
     @Import(name="autoScalingGroupArn", required=true)
     private Output<String> autoScalingGroupArn;
 
     /**
-     * @return - ARN of the associated auto scaling group.
+     * @return ARN of the associated auto scaling group.
      * 
      */
     public Output<String> autoScalingGroupArn() {
@@ -32,14 +32,14 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
     }
 
     /**
-     * - Configuration block defining the parameters of the auto scaling. Detailed below.
+     * Configuration block defining the parameters of the auto scaling. Detailed below.
      * 
      */
     @Import(name="managedScaling")
     private @Nullable Output<CapacityProviderAutoScalingGroupProviderManagedScalingArgs> managedScaling;
 
     /**
-     * @return - Configuration block defining the parameters of the auto scaling. Detailed below.
+     * @return Configuration block defining the parameters of the auto scaling. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderAutoScalingGroupProviderManagedScalingArgs>> managedScaling() {
@@ -47,14 +47,14 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
     }
 
     /**
-     * - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+     * Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     @Import(name="managedTerminationProtection")
     private @Nullable Output<String> managedTerminationProtection;
 
     /**
-     * @return - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+     * @return Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<Output<String>> managedTerminationProtection() {
@@ -88,7 +88,7 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         /**
-         * @param autoScalingGroupArn - ARN of the associated auto scaling group.
+         * @param autoScalingGroupArn ARN of the associated auto scaling group.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         /**
-         * @param autoScalingGroupArn - ARN of the associated auto scaling group.
+         * @param autoScalingGroupArn ARN of the associated auto scaling group.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         /**
-         * @param managedScaling - Configuration block defining the parameters of the auto scaling. Detailed below.
+         * @param managedScaling Configuration block defining the parameters of the auto scaling. Detailed below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         /**
-         * @param managedScaling - Configuration block defining the parameters of the auto scaling. Detailed below.
+         * @param managedScaling Configuration block defining the parameters of the auto scaling. Detailed below.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         /**
-         * @param managedTerminationProtection - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+         * @param managedTerminationProtection Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class CapacityProviderAutoScalingGroupProviderArgs extends com.pulu
         }
 
         /**
-         * @param managedTerminationProtection - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
+         * @param managedTerminationProtection Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
          * 

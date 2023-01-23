@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions {
     /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     private Boolean override;
 
     private ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions() {}
     /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Boolean override() {

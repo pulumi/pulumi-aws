@@ -31,14 +31,14 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+     * @return The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      * 
      */
     public Output<Boolean> enabled() {
@@ -108,7 +108,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+         * @param enabled The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enabled - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
+         * @param enabled The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
          * 
          * @return builder
          * 

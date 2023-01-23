@@ -14,14 +14,14 @@ public final class RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs exte
     public static final RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs Empty = new RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs();
 
     /**
-     * The label string.
+     * A friendly name of the rule group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The label string.
+     * @return A friendly name of the rule group.
      * 
      */
     public Output<String> name() {
@@ -69,7 +69,7 @@ public final class RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs exte
         }
 
         /**
-         * @param name The label string.
+         * @param name A friendly name of the rule group.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs exte
         }
 
         /**
-         * @param name The label string.
+         * @param name A friendly name of the rule group.
          * 
          * @return builder
          * 

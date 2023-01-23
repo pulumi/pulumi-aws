@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
     public sealed class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        /// Whether log delivery to Amazon CloudWatch Logs is enabled.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

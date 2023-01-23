@@ -44,7 +44,6 @@ namespace Pulumi.Aws.Sagemaker
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        /// * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -61,6 +60,9 @@ namespace Pulumi.Aws.Sagemaker
         [Output("containerImage")]
         public Output<string> ContainerImage { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image the version is based on.
+        /// </summary>
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
 
@@ -141,7 +143,6 @@ namespace Pulumi.Aws.Sagemaker
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        /// * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -158,6 +159,9 @@ namespace Pulumi.Aws.Sagemaker
         [Input("containerImage")]
         public Input<string>? ContainerImage { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image the version is based on.
+        /// </summary>
         [Input("imageArn")]
         public Input<string>? ImageArn { get; set; }
 

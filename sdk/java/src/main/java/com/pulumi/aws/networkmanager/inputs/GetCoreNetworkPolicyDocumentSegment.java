@@ -47,14 +47,14 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
     }
 
     /**
-     * A user-defined string describing the segment action.
+     * A user-defined string describing the segment.
      * 
      */
     @Import(name="description")
     private @Nullable String description;
 
     /**
-     * @return A user-defined string describing the segment action.
+     * @return A user-defined string describing the segment.
      * 
      */
     public Optional<String> description() {
@@ -194,7 +194,7 @@ public final class GetCoreNetworkPolicyDocumentSegment extends com.pulumi.resour
         }
 
         /**
-         * @param description A user-defined string describing the segment action.
+         * @param description A user-defined string describing the segment.
          * 
          * @return builder
          * 

@@ -82,7 +82,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly dateUpdated!: pulumi.Output<string>;
     /**
-     * Description of the container distribution configuration.
+     * Description of the distribution configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -90,7 +90,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
      */
     public readonly distributions!: pulumi.Output<outputs.imagebuilder.DistributionConfigurationDistribution[]>;
     /**
-     * Name to apply to the distributed AMI.
+     * Name of the distribution configuration.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface DistributionConfigurationState {
      */
     dateUpdated?: pulumi.Input<string>;
     /**
-     * Description of the container distribution configuration.
+     * Description of the distribution configuration.
      */
     description?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface DistributionConfigurationState {
      */
     distributions?: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
     /**
-     * Name to apply to the distributed AMI.
+     * Name of the distribution configuration.
      */
     name?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface DistributionConfigurationState {
  */
 export interface DistributionConfigurationArgs {
     /**
-     * Description of the container distribution configuration.
+     * Description of the distribution configuration.
      */
     description?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface DistributionConfigurationArgs {
      */
     distributions: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
     /**
-     * Name to apply to the distributed AMI.
+     * Name of the distribution configuration.
      */
     name?: pulumi.Input<string>;
     /**

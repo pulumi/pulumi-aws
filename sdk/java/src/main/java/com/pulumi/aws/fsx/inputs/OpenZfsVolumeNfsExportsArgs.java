@@ -15,14 +15,14 @@ public final class OpenZfsVolumeNfsExportsArgs extends com.pulumi.resources.Reso
     public static final OpenZfsVolumeNfsExportsArgs Empty = new OpenZfsVolumeNfsExportsArgs();
 
     /**
-     * - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+     * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
      * 
      */
     @Import(name="clientConfigurations", required=true)
     private Output<List<OpenZfsVolumeNfsExportsClientConfigurationArgs>> clientConfigurations;
 
     /**
-     * @return - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+     * @return A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
      * 
      */
     public Output<List<OpenZfsVolumeNfsExportsClientConfigurationArgs>> clientConfigurations() {
@@ -54,7 +54,7 @@ public final class OpenZfsVolumeNfsExportsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param clientConfigurations - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class OpenZfsVolumeNfsExportsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param clientConfigurations - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class OpenZfsVolumeNfsExportsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param clientConfigurations - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         * @param clientConfigurations A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
          * 
          * @return builder
          * 

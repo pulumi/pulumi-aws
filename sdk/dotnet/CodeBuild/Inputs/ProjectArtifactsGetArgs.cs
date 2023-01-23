@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// Location of the source code from git or s3.
+        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+        /// Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
         /// </summary>
         [Input("namespaceType")]
         public Input<string>? NamespaceType { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

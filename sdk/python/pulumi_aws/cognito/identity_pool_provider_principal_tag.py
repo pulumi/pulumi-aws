@@ -22,8 +22,8 @@ class IdentityPoolProviderPrincipalTagArgs:
         The set of arguments for constructing a IdentityPoolProviderPrincipalTag resource.
         :param pulumi.Input[str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
-               * `principal_tags`: (Optional: []) - String to string map of variables.
-               * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] principal_tags: String to string map of variables.
+        :param pulumi.Input[bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "identity_provider_name", identity_provider_name)
@@ -49,8 +49,6 @@ class IdentityPoolProviderPrincipalTagArgs:
     def identity_provider_name(self) -> pulumi.Input[str]:
         """
         The name of the identity provider.
-        * `principal_tags`: (Optional: []) - String to string map of variables.
-        * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "identity_provider_name")
 
@@ -61,6 +59,9 @@ class IdentityPoolProviderPrincipalTagArgs:
     @property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        String to string map of variables.
+        """
         return pulumi.get(self, "principal_tags")
 
     @principal_tags.setter
@@ -70,6 +71,9 @@ class IdentityPoolProviderPrincipalTagArgs:
     @property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> Optional[pulumi.Input[bool]]:
+        """
+        use default (username and clientID) attribute mappings.
+        """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
@@ -88,8 +92,8 @@ class _IdentityPoolProviderPrincipalTagState:
         Input properties used for looking up and filtering IdentityPoolProviderPrincipalTag resources.
         :param pulumi.Input[str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
-               * `principal_tags`: (Optional: []) - String to string map of variables.
-               * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] principal_tags: String to string map of variables.
+        :param pulumi.Input[bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         if identity_pool_id is not None:
             pulumi.set(__self__, "identity_pool_id", identity_pool_id)
@@ -117,8 +121,6 @@ class _IdentityPoolProviderPrincipalTagState:
     def identity_provider_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the identity provider.
-        * `principal_tags`: (Optional: []) - String to string map of variables.
-        * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "identity_provider_name")
 
@@ -129,6 +131,9 @@ class _IdentityPoolProviderPrincipalTagState:
     @property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        String to string map of variables.
+        """
         return pulumi.get(self, "principal_tags")
 
     @principal_tags.setter
@@ -138,6 +143,9 @@ class _IdentityPoolProviderPrincipalTagState:
     @property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> Optional[pulumi.Input[bool]]:
+        """
+        use default (username and clientID) attribute mappings.
+        """
         return pulumi.get(self, "use_defaults")
 
     @use_defaults.setter
@@ -170,8 +178,8 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
-               * `principal_tags`: (Optional: []) - String to string map of variables.
-               * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] principal_tags: String to string map of variables.
+        :param pulumi.Input[bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         ...
     @overload
@@ -249,8 +257,8 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_pool_id: An identity pool ID.
         :param pulumi.Input[str] identity_provider_name: The name of the identity provider.
-               * `principal_tags`: (Optional: []) - String to string map of variables.
-               * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] principal_tags: String to string map of variables.
+        :param pulumi.Input[bool] use_defaults: use default (username and clientID) attribute mappings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,18 +283,22 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
     def identity_provider_name(self) -> pulumi.Output[str]:
         """
         The name of the identity provider.
-        * `principal_tags`: (Optional: []) - String to string map of variables.
-        * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
         """
         return pulumi.get(self, "identity_provider_name")
 
     @property
     @pulumi.getter(name="principalTags")
     def principal_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        String to string map of variables.
+        """
         return pulumi.get(self, "principal_tags")
 
     @property
     @pulumi.getter(name="useDefaults")
     def use_defaults(self) -> pulumi.Output[Optional[bool]]:
+        """
+        use default (username and clientID) attribute mappings.
+        """
         return pulumi.get(self, "use_defaults")
 

@@ -33,14 +33,14 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+     * Description of the product.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+     * @return Description of the product.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+     * Name of the product.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+     * @return Name of the product.
      * 
      */
     public Optional<Output<String>> name() {
@@ -168,14 +168,14 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * @return Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
      * 
      */
     public Output<String> type() {
@@ -238,7 +238,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+         * @param description Description of the product.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+         * @param description Description of the product.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+         * @param name Name of the product.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+         * @param name Name of the product.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+         * @param type Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+         * @param type Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
          * 
          * @return builder
          * 

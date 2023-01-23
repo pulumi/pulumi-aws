@@ -332,7 +332,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectLogsConfig?> LogsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// Project's name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableArray<Outputs.ProjectSecondarySource>> SecondarySources { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the service role ARN for the batch build project.
+        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+        /// Version of the build input to be built for this project. If not specified, the latest version is used.
         /// </summary>
         [Output("sourceVersion")]
         public Output<string?> SourceVersion { get; private set; } = null!;
@@ -534,7 +534,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectLogsConfigArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// Project's name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -594,7 +594,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Specifies the service role ARN for the batch build project.
+        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
@@ -606,7 +606,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
 
         /// <summary>
-        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+        /// Version of the build input to be built for this project. If not specified, the latest version is used.
         /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }
@@ -722,7 +722,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectLogsConfigGetArgs>? LogsConfig { get; set; }
 
         /// <summary>
-        /// Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+        /// Project's name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -788,7 +788,7 @@ namespace Pulumi.Aws.CodeBuild
         }
 
         /// <summary>
-        /// Specifies the service role ARN for the batch build project.
+        /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
@@ -800,7 +800,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
+        /// Version of the build input to be built for this project. If not specified, the latest version is used.
         /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }

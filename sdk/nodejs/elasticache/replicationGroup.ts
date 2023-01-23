@@ -307,7 +307,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly numCacheClusters!: pulumi.Output<number>;
     /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+     * Number of node groups (shards) for this Redis replication group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
      */
     public readonly numNodeGroups!: pulumi.Output<number>;
     /**
@@ -337,7 +338,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string>;
     /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * Number of replica nodes in each node group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
+     * Valid values are 0 to 5.
      */
     public readonly replicasPerNodeGroup!: pulumi.Output<number>;
     /**
@@ -623,7 +626,8 @@ export interface ReplicationGroupState {
      */
     numCacheClusters?: pulumi.Input<number>;
     /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+     * Number of node groups (shards) for this Redis replication group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
      */
     numNodeGroups?: pulumi.Input<number>;
     /**
@@ -653,7 +657,9 @@ export interface ReplicationGroupState {
      */
     readerEndpointAddress?: pulumi.Input<string>;
     /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * Number of replica nodes in each node group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
+     * Valid values are 0 to 5.
      */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
@@ -805,7 +811,8 @@ export interface ReplicationGroupArgs {
      */
     numCacheClusters?: pulumi.Input<number>;
     /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+     * Number of node groups (shards) for this Redis replication group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
      */
     numNodeGroups?: pulumi.Input<number>;
     /**
@@ -827,7 +834,9 @@ export interface ReplicationGroupArgs {
      */
     preferredCacheClusterAzs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+     * Number of replica nodes in each node group.
+     * Changing this number will trigger a resizing operation before other settings modifications.
+     * Valid values are 0 to 5.
      */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**

@@ -126,13 +126,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<Outputs.ContainerRecipeInstanceConfiguration?> InstanceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        /// The KMS key used to encrypt the container image.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the component parameter.
+        /// The name of the container recipe.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -274,13 +274,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<Inputs.ContainerRecipeInstanceConfigurationArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        /// The KMS key used to encrypt the container image.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the component parameter.
+        /// The name of the container recipe.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -390,13 +390,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<Inputs.ContainerRecipeInstanceConfigurationGetArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        /// The KMS key used to encrypt the container image.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the component parameter.
+        /// The name of the container recipe.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

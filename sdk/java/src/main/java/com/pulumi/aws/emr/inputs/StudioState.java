@@ -17,9 +17,17 @@ public final class StudioState extends com.pulumi.resources.ResourceArgs {
 
     public static final StudioState Empty = new StudioState();
 
+    /**
+     * ARN of the studio.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the studio.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -197,14 +205,14 @@ public final class StudioState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+     * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      * 
      */
     @Import(name="userRole")
     private @Nullable Output<String> userRole;
 
     /**
-     * @return - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+     * @return The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      * 
      */
     public Optional<Output<String>> userRole() {
@@ -280,11 +288,23 @@ public final class StudioState extends com.pulumi.resources.ResourceArgs {
             $ = new StudioState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the studio.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the studio.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -540,7 +560,7 @@ public final class StudioState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userRole - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+         * @param userRole The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
          * 
          * @return builder
          * 
@@ -551,7 +571,7 @@ public final class StudioState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userRole - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
+         * @param userRole The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
          * 
          * @return builder
          * 

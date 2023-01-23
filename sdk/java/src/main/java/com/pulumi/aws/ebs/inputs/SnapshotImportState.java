@@ -66,14 +66,14 @@ public final class SnapshotImportState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The description of the disk image being imported.
+     * The description string for the import snapshot task.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the disk image being imported.
+     * @return The description string for the import snapshot task.
      * 
      */
     public Optional<Output<String>> description() {
@@ -379,7 +379,7 @@ public final class SnapshotImportState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description The description of the disk image being imported.
+         * @param description The description string for the import snapshot task.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class SnapshotImportState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description The description of the disk image being imported.
+         * @param description The description string for the import snapshot task.
          * 
          * @return builder
          * 

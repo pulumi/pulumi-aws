@@ -34,14 +34,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     }
 
     /**
-     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     @Import(name="idFieldNames")
     private @Nullable Output<List<String>> idFieldNames;
 
     /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     public Optional<Output<List<String>>> idFieldNames() {
@@ -49,14 +49,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     }
 
     /**
-     * Object path specified in the SAPOData flow source.
+     * Object path specified in the SAPOData flow destination.
      * 
      */
     @Import(name="objectPath", required=true)
     private Output<String> objectPath;
 
     /**
-     * @return Object path specified in the SAPOData flow source.
+     * @return Object path specified in the SAPOData flow destination.
      * 
      */
     public Output<String> objectPath() {
@@ -79,14 +79,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
     }
 
     /**
-     * This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     @Import(name="writeOperationType")
     private @Nullable Output<String> writeOperationType;
 
     /**
-     * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     public Optional<Output<String>> writeOperationType() {
@@ -143,7 +143,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param objectPath Object path specified in the SAPOData flow source.
+         * @param objectPath Object path specified in the SAPOData flow destination.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param objectPath Object path specified in the SAPOData flow source.
+         * @param objectPath Object path specified in the SAPOData flow destination.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param writeOperationType This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         * @param writeOperationType Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         }
 
         /**
-         * @param writeOperationType This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         * @param writeOperationType Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
          * 
          * @return builder
          * 

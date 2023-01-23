@@ -62,14 +62,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     }
 
     /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> destination;
 
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> destination() {
@@ -112,14 +112,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     }
 
     /**
-     * Specifies behavior of last resort when input video os lost.
+     * Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     @Import(name="inputLossAction")
     private @Nullable Output<String> inputLossAction;
 
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     public Optional<Output<String>> inputLossAction() {
@@ -301,7 +301,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         }
 
         /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
+         * @param destination A director and base filename where archive files should be written. See Destination for more details.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         }
 
         /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
+         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         }
 
         /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
+         * @param inputLossAction Controls the behavior of the RTMP group if input becomes unavailable.
          * 
          * @return builder
          * 

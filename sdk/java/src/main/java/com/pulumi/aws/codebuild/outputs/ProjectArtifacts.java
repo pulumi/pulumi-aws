@@ -28,7 +28,7 @@ public final class ProjectArtifacts {
      */
     private @Nullable Boolean encryptionDisabled;
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     private @Nullable String location;
@@ -38,7 +38,7 @@ public final class ProjectArtifacts {
      */
     private @Nullable String name;
     /**
-     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
      * 
      */
     private @Nullable String namespaceType;
@@ -58,7 +58,7 @@ public final class ProjectArtifacts {
      */
     private @Nullable String path;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     private String type;
@@ -86,7 +86,7 @@ public final class ProjectArtifacts {
         return Optional.ofNullable(this.encryptionDisabled);
     }
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     public Optional<String> location() {
@@ -100,7 +100,7 @@ public final class ProjectArtifacts {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
      * 
      */
     public Optional<String> namespaceType() {
@@ -128,7 +128,7 @@ public final class ProjectArtifacts {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     public String type() {

@@ -33,14 +33,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * S3 object prefix.
+     * Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     @Import(name="bucketFolder")
     private @Nullable Output<String> bucketFolder;
 
     /**
-     * @return S3 object prefix.
+     * @return Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
     public Optional<Output<String>> bucketFolder() {
@@ -48,14 +48,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * S3 bucket name.
+     * Custom S3 Bucket name for intermediate storage.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return S3 bucket name.
+     * @return Custom S3 Bucket name for intermediate storage.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -348,14 +348,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
     /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+     * @return The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
     public Optional<Output<String>> encryptionMode() {
@@ -438,14 +438,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+     * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
      * 
      */
     @Import(name="parquetTimestampInMillisecond")
     private @Nullable Output<Boolean> parquetTimestampInMillisecond;
 
     /**
-     * @return - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+     * @return Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> parquetTimestampInMillisecond() {
@@ -513,14 +513,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
     /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
      * 
      */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
@@ -528,14 +528,14 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * ARN of the IAM Role with permissions to write to the OpenSearch cluster.
      * 
      */
     @Import(name="serviceAccessRoleArn")
     private @Nullable Output<String> serviceAccessRoleArn;
 
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
      * 
      */
     public Optional<Output<String>> serviceAccessRoleArn() {
@@ -674,7 +674,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketFolder S3 object prefix.
+         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketFolder S3 object prefix.
+         * @param bucketFolder Custom S3 Bucket Object prefix for intermediate storage.
          * 
          * @return builder
          * 
@@ -695,7 +695,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketName S3 bucket name.
+         * @param bucketName Custom S3 Bucket name for intermediate storage.
          * 
          * @return builder
          * 
@@ -706,7 +706,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param bucketName S3 bucket name.
+         * @param bucketName Custom S3 Bucket name for intermediate storage.
          * 
          * @return builder
          * 
@@ -1115,7 +1115,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -1126,7 +1126,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+         * @param encryptionMode The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
          * 
          * @return builder
          * 
@@ -1241,7 +1241,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parquetTimestampInMillisecond - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+         * @param parquetTimestampInMillisecond Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
          * 
          * @return builder
          * 
@@ -1252,7 +1252,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parquetTimestampInMillisecond - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+         * @param parquetTimestampInMillisecond Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
          * 
          * @return builder
          * 
@@ -1346,7 +1346,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
          * 
          * @return builder
          * 
@@ -1357,7 +1357,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
          * 
          * @return builder
          * 
@@ -1367,7 +1367,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to write to the OpenSearch cluster.
          * 
          * @return builder
          * 
@@ -1378,7 +1378,7 @@ public final class EndpointS3SettingsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to write to the OpenSearch cluster.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
      */
     private String uri;
     /**
-     * @return . Username to be used.
+     * @return Username for destination.
      * 
      */
     private @Nullable String username;
@@ -43,7 +43,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
         return this.uri;
     }
     /**
-     * @return . Username to be used.
+     * @return Username for destination.
      * 
      */
     public Optional<String> username() {

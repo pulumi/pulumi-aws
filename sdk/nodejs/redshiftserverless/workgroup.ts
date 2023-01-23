@@ -78,6 +78,9 @@ export class Workgroup extends pulumi.CustomResource {
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the namespace.
+     */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
@@ -185,6 +188,9 @@ export interface WorkgroupState {
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
+    /**
+     * The name of the namespace.
+     */
     namespaceName?: pulumi.Input<string>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
@@ -232,6 +238,9 @@ export interface WorkgroupArgs {
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      */
     enhancedVpcRouting?: pulumi.Input<boolean>;
+    /**
+     * The name of the namespace.
+     */
     namespaceName: pulumi.Input<string>;
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.

@@ -14,7 +14,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionTrustedSigner
     {
         /// <summary>
-        /// A flag that specifies whether Origin Shield is enabled.
+        /// Whether the distribution is enabled to accept end
+        /// user requests for content.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

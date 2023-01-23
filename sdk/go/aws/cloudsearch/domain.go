@@ -86,7 +86,7 @@ type Domain struct {
 	IndexFields DomainIndexFieldArrayOutput `pulumi:"indexFields"`
 	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
-	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	// The name of the CloudSearch domain.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Domain scaling parameters. Documented below.
 	ScalingParameters DomainScalingParametersOutput `pulumi:"scalingParameters"`
@@ -135,7 +135,7 @@ type domainState struct {
 	IndexFields []DomainIndexField `pulumi:"indexFields"`
 	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
 	MultiAz *bool `pulumi:"multiAz"`
-	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	// The name of the CloudSearch domain.
 	Name *string `pulumi:"name"`
 	// Domain scaling parameters. Documented below.
 	ScalingParameters *DomainScalingParameters `pulumi:"scalingParameters"`
@@ -156,7 +156,7 @@ type DomainState struct {
 	IndexFields DomainIndexFieldArrayInput
 	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
 	MultiAz pulumi.BoolPtrInput
-	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	// The name of the CloudSearch domain.
 	Name pulumi.StringPtrInput
 	// Domain scaling parameters. Documented below.
 	ScalingParameters DomainScalingParametersPtrInput
@@ -175,7 +175,7 @@ type domainArgs struct {
 	IndexFields []DomainIndexField `pulumi:"indexFields"`
 	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
 	MultiAz *bool `pulumi:"multiAz"`
-	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	// The name of the CloudSearch domain.
 	Name *string `pulumi:"name"`
 	// Domain scaling parameters. Documented below.
 	ScalingParameters *DomainScalingParameters `pulumi:"scalingParameters"`
@@ -189,7 +189,7 @@ type DomainArgs struct {
 	IndexFields DomainIndexFieldArrayInput
 	// Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
 	MultiAz pulumi.BoolPtrInput
-	// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+	// The name of the CloudSearch domain.
 	Name pulumi.StringPtrInput
 	// Domain scaling parameters. Documented below.
 	ScalingParameters DomainScalingParametersPtrInput
@@ -312,7 +312,7 @@ func (o DomainOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Domain) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
 }
 
-// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+// The name of the CloudSearch domain.
 func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

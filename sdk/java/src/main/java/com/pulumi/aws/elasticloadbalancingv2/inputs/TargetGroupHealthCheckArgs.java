@@ -18,14 +18,14 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     public static final TargetGroupHealthCheckArgs Empty = new TargetGroupHealthCheckArgs();
 
     /**
-     * Boolean to enable / disable `stickiness`. Default is `true`.
+     * Whether health checks are enabled. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Boolean to enable / disable `stickiness`. Default is `true`.
+     * @return Whether health checks are enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -185,7 +185,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Boolean to enable / disable `stickiness`. Default is `true`.
+         * @param enabled Whether health checks are enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enabled Boolean to enable / disable `stickiness`. Default is `true`.
+         * @param enabled Whether health checks are enabled. Defaults to `true`.
          * 
          * @return builder
          * 

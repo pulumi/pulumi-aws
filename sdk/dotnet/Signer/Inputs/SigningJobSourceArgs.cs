@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Signer.Inputs
     public sealed class SigningJobSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        /// A configuration block describing the S3 Source object: See S3 Source below for details.
         /// </summary>
         [Input("s3", required: true)]
         public Input<Inputs.SigningJobSourceS3Args> S3 { get; set; } = null!;

@@ -17,7 +17,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private String oauth2GrantType;
     /**
-     * @return The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+     * @return The token URL required for OAuth 2.0 authentication.
      * 
      */
     private String tokenUrl;
@@ -36,7 +36,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return this.oauth2GrantType;
     }
     /**
-     * @return The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+     * @return The token URL required for OAuth 2.0 authentication.
      * 
      */
     public String tokenUrl() {

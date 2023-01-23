@@ -93,7 +93,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     public readonly recordSizeKib!: pulumi.Output<number | undefined>;
     /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */
     public readonly storageCapacityQuotaGib!: pulumi.Output<number>;
     /**
@@ -109,7 +109,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      */
     public readonly userAndGroupQuotas!: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
@@ -209,7 +209,7 @@ export interface OpenZfsVolumeState {
      */
     recordSizeKib?: pulumi.Input<number>;
     /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */
     storageCapacityQuotaGib?: pulumi.Input<number>;
     /**
@@ -225,7 +225,7 @@ export interface OpenZfsVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;
@@ -268,7 +268,7 @@ export interface OpenZfsVolumeArgs {
      */
     recordSizeKib?: pulumi.Input<number>;
     /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      */
     storageCapacityQuotaGib?: pulumi.Input<number>;
     /**
@@ -280,7 +280,7 @@ export interface OpenZfsVolumeArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;

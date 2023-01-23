@@ -69,7 +69,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the parameter.
+        /// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The name of the parameter.
+        /// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the parameter.
+        /// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

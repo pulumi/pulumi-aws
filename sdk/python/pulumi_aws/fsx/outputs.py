@@ -186,7 +186,7 @@ class FileCacheDataRepositoryAssociation(dict):
         :param str file_cache_path: A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
         :param Sequence[str] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
         :param str file_cache_id: The system-generated, unique ID of the cache.
-        :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: - (Optional) See the `nfs` configuration block.
+        :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: (Optional) See the `nfs` configuration block.
         :param Mapping[str, str] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
@@ -266,7 +266,7 @@ class FileCacheDataRepositoryAssociation(dict):
     @pulumi.getter
     def nfs(self) -> Optional[Sequence['outputs.FileCacheDataRepositoryAssociationNf']]:
         """
-        - (Optional) See the `nfs` configuration block.
+        (Optional) See the `nfs` configuration block.
         """
         return pulumi.get(self, "nfs")
 
@@ -307,8 +307,8 @@ class FileCacheDataRepositoryAssociationNf(dict):
                  version: str,
                  dns_ips: Optional[Sequence[str]] = None):
         """
-        :param str version: - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
-        :param Sequence[str] dns_ips: - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        :param str version: The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        :param Sequence[str] dns_ips: A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
         """
         pulumi.set(__self__, "version", version)
         if dns_ips is not None:
@@ -318,7 +318,7 @@ class FileCacheDataRepositoryAssociationNf(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        - The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
         """
         return pulumi.get(self, "version")
 
@@ -326,7 +326,7 @@ class FileCacheDataRepositoryAssociationNf(dict):
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Optional[Sequence[str]]:
         """
-        - A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
         """
         return pulumi.get(self, "dns_ips")
 
@@ -469,7 +469,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     def __init__(__self__, *,
                  storage_capacity: int):
         """
-        :param int storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        :param int storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         """
         pulumi.set(__self__, "storage_capacity", storage_capacity)
 
@@ -477,7 +477,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> int:
         """
-        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -519,8 +519,8 @@ class OntapFileSystemDiskIopsConfiguration(dict):
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
         """
-        :param int iops: - The total number of SSD IOPS provisioned for the file system.
-        :param str mode: - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        :param int iops: The total number of SSD IOPS provisioned for the file system.
+        :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
@@ -531,7 +531,7 @@ class OntapFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         """
-        - The total number of SSD IOPS provisioned for the file system.
+        The total number of SSD IOPS provisioned for the file system.
         """
         return pulumi.get(self, "iops")
 
@@ -539,7 +539,7 @@ class OntapFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         return pulumi.get(self, "mode")
 
@@ -1124,8 +1124,8 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
         """
-        :param int iops: - The total number of SSD IOPS provisioned for the file system.
-        :param str mode: - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        :param int iops: The total number of SSD IOPS provisioned for the file system.
+        :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
@@ -1136,7 +1136,7 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         """
-        - The total number of SSD IOPS provisioned for the file system.
+        The total number of SSD IOPS provisioned for the file system.
         """
         return pulumi.get(self, "iops")
 
@@ -1144,7 +1144,7 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         return pulumi.get(self, "mode")
 
@@ -1186,12 +1186,12 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
                  record_size_kib: Optional[int] = None,
                  user_and_group_quotas: Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']] = None):
         """
-        :param bool copy_tags_to_snapshots: - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-        :param str data_compression_type: - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
-        :param bool read_only: - specifies whether the volume is read-only. Default is false.
-        :param int record_size_kib: - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        :param bool copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param str data_compression_type: Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param bool read_only: specifies whether the volume is read-only. Default is false.
+        :param int record_size_kib: Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         if copy_tags_to_snapshots is not None:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
@@ -1210,7 +1210,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="copyTagsToSnapshots")
     def copy_tags_to_snapshots(self) -> Optional[bool]:
         """
-        - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         """
         return pulumi.get(self, "copy_tags_to_snapshots")
 
@@ -1218,7 +1218,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> Optional[str]:
         """
-        - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         """
         return pulumi.get(self, "data_compression_type")
 
@@ -1226,7 +1226,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="nfsExports")
     def nfs_exports(self) -> Optional['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports']:
         """
-        - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         """
         return pulumi.get(self, "nfs_exports")
 
@@ -1234,7 +1234,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[bool]:
         """
-        - specifies whether the volume is read-only. Default is false.
+        specifies whether the volume is read-only. Default is false.
         """
         return pulumi.get(self, "read_only")
 
@@ -1242,7 +1242,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="recordSizeKib")
     def record_size_kib(self) -> Optional[int]:
         """
-        - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
         """
         return pulumi.get(self, "record_size_kib")
 
@@ -1250,7 +1250,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']]:
         """
-        - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         return pulumi.get(self, "user_and_group_quotas")
 
@@ -1277,7 +1277,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']):
         """
-        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -1285,7 +1285,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']:
         """
-        - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         return pulumi.get(self, "client_configurations")
 
@@ -1296,8 +1296,8 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
                  clients: str,
                  options: Sequence[str]):
         """
-        :param str clients: - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-        :param Sequence[str] options: -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        :param str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param Sequence[str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
@@ -1306,7 +1306,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
     @pulumi.getter
     def clients(self) -> str:
         """
-        - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
         """
         return pulumi.get(self, "clients")
 
@@ -1314,7 +1314,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
     @pulumi.getter
     def options(self) -> Sequence[str]:
         """
-        -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         return pulumi.get(self, "options")
 
@@ -1343,9 +1343,9 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
                  storage_capacity_quota_gib: int,
                  type: str):
         """
-        :param int id: - The ID of the user or group. Valid values between `0` and `2147483647`
-        :param int storage_capacity_quota_gib: - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-        :param str type: - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        :param int id: The ID of the user or group. Valid values between `0` and `2147483647`
+        :param int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        :param str type: A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
@@ -1355,7 +1355,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @pulumi.getter
     def id(self) -> int:
         """
-        - The ID of the user or group. Valid values between `0` and `2147483647`
+        The ID of the user or group. Valid values between `0` and `2147483647`
         """
         return pulumi.get(self, "id")
 
@@ -1363,7 +1363,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> int:
         """
-        - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
@@ -1371,7 +1371,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         return pulumi.get(self, "type")
 
@@ -1398,7 +1398,7 @@ class OpenZfsVolumeNfsExports(dict):
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']):
         """
-        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -1406,7 +1406,7 @@ class OpenZfsVolumeNfsExports(dict):
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']:
         """
-        - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         return pulumi.get(self, "client_configurations")
 
@@ -1417,8 +1417,8 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
                  clients: str,
                  options: Sequence[str]):
         """
-        :param str clients: - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-        :param Sequence[str] options: -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        :param str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param Sequence[str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
@@ -1427,7 +1427,7 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
     @pulumi.getter
     def clients(self) -> str:
         """
-        - A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
         """
         return pulumi.get(self, "clients")
 
@@ -1435,7 +1435,7 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
     @pulumi.getter
     def options(self) -> Sequence[str]:
         """
-        -  The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         return pulumi.get(self, "options")
 
@@ -1502,8 +1502,8 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
                  storage_capacity_quota_gib: int,
                  type: str):
         """
-        :param int id: - The ID of the user or group. Valid values between `0` and `2147483647`
-        :param int storage_capacity_quota_gib: - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        :param int id: The ID of the user or group. Valid values between `0` and `2147483647`
+        :param int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
@@ -1513,7 +1513,7 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
     @pulumi.getter
     def id(self) -> int:
         """
-        - The ID of the user or group. Valid values between `0` and `2147483647`
+        The ID of the user or group. Valid values between `0` and `2147483647`
         """
         return pulumi.get(self, "id")
 
@@ -1521,7 +1521,7 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> int:
         """
-        - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         """
         return pulumi.get(self, "storage_capacity_quota_gib")
 

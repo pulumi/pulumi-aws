@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Name of the Amazon S3 bucket.
      * 
      */
     private @Nullable String bucketName;
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Amazon S3 bucket prefix.
      * 
      */
     private @Nullable String bucketPrefix;
@@ -30,14 +30,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesEventB
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig() {}
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Name of the Amazon S3 bucket.
      * 
      */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Amazon S3 bucket prefix.
      * 
      */
     public Optional<String> bucketPrefix() {

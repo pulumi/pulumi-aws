@@ -29,13 +29,13 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
      */
     private @Nullable String bitstreamMode;
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     private @Nullable String codingMode;
     private @Nullable String dcFilter;
     /**
-     * @return Sets the dialnorm for the output.
+     * @return Sets the dialnorm of the output.
      * 
      */
     private @Nullable Integer dialnorm;
@@ -93,7 +93,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.bitstreamMode);
     }
     /**
-     * @return Dolby Digital Plus coding mode.
+     * @return Mono, Stereo, or 5.1 channel layout.
      * 
      */
     public Optional<String> codingMode() {
@@ -103,7 +103,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
         return Optional.ofNullable(this.dcFilter);
     }
     /**
-     * @return Sets the dialnorm for the output.
+     * @return Sets the dialnorm of the output.
      * 
      */
     public Optional<Integer> dialnorm() {

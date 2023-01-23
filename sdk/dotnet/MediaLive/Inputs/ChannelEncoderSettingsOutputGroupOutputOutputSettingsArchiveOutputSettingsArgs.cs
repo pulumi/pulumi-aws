@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// UDP container settings. See Container Settings for more details.
+        /// Settings specific to the container type of the file. See Container Settings for more details.
         /// </summary>
         [Input("containerSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs>? ContainerSettings { get; set; }

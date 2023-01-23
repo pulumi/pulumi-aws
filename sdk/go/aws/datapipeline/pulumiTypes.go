@@ -13,7 +13,7 @@ import (
 type PipelineDefinitionParameterObject struct {
 	// Configuration block for attributes of the parameter object. See below
 	Attributes []PipelineDefinitionParameterObjectAttribute `pulumi:"attributes"`
-	// ID of the parameter value.
+	// ID of the parameter object.
 	Id string `pulumi:"id"`
 }
 
@@ -31,7 +31,7 @@ type PipelineDefinitionParameterObjectInput interface {
 type PipelineDefinitionParameterObjectArgs struct {
 	// Configuration block for attributes of the parameter object. See below
 	Attributes PipelineDefinitionParameterObjectAttributeArrayInput `pulumi:"attributes"`
-	// ID of the parameter value.
+	// ID of the parameter object.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -93,7 +93,7 @@ func (o PipelineDefinitionParameterObjectOutput) Attributes() PipelineDefinition
 	}).(PipelineDefinitionParameterObjectAttributeArrayOutput)
 }
 
-// ID of the parameter value.
+// ID of the parameter object.
 func (o PipelineDefinitionParameterObjectOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDefinitionParameterObject) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -333,7 +333,7 @@ func (o PipelineDefinitionParameterValueArrayOutput) Index(i pulumi.IntInput) Pi
 type PipelineDefinitionPipelineObject struct {
 	// Configuration block for Key-value pairs that define the properties of the object. See below
 	Fields []PipelineDefinitionPipelineObjectField `pulumi:"fields"`
-	// ID of the parameter value.
+	// ID of the object.
 	Id string `pulumi:"id"`
 	// ARN of the storage connector.
 	Name string `pulumi:"name"`
@@ -353,7 +353,7 @@ type PipelineDefinitionPipelineObjectInput interface {
 type PipelineDefinitionPipelineObjectArgs struct {
 	// Configuration block for Key-value pairs that define the properties of the object. See below
 	Fields PipelineDefinitionPipelineObjectFieldArrayInput `pulumi:"fields"`
-	// ID of the parameter value.
+	// ID of the object.
 	Id pulumi.StringInput `pulumi:"id"`
 	// ARN of the storage connector.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -415,7 +415,7 @@ func (o PipelineDefinitionPipelineObjectOutput) Fields() PipelineDefinitionPipel
 	return o.ApplyT(func(v PipelineDefinitionPipelineObject) []PipelineDefinitionPipelineObjectField { return v.Fields }).(PipelineDefinitionPipelineObjectFieldArrayOutput)
 }
 
-// ID of the parameter value.
+// ID of the object.
 func (o PipelineDefinitionPipelineObjectOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineDefinitionPipelineObject) string { return v.Id }).(pulumi.StringOutput)
 }

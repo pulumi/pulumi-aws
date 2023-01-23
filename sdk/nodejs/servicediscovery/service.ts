@@ -126,7 +126,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the namespace to use for DNS configuration.
+     * The ID of the namespace that you want to use to create the service.
      */
     public readonly namespaceId!: pulumi.Output<string>;
     /**
@@ -137,6 +137,10 @@ export class Service extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+     */
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -161,6 +165,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -171,6 +176,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -212,7 +218,7 @@ export interface ServiceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the namespace to use for DNS configuration.
+     * The ID of the namespace that you want to use to create the service.
      */
     namespaceId?: pulumi.Input<string>;
     /**
@@ -223,6 +229,10 @@ export interface ServiceState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+     */
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -254,11 +264,15 @@ export interface ServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the namespace to use for DNS configuration.
+     * The ID of the namespace that you want to use to create the service.
      */
     namespaceId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+     */
+    type?: pulumi.Input<string>;
 }

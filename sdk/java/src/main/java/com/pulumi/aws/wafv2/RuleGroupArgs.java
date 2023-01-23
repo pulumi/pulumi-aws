@@ -67,14 +67,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The label string.
+     * A friendly name of the rule group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The label string.
+     * @return A friendly name of the rule group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -246,7 +246,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The label string.
+         * @param name A friendly name of the rule group.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The label string.
+         * @param name A friendly name of the rule group.
          * 
          * @return builder
          * 

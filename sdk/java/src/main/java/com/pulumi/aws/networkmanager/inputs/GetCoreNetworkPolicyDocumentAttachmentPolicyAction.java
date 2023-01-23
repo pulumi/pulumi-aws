@@ -46,14 +46,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
     }
 
     /**
-     * Name of the segment.
+     * Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
      * 
      */
     @Import(name="segment")
     private @Nullable String segment;
 
     /**
-     * @return Name of the segment.
+     * @return Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
      * 
      */
     public Optional<String> segment() {
@@ -125,7 +125,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
         }
 
         /**
-         * @param segment Name of the segment.
+         * @param segment Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
          * 
          * @return builder
          * 

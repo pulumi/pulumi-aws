@@ -288,14 +288,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+     * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      * 
      */
     @Import(name="launchTemplate")
     private @Nullable Output<GroupLaunchTemplateArgs> launchTemplate;
 
     /**
-     * @return Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+     * @return Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      * 
      */
     public Optional<Output<GroupLaunchTemplateArgs>> launchTemplate() {
@@ -386,14 +386,16 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * Minimum size of the Auto Scaling Group.
+     * (See also Waiting for Capacity below.)
      * 
      */
     @Import(name="minSize")
     private @Nullable Output<Integer> minSize;
 
     /**
-     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+     * @return Minimum size of the Auto Scaling Group.
+     * (See also Waiting for Capacity below.)
      * 
      */
     public Optional<Output<Integer>> minSize() {
@@ -1113,7 +1115,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+         * @param launchTemplate Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
          * 
          * @return builder
          * 
@@ -1124,7 +1126,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+         * @param launchTemplate Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
          * 
          * @return builder
          * 
@@ -1278,7 +1280,8 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+         * @param minSize Minimum size of the Auto Scaling Group.
+         * (See also Waiting for Capacity below.)
          * 
          * @return builder
          * 
@@ -1289,7 +1292,8 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minSize Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
+         * @param minSize Minimum size of the Auto Scaling Group.
+         * (See also Waiting for Capacity below.)
          * 
          * @return builder
          * 

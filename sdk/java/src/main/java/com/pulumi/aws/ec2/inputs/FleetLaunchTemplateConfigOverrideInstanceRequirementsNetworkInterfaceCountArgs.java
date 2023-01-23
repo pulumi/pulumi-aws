@@ -16,14 +16,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs();
 
     /**
-     * Maximum.
+     * Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
     /**
-     * @return Maximum.
+     * @return Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
     public Optional<Output<Integer>> max() {
@@ -71,7 +71,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
         }
 
         /**
-         * @param max Maximum.
+         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
          * 
          * @return builder
          * 

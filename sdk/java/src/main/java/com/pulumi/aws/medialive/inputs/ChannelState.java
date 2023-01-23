@@ -176,14 +176,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the video description.
+     * Name of the Channel.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the video description.
+     * @return Name of the Channel.
      * 
      */
     public Optional<Output<String>> name() {
@@ -527,7 +527,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Name of the Channel.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Name of the Channel.
          * 
          * @return builder
          * 

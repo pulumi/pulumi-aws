@@ -82,7 +82,7 @@ export class Product extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+     * Description of the product.
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -94,7 +94,7 @@ export class Product extends pulumi.CustomResource {
      */
     public /*out*/ readonly hasDefaultPath!: pulumi.Output<boolean>;
     /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+     * Name of the product.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class Product extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -213,7 +213,7 @@ export interface ProductState {
      */
     createdTime?: pulumi.Input<string>;
     /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+     * Description of the product.
      */
     description?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface ProductState {
      */
     hasDefaultPath?: pulumi.Input<boolean>;
     /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+     * Name of the product.
      */
     name?: pulumi.Input<string>;
     /**
@@ -261,7 +261,7 @@ export interface ProductState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -275,7 +275,7 @@ export interface ProductArgs {
      */
     acceptLanguage?: pulumi.Input<string>;
     /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+     * Description of the product.
      */
     description?: pulumi.Input<string>;
     /**
@@ -283,7 +283,7 @@ export interface ProductArgs {
      */
     distributor?: pulumi.Input<string>;
     /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+     * Name of the product.
      */
     name?: pulumi.Input<string>;
     /**
@@ -311,7 +311,7 @@ export interface ProductArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+     * Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
      */
     type: pulumi.Input<string>;
 }

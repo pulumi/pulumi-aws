@@ -126,14 +126,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the namespace to use for DNS configuration.
+     * The ID of the namespace that you want to use to create the service.
      * 
      */
     @Import(name="namespaceId")
     private @Nullable Output<String> namespaceId;
 
     /**
-     * @return The ID of the namespace to use for DNS configuration.
+     * @return The ID of the namespace that you want to use to create the service.
      * 
      */
     public Optional<Output<String>> namespaceId() {
@@ -170,6 +170,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+     * 
+     */
+    @Import(name="type")
+    private @Nullable Output<String> type;
+
+    /**
+     * @return If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+     * 
+     */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
     private ServiceState() {}
 
     private ServiceState(ServiceState $) {
@@ -183,6 +198,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.namespaceId = $.namespaceId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -351,7 +367,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId The ID of the namespace to use for DNS configuration.
+         * @param namespaceId The ID of the namespace that you want to use to create the service.
          * 
          * @return builder
          * 
@@ -362,7 +378,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId The ID of the namespace to use for DNS configuration.
+         * @param namespaceId The ID of the namespace that you want to use to create the service.
          * 
          * @return builder
          * 
@@ -411,6 +427,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param type If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(@Nullable Output<String> type) {
+            $.type = type;
+            return this;
+        }
+
+        /**
+         * @param type If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(String type) {
+            return type(Output.of(type));
         }
 
         public ServiceState build() {

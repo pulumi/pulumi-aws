@@ -112,14 +112,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+     * @return The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -539,7 +539,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deploymentType - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+         * @param deploymentType The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deploymentType - The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
+         * @param deploymentType The filesystem deployment type. Only `SINGLE_AZ_1` is supported.
          * 
          * @return builder
          * 

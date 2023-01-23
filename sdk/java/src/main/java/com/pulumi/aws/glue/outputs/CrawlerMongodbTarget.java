@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerMongodbTarget {
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
      * 
      */
     private String connectionName;
@@ -30,7 +30,7 @@ public final class CrawlerMongodbTarget {
 
     private CrawlerMongodbTarget() {}
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
      * 
      */
     public String connectionName() {

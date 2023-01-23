@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly string? MessageBody;
         /// <summary>
-        /// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        /// HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
         /// </summary>
         public readonly string? StatusCode;
 

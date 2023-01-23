@@ -20,7 +20,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
      */
     private @Nullable Map<String,String> amiTags;
     /**
-     * @return Description of the container distribution configuration.
+     * @return Description to apply to the distributed AMI.
      * 
      */
     private @Nullable String description;
@@ -54,7 +54,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         return this.amiTags == null ? Map.of() : this.amiTags;
     }
     /**
-     * @return Description of the container distribution configuration.
+     * @return Description to apply to the distributed AMI.
      * 
      */
     public Optional<String> description() {

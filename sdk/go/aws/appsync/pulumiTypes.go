@@ -12,7 +12,7 @@ import (
 
 type DataSourceDynamodbConfig struct {
 	DeltaSyncConfig *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
-	// AWS Region for RDS HTTP endpoint. Defaults to current region.
+	// AWS region of the DynamoDB table. Defaults to current region.
 	Region *string `pulumi:"region"`
 	// Name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
@@ -34,7 +34,7 @@ type DataSourceDynamodbConfigInput interface {
 
 type DataSourceDynamodbConfigArgs struct {
 	DeltaSyncConfig DataSourceDynamodbConfigDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
-	// AWS Region for RDS HTTP endpoint. Defaults to current region.
+	// AWS region of the DynamoDB table. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
@@ -124,7 +124,7 @@ func (o DataSourceDynamodbConfigOutput) DeltaSyncConfig() DataSourceDynamodbConf
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig { return v.DeltaSyncConfig }).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
-// AWS Region for RDS HTTP endpoint. Defaults to current region.
+// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceDynamodbConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -176,7 +176,7 @@ func (o DataSourceDynamodbConfigPtrOutput) DeltaSyncConfig() DataSourceDynamodbC
 	}).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
-// AWS Region for RDS HTTP endpoint. Defaults to current region.
+// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceDynamodbConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *string {
 		if v == nil {
@@ -379,9 +379,9 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pu
 }
 
 type DataSourceElasticsearchConfig struct {
-	// HTTP URL.
+	// HTTP endpoint of the Elasticsearch domain.
 	Endpoint string `pulumi:"endpoint"`
-	// AWS Region for RDS HTTP endpoint. Defaults to current region.
+	// AWS region of Elasticsearch domain. Defaults to current region.
 	Region *string `pulumi:"region"`
 }
 
@@ -397,9 +397,9 @@ type DataSourceElasticsearchConfigInput interface {
 }
 
 type DataSourceElasticsearchConfigArgs struct {
-	// HTTP URL.
+	// HTTP endpoint of the Elasticsearch domain.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// AWS Region for RDS HTTP endpoint. Defaults to current region.
+	// AWS region of Elasticsearch domain. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -480,12 +480,12 @@ func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigPtrO
 	}).(DataSourceElasticsearchConfigPtrOutput)
 }
 
-// HTTP URL.
+// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceElasticsearchConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceElasticsearchConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// AWS Region for RDS HTTP endpoint. Defaults to current region.
+// AWS region of Elasticsearch domain. Defaults to current region.
 func (o DataSourceElasticsearchConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceElasticsearchConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -514,7 +514,7 @@ func (o DataSourceElasticsearchConfigPtrOutput) Elem() DataSourceElasticsearchCo
 	}).(DataSourceElasticsearchConfigOutput)
 }
 
-// HTTP URL.
+// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceElasticsearchConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceElasticsearchConfig) *string {
 		if v == nil {
@@ -524,7 +524,7 @@ func (o DataSourceElasticsearchConfigPtrOutput) Endpoint() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS Region for RDS HTTP endpoint. Defaults to current region.
+// AWS region of Elasticsearch domain. Defaults to current region.
 func (o DataSourceElasticsearchConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceElasticsearchConfig) *string {
 		if v == nil {

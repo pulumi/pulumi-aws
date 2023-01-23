@@ -28,7 +28,7 @@ public final class EndpointElasticsearchSettings {
      */
     private @Nullable Integer fullLoadErrorPercentage;
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
      * 
      */
     private String serviceAccessRoleArn;
@@ -56,7 +56,7 @@ public final class EndpointElasticsearchSettings {
         return Optional.ofNullable(this.fullLoadErrorPercentage);
     }
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the OpenSearch cluster.
      * 
      */
     public String serviceAccessRoleArn() {

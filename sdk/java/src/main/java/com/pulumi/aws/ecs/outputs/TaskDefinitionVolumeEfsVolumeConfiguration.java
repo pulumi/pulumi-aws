@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TaskDefinitionVolumeEfsVolumeConfiguration {
     /**
-     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+     * @return Configuration block for authorization for the Amazon EFS file system. Detailed below.
      * 
      */
     private @Nullable TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig authorizationConfig;
     /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
+     * @return ID of the EFS File System.
      * 
      */
     private String fileSystemId;
     /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
      * 
      */
     private @Nullable String rootDirectory;
@@ -41,21 +41,21 @@ public final class TaskDefinitionVolumeEfsVolumeConfiguration {
 
     private TaskDefinitionVolumeEfsVolumeConfiguration() {}
     /**
-     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+     * @return Configuration block for authorization for the Amazon EFS file system. Detailed below.
      * 
      */
     public Optional<TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfig() {
         return Optional.ofNullable(this.authorizationConfig);
     }
     /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
+     * @return ID of the EFS File System.
      * 
      */
     public String fileSystemId() {
         return this.fileSystemId;
     }
     /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
      * 
      */
     public Optional<String> rootDirectory() {

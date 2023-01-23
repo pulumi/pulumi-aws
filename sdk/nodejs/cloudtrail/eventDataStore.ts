@@ -112,7 +112,7 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public readonly multiRegionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the advanced event selector.
+     * The name of the event data store.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -192,7 +192,7 @@ export interface EventDataStoreState {
      */
     multiRegionEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the advanced event selector.
+     * The name of the event data store.
      */
     name?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface EventDataStoreArgs {
      */
     multiRegionEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the advanced event selector.
+     * The name of the event data store.
      */
     name?: pulumi.Input<string>;
     /**

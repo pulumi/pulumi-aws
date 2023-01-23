@@ -14,15 +14,15 @@ namespace Pulumi.Aws.IdentityStore.Outputs
     public sealed class UserEmails
     {
         /// <summary>
-        /// When `true`, this is the primary phone number associated with the user.
+        /// When `true`, this is the primary email associated with the user.
         /// </summary>
         public readonly bool? Primary;
         /// <summary>
-        /// The type of phone number.
+        /// The type of email.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The user's phone number.
+        /// The email address. This value must be unique across the identity store.
         /// </summary>
         public readonly string? Value;
 

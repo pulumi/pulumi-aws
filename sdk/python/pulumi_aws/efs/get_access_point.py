@@ -104,6 +104,9 @@ class GetAccessPointResult:
     @property
     @pulumi.getter(name="rootDirectories")
     def root_directories(self) -> Sequence['outputs.GetAccessPointRootDirectoryResult']:
+        """
+        Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+        """
         return pulumi.get(self, "root_directories")
 
     @property

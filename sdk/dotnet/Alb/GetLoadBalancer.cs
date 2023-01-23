@@ -162,6 +162,7 @@ namespace Pulumi.Aws.Alb
         public readonly string DesyncMitigationMode;
         public readonly string DnsName;
         public readonly bool DropInvalidHeaderFields;
+        public readonly bool EnableCrossZoneLoadBalancing;
         public readonly bool EnableDeletionProtection;
         public readonly bool EnableHttp2;
         public readonly bool EnableWafFailOpen;
@@ -197,6 +198,8 @@ namespace Pulumi.Aws.Alb
             string dnsName,
 
             bool dropInvalidHeaderFields,
+
+            bool enableCrossZoneLoadBalancing,
 
             bool enableDeletionProtection,
 
@@ -237,6 +240,7 @@ namespace Pulumi.Aws.Alb
             DesyncMitigationMode = desyncMitigationMode;
             DnsName = dnsName;
             DropInvalidHeaderFields = dropInvalidHeaderFields;
+            EnableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             EnableDeletionProtection = enableDeletionProtection;
             EnableHttp2 = enableHttp2;
             EnableWafFailOpen = enableWafFailOpen;

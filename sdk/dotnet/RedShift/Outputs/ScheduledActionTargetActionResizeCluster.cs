@@ -18,7 +18,7 @@ namespace Pulumi.Aws.RedShift.Outputs
         /// </summary>
         public readonly bool? Classic;
         /// <summary>
-        /// The identifier of the cluster to be resumed.
+        /// The unique identifier for the cluster to resize.
         /// </summary>
         public readonly string ClusterIdentifier;
         /// <summary>

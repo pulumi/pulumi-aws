@@ -15,14 +15,14 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
     public static final RiskConfigurationAccountTakeoverRiskConfigurationArgs Empty = new RiskConfigurationAccountTakeoverRiskConfigurationArgs();
 
     /**
-     * The compromised credentials risk configuration actions. See details below.
+     * Account takeover risk configuration actions. See details below.
      * 
      */
     @Import(name="actions", required=true)
     private Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs> actions;
 
     /**
-     * @return The compromised credentials risk configuration actions. See details below.
+     * @return Account takeover risk configuration actions. See details below.
      * 
      */
     public Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs> actions() {
@@ -70,7 +70,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
         }
 
         /**
-         * @param actions The compromised credentials risk configuration actions. See details below.
+         * @param actions Account takeover risk configuration actions. See details below.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationArgs extends
         }
 
         /**
-         * @param actions The compromised credentials risk configuration actions. See details below.
+         * @param actions Account takeover risk configuration actions. See details below.
          * 
          * @return builder
          * 

@@ -62,14 +62,14 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+     * Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+     * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
      * 
      */
     public Output<String> type() {
@@ -193,7 +193,7 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+         * @param type Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+         * @param type Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
          * 
          * @return builder
          * 

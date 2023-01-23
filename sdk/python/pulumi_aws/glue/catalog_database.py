@@ -25,7 +25,7 @@ class CatalogDatabaseArgs:
                  target_database: Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']] = None):
         """
         The set of arguments for constructing a CatalogDatabase resource.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
@@ -52,7 +52,7 @@ class CatalogDatabaseArgs:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Data Catalog in which the database resides.
+        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -147,7 +147,7 @@ class _CatalogDatabaseState:
         """
         Input properties used for looking up and filtering CatalogDatabase resources.
         :param pulumi.Input[str] arn: ARN of the Glue Catalog Database.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
@@ -188,7 +188,7 @@ class _CatalogDatabaseState:
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Data Catalog in which the database resides.
+        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         """
         return pulumi.get(self, "catalog_id")
 
@@ -319,7 +319,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
@@ -433,7 +433,7 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Glue Catalog Database.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
+        :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
@@ -467,7 +467,7 @@ class CatalogDatabase(pulumi.CustomResource):
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[str]:
         """
-        ID of the Data Catalog in which the database resides.
+        ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         """
         return pulumi.get(self, "catalog_id")
 

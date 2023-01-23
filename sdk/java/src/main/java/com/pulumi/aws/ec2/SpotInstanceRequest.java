@@ -725,9 +725,6 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
      * of the Spot Instance Request.
-     * * `spot_request_state` The current [request
-     *   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-     *   of the Spot Instance Request.
      * 
      */
     @Export(name="spotBidStatus", refs={String.class}, tree="[0]")
@@ -737,9 +734,6 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      * @return The current [bid
      * status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
      * of the Spot Instance Request.
-     * * `spot_request_state` The current [request
-     *   state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-     *   of the Spot Instance Request.
      * 
      */
     public Output<String> spotBidStatus() {
@@ -775,9 +769,21 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     public Output<String> spotPrice() {
         return this.spotPrice;
     }
+    /**
+     * The current [request
+     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+     * of the Spot Instance Request.
+     * 
+     */
     @Export(name="spotRequestState", refs={String.class}, tree="[0]")
     private Output<String> spotRequestState;
 
+    /**
+     * @return The current [request
+     * state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+     * of the Spot Instance Request.
+     * 
+     */
     public Output<String> spotRequestState() {
         return this.spotRequestState;
     }

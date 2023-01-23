@@ -262,10 +262,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
      * 
      */
     @Import(name="protocols")
@@ -273,10 +269,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -329,14 +321,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
     public Optional<Output<String>> url() {
@@ -741,10 +733,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-         * * `AS2`: File transfer over Applicability Statement 2
-         * * `SFTP`: File transfer over SSH
-         * * `FTPS`: File transfer with TLS encryption
-         * * `FTP`: Unencrypted file transfer
          * 
          * @return builder
          * 
@@ -756,10 +744,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-         * * `AS2`: File transfer over Applicability Statement 2
-         * * `SFTP`: File transfer over SSH
-         * * `FTPS`: File transfer with TLS encryption
-         * * `FTP`: Unencrypted file transfer
          * 
          * @return builder
          * 
@@ -770,10 +754,6 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protocols Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-         * * `AS2`: File transfer over Applicability Statement 2
-         * * `SFTP`: File transfer over SSH
-         * * `FTPS`: File transfer with TLS encryption
-         * * `FTP`: Unencrypted file transfer
          * 
          * @return builder
          * 
@@ -846,7 +826,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+         * @param url URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
          * 
          * @return builder
          * 
@@ -857,7 +837,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+         * @param url URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
          * 
          * @return builder
          * 

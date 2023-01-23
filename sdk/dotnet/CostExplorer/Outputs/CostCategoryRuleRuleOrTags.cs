@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> MatchOptions;
         /// <summary>
-        /// Parameter values.
+        /// Specific value of the Cost Category.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

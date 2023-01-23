@@ -42,7 +42,7 @@ public final class EndpointConfigurationDataCaptureConfig {
      */
     private Integer initialSamplingPercentage;
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -84,7 +84,7 @@ public final class EndpointConfigurationDataCaptureConfig {
         return this.initialSamplingPercentage;
     }
     /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
      * 
      */
     public Optional<String> kmsKeyId() {

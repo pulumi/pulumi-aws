@@ -18,15 +18,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? AccountName;
         /// <summary>
-        /// The name of the Amazon S3 bucket associated with Snowflake.
+        /// A name for the associated Amazon S3 bucket.
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        /// The object key for the destination bucket in which Amazon AppFlow places the files.
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
-        /// The Snowflake Private Link service name to be used for private data transfers.
+        /// The SAPOData Private Link service name to be used for private data transfers.
         /// </summary>
         public readonly string? PrivateLinkServiceName;
         /// <summary>

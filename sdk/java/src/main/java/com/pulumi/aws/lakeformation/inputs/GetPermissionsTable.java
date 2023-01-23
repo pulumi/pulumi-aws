@@ -31,14 +31,14 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     @Import(name="databaseName", required=true)
     private String databaseName;
 
     /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * @return Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     public String databaseName() {
@@ -46,14 +46,14 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the table resource.
+     * Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the table resource.
+     * @return Name of the table. At least one of `name` or `wildcard` is required.
      * 
      */
     public String name() {
@@ -114,7 +114,7 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param databaseName Name of the database for the table with columns resource. Unique to the Data Catalog.
+         * @param databaseName Name of the database for the table. Unique to a Data Catalog.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GetPermissionsTable extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the table resource.
+         * @param name Name of the table. At least one of `name` or `wildcard` is required.
          * 
          * @return builder
          * 

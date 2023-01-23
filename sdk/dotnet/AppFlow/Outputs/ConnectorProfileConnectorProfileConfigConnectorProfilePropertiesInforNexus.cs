@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus
     {
         /// <summary>
-        /// The location of the Salesforce resource.
+        /// The location of the Datadog resource.
         /// </summary>
         public readonly string InstanceUrl;
 

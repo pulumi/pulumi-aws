@@ -406,14 +406,16 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * A flag that specifies whether Origin Shield is enabled.
+     * Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     public Output<Boolean> enabled() {

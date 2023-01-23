@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securityhub.Account;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.securityhub.StandardsSubscription;
  * import com.pulumi.aws.securityhub.StandardsSubscriptionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -42,6 +44,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Account(&#34;example&#34;);
  * 
+ *         final var current = AwsFunctions.getRegion();
+ * 
  *         var cis = new StandardsSubscription(&#34;cis&#34;, StandardsSubscriptionArgs.builder()        
  *             .standardsArn(&#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
  *             .build(), CustomResourceOptions.builder()
@@ -49,7 +53,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var pci321 = new StandardsSubscription(&#34;pci321&#34;, StandardsSubscriptionArgs.builder()        
- *             .standardsArn(&#34;arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1&#34;)
+ *             .standardsArn(String.format(&#34;arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());

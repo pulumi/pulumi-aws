@@ -28,12 +28,12 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings ac3Settings;
     /**
-     * @return - Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings eac3AtmosSettings;
     /**
-     * @return - Eac3 Settings. See EAC3 Settings
+     * @return Eac3 Settings. See EAC3 Settings
      * 
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings eac3Settings;
@@ -57,14 +57,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettings {
         return Optional.ofNullable(this.ac3Settings);
     }
     /**
-     * @return - Eac3 Atmos Settings. See EAC3 Atmos Settings
+     * @return Eac3 Atmos Settings. See EAC3 Atmos Settings
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings> eac3AtmosSettings() {
         return Optional.ofNullable(this.eac3AtmosSettings);
     }
     /**
-     * @return - Eac3 Settings. See EAC3 Settings
+     * @return Eac3 Settings. See EAC3 Settings
      * 
      */
     public Optional<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings> eac3Settings() {

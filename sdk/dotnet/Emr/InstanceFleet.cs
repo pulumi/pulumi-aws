@@ -117,9 +117,17 @@ namespace Pulumi.Aws.Emr
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of On-Demand units that have been provisioned for the instance
+        /// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+        /// </summary>
         [Output("provisionedOnDemandCapacity")]
         public Output<int> ProvisionedOnDemandCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of Spot units that have been provisioned for this instance fleet
+        /// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+        /// </summary>
         [Output("provisionedSpotCapacity")]
         public Output<int> ProvisionedSpotCapacity { get; private set; } = null!;
 
@@ -261,9 +269,17 @@ namespace Pulumi.Aws.Emr
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The number of On-Demand units that have been provisioned for the instance
+        /// fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
+        /// </summary>
         [Input("provisionedOnDemandCapacity")]
         public Input<int>? ProvisionedOnDemandCapacity { get; set; }
 
+        /// <summary>
+        /// The number of Spot units that have been provisioned for this instance fleet
+        /// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+        /// </summary>
         [Input("provisionedSpotCapacity")]
         public Input<int>? ProvisionedSpotCapacity { get; set; }
 

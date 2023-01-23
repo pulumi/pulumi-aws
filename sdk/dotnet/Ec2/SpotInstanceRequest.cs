@@ -338,9 +338,6 @@ namespace Pulumi.Aws.Ec2
         /// The current [bid
         /// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
         /// of the Spot Instance Request.
-        /// * `spot_request_state` The current [request
-        /// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-        /// of the Spot Instance Request.
         /// </summary>
         [Output("spotBidStatus")]
         public Output<string> SpotBidStatus { get; private set; } = null!;
@@ -358,6 +355,11 @@ namespace Pulumi.Aws.Ec2
         [Output("spotPrice")]
         public Output<string> SpotPrice { get; private set; } = null!;
 
+        /// <summary>
+        /// The current [request
+        /// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+        /// of the Spot Instance Request.
+        /// </summary>
         [Output("spotRequestState")]
         public Output<string> SpotRequestState { get; private set; } = null!;
 
@@ -1183,9 +1185,6 @@ namespace Pulumi.Aws.Ec2
         /// The current [bid
         /// status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
         /// of the Spot Instance Request.
-        /// * `spot_request_state` The current [request
-        /// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
-        /// of the Spot Instance Request.
         /// </summary>
         [Input("spotBidStatus")]
         public Input<string>? SpotBidStatus { get; set; }
@@ -1203,6 +1202,11 @@ namespace Pulumi.Aws.Ec2
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 
+        /// <summary>
+        /// The current [request
+        /// state](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html#creating-spot-request-status)
+        /// of the Spot Instance Request.
+        /// </summary>
         [Input("spotRequestState")]
         public Input<string>? SpotRequestState { get; set; }
 

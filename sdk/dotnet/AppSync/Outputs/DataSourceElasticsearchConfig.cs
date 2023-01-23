@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class DataSourceElasticsearchConfig
     {
         /// <summary>
-        /// HTTP URL.
+        /// HTTP endpoint of the Elasticsearch domain.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// AWS Region for RDS HTTP endpoint. Defaults to current region.
+        /// AWS region of Elasticsearch domain. Defaults to current region.
         /// </summary>
         public readonly string? Region;
 

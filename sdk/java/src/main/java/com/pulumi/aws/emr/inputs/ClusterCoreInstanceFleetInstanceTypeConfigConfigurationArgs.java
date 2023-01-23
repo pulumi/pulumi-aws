@@ -33,14 +33,14 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs e
     }
 
     /**
-     * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+     * Map of properties specified within a configuration classification.
      * 
      */
     @Import(name="properties")
     private @Nullable Output<Map<String,Object>> properties;
 
     /**
-     * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+     * @return Map of properties specified within a configuration classification.
      * 
      */
     public Optional<Output<Map<String,Object>>> properties() {
@@ -94,7 +94,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs e
         }
 
         /**
-         * @param properties Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+         * @param properties Map of properties specified within a configuration classification.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs e
         }
 
         /**
-         * @param properties Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+         * @param properties Map of properties specified within a configuration classification.
          * 
          * @return builder
          * 

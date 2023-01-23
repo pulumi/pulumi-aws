@@ -40,7 +40,7 @@ class DomainAdvancedSecurityOptionsArgs:
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
                  master_user_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        :param pulumi.Input[bool] enabled: Whether advanced security is enabled.
         :param pulumi.Input[bool] anonymous_auth_enabled: Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
         :param pulumi.Input[bool] internal_user_database_enabled: Whether the internal user database is enabled. Default is `false`.
         :param pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs'] master_user_options: Configuration block for the main user. Detailed below.
@@ -57,7 +57,7 @@ class DomainAdvancedSecurityOptionsArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        Whether advanced security is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -488,7 +488,7 @@ class DomainClusterConfigColdStorageOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        :param pulumi.Input[bool] enabled: Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -497,7 +497,7 @@ class DomainClusterConfigColdStorageOptionsArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
         """
         return pulumi.get(self, "enabled")
 
@@ -540,7 +540,7 @@ class DomainCognitoOptionsArgs:
         :param pulumi.Input[str] identity_pool_id: ID of the Cognito Identity Pool to use.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
         :param pulumi.Input[str] user_pool_id: ID of the Cognito User Pool to use.
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        :param pulumi.Input[bool] enabled: Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -588,7 +588,7 @@ class DomainCognitoOptionsArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        Whether Amazon Cognito authentication with Kibana is enabled or not. Default is `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -776,7 +776,7 @@ class DomainEncryptAtRestArgs:
                  enabled: pulumi.Input[bool],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        :param pulumi.Input[bool] enabled: Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
         :param pulumi.Input[str] kms_key_id: KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -787,7 +787,7 @@ class DomainEncryptAtRestArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
         """
         return pulumi.get(self, "enabled")
 
@@ -817,7 +817,7 @@ class DomainLogPublishingOptionArgs:
         """
         :param pulumi.Input[str] cloudwatch_log_group_arn: ARN of the Cloudwatch log group to which log needs to be published.
         :param pulumi.Input[str] log_type: Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        :param pulumi.Input[bool] enabled: Whether given log publishing option is enabled or not.
         """
         pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         pulumi.set(__self__, "log_type", log_type)
@@ -852,7 +852,7 @@ class DomainLogPublishingOptionArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+        Whether given log publishing option is enabled or not.
         """
         return pulumi.get(self, "enabled")
 
@@ -1131,9 +1131,9 @@ class OutboundConnectionLocalDomainInfoArgs:
                  owner_id: pulumi.Input[str],
                  region: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] domain_name: The name of the remote domain.
-        :param pulumi.Input[str] owner_id: The Account ID of the owner of the remote domain.
-        :param pulumi.Input[str] region: The region of the remote domain.
+        :param pulumi.Input[str] domain_name: The name of the local domain.
+        :param pulumi.Input[str] owner_id: The Account ID of the owner of the local domain.
+        :param pulumi.Input[str] region: The region of the local domain.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "owner_id", owner_id)
@@ -1143,7 +1143,7 @@ class OutboundConnectionLocalDomainInfoArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The name of the remote domain.
+        The name of the local domain.
         """
         return pulumi.get(self, "domain_name")
 
@@ -1155,7 +1155,7 @@ class OutboundConnectionLocalDomainInfoArgs:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Input[str]:
         """
-        The Account ID of the owner of the remote domain.
+        The Account ID of the owner of the local domain.
         """
         return pulumi.get(self, "owner_id")
 
@@ -1167,7 +1167,7 @@ class OutboundConnectionLocalDomainInfoArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
         """
-        The region of the remote domain.
+        The region of the local domain.
         """
         return pulumi.get(self, "region")
 

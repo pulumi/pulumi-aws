@@ -474,10 +474,10 @@ class DomainDefaultSpaceSettingsArgs:
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] execution_role: The execution role ARN for the user.
+        :param pulumi.Input[str] execution_role: The execution role for the space.
         :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group IDs that will be attached to the user.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         if jupyter_server_app_settings is not None:
@@ -491,7 +491,7 @@ class DomainDefaultSpaceSettingsArgs:
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Input[str]:
         """
-        The execution role ARN for the user.
+        The execution role for the space.
         """
         return pulumi.get(self, "execution_role")
 
@@ -527,7 +527,7 @@ class DomainDefaultSpaceSettingsArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of security group IDs that will be attached to the user.
+        The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1929,7 +1929,7 @@ class EndpointConfigurationDataCaptureConfigArgs:
         :param pulumi.Input[int] initial_sampling_percentage: Portion of data to capture. Should be between 0 and 100.
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs'] capture_content_type_header: The content type headers to capture. Fields are documented below.
         :param pulumi.Input[bool] enable_capture: Flag to enable data capture. Defaults to `false`.
-        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
         """
         pulumi.set(__self__, "capture_options", capture_options)
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
@@ -2005,7 +2005,7 @@ class EndpointConfigurationDataCaptureConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2263,8 +2263,8 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
                  destination_s3_uri: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] destination_s3_uri: The URL for S3 location where the captured data is stored.
-        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        :param pulumi.Input[str] destination_s3_uri: The Amazon S3 bucket to send the core dump to.
+        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
         if kms_key_id is not None:
@@ -2274,7 +2274,7 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
     @pulumi.getter(name="destinationS3Uri")
     def destination_s3_uri(self) -> pulumi.Input[str]:
         """
-        The URL for S3 location where the captured data is stored.
+        The Amazon S3 bucket to send the core dump to.
         """
         return pulumi.get(self, "destination_s3_uri")
 
@@ -2286,7 +2286,7 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2520,8 +2520,8 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
                  destination_s3_uri: pulumi.Input[str],
                  kms_key_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] destination_s3_uri: The URL for S3 location where the captured data is stored.
-        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        :param pulumi.Input[str] destination_s3_uri: The Amazon S3 bucket to send the core dump to.
+        :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -2530,7 +2530,7 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
     @pulumi.getter(name="destinationS3Uri")
     def destination_s3_uri(self) -> pulumi.Input[str]:
         """
-        The URL for S3 location where the captured data is stored.
+        The Amazon S3 bucket to send the core dump to.
         """
         return pulumi.get(self, "destination_s3_uri")
 
@@ -2542,7 +2542,7 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[str]:
         """
-        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2733,7 +2733,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationAr
                  canary_size: Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs']] = None,
                  linear_step_size: Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs']] = None):
         """
-        :param pulumi.Input[str] type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        :param pulumi.Input[str] type: Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
         :param pulumi.Input[int] wait_interval_in_seconds: The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
         :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs'] canary_size: Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
         :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs'] linear_step_size: Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
@@ -2749,7 +2749,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationAr
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
         """
         return pulumi.get(self, "type")
 
@@ -3023,7 +3023,7 @@ class FeatureGroupOfflineStoreConfigS3StorageConfigArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] s3_uri: The S3 URI, or location in Amazon S3, of OfflineStore.
-        :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
         if kms_key_id is not None:
@@ -3045,7 +3045,7 @@ class FeatureGroupOfflineStoreConfigS3StorageConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+        The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -5210,7 +5210,7 @@ class WorkforceCognitoConfigArgs:
                  client_id: pulumi.Input[str],
                  user_pool: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] client_id: The OIDC IdP client ID used to configure your private workforce.
+        :param pulumi.Input[str] client_id: The client ID for your Amazon Cognito user pool.
         :param pulumi.Input[str] user_pool: ID for your Amazon Cognito user pool.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -5220,7 +5220,7 @@ class WorkforceCognitoConfigArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The OIDC IdP client ID used to configure your private workforce.
+        The client ID for your Amazon Cognito user pool.
         """
         return pulumi.get(self, "client_id")
 

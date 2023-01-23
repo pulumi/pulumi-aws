@@ -48,19 +48,13 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
     ///     {
     ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         AuthorizerType = "JWT",
+    ///         AuthorizerType = "REQUEST",
+    ///         AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
     ///         IdentitySources = new[]
     ///         {
     ///             "$request.header.Authorization",
     ///         },
-    ///         JwtConfiguration = new Aws.ApiGatewayV2.Inputs.AuthorizerJwtConfigurationArgs
-    ///         {
-    ///             Audiences = new[]
-    ///             {
-    ///                 "example",
-    ///             },
-    ///             Issuer = $"https://{aws_cognito_user_pool.Example.Endpoint}",
-    ///         },
+    ///         AuthorizerPayloadFormatVersion = "2.0",
     ///     });
     /// 
     /// });

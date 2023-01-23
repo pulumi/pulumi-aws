@@ -50,6 +50,9 @@ class GetVpcAttachmentsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
+        """
+        A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
+        """
         return pulumi.get(self, "ids")
 
 

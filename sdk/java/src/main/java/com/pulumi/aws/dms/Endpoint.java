@@ -263,14 +263,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * Transmission Control Protocol (TCP) port for the endpoint.
+     * Port used by the endpoint database.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
-     * @return Transmission Control Protocol (TCP) port for the endpoint.
+     * @return Port used by the endpoint database.
      * 
      */
     public Output<Optional<Integer>> port() {
@@ -339,14 +339,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secretsManagerArn);
     }
     /**
-     * Fully qualified domain name of the endpoint.
+     * Host name of the server.
      * 
      */
     @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serverName;
 
     /**
-     * @return Fully qualified domain name of the endpoint.
+     * @return Host name of the server.
      * 
      */
     public Output<Optional<String>> serverName() {

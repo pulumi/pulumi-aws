@@ -13,6 +13,7 @@ namespace Pulumi.Aws.RedshiftData
     /// Executes a Redshift Data Statement.
     /// 
     /// ## Example Usage
+    /// ### cluster_identifier
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -31,6 +32,24 @@ namespace Pulumi.Aws.RedshiftData
     /// 
     /// });
     /// ```
+    /// ### workgroup_name
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.RedshiftData.Statement("example", new()
+    ///     {
+    ///         WorkgroupName = aws_redshiftserverless_workgroup.Example.Workgroup_name,
+    ///         Database = "dev",
+    ///         Sql = "CREATE GROUP group_name;",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -44,10 +63,10 @@ namespace Pulumi.Aws.RedshiftData
     public partial class Statement : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The cluster identifier.
+        /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
         [Output("clusterIdentifier")]
-        public Output<string> ClusterIdentifier { get; private set; } = null!;
+        public Output<string?> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database.
@@ -87,6 +106,12 @@ namespace Pulumi.Aws.RedshiftData
         /// </summary>
         [Output("withEvent")]
         public Output<bool?> WithEvent { get; private set; } = null!;
+
+        /// <summary>
+        /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+        /// </summary>
+        [Output("workgroupName")]
+        public Output<string?> WorkgroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -135,10 +160,10 @@ namespace Pulumi.Aws.RedshiftData
     public sealed class StatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cluster identifier.
+        /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
-        [Input("clusterIdentifier", required: true)]
-        public Input<string> ClusterIdentifier { get; set; } = null!;
+        [Input("clusterIdentifier")]
+        public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
         /// The name of the database.
@@ -184,6 +209,12 @@ namespace Pulumi.Aws.RedshiftData
         [Input("withEvent")]
         public Input<bool>? WithEvent { get; set; }
 
+        /// <summary>
+        /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+        /// </summary>
+        [Input("workgroupName")]
+        public Input<string>? WorkgroupName { get; set; }
+
         public StatementArgs()
         {
         }
@@ -193,7 +224,7 @@ namespace Pulumi.Aws.RedshiftData
     public sealed class StatementState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cluster identifier.
+        /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -241,6 +272,12 @@ namespace Pulumi.Aws.RedshiftData
         /// </summary>
         [Input("withEvent")]
         public Input<bool>? WithEvent { get; set; }
+
+        /// <summary>
+        /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+        /// </summary>
+        [Input("workgroupName")]
+        public Input<string>? WorkgroupName { get; set; }
 
         public StatementState()
         {

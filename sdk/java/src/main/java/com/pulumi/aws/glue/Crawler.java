@@ -325,14 +325,14 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.configuration);
     }
     /**
-     * The name of the Glue database to be synchronized.
+     * Glue database where results are written.
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
-     * @return The name of the Glue database to be synchronized.
+     * @return Glue database where results are written.
      * 
      */
     public Output<String> databaseName() {

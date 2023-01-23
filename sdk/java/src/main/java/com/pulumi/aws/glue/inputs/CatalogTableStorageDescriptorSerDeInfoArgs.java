@@ -17,14 +17,14 @@ public final class CatalogTableStorageDescriptorSerDeInfoArgs extends com.pulumi
     public static final CatalogTableStorageDescriptorSerDeInfoArgs Empty = new CatalogTableStorageDescriptorSerDeInfoArgs();
 
     /**
-     * Name of the target table.
+     * Name of the SerDe.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the target table.
+     * @return Name of the SerDe.
      * 
      */
     public Optional<Output<String>> name() {
@@ -88,7 +88,7 @@ public final class CatalogTableStorageDescriptorSerDeInfoArgs extends com.pulumi
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the SerDe.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CatalogTableStorageDescriptorSerDeInfoArgs extends com.pulumi
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the SerDe.
          * 
          * @return builder
          * 

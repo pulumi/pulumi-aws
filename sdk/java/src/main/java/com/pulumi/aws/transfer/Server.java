@@ -460,10 +460,6 @@ public class Server extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
      * 
      */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
@@ -471,10 +467,6 @@ public class Server extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
      * 
      */
     public Output<List<String>> protocols() {
@@ -523,14 +515,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**
-     * @return - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+     * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
     public Output<Optional<String>> url() {

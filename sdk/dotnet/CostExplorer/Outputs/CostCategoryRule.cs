@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly Outputs.CostCategoryRuleRule? Rule;
         /// <summary>
-        /// Parameter type.
+        /// You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
         /// </summary>
         public readonly string? Type;
         /// <summary>

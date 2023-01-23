@@ -18,14 +18,14 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
     public static final ListenerDefaultActionAuthenticateCognitoArgs Empty = new ListenerDefaultActionAuthenticateCognitoArgs();
 
     /**
-     * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+     * Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
      * 
      */
     @Import(name="authenticationRequestExtraParams")
     private @Nullable Output<Map<String,String>> authenticationRequestExtraParams;
 
     /**
-     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
      * 
      */
     public Optional<Output<Map<String,String>>> authenticationRequestExtraParams() {
@@ -33,14 +33,14 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
     }
 
     /**
-     * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+     * Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
      * 
      */
     @Import(name="onUnauthenticatedRequest")
     private @Nullable Output<String> onUnauthenticatedRequest;
 
     /**
-     * @return Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+     * @return Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
      * 
      */
     public Optional<Output<String>> onUnauthenticatedRequest() {
@@ -169,7 +169,7 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
         }
 
         /**
-         * @param authenticationRequestExtraParams Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * @param authenticationRequestExtraParams Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
         }
 
         /**
-         * @param authenticationRequestExtraParams Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+         * @param authenticationRequestExtraParams Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
         }
 
         /**
-         * @param onUnauthenticatedRequest Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * @param onUnauthenticatedRequest Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
         }
 
         /**
-         * @param onUnauthenticatedRequest Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+         * @param onUnauthenticatedRequest Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
          * 
          * @return builder
          * 

@@ -172,10 +172,10 @@ type ContainerService struct {
 	// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
 	Power pulumi.StringOutput `pulumi:"power"`
 	// The ID of the power of the container service.
-	// * `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-	//   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-	//   service permission to access resources in your standard AWS account.
-	PowerId      pulumi.StringOutput `pulumi:"powerId"`
+	PowerId pulumi.StringOutput `pulumi:"powerId"`
+	// The principal ARN of the container service. The principal ARN can be used to create a trust
+	// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+	// service permission to access resources in your standard AWS account.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
 	// The private domain name of the container service. The private domain name is accessible only
 	// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
@@ -258,10 +258,10 @@ type containerServiceState struct {
 	// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
 	Power *string `pulumi:"power"`
 	// The ID of the power of the container service.
-	// * `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-	//   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-	//   service permission to access resources in your standard AWS account.
-	PowerId      *string `pulumi:"powerId"`
+	PowerId *string `pulumi:"powerId"`
+	// The principal ARN of the container service. The principal ARN can be used to create a trust
+	// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+	// service permission to access resources in your standard AWS account.
 	PrincipalArn *string `pulumi:"principalArn"`
 	// The private domain name of the container service. The private domain name is accessible only
 	// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
@@ -310,10 +310,10 @@ type ContainerServiceState struct {
 	// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
 	Power pulumi.StringPtrInput
 	// The ID of the power of the container service.
-	// * `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-	//   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-	//   service permission to access resources in your standard AWS account.
-	PowerId      pulumi.StringPtrInput
+	PowerId pulumi.StringPtrInput
+	// The principal ARN of the container service. The principal ARN can be used to create a trust
+	// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+	// service permission to access resources in your standard AWS account.
 	PrincipalArn pulumi.StringPtrInput
 	// The private domain name of the container service. The private domain name is accessible only
 	// by other resources within the default virtual private cloud (VPC) of your Lightsail account.
@@ -527,13 +527,13 @@ func (o ContainerServiceOutput) Power() pulumi.StringOutput {
 }
 
 // The ID of the power of the container service.
-//   - `principalArn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-//     relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-//     service permission to access resources in your standard AWS account.
 func (o ContainerServiceOutput) PowerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PowerId }).(pulumi.StringOutput)
 }
 
+// The principal ARN of the container service. The principal ARN can be used to create a trust
+// relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+// service permission to access resources in your standard AWS account.
 func (o ContainerServiceOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }

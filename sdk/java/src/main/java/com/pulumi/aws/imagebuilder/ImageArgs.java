@@ -19,14 +19,14 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     public static final ImageArgs Empty = new ImageArgs();
 
     /**
-     * - Amazon Resource Name (ARN) of the container recipe.
+     * Amazon Resource Name (ARN) of the container recipe.
      * 
      */
     @Import(name="containerRecipeArn")
     private @Nullable Output<String> containerRecipeArn;
 
     /**
-     * @return - Amazon Resource Name (ARN) of the container recipe.
+     * @return Amazon Resource Name (ARN) of the container recipe.
      * 
      */
     public Optional<Output<String>> containerRecipeArn() {
@@ -154,7 +154,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerRecipeArn - Amazon Resource Name (ARN) of the container recipe.
+         * @param containerRecipeArn Amazon Resource Name (ARN) of the container recipe.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerRecipeArn - Amazon Resource Name (ARN) of the container recipe.
+         * @param containerRecipeArn Amazon Resource Name (ARN) of the container recipe.
          * 
          * @return builder
          * 

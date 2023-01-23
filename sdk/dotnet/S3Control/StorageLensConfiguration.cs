@@ -94,13 +94,13 @@ namespace Pulumi.Aws.S3Control
     public partial class StorageLensConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the bucket.
+        /// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class StorageLensConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class StorageLensConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the bucket.
+        /// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

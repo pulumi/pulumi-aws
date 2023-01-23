@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration {
     /**
-     * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+     * @return Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
      * 
      */
     private @Nullable Boolean enabled;
@@ -37,7 +37,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration() {}
     /**
-     * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
+     * @return Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
      * 
      */
     public Optional<Boolean> enabled() {

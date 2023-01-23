@@ -20,7 +20,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
      */
     private @Nullable Integer connectionRetryInterval;
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
      * 
      */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination;
@@ -42,7 +42,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
         return Optional.ofNullable(this.connectionRetryInterval);
     }
     /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
+     * @return The RTMP endpoint excluding the stream name. See Destination for more details.
      * 
      */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination() {

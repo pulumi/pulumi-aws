@@ -819,7 +819,7 @@ class BucketGrantArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-        :param pulumi.Input[str] type: - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        :param pulumi.Input[str] type: Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
         :param pulumi.Input[str] id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         :param pulumi.Input[str] uri: Uri address to grant for. Used only when `type` is `Group`.
         """
@@ -846,7 +846,7 @@ class BucketGrantArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+        Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
         """
         return pulumi.get(self, "type")
 
@@ -2138,7 +2138,7 @@ class BucketNotificationQueueArgs:
                  filter_suffix: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         :param pulumi.Input[str] queue_arn: SQS queue ARN.
         :param pulumi.Input[str] filter_prefix: Object key name prefix.
         :param pulumi.Input[str] filter_suffix: Object key name suffix.
@@ -2157,7 +2157,7 @@ class BucketNotificationQueueArgs:
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+        Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         """
         return pulumi.get(self, "events")
 
@@ -5800,7 +5800,7 @@ class ObjectCopyGrantArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
-        :param pulumi.Input[str] type: - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        :param pulumi.Input[str] type: Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
         :param pulumi.Input[str] email: Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
         :param pulumi.Input[str] id: The canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
         :param pulumi.Input[str] uri: URI of the grantee group. Used only when `type` is `Group`.
@@ -5830,7 +5830,7 @@ class ObjectCopyGrantArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        - Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+        Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
         """
         return pulumi.get(self, "type")
 

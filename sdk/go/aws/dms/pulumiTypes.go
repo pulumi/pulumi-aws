@@ -17,7 +17,7 @@ type EndpointElasticsearchSettings struct {
 	ErrorRetryDuration *int `pulumi:"errorRetryDuration"`
 	// Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
 	FullLoadErrorPercentage *int `pulumi:"fullLoadErrorPercentage"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn string `pulumi:"serviceAccessRoleArn"`
 }
 
@@ -39,7 +39,7 @@ type EndpointElasticsearchSettingsArgs struct {
 	ErrorRetryDuration pulumi.IntPtrInput `pulumi:"errorRetryDuration"`
 	// Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
 	FullLoadErrorPercentage pulumi.IntPtrInput `pulumi:"fullLoadErrorPercentage"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
 }
 
@@ -135,7 +135,7 @@ func (o EndpointElasticsearchSettingsOutput) FullLoadErrorPercentage() pulumi.In
 	return o.ApplyT(func(v EndpointElasticsearchSettings) *int { return v.FullLoadErrorPercentage }).(pulumi.IntPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 func (o EndpointElasticsearchSettingsOutput) ServiceAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointElasticsearchSettings) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
 }
@@ -194,7 +194,7 @@ func (o EndpointElasticsearchSettingsPtrOutput) FullLoadErrorPercentage() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointElasticsearchSettings) *string {
 		if v == nil {
@@ -207,23 +207,23 @@ func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.St
 type EndpointKafkaSettings struct {
 	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
 	Broker string `pulumi:"broker"`
-	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
 	IncludeControlDetails *bool `pulumi:"includeControlDetails"`
-	// Include NULL and empty columns in the target. Default is `false`.
+	// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
 	IncludeNullAndEmpty *bool `pulumi:"includeNullAndEmpty"`
-	// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+	// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
 	IncludePartitionValue *bool `pulumi:"includePartitionValue"`
-	// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
 	IncludeTableAlterOperations *bool `pulumi:"includeTableAlterOperations"`
-	// Provides detailed transaction information from the source database. Default is `false`.
+	// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
 	IncludeTransactionDetails *bool `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+	// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
 	MessageFormat *string `pulumi:"messageFormat"`
 	// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
 	MessageMaxBytes *int `pulumi:"messageMaxBytes"`
 	// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
 	NoHexPrefix *bool `pulumi:"noHexPrefix"`
-	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
 	// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslPassword *string `pulumi:"saslPassword"`
@@ -231,7 +231,7 @@ type EndpointKafkaSettings struct {
 	SaslUsername *string `pulumi:"saslUsername"`
 	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 	SecurityProtocol *string `pulumi:"securityProtocol"`
-	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
 	// ARN of the client certificate used to securely connect to a Kafka target endpoint.
 	SslClientCertificateArn *string `pulumi:"sslClientCertificateArn"`
@@ -257,23 +257,23 @@ type EndpointKafkaSettingsInput interface {
 type EndpointKafkaSettingsArgs struct {
 	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
 	Broker pulumi.StringInput `pulumi:"broker"`
-	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
 	IncludeControlDetails pulumi.BoolPtrInput `pulumi:"includeControlDetails"`
-	// Include NULL and empty columns in the target. Default is `false`.
+	// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
 	IncludeNullAndEmpty pulumi.BoolPtrInput `pulumi:"includeNullAndEmpty"`
-	// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+	// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
 	IncludePartitionValue pulumi.BoolPtrInput `pulumi:"includePartitionValue"`
-	// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
 	IncludeTableAlterOperations pulumi.BoolPtrInput `pulumi:"includeTableAlterOperations"`
-	// Provides detailed transaction information from the source database. Default is `false`.
+	// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
 	IncludeTransactionDetails pulumi.BoolPtrInput `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+	// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
 	// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
 	MessageMaxBytes pulumi.IntPtrInput `pulumi:"messageMaxBytes"`
 	// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
 	NoHexPrefix pulumi.BoolPtrInput `pulumi:"noHexPrefix"`
-	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
 	// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslPassword pulumi.StringPtrInput `pulumi:"saslPassword"`
@@ -281,7 +281,7 @@ type EndpointKafkaSettingsArgs struct {
 	SaslUsername pulumi.StringPtrInput `pulumi:"saslUsername"`
 	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
 	SecurityProtocol pulumi.StringPtrInput `pulumi:"securityProtocol"`
-	// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+	// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
 	// ARN of the client certificate used to securely connect to a Kafka target endpoint.
 	SslClientCertificateArn pulumi.StringPtrInput `pulumi:"sslClientCertificateArn"`
@@ -375,32 +375,32 @@ func (o EndpointKafkaSettingsOutput) Broker() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) string { return v.Broker }).(pulumi.StringOutput)
 }
 
-// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Include NULL and empty columns in the target. Default is `false`.
+// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
 }
 
-// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
 }
 
-// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
 }
 
-// Provides detailed transaction information from the source database. Default is `false`.
+// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
 func (o EndpointKafkaSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
 func (o EndpointKafkaSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
@@ -415,7 +415,7 @@ func (o EndpointKafkaSettingsOutput) NoHexPrefix() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.NoHexPrefix }).(pulumi.BoolPtrOutput)
 }
 
-// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 func (o EndpointKafkaSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
@@ -435,7 +435,7 @@ func (o EndpointKafkaSettingsOutput) SecurityProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SecurityProtocol }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 func (o EndpointKafkaSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -494,7 +494,7 @@ func (o EndpointKafkaSettingsPtrOutput) Broker() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -504,7 +504,7 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Include NULL and empty columns in the target. Default is `false`.
+// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -514,7 +514,7 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -524,7 +524,7 @@ func (o EndpointKafkaSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -534,7 +534,7 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeTableAlterOperations() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Provides detailed transaction information from the source database. Default is `false`.
+// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -544,7 +544,7 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
 func (o EndpointKafkaSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -574,7 +574,7 @@ func (o EndpointKafkaSettingsPtrOutput) NoHexPrefix() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 func (o EndpointKafkaSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
 		if v == nil {
@@ -614,7 +614,7 @@ func (o EndpointKafkaSettingsPtrOutput) SecurityProtocol() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
 func (o EndpointKafkaSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -679,7 +679,7 @@ type EndpointKinesisSettings struct {
 	MessageFormat *string `pulumi:"messageFormat"`
 	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
 	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// ARN of the IAM Role with permissions to write to the Kinesis data stream.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 	// ARN of the Kinesis data stream.
 	StreamArn *string `pulumi:"streamArn"`
@@ -711,7 +711,7 @@ type EndpointKinesisSettingsArgs struct {
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
 	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
 	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// ARN of the IAM Role with permissions to write to the Kinesis data stream.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 	// ARN of the Kinesis data stream.
 	StreamArn pulumi.StringPtrInput `pulumi:"streamArn"`
@@ -829,7 +829,7 @@ func (o EndpointKinesisSettingsOutput) PartitionIncludeSchemaTable() pulumi.Bool
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// ARN of the IAM Role with permissions to write to the Kinesis data stream.
 func (o EndpointKinesisSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -933,7 +933,7 @@ func (o EndpointKinesisSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// ARN of the IAM Role with permissions to write to the Kinesis data stream.
 func (o EndpointKinesisSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {
@@ -958,7 +958,7 @@ type EndpointMongodbSettings struct {
 	AuthMechanism *string `pulumi:"authMechanism"`
 	// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
 	AuthSource *string `pulumi:"authSource"`
-	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+	// Authentication type to access the MongoDB source endpoint. Default is `password`.
 	AuthType *string `pulumi:"authType"`
 	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
 	DocsToInvestigate *string `pulumi:"docsToInvestigate"`
@@ -984,7 +984,7 @@ type EndpointMongodbSettingsArgs struct {
 	AuthMechanism pulumi.StringPtrInput `pulumi:"authMechanism"`
 	// Authentication database name. Not used when `authType` is `no`. Default is `admin`.
 	AuthSource pulumi.StringPtrInput `pulumi:"authSource"`
-	// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+	// Authentication type to access the MongoDB source endpoint. Default is `password`.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
 	// Number of documents to preview to determine the document organization. Use this setting when `nestingLevel` is set to `one`. Default is `1000`.
 	DocsToInvestigate pulumi.StringPtrInput `pulumi:"docsToInvestigate"`
@@ -1081,7 +1081,7 @@ func (o EndpointMongodbSettingsOutput) AuthSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
 }
 
-// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+// Authentication type to access the MongoDB source endpoint. Default is `password`.
 func (o EndpointMongodbSettingsOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
@@ -1145,7 +1145,7 @@ func (o EndpointMongodbSettingsPtrOutput) AuthSource() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `authPassword` value to be provided. The `auth-role` option requires `authUserName` and `authPassword` values to be provided.
+// Authentication type to access the MongoDB source endpoint. Default is `password`.
 func (o EndpointMongodbSettingsPtrOutput) AuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointMongodbSettings) *string {
 		if v == nil {
@@ -1437,15 +1437,15 @@ func (o EndpointRedisSettingsPtrOutput) SslSecurityProtocol() pulumi.StringPtrOu
 }
 
 type EndpointRedshiftSettings struct {
-	// S3 object prefix.
+	// Custom S3 Bucket Object prefix for intermediate storage.
 	BucketFolder *string `pulumi:"bucketFolder"`
-	// S3 bucket name.
+	// Custom S3 Bucket name for intermediate storage.
 	BucketName *string `pulumi:"bucketName"`
-	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode *string `pulumi:"encryptionMode"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 }
 
@@ -1461,15 +1461,15 @@ type EndpointRedshiftSettingsInput interface {
 }
 
 type EndpointRedshiftSettingsArgs struct {
-	// S3 object prefix.
+	// Custom S3 Bucket Object prefix for intermediate storage.
 	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
-	// S3 bucket name.
+	// Custom S3 Bucket name for intermediate storage.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 }
 
@@ -1550,27 +1550,27 @@ func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutputWithC
 	}).(EndpointRedshiftSettingsPtrOutput)
 }
 
-// S3 object prefix.
+// Custom S3 Bucket Object prefix for intermediate storage.
 func (o EndpointRedshiftSettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
-// S3 bucket name.
+// Custom S3 Bucket name for intermediate storage.
 func (o EndpointRedshiftSettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointRedshiftSettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 func (o EndpointRedshiftSettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 func (o EndpointRedshiftSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -1599,7 +1599,7 @@ func (o EndpointRedshiftSettingsPtrOutput) Elem() EndpointRedshiftSettingsOutput
 	}).(EndpointRedshiftSettingsOutput)
 }
 
-// S3 object prefix.
+// Custom S3 Bucket Object prefix for intermediate storage.
 func (o EndpointRedshiftSettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -1609,7 +1609,7 @@ func (o EndpointRedshiftSettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3 bucket name.
+// Custom S3 Bucket name for intermediate storage.
 func (o EndpointRedshiftSettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -1619,7 +1619,7 @@ func (o EndpointRedshiftSettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -1629,7 +1629,7 @@ func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -1639,7 +1639,7 @@ func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
 func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
 		if v == nil {
@@ -1652,9 +1652,9 @@ func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringP
 type EndpointS3Settings struct {
 	// Whether to add column name information to the .csv output file. Default is `false`.
 	AddColumnName *bool `pulumi:"addColumnName"`
-	// S3 object prefix.
+	// Custom S3 Bucket Object prefix for intermediate storage.
 	BucketFolder *string `pulumi:"bucketFolder"`
-	// S3 bucket name.
+	// Custom S3 Bucket name for intermediate storage.
 	BucketName *string `pulumi:"bucketName"`
 	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
 	CannedAclForObjects *string `pulumi:"cannedAclForObjects"`
@@ -1694,7 +1694,7 @@ type EndpointS3Settings struct {
 	EnableStatistics *bool `pulumi:"enableStatistics"`
 	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. Default is `rleDictionary`.
 	EncodingType *string `pulumi:"encodingType"`
-	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode *string `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
@@ -1706,7 +1706,7 @@ type EndpointS3Settings struct {
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
 	MaxFileSize *int `pulumi:"maxFileSize"`
-	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 	ParquetTimestampInMillisecond *bool `pulumi:"parquetTimestampInMillisecond"`
 	// Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
 	ParquetVersion *string `pulumi:"parquetVersion"`
@@ -1716,9 +1716,9 @@ type EndpointS3Settings struct {
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. Default is `10000`.
 	RowGroupLength *int `pulumi:"rowGroupLength"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 	// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
 	TimestampColumnName *string `pulumi:"timestampColumnName"`
@@ -1744,9 +1744,9 @@ type EndpointS3SettingsInput interface {
 type EndpointS3SettingsArgs struct {
 	// Whether to add column name information to the .csv output file. Default is `false`.
 	AddColumnName pulumi.BoolPtrInput `pulumi:"addColumnName"`
-	// S3 object prefix.
+	// Custom S3 Bucket Object prefix for intermediate storage.
 	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
-	// S3 bucket name.
+	// Custom S3 Bucket name for intermediate storage.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
 	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. Default is `NONE`.
 	CannedAclForObjects pulumi.StringPtrInput `pulumi:"cannedAclForObjects"`
@@ -1786,7 +1786,7 @@ type EndpointS3SettingsArgs struct {
 	EnableStatistics pulumi.BoolPtrInput `pulumi:"enableStatistics"`
 	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. Default is `rleDictionary`.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
-	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+	// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
@@ -1798,7 +1798,7 @@ type EndpointS3SettingsArgs struct {
 	IncludeOpForFullLoad pulumi.BoolPtrInput `pulumi:"includeOpForFullLoad"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
-	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 	ParquetTimestampInMillisecond pulumi.BoolPtrInput `pulumi:"parquetTimestampInMillisecond"`
 	// Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
 	ParquetVersion pulumi.StringPtrInput `pulumi:"parquetVersion"`
@@ -1808,9 +1808,9 @@ type EndpointS3SettingsArgs struct {
 	Rfc4180 pulumi.BoolPtrInput `pulumi:"rfc4180"`
 	// Number of rows in a row group. Default is `10000`.
 	RowGroupLength pulumi.IntPtrInput `pulumi:"rowGroupLength"`
-	// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
-	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 	// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
 	TimestampColumnName pulumi.StringPtrInput `pulumi:"timestampColumnName"`
@@ -1904,12 +1904,12 @@ func (o EndpointS3SettingsOutput) AddColumnName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.AddColumnName }).(pulumi.BoolPtrOutput)
 }
 
-// S3 object prefix.
+// Custom S3 Bucket Object prefix for intermediate storage.
 func (o EndpointS3SettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
 
-// S3 bucket name.
+// Custom S3 Bucket name for intermediate storage.
 func (o EndpointS3SettingsOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
@@ -2009,7 +2009,7 @@ func (o EndpointS3SettingsOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointS3SettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
@@ -2039,7 +2039,7 @@ func (o EndpointS3SettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
 
-// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 func (o EndpointS3SettingsOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.ParquetTimestampInMillisecond }).(pulumi.BoolPtrOutput)
 }
@@ -2064,12 +2064,12 @@ func (o EndpointS3SettingsOutput) RowGroupLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.RowGroupLength }).(pulumi.IntPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 func (o EndpointS3SettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 func (o EndpointS3SettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -2125,7 +2125,7 @@ func (o EndpointS3SettingsPtrOutput) AddColumnName() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// S3 object prefix.
+// Custom S3 Bucket Object prefix for intermediate storage.
 func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2135,7 +2135,7 @@ func (o EndpointS3SettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3 bucket name.
+// Custom S3 Bucket name for intermediate storage.
 func (o EndpointS3SettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2335,7 +2335,7 @@ func (o EndpointS3SettingsPtrOutput) EncodingType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
 func (o EndpointS3SettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2395,7 +2395,7 @@ func (o EndpointS3SettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
 func (o EndpointS3SettingsPtrOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *bool {
 		if v == nil {
@@ -2445,7 +2445,7 @@ func (o EndpointS3SettingsPtrOutput) RowGroupLength() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
 func (o EndpointS3SettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -2455,7 +2455,7 @@ func (o EndpointS3SettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
 func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {

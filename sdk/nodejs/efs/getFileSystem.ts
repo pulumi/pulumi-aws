@@ -101,13 +101,15 @@ export interface GetFileSystemResult {
     readonly performanceMode: string;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system.
-     * * `tags` -A map of tags to assign to the file system.
      */
     readonly provisionedThroughputInMibps: number;
     /**
      * Current byte count used by the file system.
      */
     readonly sizeInBytes: number;
+    /**
+     * A map of tags to assign to the file system.
+     */
     readonly tags: {[key: string]: string};
     /**
      * Throughput mode for the file system.

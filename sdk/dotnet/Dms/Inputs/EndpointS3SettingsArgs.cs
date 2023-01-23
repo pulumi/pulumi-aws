@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<bool>? AddColumnName { get; set; }
 
         /// <summary>
-        /// S3 object prefix.
+        /// Custom S3 Bucket Object prefix for intermediate storage.
         /// </summary>
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }
 
         /// <summary>
-        /// S3 bucket name.
+        /// Custom S3 Bucket name for intermediate storage.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? EncodingType { get; set; }
 
         /// <summary>
-        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+        /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<int>? MaxFileSize { get; set; }
 
         /// <summary>
-        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
+        /// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
         /// </summary>
         [Input("parquetTimestampInMillisecond")]
         public Input<bool>? ParquetTimestampInMillisecond { get; set; }
@@ -211,13 +211,13 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<int>? RowGroupLength { get; set; }
 
         /// <summary>
-        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        /// ARN of the IAM Role with permissions to write to the OpenSearch cluster.
         /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }

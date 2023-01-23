@@ -211,7 +211,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    :param str name: Full name of the availability zone to select.
     :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: Zone ID of the availability zone to select.
     """
@@ -264,7 +264,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    :param str name: Full name of the availability zone to select.
     :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: Zone ID of the availability zone to select.
     """

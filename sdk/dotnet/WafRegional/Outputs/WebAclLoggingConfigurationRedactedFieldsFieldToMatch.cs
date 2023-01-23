@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly string? Data;
         /// <summary>
-        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
+        /// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         /// </summary>
         public readonly string Type;
 

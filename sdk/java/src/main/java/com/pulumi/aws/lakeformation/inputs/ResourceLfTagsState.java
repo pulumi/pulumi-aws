@@ -21,14 +21,14 @@ public final class ResourceLfTagsState extends com.pulumi.resources.ResourceArgs
     public static final ResourceLfTagsState Empty = new ResourceLfTagsState();
 
     /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -124,7 +124,7 @@ public final class ResourceLfTagsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * @param catalogId Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ResourceLfTagsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * @param catalogId Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
          * 
          * @return builder
          * 

@@ -13,14 +13,14 @@ public final class GetUserFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetUserFilter Empty = new GetUserFilter();
 
     /**
-     * Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+     * Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     @Import(name="attributePath", required=true)
     private String attributePath;
 
     /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+     * @return Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
      * 
      */
     public String attributePath() {
@@ -68,7 +68,7 @@ public final class GetUserFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+         * @param attributePath Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
          * 
          * @return builder
          * 

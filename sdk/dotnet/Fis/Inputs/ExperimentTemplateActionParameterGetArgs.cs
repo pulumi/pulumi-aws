@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fis.Inputs
     public sealed class ExperimentTemplateActionParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Tag key.
+        /// Parameter name.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Tag value.
+        /// Parameter value.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

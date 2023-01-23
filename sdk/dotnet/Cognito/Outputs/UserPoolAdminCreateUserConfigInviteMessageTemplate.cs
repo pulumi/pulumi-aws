@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolAdminCreateUserConfigInviteMessageTemplate
     {
         /// <summary>
-        /// Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        /// Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
         /// </summary>
         public readonly string? EmailMessage;
         /// <summary>
-        /// Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        /// Subject line for email messages.
         /// </summary>
         public readonly string? EmailSubject;
         /// <summary>
-        /// SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        /// Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
         /// </summary>
         public readonly string? SmsMessage;
 

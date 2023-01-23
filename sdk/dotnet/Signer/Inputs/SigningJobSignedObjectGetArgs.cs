@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Signer.Inputs
         private InputList<Inputs.SigningJobSignedObjectS3GetArgs>? _s3s;
 
         /// <summary>
-        /// A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        /// A configuration block describing the S3 Source object: See S3 Source below for details.
         /// </summary>
         public InputList<Inputs.SigningJobSignedObjectS3GetArgs> S3s
         {

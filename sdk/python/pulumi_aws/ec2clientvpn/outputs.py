@@ -133,7 +133,7 @@ class EndpointClientConnectOptions(dict):
                  enabled: Optional[bool] = None,
                  lambda_function_arn: Optional[str] = None):
         """
-        :param bool enabled: Indicates whether connection logging is enabled.
+        :param bool enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
         :param str lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
         """
         if enabled is not None:
@@ -145,7 +145,7 @@ class EndpointClientConnectOptions(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Indicates whether connection logging is enabled.
+        Indicates whether client connect options are enabled. The default is `false` (not enabled).
         """
         return pulumi.get(self, "enabled")
 
@@ -182,7 +182,7 @@ class EndpointClientLoginBannerOptions(dict):
                  enabled: Optional[bool] = None):
         """
         :param str banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-        :param bool enabled: Indicates whether connection logging is enabled.
+        :param bool enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         """
         if banner_text is not None:
             pulumi.set(__self__, "banner_text", banner_text)
@@ -201,7 +201,7 @@ class EndpointClientLoginBannerOptions(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Indicates whether connection logging is enabled.
+        Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         """
         return pulumi.get(self, "enabled")
 

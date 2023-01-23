@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly Outputs.ClusterMasterInstanceFleetLaunchSpecifications? LaunchSpecifications;
         /// <summary>
-        /// Name of the step.
+        /// Friendly name given to the instance fleet.
         /// </summary>
         public readonly string? Name;
         public readonly int? ProvisionedOnDemandCapacity;

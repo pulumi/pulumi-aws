@@ -351,6 +351,9 @@ namespace Pulumi.Aws
         public readonly ImmutableArray<string> ExcludeNames;
         public readonly ImmutableArray<string> ExcludeZoneIds;
         public readonly ImmutableArray<Outputs.GetAvailabilityZonesFilterResult> Filters;
+        /// <summary>
+        /// A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+        /// </summary>
         public readonly ImmutableArray<string> GroupNames;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

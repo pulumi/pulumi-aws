@@ -408,26 +408,15 @@ class ServiceNetworkConfigurationIngressConfigurationArgs:
 @pulumi.input_type
 class ServiceObservabilityConfigurationArgs:
     def __init__(__self__, *,
-                 observability_configuration_arn: pulumi.Input[str],
-                 observability_enabled: pulumi.Input[bool]):
+                 observability_enabled: pulumi.Input[bool],
+                 observability_configuration_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] observability_configuration_arn: ARN of the observability configuration that is associated with the service.
         :param pulumi.Input[bool] observability_enabled: When `true`, an observability configuration resource is associated with the service.
+        :param pulumi.Input[str] observability_configuration_arn: ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
         """
-        pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
         pulumi.set(__self__, "observability_enabled", observability_enabled)
-
-    @property
-    @pulumi.getter(name="observabilityConfigurationArn")
-    def observability_configuration_arn(self) -> pulumi.Input[str]:
-        """
-        ARN of the observability configuration that is associated with the service.
-        """
-        return pulumi.get(self, "observability_configuration_arn")
-
-    @observability_configuration_arn.setter
-    def observability_configuration_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "observability_configuration_arn", value)
+        if observability_configuration_arn is not None:
+            pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
 
     @property
     @pulumi.getter(name="observabilityEnabled")
@@ -440,6 +429,18 @@ class ServiceObservabilityConfigurationArgs:
     @observability_enabled.setter
     def observability_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "observability_enabled", value)
+
+    @property
+    @pulumi.getter(name="observabilityConfigurationArn")
+    def observability_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
+        """
+        return pulumi.get(self, "observability_configuration_arn")
+
+    @observability_configuration_arn.setter
+    def observability_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "observability_configuration_arn", value)
 
 
 @pulumi.input_type

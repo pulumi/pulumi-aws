@@ -117,11 +117,11 @@ export class ContainerRecipe extends pulumi.CustomResource {
      */
     public readonly instanceConfiguration!: pulumi.Output<outputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * The KMS key used to encrypt the container image.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The name of the component parameter.
+     * The name of the container recipe.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -272,11 +272,11 @@ export interface ContainerRecipeState {
      */
     instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * The KMS key used to encrypt the container image.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The name of the component parameter.
+     * The name of the container recipe.
      */
     name?: pulumi.Input<string>;
     /**
@@ -342,11 +342,11 @@ export interface ContainerRecipeArgs {
      */
     instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfiguration>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * The KMS key used to encrypt the container image.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The name of the component parameter.
+     * The name of the container recipe.
      */
     name?: pulumi.Input<string>;
     /**

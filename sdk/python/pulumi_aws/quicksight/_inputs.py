@@ -45,9 +45,9 @@ class DataSourceCredentialsArgs:
                  copy_source_arn: Optional[pulumi.Input[str]] = None,
                  credential_pair: Optional[pulumi.Input['DataSourceCredentialsCredentialPairArgs']] = None):
         """
-        :param pulumi.Input[str] copy_source_arn: - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        :param pulumi.Input[str] copy_source_arn: The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
                When the value is not null, the `credential_pair` from the data source in the ARN is used.
-        :param pulumi.Input['DataSourceCredentialsCredentialPairArgs'] credential_pair: - Credential pair. See Credential Pair below for more details.
+        :param pulumi.Input['DataSourceCredentialsCredentialPairArgs'] credential_pair: Credential pair. See Credential Pair below for more details.
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
@@ -58,7 +58,7 @@ class DataSourceCredentialsArgs:
     @pulumi.getter(name="copySourceArn")
     def copy_source_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
         When the value is not null, the `credential_pair` from the data source in the ARN is used.
         """
         return pulumi.get(self, "copy_source_arn")
@@ -71,7 +71,7 @@ class DataSourceCredentialsArgs:
     @pulumi.getter(name="credentialPair")
     def credential_pair(self) -> Optional[pulumi.Input['DataSourceCredentialsCredentialPairArgs']]:
         """
-        - Credential pair. See Credential Pair below for more details.
+        Credential pair. See Credential Pair below for more details.
         """
         return pulumi.get(self, "credential_pair")
 

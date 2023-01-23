@@ -25,7 +25,7 @@ namespace Pulumi.Aws.DataPipeline.Inputs
         }
 
         /// <summary>
-        /// ID of the parameter value.
+        /// ID of the object.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

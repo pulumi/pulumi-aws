@@ -7,14 +7,16 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceObservabilityConfiguration {
     /**
-     * @return ARN of the observability configuration that is associated with the service.
+     * @return ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
      * 
      */
-    private String observabilityConfigurationArn;
+    private @Nullable String observabilityConfigurationArn;
     /**
      * @return When `true`, an observability configuration resource is associated with the service.
      * 
@@ -23,11 +25,11 @@ public final class ServiceObservabilityConfiguration {
 
     private ServiceObservabilityConfiguration() {}
     /**
-     * @return ARN of the observability configuration that is associated with the service.
+     * @return ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
      * 
      */
-    public String observabilityConfigurationArn() {
-        return this.observabilityConfigurationArn;
+    public Optional<String> observabilityConfigurationArn() {
+        return Optional.ofNullable(this.observabilityConfigurationArn);
     }
     /**
      * @return When `true`, an observability configuration resource is associated with the service.
@@ -46,7 +48,7 @@ public final class ServiceObservabilityConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String observabilityConfigurationArn;
+        private @Nullable String observabilityConfigurationArn;
         private Boolean observabilityEnabled;
         public Builder() {}
         public Builder(ServiceObservabilityConfiguration defaults) {
@@ -56,8 +58,8 @@ public final class ServiceObservabilityConfiguration {
         }
 
         @CustomType.Setter
-        public Builder observabilityConfigurationArn(String observabilityConfigurationArn) {
-            this.observabilityConfigurationArn = Objects.requireNonNull(observabilityConfigurationArn);
+        public Builder observabilityConfigurationArn(@Nullable String observabilityConfigurationArn) {
+            this.observabilityConfigurationArn = observabilityConfigurationArn;
             return this;
         }
         @CustomType.Setter

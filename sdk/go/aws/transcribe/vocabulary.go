@@ -87,7 +87,7 @@ type Vocabulary struct {
 	DownloadUri pulumi.StringOutput `pulumi:"downloadUri"`
 	// The language code you selected for your vocabulary.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayOutput `pulumi:"phrases"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -139,7 +139,7 @@ type vocabularyState struct {
 	DownloadUri *string `pulumi:"downloadUri"`
 	// The language code you selected for your vocabulary.
 	LanguageCode *string `pulumi:"languageCode"`
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases []string `pulumi:"phrases"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -157,7 +157,7 @@ type VocabularyState struct {
 	DownloadUri pulumi.StringPtrInput
 	// The language code you selected for your vocabulary.
 	LanguageCode pulumi.StringPtrInput
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -175,7 +175,7 @@ func (VocabularyState) ElementType() reflect.Type {
 type vocabularyArgs struct {
 	// The language code you selected for your vocabulary.
 	LanguageCode string `pulumi:"languageCode"`
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases []string `pulumi:"phrases"`
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -189,7 +189,7 @@ type vocabularyArgs struct {
 type VocabularyArgs struct {
 	// The language code you selected for your vocabulary.
 	LanguageCode pulumi.StringInput
-	// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 	Phrases pulumi.StringArrayInput
 	// A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -301,7 +301,7 @@ func (o VocabularyOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.LanguageCode }).(pulumi.StringOutput)
 }
 
-// - A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+// A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
 func (o VocabularyOutput) Phrases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringArrayOutput { return v.Phrases }).(pulumi.StringArrayOutput)
 }

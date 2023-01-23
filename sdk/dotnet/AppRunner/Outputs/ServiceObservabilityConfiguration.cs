@@ -14,9 +14,9 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class ServiceObservabilityConfiguration
     {
         /// <summary>
-        /// ARN of the observability configuration that is associated with the service.
+        /// ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
         /// </summary>
-        public readonly string ObservabilityConfigurationArn;
+        public readonly string? ObservabilityConfigurationArn;
         /// <summary>
         /// When `true`, an observability configuration resource is associated with the service.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
 
         [OutputConstructor]
         private ServiceObservabilityConfiguration(
-            string observabilityConfigurationArn,
+            string? observabilityConfigurationArn,
 
             bool observabilityEnabled)
         {

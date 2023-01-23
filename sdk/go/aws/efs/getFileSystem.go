@@ -93,11 +93,11 @@ type LookupFileSystemResult struct {
 	// File system performance mode.
 	PerformanceMode string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
-	// * `tags` -A map of tags to assign to the file system.
 	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
 	// Current byte count used by the file system.
-	SizeInBytes int               `pulumi:"sizeInBytes"`
-	Tags        map[string]string `pulumi:"tags"`
+	SizeInBytes int `pulumi:"sizeInBytes"`
+	// A map of tags to assign to the file system.
+	Tags map[string]string `pulumi:"tags"`
 	// Throughput mode for the file system.
 	ThroughputMode string `pulumi:"throughputMode"`
 }
@@ -198,7 +198,6 @@ func (o LookupFileSystemResultOutput) PerformanceMode() pulumi.StringOutput {
 }
 
 // The throughput, measured in MiB/s, that you want to provision for the file system.
-// * `tags` -A map of tags to assign to the file system.
 func (o LookupFileSystemResultOutput) ProvisionedThroughputInMibps() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupFileSystemResult) float64 { return v.ProvisionedThroughputInMibps }).(pulumi.Float64Output)
 }
@@ -208,6 +207,7 @@ func (o LookupFileSystemResultOutput) SizeInBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) int { return v.SizeInBytes }).(pulumi.IntOutput)
 }
 
+// A map of tags to assign to the file system.
 func (o LookupFileSystemResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

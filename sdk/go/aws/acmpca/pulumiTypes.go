@@ -725,7 +725,7 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) OcspConfiguration(
 type CertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname *string `pulumi:"customCname"`
-	// Boolean value that specifies whether a custom OCSP responder is enabled.
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
 	ExpirationInDays int `pulumi:"expirationInDays"`
@@ -749,7 +749,7 @@ type CertificateAuthorityRevocationConfigurationCrlConfigurationInput interface 
 type CertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname pulumi.StringPtrInput `pulumi:"customCname"`
-	// Boolean value that specifies whether a custom OCSP responder is enabled.
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
 	ExpirationInDays pulumi.IntInput `pulumi:"expirationInDays"`
@@ -841,7 +841,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Custo
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that specifies whether a custom OCSP responder is enabled.
+// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -895,7 +895,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Cu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that specifies whether a custom OCSP responder is enabled.
+// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool {
 		if v == nil {

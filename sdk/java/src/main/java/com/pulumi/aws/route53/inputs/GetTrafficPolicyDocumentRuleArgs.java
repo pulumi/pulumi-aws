@@ -98,14 +98,14 @@ public final class GetTrafficPolicyDocumentRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * Region code for the AWS Region that you created the resource in.
+     * To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     @Import(name="regions")
     private @Nullable Output<List<GetTrafficPolicyDocumentRuleRegionArgs>> regions;
 
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     public Optional<Output<List<GetTrafficPolicyDocumentRuleRegionArgs>>> regions() {
@@ -309,7 +309,7 @@ public final class GetTrafficPolicyDocumentRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regions Region code for the AWS Region that you created the resource in.
+         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class GetTrafficPolicyDocumentRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regions Region code for the AWS Region that you created the resource in.
+         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class GetTrafficPolicyDocumentRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regions Region code for the AWS Region that you created the resource in.
+         * @param regions To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
          * 
          * @return builder
          * 

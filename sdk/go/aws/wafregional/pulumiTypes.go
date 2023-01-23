@@ -741,7 +741,7 @@ type RuleGroupActivatedRule struct {
 	Priority int `pulumi:"priority"`
 	// The ID of a rule
 	RuleId string `pulumi:"ruleId"`
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type *string `pulumi:"type"`
 }
 
@@ -763,7 +763,7 @@ type RuleGroupActivatedRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The ID of a rule
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -833,7 +833,7 @@ func (o RuleGroupActivatedRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 func (o RuleGroupActivatedRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -859,7 +859,7 @@ func (o RuleGroupActivatedRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupAct
 }
 
 type RuleGroupActivatedRuleAction struct {
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type string `pulumi:"type"`
 }
 
@@ -875,7 +875,7 @@ type RuleGroupActivatedRuleActionInput interface {
 }
 
 type RuleGroupActivatedRuleActionArgs struct {
-	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -905,7 +905,7 @@ func (o RuleGroupActivatedRuleActionOutput) ToRuleGroupActivatedRuleActionOutput
 	return o
 }
 
-// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
+// e.g., `BLOCK`, `ALLOW`, or `COUNT`
 func (o RuleGroupActivatedRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1433,7 +1433,7 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput) Type() pul
 }
 
 type WebAclDefaultAction struct {
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 	Type string `pulumi:"type"`
 }
 
@@ -1449,7 +1449,7 @@ type WebAclDefaultActionInput interface {
 }
 
 type WebAclDefaultActionArgs struct {
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1530,7 +1530,7 @@ func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx
 	}).(WebAclDefaultActionPtrOutput)
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 func (o WebAclDefaultActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclDefaultAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1559,7 +1559,7 @@ func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
 	}).(WebAclDefaultActionOutput)
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultAction) *string {
 		if v == nil {
@@ -1867,7 +1867,7 @@ func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) FieldToMatches() WebA
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatch struct {
 	// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
 	Data *string `pulumi:"data"`
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
 	Type string `pulumi:"type"`
 }
 
@@ -1885,7 +1885,7 @@ type WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput interface {
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs struct {
 	// When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
 	Data pulumi.StringPtrInput `pulumi:"data"`
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1945,7 +1945,7 @@ func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) Data() pulum
 	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFieldsFieldToMatch) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
 func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFieldsFieldToMatch) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1980,7 +1980,7 @@ type WebAclRule struct {
 	Priority int `pulumi:"priority"`
 	// ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
 	RuleId string `pulumi:"ruleId"`
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
 	Type *string `pulumi:"type"`
 }
 
@@ -2005,7 +2005,7 @@ type WebAclRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2081,7 +2081,7 @@ func (o WebAclRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
 func (o WebAclRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2244,7 +2244,7 @@ func (o WebAclRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WebAclRuleOverrideAction struct {
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 	Type string `pulumi:"type"`
 }
 
@@ -2260,7 +2260,7 @@ type WebAclRuleOverrideActionInput interface {
 }
 
 type WebAclRuleOverrideActionArgs struct {
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2341,7 +2341,7 @@ func (o WebAclRuleOverrideActionOutput) ToWebAclRuleOverrideActionPtrOutputWithC
 	}).(WebAclRuleOverrideActionPtrOutput)
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 func (o WebAclRuleOverrideActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleOverrideAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2370,7 +2370,7 @@ func (o WebAclRuleOverrideActionPtrOutput) Elem() WebAclRuleOverrideActionOutput
 	}).(WebAclRuleOverrideActionOutput)
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
+// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
 func (o WebAclRuleOverrideActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleOverrideAction) *string {
 		if v == nil {

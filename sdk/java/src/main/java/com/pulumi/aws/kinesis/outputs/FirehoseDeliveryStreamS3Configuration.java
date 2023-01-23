@@ -56,7 +56,7 @@ public final class FirehoseDeliveryStreamS3Configuration {
      */
     private @Nullable String prefix;
     /**
-     * @return The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+     * @return The ARN of the role that provides access to the source Kinesis stream.
      * 
      */
     private String roleArn;
@@ -121,7 +121,7 @@ public final class FirehoseDeliveryStreamS3Configuration {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren&#39;t allowed.
+     * @return The ARN of the role that provides access to the source Kinesis stream.
      * 
      */
     public String roleArn() {

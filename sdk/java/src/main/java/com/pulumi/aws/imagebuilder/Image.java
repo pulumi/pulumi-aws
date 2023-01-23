@@ -80,14 +80,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * - Amazon Resource Name (ARN) of the container recipe.
+     * Amazon Resource Name (ARN) of the container recipe.
      * 
      */
     @Export(name="containerRecipeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerRecipeArn;
 
     /**
-     * @return - Amazon Resource Name (ARN) of the container recipe.
+     * @return Amazon Resource Name (ARN) of the container recipe.
      * 
      */
     public Output<Optional<String>> containerRecipeArn() {

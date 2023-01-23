@@ -263,14 +263,14 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The maximum spot bid for this override request.
+     * The maximum bid price per unit hour.
      * 
      */
     @Import(name="spotPrice")
     private @Nullable Output<String> spotPrice;
 
     /**
-     * @return The maximum spot bid for this override request.
+     * @return The maximum bid price per unit hour.
      * 
      */
     public Optional<Output<String>> spotPrice() {
@@ -830,7 +830,7 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param spotPrice The maximum spot bid for this override request.
+         * @param spotPrice The maximum bid price per unit hour.
          * 
          * @return builder
          * 
@@ -841,7 +841,7 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param spotPrice The maximum spot bid for this override request.
+         * @param spotPrice The maximum bid price per unit hour.
          * 
          * @return builder
          * 

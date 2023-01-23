@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultSpaceSettings
     {
         /// <summary>
-        /// The execution role ARN for the user.
+        /// The execution role for the space.
         /// </summary>
         public readonly string ExecutionRole;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
         /// <summary>
-        /// A list of security group IDs that will be attached to the user.
+        /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
 

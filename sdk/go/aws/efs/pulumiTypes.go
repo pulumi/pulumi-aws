@@ -1085,7 +1085,6 @@ type GetAccessPointPosixUser struct {
 	// Secondary group IDs
 	SecondaryGids []int `pulumi:"secondaryGids"`
 	// User Id
-	// * `rootDirectory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
 	Uid int `pulumi:"uid"`
 }
 
@@ -1106,7 +1105,6 @@ type GetAccessPointPosixUserArgs struct {
 	// Secondary group IDs
 	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
 	// User Id
-	// * `rootDirectory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
 	Uid pulumi.IntInput `pulumi:"uid"`
 }
 
@@ -1172,7 +1170,6 @@ func (o GetAccessPointPosixUserOutput) SecondaryGids() pulumi.IntArrayOutput {
 }
 
 // User Id
-// * `rootDirectory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
 func (o GetAccessPointPosixUserOutput) Uid() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAccessPointPosixUser) int { return v.Uid }).(pulumi.IntOutput)
 }

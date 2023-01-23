@@ -61,9 +61,9 @@ class _ImageVersionState:
         """
         Input properties used for looking up and filtering ImageVersion resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-               * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
         :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[str] container_image: The registry path of the container image that contains this image version.
+        :param pulumi.Input[str] image_arn: The Amazon Resource Name (ARN) of the image the version is based on.
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
         if arn is not None:
@@ -84,7 +84,6 @@ class _ImageVersionState:
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
         """
         return pulumi.get(self, "arn")
 
@@ -119,6 +118,9 @@ class _ImageVersionState:
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the image the version is based on.
+        """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
@@ -272,9 +274,9 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-               * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
         :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[str] container_image: The registry path of the container image that contains this image version.
+        :param pulumi.Input[str] image_arn: The Amazon Resource Name (ARN) of the image the version is based on.
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -294,7 +296,6 @@ class ImageVersion(pulumi.CustomResource):
     def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
         """
         return pulumi.get(self, "arn")
 
@@ -317,6 +318,9 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the image the version is based on.
+        """
         return pulumi.get(self, "image_arn")
 
     @property

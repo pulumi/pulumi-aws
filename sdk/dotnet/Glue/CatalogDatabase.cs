@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Data Catalog in which the database resides.
+        /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Data Catalog in which the database resides.
+        /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID of the Data Catalog in which the database resides.
+        /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }

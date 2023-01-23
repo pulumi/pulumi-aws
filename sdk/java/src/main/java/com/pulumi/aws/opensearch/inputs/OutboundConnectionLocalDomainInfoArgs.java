@@ -14,14 +14,14 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
     public static final OutboundConnectionLocalDomainInfoArgs Empty = new OutboundConnectionLocalDomainInfoArgs();
 
     /**
-     * The name of the remote domain.
+     * The name of the local domain.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The name of the remote domain.
+     * @return The name of the local domain.
      * 
      */
     public Output<String> domainName() {
@@ -29,14 +29,14 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
     }
 
     /**
-     * The Account ID of the owner of the remote domain.
+     * The Account ID of the owner of the local domain.
      * 
      */
     @Import(name="ownerId", required=true)
     private Output<String> ownerId;
 
     /**
-     * @return The Account ID of the owner of the remote domain.
+     * @return The Account ID of the owner of the local domain.
      * 
      */
     public Output<String> ownerId() {
@@ -44,14 +44,14 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
     }
 
     /**
-     * The region of the remote domain.
+     * The region of the local domain.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return The region of the remote domain.
+     * @return The region of the local domain.
      * 
      */
     public Output<String> region() {
@@ -85,7 +85,7 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
         }
 
         /**
-         * @param domainName The name of the remote domain.
+         * @param domainName The name of the local domain.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
         }
 
         /**
-         * @param domainName The name of the remote domain.
+         * @param domainName The name of the local domain.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
         }
 
         /**
-         * @param ownerId The Account ID of the owner of the remote domain.
+         * @param ownerId The Account ID of the owner of the local domain.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
         }
 
         /**
-         * @param ownerId The Account ID of the owner of the remote domain.
+         * @param ownerId The Account ID of the owner of the local domain.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
         }
 
         /**
-         * @param region The region of the remote domain.
+         * @param region The region of the local domain.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class OutboundConnectionLocalDomainInfoArgs extends com.pulumi.reso
         }
 
         /**
-         * @param region The region of the remote domain.
+         * @param region The region of the local domain.
          * 
          * @return builder
          * 

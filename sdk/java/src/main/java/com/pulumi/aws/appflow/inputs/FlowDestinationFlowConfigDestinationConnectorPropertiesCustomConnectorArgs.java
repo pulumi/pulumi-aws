@@ -19,14 +19,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs();
 
     /**
-     * Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
      * 
      */
     @Import(name="customProperties")
     private @Nullable Output<Map<String,String>> customProperties;
 
     /**
-     * @return Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+     * @return Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
      * 
      */
     public Optional<Output<Map<String,String>>> customProperties() {
@@ -34,14 +34,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     }
 
     /**
-     * Entity specified in the custom connector as a source in the flow.
+     * Entity specified in the custom connector as a destination in the flow.
      * 
      */
     @Import(name="entityName", required=true)
     private Output<String> entityName;
 
     /**
-     * @return Entity specified in the custom connector as a source in the flow.
+     * @return Entity specified in the custom connector as a destination in the flow.
      * 
      */
     public Output<String> entityName() {
@@ -64,14 +64,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     }
 
     /**
-     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     @Import(name="idFieldNames")
     private @Nullable Output<List<String>> idFieldNames;
 
     /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     public Optional<Output<List<String>>> idFieldNames() {
@@ -79,14 +79,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
     }
 
     /**
-     * This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     @Import(name="writeOperationType")
     private @Nullable Output<String> writeOperationType;
 
     /**
-     * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     public Optional<Output<String>> writeOperationType() {
@@ -122,7 +122,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a source in the flow. Maximum of 50 items.
+         * @param customProperties Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param entityName Entity specified in the custom connector as a source in the flow.
+         * @param entityName Entity specified in the custom connector as a destination in the flow.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param entityName Entity specified in the custom connector as a source in the flow.
+         * @param entityName Entity specified in the custom connector as a destination in the flow.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param writeOperationType This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         * @param writeOperationType Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
 
         /**
-         * @param writeOperationType This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         * @param writeOperationType Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
          * 
          * @return builder
          * 

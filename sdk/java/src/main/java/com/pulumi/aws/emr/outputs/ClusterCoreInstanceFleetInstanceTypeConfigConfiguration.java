@@ -19,7 +19,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
      */
     private @Nullable String classification;
     /**
-     * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+     * @return Map of properties specified within a configuration classification.
      * 
      */
     private @Nullable Map<String,Object> properties;
@@ -33,7 +33,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
         return Optional.ofNullable(this.classification);
     }
     /**
-     * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+     * @return Map of properties specified within a configuration classification.
      * 
      */
     public Map<String,Object> properties() {

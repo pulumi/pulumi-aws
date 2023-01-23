@@ -19,7 +19,7 @@ public final class EventDataStoreAdvancedEventSelector {
      */
     private @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors;
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return The name of the event data store.
      * 
      */
     private @Nullable String name;
@@ -33,7 +33,7 @@ public final class EventDataStoreAdvancedEventSelector {
         return this.fieldSelectors == null ? List.of() : this.fieldSelectors;
     }
     /**
-     * @return Specifies the name of the advanced event selector.
+     * @return The name of the event data store.
      * 
      */
     public Optional<String> name() {

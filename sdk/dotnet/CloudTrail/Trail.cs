@@ -308,7 +308,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the advanced event selector.
+        /// Name of the trail.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Name of the advanced event selector.
+        /// Name of the trail.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -614,7 +614,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Name of the advanced event selector.
+        /// Name of the trail.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

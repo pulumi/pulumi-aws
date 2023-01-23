@@ -17,14 +17,14 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
     public static final ResourceSetResourceDnsTargetResourceArgs Empty = new ResourceSetResourceDnsTargetResourceArgs();
 
     /**
-     * Domain name that is targeted.
+     * DNS Name that acts as the ingress point to a portion of application.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return Domain name that is targeted.
+     * @return DNS Name that acts as the ingress point to a portion of application.
      * 
      */
     public Output<String> domainName() {
@@ -47,14 +47,14 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
     }
 
     /**
-     * Resource record set ID that is targeted.
+     * Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
      * 
      */
     @Import(name="recordSetId")
     private @Nullable Output<String> recordSetId;
 
     /**
-     * @return Resource record set ID that is targeted.
+     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
      * 
      */
     public Optional<Output<String>> recordSetId() {
@@ -120,7 +120,7 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param domainName Domain name that is targeted.
+         * @param domainName DNS Name that acts as the ingress point to a portion of application.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param domainName Domain name that is targeted.
+         * @param domainName DNS Name that acts as the ingress point to a portion of application.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param recordSetId Resource record set ID that is targeted.
+         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
         }
 
         /**
-         * @param recordSetId Resource record set ID that is targeted.
+         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
          * 
          * @return builder
          * 

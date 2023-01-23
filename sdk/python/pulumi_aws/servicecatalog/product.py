@@ -31,11 +31,11 @@ class ProductArgs:
         The set of arguments for constructing a Product resource.
         :param pulumi.Input[str] owner: Owner of the product.
         :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
-        :param pulumi.Input[str] type: Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[str] description: Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        :param pulumi.Input[str] description: Description of the product.
         :param pulumi.Input[str] distributor: Distributor (i.e., vendor) of the product.
-        :param pulumi.Input[str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] support_description: Support information about the product.
         :param pulumi.Input[str] support_email: Contact email for product support.
         :param pulumi.Input[str] support_url: Contact URL for product support.
@@ -89,7 +89,7 @@ class ProductArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         """
         return pulumi.get(self, "type")
 
@@ -113,7 +113,7 @@ class ProductArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        Description of the product.
         """
         return pulumi.get(self, "description")
 
@@ -137,7 +137,7 @@ class ProductArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        Name of the product.
         """
         return pulumi.get(self, "name")
 
@@ -218,10 +218,10 @@ class _ProductState:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] arn: ARN of the product.
         :param pulumi.Input[str] created_time: Time when the product was created.
-        :param pulumi.Input[str] description: Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        :param pulumi.Input[str] description: Description of the product.
         :param pulumi.Input[str] distributor: Distributor (i.e., vendor) of the product.
         :param pulumi.Input[bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-        :param pulumi.Input[str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
         :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] status: Status of the product.
@@ -230,7 +230,7 @@ class _ProductState:
         :param pulumi.Input[str] support_url: Contact URL for product support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -305,7 +305,7 @@ class _ProductState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        Description of the product.
         """
         return pulumi.get(self, "description")
 
@@ -341,7 +341,7 @@ class _ProductState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        Name of the product.
         """
         return pulumi.get(self, "name")
 
@@ -449,7 +449,7 @@ class _ProductState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         """
         return pulumi.get(self, "type")
 
@@ -511,16 +511,16 @@ class Product(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[str] description: Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        :param pulumi.Input[str] description: Description of the product.
         :param pulumi.Input[str] distributor: Distributor (i.e., vendor) of the product.
-        :param pulumi.Input[str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
         :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] support_description: Support information about the product.
         :param pulumi.Input[str] support_email: Contact email for product support.
         :param pulumi.Input[str] support_url: Contact URL for product support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         """
         ...
     @overload
@@ -654,10 +654,10 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] arn: ARN of the product.
         :param pulumi.Input[str] created_time: Time when the product was created.
-        :param pulumi.Input[str] description: Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        :param pulumi.Input[str] description: Description of the product.
         :param pulumi.Input[str] distributor: Distributor (i.e., vendor) of the product.
         :param pulumi.Input[bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-        :param pulumi.Input[str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
         :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] status: Status of the product.
@@ -666,7 +666,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] support_url: Contact URL for product support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        :param pulumi.Input[str] type: Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -718,7 +718,7 @@ class Product(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        Description of the product.
         """
         return pulumi.get(self, "description")
 
@@ -742,7 +742,7 @@ class Product(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        Name of the product.
         """
         return pulumi.get(self, "name")
 
@@ -814,7 +814,7 @@ class Product(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
+        Type of product. Valid values are `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE`.
         """
         return pulumi.get(self, "type")
 

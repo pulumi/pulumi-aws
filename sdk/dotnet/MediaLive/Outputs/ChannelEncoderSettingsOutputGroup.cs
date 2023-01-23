@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroup
     {
         /// <summary>
-        /// The name of the video description.
+        /// Custom output group name defined by the user.
         /// </summary>
         public readonly string? Name;
         /// <summary>

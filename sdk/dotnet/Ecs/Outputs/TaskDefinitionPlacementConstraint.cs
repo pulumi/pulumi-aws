@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? Expression;
         /// <summary>
-        /// Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
+        /// Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
         /// </summary>
         public readonly string Type;
 

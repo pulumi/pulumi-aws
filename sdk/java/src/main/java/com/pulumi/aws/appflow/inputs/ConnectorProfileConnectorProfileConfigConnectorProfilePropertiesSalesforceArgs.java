@@ -17,14 +17,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs();
 
     /**
-     * The location of the Salesforce resource.
+     * The location of the Datadog resource.
      * 
      */
     @Import(name="instanceUrl")
     private @Nullable Output<String> instanceUrl;
 
     /**
-     * @return The location of the Salesforce resource.
+     * @return The location of the Datadog resource.
      * 
      */
     public Optional<Output<String>> instanceUrl() {
@@ -72,7 +72,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param instanceUrl The location of the Salesforce resource.
+         * @param instanceUrl The location of the Datadog resource.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param instanceUrl The location of the Salesforce resource.
+         * @param instanceUrl The location of the Datadog resource.
          * 
          * @return builder
          * 

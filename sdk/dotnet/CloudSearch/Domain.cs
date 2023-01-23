@@ -105,7 +105,7 @@ namespace Pulumi.Aws.CloudSearch
         public Output<bool> MultiAz { get; private set; } = null!;
 
         /// <summary>
-        /// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        /// The name of the CloudSearch domain.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.CloudSearch
         public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
-        /// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        /// The name of the CloudSearch domain.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.CloudSearch
         public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
-        /// A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        /// The name of the CloudSearch domain.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

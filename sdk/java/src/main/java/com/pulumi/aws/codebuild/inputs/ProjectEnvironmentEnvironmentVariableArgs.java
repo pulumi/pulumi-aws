@@ -16,14 +16,14 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
     public static final ProjectEnvironmentEnvironmentVariableArgs Empty = new ProjectEnvironmentEnvironmentVariableArgs();
 
     /**
-     * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * Project&#39;s name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+     * @return Project&#39;s name.
      * 
      */
     public Output<String> name() {
@@ -31,14 +31,14 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
     }
 
     /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -87,7 +87,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param name Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+         * @param name Project&#39;s name.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param name Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
+         * @param name Project&#39;s name.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
          * 
          * @return builder
          * 

@@ -40,8 +40,8 @@ class ContainerRecipeArgs:
         :param pulumi.Input[str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-        :param pulumi.Input[str] name: The name of the component parameter.
+        :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
+        :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
@@ -179,7 +179,7 @@ class ContainerRecipeArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        The KMS key used to encrypt the container image.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -191,7 +191,7 @@ class ContainerRecipeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the component parameter.
+        The name of the container recipe.
         """
         return pulumi.get(self, "name")
 
@@ -257,8 +257,8 @@ class _ContainerRecipeState:
         :param pulumi.Input[str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         :param pulumi.Input[bool] encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-        :param pulumi.Input[str] name: The name of the component parameter.
+        :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
+        :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] owner: Owner of the container recipe.
         :param pulumi.Input[str] parent_image: The base image for the container recipe.
         :param pulumi.Input[str] platform: Platform of the container recipe.
@@ -419,7 +419,7 @@ class _ContainerRecipeState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        The KMS key used to encrypt the container image.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -431,7 +431,7 @@ class _ContainerRecipeState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the component parameter.
+        The name of the container recipe.
         """
         return pulumi.get(self, "name")
 
@@ -607,8 +607,8 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeInstanceConfigurationArgs']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-        :param pulumi.Input[str] name: The name of the component parameter.
+        :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
+        :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] parent_image: The base image for the container recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']] target_repository: The destination repository for the container image. Detailed below.
@@ -776,8 +776,8 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
         :param pulumi.Input[bool] encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeInstanceConfigurationArgs']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-        :param pulumi.Input[str] name: The name of the component parameter.
+        :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
+        :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] owner: Owner of the container recipe.
         :param pulumi.Input[str] parent_image: The base image for the container recipe.
         :param pulumi.Input[str] platform: Platform of the container recipe.
@@ -888,7 +888,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        The KMS key used to encrypt the container image.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -896,7 +896,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the component parameter.
+        The name of the container recipe.
         """
         return pulumi.get(self, "name")
 

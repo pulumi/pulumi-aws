@@ -75,9 +75,11 @@ type InstanceGroup struct {
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name                 pulumi.StringOutput `pulumi:"name"`
-	RunningInstanceCount pulumi.IntOutput    `pulumi:"runningInstanceCount"`
-	Status               pulumi.StringOutput `pulumi:"status"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The number of instances currently running in this instance group.
+	RunningInstanceCount pulumi.IntOutput `pulumi:"runningInstanceCount"`
+	// The current status of the instance group.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewInstanceGroup registers a new resource with the given unique name, arguments, and options.
@@ -132,9 +134,11 @@ type instanceGroupState struct {
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType *string `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name                 *string `pulumi:"name"`
-	RunningInstanceCount *int    `pulumi:"runningInstanceCount"`
-	Status               *string `pulumi:"status"`
+	Name *string `pulumi:"name"`
+	// The number of instances currently running in this instance group.
+	RunningInstanceCount *int `pulumi:"runningInstanceCount"`
+	// The current status of the instance group.
+	Status *string `pulumi:"status"`
 }
 
 type InstanceGroupState struct {
@@ -155,9 +159,11 @@ type InstanceGroupState struct {
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType pulumi.StringPtrInput
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-	Name                 pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The number of instances currently running in this instance group.
 	RunningInstanceCount pulumi.IntPtrInput
-	Status               pulumi.StringPtrInput
+	// The current status of the instance group.
+	Status pulumi.StringPtrInput
 }
 
 func (InstanceGroupState) ElementType() reflect.Type {
@@ -339,10 +345,12 @@ func (o InstanceGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The number of instances currently running in this instance group.
 func (o InstanceGroupOutput) RunningInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.IntOutput { return v.RunningInstanceCount }).(pulumi.IntOutput)
 }
 
+// The current status of the instance group.
 func (o InstanceGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

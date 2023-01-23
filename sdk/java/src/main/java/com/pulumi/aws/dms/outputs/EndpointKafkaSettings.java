@@ -19,32 +19,32 @@ public final class EndpointKafkaSettings {
      */
     private String broker;
     /**
-     * @return Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+     * @return Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
      * 
      */
     private @Nullable Boolean includeControlDetails;
     /**
-     * @return Include NULL and empty columns in the target. Default is `false`.
+     * @return Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
      * 
      */
     private @Nullable Boolean includeNullAndEmpty;
     /**
-     * @return Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+     * @return Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
      * 
      */
     private @Nullable Boolean includePartitionValue;
     /**
-     * @return Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+     * @return Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
      * 
      */
     private @Nullable Boolean includeTableAlterOperations;
     /**
-     * @return Provides detailed transaction information from the source database. Default is `false`.
+     * @return Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
      * 
      */
     private @Nullable Boolean includeTransactionDetails;
     /**
-     * @return Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+     * @return Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
      * 
      */
     private @Nullable String messageFormat;
@@ -59,7 +59,7 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable Boolean noHexPrefix;
     /**
-     * @return Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+     * @return Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
      * 
      */
     private @Nullable Boolean partitionIncludeSchemaTable;
@@ -79,7 +79,7 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable String securityProtocol;
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+     * @return ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
      * 
      */
     private @Nullable String sslCaCertificateArn;
@@ -113,42 +113,42 @@ public final class EndpointKafkaSettings {
         return this.broker;
     }
     /**
-     * @return Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+     * @return Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
      * 
      */
     public Optional<Boolean> includeControlDetails() {
         return Optional.ofNullable(this.includeControlDetails);
     }
     /**
-     * @return Include NULL and empty columns in the target. Default is `false`.
+     * @return Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
      * 
      */
     public Optional<Boolean> includeNullAndEmpty() {
         return Optional.ofNullable(this.includeNullAndEmpty);
     }
     /**
-     * @return Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+     * @return Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
      * 
      */
     public Optional<Boolean> includePartitionValue() {
         return Optional.ofNullable(this.includePartitionValue);
     }
     /**
-     * @return Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+     * @return Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
      * 
      */
     public Optional<Boolean> includeTableAlterOperations() {
         return Optional.ofNullable(this.includeTableAlterOperations);
     }
     /**
-     * @return Provides detailed transaction information from the source database. Default is `false`.
+     * @return Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
      * 
      */
     public Optional<Boolean> includeTransactionDetails() {
         return Optional.ofNullable(this.includeTransactionDetails);
     }
     /**
-     * @return Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+     * @return Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
      * 
      */
     public Optional<String> messageFormat() {
@@ -169,7 +169,7 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.noHexPrefix);
     }
     /**
-     * @return Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+     * @return Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
      * 
      */
     public Optional<Boolean> partitionIncludeSchemaTable() {
@@ -197,7 +197,7 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.securityProtocol);
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+     * @return ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
      * 
      */
     public Optional<String> sslCaCertificateArn() {

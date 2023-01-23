@@ -319,7 +319,8 @@ type ReplicationGroup struct {
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
 	NumCacheClusters pulumi.IntOutput `pulumi:"numCacheClusters"`
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	// Number of node groups (shards) for this Redis replication group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
 	NumNodeGroups pulumi.IntOutput `pulumi:"numNodeGroups"`
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
 	//
@@ -335,7 +336,9 @@ type ReplicationGroup struct {
 	PrimaryEndpointAddress pulumi.StringOutput `pulumi:"primaryEndpointAddress"`
 	// (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
 	ReaderEndpointAddress pulumi.StringOutput `pulumi:"readerEndpointAddress"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of replica nodes in each node group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Valid values are 0 to 5.
 	ReplicasPerNodeGroup pulumi.IntOutput `pulumi:"replicasPerNodeGroup"`
 	// User-created description for the replication group. Must not be empty.
 	//
@@ -461,7 +464,8 @@ type replicationGroupState struct {
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
 	NumCacheClusters *int `pulumi:"numCacheClusters"`
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	// Number of node groups (shards) for this Redis replication group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
 	//
@@ -477,7 +481,9 @@ type replicationGroupState struct {
 	PrimaryEndpointAddress *string `pulumi:"primaryEndpointAddress"`
 	// (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
 	ReaderEndpointAddress *string `pulumi:"readerEndpointAddress"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of replica nodes in each node group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Valid values are 0 to 5.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// User-created description for the replication group. Must not be empty.
 	//
@@ -568,7 +574,8 @@ type ReplicationGroupState struct {
 	NotificationTopicArn pulumi.StringPtrInput
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
 	NumCacheClusters pulumi.IntPtrInput
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	// Number of node groups (shards) for this Redis replication group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
 	NumNodeGroups pulumi.IntPtrInput
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
 	//
@@ -584,7 +591,9 @@ type ReplicationGroupState struct {
 	PrimaryEndpointAddress pulumi.StringPtrInput
 	// (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
 	ReaderEndpointAddress pulumi.StringPtrInput
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of replica nodes in each node group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Valid values are 0 to 5.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
 	// User-created description for the replication group. Must not be empty.
 	//
@@ -669,7 +678,8 @@ type replicationGroupArgs struct {
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
 	NumCacheClusters *int `pulumi:"numCacheClusters"`
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	// Number of node groups (shards) for this Redis replication group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
 	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
 	//
@@ -681,7 +691,9 @@ type replicationGroupArgs struct {
 	Port *int `pulumi:"port"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
 	PreferredCacheClusterAzs []string `pulumi:"preferredCacheClusterAzs"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of replica nodes in each node group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Valid values are 0 to 5.
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// User-created description for the replication group. Must not be empty.
 	//
@@ -761,7 +773,8 @@ type ReplicationGroupArgs struct {
 	NotificationTopicArn pulumi.StringPtrInput
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
 	NumCacheClusters pulumi.IntPtrInput
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	// Number of node groups (shards) for this Redis replication group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
 	NumNodeGroups pulumi.IntPtrInput
 	// Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
 	//
@@ -773,7 +786,9 @@ type ReplicationGroupArgs struct {
 	Port pulumi.IntPtrInput
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
 	PreferredCacheClusterAzs pulumi.StringArrayInput
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+	// Number of replica nodes in each node group.
+	// Changing this number will trigger a resizing operation before other settings modifications.
+	// Valid values are 0 to 5.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
 	// User-created description for the replication group. Must not be empty.
 	//
@@ -1025,7 +1040,8 @@ func (o ReplicationGroupOutput) NumCacheClusters() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.NumCacheClusters }).(pulumi.IntOutput)
 }
 
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+// Number of node groups (shards) for this Redis replication group.
+// Changing this number will trigger a resizing operation before other settings modifications.
 func (o ReplicationGroupOutput) NumNodeGroups() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.NumNodeGroups }).(pulumi.IntOutput)
 }
@@ -1062,7 +1078,9 @@ func (o ReplicationGroupOutput) ReaderEndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ReaderEndpointAddress }).(pulumi.StringOutput)
 }
 
-// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
+// Number of replica nodes in each node group.
+// Changing this number will trigger a resizing operation before other settings modifications.
+// Valid values are 0 to 5.
 func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntOutput { return v.ReplicasPerNodeGroup }).(pulumi.IntOutput)
 }

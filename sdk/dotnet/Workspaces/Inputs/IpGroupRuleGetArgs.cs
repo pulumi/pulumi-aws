@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Workspaces.Inputs
     public sealed class IpGroupRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description.
+        /// The description of the IP group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

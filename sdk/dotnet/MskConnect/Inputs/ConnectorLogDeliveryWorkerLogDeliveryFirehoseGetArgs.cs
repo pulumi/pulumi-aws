@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public Input<string>? DeliveryStream { get; set; }
 
         /// <summary>
-        /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+        /// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

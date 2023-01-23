@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva {
     /**
-     * @return The location of the Salesforce resource.
+     * @return The location of the Datadog resource.
      * 
      */
     private String instanceUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva() {}
     /**
-     * @return The location of the Salesforce resource.
+     * @return The location of the Datadog resource.
      * 
      */
     public String instanceUrl() {

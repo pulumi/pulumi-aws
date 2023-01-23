@@ -42,7 +42,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly Outputs.ProjectEnvironmentRegistryCredential? RegistryCredential;
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         /// </summary>
         public readonly string Type;
 

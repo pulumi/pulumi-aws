@@ -129,14 +129,14 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A map of initialization parameters for the SerDe, in key-value form.
+     * User-supplied properties in key-value form.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return A map of initialization parameters for the SerDe, in key-value form.
+     * @return User-supplied properties in key-value form.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -406,7 +406,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param parameters A map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters User-supplied properties in key-value form.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class PartitionStorageDescriptorArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param parameters A map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters User-supplied properties in key-value form.
          * 
          * @return builder
          * 

@@ -109,7 +109,7 @@ class EndpointClientConnectOptionsArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether connection logging is enabled.
+        :param pulumi.Input[bool] enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
         :param pulumi.Input[str] lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
         """
         if enabled is not None:
@@ -121,7 +121,7 @@ class EndpointClientConnectOptionsArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether connection logging is enabled.
+        Indicates whether client connect options are enabled. The default is `false` (not enabled).
         """
         return pulumi.get(self, "enabled")
 
@@ -149,7 +149,7 @@ class EndpointClientLoginBannerOptionsArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
-        :param pulumi.Input[bool] enabled: Indicates whether connection logging is enabled.
+        :param pulumi.Input[bool] enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         """
         if banner_text is not None:
             pulumi.set(__self__, "banner_text", banner_text)
@@ -172,7 +172,7 @@ class EndpointClientLoginBannerOptionsArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether connection logging is enabled.
+        Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         """
         return pulumi.get(self, "enabled")
 

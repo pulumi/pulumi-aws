@@ -17,14 +17,14 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
     public static final EndpointClientConnectOptionsArgs Empty = new EndpointClientConnectOptionsArgs();
 
     /**
-     * Indicates whether connection logging is enabled.
+     * Indicates whether client connect options are enabled. The default is `false` (not enabled).
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether connection logging is enabled.
+     * @return Indicates whether client connect options are enabled. The default is `false` (not enabled).
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -72,7 +72,7 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param enabled Indicates whether connection logging is enabled.
+         * @param enabled Indicates whether client connect options are enabled. The default is `false` (not enabled).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class EndpointClientConnectOptionsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param enabled Indicates whether connection logging is enabled.
+         * @param enabled Indicates whether client connect options are enabled. The default is `false` (not enabled).
          * 
          * @return builder
          * 

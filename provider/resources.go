@@ -2828,6 +2828,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
 
 			"aws_sesv2_configuration_set":                   {Tok: awsResource(sesV2Mod, "ConfigurationSet")},
+			"aws_sesv2_configuration_set_event_destination": {Tok: awsResource(sesV2Mod, "ConfigurationSetEventDestination")},
 			"aws_sesv2_dedicated_ip_assignment":             {Tok: awsResource(sesV2Mod, "DedicatedIpAssignment")},
 			"aws_sesv2_dedicated_ip_pool":                   {Tok: awsResource(sesV2Mod, "DedicatedIpPool")},
 			"aws_sesv2_email_identity_feedback_attributes":  {Tok: awsResource(sesV2Mod, "EmailIdentityFeedbackAttributes")},
@@ -5404,6 +5405,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// lb mod
 			"aws_lb_hosted_zone_id": {Tok: awsDataSource(lbMod, "getHostedZoneId")},
+			"aws_lbs":               {Tok: awsDataSource(lbMod, "getLbs")},
 
 			// SES v2
 			"aws_sesv2_dedicated_ip_pool": {Tok: awsDataSource(sesV2Mod, "getDedicatedIpPool")},

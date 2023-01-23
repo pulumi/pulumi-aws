@@ -145,14 +145,14 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name specified to identify the patch source.
+     * The name of the patch baseline.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name specified to identify the patch source.
+     * @return The name of the patch baseline.
      * 
      */
     public Optional<Output<String>> name() {
@@ -523,7 +523,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name specified to identify the patch source.
+         * @param name The name of the patch baseline.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class PatchBaselineState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name specified to identify the patch source.
+         * @param name The name of the patch baseline.
          * 
          * @return builder
          * 

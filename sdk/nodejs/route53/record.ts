@@ -188,7 +188,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly multivalueAnswerRoutingPolicy!: pulumi.Output<boolean | undefined>;
     /**
-     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+     * The name of the record.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -204,7 +204,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly ttl!: pulumi.Output<number | undefined>;
     /**
-     * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+     * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export class Record extends pulumi.CustomResource {
      */
     public readonly weightedRoutingPolicies!: pulumi.Output<outputs.route53.RecordWeightedRoutingPolicy[] | undefined>;
     /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+     * The ID of the hosted zone to contain this record.
      */
     public readonly zoneId!: pulumi.Output<string>;
 
@@ -314,7 +314,7 @@ export interface RecordState {
      */
     multivalueAnswerRoutingPolicy?: pulumi.Input<boolean>;
     /**
-     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+     * The name of the record.
      */
     name?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface RecordState {
      */
     ttl?: pulumi.Input<number>;
     /**
-     * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+     * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
      */
     type?: pulumi.Input<string | enums.route53.RecordType>;
     /**
@@ -338,7 +338,7 @@ export interface RecordState {
      */
     weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
     /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+     * The ID of the hosted zone to contain this record.
      */
     zoneId?: pulumi.Input<string>;
 }
@@ -377,7 +377,7 @@ export interface RecordArgs {
      */
     multivalueAnswerRoutingPolicy?: pulumi.Input<boolean>;
     /**
-     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+     * The name of the record.
      */
     name: pulumi.Input<string>;
     /**
@@ -393,7 +393,7 @@ export interface RecordArgs {
      */
     ttl?: pulumi.Input<number>;
     /**
-     * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+     * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
      */
     type: pulumi.Input<string | enums.route53.RecordType>;
     /**
@@ -401,7 +401,7 @@ export interface RecordArgs {
      */
     weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
     /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+     * The ID of the hosted zone to contain this record.
      */
     zoneId: pulumi.Input<string>;
 }

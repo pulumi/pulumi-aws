@@ -46,14 +46,14 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
     }
 
     /**
-     * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+     * HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
      * 
      */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
     /**
-     * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+     * @return HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
      * 
      */
     public Optional<Output<String>> statusCode() {
@@ -129,7 +129,7 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
         }
 
         /**
-         * @param statusCode HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * @param statusCode HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ListenerDefaultActionFixedResponseArgs extends com.pulumi.res
         }
 
         /**
-         * @param statusCode HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * @param statusCode HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
          * 
          * @return builder
          * 

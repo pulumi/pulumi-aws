@@ -17,6 +17,12 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
      * 
      */
     private @Nullable Boolean isActive;
+    /**
+     * @return The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     private @Nullable String principalArn;
 
     private ContainerServicePrivateRegistryAccessEcrImagePullerRole() {}
@@ -27,6 +33,12 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
     public Optional<Boolean> isActive() {
         return Optional.ofNullable(this.isActive);
     }
+    /**
+     * @return The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     public Optional<String> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }

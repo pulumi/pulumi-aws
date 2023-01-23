@@ -66,7 +66,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// Full name of the availability zone to select.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -110,7 +110,7 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
-        /// Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// Full name of the availability zone to select.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

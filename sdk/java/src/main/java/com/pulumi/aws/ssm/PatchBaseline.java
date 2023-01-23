@@ -383,14 +383,14 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.globalFilters);
     }
     /**
-     * The name specified to identify the patch source.
+     * The name of the patch baseline.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name specified to identify the patch source.
+     * @return The name of the patch baseline.
      * 
      */
     public Output<String> name() {

@@ -28,7 +28,7 @@ public final class ProjectSecondaryArtifact {
      */
     private @Nullable Boolean encryptionDisabled;
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
      * 
      */
     private @Nullable String location;
@@ -58,7 +58,7 @@ public final class ProjectSecondaryArtifact {
      */
     private @Nullable String path;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. The only valid value is `S3`.
      * 
      */
     private String type;
@@ -86,7 +86,7 @@ public final class ProjectSecondaryArtifact {
         return Optional.ofNullable(this.encryptionDisabled);
     }
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket. If `path` is not also specified, then `location` can also specify the path of the output artifact in the output bucket.
      * 
      */
     public Optional<String> location() {
@@ -128,7 +128,7 @@ public final class ProjectSecondaryArtifact {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. The only valid value is `S3`.
      * 
      */
     public String type() {

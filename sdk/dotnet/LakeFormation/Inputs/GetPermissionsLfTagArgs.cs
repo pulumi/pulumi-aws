@@ -19,7 +19,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public Input<string> CatalogId { get; set; } = null!;
 
         /// <summary>
-        /// Key-name of an LF-Tag.
+        /// Key-name for the tag.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// List of possible values of an LF-Tag.
+        /// List of possible values an attribute can take.
         /// </summary>
         public InputList<string> Values
         {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? LanguageCode;
         /// <summary>
-        /// The name of the video description.
+        /// Name of the Channel.
         /// </summary>
         public readonly string Name;
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? SelectorSettings;

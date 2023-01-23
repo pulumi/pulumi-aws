@@ -157,14 +157,14 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * The KMS key used to encrypt the container image.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * @return The KMS key used to encrypt the container image.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -172,14 +172,14 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the component parameter.
+     * The name of the container recipe.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the component parameter.
+     * @return The name of the container recipe.
      * 
      */
     public Optional<Output<String>> name() {
@@ -548,7 +548,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         * @param kmsKeyId The KMS key used to encrypt the container image.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         * @param kmsKeyId The KMS key used to encrypt the container image.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the component parameter.
+         * @param name The name of the container recipe.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class ContainerRecipeState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the component parameter.
+         * @param name The name of the container recipe.
          * 
          * @return builder
          * 

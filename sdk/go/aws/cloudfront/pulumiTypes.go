@@ -390,7 +390,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies struct {
-	// A list of item names (cookies, headers, or query strings).
 	Items []string `pulumi:"items"`
 }
 
@@ -406,7 +405,6 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesInpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs struct {
-	// A list of item names (cookies, headers, or query strings).
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -487,7 +485,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesO
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
 }
 
-// A list of item names (cookies, headers, or query strings).
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) []string {
 		return v.Items
@@ -518,7 +515,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesP
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput)
 }
 
-// A list of item names (cookies, headers, or query strings).
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) []string {
 		if v == nil {
@@ -689,7 +685,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders struct {
-	// A list of item names (cookies, headers, or query strings).
 	Items []string `pulumi:"items"`
 }
 
@@ -705,7 +700,6 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersInpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs struct {
-	// A list of item names (cookies, headers, or query strings).
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -786,7 +780,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersO
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
 }
 
-// A list of item names (cookies, headers, or query strings).
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) []string {
 		return v.Items
@@ -817,7 +810,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersP
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput)
 }
 
-// A list of item names (cookies, headers, or query strings).
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) []string {
 		if v == nil {
@@ -988,7 +980,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings struct {
-	// A list of item names (cookies, headers, or query strings).
 	Items []string `pulumi:"items"`
 }
 
@@ -1004,7 +995,6 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryS
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs struct {
-	// A list of item names (cookies, headers, or query strings).
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -1085,7 +1075,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
 }
 
-// A list of item names (cookies, headers, or query strings).
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) []string {
 		return v.Items
@@ -1116,7 +1105,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput)
 }
 
-// A list of item names (cookies, headers, or query strings).
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) []string {
 		if v == nil {
@@ -2369,7 +2357,8 @@ func (o DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput) Index(i 
 
 type DistributionDefaultCacheBehaviorLambdaFunctionAssociation struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request` or `viewer-response`
+	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+	// `origin-response`
 	EventType string `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody *bool `pulumi:"includeBody"`
@@ -2390,7 +2379,8 @@ type DistributionDefaultCacheBehaviorLambdaFunctionAssociationInput interface {
 
 type DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request` or `viewer-response`
+	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+	// `origin-response`
 	EventType pulumi.StringInput `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody pulumi.BoolPtrInput `pulumi:"includeBody"`
@@ -2450,7 +2440,8 @@ func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) ToDistr
 }
 
 // The specific event to trigger this function.
-// Valid values: `viewer-request` or `viewer-response`
+// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+// `origin-response`
 func (o DistributionDefaultCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
 }
@@ -3541,7 +3532,8 @@ func (o DistributionOrderedCacheBehaviorFunctionAssociationArrayOutput) Index(i 
 
 type DistributionOrderedCacheBehaviorLambdaFunctionAssociation struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request` or `viewer-response`
+	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+	// `origin-response`
 	EventType string `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody *bool `pulumi:"includeBody"`
@@ -3562,7 +3554,8 @@ type DistributionOrderedCacheBehaviorLambdaFunctionAssociationInput interface {
 
 type DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs struct {
 	// The specific event to trigger this function.
-	// Valid values: `viewer-request` or `viewer-response`
+	// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+	// `origin-response`
 	EventType pulumi.StringInput `pulumi:"eventType"`
 	// When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
 	IncludeBody pulumi.BoolPtrInput `pulumi:"includeBody"`
@@ -3622,7 +3615,8 @@ func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) ToDistr
 }
 
 // The specific event to trigger this function.
-// Valid values: `viewer-request` or `viewer-response`
+// Valid values: `viewer-request`, `origin-request`, `viewer-response`,
+// `origin-response`
 func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationOutput) EventType() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehaviorLambdaFunctionAssociation) string { return v.EventType }).(pulumi.StringOutput)
 }
@@ -3675,7 +3669,7 @@ type DistributionOrigin struct {
 	DomainName string `pulumi:"domainName"`
 	// The unique identifier of a CloudFront origin access control for this origin.
 	OriginAccessControlId *string `pulumi:"originAccessControlId"`
-	// The unique identifier of the member origin
+	// A unique identifier for the origin.
 	OriginId string `pulumi:"originId"`
 	// An optional element that causes CloudFront to
 	// request your content from a directory in your Amazon S3 bucket or your
@@ -3719,7 +3713,7 @@ type DistributionOriginArgs struct {
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// The unique identifier of a CloudFront origin access control for this origin.
 	OriginAccessControlId pulumi.StringPtrInput `pulumi:"originAccessControlId"`
-	// The unique identifier of the member origin
+	// A unique identifier for the origin.
 	OriginId pulumi.StringInput `pulumi:"originId"`
 	// An optional element that causes CloudFront to
 	// request your content from a directory in your Amazon S3 bucket or your
@@ -3820,7 +3814,7 @@ func (o DistributionOriginOutput) OriginAccessControlId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginAccessControlId }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier of the member origin
+// A unique identifier for the origin.
 func (o DistributionOriginOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.OriginId }).(pulumi.StringOutput)
 }
@@ -4214,7 +4208,7 @@ type DistributionOriginGroup struct {
 	FailoverCriteria DistributionOriginGroupFailoverCriteria `pulumi:"failoverCriteria"`
 	// Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
 	Members []DistributionOriginGroupMember `pulumi:"members"`
-	// The unique identifier of the member origin
+	// A unique identifier for the origin.
 	OriginId string `pulumi:"originId"`
 }
 
@@ -4234,7 +4228,7 @@ type DistributionOriginGroupArgs struct {
 	FailoverCriteria DistributionOriginGroupFailoverCriteriaInput `pulumi:"failoverCriteria"`
 	// Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
 	Members DistributionOriginGroupMemberArrayInput `pulumi:"members"`
-	// The unique identifier of the member origin
+	// A unique identifier for the origin.
 	OriginId pulumi.StringInput `pulumi:"originId"`
 }
 
@@ -4299,7 +4293,7 @@ func (o DistributionOriginGroupOutput) Members() DistributionOriginGroupMemberAr
 	return o.ApplyT(func(v DistributionOriginGroup) []DistributionOriginGroupMember { return v.Members }).(DistributionOriginGroupMemberArrayOutput)
 }
 
-// The unique identifier of the member origin
+// A unique identifier for the origin.
 func (o DistributionOriginGroupOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginGroup) string { return v.OriginId }).(pulumi.StringOutput)
 }
@@ -4377,7 +4371,7 @@ func (o DistributionOriginGroupFailoverCriteriaOutput) StatusCodes() pulumi.IntA
 }
 
 type DistributionOriginGroupMember struct {
-	// The unique identifier of the member origin
+	// A unique identifier for the origin.
 	OriginId string `pulumi:"originId"`
 }
 
@@ -4393,7 +4387,7 @@ type DistributionOriginGroupMemberInput interface {
 }
 
 type DistributionOriginGroupMemberArgs struct {
-	// The unique identifier of the member origin
+	// A unique identifier for the origin.
 	OriginId pulumi.StringInput `pulumi:"originId"`
 }
 
@@ -4448,7 +4442,7 @@ func (o DistributionOriginGroupMemberOutput) ToDistributionOriginGroupMemberOutp
 	return o
 }
 
-// The unique identifier of the member origin
+// A unique identifier for the origin.
 func (o DistributionOriginGroupMemberOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginGroupMember) string { return v.OriginId }).(pulumi.StringOutput)
 }
@@ -4474,7 +4468,8 @@ func (o DistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) Distr
 }
 
 type DistributionOriginOriginShield struct {
-	// A flag that specifies whether Origin Shield is enabled.
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
 	Enabled bool `pulumi:"enabled"`
 	// The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
 	OriginShieldRegion string `pulumi:"originShieldRegion"`
@@ -4492,7 +4487,8 @@ type DistributionOriginOriginShieldInput interface {
 }
 
 type DistributionOriginOriginShieldArgs struct {
-	// A flag that specifies whether Origin Shield is enabled.
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
 	OriginShieldRegion pulumi.StringInput `pulumi:"originShieldRegion"`
@@ -4575,7 +4571,8 @@ func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldPt
 	}).(DistributionOriginOriginShieldPtrOutput)
 }
 
-// A flag that specifies whether Origin Shield is enabled.
+// Whether the distribution is enabled to accept end
+// user requests for content.
 func (o DistributionOriginOriginShieldOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionOriginOriginShield) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4609,7 +4606,8 @@ func (o DistributionOriginOriginShieldPtrOutput) Elem() DistributionOriginOrigin
 	}).(DistributionOriginOriginShieldOutput)
 }
 
-// A flag that specifies whether Origin Shield is enabled.
+// Whether the distribution is enabled to accept end
+// user requests for content.
 func (o DistributionOriginOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginOriginShield) *bool {
 		if v == nil {
@@ -5072,7 +5070,8 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 }
 
 type DistributionTrustedKeyGroup struct {
-	// A flag that specifies whether Origin Shield is enabled.
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedKeyGroupItem `pulumi:"items"`
@@ -5090,7 +5089,8 @@ type DistributionTrustedKeyGroupInput interface {
 }
 
 type DistributionTrustedKeyGroupArgs struct {
-	// A flag that specifies whether Origin Shield is enabled.
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedKeyGroupItemArrayInput `pulumi:"items"`
@@ -5147,7 +5147,8 @@ func (o DistributionTrustedKeyGroupOutput) ToDistributionTrustedKeyGroupOutputWi
 	return o
 }
 
-// A flag that specifies whether Origin Shield is enabled.
+// Whether the distribution is enabled to accept end
+// user requests for content.
 func (o DistributionTrustedKeyGroupOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedKeyGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -5284,7 +5285,8 @@ func (o DistributionTrustedKeyGroupItemArrayOutput) Index(i pulumi.IntInput) Dis
 }
 
 type DistributionTrustedSigner struct {
-	// A flag that specifies whether Origin Shield is enabled.
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedSignerItem `pulumi:"items"`
@@ -5302,7 +5304,8 @@ type DistributionTrustedSignerInput interface {
 }
 
 type DistributionTrustedSignerArgs struct {
-	// A flag that specifies whether Origin Shield is enabled.
+	// Whether the distribution is enabled to accept end
+	// user requests for content.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedSignerItemArrayInput `pulumi:"items"`
@@ -5359,7 +5362,8 @@ func (o DistributionTrustedSignerOutput) ToDistributionTrustedSignerOutputWithCo
 	return o
 }
 
-// A flag that specifies whether Origin Shield is enabled.
+// Whether the distribution is enabled to accept end
+// user requests for content.
 func (o DistributionTrustedSignerOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedSigner) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -5522,7 +5526,11 @@ type DistributionViewerCertificate struct {
 	// specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
 	// must be specified.
 	MinimumProtocolVersion *string `pulumi:"minimumProtocolVersion"`
-	SslSupportMethod       *string `pulumi:"sslSupportMethod"`
+	// Specifies how you want CloudFront to serve HTTPS
+	// requests. One of `vip` or `sni-only`. Required if you specify
+	// `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes
+	// CloudFront to use a dedicated IP address and may incur extra charges.
+	SslSupportMethod *string `pulumi:"sslSupportMethod"`
 }
 
 // DistributionViewerCertificateInput is an input type that accepts DistributionViewerCertificateArgs and DistributionViewerCertificateOutput values.
@@ -5563,7 +5571,11 @@ type DistributionViewerCertificateArgs struct {
 	// specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
 	// must be specified.
 	MinimumProtocolVersion pulumi.StringPtrInput `pulumi:"minimumProtocolVersion"`
-	SslSupportMethod       pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
+	// Specifies how you want CloudFront to serve HTTPS
+	// requests. One of `vip` or `sni-only`. Required if you specify
+	// `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes
+	// CloudFront to use a dedicated IP address and may incur extra charges.
+	SslSupportMethod pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
 }
 
 func (DistributionViewerCertificateArgs) ElementType() reflect.Type {
@@ -5681,6 +5693,10 @@ func (o DistributionViewerCertificateOutput) MinimumProtocolVersion() pulumi.Str
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
+// Specifies how you want CloudFront to serve HTTPS
+// requests. One of `vip` or `sni-only`. Required if you specify
+// `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes
+// CloudFront to use a dedicated IP address and may incur extra charges.
 func (o DistributionViewerCertificateOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
 }
@@ -5767,6 +5783,10 @@ func (o DistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies how you want CloudFront to serve HTTPS
+// requests. One of `vip` or `sni-only`. Required if you specify
+// `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes
+// CloudFront to use a dedicated IP address and may incur extra charges.
 func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
 		if v == nil {
@@ -6076,7 +6096,7 @@ type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem s
 	ContentType string `pulumi:"contentType"`
 	// The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
 	Format string `pulumi:"format"`
-	// ID of profile to use for field-level encryption query argument-profile mapping
+	// The profile ID for a field-level encryption content type-profile mapping.
 	ProfileId *string `pulumi:"profileId"`
 }
 
@@ -6096,7 +6116,7 @@ type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemAr
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
 	Format pulumi.StringInput `pulumi:"format"`
-	// ID of profile to use for field-level encryption query argument-profile mapping
+	// The profile ID for a field-level encryption content type-profile mapping.
 	ProfileId pulumi.StringPtrInput `pulumi:"profileId"`
 }
 
@@ -6165,7 +6185,7 @@ func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesIte
 	}).(pulumi.StringOutput)
 }
 
-// ID of profile to use for field-level encryption query argument-profile mapping
+// The profile ID for a field-level encryption content type-profile mapping.
 func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput) ProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem) *string {
 		return v.ProfileId
@@ -6488,7 +6508,7 @@ func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput
 }
 
 type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem struct {
-	// ID of profile to use for field-level encryption query argument-profile mapping
+	// The profile ID for a field-level encryption content type-profile mapping.
 	ProfileId string `pulumi:"profileId"`
 	// Query argument for field-level encryption query argument-profile mapping.
 	QueryArg string `pulumi:"queryArg"`
@@ -6506,7 +6526,7 @@ type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemInput in
 }
 
 type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs struct {
-	// ID of profile to use for field-level encryption query argument-profile mapping
+	// The profile ID for a field-level encryption content type-profile mapping.
 	ProfileId pulumi.StringInput `pulumi:"profileId"`
 	// Query argument for field-level encryption query argument-profile mapping.
 	QueryArg pulumi.StringInput `pulumi:"queryArg"`
@@ -6563,7 +6583,7 @@ func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutpu
 	return o
 }
 
-// ID of profile to use for field-level encryption query argument-profile mapping
+// The profile ID for a field-level encryption content type-profile mapping.
 func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem) string { return v.ProfileId }).(pulumi.StringOutput)
 }
@@ -8346,7 +8366,7 @@ type ResponseHeadersPolicyCorsConfig struct {
 	AccessControlAllowOrigins ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins `pulumi:"accessControlAllowOrigins"`
 	// Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
 	AccessControlExposeHeaders *ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders `pulumi:"accessControlExposeHeaders"`
-	// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+	// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
 	AccessControlMaxAgeSec *int `pulumi:"accessControlMaxAgeSec"`
 	// A Boolean value that determines how CloudFront behaves for the HTTP response header.
 	OriginOverride bool `pulumi:"originOverride"`
@@ -8374,7 +8394,7 @@ type ResponseHeadersPolicyCorsConfigArgs struct {
 	AccessControlAllowOrigins ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsInput `pulumi:"accessControlAllowOrigins"`
 	// Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
 	AccessControlExposeHeaders ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersPtrInput `pulumi:"accessControlExposeHeaders"`
-	// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+	// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
 	AccessControlMaxAgeSec pulumi.IntPtrInput `pulumi:"accessControlMaxAgeSec"`
 	// A Boolean value that determines how CloudFront behaves for the HTTP response header.
 	OriginOverride pulumi.BoolInput `pulumi:"originOverride"`
@@ -8490,7 +8510,7 @@ func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlExposeHeaders() Resp
 	}).(ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersPtrOutput)
 }
 
-// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
 func (o ResponseHeadersPolicyCorsConfigOutput) AccessControlMaxAgeSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCorsConfig) *int { return v.AccessControlMaxAgeSec }).(pulumi.IntPtrOutput)
 }
@@ -8574,7 +8594,7 @@ func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlExposeHeaders() R
 	}).(ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersPtrOutput)
 }
 
-// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
 func (o ResponseHeadersPolicyCorsConfigPtrOutput) AccessControlMaxAgeSec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicyCorsConfig) *int {
 		if v == nil {
@@ -9264,7 +9284,7 @@ func (o ResponseHeadersPolicyCustomHeadersConfigPtrOutput) Items() ResponseHeade
 type ResponseHeadersPolicyCustomHeadersConfigItem struct {
 	// The HTTP response header name.
 	Header string `pulumi:"header"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
 	Override bool `pulumi:"override"`
 	// The value for the HTTP response header.
 	Value string `pulumi:"value"`
@@ -9284,7 +9304,7 @@ type ResponseHeadersPolicyCustomHeadersConfigItemInput interface {
 type ResponseHeadersPolicyCustomHeadersConfigItemArgs struct {
 	// The HTTP response header name.
 	Header pulumi.StringInput `pulumi:"header"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
 	Override pulumi.BoolInput `pulumi:"override"`
 	// The value for the HTTP response header.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -9346,7 +9366,7 @@ func (o ResponseHeadersPolicyCustomHeadersConfigItemOutput) Header() pulumi.Stri
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeadersConfigItem) string { return v.Header }).(pulumi.StringOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
 func (o ResponseHeadersPolicyCustomHeadersConfigItemOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeadersConfigItem) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -9377,13 +9397,13 @@ func (o ResponseHeadersPolicyCustomHeadersConfigItemArrayOutput) Index(i pulumi.
 }
 
 type ResponseHeadersPolicySecurityHeadersConfig struct {
-	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
 	ContentSecurityPolicy *ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy `pulumi:"contentSecurityPolicy"`
 	// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
 	ContentTypeOptions *ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions `pulumi:"contentTypeOptions"`
 	// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
 	FrameOptions *ResponseHeadersPolicySecurityHeadersConfigFrameOptions `pulumi:"frameOptions"`
-	// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+	// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
 	ReferrerPolicy *ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy `pulumi:"referrerPolicy"`
 	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
 	StrictTransportSecurity *ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity `pulumi:"strictTransportSecurity"`
@@ -9403,13 +9423,13 @@ type ResponseHeadersPolicySecurityHeadersConfigInput interface {
 }
 
 type ResponseHeadersPolicySecurityHeadersConfigArgs struct {
-	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
 	ContentSecurityPolicy ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyPtrInput `pulumi:"contentSecurityPolicy"`
 	// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
 	ContentTypeOptions ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsPtrInput `pulumi:"contentTypeOptions"`
 	// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
 	FrameOptions ResponseHeadersPolicySecurityHeadersConfigFrameOptionsPtrInput `pulumi:"frameOptions"`
-	// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+	// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
 	ReferrerPolicy ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyPtrInput `pulumi:"referrerPolicy"`
 	// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
 	StrictTransportSecurity ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityPtrInput `pulumi:"strictTransportSecurity"`
@@ -9494,7 +9514,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigOutput) ToResponseHeadersPolic
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
 }
 
-// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) ContentSecurityPolicy() ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
 		return v.ContentSecurityPolicy
@@ -9515,7 +9535,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigOutput) FrameOptions() Respons
 	}).(ResponseHeadersPolicySecurityHeadersConfigFrameOptionsPtrOutput)
 }
 
-// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
 func (o ResponseHeadersPolicySecurityHeadersConfigOutput) ReferrerPolicy() ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
 		return v.ReferrerPolicy
@@ -9560,7 +9580,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) Elem() ResponseHead
 	}).(ResponseHeadersPolicySecurityHeadersConfigOutput)
 }
 
-// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ContentSecurityPolicy() ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
 		if v == nil {
@@ -9590,7 +9610,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) FrameOptions() Resp
 	}).(ResponseHeadersPolicySecurityHeadersConfigFrameOptionsPtrOutput)
 }
 
-// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+// Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
 func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) ReferrerPolicy() ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
 		if v == nil {
@@ -9623,7 +9643,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XssProtection() Res
 type ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy struct {
 	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
 	ContentSecurityPolicy string `pulumi:"contentSecurityPolicy"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
 }
 
@@ -9641,7 +9661,7 @@ type ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput interf
 type ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs struct {
 	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
 	ContentSecurityPolicy pulumi.StringInput `pulumi:"contentSecurityPolicy"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
 }
 
@@ -9729,7 +9749,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput) C
 	}).(pulumi.StringOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -9768,7 +9788,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy) *bool {
 		if v == nil {
@@ -9779,7 +9799,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyPtrOutput
 }
 
 type ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions struct {
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
 }
 
@@ -9795,7 +9815,7 @@ type ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsInput interface
 }
 
 type ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs struct {
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
 }
 
@@ -9876,7 +9896,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutput) ToRe
 	}).(ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsPtrOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -9905,7 +9925,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsPtrOutput) E
 	}).(ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions) *bool {
 		if v == nil {
@@ -9918,7 +9938,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsPtrOutput) O
 type ResponseHeadersPolicySecurityHeadersConfigFrameOptions struct {
 	// The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
 	FrameOption string `pulumi:"frameOption"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
 }
 
@@ -9936,7 +9956,7 @@ type ResponseHeadersPolicySecurityHeadersConfigFrameOptionsInput interface {
 type ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs struct {
 	// The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
 	FrameOption pulumi.StringInput `pulumi:"frameOption"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
 }
 
@@ -10022,7 +10042,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutput) FrameOptio
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfigFrameOptions) string { return v.FrameOption }).(pulumi.StringOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigFrameOptionsOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfigFrameOptions) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -10061,7 +10081,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigFrameOptionsPtrOutput) FrameOp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigFrameOptionsPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfigFrameOptions) *bool {
 		if v == nil {
@@ -10072,7 +10092,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigFrameOptionsPtrOutput) Overrid
 }
 
 type ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy struct {
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
 	// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
 	ReferrerPolicy string `pulumi:"referrerPolicy"`
@@ -10090,7 +10110,7 @@ type ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyInput interface {
 }
 
 type ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs struct {
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
 	// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
 	ReferrerPolicy pulumi.StringInput `pulumi:"referrerPolicy"`
@@ -10173,7 +10193,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput) ToRespon
 	}).(ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyPtrOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -10207,7 +10227,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyPtrOutput) Elem(
 	}).(ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy) *bool {
 		if v == nil {
@@ -10232,7 +10252,7 @@ type ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity struct {
 	AccessControlMaxAgeSec int `pulumi:"accessControlMaxAgeSec"`
 	// Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
 	IncludeSubdomains *bool `pulumi:"includeSubdomains"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
 	// Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
 	Preload *bool `pulumi:"preload"`
@@ -10254,7 +10274,7 @@ type ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs struc
 	AccessControlMaxAgeSec pulumi.IntInput `pulumi:"accessControlMaxAgeSec"`
 	// Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
 	IncludeSubdomains pulumi.BoolPtrInput `pulumi:"includeSubdomains"`
-	// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+	// Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
 	// Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
 	Preload pulumi.BoolPtrInput `pulumi:"preload"`
@@ -10351,7 +10371,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput)
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity) bool { return v.Override }).(pulumi.BoolOutput)
 }
@@ -10405,7 +10425,7 @@ func (o ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+// Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityPtrOutput) Override() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity) *bool {
 		if v == nil {

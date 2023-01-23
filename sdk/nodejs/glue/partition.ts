@@ -67,7 +67,7 @@ export class Partition extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastAnalyzedTime!: pulumi.Output<string>;
     /**
-     * A map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -153,7 +153,7 @@ export interface PartitionState {
      */
     lastAnalyzedTime?: pulumi.Input<string>;
     /**
-     * A map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -180,7 +180,7 @@ export interface PartitionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * A map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

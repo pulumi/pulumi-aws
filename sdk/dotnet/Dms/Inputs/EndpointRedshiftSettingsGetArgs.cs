@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Dms.Inputs
     public sealed class EndpointRedshiftSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// S3 object prefix.
+        /// Custom S3 Bucket Object prefix for intermediate storage.
         /// </summary>
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }
 
         /// <summary>
-        /// S3 bucket name.
+        /// Custom S3 Bucket name for intermediate storage.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+        /// The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
 
         /// <summary>
-        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
         /// </summary>
         [Input("serverSideEncryptionKmsKeyId")]
         public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
         /// <summary>
-        /// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }

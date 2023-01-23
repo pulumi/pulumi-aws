@@ -25,7 +25,7 @@ class ApplicationAutoStartConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
-        :param bool enabled: Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+        :param bool enabled: Enables the application to automatically start on job submission. Defaults to `true`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -34,7 +34,7 @@ class ApplicationAutoStartConfiguration(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+        Enables the application to automatically start on job submission. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -233,9 +233,9 @@ class ApplicationMaximumCapacity(dict):
                  memory: str,
                  disk: Optional[str] = None):
         """
-        :param str cpu: The CPU requirements for every worker instance of the worker type.
-        :param str memory: The memory requirements for every worker instance of the worker type.
-        :param str disk: The disk requirements for every worker instance of the worker type.
+        :param str cpu: The maximum allowed CPU for an application.
+        :param str memory: The maximum allowed resources for an application.
+        :param str disk: The maximum allowed disk for an application.
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "memory", memory)
@@ -246,7 +246,7 @@ class ApplicationMaximumCapacity(dict):
     @pulumi.getter
     def cpu(self) -> str:
         """
-        The CPU requirements for every worker instance of the worker type.
+        The maximum allowed CPU for an application.
         """
         return pulumi.get(self, "cpu")
 
@@ -254,7 +254,7 @@ class ApplicationMaximumCapacity(dict):
     @pulumi.getter
     def memory(self) -> str:
         """
-        The memory requirements for every worker instance of the worker type.
+        The maximum allowed resources for an application.
         """
         return pulumi.get(self, "memory")
 
@@ -262,7 +262,7 @@ class ApplicationMaximumCapacity(dict):
     @pulumi.getter
     def disk(self) -> Optional[str]:
         """
-        The disk requirements for every worker instance of the worker type.
+        The maximum allowed disk for an application.
         """
         return pulumi.get(self, "disk")
 

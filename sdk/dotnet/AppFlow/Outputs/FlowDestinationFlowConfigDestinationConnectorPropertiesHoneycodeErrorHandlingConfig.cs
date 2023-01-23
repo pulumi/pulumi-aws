@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig
     {
         /// <summary>
-        /// Amazon S3 bucket name where the source files are stored.
+        /// Name of the Amazon S3 bucket.
         /// </summary>
         public readonly string? BucketName;
         /// <summary>
-        /// Object key for the Amazon S3 bucket in which the source files are stored.
+        /// Amazon S3 bucket prefix.
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>

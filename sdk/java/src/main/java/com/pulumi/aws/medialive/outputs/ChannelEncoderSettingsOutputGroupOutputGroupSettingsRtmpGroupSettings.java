@@ -39,7 +39,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
      */
     private @Nullable String captionData;
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     private @Nullable String inputLossAction;
@@ -86,7 +86,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
         return Optional.ofNullable(this.captionData);
     }
     /**
-     * @return Specifies behavior of last resort when input video os lost.
+     * @return Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
     public Optional<String> inputLossAction() {

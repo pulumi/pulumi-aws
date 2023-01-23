@@ -33,14 +33,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Name of the index
+     * Name of the index.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the index
+     * @return Name of the index.
      * 
      */
     public Output<String> name() {
@@ -78,14 +78,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Name of the range key.
+     * Name of the range key; must be defined
      * 
      */
     @Import(name="rangeKey")
     private @Nullable Output<String> rangeKey;
 
     /**
-     * @return Name of the range key.
+     * @return Name of the range key; must be defined
      * 
      */
     public Optional<Output<String>> rangeKey() {
@@ -174,7 +174,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Name of the index
+         * @param name Name of the index.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Name of the index
+         * @param name Name of the index.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rangeKey Name of the range key.
+         * @param rangeKey Name of the range key; must be defined
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rangeKey Name of the range key.
+         * @param rangeKey Name of the range key; must be defined
          * 
          * @return builder
          * 

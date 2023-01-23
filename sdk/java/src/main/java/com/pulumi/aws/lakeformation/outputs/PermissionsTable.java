@@ -18,17 +18,17 @@ public final class PermissionsTable {
      */
     private @Nullable String catalogId;
     /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * @return Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     private String databaseName;
     /**
-     * @return Name of the table resource.
+     * @return Name of the table.
      * 
      */
     private @Nullable String name;
     /**
-     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
      * 
      */
     private @Nullable Boolean wildcard;
@@ -42,21 +42,21 @@ public final class PermissionsTable {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return Name of the database for the table with columns resource. Unique to the Data Catalog.
+     * @return Name of the database for the table. Unique to a Data Catalog.
      * 
      */
     public String databaseName() {
         return this.databaseName;
     }
     /**
-     * @return Name of the table resource.
+     * @return Name of the table.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+     * @return Whether to use a wildcard representing every table under a database. Defaults to `false`.
      * 
      */
     public Optional<Boolean> wildcard() {

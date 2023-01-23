@@ -17,9 +17,17 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
 
     public static final UserDefinedFunctionState Empty = new UserDefinedFunctionState();
 
+    /**
+     * The ARN of the Glue User Defined Function.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return The ARN of the Glue User Defined Function.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -54,9 +62,17 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.className);
     }
 
+    /**
+     * The time at which the function was created.
+     * 
+     */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
+    /**
+     * @return The time at which the function was created.
+     * 
+     */
     public Optional<Output<String>> createTime() {
         return Optional.ofNullable(this.createTime);
     }
@@ -168,11 +184,23 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
             $ = new UserDefinedFunctionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn The ARN of the Glue User Defined Function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn The ARN of the Glue User Defined Function.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -219,11 +247,23 @@ public final class UserDefinedFunctionState extends com.pulumi.resources.Resourc
             return className(Output.of(className));
         }
 
+        /**
+         * @param createTime The time at which the function was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createTime(@Nullable Output<String> createTime) {
             $.createTime = createTime;
             return this;
         }
 
+        /**
+         * @param createTime The time at which the function was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createTime(String createTime) {
             return createTime(Output.of(createTime));
         }

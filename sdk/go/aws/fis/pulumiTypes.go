@@ -15,7 +15,7 @@ type ExperimentTemplateAction struct {
 	ActionId string `pulumi:"actionId"`
 	// Description of the action.
 	Description *string `pulumi:"description"`
-	// Friendly name given to the target.
+	// Friendly name of the action.
 	Name string `pulumi:"name"`
 	// Parameter(s) for the action, if applicable. See below.
 	Parameters []ExperimentTemplateActionParameter `pulumi:"parameters"`
@@ -41,7 +41,7 @@ type ExperimentTemplateActionArgs struct {
 	ActionId pulumi.StringInput `pulumi:"actionId"`
 	// Description of the action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Friendly name given to the target.
+	// Friendly name of the action.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Parameter(s) for the action, if applicable. See below.
 	Parameters ExperimentTemplateActionParameterArrayInput `pulumi:"parameters"`
@@ -112,7 +112,7 @@ func (o ExperimentTemplateActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name given to the target.
+// Friendly name of the action.
 func (o ExperimentTemplateActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -153,9 +153,9 @@ func (o ExperimentTemplateActionArrayOutput) Index(i pulumi.IntInput) Experiment
 }
 
 type ExperimentTemplateActionParameter struct {
-	// Tag key.
+	// Parameter name.
 	Key string `pulumi:"key"`
-	// Tag value.
+	// Parameter value.
 	Value string `pulumi:"value"`
 }
 
@@ -171,9 +171,9 @@ type ExperimentTemplateActionParameterInput interface {
 }
 
 type ExperimentTemplateActionParameterArgs struct {
-	// Tag key.
+	// Parameter name.
 	Key pulumi.StringInput `pulumi:"key"`
-	// Tag value.
+	// Parameter value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -228,12 +228,12 @@ func (o ExperimentTemplateActionParameterOutput) ToExperimentTemplateActionParam
 	return o
 }
 
-// Tag key.
+// Parameter name.
 func (o ExperimentTemplateActionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Tag value.
+// Parameter value.
 func (o ExperimentTemplateActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -259,9 +259,9 @@ func (o ExperimentTemplateActionParameterArrayOutput) Index(i pulumi.IntInput) E
 }
 
 type ExperimentTemplateActionTarget struct {
-	// Tag key.
+	// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
 	Key string `pulumi:"key"`
-	// Tag value.
+	// Target name, referencing a corresponding target.
 	Value string `pulumi:"value"`
 }
 
@@ -277,9 +277,9 @@ type ExperimentTemplateActionTargetInput interface {
 }
 
 type ExperimentTemplateActionTargetArgs struct {
-	// Tag key.
+	// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
 	Key pulumi.StringInput `pulumi:"key"`
-	// Tag value.
+	// Target name, referencing a corresponding target.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -360,12 +360,12 @@ func (o ExperimentTemplateActionTargetOutput) ToExperimentTemplateActionTargetPt
 	}).(ExperimentTemplateActionTargetPtrOutput)
 }
 
-// Tag key.
+// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
 func (o ExperimentTemplateActionTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Tag value.
+// Target name, referencing a corresponding target.
 func (o ExperimentTemplateActionTargetOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionTarget) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -394,7 +394,7 @@ func (o ExperimentTemplateActionTargetPtrOutput) Elem() ExperimentTemplateAction
 	}).(ExperimentTemplateActionTargetOutput)
 }
 
-// Tag key.
+// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances).
 func (o ExperimentTemplateActionTargetPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateActionTarget) *string {
 		if v == nil {
@@ -404,7 +404,7 @@ func (o ExperimentTemplateActionTargetPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tag value.
+// Target name, referencing a corresponding target.
 func (o ExperimentTemplateActionTargetPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateActionTarget) *string {
 		if v == nil {
@@ -417,7 +417,7 @@ func (o ExperimentTemplateActionTargetPtrOutput) Value() pulumi.StringPtrOutput 
 type ExperimentTemplateStopCondition struct {
 	// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
 	Source string `pulumi:"source"`
-	// Tag value.
+	// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
 	Value *string `pulumi:"value"`
 }
 
@@ -435,7 +435,7 @@ type ExperimentTemplateStopConditionInput interface {
 type ExperimentTemplateStopConditionArgs struct {
 	// Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
 	Source pulumi.StringInput `pulumi:"source"`
-	// Tag value.
+	// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -495,7 +495,7 @@ func (o ExperimentTemplateStopConditionOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateStopCondition) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// Tag value.
+// ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
 func (o ExperimentTemplateStopConditionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateStopCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

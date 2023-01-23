@@ -48,14 +48,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+     * The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
      * 
      */
     @Import(name="customConnector")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs> customConnector;
 
     /**
-     * @return The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+     * @return The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs>> customConnector() {
@@ -63,14 +63,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
      * 
      */
     @Import(name="datadog")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs> datadog;
 
     /**
-     * @return Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs>> datadog() {
@@ -78,14 +78,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+     * The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
      * 
      */
     @Import(name="dynatrace")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs> dynatrace;
 
     /**
-     * @return The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+     * @return The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs>> dynatrace() {
@@ -123,14 +123,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+     * The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
      * 
      */
     @Import(name="inforNexus")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs> inforNexus;
 
     /**
-     * @return The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+     * @return The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs>> inforNexus() {
@@ -138,14 +138,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
      * 
      */
     @Import(name="marketo")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs> marketo;
 
     /**
-     * @return Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs>> marketo() {
@@ -153,14 +153,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
      * 
      */
     @Import(name="redshift")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs> redshift;
 
     /**
-     * @return Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * @return Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs>> redshift() {
@@ -168,14 +168,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+     * The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
      * 
      */
     @Import(name="salesforce")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs> salesforce;
 
     /**
-     * @return The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+     * @return The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs>> salesforce() {
@@ -183,14 +183,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+     * The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
      * 
      */
     @Import(name="sapoData")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs> sapoData;
 
     /**
-     * @return The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+     * @return The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs>> sapoData() {
@@ -198,14 +198,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+     * The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
      * 
      */
     @Import(name="serviceNow")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs> serviceNow;
 
     /**
-     * @return The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+     * @return The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs>> serviceNow() {
@@ -228,14 +228,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
      * 
      */
     @Import(name="slack")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs> slack;
 
     /**
-     * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs>> slack() {
@@ -243,14 +243,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+     * The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
      * 
      */
     @Import(name="snowflake")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs> snowflake;
 
     /**
-     * @return The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+     * @return The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs>> snowflake() {
@@ -273,14 +273,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
      * 
      */
     @Import(name="veeva")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs> veeva;
 
     /**
-     * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs>> veeva() {
@@ -288,14 +288,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
      * 
      */
     @Import(name="zendesk")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs> zendesk;
 
     /**
-     * @return Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs>> zendesk() {
@@ -365,7 +365,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param customConnector The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+         * @param customConnector The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param customConnector The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+         * @param customConnector The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datadog Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         * @param datadog Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datadog Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         * @param datadog Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param dynatrace The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+         * @param dynatrace The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param dynatrace The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+         * @param dynatrace The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param inforNexus The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+         * @param inforNexus The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param inforNexus The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+         * @param inforNexus The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param marketo Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         * @param marketo Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param marketo Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         * @param marketo Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redshift Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         * @param redshift Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redshift Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         * @param redshift Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param salesforce The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+         * @param salesforce The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param salesforce The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+         * @param salesforce The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param sapoData The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+         * @param sapoData The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param sapoData The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+         * @param sapoData The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param serviceNow The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+         * @param serviceNow The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param serviceNow The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+         * @param serviceNow The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param slack Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         * @param slack Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param slack Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         * @param slack Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param snowflake The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+         * @param snowflake The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param snowflake The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+         * @param snowflake The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param veeva Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         * @param veeva Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param veeva Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         * @param veeva Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param zendesk Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         * @param zendesk Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param zendesk Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         * @param zendesk Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
          * 
          * @return builder
          * 

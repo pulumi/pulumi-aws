@@ -48,14 +48,14 @@ public final class CostCategoryRuleArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Parameter type.
+     * You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Parameter type.
+     * @return You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -147,7 +147,7 @@ public final class CostCategoryRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Parameter type.
+         * @param type You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class CostCategoryRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Parameter type.
+         * @param type You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
          * 
          * @return builder
          * 

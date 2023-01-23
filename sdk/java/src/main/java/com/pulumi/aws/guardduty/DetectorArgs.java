@@ -34,16 +34,14 @@ public final class DetectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
+     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
      * 
      */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
     /**
-     * @return If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
+     * @return Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enable() {
@@ -129,8 +127,7 @@ public final class DetectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enable If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-         * Defaults to `true`.
+         * @param enable Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -141,8 +138,7 @@ public final class DetectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enable If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-         * Defaults to `true`.
+         * @param enable Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
          * 
          * @return builder
          * 

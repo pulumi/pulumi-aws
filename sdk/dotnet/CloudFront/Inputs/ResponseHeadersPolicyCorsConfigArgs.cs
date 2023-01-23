@@ -43,7 +43,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs>? AccessControlExposeHeaders { get; set; }
 
         /// <summary>
-        /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+        /// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
         /// </summary>
         [Input("accessControlMaxAgeSec")]
         public Input<int>? AccessControlMaxAgeSec { get; set; }

@@ -76,18 +76,6 @@ namespace Pulumi.Aws.AutoScaling
     ///                         {
     ///                             Expression = "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
     ///                             Id = "capacity_sum",
-    ///                             ReturnData = false,
-    ///                         },
-    ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs
-    ///                         {
-    ///                             Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
-    ///                             Id = "load_sum",
-    ///                             ReturnData = false,
-    ///                         },
-    ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs
-    ///                         {
-    ///                             Expression = "load_sum / capacity_sum",
-    ///                             Id = "weighted_average",
     ///                         },
     ///                     },
     ///                 },
@@ -108,24 +96,20 @@ namespace Pulumi.Aws.AutoScaling
     ///                     {
     ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
     ///                         {
-    ///                             Id = "scaling",
-    ///                             MetricStat = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs
-    ///                             {
-    ///                                 Metric = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs
-    ///                                 {
-    ///                                     Dimensions = new[]
-    ///                                     {
-    ///                                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs
-    ///                                         {
-    ///                                             Name = "AutoScalingGroupName",
-    ///                                             Value = "my-test-asg",
-    ///                                         },
-    ///                                     },
-    ///                                     MetricName = "CPUUtilization",
-    ///                                     Namespace = "AWS/EC2",
-    ///                                 },
-    ///                                 Stat = "Average",
-    ///                             },
+    ///                             Expression = "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
+    ///                             Id = "capacity_sum",
+    ///                             ReturnData = false,
+    ///                         },
+    ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
+    ///                         {
+    ///                             Expression = "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
+    ///                             Id = "load_sum",
+    ///                             ReturnData = false,
+    ///                         },
+    ///                         new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs
+    ///                         {
+    ///                             Expression = "load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
+    ///                             Id = "weighted_average",
     ///                         },
     ///                     },
     ///                 },
@@ -253,7 +237,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int?> MinAdjustmentMagnitude { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the dimension.
+        /// Name of the policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -380,7 +364,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinAdjustmentMagnitude { get; set; }
 
         /// <summary>
-        /// Name of the dimension.
+        /// Name of the policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -481,7 +465,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinAdjustmentMagnitude { get; set; }
 
         /// <summary>
-        /// Name of the dimension.
+        /// Name of the policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -225,8 +225,6 @@ class DeploymentGroupAlarmConfiguration(dict):
         :param Sequence[str] alarms: A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
         :param bool enabled: Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
         :param bool ignore_poll_alarm_failure: Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-               * `true`: The deployment will proceed even if alarm status information can't be retrieved.
-               * `false`: The deployment will stop if alarm status information can't be retrieved.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -256,8 +254,6 @@ class DeploymentGroupAlarmConfiguration(dict):
     def ignore_poll_alarm_failure(self) -> Optional[bool]:
         """
         Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-        * `true`: The deployment will proceed even if alarm status information can't be retrieved.
-        * `false`: The deployment will stop if alarm status information can't be retrieved.
         """
         return pulumi.get(self, "ignore_poll_alarm_failure")
 
@@ -383,8 +379,6 @@ class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
                  wait_time_in_minutes: Optional[int] = None):
         """
         :param str action_on_timeout: When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
-               * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
-               * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
         :param int wait_time_in_minutes: The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
         """
         if action_on_timeout is not None:
@@ -397,8 +391,6 @@ class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
     def action_on_timeout(self) -> Optional[str]:
         """
         When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
-        * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
-        * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
         """
         return pulumi.get(self, "action_on_timeout")
 
@@ -417,8 +409,6 @@ class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict)
                  action: Optional[str] = None):
         """
         :param str action: The method used to add instances to a replacement environment.
-               * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
-               * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -428,8 +418,6 @@ class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict)
     def action(self) -> Optional[str]:
         """
         The method used to add instances to a replacement environment.
-        * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
-        * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
         """
         return pulumi.get(self, "action")
 
@@ -458,8 +446,6 @@ class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployment
                  termination_wait_time_in_minutes: Optional[int] = None):
         """
         :param str action: The action to take on instances in the original environment after a successful blue/green deployment.
-               * `TERMINATE`: Instances are terminated after a specified wait time.
-               * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
         :param int termination_wait_time_in_minutes: The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
         """
         if action is not None:
@@ -472,8 +458,6 @@ class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployment
     def action(self) -> Optional[str]:
         """
         The action to take on instances in the original environment after a successful blue/green deployment.
-        * `TERMINATE`: Instances are terminated after a specified wait time.
-        * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
         """
         return pulumi.get(self, "action")
 

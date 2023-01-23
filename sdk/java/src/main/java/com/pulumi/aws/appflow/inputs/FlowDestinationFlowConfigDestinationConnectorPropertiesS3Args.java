@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args();
 
     /**
-     * Amazon S3 bucket name where the source files are stored.
+     * Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
      * 
      */
     public Output<String> bucketName() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
     }
 
     /**
-     * Object key for the Amazon S3 bucket in which the source files are stored.
+     * Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -47,14 +47,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
     }
 
     /**
-     * Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+     * Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
      * 
      */
     @Import(name="s3OutputFormatConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs> s3OutputFormatConfig;
 
     /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs>> s3OutputFormatConfig() {
@@ -88,7 +88,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
         }
 
         /**
-         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
         }
 
         /**
-         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
          * 
          * @return builder
          * 

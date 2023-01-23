@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Comprehend.Inputs
         public Input<string>? InputFormat { get; set; }
 
         /// <summary>
-        /// Location of entity list.
+        /// Location of training documents.
         /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;

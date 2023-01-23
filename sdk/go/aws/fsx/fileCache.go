@@ -113,7 +113,7 @@ type FileCache struct {
 	OwnerId             pulumi.StringOutput      `pulumi:"ownerId"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -191,7 +191,7 @@ type fileCacheState struct {
 	OwnerId             *string  `pulumi:"ownerId"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -229,7 +229,7 @@ type FileCacheState struct {
 	OwnerId             pulumi.StringPtrInput
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntPtrInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds pulumi.StringArrayInput
@@ -260,7 +260,7 @@ type fileCacheArgs struct {
 	LustreConfigurations []FileCacheLustreConfiguration `pulumi:"lustreConfigurations"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -285,7 +285,7 @@ type FileCacheArgs struct {
 	LustreConfigurations FileCacheLustreConfigurationArrayInput
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds pulumi.StringArrayInput
@@ -445,7 +445,7 @@ func (o FileCacheOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 func (o FileCacheOutput) StorageCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.IntOutput { return v.StorageCapacity }).(pulumi.IntOutput)
 }

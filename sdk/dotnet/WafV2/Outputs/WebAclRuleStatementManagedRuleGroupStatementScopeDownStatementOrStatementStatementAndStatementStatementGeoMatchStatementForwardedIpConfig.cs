@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig
     {
         /// <summary>
-        /// - Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+        /// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         /// </summary>
         public readonly string FallbackBehavior;
         /// <summary>
-        /// - Name of the HTTP header to use for the IP address.
+        /// Name of the HTTP header to use for the IP address.
         /// </summary>
         public readonly string HeaderName;
 

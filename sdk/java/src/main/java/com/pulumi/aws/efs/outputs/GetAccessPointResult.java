@@ -41,6 +41,10 @@ public final class GetAccessPointResult {
      * 
      */
     private List<GetAccessPointPosixUser> posixUsers;
+    /**
+     * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+     * 
+     */
     private List<GetAccessPointRootDirectory> rootDirectories;
     /**
      * @return Key-value mapping of resource tags.
@@ -90,6 +94,10 @@ public final class GetAccessPointResult {
     public List<GetAccessPointPosixUser> posixUsers() {
         return this.posixUsers;
     }
+    /**
+     * @return Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
+     * 
+     */
     public List<GetAccessPointRootDirectory> rootDirectories() {
         return this.rootDirectories;
     }

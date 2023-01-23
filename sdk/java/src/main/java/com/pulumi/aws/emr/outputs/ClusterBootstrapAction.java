@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterBootstrapAction {
     /**
-     * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
+     * @return List of command line arguments to pass to the bootstrap action script.
      * 
      */
     private @Nullable List<String> args;
     /**
-     * @return Name of the step.
+     * @return Name of the bootstrap action.
      * 
      */
     private String name;
@@ -29,14 +29,14 @@ public final class ClusterBootstrapAction {
 
     private ClusterBootstrapAction() {}
     /**
-     * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
+     * @return List of command line arguments to pass to the bootstrap action script.
      * 
      */
     public List<String> args() {
         return this.args == null ? List.of() : this.args;
     }
     /**
-     * @return Name of the step.
+     * @return Name of the bootstrap action.
      * 
      */
     public String name() {

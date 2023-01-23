@@ -14,14 +14,14 @@ public final class WorkflowStepTagStepDetailsTagArgs extends com.pulumi.resource
     public static final WorkflowStepTagStepDetailsTagArgs Empty = new WorkflowStepTagStepDetailsTagArgs();
 
     /**
-     * The name assigned to the tag that you create.
+     * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The name assigned to the tag that you create.
+     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     public Output<String> key() {
@@ -69,7 +69,7 @@ public final class WorkflowStepTagStepDetailsTagArgs extends com.pulumi.resource
         }
 
         /**
-         * @param key The name assigned to the tag that you create.
+         * @param key The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class WorkflowStepTagStepDetailsTagArgs extends com.pulumi.resource
         }
 
         /**
-         * @param key The name assigned to the tag that you create.
+         * @param key The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          * 
          * @return builder
          * 

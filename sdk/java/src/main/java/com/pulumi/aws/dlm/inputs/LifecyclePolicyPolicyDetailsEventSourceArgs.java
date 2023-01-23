@@ -15,14 +15,14 @@ public final class LifecyclePolicyPolicyDetailsEventSourceArgs extends com.pulum
     public static final LifecyclePolicyPolicyDetailsEventSourceArgs Empty = new LifecyclePolicyPolicyDetailsEventSourceArgs();
 
     /**
-     * Information about the event. See the `parameters` configuration block.
+     * A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
      * 
      */
     @Import(name="parameters", required=true)
     private Output<LifecyclePolicyPolicyDetailsEventSourceParametersArgs> parameters;
 
     /**
-     * @return Information about the event. See the `parameters` configuration block.
+     * @return A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
      * 
      */
     public Output<LifecyclePolicyPolicyDetailsEventSourceParametersArgs> parameters() {
@@ -70,7 +70,7 @@ public final class LifecyclePolicyPolicyDetailsEventSourceArgs extends com.pulum
         }
 
         /**
-         * @param parameters Information about the event. See the `parameters` configuration block.
+         * @param parameters A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class LifecyclePolicyPolicyDetailsEventSourceArgs extends com.pulum
         }
 
         /**
-         * @param parameters Information about the event. See the `parameters` configuration block.
+         * @param parameters A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
          * 
          * @return builder
          * 

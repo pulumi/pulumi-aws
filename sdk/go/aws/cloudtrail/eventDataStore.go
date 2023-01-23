@@ -128,7 +128,7 @@ type EventDataStore struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
 	MultiRegionEnabled pulumi.BoolPtrOutput `pulumi:"multiRegionEnabled"`
-	// Specifies the name of the advanced event selector.
+	// The name of the event data store.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrOutput `pulumi:"organizationEnabled"`
@@ -177,7 +177,7 @@ type eventDataStoreState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
 	MultiRegionEnabled *bool `pulumi:"multiRegionEnabled"`
-	// Specifies the name of the advanced event selector.
+	// The name of the event data store.
 	Name *string `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
@@ -198,7 +198,7 @@ type EventDataStoreState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
 	MultiRegionEnabled pulumi.BoolPtrInput
-	// Specifies the name of the advanced event selector.
+	// The name of the event data store.
 	Name pulumi.StringPtrInput
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrInput
@@ -221,7 +221,7 @@ type eventDataStoreArgs struct {
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
 	MultiRegionEnabled *bool `pulumi:"multiRegionEnabled"`
-	// Specifies the name of the advanced event selector.
+	// The name of the event data store.
 	Name *string `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
@@ -239,7 +239,7 @@ type EventDataStoreArgs struct {
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayInput
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
 	MultiRegionEnabled pulumi.BoolPtrInput
-	// Specifies the name of the advanced event selector.
+	// The name of the event data store.
 	Name pulumi.StringPtrInput
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrInput
@@ -355,7 +355,7 @@ func (o EventDataStoreOutput) MultiRegionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.BoolPtrOutput { return v.MultiRegionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the name of the advanced event selector.
+// The name of the event data store.
 func (o EventDataStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

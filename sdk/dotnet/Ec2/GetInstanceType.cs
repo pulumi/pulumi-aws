@@ -205,16 +205,18 @@ namespace Pulumi.Aws.Ec2
         public readonly bool HibernationSupported;
         /// <summary>
         /// Hypervisor used for the instance type.
-        /// * `inference_accelerators` Describes the Inference accelerators for the instance type.
-        /// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-        /// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-        /// * `inference_accelerators.#.name` - The name of the Inference accelerator.
         /// </summary>
         public readonly string Hypervisor;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Describes the Inference accelerators for the instance type.
+        /// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+        /// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+        /// * `inference_accelerators.#.name` - The name of the Inference accelerator.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeInferenceAcceleratorResult> InferenceAccelerators;
         /// <summary>
         /// Describes the disks for the instance type.

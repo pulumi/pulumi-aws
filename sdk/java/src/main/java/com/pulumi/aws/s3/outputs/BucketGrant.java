@@ -23,7 +23,7 @@ public final class BucketGrant {
      */
     private List<String> permissions;
     /**
-     * @return - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+     * @return Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
      * 
      */
     private String type;
@@ -49,7 +49,7 @@ public final class BucketGrant {
         return this.permissions;
     }
     /**
-     * @return - Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
+     * @return Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
      * 
      */
     public String type() {

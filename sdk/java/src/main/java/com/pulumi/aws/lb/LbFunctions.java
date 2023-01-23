@@ -6,6 +6,8 @@ package com.pulumi.aws.lb;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lb.inputs.GetHostedZoneIdArgs;
 import com.pulumi.aws.lb.inputs.GetHostedZoneIdPlainArgs;
+import com.pulumi.aws.lb.inputs.GetLbsArgs;
+import com.pulumi.aws.lb.inputs.GetLbsPlainArgs;
 import com.pulumi.aws.lb.inputs.GetListenerArgs;
 import com.pulumi.aws.lb.inputs.GetListenerPlainArgs;
 import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
@@ -13,6 +15,7 @@ import com.pulumi.aws.lb.inputs.GetLoadBalancerPlainArgs;
 import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
 import com.pulumi.aws.lb.inputs.GetTargetGroupPlainArgs;
 import com.pulumi.aws.lb.outputs.GetHostedZoneIdResult;
+import com.pulumi.aws.lb.outputs.GetLbsResult;
 import com.pulumi.aws.lb.outputs.GetListenerResult;
 import com.pulumi.aws.lb.outputs.GetLoadBalancerResult;
 import com.pulumi.aws.lb.outputs.GetTargetGroupResult;
@@ -316,6 +319,240 @@ public final class LbFunctions {
      */
     public static CompletableFuture<GetHostedZoneIdResult> getHostedZoneIdPlain(GetHostedZoneIdPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lb/getHostedZoneId:getHostedZoneId", TypeShape.of(GetHostedZoneIdResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+     * resources.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
+     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLbsResult> getLbs() {
+        return getLbs(GetLbsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+     * resources.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
+     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLbsResult> getLbsPlain() {
+        return getLbsPlain(GetLbsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+     * resources.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
+     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLbsResult> getLbs(GetLbsArgs args) {
+        return getLbs(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+     * resources.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
+     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLbsResult> getLbsPlain(GetLbsPlainArgs args) {
+        return getLbsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+     * resources.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
+     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLbsResult> getLbs(GetLbsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:lb/getLbs:getLbs", TypeShape.of(GetLbsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+     * resources.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLbsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LbFunctions.getLbs(GetLbsArgs.builder()
+     *             .tags(Map.of(&#34;elbv2.k8s.aws/cluster&#34;, &#34;my-cluster&#34;))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLbsResult> getLbsPlain(GetLbsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:lb/getLbs:getLbs", TypeShape.of(GetLbsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.

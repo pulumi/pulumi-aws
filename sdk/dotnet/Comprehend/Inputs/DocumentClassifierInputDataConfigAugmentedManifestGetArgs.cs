@@ -38,8 +38,7 @@ namespace Pulumi.Aws.Comprehend.Inputs
         public Input<string>? DocumentType { get; set; }
 
         /// <summary>
-        /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `output_s3_uri`.
+        /// Location of augmented manifest file.
         /// </summary>
         [Input("s3Uri", required: true)]
         public Input<string> S3Uri { get; set; } = null!;

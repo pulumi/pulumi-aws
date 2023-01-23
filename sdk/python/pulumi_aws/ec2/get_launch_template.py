@@ -419,7 +419,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
 
     :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the specific launch template to retrieve.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+    :param str name: Name of the launch template.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
     __args__ = dict()
@@ -504,7 +504,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the specific launch template to retrieve.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+    :param str name: Name of the launch template.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
     ...

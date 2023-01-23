@@ -23,6 +23,8 @@ namespace Pulumi.Aws.SecurityHub
     /// {
     ///     var example = new Aws.SecurityHub.Account("example");
     /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
     ///     var cis = new Aws.SecurityHub.StandardsSubscription("cis", new()
     ///     {
     ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
@@ -36,7 +38,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci321", new()
     ///     {
-    ///         StandardsArn = "arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1",
+    ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::standards/pci-dss/v/3.2.1",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn = new[]

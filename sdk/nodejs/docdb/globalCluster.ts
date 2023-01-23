@@ -13,6 +13,57 @@ import * as utilities from "../utilities";
  * More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
  *
  * ## Example Usage
+ * ### New DocumentDB Global Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const primary = new aws.Provider("primary", {region: "us-east-2"});
+ * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
+ * const example = new aws.docdb.GlobalCluster("example", {
+ *     globalClusterIdentifier: "global-test",
+ *     engine: "docdb",
+ *     engineVersion: "4.0.0",
+ * });
+ * const primaryCluster = new aws.docdb.Cluster("primaryCluster", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     clusterIdentifier: "test-primary-cluster",
+ *     masterUsername: "username",
+ *     masterPassword: "somepass123",
+ *     globalClusterIdentifier: example.id,
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.primary,
+ * });
+ * const primaryClusterInstance = new aws.docdb.ClusterInstance("primaryClusterInstance", {
+ *     engine: example.engine,
+ *     identifier: "test-primary-cluster-instance",
+ *     clusterIdentifier: primaryCluster.id,
+ *     instanceClass: "db.r5.large",
+ * }, {
+ *     provider: aws.primary,
+ * });
+ * const secondaryCluster = new aws.docdb.Cluster("secondaryCluster", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
+ *     clusterIdentifier: "test-secondary-cluster",
+ *     globalClusterIdentifier: example.id,
+ *     dbSubnetGroupName: "default",
+ * }, {
+ *     provider: aws.secondary,
+ * });
+ * const secondaryClusterInstance = new aws.docdb.ClusterInstance("secondaryClusterInstance", {
+ *     engine: example.engine,
+ *     identifier: "test-secondary-cluster-instance",
+ *     clusterIdentifier: secondaryCluster.id,
+ *     instanceClass: "db.r5.large",
+ * }, {
+ *     provider: aws.secondary,
+ *     dependsOn: [primaryClusterInstance],
+ * });
+ * ```
  * ### New Global Cluster From Existing DB Cluster
  *
  * ```typescript

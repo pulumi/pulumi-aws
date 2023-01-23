@@ -76,7 +76,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public readonly family!: pulumi.Output<string>;
     /**
-     * The name of the parameter.
+     * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export interface ParameterGroupState {
      */
     family?: pulumi.Input<string>;
     /**
-     * The name of the parameter.
+     * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface ParameterGroupArgs {
      */
     family: pulumi.Input<string>;
     /**
-     * The name of the parameter.
+     * Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

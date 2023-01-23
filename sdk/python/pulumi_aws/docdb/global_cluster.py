@@ -335,6 +335,48 @@ class GlobalCluster(pulumi.CustomResource):
         More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
 
         ## Example Usage
+        ### New DocumentDB Global Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.Provider("primary", region="us-east-2")
+        secondary = aws.Provider("secondary", region="us-east-1")
+        example = aws.docdb.GlobalCluster("example",
+            global_cluster_identifier="global-test",
+            engine="docdb",
+            engine_version="4.0.0")
+        primary_cluster = aws.docdb.Cluster("primaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-primary-cluster",
+            master_username="username",
+            master_password="somepass123",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        primary_cluster_instance = aws.docdb.ClusterInstance("primaryClusterInstance",
+            engine=example.engine,
+            identifier="test-primary-cluster-instance",
+            cluster_identifier=primary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        secondary_cluster = aws.docdb.Cluster("secondaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-secondary-cluster",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
+        secondary_cluster_instance = aws.docdb.ClusterInstance("secondaryClusterInstance",
+            engine=example.engine,
+            identifier="test-secondary-cluster-instance",
+            cluster_identifier=secondary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"],
+                depends_on=[primary_cluster_instance]))
+        ```
         ### New Global Cluster From Existing DB Cluster
 
         ```python
@@ -391,6 +433,48 @@ class GlobalCluster(pulumi.CustomResource):
         More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
 
         ## Example Usage
+        ### New DocumentDB Global Cluster
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        primary = aws.Provider("primary", region="us-east-2")
+        secondary = aws.Provider("secondary", region="us-east-1")
+        example = aws.docdb.GlobalCluster("example",
+            global_cluster_identifier="global-test",
+            engine="docdb",
+            engine_version="4.0.0")
+        primary_cluster = aws.docdb.Cluster("primaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-primary-cluster",
+            master_username="username",
+            master_password="somepass123",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        primary_cluster_instance = aws.docdb.ClusterInstance("primaryClusterInstance",
+            engine=example.engine,
+            identifier="test-primary-cluster-instance",
+            cluster_identifier=primary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["primary"]))
+        secondary_cluster = aws.docdb.Cluster("secondaryCluster",
+            engine=example.engine,
+            engine_version=example.engine_version,
+            cluster_identifier="test-secondary-cluster",
+            global_cluster_identifier=example.id,
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
+        secondary_cluster_instance = aws.docdb.ClusterInstance("secondaryClusterInstance",
+            engine=example.engine,
+            identifier="test-secondary-cluster-instance",
+            cluster_identifier=secondary_cluster.id,
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(provider=aws["secondary"],
+                depends_on=[primary_cluster_instance]))
+        ```
         ### New Global Cluster From Existing DB Cluster
 
         ```python

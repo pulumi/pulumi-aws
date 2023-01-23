@@ -100,7 +100,7 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the component parameter.
+     * Name of the image recipe.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -225,7 +225,7 @@ export interface ImageRecipeState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the component parameter.
+     * Name of the image recipe.
      */
     name?: pulumi.Input<string>;
     /**
@@ -283,7 +283,7 @@ export interface ImageRecipeArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the component parameter.
+     * Name of the image recipe.
      */
     name?: pulumi.Input<string>;
     /**

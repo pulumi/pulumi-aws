@@ -11,7 +11,7 @@ import java.util.Objects;
 public final class GetLaunchTemplateIamInstanceProfile {
     private String arn;
     /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * @return Name of the launch template.
      * 
      */
     private String name;
@@ -21,7 +21,7 @@ public final class GetLaunchTemplateIamInstanceProfile {
         return this.arn;
     }
     /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * @return Name of the launch template.
      * 
      */
     public String name() {

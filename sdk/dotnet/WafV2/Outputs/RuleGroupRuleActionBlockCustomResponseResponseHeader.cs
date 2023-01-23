@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleActionBlockCustomResponseResponseHeader
     {
         /// <summary>
-        /// The label string.
+        /// A friendly name of the rule group.
         /// </summary>
         public readonly string Name;
         /// <summary>

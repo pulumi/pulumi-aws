@@ -1040,7 +1040,7 @@ func (o ScheduledActionTargetActionPtrOutput) ResumeCluster() ScheduledActionTar
 }
 
 type ScheduledActionTargetActionPauseCluster struct {
-	// The identifier of the cluster to be resumed.
+	// The identifier of the cluster to be paused.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
@@ -1056,7 +1056,7 @@ type ScheduledActionTargetActionPauseClusterInput interface {
 }
 
 type ScheduledActionTargetActionPauseClusterArgs struct {
-	// The identifier of the cluster to be resumed.
+	// The identifier of the cluster to be paused.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
@@ -1137,7 +1137,7 @@ func (o ScheduledActionTargetActionPauseClusterOutput) ToScheduledActionTargetAc
 	}).(ScheduledActionTargetActionPauseClusterPtrOutput)
 }
 
-// The identifier of the cluster to be resumed.
+// The identifier of the cluster to be paused.
 func (o ScheduledActionTargetActionPauseClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionPauseCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -1166,7 +1166,7 @@ func (o ScheduledActionTargetActionPauseClusterPtrOutput) Elem() ScheduledAction
 	}).(ScheduledActionTargetActionPauseClusterOutput)
 }
 
-// The identifier of the cluster to be resumed.
+// The identifier of the cluster to be paused.
 func (o ScheduledActionTargetActionPauseClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionPauseCluster) *string {
 		if v == nil {
@@ -1179,7 +1179,7 @@ func (o ScheduledActionTargetActionPauseClusterPtrOutput) ClusterIdentifier() pu
 type ScheduledActionTargetActionResizeCluster struct {
 	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
 	Classic *bool `pulumi:"classic"`
-	// The identifier of the cluster to be resumed.
+	// The unique identifier for the cluster to resize.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The new cluster type for the specified cluster.
 	ClusterType *string `pulumi:"clusterType"`
@@ -1203,7 +1203,7 @@ type ScheduledActionTargetActionResizeClusterInput interface {
 type ScheduledActionTargetActionResizeClusterArgs struct {
 	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
 	Classic pulumi.BoolPtrInput `pulumi:"classic"`
-	// The identifier of the cluster to be resumed.
+	// The unique identifier for the cluster to resize.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// The new cluster type for the specified cluster.
 	ClusterType pulumi.StringPtrInput `pulumi:"clusterType"`
@@ -1295,7 +1295,7 @@ func (o ScheduledActionTargetActionResizeClusterOutput) Classic() pulumi.BoolPtr
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *bool { return v.Classic }).(pulumi.BoolPtrOutput)
 }
 
-// The identifier of the cluster to be resumed.
+// The unique identifier for the cluster to resize.
 func (o ScheduledActionTargetActionResizeClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -1349,7 +1349,7 @@ func (o ScheduledActionTargetActionResizeClusterPtrOutput) Classic() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The identifier of the cluster to be resumed.
+// The unique identifier for the cluster to resize.
 func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
 		if v == nil {

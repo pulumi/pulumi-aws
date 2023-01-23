@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs();
 
     /**
-     * Amazon S3 bucket name where the source files are stored.
+     * Name of the Amazon S3 bucket.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return Amazon S3 bucket name where the source files are stored.
+     * @return Name of the Amazon S3 bucket.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     }
 
     /**
-     * Object key for the Amazon S3 bucket in which the source files are stored.
+     * Amazon S3 bucket prefix.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Amazon S3 bucket prefix.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -88,7 +88,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Name of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
+         * @param bucketName Name of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Amazon S3 bucket prefix.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Amazon S3 bucket prefix.
          * 
          * @return builder
          * 

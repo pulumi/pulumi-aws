@@ -17,12 +17,12 @@ public final class CatalogTablePartitionKey {
      */
     private @Nullable String comment;
     /**
-     * @return Name of the target table.
+     * @return Name of the Partition Key.
      * 
      */
     private String name;
     /**
-     * @return Datatype of data in the Column.
+     * @return Datatype of data in the Partition Key.
      * 
      */
     private @Nullable String type;
@@ -36,14 +36,14 @@ public final class CatalogTablePartitionKey {
         return Optional.ofNullable(this.comment);
     }
     /**
-     * @return Name of the target table.
+     * @return Name of the Partition Key.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Datatype of data in the Column.
+     * @return Datatype of data in the Partition Key.
      * 
      */
     public Optional<String> type() {

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     private @Nullable String bucketPrefix;
@@ -23,19 +23,19 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
      * 
      */
     private String intermediateBucketName;
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     private String object;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift() {}
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     public Optional<String> bucketPrefix() {
@@ -49,14 +49,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
      * 
      */
     public String intermediateBucketName() {
         return this.intermediateBucketName;
     }
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public String object() {

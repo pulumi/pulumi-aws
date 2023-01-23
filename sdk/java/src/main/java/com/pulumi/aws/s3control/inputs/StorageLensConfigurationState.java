@@ -18,14 +18,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     public static final StorageLensConfigurationState Empty = new StorageLensConfigurationState();
 
     /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -33,14 +33,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the bucket.
+     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the bucket.
+     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -137,7 +137,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
+         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
+         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the bucket.
+         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the bucket.
+         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
          * 
          * @return builder
          * 

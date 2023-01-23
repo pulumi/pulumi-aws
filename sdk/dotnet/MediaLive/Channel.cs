@@ -205,7 +205,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<Outputs.ChannelMaintenance> Maintenance { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the video description.
+        /// Name of the Channel.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<Inputs.ChannelMaintenanceArgs>? Maintenance { get; set; }
 
         /// <summary>
-        /// The name of the video description.
+        /// Name of the Channel.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<Inputs.ChannelMaintenanceGetArgs>? Maintenance { get; set; }
 
         /// <summary>
-        /// The name of the video description.
+        /// Name of the Channel.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

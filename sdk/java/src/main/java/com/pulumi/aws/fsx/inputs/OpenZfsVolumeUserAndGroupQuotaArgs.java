@@ -15,14 +15,14 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
     public static final OpenZfsVolumeUserAndGroupQuotaArgs Empty = new OpenZfsVolumeUserAndGroupQuotaArgs();
 
     /**
-     * - The ID of the user or group. Valid values between `0` and `2147483647`
+     * The ID of the user or group. Valid values between `0` and `2147483647`
      * 
      */
     @Import(name="id", required=true)
     private Output<Integer> id;
 
     /**
-     * @return - The ID of the user or group. Valid values between `0` and `2147483647`
+     * @return The ID of the user or group. Valid values between `0` and `2147483647`
      * 
      */
     public Output<Integer> id() {
@@ -30,14 +30,14 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
     }
 
     /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
     @Import(name="storageCapacityQuotaGib", required=true)
     private Output<Integer> storageCapacityQuotaGib;
 
     /**
-     * @return - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * @return The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
     public Output<Integer> storageCapacityQuotaGib() {
@@ -78,7 +78,7 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param id - The ID of the user or group. Valid values between `0` and `2147483647`
+         * @param id The ID of the user or group. Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param id - The ID of the user or group. Valid values between `0` and `2147483647`
+         * @param id The ID of the user or group. Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageCapacityQuotaGib - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * @param storageCapacityQuotaGib The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageCapacityQuotaGib - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * @param storageCapacityQuotaGib The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 

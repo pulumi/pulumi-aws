@@ -15,14 +15,14 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
     public static final GetTrafficPolicyDocumentEndpoint Empty = new GetTrafficPolicyDocumentEndpoint();
 
     /**
-     * ID of a rule you want to assign.
+     * ID of an endpoint you want to assign.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return ID of a rule you want to assign.
+     * @return ID of an endpoint you want to assign.
      * 
      */
     public String id() {
@@ -30,14 +30,14 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
     }
 
     /**
-     * Region code for the AWS Region that you created the resource in.
+     * To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     @Import(name="region")
     private @Nullable String region;
 
     /**
-     * @return Region code for the AWS Region that you created the resource in.
+     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
      * 
      */
     public Optional<String> region() {
@@ -45,14 +45,14 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
     }
 
     /**
-     * Type of the rule.
+     * Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return Type of the rule.
+     * @return Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
      * 
      */
     public Optional<String> type() {
@@ -102,7 +102,7 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
         }
 
         /**
-         * @param id ID of a rule you want to assign.
+         * @param id ID of an endpoint you want to assign.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
         }
 
         /**
-         * @param region Region code for the AWS Region that you created the resource in.
+         * @param region To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class GetTrafficPolicyDocumentEndpoint extends com.pulumi.resources
         }
 
         /**
-         * @param type Type of the rule.
+         * @param type Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
          * 
          * @return builder
          * 

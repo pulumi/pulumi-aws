@@ -346,14 +346,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     public Output<Optional<String>> namePrefix() {
@@ -373,9 +373,17 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> preserveHostHeader() {
         return Codegen.optional(this.preserveHostHeader);
     }
+    /**
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * 
+     */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
+    /**
+     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * 
+     */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }

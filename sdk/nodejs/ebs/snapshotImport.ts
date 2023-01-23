@@ -72,7 +72,7 @@ export class SnapshotImport extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
     /**
-     * The description of the disk image being imported.
+     * The description string for the import snapshot task.
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -203,7 +203,7 @@ export interface SnapshotImportState {
      */
     dataEncryptionKeyId?: pulumi.Input<string>;
     /**
-     * The description of the disk image being imported.
+     * The description string for the import snapshot task.
      */
     description?: pulumi.Input<string>;
     /**
@@ -267,7 +267,7 @@ export interface SnapshotImportArgs {
      */
     clientData?: pulumi.Input<inputs.ebs.SnapshotImportClientData>;
     /**
-     * The description of the disk image being imported.
+     * The description string for the import snapshot task.
      */
     description?: pulumi.Input<string>;
     /**

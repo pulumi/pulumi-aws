@@ -18,14 +18,16 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
     public static final DistributionTrustedSignerArgs Empty = new DistributionTrustedSignerArgs();
 
     /**
-     * A flag that specifies whether Origin Shield is enabled.
+     * Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -73,7 +75,8 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled to accept end
+         * user requests for content.
          * 
          * @return builder
          * 
@@ -84,7 +87,8 @@ public final class DistributionTrustedSignerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled to accept end
+         * user requests for content.
          * 
          * @return builder
          * 

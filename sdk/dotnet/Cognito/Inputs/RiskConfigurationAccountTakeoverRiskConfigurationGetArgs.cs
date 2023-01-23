@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The compromised credentials risk configuration actions. See details below.
+        /// Account takeover risk configuration actions. See details below.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsGetArgs> Actions { get; set; } = null!;

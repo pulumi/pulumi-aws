@@ -23,14 +23,14 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     public static final CatalogTableArgs Empty = new CatalogTableArgs();
 
     /**
-     * ID of the Data Catalog in which the table resides.
+     * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return ID of the Data Catalog in which the table resides.
+     * @return ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -38,14 +38,14 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the catalog database that contains the target table.
+     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return Name of the catalog database that contains the target table.
+     * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
     public Output<String> databaseName() {
@@ -68,14 +68,14 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the target table.
+     * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the target table.
+     * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
     public Optional<Output<String>> name() {
@@ -98,14 +98,14 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of initialization parameters for the SerDe, in key-value form.
+     * Properties associated with this table, as a list of key-value pairs.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return Properties associated with this table, as a list of key-value pairs.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -270,7 +270,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogId ID of the Data Catalog in which the table resides.
+         * @param catalogId ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogId ID of the Data Catalog in which the table resides.
+         * @param catalogId ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseName Name of the catalog database that contains the target table.
+         * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseName Name of the catalog database that contains the target table.
+         * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters Properties associated with this table, as a list of key-value pairs.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters Properties associated with this table, as a list of key-value pairs.
          * 
          * @return builder
          * 

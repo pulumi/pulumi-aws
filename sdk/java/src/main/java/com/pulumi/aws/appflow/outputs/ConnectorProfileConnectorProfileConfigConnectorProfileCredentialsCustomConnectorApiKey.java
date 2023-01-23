@@ -17,7 +17,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private String apiKey;
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return The API secret key required for API key authentication.
      * 
      */
     private @Nullable String apiSecretKey;
@@ -31,7 +31,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.apiKey;
     }
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return The API secret key required for API key authentication.
      * 
      */
     public Optional<String> apiSecretKey() {

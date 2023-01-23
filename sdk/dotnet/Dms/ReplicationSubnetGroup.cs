@@ -12,7 +12,10 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
     /// 
+    /// &gt; **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
+    /// 
     /// ## Example Usage
+    /// ### Basic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -22,17 +25,80 @@ namespace Pulumi.Aws.Dms
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new replication subnet group
-    ///     var test = new Aws.Dms.ReplicationSubnetGroup("test", new()
+    ///     var example = new Aws.Dms.ReplicationSubnetGroup("example", new()
     ///     {
-    ///         ReplicationSubnetGroupDescription = "Test replication subnet group",
-    ///         ReplicationSubnetGroupId = "test-dms-replication-subnet-group-tf",
+    ///         ReplicationSubnetGroupDescription = "Example replication subnet group",
+    ///         ReplicationSubnetGroupId = "example-dms-replication-subnet-group-tf",
     ///         SubnetIds = new[]
     ///         {
     ///             "subnet-12345678",
+    ///             "subnet-12345679",
     ///         },
     ///         Tags = 
     ///         {
-    ///             { "Name", "test" },
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creating special IAM role
+    /// 
+    /// If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dms_vpc_role = new Aws.Iam.Role("dms-vpc-role", new()
+    ///     {
+    ///         Description = "Allows DMS to manage VPC",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "dms.amazonaws.com",
+    ///                     },
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     {
+    ///         Role = dms_vpc_role.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
+    ///     });
+    /// 
+    ///     var exampleReplicationSubnetGroup = new Aws.Dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup", new()
+    ///     {
+    ///         ReplicationSubnetGroupDescription = "Example",
+    ///         ReplicationSubnetGroupId = "example-id",
+    ///         SubnetIds = new[]
+    ///         {
+    ///             "subnet-12345678",
+    ///             "subnet-12345679",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-id" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleRolePolicyAttachment,
     ///         },
     ///     });
     /// 
@@ -54,25 +120,25 @@ namespace Pulumi.Aws.Dms
         public Output<string> ReplicationSubnetGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// The description for the subnet group.
+        /// Description for the subnet group.
         /// </summary>
         [Output("replicationSubnetGroupDescription")]
         public Output<string> ReplicationSubnetGroupDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the replication subnet group. This value is stored as a lowercase string.
+        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         /// </summary>
         [Output("replicationSubnetGroupId")]
         public Output<string> ReplicationSubnetGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the EC2 subnet IDs for the subnet group.
+        /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -136,13 +202,13 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description for the subnet group.
+        /// Description for the subnet group.
         /// </summary>
         [Input("replicationSubnetGroupDescription", required: true)]
         public Input<string> ReplicationSubnetGroupDescription { get; set; } = null!;
 
         /// <summary>
-        /// The name for the replication subnet group. This value is stored as a lowercase string.
+        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         /// </summary>
         [Input("replicationSubnetGroupId", required: true)]
         public Input<string> ReplicationSubnetGroupId { get; set; } = null!;
@@ -151,7 +217,7 @@ namespace Pulumi.Aws.Dms
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of the EC2 subnet IDs for the subnet group.
+        /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -163,7 +229,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -183,13 +249,13 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ReplicationSubnetGroupArn { get; set; }
 
         /// <summary>
-        /// The description for the subnet group.
+        /// Description for the subnet group.
         /// </summary>
         [Input("replicationSubnetGroupDescription")]
         public Input<string>? ReplicationSubnetGroupDescription { get; set; }
 
         /// <summary>
-        /// The name for the replication subnet group. This value is stored as a lowercase string.
+        /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         /// </summary>
         [Input("replicationSubnetGroupId")]
         public Input<string>? ReplicationSubnetGroupId { get; set; }
@@ -198,7 +264,7 @@ namespace Pulumi.Aws.Dms
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of the EC2 subnet IDs for the subnet group.
+        /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -210,7 +276,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

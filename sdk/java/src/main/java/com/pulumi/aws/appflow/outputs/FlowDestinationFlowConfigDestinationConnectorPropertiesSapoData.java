@@ -20,12 +20,12 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig errorHandlingConfig;
     /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     private @Nullable List<String> idFieldNames;
     /**
-     * @return Object path specified in the SAPOData flow source.
+     * @return Object path specified in the SAPOData flow destination.
      * 
      */
     private String objectPath;
@@ -35,7 +35,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig successResponseHandlingConfig;
     /**
-     * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     private @Nullable String writeOperationType;
@@ -49,14 +49,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         return Optional.ofNullable(this.errorHandlingConfig);
     }
     /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
      * 
      */
     public List<String> idFieldNames() {
         return this.idFieldNames == null ? List.of() : this.idFieldNames;
     }
     /**
-     * @return Object path specified in the SAPOData flow source.
+     * @return Object path specified in the SAPOData flow destination.
      * 
      */
     public String objectPath() {
@@ -70,7 +70,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
         return Optional.ofNullable(this.successResponseHandlingConfig);
     }
     /**
-     * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
      * 
      */
     public Optional<String> writeOperationType() {

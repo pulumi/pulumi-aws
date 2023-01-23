@@ -570,6 +570,9 @@ export class Cluster extends pulumi.CustomResource {
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      */
     public readonly applications!: pulumi.Output<string[] | undefined>;
+    /**
+     * ARN of the cluster.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
@@ -585,7 +588,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapAction[] | undefined>;
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
-     * Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+     * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      */
     public readonly configurations!: pulumi.Output<string | undefined>;
     /**
@@ -645,7 +648,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
     /**
-     * Name of the step.
+     * Name of the job flow.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -794,6 +797,9 @@ export interface ClusterState {
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      */
     applications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ARN of the cluster.
+     */
     arn?: pulumi.Input<string>;
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
@@ -809,7 +815,7 @@ export interface ClusterState {
     bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
     clusterState?: pulumi.Input<string>;
     /**
-     * Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+     * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      */
     configurations?: pulumi.Input<string>;
     /**
@@ -869,7 +875,7 @@ export interface ClusterState {
      */
     masterPublicDns?: pulumi.Input<string>;
     /**
-     * Name of the step.
+     * Name of the job flow.
      */
     name?: pulumi.Input<string>;
     /**
@@ -939,7 +945,7 @@ export interface ClusterArgs {
      */
     bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapAction>[]>;
     /**
-     * Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+     * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      */
     configurations?: pulumi.Input<string>;
     /**
@@ -995,7 +1001,7 @@ export interface ClusterArgs {
      */
     masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
     /**
-     * Name of the step.
+     * Name of the job flow.
      */
     name?: pulumi.Input<string>;
     /**

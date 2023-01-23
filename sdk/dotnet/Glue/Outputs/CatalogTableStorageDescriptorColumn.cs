@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
-        /// Name of the target table.
+        /// Name of the Column.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Map of initialization parameters for the SerDe, in key-value form.
+        /// Key-value pairs defining properties associated with the column.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Emr.Inputs
         private InputList<string>? _args;
 
         /// <summary>
-        /// List of command line arguments passed to the JAR file's main function when executed.
+        /// List of command line arguments to pass to the bootstrap action script.
         /// </summary>
         public InputList<string> Args
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Emr.Inputs
         }
 
         /// <summary>
-        /// Name of the step.
+        /// Name of the bootstrap action.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

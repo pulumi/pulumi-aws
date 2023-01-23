@@ -1,0 +1,12 @@
+{
+  "name": "terraform-provider-aws",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "apply": "tf-patch apply --cwd ../upstream",
+    "check": "tf-patch check --cwd ../upstream"
+  },
+  "dependencies": {
+    "tf-patch": "https://github.com/pulumi/aws-tf-fork-patch"
+  }
+}

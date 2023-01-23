@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class TablePointInTimeRecovery {
     /**
-     * @return Whether TTL is enabled.
+     * @return Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
      * 
      */
     private Boolean enabled;
 
     private TablePointInTimeRecovery() {}
     /**
-     * @return Whether TTL is enabled.
+     * @return Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
      * 
      */
     public Boolean enabled() {

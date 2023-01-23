@@ -99,7 +99,7 @@ type DevEndpoint struct {
 	ExtraPythonLibsS3Path pulumi.StringPtrOutput `pulumi:"extraPythonLibsS3Path"`
 	// The reason for a current failure in this endpoint.
 	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
-	// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 	GlueVersion pulumi.StringPtrOutput `pulumi:"glueVersion"`
 	// The name of this endpoint. It must be unique in your account.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -183,7 +183,7 @@ type devEndpointState struct {
 	ExtraPythonLibsS3Path *string `pulumi:"extraPythonLibsS3Path"`
 	// The reason for a current failure in this endpoint.
 	FailureReason *string `pulumi:"failureReason"`
-	// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 	GlueVersion *string `pulumi:"glueVersion"`
 	// The name of this endpoint. It must be unique in your account.
 	Name *string `pulumi:"name"`
@@ -236,7 +236,7 @@ type DevEndpointState struct {
 	ExtraPythonLibsS3Path pulumi.StringPtrInput
 	// The reason for a current failure in this endpoint.
 	FailureReason pulumi.StringPtrInput
-	// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 	GlueVersion pulumi.StringPtrInput
 	// The name of this endpoint. It must be unique in your account.
 	Name pulumi.StringPtrInput
@@ -287,7 +287,7 @@ type devEndpointArgs struct {
 	ExtraJarsS3Path *string `pulumi:"extraJarsS3Path"`
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
 	ExtraPythonLibsS3Path *string `pulumi:"extraPythonLibsS3Path"`
-	// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 	GlueVersion *string `pulumi:"glueVersion"`
 	// The name of this endpoint. It must be unique in your account.
 	Name *string `pulumi:"name"`
@@ -321,7 +321,7 @@ type DevEndpointArgs struct {
 	ExtraJarsS3Path pulumi.StringPtrInput
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
 	ExtraPythonLibsS3Path pulumi.StringPtrInput
-	// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+	// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 	GlueVersion pulumi.StringPtrInput
 	// The name of this endpoint. It must be unique in your account.
 	Name pulumi.StringPtrInput
@@ -464,7 +464,7 @@ func (o DevEndpointOutput) FailureReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
 }
 
-// -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
 func (o DevEndpointOutput) GlueVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringPtrOutput { return v.GlueVersion }).(pulumi.StringPtrOutput)
 }

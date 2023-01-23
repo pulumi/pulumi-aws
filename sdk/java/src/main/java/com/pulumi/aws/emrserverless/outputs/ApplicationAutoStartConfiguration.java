@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationAutoStartConfiguration {
     /**
-     * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+     * @return Enables the application to automatically start on job submission. Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
 
     private ApplicationAutoStartConfiguration() {}
     /**
-     * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+     * @return Enables the application to automatically start on job submission. Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {

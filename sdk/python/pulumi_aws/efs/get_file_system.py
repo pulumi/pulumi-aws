@@ -156,7 +156,6 @@ class GetFileSystemResult:
     def provisioned_throughput_in_mibps(self) -> float:
         """
         The throughput, measured in MiB/s, that you want to provision for the file system.
-        * `tags` -A map of tags to assign to the file system.
         """
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
@@ -171,6 +170,9 @@ class GetFileSystemResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags to assign to the file system.
+        """
         return pulumi.get(self, "tags")
 
     @property

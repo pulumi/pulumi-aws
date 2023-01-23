@@ -65,14 +65,14 @@ public final class ClusterCoreInstanceFleetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Name of the step.
+     * Friendly name given to the instance fleet.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the step.
+     * @return Friendly name given to the instance fleet.
      * 
      */
     public Optional<Output<String>> name() {
@@ -94,14 +94,14 @@ public final class ClusterCoreInstanceFleetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+     * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
     @Import(name="targetOnDemandCapacity")
     private @Nullable Output<Integer> targetOnDemandCapacity;
 
     /**
-     * @return Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+     * @return The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
     public Optional<Output<Integer>> targetOnDemandCapacity() {
@@ -228,7 +228,7 @@ public final class ClusterCoreInstanceFleetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Friendly name given to the instance fleet.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ClusterCoreInstanceFleetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Name of the step.
+         * @param name Friendly name given to the instance fleet.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class ClusterCoreInstanceFleetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targetOnDemandCapacity Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+         * @param targetOnDemandCapacity The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ClusterCoreInstanceFleetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targetOnDemandCapacity Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+         * @param targetOnDemandCapacity The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
          * 
          * @return builder
          * 

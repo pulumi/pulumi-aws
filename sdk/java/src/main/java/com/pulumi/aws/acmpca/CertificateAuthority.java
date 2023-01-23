@@ -263,14 +263,14 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
         return this.certificateSigningRequest;
     }
     /**
-     * Boolean value that specifies whether a custom OCSP responder is enabled.
+     * Whether the certificate authority is enabled or disabled. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
+     * @return Whether the certificate authority is enabled or disabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

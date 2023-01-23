@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum.
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
         /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }

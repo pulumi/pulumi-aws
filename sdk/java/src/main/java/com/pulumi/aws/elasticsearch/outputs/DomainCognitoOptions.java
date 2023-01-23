@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainCognitoOptions {
     /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * @return Whether Amazon Cognito authentication with Kibana is enabled or not.
      * 
      */
     private @Nullable Boolean enabled;
@@ -35,7 +35,7 @@ public final class DomainCognitoOptions {
 
     private DomainCognitoOptions() {}
     /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+     * @return Whether Amazon Cognito authentication with Kibana is enabled or not.
      * 
      */
     public Optional<Boolean> enabled() {

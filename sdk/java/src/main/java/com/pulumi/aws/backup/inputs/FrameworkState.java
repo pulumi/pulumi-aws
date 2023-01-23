@@ -94,14 +94,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a parameter, for example, BackupPlanFrequency.
+     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
+     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,14 +124,14 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+     * @return Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -301,7 +301,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
+         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
+         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * @param tags Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
+         * @param tags Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -110,9 +110,6 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
 
     /**
      * The ID of the power of the container service.
-     * * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-     *   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-     *   service permission to access resources in your standard AWS account.
      * 
      */
     @Import(name="powerId")
@@ -120,18 +117,27 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return The ID of the power of the container service.
-     * * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-     *   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-     *   service permission to access resources in your standard AWS account.
      * 
      */
     public Optional<Output<String>> powerId() {
         return Optional.ofNullable(this.powerId);
     }
 
+    /**
+     * The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
+    /**
+     * @return The principal ARN of the container service. The principal ARN can be used to create a trust
+     * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+     * service permission to access resources in your standard AWS account.
+     * 
+     */
     public Optional<Output<String>> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }
@@ -455,9 +461,6 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param powerId The ID of the power of the container service.
-         * * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-         *   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-         *   service permission to access resources in your standard AWS account.
          * 
          * @return builder
          * 
@@ -469,9 +472,6 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param powerId The ID of the power of the container service.
-         * * `principal_arn`- The principal ARN of the container service. The principal ARN can be used to create a trust
-         *   relationship between your standard AWS account and your Lightsail container service. This allows you to give your
-         *   service permission to access resources in your standard AWS account.
          * 
          * @return builder
          * 
@@ -480,11 +480,27 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
             return powerId(Output.of(powerId));
         }
 
+        /**
+         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
+         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+         * service permission to access resources in your standard AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(@Nullable Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
+        /**
+         * @param principalArn The principal ARN of the container service. The principal ARN can be used to create a trust
+         * relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+         * service permission to access resources in your standard AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Label string.
+        /// Friendly name of the WebACL.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

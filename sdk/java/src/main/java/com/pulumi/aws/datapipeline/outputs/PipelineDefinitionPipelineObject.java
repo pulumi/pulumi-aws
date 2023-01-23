@@ -18,7 +18,7 @@ public final class PipelineDefinitionPipelineObject {
      */
     private @Nullable List<PipelineDefinitionPipelineObjectField> fields;
     /**
-     * @return ID of the parameter value.
+     * @return ID of the object.
      * 
      */
     private String id;
@@ -37,7 +37,7 @@ public final class PipelineDefinitionPipelineObject {
         return this.fields == null ? List.of() : this.fields;
     }
     /**
-     * @return ID of the parameter value.
+     * @return ID of the object.
      * 
      */
     public String id() {

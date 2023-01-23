@@ -112,9 +112,23 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
         return Optional.ofNullable(this.minimumProtocolVersion);
     }
 
+    /**
+     * Specifies how you want CloudFront to serve HTTPS
+     * requests. One of `vip` or `sni-only`. Required if you specify
+     * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+     * CloudFront to use a dedicated IP address and may incur extra charges.
+     * 
+     */
     @Import(name="sslSupportMethod")
     private @Nullable Output<String> sslSupportMethod;
 
+    /**
+     * @return Specifies how you want CloudFront to serve HTTPS
+     * requests. One of `vip` or `sni-only`. Required if you specify
+     * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+     * CloudFront to use a dedicated IP address and may incur extra charges.
+     * 
+     */
     public Optional<Output<String>> sslSupportMethod() {
         return Optional.ofNullable(this.sslSupportMethod);
     }
@@ -267,11 +281,29 @@ public final class DistributionViewerCertificateArgs extends com.pulumi.resource
             return minimumProtocolVersion(Output.of(minimumProtocolVersion));
         }
 
+        /**
+         * @param sslSupportMethod Specifies how you want CloudFront to serve HTTPS
+         * requests. One of `vip` or `sni-only`. Required if you specify
+         * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+         * CloudFront to use a dedicated IP address and may incur extra charges.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslSupportMethod(@Nullable Output<String> sslSupportMethod) {
             $.sslSupportMethod = sslSupportMethod;
             return this;
         }
 
+        /**
+         * @param sslSupportMethod Specifies how you want CloudFront to serve HTTPS
+         * requests. One of `vip` or `sni-only`. Required if you specify
+         * `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes
+         * CloudFront to use a dedicated IP address and may incur extra charges.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sslSupportMethod(String sslSupportMethod) {
             return sslSupportMethod(Output.of(sslSupportMethod));
         }

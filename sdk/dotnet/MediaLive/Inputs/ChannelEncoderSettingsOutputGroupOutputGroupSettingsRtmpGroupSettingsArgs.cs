@@ -49,7 +49,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? CaptionData { get; set; }
 
         /// <summary>
-        /// Specifies behavior of last resort when input video os lost.
+        /// Controls the behavior of the RTMP group if input becomes unavailable.
         /// </summary>
         [Input("inputLossAction")]
         public Input<string>? InputLossAction { get; set; }

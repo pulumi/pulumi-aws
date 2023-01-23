@@ -17,14 +17,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs();
 
     /**
-     * The credentials used to access protected Zendesk resources.
+     * The access token used to access the connector on your behalf.
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return The credentials used to access protected Zendesk resources.
+     * @return The access token used to access the connector on your behalf.
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -32,14 +32,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+     * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs> oauthRequest;
 
     /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs>> oauthRequest() {
@@ -47,14 +47,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The refresh token used to refresh expired access token.
+     * The refresh token used to refresh an expired access token.
      * 
      */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
     /**
-     * @return The refresh token used to refresh expired access token.
+     * @return The refresh token used to refresh an expired access token.
      * 
      */
     public Optional<Output<String>> refreshToken() {
@@ -88,7 +88,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param accessToken The credentials used to access protected Zendesk resources.
+         * @param accessToken The access token used to access the connector on your behalf.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param accessToken The credentials used to access protected Zendesk resources.
+         * @param accessToken The access token used to access the connector on your behalf.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauthRequest The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauthRequest The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param refreshToken The refresh token used to refresh expired access token.
+         * @param refreshToken The refresh token used to refresh an expired access token.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param refreshToken The refresh token used to refresh expired access token.
+         * @param refreshToken The refresh token used to refresh an expired access token.
          * 
          * @return builder
          * 

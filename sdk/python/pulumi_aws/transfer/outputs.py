@@ -658,7 +658,7 @@ class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocatio
                  key: Optional[str] = None):
         """
         :param str bucket: Specifies the S3 bucket for the customer input file.
-        :param str key: The name assigned to the tag that you create.
+        :param str key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -677,7 +677,7 @@ class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocatio
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        The name assigned to the tag that you create.
+        The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         return pulumi.get(self, "key")
 
@@ -870,7 +870,7 @@ class WorkflowOnExceptionStepTagStepDetailsTag(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The name assigned to the tag that you create.
+        :param str key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         :param str value: The value that corresponds to the key.
         """
         pulumi.set(__self__, "key", key)
@@ -880,7 +880,7 @@ class WorkflowOnExceptionStepTagStepDetailsTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name assigned to the tag that you create.
+        The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         return pulumi.get(self, "key")
 
@@ -1163,7 +1163,7 @@ class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation(dict):
                  key: Optional[str] = None):
         """
         :param str bucket: Specifies the S3 bucket for the customer input file.
-        :param str key: The name assigned to the tag that you create.
+        :param str key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -1182,7 +1182,7 @@ class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        The name assigned to the tag that you create.
+        The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         return pulumi.get(self, "key")
 
@@ -1375,7 +1375,7 @@ class WorkflowStepTagStepDetailsTag(dict):
                  key: str,
                  value: str):
         """
-        :param str key: The name assigned to the tag that you create.
+        :param str key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         :param str value: The value that corresponds to the key.
         """
         pulumi.set(__self__, "key", key)
@@ -1385,7 +1385,7 @@ class WorkflowStepTagStepDetailsTag(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name assigned to the tag that you create.
+        The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         return pulumi.get(self, "key")
 

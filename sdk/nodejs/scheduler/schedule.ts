@@ -93,7 +93,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * Name of parameter to start execution of a SageMaker Model Building Pipeline.
+     * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -206,7 +206,7 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleState {
     /**
-     * ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
      */
     arn?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface ScheduleState {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Name of parameter to start execution of a SageMaker Model Building Pipeline.
+     * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface ScheduleArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Name of parameter to start execution of a SageMaker Model Building Pipeline.
+     * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

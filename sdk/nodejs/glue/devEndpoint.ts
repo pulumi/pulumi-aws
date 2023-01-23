@@ -93,7 +93,7 @@ export class DevEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly failureReason!: pulumi.Output<string>;
     /**
-     * -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+     * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      */
     public readonly glueVersion!: pulumi.Output<string | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface DevEndpointState {
      */
     failureReason?: pulumi.Input<string>;
     /**
-     * -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+     * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      */
     glueVersion?: pulumi.Input<string>;
     /**
@@ -366,7 +366,7 @@ export interface DevEndpointArgs {
      */
     extraPythonLibsS3Path?: pulumi.Input<string>;
     /**
-     * -  Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
+     * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      */
     glueVersion?: pulumi.Input<string>;
     /**

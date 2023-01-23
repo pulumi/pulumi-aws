@@ -13,7 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     public sealed class TableAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the index
+        /// Name of the attribute
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

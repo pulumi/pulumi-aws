@@ -108,7 +108,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly steps!: pulumi.Output<outputs.transfer.WorkflowStep[]>;
     /**
-     * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface WorkflowState {
      */
     steps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
     /**
-     * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -199,7 +199,7 @@ export interface WorkflowArgs {
      */
     steps: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
     /**
-     * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

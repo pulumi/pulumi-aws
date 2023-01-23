@@ -23,7 +23,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
      */
     private @Nullable Boolean includeSubdomains;
     /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     private Boolean override;
@@ -49,7 +49,7 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
         return Optional.ofNullable(this.includeSubdomains);
     }
     /**
-     * @return Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+     * @return Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Boolean override() {

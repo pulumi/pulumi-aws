@@ -64,7 +64,7 @@ import (
 type IpGroup struct {
 	pulumi.CustomResourceState
 
-	// The description.
+	// The description of the IP group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the IP group.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -105,7 +105,7 @@ func GetIpGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpGroup resources.
 type ipGroupState struct {
-	// The description.
+	// The description of the IP group.
 	Description *string `pulumi:"description"`
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
@@ -118,7 +118,7 @@ type ipGroupState struct {
 }
 
 type IpGroupState struct {
-	// The description.
+	// The description of the IP group.
 	Description pulumi.StringPtrInput
 	// The name of the IP group.
 	Name pulumi.StringPtrInput
@@ -135,7 +135,7 @@ func (IpGroupState) ElementType() reflect.Type {
 }
 
 type ipGroupArgs struct {
-	// The description.
+	// The description of the IP group.
 	Description *string `pulumi:"description"`
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
@@ -147,7 +147,7 @@ type ipGroupArgs struct {
 
 // The set of arguments for constructing a IpGroup resource.
 type IpGroupArgs struct {
-	// The description.
+	// The description of the IP group.
 	Description pulumi.StringPtrInput
 	// The name of the IP group.
 	Name pulumi.StringPtrInput
@@ -244,7 +244,7 @@ func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOu
 	return o
 }
 
-// The description.
+// The description of the IP group.
 func (o IpGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

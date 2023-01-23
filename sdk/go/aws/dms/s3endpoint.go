@@ -211,7 +211,7 @@ type S3Endpoint struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize pulumi.IntPtrOutput `pulumi:"maxFileSize"`
-	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
 	ParquetTimestampInMillisecond pulumi.BoolPtrOutput `pulumi:"parquetTimestampInMillisecond"`
 	// Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
 	ParquetVersion pulumi.StringPtrOutput `pulumi:"parquetVersion"`
@@ -356,7 +356,7 @@ type s3endpointState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize *int `pulumi:"maxFileSize"`
-	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
 	ParquetTimestampInMillisecond *bool `pulumi:"parquetTimestampInMillisecond"`
 	// Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
 	ParquetVersion *string `pulumi:"parquetVersion"`
@@ -461,7 +461,7 @@ type S3EndpointState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize pulumi.IntPtrInput
-	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
 	ParquetTimestampInMillisecond pulumi.BoolPtrInput
 	// Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
 	ParquetVersion pulumi.StringPtrInput
@@ -564,7 +564,7 @@ type s3endpointArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize *int `pulumi:"maxFileSize"`
-	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
 	ParquetTimestampInMillisecond *bool `pulumi:"parquetTimestampInMillisecond"`
 	// Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
 	ParquetVersion *string `pulumi:"parquetVersion"`
@@ -660,7 +660,7 @@ type S3EndpointArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize pulumi.IntPtrInput
-	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+	// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
 	ParquetTimestampInMillisecond pulumi.BoolPtrInput
 	// Version of the .parquet file format. Valid values are `parquet-1-0` and `parquet-2-0`. (AWS default is `parquet-1-0`.) (Ignored for source endpoints.)
 	ParquetVersion pulumi.StringPtrInput
@@ -958,7 +958,7 @@ func (o S3EndpointOutput) MaxFileSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.IntPtrOutput { return v.MaxFileSize }).(pulumi.IntPtrOutput)
 }
 
-// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
+// Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`. (Ignored for source endpoints.)
 func (o S3EndpointOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.ParquetTimestampInMillisecond }).(pulumi.BoolPtrOutput)
 }

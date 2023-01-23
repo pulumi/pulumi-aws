@@ -59,7 +59,7 @@ export interface GetLaunchTemplateArgs {
      */
     id?: string;
     /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * Name of the launch template.
      */
     name?: string;
     /**
@@ -159,7 +159,7 @@ export interface GetLaunchTemplateOutputArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * Name of the launch template.
      */
     name?: pulumi.Input<string>;
     /**

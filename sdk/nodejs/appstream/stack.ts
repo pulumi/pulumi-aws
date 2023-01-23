@@ -41,11 +41,23 @@ import * as utilities from "../utilities";
  *             permission: "ENABLED",
  *         },
  *         {
+ *             action: "DOMAIN_PASSWORD_SIGNIN",
+ *             permission: "ENABLED",
+ *         },
+ *         {
+ *             action: "DOMAIN_SMART_CARD_SIGNIN",
+ *             permission: "DISABLED",
+ *         },
+ *         {
+ *             action: "FILE_DOWNLOAD",
+ *             permission: "ENABLED",
+ *         },
+ *         {
  *             action: "FILE_UPLOAD",
  *             permission: "ENABLED",
  *         },
  *         {
- *             action: "FILE_DOWNLOAD",
+ *             action: "PRINTING_TO_LOCAL_DEVICE",
  *             permission: "ENABLED",
  *         },
  *     ],
@@ -109,11 +121,11 @@ export class Stack extends pulumi.CustomResource {
     /**
      * Description for the AppStream stack.
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Stack name to display.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      */
@@ -141,7 +153,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
     public readonly userSettings!: pulumi.Output<outputs.appstream.StackUserSetting[]>;
@@ -252,7 +264,7 @@ export interface StackState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;
@@ -306,7 +318,7 @@ export interface StackArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
      * See `userSettings` below.
      */
     userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSetting>[]>;

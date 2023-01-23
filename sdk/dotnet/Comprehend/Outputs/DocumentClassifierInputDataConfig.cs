@@ -31,8 +31,8 @@ namespace Pulumi.Aws.Comprehend.Outputs
         /// </summary>
         public readonly string? LabelDelimiter;
         /// <summary>
-        /// Destination path for the output documents.
-        /// The full path to the output file will be returned in `output_s3_uri`.
+        /// Location of training documents.
+        /// Used if `data_format` is `COMPREHEND_CSV`.
         /// </summary>
         public readonly string? S3Uri;
         public readonly string? TestS3Uri;

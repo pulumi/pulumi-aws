@@ -288,7 +288,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
-        /// Label string.
+        /// Friendly name of the WebACL.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Label string.
+        /// Friendly name of the WebACL.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -483,7 +483,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? LockToken { get; set; }
 
         /// <summary>
-        /// Label string.
+        /// Friendly name of the WebACL.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

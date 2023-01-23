@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs();
 
     /**
-     * Object key for the Amazon S3 bucket in which the source files are stored.
+     * Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
+     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -47,14 +47,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
     }
 
     /**
-     * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
      * 
      */
     @Import(name="intermediateBucketName", required=true)
     private Output<String> intermediateBucketName;
 
     /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
      * 
      */
     public Output<String> intermediateBucketName() {
@@ -62,14 +62,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
     }
 
     /**
-     * Object specified in the Veeva flow source.
+     * Object specified in the flow destination.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public Output<String> object() {
@@ -104,7 +104,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
         }
 
         /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
+         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
         }
 
         /**
-         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
         }
 
         /**
-         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
         }
 
         /**
-         * @param object Object specified in the Veeva flow source.
+         * @param object Object specified in the flow destination.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
         }
 
         /**
-         * @param object Object specified in the Veeva flow source.
+         * @param object Object specified in the flow destination.
          * 
          * @return builder
          * 

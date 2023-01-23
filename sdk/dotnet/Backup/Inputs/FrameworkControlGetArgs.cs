@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// The name of a parameter, for example, BackupPlanFrequency.
+        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

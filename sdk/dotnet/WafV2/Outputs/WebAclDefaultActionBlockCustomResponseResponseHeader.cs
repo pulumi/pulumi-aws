@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclDefaultActionBlockCustomResponseResponseHeader
     {
         /// <summary>
-        /// Label string.
+        /// Friendly name of the WebACL.
         /// </summary>
         public readonly string Name;
         /// <summary>

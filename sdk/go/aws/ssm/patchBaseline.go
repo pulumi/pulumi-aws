@@ -297,7 +297,7 @@ type PatchBaseline struct {
 	// Up to 4 global filters can be specified using Key/Value pairs.
 	// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
 	GlobalFilters PatchBaselineGlobalFilterArrayOutput `pulumi:"globalFilters"`
-	// The name specified to identify the patch source.
+	// The name of the patch baseline.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
@@ -383,7 +383,7 @@ type patchBaselineState struct {
 	// Up to 4 global filters can be specified using Key/Value pairs.
 	// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
 	GlobalFilters []PatchBaselineGlobalFilter `pulumi:"globalFilters"`
-	// The name specified to identify the patch source.
+	// The name of the patch baseline.
 	Name *string `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
@@ -441,7 +441,7 @@ type PatchBaselineState struct {
 	// Up to 4 global filters can be specified using Key/Value pairs.
 	// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
 	GlobalFilters PatchBaselineGlobalFilterArrayInput
-	// The name specified to identify the patch source.
+	// The name of the patch baseline.
 	Name pulumi.StringPtrInput
 	// The operating system the patch baseline applies to.
 	// Valid values are
@@ -501,7 +501,7 @@ type patchBaselineArgs struct {
 	// Up to 4 global filters can be specified using Key/Value pairs.
 	// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
 	GlobalFilters []PatchBaselineGlobalFilter `pulumi:"globalFilters"`
-	// The name specified to identify the patch source.
+	// The name of the patch baseline.
 	Name *string `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
@@ -556,7 +556,7 @@ type PatchBaselineArgs struct {
 	// Up to 4 global filters can be specified using Key/Value pairs.
 	// Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
 	GlobalFilters PatchBaselineGlobalFilterArrayInput
-	// The name specified to identify the patch source.
+	// The name of the patch baseline.
 	Name pulumi.StringPtrInput
 	// The operating system the patch baseline applies to.
 	// Valid values are
@@ -719,7 +719,7 @@ func (o PatchBaselineOutput) GlobalFilters() PatchBaselineGlobalFilterArrayOutpu
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselineGlobalFilterArrayOutput { return v.GlobalFilters }).(PatchBaselineGlobalFilterArrayOutput)
 }
 
-// The name specified to identify the patch source.
+// The name of the patch baseline.
 func (o PatchBaselineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PatchBaseline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

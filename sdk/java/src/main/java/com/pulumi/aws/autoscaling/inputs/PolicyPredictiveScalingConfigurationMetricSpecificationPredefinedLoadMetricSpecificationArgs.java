@@ -14,14 +14,14 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
     public static final PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs Empty = new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs();
 
     /**
-     * Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
      * 
      */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
     /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+     * @return Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
      * 
      */
     public Output<String> predefinedMetricType() {
@@ -69,7 +69,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
         }
 
         /**
-         * @param predefinedMetricType Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+         * @param predefinedMetricType Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
         }
 
         /**
-         * @param predefinedMetricType Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
+         * @param predefinedMetricType Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
          * 
          * @return builder
          * 

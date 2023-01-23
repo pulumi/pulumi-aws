@@ -17,14 +17,14 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
     public static final UserEmailsArgs Empty = new UserEmailsArgs();
 
     /**
-     * When `true`, this is the primary phone number associated with the user.
+     * When `true`, this is the primary email associated with the user.
      * 
      */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
     /**
-     * @return When `true`, this is the primary phone number associated with the user.
+     * @return When `true`, this is the primary email associated with the user.
      * 
      */
     public Optional<Output<Boolean>> primary() {
@@ -32,14 +32,14 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of phone number.
+     * The type of email.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of phone number.
+     * @return The type of email.
      * 
      */
     public Optional<Output<String>> type() {
@@ -47,14 +47,14 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user&#39;s phone number.
+     * The email address. This value must be unique across the identity store.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The user&#39;s phone number.
+     * @return The email address. This value must be unique across the identity store.
      * 
      */
     public Optional<Output<String>> value() {
@@ -88,7 +88,7 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primary When `true`, this is the primary phone number associated with the user.
+         * @param primary When `true`, this is the primary email associated with the user.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primary When `true`, this is the primary phone number associated with the user.
+         * @param primary When `true`, this is the primary email associated with the user.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of phone number.
+         * @param type The type of email.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of phone number.
+         * @param type The type of email.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The user&#39;s phone number.
+         * @param value The email address. This value must be unique across the identity store.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class UserEmailsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The user&#39;s phone number.
+         * @param value The email address. This value must be unique across the identity store.
          * 
          * @return builder
          * 

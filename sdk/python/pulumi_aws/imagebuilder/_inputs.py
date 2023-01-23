@@ -516,7 +516,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgs:
                  target_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ami_tags: Key-value map of tags to apply to the distributed AMI.
-        :param pulumi.Input[str] description: Description of the container distribution configuration.
+        :param pulumi.Input[str] description: Description to apply to the distributed AMI.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
         :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs'] launch_permission: Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
         :param pulumi.Input[str] name: Name to apply to the distributed AMI.
@@ -551,7 +551,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the container distribution configuration.
+        Description to apply to the distributed AMI.
         """
         return pulumi.get(self, "description")
 
@@ -779,7 +779,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationArgs:
                  max_parallel_launches: Optional[pulumi.Input[int]] = None,
                  snapshot_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] account_id: The account ID that this configuration applies to.
+        :param pulumi.Input[str] account_id: The owner account ID for the fast-launch enabled Windows AMI.
         :param pulumi.Input[bool] enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
         :param pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs'] launch_template: Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
         :param pulumi.Input[int] max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
@@ -798,7 +798,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        The account ID that this configuration applies to.
+        The owner account ID for the fast-launch enabled Windows AMI.
         """
         return pulumi.get(self, "account_id")
 
@@ -862,7 +862,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
                  launch_template_name: Optional[pulumi.Input[str]] = None,
                  launch_template_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] launch_template_id: The ID of the Amazon EC2 launch template to use.
+        :param pulumi.Input[str] launch_template_id: The ID of the launch template to use for faster launching for a Windows AMI.
         :param pulumi.Input[str] launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
         :param pulumi.Input[str] launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
         """
@@ -877,7 +877,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Amazon EC2 launch template to use.
+        The ID of the launch template to use for faster launching for a Windows AMI.
         """
         return pulumi.get(self, "launch_template_id")
 

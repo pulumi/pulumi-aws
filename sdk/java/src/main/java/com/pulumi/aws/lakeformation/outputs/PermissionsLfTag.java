@@ -18,12 +18,12 @@ public final class PermissionsLfTag {
      */
     private @Nullable String catalogId;
     /**
-     * @return The key-name of an LF-Tag.
+     * @return The key-name for the tag.
      * 
      */
     private String key;
     /**
-     * @return A list of possible values of an LF-Tag.
+     * @return A list of possible values an attribute can take.
      * 
      */
     private List<String> values;
@@ -37,14 +37,14 @@ public final class PermissionsLfTag {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return The key-name of an LF-Tag.
+     * @return The key-name for the tag.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return A list of possible values of an LF-Tag.
+     * @return A list of possible values an attribute can take.
      * 
      */
     public List<String> values() {

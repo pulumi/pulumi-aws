@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectCache
     {
         /// <summary>
-        /// Location of the source code from git or s3.
+        /// Location where the AWS CodeBuild project stores cached resources. For type `S3`, the value must be a valid S3 bucket name/prefix.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Modes;
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
         /// </summary>
         public readonly string? Type;
 

@@ -49,11 +49,15 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
     public readonly identityPoolId!: pulumi.Output<string>;
     /**
      * The name of the identity provider.
-     * * `principalTags`: (Optional: []) - String to string map of variables.
-     * * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
      */
     public readonly identityProviderName!: pulumi.Output<string>;
+    /**
+     * String to string map of variables.
+     */
     public readonly principalTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * use default (username and clientID) attribute mappings.
+     */
     public readonly useDefaults!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -101,11 +105,15 @@ export interface IdentityPoolProviderPrincipalTagState {
     identityPoolId?: pulumi.Input<string>;
     /**
      * The name of the identity provider.
-     * * `principalTags`: (Optional: []) - String to string map of variables.
-     * * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
      */
     identityProviderName?: pulumi.Input<string>;
+    /**
+     * String to string map of variables.
+     */
     principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * use default (username and clientID) attribute mappings.
+     */
     useDefaults?: pulumi.Input<boolean>;
 }
 
@@ -119,10 +127,14 @@ export interface IdentityPoolProviderPrincipalTagArgs {
     identityPoolId: pulumi.Input<string>;
     /**
      * The name of the identity provider.
-     * * `principalTags`: (Optional: []) - String to string map of variables.
-     * * `useDefaults`: (Optional: true) use default (username and clientID) attribute mappings.
      */
     identityProviderName: pulumi.Input<string>;
+    /**
+     * String to string map of variables.
+     */
     principalTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * use default (username and clientID) attribute mappings.
+     */
     useDefaults?: pulumi.Input<boolean>;
 }

@@ -384,7 +384,7 @@ func (o ConnectorCapacityAutoscalingPtrOutput) ScaleOutPolicy() ConnectorCapacit
 }
 
 type ConnectorCapacityAutoscalingScaleInPolicy struct {
-	// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+	// Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
 	CpuUtilizationPercentage *int `pulumi:"cpuUtilizationPercentage"`
 }
 
@@ -400,7 +400,7 @@ type ConnectorCapacityAutoscalingScaleInPolicyInput interface {
 }
 
 type ConnectorCapacityAutoscalingScaleInPolicyArgs struct {
-	// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+	// Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
 	CpuUtilizationPercentage pulumi.IntPtrInput `pulumi:"cpuUtilizationPercentage"`
 }
 
@@ -481,7 +481,7 @@ func (o ConnectorCapacityAutoscalingScaleInPolicyOutput) ToConnectorCapacityAuto
 	}).(ConnectorCapacityAutoscalingScaleInPolicyPtrOutput)
 }
 
-// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+// Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
 func (o ConnectorCapacityAutoscalingScaleInPolicyOutput) CpuUtilizationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacityAutoscalingScaleInPolicy) *int { return v.CpuUtilizationPercentage }).(pulumi.IntPtrOutput)
 }
@@ -510,7 +510,7 @@ func (o ConnectorCapacityAutoscalingScaleInPolicyPtrOutput) Elem() ConnectorCapa
 	}).(ConnectorCapacityAutoscalingScaleInPolicyOutput)
 }
 
-// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+// Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
 func (o ConnectorCapacityAutoscalingScaleInPolicyPtrOutput) CpuUtilizationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectorCapacityAutoscalingScaleInPolicy) *int {
 		if v == nil {
@@ -1855,7 +1855,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryPtrOutput) S3() ConnectorLogDeliver
 }
 
 type ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs struct {
-	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+	// Whether log delivery to Amazon CloudWatch Logs is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// The name of the CloudWatch log group that is the destination for log delivery.
 	LogGroup *string `pulumi:"logGroup"`
@@ -1873,7 +1873,7 @@ type ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsInput interface {
 }
 
 type ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs struct {
-	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+	// Whether log delivery to Amazon CloudWatch Logs is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The name of the CloudWatch log group that is the destination for log delivery.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
@@ -1956,7 +1956,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput) ToConnectorLo
 	}).(ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput)
 }
 
-// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+// Whether log delivery to Amazon CloudWatch Logs is enabled.
 func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1990,7 +1990,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput) Elem() Con
 	}).(ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput)
 }
 
-// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+// Whether log delivery to Amazon CloudWatch Logs is enabled.
 func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs) *bool {
 		if v == nil {
@@ -2013,7 +2013,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput) LogGroup()
 type ConnectorLogDeliveryWorkerLogDeliveryFirehose struct {
 	// The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
 	DeliveryStream *string `pulumi:"deliveryStream"`
-	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+	// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2031,7 +2031,7 @@ type ConnectorLogDeliveryWorkerLogDeliveryFirehoseInput interface {
 type ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs struct {
 	// The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
 	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
-	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+	// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2117,7 +2117,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput) DeliveryStream() pu
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
 func (o ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2156,7 +2156,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) DeliveryStream()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+// Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
 func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorLogDeliveryWorkerLogDeliveryFirehose) *bool {
 		if v == nil {
@@ -2169,7 +2169,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) Enabled() pulumi
 type ConnectorLogDeliveryWorkerLogDeliveryS3 struct {
 	// The name of the S3 bucket that is the destination for log delivery.
 	Bucket *string `pulumi:"bucket"`
-	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+	// Whether log delivery to Amazon CloudWatch Logs is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// The S3 prefix that is the destination for log delivery.
 	Prefix *string `pulumi:"prefix"`
@@ -2189,7 +2189,7 @@ type ConnectorLogDeliveryWorkerLogDeliveryS3Input interface {
 type ConnectorLogDeliveryWorkerLogDeliveryS3Args struct {
 	// The name of the S3 bucket that is the destination for log delivery.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+	// Whether log delivery to Amazon CloudWatch Logs is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The S3 prefix that is the destination for log delivery.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -2277,7 +2277,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryS3Output) Bucket() pulumi.StringPtr
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+// Whether log delivery to Amazon CloudWatch Logs is enabled.
 func (o ConnectorLogDeliveryWorkerLogDeliveryS3Output) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryS3) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2321,7 +2321,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) Bucket() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether connector logs get sent to the specified Amazon S3 destination.
+// Whether log delivery to Amazon CloudWatch Logs is enabled.
 func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorLogDeliveryWorkerLogDeliveryS3) *bool {
 		if v == nil {
@@ -2439,9 +2439,9 @@ func (o ConnectorPluginArrayOutput) Index(i pulumi.IntInput) ConnectorPluginOutp
 }
 
 type ConnectorPluginCustomPlugin struct {
-	// The Amazon Resource Name (ARN) of the worker configuration.
+	// The Amazon Resource Name (ARN) of the custom plugin.
 	Arn string `pulumi:"arn"`
-	// The revision of the worker configuration.
+	// The revision of the custom plugin.
 	Revision int `pulumi:"revision"`
 }
 
@@ -2457,9 +2457,9 @@ type ConnectorPluginCustomPluginInput interface {
 }
 
 type ConnectorPluginCustomPluginArgs struct {
-	// The Amazon Resource Name (ARN) of the worker configuration.
+	// The Amazon Resource Name (ARN) of the custom plugin.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The revision of the worker configuration.
+	// The revision of the custom plugin.
 	Revision pulumi.IntInput `pulumi:"revision"`
 }
 
@@ -2489,12 +2489,12 @@ func (o ConnectorPluginCustomPluginOutput) ToConnectorPluginCustomPluginOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the worker configuration.
+// The Amazon Resource Name (ARN) of the custom plugin.
 func (o ConnectorPluginCustomPluginOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorPluginCustomPlugin) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The revision of the worker configuration.
+// The revision of the custom plugin.
 func (o ConnectorPluginCustomPluginOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorPluginCustomPlugin) int { return v.Revision }).(pulumi.IntOutput)
 }

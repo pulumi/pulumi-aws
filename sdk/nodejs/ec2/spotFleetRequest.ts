@@ -232,7 +232,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly spotMaintenanceStrategies!: pulumi.Output<outputs.ec2.SpotFleetRequestSpotMaintenanceStrategies | undefined>;
     /**
-     * The maximum spot bid for this override request.
+     * The maximum bid price per unit hour.
      */
     public readonly spotPrice!: pulumi.Output<string | undefined>;
     /**
@@ -445,7 +445,7 @@ export interface SpotFleetRequestState {
      */
     spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
     /**
-     * The maximum spot bid for this override request.
+     * The maximum bid price per unit hour.
      */
     spotPrice?: pulumi.Input<string>;
     /**
@@ -577,7 +577,7 @@ export interface SpotFleetRequestArgs {
      */
     spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetRequestSpotMaintenanceStrategies>;
     /**
-     * The maximum spot bid for this override request.
+     * The maximum bid price per unit hour.
      */
     spotPrice?: pulumi.Input<string>;
     /**

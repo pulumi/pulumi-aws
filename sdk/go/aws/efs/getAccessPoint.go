@@ -67,7 +67,8 @@ type LookupAccessPointResult struct {
 	Id      string `pulumi:"id"`
 	OwnerId string `pulumi:"ownerId"`
 	// Single element list containing operating system user and group applied to all file system requests made using the access point.
-	PosixUsers      []GetAccessPointPosixUser     `pulumi:"posixUsers"`
+	PosixUsers []GetAccessPointPosixUser `pulumi:"posixUsers"`
+	// Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
 	RootDirectories []GetAccessPointRootDirectory `pulumi:"rootDirectories"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -146,6 +147,7 @@ func (o LookupAccessPointResultOutput) PosixUsers() GetAccessPointPosixUserArray
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointPosixUser { return v.PosixUsers }).(GetAccessPointPosixUserArrayOutput)
 }
 
+// Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
 func (o LookupAccessPointResultOutput) RootDirectories() GetAccessPointRootDirectoryArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointRootDirectory { return v.RootDirectories }).(GetAccessPointRootDirectoryArrayOutput)
 }

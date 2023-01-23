@@ -18,14 +18,14 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
     public static final CrawlerDynamodbTargetArgs Empty = new CrawlerDynamodbTargetArgs();
 
     /**
-     * The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * The name of the DynamoDB table to crawl.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
+     * @return The name of the DynamoDB table to crawl.
      * 
      */
     public Output<String> path() {
@@ -33,14 +33,14 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+     * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
      * 
      */
     @Import(name="scanAll")
     private @Nullable Output<Boolean> scanAll;
 
     /**
-     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+     * @return Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> scanAll() {
@@ -89,7 +89,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path The name of the DynamoDB table to crawl.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param path The path of the Amazon DocumentDB or MongoDB target (database/collection).
+         * @param path The name of the DynamoDB table to crawl.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class CrawlerDynamodbTargetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+         * @param scanAll Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
          * 
          * @return builder
          * 

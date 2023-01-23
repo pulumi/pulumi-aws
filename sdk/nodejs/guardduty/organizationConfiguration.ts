@@ -79,7 +79,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      */
     public readonly autoEnable!: pulumi.Output<boolean>;
     /**
@@ -129,7 +129,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
  */
 export interface OrganizationConfigurationState {
     /**
-     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      */
     autoEnable?: pulumi.Input<boolean>;
     /**
@@ -147,7 +147,7 @@ export interface OrganizationConfigurationState {
  */
 export interface OrganizationConfigurationArgs {
     /**
-     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      */
     autoEnable: pulumi.Input<boolean>;
     /**

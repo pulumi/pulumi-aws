@@ -18,7 +18,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string HashKey;
         /// <summary>
-        /// Name of the index
+        /// Name of the index.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string ProjectionType;
         /// <summary>
-        /// Name of the range key.
+        /// Name of the range key; must be defined
         /// </summary>
         public readonly string? RangeKey;
         /// <summary>

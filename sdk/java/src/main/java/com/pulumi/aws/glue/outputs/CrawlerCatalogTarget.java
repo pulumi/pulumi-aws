@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerCatalogTarget {
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     private @Nullable String connectionName;
@@ -40,7 +40,7 @@ public final class CrawlerCatalogTarget {
 
     private CrawlerCatalogTarget() {}
     /**
-     * @return The name of the connection to use to connect to the Delta table target.
+     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     public Optional<String> connectionName() {

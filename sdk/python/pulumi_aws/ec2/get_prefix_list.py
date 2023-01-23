@@ -138,7 +138,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
 
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+    :param str name: Name of the prefix list to select.
     :param str prefix_list_id: ID of the prefix list to select.
     """
     __args__ = dict()
@@ -207,7 +207,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+    :param str name: Name of the prefix list to select.
     :param str prefix_list_id: ID of the prefix list to select.
     """
     ...

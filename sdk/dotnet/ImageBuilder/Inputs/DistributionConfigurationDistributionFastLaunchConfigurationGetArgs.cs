@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     public sealed class DistributionConfigurationDistributionFastLaunchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account ID that this configuration applies to.
+        /// The owner account ID for the fast-launch enabled Windows AMI.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;

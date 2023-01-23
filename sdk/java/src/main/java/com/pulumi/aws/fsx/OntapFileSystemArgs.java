@@ -50,14 +50,14 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      * 
      */
     @Import(name="deploymentType", required=true)
     private Output<String> deploymentType;
 
     /**
-     * @return - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+     * @return The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      * 
      */
     public Output<String> deploymentType() {
@@ -185,14 +185,14 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * - The filesystem storage type. defaults to `SSD`.
+     * The filesystem storage type. defaults to `SSD`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return - The filesystem storage type. defaults to `SSD`.
+     * @return The filesystem storage type. defaults to `SSD`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -341,7 +341,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deploymentType - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param deploymentType - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
+         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageType - The filesystem storage type. defaults to `SSD`.
+         * @param storageType The filesystem storage type. defaults to `SSD`.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageType - The filesystem storage type. defaults to `SSD`.
+         * @param storageType The filesystem storage type. defaults to `SSD`.
          * 
          * @return builder
          * 

@@ -162,7 +162,7 @@ type Function struct {
 	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Function name. The function name does not have to be unique.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringPtrOutput `pulumi:"requestMappingTemplate"`
@@ -225,7 +225,7 @@ type functionState struct {
 	FunctionVersion *string `pulumi:"functionVersion"`
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Function name. The function name does not have to be unique.
 	Name *string `pulumi:"name"`
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
@@ -254,7 +254,7 @@ type FunctionState struct {
 	FunctionVersion pulumi.StringPtrInput
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Function name. The function name does not have to be unique.
 	Name pulumi.StringPtrInput
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringPtrInput
@@ -283,7 +283,7 @@ type functionArgs struct {
 	FunctionVersion *string `pulumi:"functionVersion"`
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize *int `pulumi:"maxBatchSize"`
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Function name. The function name does not have to be unique.
 	Name *string `pulumi:"name"`
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
@@ -309,7 +309,7 @@ type FunctionArgs struct {
 	FunctionVersion pulumi.StringPtrInput
 	// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
 	MaxBatchSize pulumi.IntPtrInput
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Function name. The function name does not have to be unique.
 	Name pulumi.StringPtrInput
 	// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
 	RequestMappingTemplate pulumi.StringPtrInput
@@ -448,7 +448,7 @@ func (o FunctionOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+// Function name. The function name does not have to be unique.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

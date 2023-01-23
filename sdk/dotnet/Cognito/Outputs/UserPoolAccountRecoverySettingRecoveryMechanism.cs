@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanism
     {
         /// <summary>
-        /// Name of the attribute.
+        /// Name of the user pool.
         /// </summary>
         public readonly string Name;
         /// <summary>

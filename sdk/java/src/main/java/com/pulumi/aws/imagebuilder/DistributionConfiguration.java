@@ -119,14 +119,14 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
         return this.dateUpdated;
     }
     /**
-     * Description of the container distribution configuration.
+     * Description of the distribution configuration.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the container distribution configuration.
+     * @return Description of the distribution configuration.
      * 
      */
     public Output<Optional<String>> description() {
@@ -147,14 +147,14 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
         return this.distributions;
     }
     /**
-     * Name to apply to the distributed AMI.
+     * Name of the distribution configuration.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name to apply to the distributed AMI.
+     * @return Name of the distribution configuration.
      * 
      */
     public Output<String> name() {

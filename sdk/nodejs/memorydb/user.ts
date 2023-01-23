@@ -82,7 +82,6 @@ export class User extends pulumi.CustomResource {
     public readonly authenticationMode!: pulumi.Output<outputs.memorydb.UserAuthenticationMode>;
     /**
      * The minimum engine version supported for the user.
-     * * `authenticationMode` configuration block
      */
     public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string>;
     /**
@@ -160,7 +159,6 @@ export interface UserState {
     authenticationMode?: pulumi.Input<inputs.memorydb.UserAuthenticationMode>;
     /**
      * The minimum engine version supported for the user.
-     * * `authenticationMode` configuration block
      */
     minimumEngineVersion?: pulumi.Input<string>;
     /**

@@ -48,7 +48,7 @@ public final class EndpointKinesisSettings {
      */
     private @Nullable Boolean partitionIncludeSchemaTable;
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the Kinesis data stream.
      * 
      */
     private @Nullable String serviceAccessRoleArn;
@@ -109,7 +109,7 @@ public final class EndpointKinesisSettings {
         return Optional.ofNullable(this.partitionIncludeSchemaTable);
     }
     /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+     * @return ARN of the IAM Role with permissions to write to the Kinesis data stream.
      * 
      */
     public Optional<String> serviceAccessRoleArn() {

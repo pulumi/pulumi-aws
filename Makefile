@@ -13,6 +13,9 @@ JAVA_GEN_VERSION := v0.7.1
 TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 
+# Override repo path discovery because we're using a local checkout instead of the go mod
+export PULUMI_REPO_PATHS=github.com/hashicorp/terraform-provider-aws=$(WORKING_DIR)/upstream
+
 development: install_plugins provider build_sdks install_sdks
 
 build: install_plugins provider build_sdks install_sdks
@@ -30,7 +33,7 @@ install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_j
 only_build: build
 
 build_dotnet: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
-build_dotnet: 
+build_dotnet: patch_upstream
 	pulumictl get version --language dotnet
 	$(WORKING_DIR)/bin/$(TFGEN) dotnet --overlays provider/overlays/dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
@@ -38,18 +41,18 @@ build_dotnet:
 		echo "$(DOTNET_VERSION)" >version.txt && \
 		dotnet build /p:Version=$(DOTNET_VERSION)
 
-build_go: 
+build_go: patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
 
 build_java: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
-build_java: bin/pulumi-java-gen
+build_java: bin/pulumi-java-gen patch_upstream
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	cd sdk/java/ && \
 		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
 		gradle --console=plain build
 
 build_nodejs: VERSION := $(shell pulumictl get version --language javascript)
-build_nodejs: 
+build_nodejs: patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) nodejs --overlays provider/overlays/nodejs --out sdk/nodejs/
 	cd sdk/nodejs/ && \
 		echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
@@ -59,7 +62,7 @@ build_nodejs:
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 build_python: PYPI_VERSION := $(shell pulumictl get version --language python)
-build_python: 
+build_python: patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) python --overlays provider/overlays/python --out sdk/python/
 	cd sdk/python/ && \
 		echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
@@ -105,12 +108,38 @@ provider: tfgen install_plugins
 test: 
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
-tfgen: install_plugins
+tfgen: install_plugins patch_upstream
 	(cd provider && go build -p 1 -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
 bin/pulumi-java-gen: 
 	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
+
+init_upstream:
+	@if [ ! -f "upstream/.git" ]; then \
+			echo "Initializing upstream submodule" ; \
+			(cd upstream && git submodule update --init && git remote add source git@github.com:hashicorp/terraform-provider-aws.git) ; \
+		fi; \
+
+patch_upstream: init_upstream
+	@# Ensure tool is installed
+	cd upstream-tools && yarn install --frozen-lockfile
+	@# Reset all changes in the submodule so we're starting from a clean slate
+	cd upstream && git checkout . && git clean -fdx
+	@# Apply all automated changed
+	cd upstream-tools && yarn --silent run apply
+	@# Check for any pending replacements
+	cd upstream-tools && yarn --silent run check
+
+update_upstream: init_upstream
+	@echo "\033[1;33mupdate_upstream is still under construction and will likely fail.\033[0m"
+	cd upstream && git fetch --all && cd -
+	# Find latest tag, create new branch, rebase on new tag, push
+	export TAG=$$(cd upstream && git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short) && cd -' --count=1) && \
+		cd upstream && \
+		git checkout -b "patched-$$TAG" && \
+		git rebase "$$TAG" && \
+		git push origin "patched-$$TAG"
 
 .PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider test tfgen

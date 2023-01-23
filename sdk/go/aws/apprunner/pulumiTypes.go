@@ -1269,8 +1269,8 @@ func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) IsPubliclyAcce
 }
 
 type ServiceObservabilityConfiguration struct {
-	// ARN of the observability configuration that is associated with the service.
-	ObservabilityConfigurationArn string `pulumi:"observabilityConfigurationArn"`
+	// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
+	ObservabilityConfigurationArn *string `pulumi:"observabilityConfigurationArn"`
 	// When `true`, an observability configuration resource is associated with the service.
 	ObservabilityEnabled bool `pulumi:"observabilityEnabled"`
 }
@@ -1287,8 +1287,8 @@ type ServiceObservabilityConfigurationInput interface {
 }
 
 type ServiceObservabilityConfigurationArgs struct {
-	// ARN of the observability configuration that is associated with the service.
-	ObservabilityConfigurationArn pulumi.StringInput `pulumi:"observabilityConfigurationArn"`
+	// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
+	ObservabilityConfigurationArn pulumi.StringPtrInput `pulumi:"observabilityConfigurationArn"`
 	// When `true`, an observability configuration resource is associated with the service.
 	ObservabilityEnabled pulumi.BoolInput `pulumi:"observabilityEnabled"`
 }
@@ -1370,9 +1370,9 @@ func (o ServiceObservabilityConfigurationOutput) ToServiceObservabilityConfigura
 	}).(ServiceObservabilityConfigurationPtrOutput)
 }
 
-// ARN of the observability configuration that is associated with the service.
-func (o ServiceObservabilityConfigurationOutput) ObservabilityConfigurationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceObservabilityConfiguration) string { return v.ObservabilityConfigurationArn }).(pulumi.StringOutput)
+// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
+func (o ServiceObservabilityConfigurationOutput) ObservabilityConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceObservabilityConfiguration) *string { return v.ObservabilityConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 // When `true`, an observability configuration resource is associated with the service.
@@ -1404,13 +1404,13 @@ func (o ServiceObservabilityConfigurationPtrOutput) Elem() ServiceObservabilityC
 	}).(ServiceObservabilityConfigurationOutput)
 }
 
-// ARN of the observability configuration that is associated with the service.
+// ARN of the observability configuration that is associated with the service. Specified only when `observabilityEnabled` is `true`.
 func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceObservabilityConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ObservabilityConfigurationArn
+		return v.ObservabilityConfigurationArn
 	}).(pulumi.StringPtrOutput)
 }
 

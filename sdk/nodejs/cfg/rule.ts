@@ -163,7 +163,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly inputParameters!: pulumi.Output<string | undefined>;
     /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+     * The maximum frequency with which AWS Config runs evaluations for a rule.
      */
     public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface RuleState {
      */
     inputParameters?: pulumi.Input<string>;
     /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+     * The maximum frequency with which AWS Config runs evaluations for a rule.
      */
     maximumExecutionFrequency?: pulumi.Input<string>;
     /**
@@ -294,7 +294,7 @@ export interface RuleArgs {
      */
     inputParameters?: pulumi.Input<string>;
     /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+     * The maximum frequency with which AWS Config runs evaluations for a rule.
      */
     maximumExecutionFrequency?: pulumi.Input<string>;
     /**

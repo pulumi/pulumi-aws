@@ -77,7 +77,7 @@ export interface GetPrefixListArgs {
      */
     filters?: inputs.ec2.GetPrefixListFilter[];
     /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * Name of the prefix list to select.
      */
     name?: string;
     /**
@@ -168,7 +168,7 @@ export interface GetPrefixListOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetPrefixListFilterArgs>[]>;
     /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+     * Name of the prefix list to select.
      */
     name?: pulumi.Input<string>;
     /**

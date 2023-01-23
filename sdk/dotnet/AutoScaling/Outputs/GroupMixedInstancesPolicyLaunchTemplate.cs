@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupMixedInstancesPolicyLaunchTemplate
     {
         /// <summary>
-        /// Override the instance launch template specification in the Launch Template.
+        /// Nested argument defines the Launch Template. Defined below.
         /// </summary>
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification LaunchTemplateSpecification;
         /// <summary>

@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Route53
         public Output<bool?> MultivalueAnswerRoutingPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+        /// The name of the record.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Route53
         public Output<int?> Ttl { get; private set; } = null!;
 
         /// <summary>
-        /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<Outputs.RecordWeightedRoutingPolicy>> WeightedRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+        /// The ID of the hosted zone to contain this record.
         /// </summary>
         [Output("zoneId")]
         public Output<string> ZoneId { get; private set; } = null!;
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.Route53
         public Input<bool>? MultivalueAnswerRoutingPolicy { get; set; }
 
         /// <summary>
-        /// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+        /// The name of the record.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? Ttl { get; set; }
 
         /// <summary>
-        /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.Aws.Route53.RecordType> Type { get; set; } = null!;
@@ -442,7 +442,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+        /// The ID of the hosted zone to contain this record.
         /// </summary>
         [Input("zoneId", required: true)]
         public Input<string> ZoneId { get; set; } = null!;
@@ -529,7 +529,7 @@ namespace Pulumi.Aws.Route53
         public Input<bool>? MultivalueAnswerRoutingPolicy { get; set; }
 
         /// <summary>
-        /// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+        /// The name of the record.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -559,7 +559,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? Ttl { get; set; }
 
         /// <summary>
-        /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+        /// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.Aws.Route53.RecordType>? Type { get; set; }
@@ -577,7 +577,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+        /// The ID of the hosted zone to contain this record.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }

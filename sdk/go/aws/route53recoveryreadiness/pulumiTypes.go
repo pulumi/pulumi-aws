@@ -132,11 +132,11 @@ func (o ResourceSetResourceArrayOutput) Index(i pulumi.IntInput) ResourceSetReso
 }
 
 type ResourceSetResourceDnsTargetResource struct {
-	// Domain name that is targeted.
+	// DNS Name that acts as the ingress point to a portion of application.
 	DomainName string `pulumi:"domainName"`
 	// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
 	HostedZoneArn *string `pulumi:"hostedZoneArn"`
-	// Resource record set ID that is targeted.
+	// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 	RecordSetId *string `pulumi:"recordSetId"`
 	// Type of DNS Record of target resource.
 	RecordType *string `pulumi:"recordType"`
@@ -156,11 +156,11 @@ type ResourceSetResourceDnsTargetResourceInput interface {
 }
 
 type ResourceSetResourceDnsTargetResourceArgs struct {
-	// Domain name that is targeted.
+	// DNS Name that acts as the ingress point to a portion of application.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// Hosted Zone ARN that contains the DNS record with the provided name of target resource.
 	HostedZoneArn pulumi.StringPtrInput `pulumi:"hostedZoneArn"`
-	// Resource record set ID that is targeted.
+	// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
 	// Type of DNS Record of target resource.
 	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
@@ -245,7 +245,7 @@ func (o ResourceSetResourceDnsTargetResourceOutput) ToResourceSetResourceDnsTarg
 	}).(ResourceSetResourceDnsTargetResourcePtrOutput)
 }
 
-// Domain name that is targeted.
+// DNS Name that acts as the ingress point to a portion of application.
 func (o ResourceSetResourceDnsTargetResourceOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) string { return v.DomainName }).(pulumi.StringOutput)
 }
@@ -255,7 +255,7 @@ func (o ResourceSetResourceDnsTargetResourceOutput) HostedZoneArn() pulumi.Strin
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *string { return v.HostedZoneArn }).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
+// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 func (o ResourceSetResourceDnsTargetResourceOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
@@ -296,7 +296,7 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) Elem() ResourceSetResourc
 	}).(ResourceSetResourceDnsTargetResourceOutput)
 }
 
-// Domain name that is targeted.
+// DNS Name that acts as the ingress point to a portion of application.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *string {
 		if v == nil {
@@ -316,7 +316,7 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) HostedZoneArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
+// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResource) *string {
 		if v == nil {
@@ -644,9 +644,9 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) 
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResourceR53Resource struct {
-	// Domain name that is targeted.
+	// DNS Name that acts as the ingress point to a portion of application.
 	DomainName *string `pulumi:"domainName"`
-	// Resource record set ID that is targeted.
+	// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 	RecordSetId *string `pulumi:"recordSetId"`
 }
 
@@ -662,9 +662,9 @@ type ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceInput interfac
 }
 
 type ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs struct {
-	// Domain name that is targeted.
+	// DNS Name that acts as the ingress point to a portion of application.
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// Resource record set ID that is targeted.
+	// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
 }
 
@@ -745,12 +745,12 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) ToR
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput)
 }
 
-// Domain name that is targeted.
+// DNS Name that acts as the ingress point to a portion of application.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
+// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
@@ -779,7 +779,7 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) 
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput)
 }
 
-// Domain name that is targeted.
+// DNS Name that acts as the ingress point to a portion of application.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string {
 		if v == nil {
@@ -789,7 +789,7 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource record set ID that is targeted.
+// Route53 record set id to uniquely identify a record given a `domainName` and a `recordType`.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string {
 		if v == nil {

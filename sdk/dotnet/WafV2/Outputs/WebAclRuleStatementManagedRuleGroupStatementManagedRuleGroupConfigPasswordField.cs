@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField
     {
         /// <summary>
-        /// The name of the username field.
+        /// The name of the password field.
         /// </summary>
         public readonly string Identifier;
 

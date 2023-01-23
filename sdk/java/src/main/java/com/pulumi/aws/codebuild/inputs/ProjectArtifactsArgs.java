@@ -62,14 +62,14 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Location of the source code from git or s3.
+     * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Location of the source code from git or s3.
+     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
      * 
      */
     public Optional<Output<String>> location() {
@@ -92,14 +92,14 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+     * Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
      * 
      */
     @Import(name="namespaceType")
     private @Nullable Output<String> namespaceType;
 
     /**
-     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+     * @return Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
      * 
      */
     public Optional<Output<String>> namespaceType() {
@@ -152,14 +152,14 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
      * 
      */
     public Output<String> type() {
@@ -263,7 +263,7 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param location Location of the source code from git or s3.
+         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
+         * @param namespaceType Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID`, `NONE`.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class ProjectArtifactsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
          * 
          * @return builder
          * 

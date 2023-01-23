@@ -18,7 +18,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// </summary>
         public readonly string? Country;
         /// <summary>
-        /// The name that is typically displayed when the name is shown for display.
+        /// The name that is typically displayed when the address is shown for display.
         /// </summary>
         public readonly string? Formatted;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// </summary>
         public readonly string? PostalCode;
         /// <summary>
-        /// When `true`, this is the primary phone number associated with the user.
+        /// When `true`, this is the primary address associated with the user.
         /// </summary>
         public readonly bool? Primary;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// </summary>
         public readonly string? StreetAddress;
         /// <summary>
-        /// The type of phone number.
+        /// The type of address.
         /// </summary>
         public readonly string? Type;
 

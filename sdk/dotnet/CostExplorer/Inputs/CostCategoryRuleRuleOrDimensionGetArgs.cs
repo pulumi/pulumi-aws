@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
     public sealed class CostCategoryRuleRuleOrDimensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key for the tag.
+        /// Unique name of the Cost Category.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// Parameter values.
+        /// Specific value of the Cost Category.
         /// </summary>
         public InputList<string> Values
         {

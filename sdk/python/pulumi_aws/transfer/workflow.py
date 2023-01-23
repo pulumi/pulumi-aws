@@ -25,7 +25,7 @@ class WorkflowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "steps", steps)
         if description is not None:
@@ -75,7 +75,7 @@ class WorkflowArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -99,7 +99,7 @@ class _WorkflowState:
         :param pulumi.Input[str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -167,7 +167,7 @@ class _WorkflowState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -259,7 +259,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -386,7 +386,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] description: A textual description for the workflow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -437,7 +437,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

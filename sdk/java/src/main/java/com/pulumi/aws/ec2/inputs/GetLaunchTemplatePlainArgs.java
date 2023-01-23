@@ -48,14 +48,14 @@ public final class GetLaunchTemplatePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * Name of the launch template.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     * @return Name of the launch template.
      * 
      */
     public Optional<String> name() {
@@ -137,7 +137,7 @@ public final class GetLaunchTemplatePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         * @param name Name of the launch template.
          * 
          * @return builder
          * 

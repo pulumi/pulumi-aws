@@ -135,9 +135,17 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enhancedVpcRouting() {
         return Codegen.optional(this.enhancedVpcRouting);
     }
+    /**
+     * The name of the namespace.
+     * 
+     */
     @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
+    /**
+     * @return The name of the namespace.
+     * 
+     */
     public Output<String> namespaceName() {
         return this.namespaceName;
     }

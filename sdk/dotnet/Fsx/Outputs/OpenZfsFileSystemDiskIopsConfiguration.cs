@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class OpenZfsFileSystemDiskIopsConfiguration
     {
         /// <summary>
-        /// - The total number of SSD IOPS provisioned for the file system.
+        /// The total number of SSD IOPS provisioned for the file system.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        /// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         /// </summary>
         public readonly string? Mode;
 

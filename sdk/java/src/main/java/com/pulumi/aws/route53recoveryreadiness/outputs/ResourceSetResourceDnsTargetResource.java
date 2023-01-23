@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResourceSetResourceDnsTargetResource {
     /**
-     * @return Domain name that is targeted.
+     * @return DNS Name that acts as the ingress point to a portion of application.
      * 
      */
     private String domainName;
@@ -23,7 +23,7 @@ public final class ResourceSetResourceDnsTargetResource {
      */
     private @Nullable String hostedZoneArn;
     /**
-     * @return Resource record set ID that is targeted.
+     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
      * 
      */
     private @Nullable String recordSetId;
@@ -40,7 +40,7 @@ public final class ResourceSetResourceDnsTargetResource {
 
     private ResourceSetResourceDnsTargetResource() {}
     /**
-     * @return Domain name that is targeted.
+     * @return DNS Name that acts as the ingress point to a portion of application.
      * 
      */
     public String domainName() {
@@ -54,7 +54,7 @@ public final class ResourceSetResourceDnsTargetResource {
         return Optional.ofNullable(this.hostedZoneArn);
     }
     /**
-     * @return Resource record set ID that is targeted.
+     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
      * 
      */
     public Optional<String> recordSetId() {

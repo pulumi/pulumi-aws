@@ -15,14 +15,16 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
     public static final DistributionOriginOriginShieldArgs Empty = new DistributionOriginOriginShieldArgs();
 
     /**
-     * A flag that specifies whether Origin Shield is enabled.
+     * Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return A flag that specifies whether Origin Shield is enabled.
+     * @return Whether the distribution is enabled to accept end
+     * user requests for content.
      * 
      */
     public Output<Boolean> enabled() {
@@ -70,7 +72,8 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled to accept end
+         * user requests for content.
          * 
          * @return builder
          * 
@@ -81,7 +84,8 @@ public final class DistributionOriginOriginShieldArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
+         * @param enabled Whether the distribution is enabled to accept end
+         * user requests for content.
          * 
          * @return builder
          * 

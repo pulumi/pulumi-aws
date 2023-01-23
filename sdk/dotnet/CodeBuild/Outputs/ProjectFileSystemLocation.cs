@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? Identifier;
         /// <summary>
-        /// Location of the source code from git or s3.
+        /// A string that specifies the location of the file system created by Amazon EFS. Its format is `efs-dns-name:/directory-path`.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly string? MountPoint;
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// The type of the file system. The one supported type is `EFS`.
         /// </summary>
         public readonly string? Type;
 

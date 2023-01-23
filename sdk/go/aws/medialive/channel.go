@@ -150,7 +150,7 @@ type Channel struct {
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenanceOutput `pulumi:"maintenance"`
-	// The name of the video description.
+	// Name of the Channel.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Concise argument description.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -227,7 +227,7 @@ type channelState struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
-	// The name of the video description.
+	// Name of the Channel.
 	Name *string `pulumi:"name"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
@@ -261,7 +261,7 @@ type ChannelState struct {
 	LogLevel pulumi.StringPtrInput
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenancePtrInput
-	// The name of the video description.
+	// Name of the Channel.
 	Name pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
@@ -295,7 +295,7 @@ type channelArgs struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
-	// The name of the video description.
+	// Name of the Channel.
 	Name *string `pulumi:"name"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
@@ -325,7 +325,7 @@ type ChannelArgs struct {
 	LogLevel pulumi.StringPtrInput
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenancePtrInput
-	// The name of the video description.
+	// Name of the Channel.
 	Name pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
@@ -474,7 +474,7 @@ func (o ChannelOutput) Maintenance() ChannelMaintenanceOutput {
 	return o.ApplyT(func(v *Channel) ChannelMaintenanceOutput { return v.Maintenance }).(ChannelMaintenanceOutput)
 }
 
-// The name of the video description.
+// Name of the Channel.
 func (o ChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

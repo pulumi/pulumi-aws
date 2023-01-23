@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private Input<string>? _accessToken;
 
         /// <summary>
-        /// The credentials used to access protected Zendesk resources.
+        /// The access token used to access the connector on your behalf.
         /// </summary>
         public Input<string>? AccessToken
         {
@@ -51,13 +51,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         /// </summary>
         [Input("oauthRequest")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestGetArgs>? OauthRequest { get; set; }
 
         /// <summary>
-        /// The refresh token used to refresh expired access token.
+        /// The refresh token used to refresh an expired access token.
         /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }

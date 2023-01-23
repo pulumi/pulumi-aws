@@ -17,7 +17,7 @@ public final class ProjectLogsConfigCloudwatchLogs {
      */
     private @Nullable String groupName;
     /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     private @Nullable String status;
@@ -36,7 +36,7 @@ public final class ProjectLogsConfigCloudwatchLogs {
         return Optional.ofNullable(this.groupName);
     }
     /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     public Optional<String> status() {

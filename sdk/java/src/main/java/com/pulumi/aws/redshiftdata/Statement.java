@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * Executes a Redshift Data Statement.
  * 
  * ## Example Usage
+ * ### cluster_identifier
  * ```java
  * package generated_program;
  * 
@@ -52,6 +53,37 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### workgroup_name
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshiftdata.Statement;
+ * import com.pulumi.aws.redshiftdata.StatementArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Statement(&#34;example&#34;, StatementArgs.builder()        
+ *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+ *             .database(&#34;dev&#34;)
+ *             .sql(&#34;CREATE GROUP group_name;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -65,18 +97,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshiftdata/statement:Statement")
 public class Statement extends com.pulumi.resources.CustomResource {
     /**
-     * The cluster identifier.
+     * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
-    private Output<String> clusterIdentifier;
+    private Output</* @Nullable */ String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier.
+     * @return The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
-    public Output<String> clusterIdentifier() {
-        return this.clusterIdentifier;
+    public Output<Optional<String>> clusterIdentifier() {
+        return Codegen.optional(this.clusterIdentifier);
     }
     /**
      * The name of the database.
@@ -167,6 +199,20 @@ public class Statement extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> withEvent() {
         return Codegen.optional(this.withEvent);
+    }
+    /**
+     * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     * 
+     */
+    @Export(name="workgroupName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> workgroupName;
+
+    /**
+     * @return The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
+     * 
+     */
+    public Output<Optional<String>> workgroupName() {
+        return Codegen.optional(this.workgroupName);
     }
 
     /**

@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetCertificateAuthorityResult',
@@ -196,7 +195,6 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
 
 
 def get_certificate_authority(arn: Optional[str] = None,
-                              revocation_configurations: Optional[Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']]] = None,
                               tags: Optional[Mapping[str, str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateAuthorityResult:
     """
@@ -213,20 +211,10 @@ def get_certificate_authority(arn: Optional[str] = None,
 
 
     :param str arn: ARN of the certificate authority.
-    :param Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']] revocation_configurations: Nested attribute containing revocation configuration.
-           * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-           * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
-           * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
-           * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
-           * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
-           * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
-           * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
-           * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
     :param Mapping[str, str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()
     __args__['arn'] = arn
-    __args__['revocationConfigurations'] = revocation_configurations
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult).value
@@ -249,7 +237,6 @@ def get_certificate_authority(arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_certificate_authority)
 def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
-                                     revocation_configurations: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']]]]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
@@ -266,15 +253,6 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
 
 
     :param str arn: ARN of the certificate authority.
-    :param Sequence[pulumi.InputType['GetCertificateAuthorityRevocationConfigurationArgs']] revocation_configurations: Nested attribute containing revocation configuration.
-           * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-           * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
-           * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
-           * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
-           * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
-           * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
-           * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
-           * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
     :param Mapping[str, str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     ...

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CrawlerS3TargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the connection to use to connect to the Delta table target.
+        /// The name of the connection to use to connect to the JDBC target.
         /// </summary>
         [Input("connectionName")]
         public Input<string>? ConnectionName { get; set; }
 
         /// <summary>
-        /// A valid Amazon SQS ARN.
+        /// The ARN of the dead-letter SQS queue.
         /// </summary>
         [Input("dlqEventQueueArn")]
         public Input<string>? DlqEventQueueArn { get; set; }
 
         /// <summary>
-        /// A valid Amazon SQS ARN.
+        /// The ARN of the SQS queue to receive S3 notifications from.
         /// </summary>
         [Input("eventQueueArn")]
         public Input<string>? EventQueueArn { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        /// The name of the DynamoDB table to crawl.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

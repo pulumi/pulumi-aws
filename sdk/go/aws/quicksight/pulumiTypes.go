@@ -11,10 +11,10 @@ import (
 )
 
 type DataSourceCredentials struct {
-	// - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-	//   When the value is not null, the `credentialPair` from the data source in the ARN is used.
+	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+	// When the value is not null, the `credentialPair` from the data source in the ARN is used.
 	CopySourceArn *string `pulumi:"copySourceArn"`
-	// - Credential pair. See Credential Pair below for more details.
+	// Credential pair. See Credential Pair below for more details.
 	CredentialPair *DataSourceCredentialsCredentialPair `pulumi:"credentialPair"`
 }
 
@@ -30,10 +30,10 @@ type DataSourceCredentialsInput interface {
 }
 
 type DataSourceCredentialsArgs struct {
-	// - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-	//   When the value is not null, the `credentialPair` from the data source in the ARN is used.
+	// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+	// When the value is not null, the `credentialPair` from the data source in the ARN is used.
 	CopySourceArn pulumi.StringPtrInput `pulumi:"copySourceArn"`
-	// - Credential pair. See Credential Pair below for more details.
+	// Credential pair. See Credential Pair below for more details.
 	CredentialPair DataSourceCredentialsCredentialPairPtrInput `pulumi:"credentialPair"`
 }
 
@@ -114,13 +114,13 @@ func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutputWithContext
 	}).(DataSourceCredentialsPtrOutput)
 }
 
-//   - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-//     When the value is not null, the `credentialPair` from the data source in the ARN is used.
+// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+// When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
 
-// - Credential pair. See Credential Pair below for more details.
+// Credential pair. See Credential Pair below for more details.
 func (o DataSourceCredentialsOutput) CredentialPair() DataSourceCredentialsCredentialPairPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *DataSourceCredentialsCredentialPair { return v.CredentialPair }).(DataSourceCredentialsCredentialPairPtrOutput)
 }
@@ -149,8 +149,8 @@ func (o DataSourceCredentialsPtrOutput) Elem() DataSourceCredentialsOutput {
 	}).(DataSourceCredentialsOutput)
 }
 
-//   - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-//     When the value is not null, the `credentialPair` from the data source in the ARN is used.
+// The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+// When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
@@ -160,7 +160,7 @@ func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// - Credential pair. See Credential Pair below for more details.
+// Credential pair. See Credential Pair below for more details.
 func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialsCredentialPairPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *DataSourceCredentialsCredentialPair {
 		if v == nil {

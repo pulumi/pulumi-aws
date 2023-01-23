@@ -14,14 +14,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs exte
     public static final FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs();
 
     /**
-     * Object specified in the Veeva flow source.
+     * Object specified in the flow destination.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return Object specified in the Veeva flow source.
+     * @return Object specified in the flow destination.
      * 
      */
     public Output<String> object() {
@@ -53,7 +53,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs exte
         }
 
         /**
-         * @param object Object specified in the Veeva flow source.
+         * @param object Object specified in the flow destination.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs exte
         }
 
         /**
-         * @param object Object specified in the Veeva flow source.
+         * @param object Object specified in the flow destination.
          * 
          * @return builder
          * 

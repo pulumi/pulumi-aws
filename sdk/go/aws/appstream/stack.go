@@ -53,11 +53,23 @@ import (
 //						Permission: pulumi.String("ENABLED"),
 //					},
 //					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("DOMAIN_PASSWORD_SIGNIN"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("DOMAIN_SMART_CARD_SIGNIN"),
+//						Permission: pulumi.String("DISABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("FILE_DOWNLOAD"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
 //						Action:     pulumi.String("FILE_UPLOAD"),
 //						Permission: pulumi.String("ENABLED"),
 //					},
 //					&appstream.StackUserSettingArgs{
-//						Action:     pulumi.String("FILE_DOWNLOAD"),
+//						Action:     pulumi.String("PRINTING_TO_LOCAL_DEVICE"),
 //						Permission: pulumi.String("ENABLED"),
 //					},
 //				},
@@ -94,9 +106,9 @@ type Stack struct {
 	// Date and time, in UTC and extended RFC 3339 format, when the stack was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Description for the AppStream stack.
-	Description pulumi.StringOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Stack name to display.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
 	EmbedHostDomains pulumi.StringArrayOutput `pulumi:"embedHostDomains"`
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
@@ -111,7 +123,7 @@ type Stack struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
 	UserSettings StackUserSettingArrayOutput `pulumi:"userSettings"`
 }
@@ -173,7 +185,7 @@ type stackState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
 }
@@ -207,7 +219,7 @@ type StackState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
 	UserSettings StackUserSettingArrayInput
 }
@@ -240,7 +252,7 @@ type stackArgs struct {
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
 }
@@ -270,7 +282,7 @@ type StackArgs struct {
 	StorageConnectors StackStorageConnectorArrayInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
 	UserSettings StackUserSettingArrayInput
 }
@@ -385,13 +397,13 @@ func (o StackOutput) CreatedTime() pulumi.StringOutput {
 }
 
 // Description for the AppStream stack.
-func (o StackOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o StackOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Stack name to display.
-func (o StackOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+func (o StackOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
@@ -429,7 +441,7 @@ func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 // See `userSettings` below.
 func (o StackOutput) UserSettings() StackUserSettingArrayOutput {
 	return o.ApplyT(func(v *Stack) StackUserSettingArrayOutput { return v.UserSettings }).(StackUserSettingArrayOutput)

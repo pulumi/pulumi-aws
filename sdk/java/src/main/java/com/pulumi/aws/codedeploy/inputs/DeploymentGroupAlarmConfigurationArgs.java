@@ -49,8 +49,6 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
 
     /**
      * Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
      * 
      */
     @Import(name="ignorePollAlarmFailure")
@@ -58,8 +56,6 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
 
     /**
      * @return Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
      * 
      */
     public Optional<Output<Boolean>> ignorePollAlarmFailure() {
@@ -146,8 +142,6 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
 
         /**
          * @param ignorePollAlarmFailure Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-         * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-         * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
          * 
          * @return builder
          * 
@@ -159,8 +153,6 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
 
         /**
          * @param ignorePollAlarmFailure Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-         * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-         * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
          * 
          * @return builder
          * 

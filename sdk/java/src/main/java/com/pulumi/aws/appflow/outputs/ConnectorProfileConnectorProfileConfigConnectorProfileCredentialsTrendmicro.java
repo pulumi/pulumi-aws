@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro {
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return The API secret key required for API key authentication.
      * 
      */
     private String apiSecretKey;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro() {}
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return The API secret key required for API key authentication.
      * 
      */
     public String apiSecretKey() {

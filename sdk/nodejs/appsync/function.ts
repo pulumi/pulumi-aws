@@ -154,7 +154,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
     /**
-     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * Function name. The function name does not have to be unique.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -264,7 +264,7 @@ export interface FunctionState {
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * Function name. The function name does not have to be unique.
      */
     name?: pulumi.Input<string>;
     /**
@@ -314,7 +314,7 @@ export interface FunctionArgs {
      */
     maxBatchSize?: pulumi.Input<number>;
     /**
-     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * Function name. The function name does not have to be unique.
      */
     name?: pulumi.Input<string>;
     /**

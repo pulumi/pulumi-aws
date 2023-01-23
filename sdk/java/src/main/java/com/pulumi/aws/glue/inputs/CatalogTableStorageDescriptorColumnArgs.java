@@ -32,14 +32,14 @@ public final class CatalogTableStorageDescriptorColumnArgs extends com.pulumi.re
     }
 
     /**
-     * Name of the target table.
+     * Name of the Column.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the target table.
+     * @return Name of the Column.
      * 
      */
     public Output<String> name() {
@@ -47,14 +47,14 @@ public final class CatalogTableStorageDescriptorColumnArgs extends com.pulumi.re
     }
 
     /**
-     * Map of initialization parameters for the SerDe, in key-value form.
+     * Key-value pairs defining properties associated with the column.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return Map of initialization parameters for the SerDe, in key-value form.
+     * @return Key-value pairs defining properties associated with the column.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -125,7 +125,7 @@ public final class CatalogTableStorageDescriptorColumnArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the Column.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class CatalogTableStorageDescriptorColumnArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Name of the target table.
+         * @param name Name of the Column.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class CatalogTableStorageDescriptorColumnArgs extends com.pulumi.re
         }
 
         /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters Key-value pairs defining properties associated with the column.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class CatalogTableStorageDescriptorColumnArgs extends com.pulumi.re
         }
 
         /**
-         * @param parameters Map of initialization parameters for the SerDe, in key-value form.
+         * @param parameters Key-value pairs defining properties associated with the column.
          * 
          * @return builder
          * 

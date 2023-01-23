@@ -452,28 +452,28 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.loadBalancerArn;
     }
     /**
-     * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+     * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
-     * @return Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
+     * @return Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      * 
      */
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
     }
     /**
-     * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+     * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
-     * @return Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
+     * @return Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      * 
      */
     public Output<String> protocol() {

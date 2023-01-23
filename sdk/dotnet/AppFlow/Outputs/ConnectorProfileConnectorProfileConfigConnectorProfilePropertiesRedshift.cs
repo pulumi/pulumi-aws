@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
     {
         /// <summary>
-        /// The name of the Amazon S3 bucket associated with Snowflake.
+        /// A name for the associated Amazon S3 bucket.
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        /// The object key for the destination bucket in which Amazon AppFlow places the files.
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>

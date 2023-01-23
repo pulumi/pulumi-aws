@@ -16,14 +16,14 @@ public final class ApplicationAutoStartConfigurationArgs extends com.pulumi.reso
     public static final ApplicationAutoStartConfigurationArgs Empty = new ApplicationAutoStartConfigurationArgs();
 
     /**
-     * Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+     * Enables the application to automatically start on job submission. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+     * @return Enables the application to automatically start on job submission. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -55,7 +55,7 @@ public final class ApplicationAutoStartConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param enabled Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+         * @param enabled Enables the application to automatically start on job submission. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ApplicationAutoStartConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param enabled Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+         * @param enabled Enables the application to automatically start on job submission. Defaults to `true`.
          * 
          * @return builder
          * 

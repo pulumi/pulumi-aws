@@ -49,14 +49,14 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * Full name of the availability zone to select.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+     * @return Full name of the availability zone to select.
      * 
      */
     public Optional<Output<String>> name() {
@@ -174,7 +174,7 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+         * @param name Full name of the availability zone to select.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class GetAvailabilityZoneArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+         * @param name Full name of the availability zone to select.
          * 
          * @return builder
          * 

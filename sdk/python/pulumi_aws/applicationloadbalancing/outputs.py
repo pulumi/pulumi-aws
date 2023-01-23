@@ -223,8 +223,8 @@ class ListenerDefaultActionAuthenticateCognito(dict):
         :param str user_pool_arn: ARN of the Cognito user pool.
         :param str user_pool_client_id: ID of the Cognito user pool client.
         :param str user_pool_domain: Domain prefix or fully-qualified domain name of the Cognito user pool.
-        :param Mapping[str, str] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
-        :param str on_unauthenticated_request: Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        :param Mapping[str, str] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        :param str on_unauthenticated_request: Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
         :param str scope: Set of user claims to be requested from the IdP.
         :param str session_cookie_name: Name of the cookie used to maintain session information.
         :param int session_timeout: Maximum duration of the authentication session, in seconds.
@@ -271,7 +271,7 @@ class ListenerDefaultActionAuthenticateCognito(dict):
     @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         """
-        Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
+        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
@@ -279,7 +279,7 @@ class ListenerDefaultActionAuthenticateCognito(dict):
     @pulumi.getter(name="onUnauthenticatedRequest")
     def on_unauthenticated_request(self) -> Optional[str]:
         """
-        Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
+        Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
         """
         return pulumi.get(self, "on_unauthenticated_request")
 
@@ -504,7 +504,7 @@ class ListenerDefaultActionFixedResponse(dict):
         """
         :param str content_type: Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
         :param str message_body: Message body.
-        :param str status_code: HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        :param str status_code: HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
         """
         pulumi.set(__self__, "content_type", content_type)
         if message_body is not None:
@@ -532,7 +532,7 @@ class ListenerDefaultActionFixedResponse(dict):
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[str]:
         """
-        HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
         """
         return pulumi.get(self, "status_code")
 
@@ -1835,7 +1835,7 @@ class TargetGroupHealthCheck(dict):
                  timeout: Optional[int] = None,
                  unhealthy_threshold: Optional[int] = None):
         """
-        :param bool enabled: Boolean to enable / disable `stickiness`. Default is `true`.
+        :param bool enabled: Whether health checks are enabled. Defaults to `true`.
         :param int healthy_threshold: Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
         :param int interval: Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
         :param str matcher: Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
@@ -1868,7 +1868,7 @@ class TargetGroupHealthCheck(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Boolean to enable / disable `stickiness`. Default is `true`.
+        Whether health checks are enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

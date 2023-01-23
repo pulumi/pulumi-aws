@@ -32,14 +32,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
     }
 
     /**
-     * The name of the video description.
+     * Name of the Channel.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the video description.
+     * @return Name of the Channel.
      * 
      */
     public Output<String> name() {
@@ -101,7 +101,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Name of the Channel.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
         }
 
         /**
-         * @param name The name of the video description.
+         * @param name Name of the Channel.
          * 
          * @return builder
          * 
