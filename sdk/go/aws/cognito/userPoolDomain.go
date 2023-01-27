@@ -81,12 +81,10 @@ import (
 //				Name:   main.Domain,
 //				Type:   pulumi.String("A"),
 //				ZoneId: *pulumi.String(exampleZone.ZoneId),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						EvaluateTargetHealth: pulumi.Bool(false),
-//						Name:                 main.CloudfrontDistributionArn,
-//						ZoneId:               pulumi.String("Z2FDTNDATAQYW2"),
-//					},
+//				Alias: &route53.RecordAliasArgs{
+//					EvaluateTargetHealth: pulumi.Bool(false),
+//					Name:                 main.CloudfrontDistributionArn,
+//					ZoneId:               pulumi.String("Z2FDTNDATAQYW2"),
 //				},
 //			})
 //			if err != nil {

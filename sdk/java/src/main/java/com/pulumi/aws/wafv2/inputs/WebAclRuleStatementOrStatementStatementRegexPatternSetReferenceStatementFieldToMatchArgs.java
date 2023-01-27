@@ -41,14 +41,14 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     }
 
     /**
-     * Inspect the request body, which immediately follows the request headers.
+     * Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     @Import(name="body")
     private @Nullable Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs> body;
 
     /**
-     * @return Inspect the request body, which immediately follows the request headers.
+     * @return Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs>> body() {
@@ -56,14 +56,14 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     }
 
     /**
-     * Inspect the cookies in the web request. See Cookies below for details.
+     * Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     @Import(name="cookies")
     private @Nullable Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs> cookies;
 
     /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
+     * @return Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs>> cookies() {
@@ -71,14 +71,14 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     }
 
     /**
-     * Inspect the request headers. See Headers below for details.
+     * Inspect the request headers. See `headers` below for details.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs>> headers;
 
     /**
-     * @return Inspect the request headers. See Headers below for details.
+     * @return Inspect the request headers. See `headers` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs>>> headers() {
@@ -86,14 +86,14 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     }
 
     /**
-     * Inspect the request body as JSON. See JSON Body for details.
+     * Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     @Import(name="jsonBody")
     private @Nullable Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs> jsonBody;
 
     /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
+     * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs>> jsonBody() {
@@ -131,14 +131,14 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     }
 
     /**
-     * Inspect a single header. See Single Header below for details.
+     * Inspect a single header. See `single_header` below for details.
      * 
      */
     @Import(name="singleHeader")
     private @Nullable Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs> singleHeader;
 
     /**
-     * @return Inspect a single header. See Single Header below for details.
+     * @return Inspect a single header. See `single_header` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs>> singleHeader() {
@@ -146,14 +146,14 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
     }
 
     /**
-     * Inspect a single query argument. See Single Query Argument below for details.
+     * Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     @Import(name="singleQueryArgument")
     private @Nullable Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
 
     /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
+     * @return Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs>> singleQueryArgument() {
@@ -230,7 +230,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param body Inspect the request body, which immediately follows the request headers.
+         * @param body Inspect the request body, which immediately follows the request headers. See `body` below for details.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param body Inspect the request body, which immediately follows the request headers.
+         * @param body Inspect the request body, which immediately follows the request headers. See `body` below for details.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
+         * @param cookies Inspect the cookies in the web request. See `cookies` below for details.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
+         * @param cookies Inspect the cookies in the web request. See `cookies` below for details.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param headers Inspect the request headers. See Headers below for details.
+         * @param headers Inspect the request headers. See `headers` below for details.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param headers Inspect the request headers. See Headers below for details.
+         * @param headers Inspect the request headers. See `headers` below for details.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param headers Inspect the request headers. See Headers below for details.
+         * @param headers Inspect the request headers. See `headers` below for details.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * @param jsonBody Inspect the request body as JSON. See `json_body` for details.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
+         * @param jsonBody Inspect the request body as JSON. See `json_body` for details.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param singleHeader Inspect a single header. See Single Header below for details.
+         * @param singleHeader Inspect a single header. See `single_header` below for details.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param singleHeader Inspect a single header. See Single Header below for details.
+         * @param singleHeader Inspect a single header. See `single_header` below for details.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below for details.
+         * @param singleQueryArgument Inspect a single query argument. See `single_query_argument` below for details.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class WebAclRuleStatementOrStatementStatementRegexPatternSetReferen
         }
 
         /**
-         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below for details.
+         * @param singleQueryArgument Inspect a single query argument. See `single_query_argument` below for details.
          * 
          * @return builder
          * 

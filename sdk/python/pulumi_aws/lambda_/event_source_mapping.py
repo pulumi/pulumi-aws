@@ -30,6 +30,7 @@ class EventSourceMappingArgs:
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
@@ -53,6 +54,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+        :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs'] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
@@ -88,6 +90,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "parallelization_factor", parallelization_factor)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
+        if scaling_config is not None:
+            pulumi.set(__self__, "scaling_config", scaling_config)
         if self_managed_event_source is not None:
             pulumi.set(__self__, "self_managed_event_source", self_managed_event_source)
         if self_managed_kafka_event_source_config is not None:
@@ -272,6 +276,18 @@ class EventSourceMappingArgs:
         pulumi.set(self, "queues", value)
 
     @property
+    @pulumi.getter(name="scalingConfig")
+    def scaling_config(self) -> Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]:
+        """
+        Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+        """
+        return pulumi.get(self, "scaling_config")
+
+    @scaling_config.setter
+    def scaling_config(self, value: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]):
+        pulumi.set(self, "scaling_config", value)
+
+    @property
     @pulumi.getter(name="selfManagedEventSource")
     def self_managed_event_source(self) -> Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']]:
         """
@@ -376,6 +392,7 @@ class _EventSourceMappingState:
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
@@ -405,6 +422,7 @@ class _EventSourceMappingState:
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+        :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs'] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
@@ -450,6 +468,8 @@ class _EventSourceMappingState:
             pulumi.set(__self__, "parallelization_factor", parallelization_factor)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
+        if scaling_config is not None:
+            pulumi.set(__self__, "scaling_config", scaling_config)
         if self_managed_event_source is not None:
             pulumi.set(__self__, "self_managed_event_source", self_managed_event_source)
         if self_managed_kafka_event_source_config is not None:
@@ -676,6 +696,18 @@ class _EventSourceMappingState:
         pulumi.set(self, "queues", value)
 
     @property
+    @pulumi.getter(name="scalingConfig")
+    def scaling_config(self) -> Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]:
+        """
+        Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+        """
+        return pulumi.get(self, "scaling_config")
+
+    @scaling_config.setter
+    def scaling_config(self, value: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]):
+        pulumi.set(self, "scaling_config", value)
+
+    @property
     @pulumi.getter(name="selfManagedEventSource")
     def self_managed_event_source(self) -> Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']]:
         """
@@ -815,6 +847,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scaling_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']]] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
@@ -997,6 +1030,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]] source_access_configurations: For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
@@ -1198,6 +1232,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scaling_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']]] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
@@ -1230,6 +1265,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
             __props__.__dict__["parallelization_factor"] = parallelization_factor
             __props__.__dict__["queues"] = queues
+            __props__.__dict__["scaling_config"] = scaling_config
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
             __props__.__dict__["self_managed_kafka_event_source_config"] = self_managed_kafka_event_source_config
             __props__.__dict__["source_access_configurations"] = source_access_configurations
@@ -1270,6 +1306,7 @@ class EventSourceMapping(pulumi.CustomResource):
             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
             parallelization_factor: Optional[pulumi.Input[int]] = None,
             queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            scaling_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']]] = None,
             self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
             self_managed_kafka_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']]] = None,
             source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
@@ -1304,6 +1341,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] self_managed_kafka_event_source_config: Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]] source_access_configurations: For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
@@ -1336,6 +1374,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
         __props__.__dict__["parallelization_factor"] = parallelization_factor
         __props__.__dict__["queues"] = queues
+        __props__.__dict__["scaling_config"] = scaling_config
         __props__.__dict__["self_managed_event_source"] = self_managed_event_source
         __props__.__dict__["self_managed_kafka_event_source_config"] = self_managed_kafka_event_source_config
         __props__.__dict__["source_access_configurations"] = source_access_configurations
@@ -1483,6 +1522,14 @@ class EventSourceMapping(pulumi.CustomResource):
         The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
         """
         return pulumi.get(self, "queues")
+
+    @property
+    @pulumi.getter(name="scalingConfig")
+    def scaling_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingScalingConfig']]:
+        """
+        Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+        """
+        return pulumi.get(self, "scaling_config")
 
     @property
     @pulumi.getter(name="selfManagedEventSource")

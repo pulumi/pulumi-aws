@@ -77,6 +77,21 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
     }
 
     /**
+     * The rate control mode.
+     * 
+     */
+    @Import(name="rateControlMode")
+    private @Nullable Output<String> rateControlMode;
+
+    /**
+     * @return The rate control mode.
+     * 
+     */
+    public Optional<Output<String>> rateControlMode() {
+        return Optional.ofNullable(this.rateControlMode);
+    }
+
+    /**
      * Sets LATM/LOAS AAC output for raw containers.
      * 
      */
@@ -143,6 +158,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
         this.codingMode = $.codingMode;
         this.inputType = $.inputType;
         this.profile = $.profile;
+        this.rateControlMode = $.rateControlMode;
         this.rawFormat = $.rawFormat;
         this.sampleRate = $.sampleRate;
         this.spec = $.spec;
@@ -249,6 +265,27 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
          */
         public Builder profile(String profile) {
             return profile(Output.of(profile));
+        }
+
+        /**
+         * @param rateControlMode The rate control mode.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateControlMode(@Nullable Output<String> rateControlMode) {
+            $.rateControlMode = rateControlMode;
+            return this;
+        }
+
+        /**
+         * @param rateControlMode The rate control mode.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateControlMode(String rateControlMode) {
+            return rateControlMode(Output.of(rateControlMode));
         }
 
         /**

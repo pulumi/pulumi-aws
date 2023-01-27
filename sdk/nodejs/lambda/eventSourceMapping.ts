@@ -269,6 +269,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly queues!: pulumi.Output<string[] | undefined>;
     /**
+     * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+     */
+    public readonly scalingConfig!: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
+    /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
     public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
@@ -339,6 +343,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumRetryAttempts"] = state ? state.maximumRetryAttempts : undefined;
             resourceInputs["parallelizationFactor"] = state ? state.parallelizationFactor : undefined;
             resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["scalingConfig"] = state ? state.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = state ? state.selfManagedEventSource : undefined;
             resourceInputs["selfManagedKafkaEventSourceConfig"] = state ? state.selfManagedKafkaEventSourceConfig : undefined;
             resourceInputs["sourceAccessConfigurations"] = state ? state.sourceAccessConfigurations : undefined;
@@ -368,6 +373,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
             resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
             resourceInputs["selfManagedKafkaEventSourceConfig"] = args ? args.selfManagedKafkaEventSourceConfig : undefined;
             resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
@@ -459,6 +465,10 @@ export interface EventSourceMappingState {
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+     */
+    scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfig>;
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */
@@ -561,6 +571,10 @@ export interface EventSourceMappingArgs {
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+     */
+    scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfig>;
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
      */

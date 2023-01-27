@@ -12,6 +12,42 @@ import (
 )
 
 // Provides an AWS Quantum Ledger Database (QLDB) Stream resource
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/qldb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := qldb.NewStream(ctx, "example", &qldb.StreamArgs{
+//				InclusiveStartTime: pulumi.String("2021-01-01T00:00:00Z"),
+//				KinesisConfiguration: &qldb.StreamKinesisConfigurationArgs{
+//					AggregationEnabled: pulumi.Bool(false),
+//					StreamArn:          pulumi.String("arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream"),
+//				},
+//				LedgerName: pulumi.String("existing-ledger-name"),
+//				RoleArn:    pulumi.String("sample-role-arn"),
+//				StreamName: pulumi.String("sample-ledger-stream"),
+//				Tags: pulumi.StringMap{
+//					"example": pulumi.String("tag"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Stream struct {
 	pulumi.CustomResourceState
 

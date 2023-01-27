@@ -291,12 +291,12 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listener=aws.appmesh.VirtualGatewaySpecListenerArgs(
+                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                ),
+                )],
             ),
             tags={
                 "Environment": "test",
@@ -311,7 +311,7 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listener=aws.appmesh.VirtualGatewaySpecListenerArgs(
+                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
@@ -324,7 +324,7 @@ class VirtualGateway(pulumi.CustomResource):
                         ),
                         mode="STRICT",
                     ),
-                ),
+                )],
                 logging=aws.appmesh.VirtualGatewaySpecLoggingArgs(
                     access_log=aws.appmesh.VirtualGatewaySpecLoggingAccessLogArgs(
                         file=aws.appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs(
@@ -370,12 +370,12 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listener=aws.appmesh.VirtualGatewaySpecListenerArgs(
+                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
                     ),
-                ),
+                )],
             ),
             tags={
                 "Environment": "test",
@@ -390,7 +390,7 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             mesh_name="example-service-mesh",
             spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listener=aws.appmesh.VirtualGatewaySpecListenerArgs(
+                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
                     port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
                         port=8080,
                         protocol="http",
@@ -403,7 +403,7 @@ class VirtualGateway(pulumi.CustomResource):
                         ),
                         mode="STRICT",
                     ),
-                ),
+                )],
                 logging=aws.appmesh.VirtualGatewaySpecLoggingArgs(
                     access_log=aws.appmesh.VirtualGatewaySpecLoggingAccessLogArgs(
                         file=aws.appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs(

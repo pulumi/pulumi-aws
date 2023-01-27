@@ -497,7 +497,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
      * Use the aws_s3_bucket_website_configuration resource
@@ -508,7 +508,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> websiteDomain;
 
     /**
-     * @return The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * @return (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
      * Use the aws_s3_bucket_website_configuration resource
@@ -520,7 +520,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
      * Use the aws_s3_bucket_website_configuration resource
@@ -531,7 +531,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> websiteEndpoint;
 
     /**
-     * @return The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * @return (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
      * Use the aws_s3_bucket_website_configuration resource
@@ -1327,7 +1327,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param websiteDomain The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+         * @param websiteDomain (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
          * 
          * @return builder
          * 
@@ -1342,7 +1342,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param websiteDomain The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+         * @param websiteDomain (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
          * 
          * @return builder
          * 
@@ -1356,7 +1356,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param websiteEndpoint The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+         * @param websiteEndpoint (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
          * 
          * @return builder
          * 
@@ -1371,7 +1371,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param websiteEndpoint The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+         * @param websiteEndpoint (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
          * 
          * @return builder
          * 

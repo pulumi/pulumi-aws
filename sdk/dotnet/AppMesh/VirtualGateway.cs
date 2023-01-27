@@ -27,12 +27,15 @@ namespace Pulumi.Aws.AppMesh
     ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -58,23 +61,26 @@ namespace Pulumi.Aws.AppMesh
     ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
-    ///                 },
-    ///                 Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
-    ///                 {
-    ///                     Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
     ///                     {
-    ///                         Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
-    ///                         {
-    ///                             CertificateArn = aws_acm_certificate.Example.Arn,
-    ///                         },
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
     ///                     },
-    ///                     Mode = "STRICT",
+    ///                     Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
+    ///                     {
+    ///                         Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
+    ///                         {
+    ///                             Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
+    ///                             {
+    ///                                 CertificateArn = aws_acm_certificate.Example.Arn,
+    ///                             },
+    ///                         },
+    ///                         Mode = "STRICT",
+    ///                     },
     ///                 },
     ///             },
     ///             Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs

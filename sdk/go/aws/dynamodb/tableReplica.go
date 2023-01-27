@@ -92,7 +92,7 @@ type TableReplica struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	GlobalTableArn pulumi.StringOutput `pulumi:"globalTableArn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
+	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrOutput `pulumi:"pointInTimeRecovery"`
@@ -140,7 +140,7 @@ type tableReplicaState struct {
 	Arn *string `pulumi:"arn"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	GlobalTableArn *string `pulumi:"globalTableArn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
+	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
@@ -157,7 +157,7 @@ type TableReplicaState struct {
 	Arn pulumi.StringPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
 	GlobalTableArn pulumi.StringPtrInput
-	// ARN of the CMK that should be used for the AWS KMS encryption.
+	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
@@ -176,7 +176,7 @@ func (TableReplicaState) ElementType() reflect.Type {
 type tableReplicaArgs struct {
 	// ARN of the _main_ or global table which this resource will replicate.
 	GlobalTableArn string `pulumi:"globalTableArn"`
-	// ARN of the CMK that should be used for the AWS KMS encryption.
+	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
@@ -190,7 +190,7 @@ type tableReplicaArgs struct {
 type TableReplicaArgs struct {
 	// ARN of the _main_ or global table which this resource will replicate.
 	GlobalTableArn pulumi.StringInput
-	// ARN of the CMK that should be used for the AWS KMS encryption.
+	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
 	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
@@ -297,7 +297,7 @@ func (o TableReplicaOutput) GlobalTableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.GlobalTableArn }).(pulumi.StringOutput)
 }
 
-// ARN of the CMK that should be used for the AWS KMS encryption.
+// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 func (o TableReplicaOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }

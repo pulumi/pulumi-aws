@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecHttp2RouteMatchHeader;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -23,6 +24,11 @@ public final class RouteSpecHttp2RouteMatch {
      * 
      */
     private @Nullable String method;
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    private @Nullable Integer port;
     /**
      * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
@@ -51,6 +57,13 @@ public final class RouteSpecHttp2RouteMatch {
         return Optional.ofNullable(this.method);
     }
     /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
+    }
+    /**
      * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
@@ -77,6 +90,7 @@ public final class RouteSpecHttp2RouteMatch {
     public static final class Builder {
         private @Nullable List<RouteSpecHttp2RouteMatchHeader> headers;
         private @Nullable String method;
+        private @Nullable Integer port;
         private String prefix;
         private @Nullable String scheme;
         public Builder() {}
@@ -84,6 +98,7 @@ public final class RouteSpecHttp2RouteMatch {
     	      Objects.requireNonNull(defaults);
     	      this.headers = defaults.headers;
     	      this.method = defaults.method;
+    	      this.port = defaults.port;
     	      this.prefix = defaults.prefix;
     	      this.scheme = defaults.scheme;
         }
@@ -102,6 +117,11 @@ public final class RouteSpecHttp2RouteMatch {
             return this;
         }
         @CustomType.Setter
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
+            return this;
+        }
+        @CustomType.Setter
         public Builder prefix(String prefix) {
             this.prefix = Objects.requireNonNull(prefix);
             return this;
@@ -115,6 +135,7 @@ public final class RouteSpecHttp2RouteMatch {
             final var o = new RouteSpecHttp2RouteMatch();
             o.headers = headers;
             o.method = method;
+            o.port = port;
             o.prefix = prefix;
             o.scheme = scheme;
             return o;

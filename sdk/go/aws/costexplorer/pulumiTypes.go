@@ -116,6 +116,2773 @@ func (o AnomalySubscriptionSubscriberArrayOutput) Index(i pulumi.IntInput) Anoma
 	}).(AnomalySubscriptionSubscriberOutput)
 }
 
+type AnomalySubscriptionThresholdExpression struct {
+	// Return results that match both Dimension objects.
+	Ands []AnomalySubscriptionThresholdExpressionAnd `pulumi:"ands"`
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory *AnomalySubscriptionThresholdExpressionCostCategory `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension *AnomalySubscriptionThresholdExpressionDimension `pulumi:"dimension"`
+	// Return results that match both Dimension object.
+	Not *AnomalySubscriptionThresholdExpressionNot `pulumi:"not"`
+	// Return results that match both Dimension object.
+	Ors []AnomalySubscriptionThresholdExpressionOr `pulumi:"ors"`
+	// Configuration block for the specific Tag to use for. See Tags below.
+	Tags *AnomalySubscriptionThresholdExpressionTags `pulumi:"tags"`
+}
+
+// AnomalySubscriptionThresholdExpressionInput is an input type that accepts AnomalySubscriptionThresholdExpressionArgs and AnomalySubscriptionThresholdExpressionOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionArgs{...}
+type AnomalySubscriptionThresholdExpressionInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOutput() AnomalySubscriptionThresholdExpressionOutput
+	ToAnomalySubscriptionThresholdExpressionOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOutput
+}
+
+type AnomalySubscriptionThresholdExpressionArgs struct {
+	// Return results that match both Dimension objects.
+	Ands AnomalySubscriptionThresholdExpressionAndArrayInput `pulumi:"ands"`
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory AnomalySubscriptionThresholdExpressionCostCategoryPtrInput `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension AnomalySubscriptionThresholdExpressionDimensionPtrInput `pulumi:"dimension"`
+	// Return results that match both Dimension object.
+	Not AnomalySubscriptionThresholdExpressionNotPtrInput `pulumi:"not"`
+	// Return results that match both Dimension object.
+	Ors AnomalySubscriptionThresholdExpressionOrArrayInput `pulumi:"ors"`
+	// Configuration block for the specific Tag to use for. See Tags below.
+	Tags AnomalySubscriptionThresholdExpressionTagsPtrInput `pulumi:"tags"`
+}
+
+func (AnomalySubscriptionThresholdExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpression)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionArgs) ToAnomalySubscriptionThresholdExpressionOutput() AnomalySubscriptionThresholdExpressionOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionArgs) ToAnomalySubscriptionThresholdExpressionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionArgs) ToAnomalySubscriptionThresholdExpressionPtrOutput() AnomalySubscriptionThresholdExpressionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionArgs) ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOutput).ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionArgs, AnomalySubscriptionThresholdExpressionPtr and AnomalySubscriptionThresholdExpressionPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionPtrOutput() AnomalySubscriptionThresholdExpressionPtrOutput
+	ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionPtrType AnomalySubscriptionThresholdExpressionArgs
+
+func AnomalySubscriptionThresholdExpressionPtr(v *AnomalySubscriptionThresholdExpressionArgs) AnomalySubscriptionThresholdExpressionPtrInput {
+	return (*anomalySubscriptionThresholdExpressionPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpression)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionPtrType) ToAnomalySubscriptionThresholdExpressionPtrOutput() AnomalySubscriptionThresholdExpressionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionPtrType) ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpression)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOutput) ToAnomalySubscriptionThresholdExpressionOutput() AnomalySubscriptionThresholdExpressionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOutput) ToAnomalySubscriptionThresholdExpressionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOutput) ToAnomalySubscriptionThresholdExpressionPtrOutput() AnomalySubscriptionThresholdExpressionPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionOutput) ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpression {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionPtrOutput)
+}
+
+// Return results that match both Dimension objects.
+func (o AnomalySubscriptionThresholdExpressionOutput) Ands() AnomalySubscriptionThresholdExpressionAndArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) []AnomalySubscriptionThresholdExpressionAnd {
+		return v.Ands
+	}).(AnomalySubscriptionThresholdExpressionAndArrayOutput)
+}
+
+// Configuration block for the filter that's based on  values. See Cost Category below.
+func (o AnomalySubscriptionThresholdExpressionOutput) CostCategory() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionCostCategory {
+		return v.CostCategory
+	}).(AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput)
+}
+
+// Configuration block for the specific Dimension to use for.
+func (o AnomalySubscriptionThresholdExpressionOutput) Dimension() AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionDimension {
+		return v.Dimension
+	}).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
+}
+
+// Return results that match both Dimension object.
+func (o AnomalySubscriptionThresholdExpressionOutput) Not() AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionNot {
+		return v.Not
+	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
+}
+
+// Return results that match both Dimension object.
+func (o AnomalySubscriptionThresholdExpressionOutput) Ors() AnomalySubscriptionThresholdExpressionOrArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) []AnomalySubscriptionThresholdExpressionOr {
+		return v.Ors
+	}).(AnomalySubscriptionThresholdExpressionOrArrayOutput)
+}
+
+// Configuration block for the specific Tag to use for. See Tags below.
+func (o AnomalySubscriptionThresholdExpressionOutput) Tags() AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionTags {
+		return v.Tags
+	}).(AnomalySubscriptionThresholdExpressionTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpression)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) ToAnomalySubscriptionThresholdExpressionPtrOutput() AnomalySubscriptionThresholdExpressionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) AnomalySubscriptionThresholdExpression {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpression
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionOutput)
+}
+
+// Return results that match both Dimension objects.
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) Ands() AnomalySubscriptionThresholdExpressionAndArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) []AnomalySubscriptionThresholdExpressionAnd {
+		if v == nil {
+			return nil
+		}
+		return v.Ands
+	}).(AnomalySubscriptionThresholdExpressionAndArrayOutput)
+}
+
+// Configuration block for the filter that's based on  values. See Cost Category below.
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) CostCategory() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionCostCategory {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategory
+	}).(AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput)
+}
+
+// Configuration block for the specific Dimension to use for.
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) Dimension() AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
+}
+
+// Return results that match both Dimension object.
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) Not() AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionNot {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
+}
+
+// Return results that match both Dimension object.
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) Ors() AnomalySubscriptionThresholdExpressionOrArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) []AnomalySubscriptionThresholdExpressionOr {
+		if v == nil {
+			return nil
+		}
+		return v.Ors
+	}).(AnomalySubscriptionThresholdExpressionOrArrayOutput)
+}
+
+// Configuration block for the specific Tag to use for. See Tags below.
+func (o AnomalySubscriptionThresholdExpressionPtrOutput) Tags() AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(AnomalySubscriptionThresholdExpressionTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAnd struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory *AnomalySubscriptionThresholdExpressionAndCostCategory `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension *AnomalySubscriptionThresholdExpressionAndDimension `pulumi:"dimension"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *AnomalySubscriptionThresholdExpressionAndTags `pulumi:"tags"`
+}
+
+// AnomalySubscriptionThresholdExpressionAndInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndArgs and AnomalySubscriptionThresholdExpressionAndOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionAndArgs{...}
+type AnomalySubscriptionThresholdExpressionAndInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndOutput() AnomalySubscriptionThresholdExpressionAndOutput
+	ToAnomalySubscriptionThresholdExpressionAndOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndOutput
+}
+
+type AnomalySubscriptionThresholdExpressionAndArgs struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension AnomalySubscriptionThresholdExpressionAndDimensionPtrInput `pulumi:"dimension"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags AnomalySubscriptionThresholdExpressionAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (AnomalySubscriptionThresholdExpressionAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAnd)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndArgs) ToAnomalySubscriptionThresholdExpressionAndOutput() AnomalySubscriptionThresholdExpressionAndOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndArgs) ToAnomalySubscriptionThresholdExpressionAndOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndOutput)
+}
+
+// AnomalySubscriptionThresholdExpressionAndArrayInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndArray and AnomalySubscriptionThresholdExpressionAndArrayOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndArrayInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionAndArray{ AnomalySubscriptionThresholdExpressionAndArgs{...} }
+type AnomalySubscriptionThresholdExpressionAndArrayInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndArrayOutput() AnomalySubscriptionThresholdExpressionAndArrayOutput
+	ToAnomalySubscriptionThresholdExpressionAndArrayOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndArrayOutput
+}
+
+type AnomalySubscriptionThresholdExpressionAndArray []AnomalySubscriptionThresholdExpressionAndInput
+
+func (AnomalySubscriptionThresholdExpressionAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalySubscriptionThresholdExpressionAnd)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndArray) ToAnomalySubscriptionThresholdExpressionAndArrayOutput() AnomalySubscriptionThresholdExpressionAndArrayOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndArrayOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndArray) ToAnomalySubscriptionThresholdExpressionAndArrayOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAnd)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndOutput) ToAnomalySubscriptionThresholdExpressionAndOutput() AnomalySubscriptionThresholdExpressionAndOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndOutput) ToAnomalySubscriptionThresholdExpressionAndOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on  values. See Cost Category below.
+func (o AnomalySubscriptionThresholdExpressionAndOutput) CostCategory() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAnd) *AnomalySubscriptionThresholdExpressionAndCostCategory {
+		return v.CostCategory
+	}).(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput)
+}
+
+// Configuration block for the specific Dimension to use for.
+func (o AnomalySubscriptionThresholdExpressionAndOutput) Dimension() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAnd) *AnomalySubscriptionThresholdExpressionAndDimension {
+		return v.Dimension
+	}).(AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AnomalySubscriptionThresholdExpressionAndOutput) Tags() AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAnd) *AnomalySubscriptionThresholdExpressionAndTags {
+		return v.Tags
+	}).(AnomalySubscriptionThresholdExpressionAndTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndArrayOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalySubscriptionThresholdExpressionAnd)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndArrayOutput) ToAnomalySubscriptionThresholdExpressionAndArrayOutput() AnomalySubscriptionThresholdExpressionAndArrayOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndArrayOutput) ToAnomalySubscriptionThresholdExpressionAndArrayOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndArrayOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionThresholdExpressionAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalySubscriptionThresholdExpressionAnd {
+		return vs[0].([]AnomalySubscriptionThresholdExpressionAnd)[vs[1].(int)]
+	}).(AnomalySubscriptionThresholdExpressionAndOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionAndCostCategoryInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndCostCategoryArgs and AnomalySubscriptionThresholdExpressionAndCostCategoryOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndCostCategoryInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionAndCostCategoryArgs{...}
+type AnomalySubscriptionThresholdExpressionAndCostCategoryInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryOutput
+	ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryOutput
+}
+
+type AnomalySubscriptionThresholdExpressionAndCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndCostCategory)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndCostCategoryOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndCostCategoryOutput).ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndCostCategoryArgs, AnomalySubscriptionThresholdExpressionAndCostCategoryPtr and AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionAndCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput
+	ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionAndCostCategoryPtrType AnomalySubscriptionThresholdExpressionAndCostCategoryArgs
+
+func AnomalySubscriptionThresholdExpressionAndCostCategoryPtr(v *AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput {
+	return (*anomalySubscriptionThresholdExpressionAndCostCategoryPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionAndCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionAndCostCategory)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionAndCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionAndCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionAndCostCategory) *AnomalySubscriptionThresholdExpressionAndCostCategory {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionAndCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionAndCostCategoryOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndCostCategory) AnomalySubscriptionThresholdExpressionAndCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionAndCostCategory
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionAndCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionAndDimensionInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndDimensionArgs and AnomalySubscriptionThresholdExpressionAndDimensionOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndDimensionInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionAndDimensionArgs{...}
+type AnomalySubscriptionThresholdExpressionAndDimensionInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndDimensionOutput() AnomalySubscriptionThresholdExpressionAndDimensionOutput
+	ToAnomalySubscriptionThresholdExpressionAndDimensionOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndDimensionOutput
+}
+
+type AnomalySubscriptionThresholdExpressionAndDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionAndDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndDimension)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndDimensionArgs) ToAnomalySubscriptionThresholdExpressionAndDimensionOutput() AnomalySubscriptionThresholdExpressionAndDimensionOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndDimensionOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndDimensionArgs) ToAnomalySubscriptionThresholdExpressionAndDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndDimensionOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndDimensionArgs) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutput() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndDimensionArgs) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndDimensionOutput).ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionAndDimensionPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndDimensionArgs, AnomalySubscriptionThresholdExpressionAndDimensionPtr and AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndDimensionPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionAndDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionAndDimensionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutput() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput
+	ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionAndDimensionPtrType AnomalySubscriptionThresholdExpressionAndDimensionArgs
+
+func AnomalySubscriptionThresholdExpressionAndDimensionPtr(v *AnomalySubscriptionThresholdExpressionAndDimensionArgs) AnomalySubscriptionThresholdExpressionAndDimensionPtrInput {
+	return (*anomalySubscriptionThresholdExpressionAndDimensionPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionAndDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionAndDimension)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionAndDimensionPtrType) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutput() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionAndDimensionPtrType) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndDimensionOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) ToAnomalySubscriptionThresholdExpressionAndDimensionOutput() AnomalySubscriptionThresholdExpressionAndDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) ToAnomalySubscriptionThresholdExpressionAndDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutput() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionAndDimension) *AnomalySubscriptionThresholdExpressionAndDimension {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionAndDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutput() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionAndDimensionOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndDimension) AnomalySubscriptionThresholdExpressionAndDimension {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionAndDimension
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionAndDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionAndTagsInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndTagsArgs and AnomalySubscriptionThresholdExpressionAndTagsOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndTagsInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionAndTagsArgs{...}
+type AnomalySubscriptionThresholdExpressionAndTagsInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndTagsOutput() AnomalySubscriptionThresholdExpressionAndTagsOutput
+	ToAnomalySubscriptionThresholdExpressionAndTagsOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndTagsOutput
+}
+
+type AnomalySubscriptionThresholdExpressionAndTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndTags)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndTagsArgs) ToAnomalySubscriptionThresholdExpressionAndTagsOutput() AnomalySubscriptionThresholdExpressionAndTagsOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndTagsOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndTagsArgs) ToAnomalySubscriptionThresholdExpressionAndTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndTagsOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndTagsArgs) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutput() AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionAndTagsArgs) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndTagsOutput).ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionAndTagsPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndTagsArgs, AnomalySubscriptionThresholdExpressionAndTagsPtr and AnomalySubscriptionThresholdExpressionAndTagsPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndTagsPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutput() AnomalySubscriptionThresholdExpressionAndTagsPtrOutput
+	ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionAndTagsPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionAndTagsPtrType AnomalySubscriptionThresholdExpressionAndTagsArgs
+
+func AnomalySubscriptionThresholdExpressionAndTagsPtr(v *AnomalySubscriptionThresholdExpressionAndTagsArgs) AnomalySubscriptionThresholdExpressionAndTagsPtrInput {
+	return (*anomalySubscriptionThresholdExpressionAndTagsPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionAndTags)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionAndTagsPtrType) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutput() AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionAndTagsPtrType) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndTagsOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) ToAnomalySubscriptionThresholdExpressionAndTagsOutput() AnomalySubscriptionThresholdExpressionAndTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) ToAnomalySubscriptionThresholdExpressionAndTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutput() AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionAndTags) *AnomalySubscriptionThresholdExpressionAndTags {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionAndTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionAndTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutput() AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionAndTagsOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndTags) AnomalySubscriptionThresholdExpressionAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionAndTags
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionAndTagsOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionCostCategoryInput is an input type that accepts AnomalySubscriptionThresholdExpressionCostCategoryArgs and AnomalySubscriptionThresholdExpressionCostCategoryOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionCostCategoryInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionCostCategoryArgs{...}
+type AnomalySubscriptionThresholdExpressionCostCategoryInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionCostCategoryOutput() AnomalySubscriptionThresholdExpressionCostCategoryOutput
+	ToAnomalySubscriptionThresholdExpressionCostCategoryOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionCostCategoryOutput
+}
+
+type AnomalySubscriptionThresholdExpressionCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionCostCategory)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionCostCategoryOutput() AnomalySubscriptionThresholdExpressionCostCategoryOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionCostCategoryOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionCostCategoryOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionCostCategoryOutput).ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionCostCategoryPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionCostCategoryArgs, AnomalySubscriptionThresholdExpressionCostCategoryPtr and AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionCostCategoryPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput
+	ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionCostCategoryPtrType AnomalySubscriptionThresholdExpressionCostCategoryArgs
+
+func AnomalySubscriptionThresholdExpressionCostCategoryPtr(v *AnomalySubscriptionThresholdExpressionCostCategoryArgs) AnomalySubscriptionThresholdExpressionCostCategoryPtrInput {
+	return (*anomalySubscriptionThresholdExpressionCostCategoryPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionCostCategory)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionCostCategoryOutput() AnomalySubscriptionThresholdExpressionCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionCostCategory) *AnomalySubscriptionThresholdExpressionCostCategory {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionCostCategoryOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionCostCategory) AnomalySubscriptionThresholdExpressionCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionCostCategory
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionDimensionInput is an input type that accepts AnomalySubscriptionThresholdExpressionDimensionArgs and AnomalySubscriptionThresholdExpressionDimensionOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionDimensionInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionDimensionArgs{...}
+type AnomalySubscriptionThresholdExpressionDimensionInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionDimensionOutput() AnomalySubscriptionThresholdExpressionDimensionOutput
+	ToAnomalySubscriptionThresholdExpressionDimensionOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionDimensionOutput
+}
+
+type AnomalySubscriptionThresholdExpressionDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionDimension)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionDimensionArgs) ToAnomalySubscriptionThresholdExpressionDimensionOutput() AnomalySubscriptionThresholdExpressionDimensionOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionDimensionOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionDimensionArgs) ToAnomalySubscriptionThresholdExpressionDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionDimensionOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionDimensionArgs) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutput() AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionDimensionArgs) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionDimensionOutput).ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionDimensionPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionDimensionArgs, AnomalySubscriptionThresholdExpressionDimensionPtr and AnomalySubscriptionThresholdExpressionDimensionPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionDimensionPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionDimensionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionDimensionPtrOutput() AnomalySubscriptionThresholdExpressionDimensionPtrOutput
+	ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionDimensionPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionDimensionPtrType AnomalySubscriptionThresholdExpressionDimensionArgs
+
+func AnomalySubscriptionThresholdExpressionDimensionPtr(v *AnomalySubscriptionThresholdExpressionDimensionArgs) AnomalySubscriptionThresholdExpressionDimensionPtrInput {
+	return (*anomalySubscriptionThresholdExpressionDimensionPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionDimension)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionDimensionPtrType) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutput() AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionDimensionPtrType) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionDimensionOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionDimensionOutput) ToAnomalySubscriptionThresholdExpressionDimensionOutput() AnomalySubscriptionThresholdExpressionDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionDimensionOutput) ToAnomalySubscriptionThresholdExpressionDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionDimensionOutput) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutput() AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionDimensionOutput) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionDimension) *AnomalySubscriptionThresholdExpressionDimension {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutput() AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionDimensionOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionDimension) AnomalySubscriptionThresholdExpressionDimension {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionDimension
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNot struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory *AnomalySubscriptionThresholdExpressionNotCostCategory `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension *AnomalySubscriptionThresholdExpressionNotDimension `pulumi:"dimension"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *AnomalySubscriptionThresholdExpressionNotTags `pulumi:"tags"`
+}
+
+// AnomalySubscriptionThresholdExpressionNotInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotArgs and AnomalySubscriptionThresholdExpressionNotOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionNotArgs{...}
+type AnomalySubscriptionThresholdExpressionNotInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotOutput() AnomalySubscriptionThresholdExpressionNotOutput
+	ToAnomalySubscriptionThresholdExpressionNotOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotOutput
+}
+
+type AnomalySubscriptionThresholdExpressionNotArgs struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension AnomalySubscriptionThresholdExpressionNotDimensionPtrInput `pulumi:"dimension"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags AnomalySubscriptionThresholdExpressionNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (AnomalySubscriptionThresholdExpressionNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNot)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotArgs) ToAnomalySubscriptionThresholdExpressionNotOutput() AnomalySubscriptionThresholdExpressionNotOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotArgs) ToAnomalySubscriptionThresholdExpressionNotOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotArgs) ToAnomalySubscriptionThresholdExpressionNotPtrOutput() AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotArgs) ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotOutput).ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionNotPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotArgs, AnomalySubscriptionThresholdExpressionNotPtr and AnomalySubscriptionThresholdExpressionNotPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionNotPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotPtrOutput() AnomalySubscriptionThresholdExpressionNotPtrOutput
+	ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionNotPtrType AnomalySubscriptionThresholdExpressionNotArgs
+
+func AnomalySubscriptionThresholdExpressionNotPtr(v *AnomalySubscriptionThresholdExpressionNotArgs) AnomalySubscriptionThresholdExpressionNotPtrInput {
+	return (*anomalySubscriptionThresholdExpressionNotPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNot)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotPtrType) ToAnomalySubscriptionThresholdExpressionNotPtrOutput() AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotPtrType) ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNot)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotOutput) ToAnomalySubscriptionThresholdExpressionNotOutput() AnomalySubscriptionThresholdExpressionNotOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotOutput) ToAnomalySubscriptionThresholdExpressionNotOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotOutput) ToAnomalySubscriptionThresholdExpressionNotPtrOutput() AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotOutput) ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNot {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
+}
+
+// Configuration block for the filter that's based on  values. See Cost Category below.
+func (o AnomalySubscriptionThresholdExpressionNotOutput) CostCategory() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotCostCategory {
+		return v.CostCategory
+	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
+}
+
+// Configuration block for the specific Dimension to use for.
+func (o AnomalySubscriptionThresholdExpressionNotOutput) Dimension() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotDimension {
+		return v.Dimension
+	}).(AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AnomalySubscriptionThresholdExpressionNotOutput) Tags() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotTags {
+		return v.Tags
+	}).(AnomalySubscriptionThresholdExpressionNotTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNot)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) ToAnomalySubscriptionThresholdExpressionNotPtrOutput() AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) AnomalySubscriptionThresholdExpressionNot {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionNot
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionNotOutput)
+}
+
+// Configuration block for the filter that's based on  values. See Cost Category below.
+func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) CostCategory() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotCostCategory {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategory
+	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
+}
+
+// Configuration block for the specific Dimension to use for.
+func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Dimension() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Tags() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(AnomalySubscriptionThresholdExpressionNotTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionNotCostCategoryInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotCostCategoryArgs and AnomalySubscriptionThresholdExpressionNotCostCategoryOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotCostCategoryInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionNotCostCategoryArgs{...}
+type AnomalySubscriptionThresholdExpressionNotCostCategoryInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryOutput
+	ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryOutput
+}
+
+type AnomalySubscriptionThresholdExpressionNotCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotCostCategory)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotCostCategoryOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotCostCategoryOutput).ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotCostCategoryArgs, AnomalySubscriptionThresholdExpressionNotCostCategoryPtr and AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionNotCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput
+	ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionNotCostCategoryPtrType AnomalySubscriptionThresholdExpressionNotCostCategoryArgs
+
+func AnomalySubscriptionThresholdExpressionNotCostCategoryPtr(v *AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput {
+	return (*anomalySubscriptionThresholdExpressionNotCostCategoryPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionNotCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNotCostCategory)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNotCostCategory) *AnomalySubscriptionThresholdExpressionNotCostCategory {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNotCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotCostCategoryOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotCostCategory) AnomalySubscriptionThresholdExpressionNotCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionNotCostCategory
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionNotDimensionInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotDimensionArgs and AnomalySubscriptionThresholdExpressionNotDimensionOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotDimensionInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionNotDimensionArgs{...}
+type AnomalySubscriptionThresholdExpressionNotDimensionInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotDimensionOutput() AnomalySubscriptionThresholdExpressionNotDimensionOutput
+	ToAnomalySubscriptionThresholdExpressionNotDimensionOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotDimensionOutput
+}
+
+type AnomalySubscriptionThresholdExpressionNotDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionNotDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotDimension)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotDimensionArgs) ToAnomalySubscriptionThresholdExpressionNotDimensionOutput() AnomalySubscriptionThresholdExpressionNotDimensionOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotDimensionOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotDimensionArgs) ToAnomalySubscriptionThresholdExpressionNotDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotDimensionOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotDimensionArgs) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutput() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotDimensionArgs) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotDimensionOutput).ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionNotDimensionPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotDimensionArgs, AnomalySubscriptionThresholdExpressionNotDimensionPtr and AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotDimensionPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionNotDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionNotDimensionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutput() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput
+	ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionNotDimensionPtrType AnomalySubscriptionThresholdExpressionNotDimensionArgs
+
+func AnomalySubscriptionThresholdExpressionNotDimensionPtr(v *AnomalySubscriptionThresholdExpressionNotDimensionArgs) AnomalySubscriptionThresholdExpressionNotDimensionPtrInput {
+	return (*anomalySubscriptionThresholdExpressionNotDimensionPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionNotDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNotDimension)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotDimensionPtrType) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutput() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotDimensionPtrType) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotDimensionOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) ToAnomalySubscriptionThresholdExpressionNotDimensionOutput() AnomalySubscriptionThresholdExpressionNotDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) ToAnomalySubscriptionThresholdExpressionNotDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutput() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNotDimension) *AnomalySubscriptionThresholdExpressionNotDimension {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNotDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutput() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotDimensionOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotDimension) AnomalySubscriptionThresholdExpressionNotDimension {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionNotDimension
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionNotDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionNotTagsInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotTagsArgs and AnomalySubscriptionThresholdExpressionNotTagsOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotTagsInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionNotTagsArgs{...}
+type AnomalySubscriptionThresholdExpressionNotTagsInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotTagsOutput() AnomalySubscriptionThresholdExpressionNotTagsOutput
+	ToAnomalySubscriptionThresholdExpressionNotTagsOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotTagsOutput
+}
+
+type AnomalySubscriptionThresholdExpressionNotTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotTags)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotTagsArgs) ToAnomalySubscriptionThresholdExpressionNotTagsOutput() AnomalySubscriptionThresholdExpressionNotTagsOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotTagsOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotTagsArgs) ToAnomalySubscriptionThresholdExpressionNotTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotTagsOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotTagsArgs) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutput() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionNotTagsArgs) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotTagsOutput).ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionNotTagsPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionNotTagsArgs, AnomalySubscriptionThresholdExpressionNotTagsPtr and AnomalySubscriptionThresholdExpressionNotTagsPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionNotTagsPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutput() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput
+	ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionNotTagsPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionNotTagsPtrType AnomalySubscriptionThresholdExpressionNotTagsArgs
+
+func AnomalySubscriptionThresholdExpressionNotTagsPtr(v *AnomalySubscriptionThresholdExpressionNotTagsArgs) AnomalySubscriptionThresholdExpressionNotTagsPtrInput {
+	return (*anomalySubscriptionThresholdExpressionNotTagsPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNotTags)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotTagsPtrType) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutput() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionNotTagsPtrType) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotTagsOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) ToAnomalySubscriptionThresholdExpressionNotTagsOutput() AnomalySubscriptionThresholdExpressionNotTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) ToAnomalySubscriptionThresholdExpressionNotTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutput() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNotTags) *AnomalySubscriptionThresholdExpressionNotTags {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionNotTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionNotTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutput() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotTagsOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotTags) AnomalySubscriptionThresholdExpressionNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionNotTags
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionNotTagsOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOr struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory *AnomalySubscriptionThresholdExpressionOrCostCategory `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension *AnomalySubscriptionThresholdExpressionOrDimension `pulumi:"dimension"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *AnomalySubscriptionThresholdExpressionOrTags `pulumi:"tags"`
+}
+
+// AnomalySubscriptionThresholdExpressionOrInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrArgs and AnomalySubscriptionThresholdExpressionOrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionOrArgs{...}
+type AnomalySubscriptionThresholdExpressionOrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrOutput() AnomalySubscriptionThresholdExpressionOrOutput
+	ToAnomalySubscriptionThresholdExpressionOrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrOutput
+}
+
+type AnomalySubscriptionThresholdExpressionOrArgs struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
+	CostCategory AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput `pulumi:"costCategory"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension AnomalySubscriptionThresholdExpressionOrDimensionPtrInput `pulumi:"dimension"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags AnomalySubscriptionThresholdExpressionOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (AnomalySubscriptionThresholdExpressionOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOr)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrArgs) ToAnomalySubscriptionThresholdExpressionOrOutput() AnomalySubscriptionThresholdExpressionOrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrArgs) ToAnomalySubscriptionThresholdExpressionOrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrOutput)
+}
+
+// AnomalySubscriptionThresholdExpressionOrArrayInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrArray and AnomalySubscriptionThresholdExpressionOrArrayOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrArrayInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionOrArray{ AnomalySubscriptionThresholdExpressionOrArgs{...} }
+type AnomalySubscriptionThresholdExpressionOrArrayInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrArrayOutput() AnomalySubscriptionThresholdExpressionOrArrayOutput
+	ToAnomalySubscriptionThresholdExpressionOrArrayOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrArrayOutput
+}
+
+type AnomalySubscriptionThresholdExpressionOrArray []AnomalySubscriptionThresholdExpressionOrInput
+
+func (AnomalySubscriptionThresholdExpressionOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalySubscriptionThresholdExpressionOr)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrArray) ToAnomalySubscriptionThresholdExpressionOrArrayOutput() AnomalySubscriptionThresholdExpressionOrArrayOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrArrayOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrArray) ToAnomalySubscriptionThresholdExpressionOrArrayOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOr)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrOutput) ToAnomalySubscriptionThresholdExpressionOrOutput() AnomalySubscriptionThresholdExpressionOrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrOutput) ToAnomalySubscriptionThresholdExpressionOrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrOutput {
+	return o
+}
+
+// Configuration block for the filter that's based on  values. See Cost Category below.
+func (o AnomalySubscriptionThresholdExpressionOrOutput) CostCategory() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOr) *AnomalySubscriptionThresholdExpressionOrCostCategory {
+		return v.CostCategory
+	}).(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput)
+}
+
+// Configuration block for the specific Dimension to use for.
+func (o AnomalySubscriptionThresholdExpressionOrOutput) Dimension() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOr) *AnomalySubscriptionThresholdExpressionOrDimension {
+		return v.Dimension
+	}).(AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AnomalySubscriptionThresholdExpressionOrOutput) Tags() AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOr) *AnomalySubscriptionThresholdExpressionOrTags {
+		return v.Tags
+	}).(AnomalySubscriptionThresholdExpressionOrTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrArrayOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalySubscriptionThresholdExpressionOr)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrArrayOutput) ToAnomalySubscriptionThresholdExpressionOrArrayOutput() AnomalySubscriptionThresholdExpressionOrArrayOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrArrayOutput) ToAnomalySubscriptionThresholdExpressionOrArrayOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrArrayOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionThresholdExpressionOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalySubscriptionThresholdExpressionOr {
+		return vs[0].([]AnomalySubscriptionThresholdExpressionOr)[vs[1].(int)]
+	}).(AnomalySubscriptionThresholdExpressionOrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrCostCategory struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionOrCostCategoryInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrCostCategoryArgs and AnomalySubscriptionThresholdExpressionOrCostCategoryOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrCostCategoryInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionOrCostCategoryArgs{...}
+type AnomalySubscriptionThresholdExpressionOrCostCategoryInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryOutput
+	ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryOutput
+}
+
+type AnomalySubscriptionThresholdExpressionOrCostCategoryArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrCostCategory)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrCostCategoryOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrCostCategoryOutput).ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrCostCategoryArgs, AnomalySubscriptionThresholdExpressionOrCostCategoryPtr and AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionOrCostCategoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput
+	ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionOrCostCategoryPtrType AnomalySubscriptionThresholdExpressionOrCostCategoryArgs
+
+func AnomalySubscriptionThresholdExpressionOrCostCategoryPtr(v *AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput {
+	return (*anomalySubscriptionThresholdExpressionOrCostCategoryPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionOrCostCategoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionOrCostCategory)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionOrCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionOrCostCategoryPtrType) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrCostCategoryOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionOrCostCategory) *AnomalySubscriptionThresholdExpressionOrCostCategory {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrCostCategory) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrCostCategory) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrCostCategory) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionOrCostCategory)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOrCostCategoryOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrCostCategory) AnomalySubscriptionThresholdExpressionOrCostCategory {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionOrCostCategory
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionOrCostCategoryOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrCostCategory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrCostCategory) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrDimension struct {
+	// Unique name of the Cost Category.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionOrDimensionInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrDimensionArgs and AnomalySubscriptionThresholdExpressionOrDimensionOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrDimensionInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionOrDimensionArgs{...}
+type AnomalySubscriptionThresholdExpressionOrDimensionInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrDimensionOutput() AnomalySubscriptionThresholdExpressionOrDimensionOutput
+	ToAnomalySubscriptionThresholdExpressionOrDimensionOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrDimensionOutput
+}
+
+type AnomalySubscriptionThresholdExpressionOrDimensionArgs struct {
+	// Unique name of the Cost Category.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionOrDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrDimension)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrDimensionArgs) ToAnomalySubscriptionThresholdExpressionOrDimensionOutput() AnomalySubscriptionThresholdExpressionOrDimensionOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrDimensionOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrDimensionArgs) ToAnomalySubscriptionThresholdExpressionOrDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrDimensionOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrDimensionArgs) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutput() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrDimensionArgs) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrDimensionOutput).ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionOrDimensionPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrDimensionArgs, AnomalySubscriptionThresholdExpressionOrDimensionPtr and AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrDimensionPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionOrDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionOrDimensionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutput() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput
+	ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionOrDimensionPtrType AnomalySubscriptionThresholdExpressionOrDimensionArgs
+
+func AnomalySubscriptionThresholdExpressionOrDimensionPtr(v *AnomalySubscriptionThresholdExpressionOrDimensionArgs) AnomalySubscriptionThresholdExpressionOrDimensionPtrInput {
+	return (*anomalySubscriptionThresholdExpressionOrDimensionPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionOrDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionOrDimension)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionOrDimensionPtrType) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutput() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionOrDimensionPtrType) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrDimensionOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) ToAnomalySubscriptionThresholdExpressionOrDimensionOutput() AnomalySubscriptionThresholdExpressionOrDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) ToAnomalySubscriptionThresholdExpressionOrDimensionOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrDimensionOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutput() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionOrDimension) *AnomalySubscriptionThresholdExpressionOrDimension {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrDimension) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrDimension) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionOrDimension)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutput() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOrDimensionOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrDimension) AnomalySubscriptionThresholdExpressionOrDimension {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionOrDimension
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionOrDimensionOutput)
+}
+
+// Unique name of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrDimension) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionOrTagsInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrTagsArgs and AnomalySubscriptionThresholdExpressionOrTagsOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrTagsInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionOrTagsArgs{...}
+type AnomalySubscriptionThresholdExpressionOrTagsInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrTagsOutput() AnomalySubscriptionThresholdExpressionOrTagsOutput
+	ToAnomalySubscriptionThresholdExpressionOrTagsOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrTagsOutput
+}
+
+type AnomalySubscriptionThresholdExpressionOrTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrTags)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrTagsArgs) ToAnomalySubscriptionThresholdExpressionOrTagsOutput() AnomalySubscriptionThresholdExpressionOrTagsOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrTagsOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrTagsArgs) ToAnomalySubscriptionThresholdExpressionOrTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrTagsOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrTagsArgs) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutput() AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionOrTagsArgs) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrTagsOutput).ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionOrTagsPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrTagsArgs, AnomalySubscriptionThresholdExpressionOrTagsPtr and AnomalySubscriptionThresholdExpressionOrTagsPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrTagsPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutput() AnomalySubscriptionThresholdExpressionOrTagsPtrOutput
+	ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionOrTagsPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionOrTagsPtrType AnomalySubscriptionThresholdExpressionOrTagsArgs
+
+func AnomalySubscriptionThresholdExpressionOrTagsPtr(v *AnomalySubscriptionThresholdExpressionOrTagsArgs) AnomalySubscriptionThresholdExpressionOrTagsPtrInput {
+	return (*anomalySubscriptionThresholdExpressionOrTagsPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionOrTags)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionOrTagsPtrType) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutput() AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionOrTagsPtrType) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrTagsOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) ToAnomalySubscriptionThresholdExpressionOrTagsOutput() AnomalySubscriptionThresholdExpressionOrTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) ToAnomalySubscriptionThresholdExpressionOrTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutput() AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionOrTags) *AnomalySubscriptionThresholdExpressionOrTags {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionOrTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionOrTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutput() AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOrTagsOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrTags) AnomalySubscriptionThresholdExpressionOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionOrTags
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionOrTagsOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionTags struct {
+	// Key for the tag.
+	Key *string `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions []string `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values []string `pulumi:"values"`
+}
+
+// AnomalySubscriptionThresholdExpressionTagsInput is an input type that accepts AnomalySubscriptionThresholdExpressionTagsArgs and AnomalySubscriptionThresholdExpressionTagsOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionTagsInput` via:
+//
+//	AnomalySubscriptionThresholdExpressionTagsArgs{...}
+type AnomalySubscriptionThresholdExpressionTagsInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionTagsOutput() AnomalySubscriptionThresholdExpressionTagsOutput
+	ToAnomalySubscriptionThresholdExpressionTagsOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionTagsOutput
+}
+
+type AnomalySubscriptionThresholdExpressionTagsArgs struct {
+	// Key for the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// Specific value of the Cost Category.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnomalySubscriptionThresholdExpressionTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionTags)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionThresholdExpressionTagsArgs) ToAnomalySubscriptionThresholdExpressionTagsOutput() AnomalySubscriptionThresholdExpressionTagsOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionTagsOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionTagsArgs) ToAnomalySubscriptionThresholdExpressionTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionTagsOutput)
+}
+
+func (i AnomalySubscriptionThresholdExpressionTagsArgs) ToAnomalySubscriptionThresholdExpressionTagsPtrOutput() AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionThresholdExpressionTagsArgs) ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionTagsOutput).ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(ctx)
+}
+
+// AnomalySubscriptionThresholdExpressionTagsPtrInput is an input type that accepts AnomalySubscriptionThresholdExpressionTagsArgs, AnomalySubscriptionThresholdExpressionTagsPtr and AnomalySubscriptionThresholdExpressionTagsPtrOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionTagsPtrInput` via:
+//
+//	        AnomalySubscriptionThresholdExpressionTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalySubscriptionThresholdExpressionTagsPtrInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionThresholdExpressionTagsPtrOutput() AnomalySubscriptionThresholdExpressionTagsPtrOutput
+	ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(context.Context) AnomalySubscriptionThresholdExpressionTagsPtrOutput
+}
+
+type anomalySubscriptionThresholdExpressionTagsPtrType AnomalySubscriptionThresholdExpressionTagsArgs
+
+func AnomalySubscriptionThresholdExpressionTagsPtr(v *AnomalySubscriptionThresholdExpressionTagsArgs) AnomalySubscriptionThresholdExpressionTagsPtrInput {
+	return (*anomalySubscriptionThresholdExpressionTagsPtrType)(v)
+}
+
+func (*anomalySubscriptionThresholdExpressionTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionTags)(nil)).Elem()
+}
+
+func (i *anomalySubscriptionThresholdExpressionTagsPtrType) ToAnomalySubscriptionThresholdExpressionTagsPtrOutput() AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return i.ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalySubscriptionThresholdExpressionTagsPtrType) ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionTagsPtrOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionTagsOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionThresholdExpressionTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionTagsOutput) ToAnomalySubscriptionThresholdExpressionTagsOutput() AnomalySubscriptionThresholdExpressionTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionTagsOutput) ToAnomalySubscriptionThresholdExpressionTagsOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionTagsOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionTagsOutput) ToAnomalySubscriptionThresholdExpressionTagsPtrOutput() AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return o.ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalySubscriptionThresholdExpressionTagsOutput) ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionTags) *AnomalySubscriptionThresholdExpressionTags {
+		return &v
+	}).(AnomalySubscriptionThresholdExpressionTagsPtrOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnomalySubscriptionThresholdExpressionTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionThresholdExpressionTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalySubscriptionThresholdExpressionTags)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionTagsPtrOutput() AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionTagsPtrOutput {
+	return o
+}
+
+func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionTagsOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionTags) AnomalySubscriptionThresholdExpressionTags {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalySubscriptionThresholdExpressionTags
+		return ret
+	}).(AnomalySubscriptionThresholdExpressionTagsOutput)
+}
+
+// Key for the tag.
+func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specific value of the Cost Category.
+func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 type CostCategoryRule struct {
 	// Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
 	InheritedValue *CostCategoryRuleInheritedValue `pulumi:"inheritedValue"`
@@ -8597,6 +11364,38 @@ func (o GetTagsTimePeriodOutput) Start() pulumi.StringOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberInput)(nil)).Elem(), AnomalySubscriptionSubscriberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberArrayInput)(nil)).Elem(), AnomalySubscriptionSubscriberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndArrayInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndCostCategoryInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndDimensionInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndDimensionPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndTagsInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionAndTagsPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionCostCategoryInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionCostCategoryPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionDimensionInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionDimensionPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotCostCategoryInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotDimensionInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotDimensionPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotTagsInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionNotTagsPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrArrayInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrCostCategoryInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrCostCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrDimensionInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrDimensionPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrTagsInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionOrTagsPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionTagsInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionThresholdExpressionTagsPtrInput)(nil)).Elem(), AnomalySubscriptionThresholdExpressionTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleInput)(nil)).Elem(), CostCategoryRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleArrayInput)(nil)).Elem(), CostCategoryRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleInheritedValueInput)(nil)).Elem(), CostCategoryRuleInheritedValueArgs{})
@@ -8714,6 +11513,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagsTimePeriodInput)(nil)).Elem(), GetTagsTimePeriodArgs{})
 	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberOutput{})
 	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberArrayOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndArrayOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndCostCategoryOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndDimensionOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndTagsOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionAndTagsPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionCostCategoryOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionDimensionOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionDimensionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotCostCategoryOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotDimensionOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotTagsOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrArrayOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrCostCategoryOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrDimensionOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrTagsOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionOrTagsPtrOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionTagsOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionThresholdExpressionTagsPtrOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleArrayOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleInheritedValueOutput{})

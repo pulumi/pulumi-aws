@@ -158,10 +158,10 @@ def get_bucket(bucket: Optional[str] = None,
         zone_id=test_zone.id,
         name="bucket",
         type="A",
-        aliases=[aws.route53.RecordAliasArgs(
+        alias=aws.route53.RecordAliasArgs(
             name=selected.website_domain,
             zone_id=selected.hosted_zone_id,
-        )])
+        ))
     ```
     ### CloudFront Origin
 
@@ -218,10 +218,10 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
         zone_id=test_zone.id,
         name="bucket",
         type="A",
-        aliases=[aws.route53.RecordAliasArgs(
+        alias=aws.route53.RecordAliasArgs(
             name=selected.website_domain,
             zone_id=selected.hosted_zone_id,
-        )])
+        ))
     ```
     ### CloudFront Origin
 

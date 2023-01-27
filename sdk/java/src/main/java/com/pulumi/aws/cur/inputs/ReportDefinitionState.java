@@ -183,14 +183,14 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+     * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      * 
      */
     @Import(name="timeUnit")
     private @Nullable Output<String> timeUnit;
 
     /**
-     * @return The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+     * @return The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      * 
      */
     public Optional<Output<String>> timeUnit() {
@@ -484,7 +484,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param timeUnit The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+         * @param timeUnit The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class ReportDefinitionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param timeUnit The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+         * @param timeUnit The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
          * 
          * @return builder
          * 

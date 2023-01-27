@@ -88,7 +88,7 @@ export class TableReplica extends pulumi.CustomResource {
      */
     public readonly globalTableArn!: pulumi.Output<string>;
     /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
+     * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface TableReplicaState {
      */
     globalTableArn?: pulumi.Input<string>;
     /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
+     * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface TableReplicaArgs {
      */
     globalTableArn: pulumi.Input<string>;
     /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
+     * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**

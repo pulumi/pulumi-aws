@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -108,6 +109,21 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
+    /**
      * Set of Operating Systems (OS) supported by the component.
      * 
      */
@@ -176,6 +192,7 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.name = $.name;
         this.platform = $.platform;
+        this.skipDestroy = $.skipDestroy;
         this.supportedOsVersions = $.supportedOsVersions;
         this.tags = $.tags;
         this.uri = $.uri;
@@ -324,6 +341,27 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder platform(String platform) {
             return platform(Output.of(platform));
+        }
+
+        /**
+         * @param skipDestroy Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

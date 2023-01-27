@@ -100,6 +100,10 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly platform!: pulumi.Output<string>;
     /**
+     * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+     */
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Set of Operating Systems (OS) supported by the component.
      */
     public readonly supportedOsVersions!: pulumi.Output<string[] | undefined>;
@@ -147,6 +151,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["supportedOsVersions"] = state ? state.supportedOsVersions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -167,6 +172,7 @@ export class Component extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
@@ -228,6 +234,10 @@ export interface ComponentState {
      */
     platform?: pulumi.Input<string>;
     /**
+     * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
+    /**
      * Set of Operating Systems (OS) supported by the component.
      */
     supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -281,6 +291,10 @@ export interface ComponentArgs {
      * Platform of the component.
      */
     platform: pulumi.Input<string>;
+    /**
+     * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * Set of Operating Systems (OS) supported by the component.
      */

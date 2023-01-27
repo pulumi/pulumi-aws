@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.RouteSpecTcpRouteAction;
+import com.pulumi.aws.appmesh.outputs.RouteSpecTcpRouteMatch;
 import com.pulumi.aws.appmesh.outputs.RouteSpecTcpRouteTimeout;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class RouteSpecTcpRoute {
      */
     private RouteSpecTcpRouteAction action;
     /**
+     * @return Criteria for determining an gRPC request match.
+     * 
+     */
+    private @Nullable RouteSpecTcpRouteMatch match;
+    /**
      * @return Types of timeouts.
      * 
      */
@@ -30,6 +36,13 @@ public final class RouteSpecTcpRoute {
      */
     public RouteSpecTcpRouteAction action() {
         return this.action;
+    }
+    /**
+     * @return Criteria for determining an gRPC request match.
+     * 
+     */
+    public Optional<RouteSpecTcpRouteMatch> match() {
+        return Optional.ofNullable(this.match);
     }
     /**
      * @return Types of timeouts.
@@ -49,17 +62,24 @@ public final class RouteSpecTcpRoute {
     @CustomType.Builder
     public static final class Builder {
         private RouteSpecTcpRouteAction action;
+        private @Nullable RouteSpecTcpRouteMatch match;
         private @Nullable RouteSpecTcpRouteTimeout timeout;
         public Builder() {}
         public Builder(RouteSpecTcpRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.match = defaults.match;
     	      this.timeout = defaults.timeout;
         }
 
         @CustomType.Setter
         public Builder action(RouteSpecTcpRouteAction action) {
             this.action = Objects.requireNonNull(action);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder match(@Nullable RouteSpecTcpRouteMatch match) {
+            this.match = match;
             return this;
         }
         @CustomType.Setter
@@ -70,6 +90,7 @@ public final class RouteSpecTcpRoute {
         public RouteSpecTcpRoute build() {
             final var o = new RouteSpecTcpRoute();
             o.action = action;
+            o.match = match;
             o.timeout = timeout;
             return o;
         }

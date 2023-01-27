@@ -22,6 +22,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Method;
         /// <summary>
+        /// The port number to match from the request.
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
         /// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
@@ -37,12 +41,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
 
             string? method,
 
+            int? port,
+
             string prefix,
 
             string? scheme)
         {
             Headers = headers;
             Method = method;
+            Port = port;
             Prefix = prefix;
             Scheme = scheme;
         }

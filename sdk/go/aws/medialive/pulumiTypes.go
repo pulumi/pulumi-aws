@@ -2089,6 +2089,8 @@ type ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings struct {
 	InputType *string `pulumi:"inputType"`
 	// AAC profile.
 	Profile *string `pulumi:"profile"`
+	// The rate control mode.
+	RateControlMode *string `pulumi:"rateControlMode"`
 	// Sets LATM/LOAS AAC output for raw containers.
 	RawFormat *string `pulumi:"rawFormat"`
 	// Sample rate in Hz.
@@ -2119,6 +2121,8 @@ type ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs struct {
 	InputType pulumi.StringPtrInput `pulumi:"inputType"`
 	// AAC profile.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The rate control mode.
+	RateControlMode pulumi.StringPtrInput `pulumi:"rateControlMode"`
 	// Sets LATM/LOAS AAC output for raw containers.
 	RawFormat pulumi.StringPtrInput `pulumi:"rawFormat"`
 	// Sample rate in Hz.
@@ -2226,6 +2230,13 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsOutput) Pr
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
+// The rate control mode.
+func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsOutput) RateControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings) *string {
+		return v.RateControlMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // Sets LATM/LOAS AAC output for raw containers.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsOutput) RawFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings) *string { return v.RawFormat }).(pulumi.StringPtrOutput)
@@ -2307,6 +2318,16 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrOutput)
 			return nil
 		}
 		return v.Profile
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rate control mode.
+func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrOutput) RateControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RateControlMode
 	}).(pulumi.StringPtrOutput)
 }
 

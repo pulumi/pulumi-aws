@@ -4,11 +4,19 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecGrpcRouteMatch {
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    private @Nullable Integer port;
     /**
      * @return Fully qualified domain name for the service to match from the request.
      * 
@@ -16,6 +24,13 @@ public final class GatewayRouteSpecGrpcRouteMatch {
     private String serviceName;
 
     private GatewayRouteSpecGrpcRouteMatch() {}
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
+    }
     /**
      * @return Fully qualified domain name for the service to match from the request.
      * 
@@ -33,13 +48,20 @@ public final class GatewayRouteSpecGrpcRouteMatch {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer port;
         private String serviceName;
         public Builder() {}
         public Builder(GatewayRouteSpecGrpcRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.port = defaults.port;
     	      this.serviceName = defaults.serviceName;
         }
 
+        @CustomType.Setter
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
+            return this;
+        }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
@@ -47,6 +69,7 @@ public final class GatewayRouteSpecGrpcRouteMatch {
         }
         public GatewayRouteSpecGrpcRouteMatch build() {
             final var o = new GatewayRouteSpecGrpcRouteMatch();
+            o.port = port;
             o.serviceName = serviceName;
             return o;
         }

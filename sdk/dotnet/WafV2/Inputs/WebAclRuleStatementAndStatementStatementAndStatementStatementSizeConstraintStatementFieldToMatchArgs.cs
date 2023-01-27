@@ -19,13 +19,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs>? AllQueryArguments { get; set; }
 
         /// <summary>
-        /// Inspect the request body, which immediately follows the request headers.
+        /// Inspect the request body, which immediately follows the request headers. See `body` below for details.
         /// </summary>
         [Input("body")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBodyArgs>? Body { get; set; }
 
         /// <summary>
-        /// Inspect the cookies in the web request. See Cookies below for details.
+        /// Inspect the cookies in the web request. See `cookies` below for details.
         /// </summary>
         [Input("cookies")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchCookiesArgs>? Cookies { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeaderArgs>? _headers;
 
         /// <summary>
-        /// Inspect the request headers. See Headers below for details.
+        /// Inspect the request headers. See `headers` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchHeaderArgs> Headers
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// Inspect the request body as JSON. See JSON Body for details.
+        /// Inspect the request body as JSON. See `json_body` for details.
         /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchJsonBodyArgs>? JsonBody { get; set; }
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryStringArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Inspect a single header. See Single Header below for details.
+        /// Inspect a single header. See `single_header` below for details.
         /// </summary>
         [Input("singleHeader")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs>? SingleHeader { get; set; }
 
         /// <summary>
-        /// Inspect a single query argument. See Single Query Argument below for details.
+        /// Inspect a single query argument. See `single_query_argument` below for details.
         /// </summary>
         [Input("singleQueryArgument")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs>? SingleQueryArgument { get; set; }

@@ -21,6 +21,7 @@ class ComponentArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
@@ -33,6 +34,7 @@ class ComponentArgs:
         :param pulumi.Input[str] description: Description of the component.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         :param pulumi.Input[str] name: Name of the component.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
@@ -49,6 +51,8 @@ class ComponentArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if supported_os_versions is not None:
             pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if tags is not None:
@@ -141,6 +145,18 @@ class ComponentArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -190,6 +206,7 @@ class _ComponentState:
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -208,6 +225,7 @@ class _ComponentState:
         :param pulumi.Input[str] name: Name of the component.
         :param pulumi.Input[str] owner: Owner of the component.
         :param pulumi.Input[str] platform: Platform of the component.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -235,6 +253,8 @@ class _ComponentState:
             pulumi.set(__self__, "owner", owner)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if supported_os_versions is not None:
             pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if tags is not None:
@@ -369,6 +389,18 @@ class _ComponentState:
         pulumi.set(self, "platform", value)
 
     @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -452,6 +484,7 @@ class Component(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -491,6 +524,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
         :param pulumi.Input[str] name: Name of the component.
         :param pulumi.Input[str] platform: Platform of the component.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
@@ -549,6 +583,7 @@ class Component(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -570,6 +605,7 @@ class Component(pulumi.CustomResource):
             if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
             __props__.__dict__["platform"] = platform
+            __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["supported_os_versions"] = supported_os_versions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["uri"] = uri
@@ -602,6 +638,7 @@ class Component(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             platform: Optional[pulumi.Input[str]] = None,
+            skip_destroy: Optional[pulumi.Input[bool]] = None,
             supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -625,6 +662,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the component.
         :param pulumi.Input[str] owner: Owner of the component.
         :param pulumi.Input[str] platform: Platform of the component.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -646,6 +684,7 @@ class Component(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
         __props__.__dict__["platform"] = platform
+        __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["supported_os_versions"] = supported_os_versions
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -733,6 +772,14 @@ class Component(pulumi.CustomResource):
         Platform of the component.
         """
         return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_destroy")
 
     @property
     @pulumi.getter(name="supportedOsVersions")

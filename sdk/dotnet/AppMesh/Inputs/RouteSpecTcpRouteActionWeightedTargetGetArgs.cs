@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecTcpRouteActionWeightedTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The targeted port of the weighted object.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
         /// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("virtualNode", required: true)]

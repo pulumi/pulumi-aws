@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Provides an AWS Quantum Ledger Database (QLDB) Stream resource
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -46,7 +45,7 @@ import javax.annotation.Nullable;
  *         var example = new Stream(&#34;example&#34;, StreamArgs.builder()        
  *             .inclusiveStartTime(&#34;2021-01-01T00:00:00Z&#34;)
  *             .kinesisConfiguration(StreamKinesisConfigurationArgs.builder()
- *                 .aggegationEnabled(false)
+ *                 .aggregationEnabled(false)
  *                 .streamArn(&#34;arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream&#34;)
  *                 .build())
  *             .ledgerName(&#34;existing-ledger-name&#34;)

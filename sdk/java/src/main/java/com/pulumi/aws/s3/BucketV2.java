@@ -1042,7 +1042,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
         return this.versionings;
     }
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
      * Use the aws_s3_bucket_website_configuration resource
@@ -1053,14 +1053,14 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     private Output<String> websiteDomain;
 
     /**
-     * @return The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * @return (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      */
     public Output<String> websiteDomain() {
         return this.websiteDomain;
     }
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
      * Use the aws_s3_bucket_website_configuration resource
@@ -1071,7 +1071,7 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     private Output<String> websiteEndpoint;
 
     /**
-     * @return The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * @return (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      */
     public Output<String> websiteEndpoint() {

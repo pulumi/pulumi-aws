@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,6 +33,21 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     }
 
     /**
+     * The port number to match from the request.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
+    }
+
+    /**
      * Specified beginning characters to rewrite.
      * 
      */
@@ -50,6 +66,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
 
     private GatewayRouteSpecHttp2RouteMatchArgs(GatewayRouteSpecHttp2RouteMatchArgs $) {
         this.hostname = $.hostname;
+        this.port = $.port;
         this.prefix = $.prefix;
     }
 
@@ -90,6 +107,27 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
          */
         public Builder hostname(GatewayRouteSpecHttp2RouteMatchHostnameArgs hostname) {
             return hostname(Output.of(hostname));
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

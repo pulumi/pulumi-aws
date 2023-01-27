@@ -32,6 +32,21 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
     }
 
     /**
+     * Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * 
+     */
+    @Import(name="runtimeEnvironmentSecrets")
+    private @Nullable Output<Map<String,String>> runtimeEnvironmentSecrets;
+
+    /**
+     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> runtimeEnvironmentSecrets() {
+        return Optional.ofNullable(this.runtimeEnvironmentSecrets);
+    }
+
+    /**
      * Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
      * 
      */
@@ -65,6 +80,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
 
     private ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs $) {
         this.port = $.port;
+        this.runtimeEnvironmentSecrets = $.runtimeEnvironmentSecrets;
         this.runtimeEnvironmentVariables = $.runtimeEnvironmentVariables;
         this.startCommand = $.startCommand;
     }
@@ -106,6 +122,27 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
          */
         public Builder port(String port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param runtimeEnvironmentSecrets Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeEnvironmentSecrets(@Nullable Output<Map<String,String>> runtimeEnvironmentSecrets) {
+            $.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
+            return this;
+        }
+
+        /**
+         * @param runtimeEnvironmentSecrets Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtimeEnvironmentSecrets(Map<String,String> runtimeEnvironmentSecrets) {
+            return runtimeEnvironmentSecrets(Output.of(runtimeEnvironmentSecrets));
         }
 
         /**

@@ -46,7 +46,7 @@ import {PolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const instance-assume-role-policy = aws.iam.getPolicyDocument({
+ * const instanceAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -57,7 +57,7 @@ import {PolicyDocument} from "./index";
  * });
  * const instance = new aws.iam.Role("instance", {
  *     path: "/system/",
- *     assumeRolePolicy: instance_assume_role_policy.then(instance_assume_role_policy => instance_assume_role_policy.json),
+ *     assumeRolePolicy: instanceAssumeRolePolicy.then(instanceAssumeRolePolicy => instanceAssumeRolePolicy.json),
  * });
  * ```
  * ### Example of Exclusive Inline Policies

@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  * const example = new aws.appmesh.VirtualGateway("example", {
  *     meshName: "example-service-mesh",
  *     spec: {
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         },
+ *         }],
  *     },
  *     tags: {
  *         Environment: "test",
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * const example = new aws.appmesh.VirtualGateway("example", {
  *     meshName: "example-service-mesh",
  *     spec: {
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *                 },
  *                 mode: "STRICT",
  *             },
- *         },
+ *         }],
  *         logging: {
  *             accessLog: {
  *                 file: {

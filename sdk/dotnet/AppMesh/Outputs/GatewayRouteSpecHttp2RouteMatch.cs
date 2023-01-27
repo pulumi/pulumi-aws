@@ -18,6 +18,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteMatchHostname? Hostname;
         /// <summary>
+        /// The port number to match from the request.
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
         /// Specified beginning characters to rewrite.
         /// </summary>
         public readonly string? Prefix;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private GatewayRouteSpecHttp2RouteMatch(
             Outputs.GatewayRouteSpecHttp2RouteMatchHostname? hostname,
 
+            int? port,
+
             string? prefix)
         {
             Hostname = hostname;
+            Port = port;
             Prefix = prefix;
         }
     }

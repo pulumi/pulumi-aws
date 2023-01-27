@@ -523,13 +523,13 @@ export class BucketV2 extends pulumi.CustomResource {
      */
     public readonly versionings!: pulumi.Output<outputs.s3.BucketV2Versioning[]>;
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      *
      * @deprecated Use the aws_s3_bucket_website_configuration resource
      */
     public /*out*/ readonly websiteDomain!: pulumi.Output<string>;
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      *
      * @deprecated Use the aws_s3_bucket_website_configuration resource
      */
@@ -752,13 +752,13 @@ export interface BucketV2State {
      */
     versionings?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Versioning>[]>;
     /**
-     * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
+     * (**Deprecated**) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      *
      * @deprecated Use the aws_s3_bucket_website_configuration resource
      */
     websiteDomain?: pulumi.Input<string>;
     /**
-     * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
+     * (**Deprecated**) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      *
      * @deprecated Use the aws_s3_bucket_website_configuration resource
      */

@@ -31,10 +31,12 @@ import (
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
 //				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Listener: &appmesh.VirtualGatewaySpecListenerArgs{
-//						PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
+//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
+//						&appmesh.VirtualGatewaySpecListenerArgs{
+//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
+//							},
 //						},
 //					},
 //				},
@@ -67,18 +69,20 @@ import (
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
 //				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Listener: &appmesh.VirtualGatewaySpecListenerArgs{
-//						PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
-//						},
-//						Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
-//							Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
-//								Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
-//									CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//								},
+//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
+//						&appmesh.VirtualGatewaySpecListenerArgs{
+//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
 //							},
-//							Mode: pulumi.String("STRICT"),
+//							Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
+//								Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
+//									Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
+//										CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//									},
+//								},
+//								Mode: pulumi.String("STRICT"),
+//							},
 //						},
 //					},
 //					Logging: &appmesh.VirtualGatewaySpecLoggingArgs{

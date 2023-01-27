@@ -30,8 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualGateway;
  * import com.pulumi.aws.appmesh.VirtualGatewayArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerPortMappingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,7 +46,7 @@ import javax.annotation.Nullable;
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listener(VirtualGatewaySpecListenerArgs.builder()
+ *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)
@@ -71,11 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualGateway;
  * import com.pulumi.aws.appmesh.VirtualGatewayArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerPortMappingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileArgs;
@@ -95,7 +88,7 @@ import javax.annotation.Nullable;
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listener(VirtualGatewaySpecListenerArgs.builder()
+ *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)

@@ -5,13 +5,31 @@ package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GatewayRouteSpecGrpcRouteMatchArgs Empty = new GatewayRouteSpecGrpcRouteMatchArgs();
+
+    /**
+     * The port number to match from the request.
+     * 
+     */
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
+
+    /**
+     * @return The port number to match from the request.
+     * 
+     */
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
+    }
 
     /**
      * Fully qualified domain name for the service to match from the request.
@@ -31,6 +49,7 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
     private GatewayRouteSpecGrpcRouteMatchArgs() {}
 
     private GatewayRouteSpecGrpcRouteMatchArgs(GatewayRouteSpecGrpcRouteMatchArgs $) {
+        this.port = $.port;
         this.serviceName = $.serviceName;
     }
 
@@ -50,6 +69,27 @@ public final class GatewayRouteSpecGrpcRouteMatchArgs extends com.pulumi.resourc
 
         public Builder(GatewayRouteSpecGrpcRouteMatchArgs defaults) {
             $ = new GatewayRouteSpecGrpcRouteMatchArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(@Nullable Output<Integer> port) {
+            $.port = port;
+            return this;
+        }
+
+        /**
+         * @param port The port number to match from the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder port(Integer port) {
+            return port(Output.of(port));
         }
 
         /**

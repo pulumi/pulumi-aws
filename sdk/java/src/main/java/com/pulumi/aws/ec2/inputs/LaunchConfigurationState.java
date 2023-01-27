@@ -202,14 +202,14 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -246,9 +246,17 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.rootBlockDevice);
     }
 
+    /**
+     * A list of associated security group IDS.
+     * 
+     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
+    /**
+     * @return A list of associated security group IDS.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
@@ -661,7 +669,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -672,7 +680,7 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -723,15 +731,33 @@ public final class LaunchConfigurationState extends com.pulumi.resources.Resourc
             return rootBlockDevice(Output.of(rootBlockDevice));
         }
 
+        /**
+         * @param securityGroups A list of associated security group IDS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
+        /**
+         * @param securityGroups A list of associated security group IDS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
+        /**
+         * @param securityGroups A list of associated security group IDS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }

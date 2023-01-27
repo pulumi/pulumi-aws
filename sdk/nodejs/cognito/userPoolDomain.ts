@@ -39,11 +39,11 @@ import * as utilities from "../utilities";
  *     name: main.domain,
  *     type: "A",
  *     zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
- *     aliases: [{
+ *     alias: {
  *         evaluateTargetHealth: false,
  *         name: main.cloudfrontDistributionArn,
  *         zoneId: "Z2FDTNDATAQYW2",
- *     }],
+ *     },
  * });
  * ```
  *

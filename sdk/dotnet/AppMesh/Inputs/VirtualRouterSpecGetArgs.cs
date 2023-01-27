@@ -12,12 +12,18 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualRouterSpecGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("listeners", required: true)]
+        private InputList<Inputs.VirtualRouterSpecListenerGetArgs>? _listeners;
+
         /// <summary>
         /// Listeners that the virtual router is expected to receive inbound traffic from.
         /// Currently only one listener is supported per virtual router.
         /// </summary>
-        [Input("listener", required: true)]
-        public Input<Inputs.VirtualRouterSpecListenerGetArgs> Listener { get; set; } = null!;
+        public InputList<Inputs.VirtualRouterSpecListenerGetArgs> Listeners
+        {
+            get => _listeners ?? (_listeners = new InputList<Inputs.VirtualRouterSpecListenerGetArgs>());
+            set => _listeners = value;
+        }
 
         public VirtualRouterSpecGetArgs()
         {

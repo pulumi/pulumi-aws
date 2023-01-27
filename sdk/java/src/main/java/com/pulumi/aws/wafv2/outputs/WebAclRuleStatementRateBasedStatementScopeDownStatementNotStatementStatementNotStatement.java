@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatement {
     /**
-     * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * @return Statement to negate. You can use any statement that can be nested. See `statement` above for details.
      * 
      */
     private List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatement> statements;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatement() {}
     /**
-     * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * @return Statement to negate. You can use any statement that can be nested. See `statement` above for details.
      * 
      */
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatement> statements() {

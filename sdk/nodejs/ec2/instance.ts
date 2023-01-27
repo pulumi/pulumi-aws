@@ -219,7 +219,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
     /**
-     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
@@ -235,8 +235,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly keyName!: pulumi.Output<string>;
     /**
-     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-     * See Launch Template Specification below for more details.
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
     public readonly launchTemplate!: pulumi.Output<outputs.ec2.InstanceLaunchTemplate | undefined>;
     /**
@@ -566,7 +565,7 @@ export interface InstanceState {
      */
     instanceState?: pulumi.Input<string>;
     /**
-     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
@@ -582,8 +581,7 @@ export interface InstanceState {
      */
     keyName?: pulumi.Input<string>;
     /**
-     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-     * See Launch Template Specification below for more details.
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplate>;
     /**
@@ -779,7 +777,7 @@ export interface InstanceArgs {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
@@ -795,8 +793,7 @@ export interface InstanceArgs {
      */
     keyName?: pulumi.Input<string>;
     /**
-     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-     * See Launch Template Specification below for more details.
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplate>;
     /**

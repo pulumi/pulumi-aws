@@ -143,14 +143,14 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+     * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
      * 
      */
     @Import(name="propagateTags")
     private @Nullable Output<String> propagateTags;
 
     /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
      * 
      */
     public Optional<Output<String>> propagateTags() {
@@ -426,7 +426,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param propagateTags Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+         * @param propagateTags Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param propagateTags Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+         * @param propagateTags Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
          * 
          * @return builder
          * 

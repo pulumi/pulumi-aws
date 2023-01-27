@@ -311,10 +311,10 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `allocation id`, e.g.
+        IPAM allocations can be imported using the `allocation id` and `pool id`, separated by `_`, e.g.
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example
+         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
         ```
 
         :param str resource_name: The name of the resource.
@@ -385,10 +385,10 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `allocation id`, e.g.
+        IPAM allocations can be imported using the `allocation id` and `pool id`, separated by `_`, e.g.
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example
+         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
         ```
 
         :param str resource_name: The name of the resource.

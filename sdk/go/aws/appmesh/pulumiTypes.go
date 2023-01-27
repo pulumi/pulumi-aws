@@ -755,6 +755,8 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) VirtualSer
 }
 
 type GatewayRouteSpecGrpcRouteMatch struct {
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Fully qualified domain name for the service to match from the request.
 	ServiceName string `pulumi:"serviceName"`
 }
@@ -771,6 +773,8 @@ type GatewayRouteSpecGrpcRouteMatchInput interface {
 }
 
 type GatewayRouteSpecGrpcRouteMatchArgs struct {
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Fully qualified domain name for the service to match from the request.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 }
@@ -852,6 +856,11 @@ func (o GatewayRouteSpecGrpcRouteMatchOutput) ToGatewayRouteSpecGrpcRouteMatchPt
 	}).(GatewayRouteSpecGrpcRouteMatchPtrOutput)
 }
 
+// The port number to match from the request.
+func (o GatewayRouteSpecGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Fully qualified domain name for the service to match from the request.
 func (o GatewayRouteSpecGrpcRouteMatchOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteMatch) string { return v.ServiceName }).(pulumi.StringOutput)
@@ -879,6 +888,16 @@ func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) Elem() GatewayRouteSpecGrpcRout
 		var ret GatewayRouteSpecGrpcRouteMatch
 		return ret
 	}).(GatewayRouteSpecGrpcRouteMatchOutput)
+}
+
+// The port number to match from the request.
+func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Fully qualified domain name for the service to match from the request.
@@ -1935,6 +1954,8 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) VirtualSe
 type GatewayRouteSpecHttp2RouteMatch struct {
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttp2RouteMatchHostname `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix *string `pulumi:"prefix"`
 }
@@ -1953,6 +1974,8 @@ type GatewayRouteSpecHttp2RouteMatchInput interface {
 type GatewayRouteSpecHttp2RouteMatchArgs struct {
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttp2RouteMatchHostnamePtrInput `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
@@ -2039,6 +2062,11 @@ func (o GatewayRouteSpecHttp2RouteMatchOutput) Hostname() GatewayRouteSpecHttp2R
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
 }
 
+// The port number to match from the request.
+func (o GatewayRouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -2076,6 +2104,16 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Hostname() GatewayRouteSpecHtt
 		}
 		return v.Hostname
 	}).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
+}
+
+// The port number to match from the request.
+func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specified beginning characters to rewrite.
@@ -3288,6 +3326,8 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) VirtualSer
 type GatewayRouteSpecHttpRouteMatch struct {
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttpRouteMatchHostname `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix *string `pulumi:"prefix"`
 }
@@ -3306,6 +3346,8 @@ type GatewayRouteSpecHttpRouteMatchInput interface {
 type GatewayRouteSpecHttpRouteMatchArgs struct {
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttpRouteMatchHostnamePtrInput `pulumi:"hostname"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Specified beginning characters to rewrite.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
@@ -3392,6 +3434,11 @@ func (o GatewayRouteSpecHttpRouteMatchOutput) Hostname() GatewayRouteSpecHttpRou
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
 }
 
+// The port number to match from the request.
+func (o GatewayRouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -3429,6 +3476,16 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Hostname() GatewayRouteSpecHttp
 		}
 		return v.Hostname
 	}).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
+}
+
+// The port number to match from the request.
+func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specified beginning characters to rewrite.
@@ -4428,6 +4485,8 @@ func (o RouteSpecGrpcRouteActionPtrOutput) WeightedTargets() RouteSpecGrpcRouteA
 }
 
 type RouteSpecGrpcRouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -4446,6 +4505,8 @@ type RouteSpecGrpcRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecGrpcRouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -4503,6 +4564,11 @@ func (o RouteSpecGrpcRouteActionWeightedTargetOutput) ToRouteSpecGrpcRouteAction
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecGrpcRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecGrpcRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -4538,6 +4604,8 @@ type RouteSpecGrpcRouteMatch struct {
 	Metadatas []RouteSpecGrpcRouteMatchMetadata `pulumi:"metadatas"`
 	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName *string `pulumi:"methodName"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix *string `pulumi:"prefix"`
@@ -4561,6 +4629,8 @@ type RouteSpecGrpcRouteMatchArgs struct {
 	Metadatas RouteSpecGrpcRouteMatchMetadataArrayInput `pulumi:"metadatas"`
 	// Method name to match from the request. If you specify a name, you must also specify a `serviceName`.
 	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -4655,6 +4725,11 @@ func (o RouteSpecGrpcRouteMatchOutput) MethodName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *string { return v.MethodName }).(pulumi.StringPtrOutput)
 }
 
+// The port number to match from the request.
+func (o RouteSpecGrpcRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecGrpcRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
@@ -4708,6 +4783,16 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) MethodName() pulumi.StringPtrOutput {
 		}
 		return v.MethodName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecGrpcRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
@@ -6408,6 +6493,8 @@ func (o RouteSpecHttp2RouteActionPtrOutput) WeightedTargets() RouteSpecHttp2Rout
 }
 
 type RouteSpecHttp2RouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -6426,6 +6513,8 @@ type RouteSpecHttp2RouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttp2RouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -6483,6 +6572,11 @@ func (o RouteSpecHttp2RouteActionWeightedTargetOutput) ToRouteSpecHttp2RouteActi
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecHttp2RouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttp2RouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -6518,6 +6612,8 @@ type RouteSpecHttp2RouteMatch struct {
 	Headers []RouteSpecHttp2RouteMatchHeader `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix string `pulumi:"prefix"`
@@ -6541,6 +6637,8 @@ type RouteSpecHttp2RouteMatchArgs struct {
 	Headers RouteSpecHttp2RouteMatchHeaderArrayInput `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
@@ -6635,6 +6733,11 @@ func (o RouteSpecHttp2RouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
+// The port number to match from the request.
+func (o RouteSpecHttp2RouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
@@ -6688,6 +6791,16 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 		}
 		return v.Method
 	}).(pulumi.StringPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecHttp2RouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
@@ -8363,6 +8476,8 @@ func (o RouteSpecHttpRouteActionPtrOutput) WeightedTargets() RouteSpecHttpRouteA
 }
 
 type RouteSpecHttpRouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -8381,6 +8496,8 @@ type RouteSpecHttpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecHttpRouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -8438,6 +8555,11 @@ func (o RouteSpecHttpRouteActionWeightedTargetOutput) ToRouteSpecHttpRouteAction
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecHttpRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecHttpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -8473,6 +8595,8 @@ type RouteSpecHttpRouteMatch struct {
 	Headers []RouteSpecHttpRouteMatchHeader `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method *string `pulumi:"method"`
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix string `pulumi:"prefix"`
@@ -8496,6 +8620,8 @@ type RouteSpecHttpRouteMatchArgs struct {
 	Headers RouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
 	// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
 	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 	// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
@@ -8590,6 +8716,11 @@ func (o RouteSpecHttpRouteMatchOutput) Method() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
+// The port number to match from the request.
+func (o RouteSpecHttpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
 // This parameter must always start with /, which by itself matches all requests to the virtual router service name.
 func (o RouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
@@ -8643,6 +8774,16 @@ func (o RouteSpecHttpRouteMatchPtrOutput) Method() pulumi.StringPtrOutput {
 		}
 		return v.Method
 	}).(pulumi.StringPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecHttpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 // Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
@@ -9985,6 +10126,8 @@ func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Value() pulumi.IntPtrOutpu
 type RouteSpecTcpRoute struct {
 	// Action to take if a match is determined.
 	Action RouteSpecTcpRouteAction `pulumi:"action"`
+	// Criteria for determining an gRPC request match.
+	Match *RouteSpecTcpRouteMatch `pulumi:"match"`
 	// Types of timeouts.
 	Timeout *RouteSpecTcpRouteTimeout `pulumi:"timeout"`
 }
@@ -10003,6 +10146,8 @@ type RouteSpecTcpRouteInput interface {
 type RouteSpecTcpRouteArgs struct {
 	// Action to take if a match is determined.
 	Action RouteSpecTcpRouteActionInput `pulumi:"action"`
+	// Criteria for determining an gRPC request match.
+	Match RouteSpecTcpRouteMatchPtrInput `pulumi:"match"`
 	// Types of timeouts.
 	Timeout RouteSpecTcpRouteTimeoutPtrInput `pulumi:"timeout"`
 }
@@ -10089,6 +10234,11 @@ func (o RouteSpecTcpRouteOutput) Action() RouteSpecTcpRouteActionOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) RouteSpecTcpRouteAction { return v.Action }).(RouteSpecTcpRouteActionOutput)
 }
 
+// Criteria for determining an gRPC request match.
+func (o RouteSpecTcpRouteOutput) Match() RouteSpecTcpRouteMatchPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRouteMatch { return v.Match }).(RouteSpecTcpRouteMatchPtrOutput)
+}
+
 // Types of timeouts.
 func (o RouteSpecTcpRouteOutput) Timeout() RouteSpecTcpRouteTimeoutPtrOutput {
 	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRouteTimeout { return v.Timeout }).(RouteSpecTcpRouteTimeoutPtrOutput)
@@ -10126,6 +10276,16 @@ func (o RouteSpecTcpRoutePtrOutput) Action() RouteSpecTcpRouteActionPtrOutput {
 		}
 		return &v.Action
 	}).(RouteSpecTcpRouteActionPtrOutput)
+}
+
+// Criteria for determining an gRPC request match.
+func (o RouteSpecTcpRoutePtrOutput) Match() RouteSpecTcpRouteMatchPtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRoute) *RouteSpecTcpRouteMatch {
+		if v == nil {
+			return nil
+		}
+		return v.Match
+	}).(RouteSpecTcpRouteMatchPtrOutput)
 }
 
 // Types of timeouts.
@@ -10280,6 +10440,8 @@ func (o RouteSpecTcpRouteActionPtrOutput) WeightedTargets() RouteSpecTcpRouteAct
 }
 
 type RouteSpecTcpRouteActionWeightedTarget struct {
+	// The targeted port of the weighted object.
+	Port *int `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode string `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -10298,6 +10460,8 @@ type RouteSpecTcpRouteActionWeightedTargetInput interface {
 }
 
 type RouteSpecTcpRouteActionWeightedTargetArgs struct {
+	// The targeted port of the weighted object.
+	Port pulumi.IntPtrInput `pulumi:"port"`
 	// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 	VirtualNode pulumi.StringInput `pulumi:"virtualNode"`
 	// Relative weight of the weighted target. An integer between 0 and 100.
@@ -10355,6 +10519,11 @@ func (o RouteSpecTcpRouteActionWeightedTargetOutput) ToRouteSpecTcpRouteActionWe
 	return o
 }
 
+// The targeted port of the weighted object.
+func (o RouteSpecTcpRouteActionWeightedTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
 // Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
 func (o RouteSpecTcpRouteActionWeightedTargetOutput) VirtualNode() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteSpecTcpRouteActionWeightedTarget) string { return v.VirtualNode }).(pulumi.StringOutput)
@@ -10383,6 +10552,143 @@ func (o RouteSpecTcpRouteActionWeightedTargetArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteSpecTcpRouteActionWeightedTarget {
 		return vs[0].([]RouteSpecTcpRouteActionWeightedTarget)[vs[1].(int)]
 	}).(RouteSpecTcpRouteActionWeightedTargetOutput)
+}
+
+type RouteSpecTcpRouteMatch struct {
+	// The port number to match from the request.
+	Port *int `pulumi:"port"`
+}
+
+// RouteSpecTcpRouteMatchInput is an input type that accepts RouteSpecTcpRouteMatchArgs and RouteSpecTcpRouteMatchOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteMatchInput` via:
+//
+//	RouteSpecTcpRouteMatchArgs{...}
+type RouteSpecTcpRouteMatchInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteMatchOutput() RouteSpecTcpRouteMatchOutput
+	ToRouteSpecTcpRouteMatchOutputWithContext(context.Context) RouteSpecTcpRouteMatchOutput
+}
+
+type RouteSpecTcpRouteMatchArgs struct {
+	// The port number to match from the request.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (RouteSpecTcpRouteMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchOutput() RouteSpecTcpRouteMatchOutput {
+	return i.ToRouteSpecTcpRouteMatchOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteMatchOutput)
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return i.ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i RouteSpecTcpRouteMatchArgs) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteMatchOutput).ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx)
+}
+
+// RouteSpecTcpRouteMatchPtrInput is an input type that accepts RouteSpecTcpRouteMatchArgs, RouteSpecTcpRouteMatchPtr and RouteSpecTcpRouteMatchPtrOutput values.
+// You can construct a concrete instance of `RouteSpecTcpRouteMatchPtrInput` via:
+//
+//	        RouteSpecTcpRouteMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouteSpecTcpRouteMatchPtrInput interface {
+	pulumi.Input
+
+	ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput
+	ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Context) RouteSpecTcpRouteMatchPtrOutput
+}
+
+type routeSpecTcpRouteMatchPtrType RouteSpecTcpRouteMatchArgs
+
+func RouteSpecTcpRouteMatchPtr(v *RouteSpecTcpRouteMatchArgs) RouteSpecTcpRouteMatchPtrInput {
+	return (*routeSpecTcpRouteMatchPtrType)(v)
+}
+
+func (*routeSpecTcpRouteMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (i *routeSpecTcpRouteMatchPtrType) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return i.ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *routeSpecTcpRouteMatchPtrType) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteSpecTcpRouteMatchPtrOutput)
+}
+
+type RouteSpecTcpRouteMatchOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchOutput() RouteSpecTcpRouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return o.ToRouteSpecTcpRouteMatchPtrOutputWithContext(context.Background())
+}
+
+func (o RouteSpecTcpRouteMatchOutput) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecTcpRouteMatch) *RouteSpecTcpRouteMatch {
+		return &v
+	}).(RouteSpecTcpRouteMatchPtrOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecTcpRouteMatchOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RouteSpecTcpRouteMatch) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type RouteSpecTcpRouteMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteSpecTcpRouteMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteSpecTcpRouteMatch)(nil)).Elem()
+}
+
+func (o RouteSpecTcpRouteMatchPtrOutput) ToRouteSpecTcpRouteMatchPtrOutput() RouteSpecTcpRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchPtrOutput) ToRouteSpecTcpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteMatchPtrOutput {
+	return o
+}
+
+func (o RouteSpecTcpRouteMatchPtrOutput) Elem() RouteSpecTcpRouteMatchOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteMatch) RouteSpecTcpRouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecTcpRouteMatch
+		return ret
+	}).(RouteSpecTcpRouteMatchOutput)
+}
+
+// The port number to match from the request.
+func (o RouteSpecTcpRouteMatchPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouteSpecTcpRouteMatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
 }
 
 type RouteSpecTcpRouteTimeout struct {
@@ -10682,7 +10988,7 @@ type VirtualGatewaySpec struct {
 	// Defaults for backends.
 	BackendDefaults *VirtualGatewaySpecBackendDefaults `pulumi:"backendDefaults"`
 	// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-	Listener VirtualGatewaySpecListener `pulumi:"listener"`
+	Listeners []VirtualGatewaySpecListener `pulumi:"listeners"`
 	// Inbound and outbound access logging information for the virtual gateway.
 	Logging *VirtualGatewaySpecLogging `pulumi:"logging"`
 }
@@ -10702,7 +11008,7 @@ type VirtualGatewaySpecArgs struct {
 	// Defaults for backends.
 	BackendDefaults VirtualGatewaySpecBackendDefaultsPtrInput `pulumi:"backendDefaults"`
 	// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-	Listener VirtualGatewaySpecListenerInput `pulumi:"listener"`
+	Listeners VirtualGatewaySpecListenerArrayInput `pulumi:"listeners"`
 	// Inbound and outbound access logging information for the virtual gateway.
 	Logging VirtualGatewaySpecLoggingPtrInput `pulumi:"logging"`
 }
@@ -10790,8 +11096,8 @@ func (o VirtualGatewaySpecOutput) BackendDefaults() VirtualGatewaySpecBackendDef
 }
 
 // Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-func (o VirtualGatewaySpecOutput) Listener() VirtualGatewaySpecListenerOutput {
-	return o.ApplyT(func(v VirtualGatewaySpec) VirtualGatewaySpecListener { return v.Listener }).(VirtualGatewaySpecListenerOutput)
+func (o VirtualGatewaySpecOutput) Listeners() VirtualGatewaySpecListenerArrayOutput {
+	return o.ApplyT(func(v VirtualGatewaySpec) []VirtualGatewaySpecListener { return v.Listeners }).(VirtualGatewaySpecListenerArrayOutput)
 }
 
 // Inbound and outbound access logging information for the virtual gateway.
@@ -10834,13 +11140,13 @@ func (o VirtualGatewaySpecPtrOutput) BackendDefaults() VirtualGatewaySpecBackend
 }
 
 // Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-func (o VirtualGatewaySpecPtrOutput) Listener() VirtualGatewaySpecListenerPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpec) *VirtualGatewaySpecListener {
+func (o VirtualGatewaySpecPtrOutput) Listeners() VirtualGatewaySpecListenerArrayOutput {
+	return o.ApplyT(func(v *VirtualGatewaySpec) []VirtualGatewaySpecListener {
 		if v == nil {
 			return nil
 		}
-		return &v.Listener
-	}).(VirtualGatewaySpecListenerPtrOutput)
+		return v.Listeners
+	}).(VirtualGatewaySpecListenerArrayOutput)
 }
 
 // Inbound and outbound access logging information for the virtual gateway.
@@ -12863,45 +13169,29 @@ func (i VirtualGatewaySpecListenerArgs) ToVirtualGatewaySpecListenerOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerOutput)
 }
 
-func (i VirtualGatewaySpecListenerArgs) ToVirtualGatewaySpecListenerPtrOutput() VirtualGatewaySpecListenerPtrOutput {
-	return i.ToVirtualGatewaySpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewaySpecListenerArgs) ToVirtualGatewaySpecListenerPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerOutput).ToVirtualGatewaySpecListenerPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewaySpecListenerPtrInput is an input type that accepts VirtualGatewaySpecListenerArgs, VirtualGatewaySpecListenerPtr and VirtualGatewaySpecListenerPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewaySpecListenerPtrInput` via:
+// VirtualGatewaySpecListenerArrayInput is an input type that accepts VirtualGatewaySpecListenerArray and VirtualGatewaySpecListenerArrayOutput values.
+// You can construct a concrete instance of `VirtualGatewaySpecListenerArrayInput` via:
 //
-//	        VirtualGatewaySpecListenerArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualGatewaySpecListenerPtrInput interface {
+//	VirtualGatewaySpecListenerArray{ VirtualGatewaySpecListenerArgs{...} }
+type VirtualGatewaySpecListenerArrayInput interface {
 	pulumi.Input
 
-	ToVirtualGatewaySpecListenerPtrOutput() VirtualGatewaySpecListenerPtrOutput
-	ToVirtualGatewaySpecListenerPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerPtrOutput
+	ToVirtualGatewaySpecListenerArrayOutput() VirtualGatewaySpecListenerArrayOutput
+	ToVirtualGatewaySpecListenerArrayOutputWithContext(context.Context) VirtualGatewaySpecListenerArrayOutput
 }
 
-type virtualGatewaySpecListenerPtrType VirtualGatewaySpecListenerArgs
+type VirtualGatewaySpecListenerArray []VirtualGatewaySpecListenerInput
 
-func VirtualGatewaySpecListenerPtr(v *VirtualGatewaySpecListenerArgs) VirtualGatewaySpecListenerPtrInput {
-	return (*virtualGatewaySpecListenerPtrType)(v)
+func (VirtualGatewaySpecListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewaySpecListener)(nil)).Elem()
 }
 
-func (*virtualGatewaySpecListenerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewaySpecListener)(nil)).Elem()
+func (i VirtualGatewaySpecListenerArray) ToVirtualGatewaySpecListenerArrayOutput() VirtualGatewaySpecListenerArrayOutput {
+	return i.ToVirtualGatewaySpecListenerArrayOutputWithContext(context.Background())
 }
 
-func (i *virtualGatewaySpecListenerPtrType) ToVirtualGatewaySpecListenerPtrOutput() VirtualGatewaySpecListenerPtrOutput {
-	return i.ToVirtualGatewaySpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewaySpecListenerPtrType) ToVirtualGatewaySpecListenerPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerPtrOutput)
+func (i VirtualGatewaySpecListenerArray) ToVirtualGatewaySpecListenerArrayOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerArrayOutput)
 }
 
 type VirtualGatewaySpecListenerOutput struct{ *pulumi.OutputState }
@@ -12916,16 +13206,6 @@ func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerOutput() V
 
 func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerOutput {
 	return o
-}
-
-func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerPtrOutput() VirtualGatewaySpecListenerPtrOutput {
-	return o.ToVirtualGatewaySpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListener) *VirtualGatewaySpecListener {
-		return &v
-	}).(VirtualGatewaySpecListenerPtrOutput)
 }
 
 // Connection pool information for the listener.
@@ -12948,68 +13228,24 @@ func (o VirtualGatewaySpecListenerOutput) Tls() VirtualGatewaySpecListenerTlsPtr
 	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListenerTls { return v.Tls }).(VirtualGatewaySpecListenerTlsPtrOutput)
 }
 
-type VirtualGatewaySpecListenerPtrOutput struct{ *pulumi.OutputState }
+type VirtualGatewaySpecListenerArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualGatewaySpecListenerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewaySpecListener)(nil)).Elem()
+func (VirtualGatewaySpecListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualGatewaySpecListener)(nil)).Elem()
 }
 
-func (o VirtualGatewaySpecListenerPtrOutput) ToVirtualGatewaySpecListenerPtrOutput() VirtualGatewaySpecListenerPtrOutput {
+func (o VirtualGatewaySpecListenerArrayOutput) ToVirtualGatewaySpecListenerArrayOutput() VirtualGatewaySpecListenerArrayOutput {
 	return o
 }
 
-func (o VirtualGatewaySpecListenerPtrOutput) ToVirtualGatewaySpecListenerPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPtrOutput {
+func (o VirtualGatewaySpecListenerArrayOutput) ToVirtualGatewaySpecListenerArrayOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerArrayOutput {
 	return o
 }
 
-func (o VirtualGatewaySpecListenerPtrOutput) Elem() VirtualGatewaySpecListenerOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListener) VirtualGatewaySpecListener {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewaySpecListener
-		return ret
+func (o VirtualGatewaySpecListenerArrayOutput) Index(i pulumi.IntInput) VirtualGatewaySpecListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGatewaySpecListener {
+		return vs[0].([]VirtualGatewaySpecListener)[vs[1].(int)]
 	}).(VirtualGatewaySpecListenerOutput)
-}
-
-// Connection pool information for the listener.
-func (o VirtualGatewaySpecListenerPtrOutput) ConnectionPool() VirtualGatewaySpecListenerConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectionPool
-	}).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
-}
-
-// Health check information for the listener.
-func (o VirtualGatewaySpecListenerPtrOutput) HealthCheck() VirtualGatewaySpecListenerHealthCheckPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerHealthCheck {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheck
-	}).(VirtualGatewaySpecListenerHealthCheckPtrOutput)
-}
-
-// Port mapping information for the listener.
-func (o VirtualGatewaySpecListenerPtrOutput) PortMapping() VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerPortMapping {
-		if v == nil {
-			return nil
-		}
-		return &v.PortMapping
-	}).(VirtualGatewaySpecListenerPortMappingPtrOutput)
-}
-
-// Transport Layer Security (TLS) properties for the listener
-func (o VirtualGatewaySpecListenerPtrOutput) Tls() VirtualGatewaySpecListenerTlsPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListener) *VirtualGatewaySpecListenerTls {
-		if v == nil {
-			return nil
-		}
-		return v.Tls
-	}).(VirtualGatewaySpecListenerTlsPtrOutput)
 }
 
 type VirtualGatewaySpecListenerConnectionPool struct {
@@ -13911,47 +14147,6 @@ func (i VirtualGatewaySpecListenerPortMappingArgs) ToVirtualGatewaySpecListenerP
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerPortMappingOutput)
 }
 
-func (i VirtualGatewaySpecListenerPortMappingArgs) ToVirtualGatewaySpecListenerPortMappingPtrOutput() VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return i.ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualGatewaySpecListenerPortMappingArgs) ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerPortMappingOutput).ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(ctx)
-}
-
-// VirtualGatewaySpecListenerPortMappingPtrInput is an input type that accepts VirtualGatewaySpecListenerPortMappingArgs, VirtualGatewaySpecListenerPortMappingPtr and VirtualGatewaySpecListenerPortMappingPtrOutput values.
-// You can construct a concrete instance of `VirtualGatewaySpecListenerPortMappingPtrInput` via:
-//
-//	        VirtualGatewaySpecListenerPortMappingArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualGatewaySpecListenerPortMappingPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGatewaySpecListenerPortMappingPtrOutput() VirtualGatewaySpecListenerPortMappingPtrOutput
-	ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(context.Context) VirtualGatewaySpecListenerPortMappingPtrOutput
-}
-
-type virtualGatewaySpecListenerPortMappingPtrType VirtualGatewaySpecListenerPortMappingArgs
-
-func VirtualGatewaySpecListenerPortMappingPtr(v *VirtualGatewaySpecListenerPortMappingArgs) VirtualGatewaySpecListenerPortMappingPtrInput {
-	return (*virtualGatewaySpecListenerPortMappingPtrType)(v)
-}
-
-func (*virtualGatewaySpecListenerPortMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewaySpecListenerPortMapping)(nil)).Elem()
-}
-
-func (i *virtualGatewaySpecListenerPortMappingPtrType) ToVirtualGatewaySpecListenerPortMappingPtrOutput() VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return i.ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGatewaySpecListenerPortMappingPtrType) ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewaySpecListenerPortMappingPtrOutput)
-}
-
 type VirtualGatewaySpecListenerPortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewaySpecListenerPortMappingOutput) ElementType() reflect.Type {
@@ -13966,16 +14161,6 @@ func (o VirtualGatewaySpecListenerPortMappingOutput) ToVirtualGatewaySpecListene
 	return o
 }
 
-func (o VirtualGatewaySpecListenerPortMappingOutput) ToVirtualGatewaySpecListenerPortMappingPtrOutput() VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return o.ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGatewaySpecListenerPortMappingOutput) ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerPortMapping) *VirtualGatewaySpecListenerPortMapping {
-		return &v
-	}).(VirtualGatewaySpecListenerPortMappingPtrOutput)
-}
-
 // Port used for the port mapping.
 func (o VirtualGatewaySpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
@@ -13984,50 +14169,6 @@ func (o VirtualGatewaySpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 // Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualGatewaySpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-type VirtualGatewaySpecListenerPortMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGatewaySpecListenerPortMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGatewaySpecListenerPortMapping)(nil)).Elem()
-}
-
-func (o VirtualGatewaySpecListenerPortMappingPtrOutput) ToVirtualGatewaySpecListenerPortMappingPtrOutput() VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return o
-}
-
-func (o VirtualGatewaySpecListenerPortMappingPtrOutput) ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return o
-}
-
-func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Elem() VirtualGatewaySpecListenerPortMappingOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerPortMapping) VirtualGatewaySpecListenerPortMapping {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGatewaySpecListenerPortMapping
-		return ret
-	}).(VirtualGatewaySpecListenerPortMappingOutput)
-}
-
-// Port used for the port mapping.
-func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerPortMapping) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerPortMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Protocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualGatewaySpecListenerTls struct {
@@ -16103,7 +16244,7 @@ type VirtualNodeSpec struct {
 	// Backends to which the virtual node is expected to send outbound traffic.
 	Backends []VirtualNodeSpecBackend `pulumi:"backends"`
 	// Listeners from which the virtual node is expected to receive inbound traffic.
-	Listener *VirtualNodeSpecListener `pulumi:"listener"`
+	Listeners []VirtualNodeSpecListener `pulumi:"listeners"`
 	// Inbound and outbound access logging information for the virtual node.
 	Logging *VirtualNodeSpecLogging `pulumi:"logging"`
 	// Service discovery information for the virtual node.
@@ -16127,7 +16268,7 @@ type VirtualNodeSpecArgs struct {
 	// Backends to which the virtual node is expected to send outbound traffic.
 	Backends VirtualNodeSpecBackendArrayInput `pulumi:"backends"`
 	// Listeners from which the virtual node is expected to receive inbound traffic.
-	Listener VirtualNodeSpecListenerPtrInput `pulumi:"listener"`
+	Listeners VirtualNodeSpecListenerArrayInput `pulumi:"listeners"`
 	// Inbound and outbound access logging information for the virtual node.
 	Logging VirtualNodeSpecLoggingPtrInput `pulumi:"logging"`
 	// Service discovery information for the virtual node.
@@ -16222,8 +16363,8 @@ func (o VirtualNodeSpecOutput) Backends() VirtualNodeSpecBackendArrayOutput {
 }
 
 // Listeners from which the virtual node is expected to receive inbound traffic.
-func (o VirtualNodeSpecOutput) Listener() VirtualNodeSpecListenerPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpecListener { return v.Listener }).(VirtualNodeSpecListenerPtrOutput)
+func (o VirtualNodeSpecOutput) Listeners() VirtualNodeSpecListenerArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpec) []VirtualNodeSpecListener { return v.Listeners }).(VirtualNodeSpecListenerArrayOutput)
 }
 
 // Inbound and outbound access logging information for the virtual node.
@@ -16281,13 +16422,13 @@ func (o VirtualNodeSpecPtrOutput) Backends() VirtualNodeSpecBackendArrayOutput {
 }
 
 // Listeners from which the virtual node is expected to receive inbound traffic.
-func (o VirtualNodeSpecPtrOutput) Listener() VirtualNodeSpecListenerPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpec) *VirtualNodeSpecListener {
+func (o VirtualNodeSpecPtrOutput) Listeners() VirtualNodeSpecListenerArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpec) []VirtualNodeSpecListener {
 		if v == nil {
 			return nil
 		}
-		return v.Listener
-	}).(VirtualNodeSpecListenerPtrOutput)
+		return v.Listeners
+	}).(VirtualNodeSpecListenerArrayOutput)
 }
 
 // Inbound and outbound access logging information for the virtual node.
@@ -20314,45 +20455,29 @@ func (i VirtualNodeSpecListenerArgs) ToVirtualNodeSpecListenerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutput)
 }
 
-func (i VirtualNodeSpecListenerArgs) ToVirtualNodeSpecListenerPtrOutput() VirtualNodeSpecListenerPtrOutput {
-	return i.ToVirtualNodeSpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeSpecListenerArgs) ToVirtualNodeSpecListenerPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerOutput).ToVirtualNodeSpecListenerPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeSpecListenerPtrInput is an input type that accepts VirtualNodeSpecListenerArgs, VirtualNodeSpecListenerPtr and VirtualNodeSpecListenerPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeSpecListenerPtrInput` via:
+// VirtualNodeSpecListenerArrayInput is an input type that accepts VirtualNodeSpecListenerArray and VirtualNodeSpecListenerArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerArrayInput` via:
 //
-//	        VirtualNodeSpecListenerArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualNodeSpecListenerPtrInput interface {
+//	VirtualNodeSpecListenerArray{ VirtualNodeSpecListenerArgs{...} }
+type VirtualNodeSpecListenerArrayInput interface {
 	pulumi.Input
 
-	ToVirtualNodeSpecListenerPtrOutput() VirtualNodeSpecListenerPtrOutput
-	ToVirtualNodeSpecListenerPtrOutputWithContext(context.Context) VirtualNodeSpecListenerPtrOutput
+	ToVirtualNodeSpecListenerArrayOutput() VirtualNodeSpecListenerArrayOutput
+	ToVirtualNodeSpecListenerArrayOutputWithContext(context.Context) VirtualNodeSpecListenerArrayOutput
 }
 
-type virtualNodeSpecListenerPtrType VirtualNodeSpecListenerArgs
+type VirtualNodeSpecListenerArray []VirtualNodeSpecListenerInput
 
-func VirtualNodeSpecListenerPtr(v *VirtualNodeSpecListenerArgs) VirtualNodeSpecListenerPtrInput {
-	return (*virtualNodeSpecListenerPtrType)(v)
+func (VirtualNodeSpecListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListener)(nil)).Elem()
 }
 
-func (*virtualNodeSpecListenerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListener)(nil)).Elem()
+func (i VirtualNodeSpecListenerArray) ToVirtualNodeSpecListenerArrayOutput() VirtualNodeSpecListenerArrayOutput {
+	return i.ToVirtualNodeSpecListenerArrayOutputWithContext(context.Background())
 }
 
-func (i *virtualNodeSpecListenerPtrType) ToVirtualNodeSpecListenerPtrOutput() VirtualNodeSpecListenerPtrOutput {
-	return i.ToVirtualNodeSpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeSpecListenerPtrType) ToVirtualNodeSpecListenerPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerPtrOutput)
+func (i VirtualNodeSpecListenerArray) ToVirtualNodeSpecListenerArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerArrayOutput)
 }
 
 type VirtualNodeSpecListenerOutput struct{ *pulumi.OutputState }
@@ -20367,16 +20492,6 @@ func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerOutput() Virtual
 
 func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutput {
 	return o
-}
-
-func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerPtrOutput() VirtualNodeSpecListenerPtrOutput {
-	return o.ToVirtualNodeSpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListener) *VirtualNodeSpecListener {
-		return &v
-	}).(VirtualNodeSpecListenerPtrOutput)
 }
 
 // Connection pool information for the listener.
@@ -20409,99 +20524,35 @@ func (o VirtualNodeSpecListenerOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput
 	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListenerTls { return v.Tls }).(VirtualNodeSpecListenerTlsPtrOutput)
 }
 
-type VirtualNodeSpecListenerPtrOutput struct{ *pulumi.OutputState }
+type VirtualNodeSpecListenerArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualNodeSpecListenerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListener)(nil)).Elem()
+func (VirtualNodeSpecListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListener)(nil)).Elem()
 }
 
-func (o VirtualNodeSpecListenerPtrOutput) ToVirtualNodeSpecListenerPtrOutput() VirtualNodeSpecListenerPtrOutput {
+func (o VirtualNodeSpecListenerArrayOutput) ToVirtualNodeSpecListenerArrayOutput() VirtualNodeSpecListenerArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerPtrOutput) ToVirtualNodeSpecListenerPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPtrOutput {
+func (o VirtualNodeSpecListenerArrayOutput) ToVirtualNodeSpecListenerArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerPtrOutput) Elem() VirtualNodeSpecListenerOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) VirtualNodeSpecListener {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeSpecListener
-		return ret
+func (o VirtualNodeSpecListenerArrayOutput) Index(i pulumi.IntInput) VirtualNodeSpecListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeSpecListener {
+		return vs[0].([]VirtualNodeSpecListener)[vs[1].(int)]
 	}).(VirtualNodeSpecListenerOutput)
-}
-
-// Connection pool information for the listener.
-func (o VirtualNodeSpecListenerPtrOutput) ConnectionPool() VirtualNodeSpecListenerConnectionPoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerConnectionPool {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectionPool
-	}).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
-}
-
-// Health check information for the listener.
-func (o VirtualNodeSpecListenerPtrOutput) HealthCheck() VirtualNodeSpecListenerHealthCheckPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerHealthCheck {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheck
-	}).(VirtualNodeSpecListenerHealthCheckPtrOutput)
-}
-
-// Outlier detection information for the listener.
-func (o VirtualNodeSpecListenerPtrOutput) OutlierDetection() VirtualNodeSpecListenerOutlierDetectionPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerOutlierDetection {
-		if v == nil {
-			return nil
-		}
-		return v.OutlierDetection
-	}).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
-}
-
-// Port mapping information for the listener.
-func (o VirtualNodeSpecListenerPtrOutput) PortMapping() VirtualNodeSpecListenerPortMappingPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerPortMapping {
-		if v == nil {
-			return nil
-		}
-		return &v.PortMapping
-	}).(VirtualNodeSpecListenerPortMappingPtrOutput)
-}
-
-// Timeouts for different protocols.
-func (o VirtualNodeSpecListenerPtrOutput) Timeout() VirtualNodeSpecListenerTimeoutPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerTimeout {
-		if v == nil {
-			return nil
-		}
-		return v.Timeout
-	}).(VirtualNodeSpecListenerTimeoutPtrOutput)
-}
-
-// Transport Layer Security (TLS) properties for the listener
-func (o VirtualNodeSpecListenerPtrOutput) Tls() VirtualNodeSpecListenerTlsPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) *VirtualNodeSpecListenerTls {
-		if v == nil {
-			return nil
-		}
-		return v.Tls
-	}).(VirtualNodeSpecListenerTlsPtrOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPool struct {
 	// Connection pool information for gRPC listeners.
 	Grpc *VirtualNodeSpecListenerConnectionPoolGrpc `pulumi:"grpc"`
-	// Connection pool information for HTTP listeners.
-	Http *VirtualNodeSpecListenerConnectionPoolHttp `pulumi:"http"`
 	// Connection pool information for HTTP2 listeners.
-	Http2 *VirtualNodeSpecListenerConnectionPoolHttp2 `pulumi:"http2"`
+	Http2s []VirtualNodeSpecListenerConnectionPoolHttp2 `pulumi:"http2s"`
+	// Connection pool information for HTTP listeners.
+	Https []VirtualNodeSpecListenerConnectionPoolHttp `pulumi:"https"`
 	// Connection pool information for TCP listeners.
-	Tcp *VirtualNodeSpecListenerConnectionPoolTcp `pulumi:"tcp"`
+	Tcps []VirtualNodeSpecListenerConnectionPoolTcp `pulumi:"tcps"`
 }
 
 // VirtualNodeSpecListenerConnectionPoolInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolArgs and VirtualNodeSpecListenerConnectionPoolOutput values.
@@ -20518,12 +20569,12 @@ type VirtualNodeSpecListenerConnectionPoolInput interface {
 type VirtualNodeSpecListenerConnectionPoolArgs struct {
 	// Connection pool information for gRPC listeners.
 	Grpc VirtualNodeSpecListenerConnectionPoolGrpcPtrInput `pulumi:"grpc"`
-	// Connection pool information for HTTP listeners.
-	Http VirtualNodeSpecListenerConnectionPoolHttpPtrInput `pulumi:"http"`
 	// Connection pool information for HTTP2 listeners.
-	Http2 VirtualNodeSpecListenerConnectionPoolHttp2PtrInput `pulumi:"http2"`
+	Http2s VirtualNodeSpecListenerConnectionPoolHttp2ArrayInput `pulumi:"http2s"`
+	// Connection pool information for HTTP listeners.
+	Https VirtualNodeSpecListenerConnectionPoolHttpArrayInput `pulumi:"https"`
 	// Connection pool information for TCP listeners.
-	Tcp VirtualNodeSpecListenerConnectionPoolTcpPtrInput `pulumi:"tcp"`
+	Tcps VirtualNodeSpecListenerConnectionPoolTcpArrayInput `pulumi:"tcps"`
 }
 
 func (VirtualNodeSpecListenerConnectionPoolArgs) ElementType() reflect.Type {
@@ -20610,23 +20661,25 @@ func (o VirtualNodeSpecListenerConnectionPoolOutput) Grpc() VirtualNodeSpecListe
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Connection pool information for HTTP listeners.
-func (o VirtualNodeSpecListenerConnectionPoolOutput) Http() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp {
-		return v.Http
-	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
+// Connection pool information for HTTP2 listeners.
+func (o VirtualNodeSpecListenerConnectionPoolOutput) Http2s() VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) []VirtualNodeSpecListenerConnectionPoolHttp2 {
+		return v.Http2s
+	}).(VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput)
 }
 
-// Connection pool information for HTTP2 listeners.
-func (o VirtualNodeSpecListenerConnectionPoolOutput) Http2() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp2 {
-		return v.Http2
-	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
+// Connection pool information for HTTP listeners.
+func (o VirtualNodeSpecListenerConnectionPoolOutput) Https() VirtualNodeSpecListenerConnectionPoolHttpArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) []VirtualNodeSpecListenerConnectionPoolHttp {
+		return v.Https
+	}).(VirtualNodeSpecListenerConnectionPoolHttpArrayOutput)
 }
 
 // Connection pool information for TCP listeners.
-func (o VirtualNodeSpecListenerConnectionPoolOutput) Tcp() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolTcp { return v.Tcp }).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
+func (o VirtualNodeSpecListenerConnectionPoolOutput) Tcps() VirtualNodeSpecListenerConnectionPoolTcpArrayOutput {
+	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) []VirtualNodeSpecListenerConnectionPoolTcp {
+		return v.Tcps
+	}).(VirtualNodeSpecListenerConnectionPoolTcpArrayOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPoolPtrOutput struct{ *pulumi.OutputState }
@@ -20663,34 +20716,34 @@ func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Grpc() VirtualNodeSpecLi
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
 }
 
-// Connection pool information for HTTP listeners.
-func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp {
+// Connection pool information for HTTP2 listeners.
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http2s() VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) []VirtualNodeSpecListenerConnectionPoolHttp2 {
 		if v == nil {
 			return nil
 		}
-		return v.Http
-	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
+		return v.Http2s
+	}).(VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput)
 }
 
-// Connection pool information for HTTP2 listeners.
-func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Http2() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolHttp2 {
+// Connection pool information for HTTP listeners.
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Https() VirtualNodeSpecListenerConnectionPoolHttpArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) []VirtualNodeSpecListenerConnectionPoolHttp {
 		if v == nil {
 			return nil
 		}
-		return v.Http2
-	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
+		return v.Https
+	}).(VirtualNodeSpecListenerConnectionPoolHttpArrayOutput)
 }
 
 // Connection pool information for TCP listeners.
-func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Tcp() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPoolTcp {
+func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Tcps() VirtualNodeSpecListenerConnectionPoolTcpArrayOutput {
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) []VirtualNodeSpecListenerConnectionPoolTcp {
 		if v == nil {
 			return nil
 		}
-		return v.Tcp
-	}).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
+		return v.Tcps
+	}).(VirtualNodeSpecListenerConnectionPoolTcpArrayOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPoolGrpc struct {
@@ -20863,45 +20916,29 @@ func (i VirtualNodeSpecListenerConnectionPoolHttp2Args) ToVirtualNodeSpecListene
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttp2Output)
 }
 
-func (i VirtualNodeSpecListenerConnectionPoolHttp2Args) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return i.ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeSpecListenerConnectionPoolHttp2Args) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttp2Output).ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx)
-}
-
-// VirtualNodeSpecListenerConnectionPoolHttp2PtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttp2Args, VirtualNodeSpecListenerConnectionPoolHttp2Ptr and VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput values.
-// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttp2PtrInput` via:
+// VirtualNodeSpecListenerConnectionPoolHttp2ArrayInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttp2Array and VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttp2ArrayInput` via:
 //
-//	        VirtualNodeSpecListenerConnectionPoolHttp2Args{...}
-//
-//	or:
-//
-//	        nil
-type VirtualNodeSpecListenerConnectionPoolHttp2PtrInput interface {
+//	VirtualNodeSpecListenerConnectionPoolHttp2Array{ VirtualNodeSpecListenerConnectionPoolHttp2Args{...} }
+type VirtualNodeSpecListenerConnectionPoolHttp2ArrayInput interface {
 	pulumi.Input
 
-	ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput
-	ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput() VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput
+	ToVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput
 }
 
-type virtualNodeSpecListenerConnectionPoolHttp2PtrType VirtualNodeSpecListenerConnectionPoolHttp2Args
+type VirtualNodeSpecListenerConnectionPoolHttp2Array []VirtualNodeSpecListenerConnectionPoolHttp2Input
 
-func VirtualNodeSpecListenerConnectionPoolHttp2Ptr(v *VirtualNodeSpecListenerConnectionPoolHttp2Args) VirtualNodeSpecListenerConnectionPoolHttp2PtrInput {
-	return (*virtualNodeSpecListenerConnectionPoolHttp2PtrType)(v)
+func (VirtualNodeSpecListenerConnectionPoolHttp2Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
 }
 
-func (*virtualNodeSpecListenerConnectionPoolHttp2PtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
+func (i VirtualNodeSpecListenerConnectionPoolHttp2Array) ToVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput() VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutputWithContext(context.Background())
 }
 
-func (i *virtualNodeSpecListenerConnectionPoolHttp2PtrType) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return i.ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeSpecListenerConnectionPoolHttp2PtrType) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
+func (i VirtualNodeSpecListenerConnectionPoolHttp2Array) ToVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPoolHttp2Output struct{ *pulumi.OutputState }
@@ -20918,53 +20955,29 @@ func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListe
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return o.ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPoolHttp2) *VirtualNodeSpecListenerConnectionPoolHttp2 {
-		return &v
-	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
-}
-
 // Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) MaxRequests() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp2) int { return v.MaxRequests }).(pulumi.IntOutput)
 }
 
-type VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput struct{ *pulumi.OutputState }
+type VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
+func (VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListenerConnectionPoolHttp2)(nil)).Elem()
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutput() VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+func (o VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput) ToVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput() VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
+func (o VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput) ToVirtualNodeSpecListenerConnectionPoolHttp2ArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolHttp2Output {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp2) VirtualNodeSpecListenerConnectionPoolHttp2 {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeSpecListenerConnectionPoolHttp2
-		return ret
+func (o VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput) Index(i pulumi.IntInput) VirtualNodeSpecListenerConnectionPoolHttp2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeSpecListenerConnectionPoolHttp2 {
+		return vs[0].([]VirtualNodeSpecListenerConnectionPoolHttp2)[vs[1].(int)]
 	}).(VirtualNodeSpecListenerConnectionPoolHttp2Output)
-}
-
-// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) MaxRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp2) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxRequests
-	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPoolHttp struct {
@@ -21004,45 +21017,29 @@ func (i VirtualNodeSpecListenerConnectionPoolHttpArgs) ToVirtualNodeSpecListener
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttpOutput)
 }
 
-func (i VirtualNodeSpecListenerConnectionPoolHttpArgs) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return i.ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeSpecListenerConnectionPoolHttpArgs) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttpOutput).ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeSpecListenerConnectionPoolHttpPtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttpArgs, VirtualNodeSpecListenerConnectionPoolHttpPtr and VirtualNodeSpecListenerConnectionPoolHttpPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttpPtrInput` via:
+// VirtualNodeSpecListenerConnectionPoolHttpArrayInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolHttpArray and VirtualNodeSpecListenerConnectionPoolHttpArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolHttpArrayInput` via:
 //
-//	        VirtualNodeSpecListenerConnectionPoolHttpArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualNodeSpecListenerConnectionPoolHttpPtrInput interface {
+//	VirtualNodeSpecListenerConnectionPoolHttpArray{ VirtualNodeSpecListenerConnectionPoolHttpArgs{...} }
+type VirtualNodeSpecListenerConnectionPoolHttpArrayInput interface {
 	pulumi.Input
 
-	ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput
-	ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolHttpArrayOutput() VirtualNodeSpecListenerConnectionPoolHttpArrayOutput
+	ToVirtualNodeSpecListenerConnectionPoolHttpArrayOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolHttpArrayOutput
 }
 
-type virtualNodeSpecListenerConnectionPoolHttpPtrType VirtualNodeSpecListenerConnectionPoolHttpArgs
+type VirtualNodeSpecListenerConnectionPoolHttpArray []VirtualNodeSpecListenerConnectionPoolHttpInput
 
-func VirtualNodeSpecListenerConnectionPoolHttpPtr(v *VirtualNodeSpecListenerConnectionPoolHttpArgs) VirtualNodeSpecListenerConnectionPoolHttpPtrInput {
-	return (*virtualNodeSpecListenerConnectionPoolHttpPtrType)(v)
+func (VirtualNodeSpecListenerConnectionPoolHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
 }
 
-func (*virtualNodeSpecListenerConnectionPoolHttpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
+func (i VirtualNodeSpecListenerConnectionPoolHttpArray) ToVirtualNodeSpecListenerConnectionPoolHttpArrayOutput() VirtualNodeSpecListenerConnectionPoolHttpArrayOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolHttpArrayOutputWithContext(context.Background())
 }
 
-func (i *virtualNodeSpecListenerConnectionPoolHttpPtrType) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return i.ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeSpecListenerConnectionPoolHttpPtrType) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
+func (i VirtualNodeSpecListenerConnectionPoolHttpArray) ToVirtualNodeSpecListenerConnectionPoolHttpArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolHttpArrayOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPoolHttpOutput struct{ *pulumi.OutputState }
@@ -21059,16 +21056,6 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListen
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return o.ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPoolHttp) *VirtualNodeSpecListenerConnectionPoolHttp {
-		return &v
-	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
-}
-
 // Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) int { return v.MaxConnections }).(pulumi.IntOutput)
@@ -21079,48 +21066,24 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pu
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
 
-type VirtualNodeSpecListenerConnectionPoolHttpPtrOutput struct{ *pulumi.OutputState }
+type VirtualNodeSpecListenerConnectionPoolHttpArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
+func (VirtualNodeSpecListenerConnectionPoolHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListenerConnectionPoolHttp)(nil)).Elem()
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutput() VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+func (o VirtualNodeSpecListenerConnectionPoolHttpArrayOutput) ToVirtualNodeSpecListenerConnectionPoolHttpArrayOutput() VirtualNodeSpecListenerConnectionPoolHttpArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
+func (o VirtualNodeSpecListenerConnectionPoolHttpArrayOutput) ToVirtualNodeSpecListenerConnectionPoolHttpArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolHttpOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) VirtualNodeSpecListenerConnectionPoolHttp {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeSpecListenerConnectionPoolHttp
-		return ret
+func (o VirtualNodeSpecListenerConnectionPoolHttpArrayOutput) Index(i pulumi.IntInput) VirtualNodeSpecListenerConnectionPoolHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeSpecListenerConnectionPoolHttp {
+		return vs[0].([]VirtualNodeSpecListenerConnectionPoolHttp)[vs[1].(int)]
 	}).(VirtualNodeSpecListenerConnectionPoolHttpOutput)
-}
-
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxConnections
-	}).(pulumi.IntPtrOutput)
-}
-
-// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
-func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxPendingRequests
-	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPoolTcp struct {
@@ -21156,45 +21119,29 @@ func (i VirtualNodeSpecListenerConnectionPoolTcpArgs) ToVirtualNodeSpecListenerC
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolTcpOutput)
 }
 
-func (i VirtualNodeSpecListenerConnectionPoolTcpArgs) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return i.ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeSpecListenerConnectionPoolTcpArgs) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolTcpOutput).ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeSpecListenerConnectionPoolTcpPtrInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolTcpArgs, VirtualNodeSpecListenerConnectionPoolTcpPtr and VirtualNodeSpecListenerConnectionPoolTcpPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolTcpPtrInput` via:
+// VirtualNodeSpecListenerConnectionPoolTcpArrayInput is an input type that accepts VirtualNodeSpecListenerConnectionPoolTcpArray and VirtualNodeSpecListenerConnectionPoolTcpArrayOutput values.
+// You can construct a concrete instance of `VirtualNodeSpecListenerConnectionPoolTcpArrayInput` via:
 //
-//	        VirtualNodeSpecListenerConnectionPoolTcpArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualNodeSpecListenerConnectionPoolTcpPtrInput interface {
+//	VirtualNodeSpecListenerConnectionPoolTcpArray{ VirtualNodeSpecListenerConnectionPoolTcpArgs{...} }
+type VirtualNodeSpecListenerConnectionPoolTcpArrayInput interface {
 	pulumi.Input
 
-	ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput
-	ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput
+	ToVirtualNodeSpecListenerConnectionPoolTcpArrayOutput() VirtualNodeSpecListenerConnectionPoolTcpArrayOutput
+	ToVirtualNodeSpecListenerConnectionPoolTcpArrayOutputWithContext(context.Context) VirtualNodeSpecListenerConnectionPoolTcpArrayOutput
 }
 
-type virtualNodeSpecListenerConnectionPoolTcpPtrType VirtualNodeSpecListenerConnectionPoolTcpArgs
+type VirtualNodeSpecListenerConnectionPoolTcpArray []VirtualNodeSpecListenerConnectionPoolTcpInput
 
-func VirtualNodeSpecListenerConnectionPoolTcpPtr(v *VirtualNodeSpecListenerConnectionPoolTcpArgs) VirtualNodeSpecListenerConnectionPoolTcpPtrInput {
-	return (*virtualNodeSpecListenerConnectionPoolTcpPtrType)(v)
+func (VirtualNodeSpecListenerConnectionPoolTcpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
 }
 
-func (*virtualNodeSpecListenerConnectionPoolTcpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
+func (i VirtualNodeSpecListenerConnectionPoolTcpArray) ToVirtualNodeSpecListenerConnectionPoolTcpArrayOutput() VirtualNodeSpecListenerConnectionPoolTcpArrayOutput {
+	return i.ToVirtualNodeSpecListenerConnectionPoolTcpArrayOutputWithContext(context.Background())
 }
 
-func (i *virtualNodeSpecListenerConnectionPoolTcpPtrType) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return i.ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeSpecListenerConnectionPoolTcpPtrType) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
+func (i VirtualNodeSpecListenerConnectionPoolTcpArray) ToVirtualNodeSpecListenerConnectionPoolTcpArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerConnectionPoolTcpArrayOutput)
 }
 
 type VirtualNodeSpecListenerConnectionPoolTcpOutput struct{ *pulumi.OutputState }
@@ -21211,53 +21158,29 @@ func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListene
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return o.ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPoolTcp) *VirtualNodeSpecListenerConnectionPoolTcp {
-		return &v
-	}).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
-}
-
 // Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) MaxConnections() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolTcp) int { return v.MaxConnections }).(pulumi.IntOutput)
 }
 
-type VirtualNodeSpecListenerConnectionPoolTcpPtrOutput struct{ *pulumi.OutputState }
+type VirtualNodeSpecListenerConnectionPoolTcpArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
+func (VirtualNodeSpecListenerConnectionPoolTcpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNodeSpecListenerConnectionPoolTcp)(nil)).Elem()
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutput() VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+func (o VirtualNodeSpecListenerConnectionPoolTcpArrayOutput) ToVirtualNodeSpecListenerConnectionPoolTcpArrayOutput() VirtualNodeSpecListenerConnectionPoolTcpArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
+func (o VirtualNodeSpecListenerConnectionPoolTcpArrayOutput) ToVirtualNodeSpecListenerConnectionPoolTcpArrayOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpArrayOutput {
 	return o
 }
 
-func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolTcpOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolTcp) VirtualNodeSpecListenerConnectionPoolTcp {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeSpecListenerConnectionPoolTcp
-		return ret
+func (o VirtualNodeSpecListenerConnectionPoolTcpArrayOutput) Index(i pulumi.IntInput) VirtualNodeSpecListenerConnectionPoolTcpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNodeSpecListenerConnectionPoolTcp {
+		return vs[0].([]VirtualNodeSpecListenerConnectionPoolTcp)[vs[1].(int)]
 	}).(VirtualNodeSpecListenerConnectionPoolTcpOutput)
-}
-
-// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) MaxConnections() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolTcp) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxConnections
-	}).(pulumi.IntPtrOutput)
 }
 
 type VirtualNodeSpecListenerHealthCheck struct {
@@ -22062,47 +21985,6 @@ func (i VirtualNodeSpecListenerPortMappingArgs) ToVirtualNodeSpecListenerPortMap
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
-func (i VirtualNodeSpecListenerPortMappingArgs) ToVirtualNodeSpecListenerPortMappingPtrOutput() VirtualNodeSpecListenerPortMappingPtrOutput {
-	return i.ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNodeSpecListenerPortMappingArgs) ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerPortMappingOutput).ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(ctx)
-}
-
-// VirtualNodeSpecListenerPortMappingPtrInput is an input type that accepts VirtualNodeSpecListenerPortMappingArgs, VirtualNodeSpecListenerPortMappingPtr and VirtualNodeSpecListenerPortMappingPtrOutput values.
-// You can construct a concrete instance of `VirtualNodeSpecListenerPortMappingPtrInput` via:
-//
-//	        VirtualNodeSpecListenerPortMappingArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualNodeSpecListenerPortMappingPtrInput interface {
-	pulumi.Input
-
-	ToVirtualNodeSpecListenerPortMappingPtrOutput() VirtualNodeSpecListenerPortMappingPtrOutput
-	ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(context.Context) VirtualNodeSpecListenerPortMappingPtrOutput
-}
-
-type virtualNodeSpecListenerPortMappingPtrType VirtualNodeSpecListenerPortMappingArgs
-
-func VirtualNodeSpecListenerPortMappingPtr(v *VirtualNodeSpecListenerPortMappingArgs) VirtualNodeSpecListenerPortMappingPtrInput {
-	return (*virtualNodeSpecListenerPortMappingPtrType)(v)
-}
-
-func (*virtualNodeSpecListenerPortMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerPortMapping)(nil)).Elem()
-}
-
-func (i *virtualNodeSpecListenerPortMappingPtrType) ToVirtualNodeSpecListenerPortMappingPtrOutput() VirtualNodeSpecListenerPortMappingPtrOutput {
-	return i.ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNodeSpecListenerPortMappingPtrType) ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeSpecListenerPortMappingPtrOutput)
-}
-
 type VirtualNodeSpecListenerPortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeSpecListenerPortMappingOutput) ElementType() reflect.Type {
@@ -22117,16 +21999,6 @@ func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortM
 	return o
 }
 
-func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortMappingPtrOutput() VirtualNodeSpecListenerPortMappingPtrOutput {
-	return o.ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerPortMapping) *VirtualNodeSpecListenerPortMapping {
-		return &v
-	}).(VirtualNodeSpecListenerPortMappingPtrOutput)
-}
-
 // Port used for the port mapping.
 func (o VirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
@@ -22135,50 +22007,6 @@ func (o VirtualNodeSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 // Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
 func (o VirtualNodeSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-type VirtualNodeSpecListenerPortMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNodeSpecListenerPortMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNodeSpecListenerPortMapping)(nil)).Elem()
-}
-
-func (o VirtualNodeSpecListenerPortMappingPtrOutput) ToVirtualNodeSpecListenerPortMappingPtrOutput() VirtualNodeSpecListenerPortMappingPtrOutput {
-	return o
-}
-
-func (o VirtualNodeSpecListenerPortMappingPtrOutput) ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingPtrOutput {
-	return o
-}
-
-func (o VirtualNodeSpecListenerPortMappingPtrOutput) Elem() VirtualNodeSpecListenerPortMappingOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) VirtualNodeSpecListenerPortMapping {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualNodeSpecListenerPortMapping
-		return ret
-	}).(VirtualNodeSpecListenerPortMappingOutput)
-}
-
-// Port used for the port mapping.
-func (o VirtualNodeSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-func (o VirtualNodeSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Protocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualNodeSpecListenerTimeout struct {
@@ -26616,7 +26444,7 @@ func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) Hostname() pulumi.StringPtr
 type VirtualRouterSpec struct {
 	// Listeners that the virtual router is expected to receive inbound traffic from.
 	// Currently only one listener is supported per virtual router.
-	Listener VirtualRouterSpecListener `pulumi:"listener"`
+	Listeners []VirtualRouterSpecListener `pulumi:"listeners"`
 }
 
 // VirtualRouterSpecInput is an input type that accepts VirtualRouterSpecArgs and VirtualRouterSpecOutput values.
@@ -26633,7 +26461,7 @@ type VirtualRouterSpecInput interface {
 type VirtualRouterSpecArgs struct {
 	// Listeners that the virtual router is expected to receive inbound traffic from.
 	// Currently only one listener is supported per virtual router.
-	Listener VirtualRouterSpecListenerInput `pulumi:"listener"`
+	Listeners VirtualRouterSpecListenerArrayInput `pulumi:"listeners"`
 }
 
 func (VirtualRouterSpecArgs) ElementType() reflect.Type {
@@ -26715,8 +26543,8 @@ func (o VirtualRouterSpecOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx con
 
 // Listeners that the virtual router is expected to receive inbound traffic from.
 // Currently only one listener is supported per virtual router.
-func (o VirtualRouterSpecOutput) Listener() VirtualRouterSpecListenerOutput {
-	return o.ApplyT(func(v VirtualRouterSpec) VirtualRouterSpecListener { return v.Listener }).(VirtualRouterSpecListenerOutput)
+func (o VirtualRouterSpecOutput) Listeners() VirtualRouterSpecListenerArrayOutput {
+	return o.ApplyT(func(v VirtualRouterSpec) []VirtualRouterSpecListener { return v.Listeners }).(VirtualRouterSpecListenerArrayOutput)
 }
 
 type VirtualRouterSpecPtrOutput struct{ *pulumi.OutputState }
@@ -26745,13 +26573,13 @@ func (o VirtualRouterSpecPtrOutput) Elem() VirtualRouterSpecOutput {
 
 // Listeners that the virtual router is expected to receive inbound traffic from.
 // Currently only one listener is supported per virtual router.
-func (o VirtualRouterSpecPtrOutput) Listener() VirtualRouterSpecListenerPtrOutput {
-	return o.ApplyT(func(v *VirtualRouterSpec) *VirtualRouterSpecListener {
+func (o VirtualRouterSpecPtrOutput) Listeners() VirtualRouterSpecListenerArrayOutput {
+	return o.ApplyT(func(v *VirtualRouterSpec) []VirtualRouterSpecListener {
 		if v == nil {
 			return nil
 		}
-		return &v.Listener
-	}).(VirtualRouterSpecListenerPtrOutput)
+		return v.Listeners
+	}).(VirtualRouterSpecListenerArrayOutput)
 }
 
 type VirtualRouterSpecListener struct {
@@ -26787,45 +26615,29 @@ func (i VirtualRouterSpecListenerArgs) ToVirtualRouterSpecListenerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerOutput)
 }
 
-func (i VirtualRouterSpecListenerArgs) ToVirtualRouterSpecListenerPtrOutput() VirtualRouterSpecListenerPtrOutput {
-	return i.ToVirtualRouterSpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualRouterSpecListenerArgs) ToVirtualRouterSpecListenerPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerOutput).ToVirtualRouterSpecListenerPtrOutputWithContext(ctx)
-}
-
-// VirtualRouterSpecListenerPtrInput is an input type that accepts VirtualRouterSpecListenerArgs, VirtualRouterSpecListenerPtr and VirtualRouterSpecListenerPtrOutput values.
-// You can construct a concrete instance of `VirtualRouterSpecListenerPtrInput` via:
+// VirtualRouterSpecListenerArrayInput is an input type that accepts VirtualRouterSpecListenerArray and VirtualRouterSpecListenerArrayOutput values.
+// You can construct a concrete instance of `VirtualRouterSpecListenerArrayInput` via:
 //
-//	        VirtualRouterSpecListenerArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualRouterSpecListenerPtrInput interface {
+//	VirtualRouterSpecListenerArray{ VirtualRouterSpecListenerArgs{...} }
+type VirtualRouterSpecListenerArrayInput interface {
 	pulumi.Input
 
-	ToVirtualRouterSpecListenerPtrOutput() VirtualRouterSpecListenerPtrOutput
-	ToVirtualRouterSpecListenerPtrOutputWithContext(context.Context) VirtualRouterSpecListenerPtrOutput
+	ToVirtualRouterSpecListenerArrayOutput() VirtualRouterSpecListenerArrayOutput
+	ToVirtualRouterSpecListenerArrayOutputWithContext(context.Context) VirtualRouterSpecListenerArrayOutput
 }
 
-type virtualRouterSpecListenerPtrType VirtualRouterSpecListenerArgs
+type VirtualRouterSpecListenerArray []VirtualRouterSpecListenerInput
 
-func VirtualRouterSpecListenerPtr(v *VirtualRouterSpecListenerArgs) VirtualRouterSpecListenerPtrInput {
-	return (*virtualRouterSpecListenerPtrType)(v)
+func (VirtualRouterSpecListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualRouterSpecListener)(nil)).Elem()
 }
 
-func (*virtualRouterSpecListenerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouterSpecListener)(nil)).Elem()
+func (i VirtualRouterSpecListenerArray) ToVirtualRouterSpecListenerArrayOutput() VirtualRouterSpecListenerArrayOutput {
+	return i.ToVirtualRouterSpecListenerArrayOutputWithContext(context.Background())
 }
 
-func (i *virtualRouterSpecListenerPtrType) ToVirtualRouterSpecListenerPtrOutput() VirtualRouterSpecListenerPtrOutput {
-	return i.ToVirtualRouterSpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualRouterSpecListenerPtrType) ToVirtualRouterSpecListenerPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerPtrOutput)
+func (i VirtualRouterSpecListenerArray) ToVirtualRouterSpecListenerArrayOutputWithContext(ctx context.Context) VirtualRouterSpecListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerArrayOutput)
 }
 
 type VirtualRouterSpecListenerOutput struct{ *pulumi.OutputState }
@@ -26842,53 +26654,29 @@ func (o VirtualRouterSpecListenerOutput) ToVirtualRouterSpecListenerOutputWithCo
 	return o
 }
 
-func (o VirtualRouterSpecListenerOutput) ToVirtualRouterSpecListenerPtrOutput() VirtualRouterSpecListenerPtrOutput {
-	return o.ToVirtualRouterSpecListenerPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualRouterSpecListenerOutput) ToVirtualRouterSpecListenerPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouterSpecListener) *VirtualRouterSpecListener {
-		return &v
-	}).(VirtualRouterSpecListenerPtrOutput)
-}
-
 // Port mapping information for the listener.
 func (o VirtualRouterSpecListenerOutput) PortMapping() VirtualRouterSpecListenerPortMappingOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListener) VirtualRouterSpecListenerPortMapping { return v.PortMapping }).(VirtualRouterSpecListenerPortMappingOutput)
 }
 
-type VirtualRouterSpecListenerPtrOutput struct{ *pulumi.OutputState }
+type VirtualRouterSpecListenerArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualRouterSpecListenerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouterSpecListener)(nil)).Elem()
+func (VirtualRouterSpecListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualRouterSpecListener)(nil)).Elem()
 }
 
-func (o VirtualRouterSpecListenerPtrOutput) ToVirtualRouterSpecListenerPtrOutput() VirtualRouterSpecListenerPtrOutput {
+func (o VirtualRouterSpecListenerArrayOutput) ToVirtualRouterSpecListenerArrayOutput() VirtualRouterSpecListenerArrayOutput {
 	return o
 }
 
-func (o VirtualRouterSpecListenerPtrOutput) ToVirtualRouterSpecListenerPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPtrOutput {
+func (o VirtualRouterSpecListenerArrayOutput) ToVirtualRouterSpecListenerArrayOutputWithContext(ctx context.Context) VirtualRouterSpecListenerArrayOutput {
 	return o
 }
 
-func (o VirtualRouterSpecListenerPtrOutput) Elem() VirtualRouterSpecListenerOutput {
-	return o.ApplyT(func(v *VirtualRouterSpecListener) VirtualRouterSpecListener {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualRouterSpecListener
-		return ret
+func (o VirtualRouterSpecListenerArrayOutput) Index(i pulumi.IntInput) VirtualRouterSpecListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRouterSpecListener {
+		return vs[0].([]VirtualRouterSpecListener)[vs[1].(int)]
 	}).(VirtualRouterSpecListenerOutput)
-}
-
-// Port mapping information for the listener.
-func (o VirtualRouterSpecListenerPtrOutput) PortMapping() VirtualRouterSpecListenerPortMappingPtrOutput {
-	return o.ApplyT(func(v *VirtualRouterSpecListener) *VirtualRouterSpecListenerPortMapping {
-		if v == nil {
-			return nil
-		}
-		return &v.PortMapping
-	}).(VirtualRouterSpecListenerPortMappingPtrOutput)
 }
 
 type VirtualRouterSpecListenerPortMapping struct {
@@ -26928,47 +26716,6 @@ func (i VirtualRouterSpecListenerPortMappingArgs) ToVirtualRouterSpecListenerPor
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerPortMappingOutput)
 }
 
-func (i VirtualRouterSpecListenerPortMappingArgs) ToVirtualRouterSpecListenerPortMappingPtrOutput() VirtualRouterSpecListenerPortMappingPtrOutput {
-	return i.ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualRouterSpecListenerPortMappingArgs) ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPortMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerPortMappingOutput).ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(ctx)
-}
-
-// VirtualRouterSpecListenerPortMappingPtrInput is an input type that accepts VirtualRouterSpecListenerPortMappingArgs, VirtualRouterSpecListenerPortMappingPtr and VirtualRouterSpecListenerPortMappingPtrOutput values.
-// You can construct a concrete instance of `VirtualRouterSpecListenerPortMappingPtrInput` via:
-//
-//	        VirtualRouterSpecListenerPortMappingArgs{...}
-//
-//	or:
-//
-//	        nil
-type VirtualRouterSpecListenerPortMappingPtrInput interface {
-	pulumi.Input
-
-	ToVirtualRouterSpecListenerPortMappingPtrOutput() VirtualRouterSpecListenerPortMappingPtrOutput
-	ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(context.Context) VirtualRouterSpecListenerPortMappingPtrOutput
-}
-
-type virtualRouterSpecListenerPortMappingPtrType VirtualRouterSpecListenerPortMappingArgs
-
-func VirtualRouterSpecListenerPortMappingPtr(v *VirtualRouterSpecListenerPortMappingArgs) VirtualRouterSpecListenerPortMappingPtrInput {
-	return (*virtualRouterSpecListenerPortMappingPtrType)(v)
-}
-
-func (*virtualRouterSpecListenerPortMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouterSpecListenerPortMapping)(nil)).Elem()
-}
-
-func (i *virtualRouterSpecListenerPortMappingPtrType) ToVirtualRouterSpecListenerPortMappingPtrOutput() VirtualRouterSpecListenerPortMappingPtrOutput {
-	return i.ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualRouterSpecListenerPortMappingPtrType) ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPortMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterSpecListenerPortMappingPtrOutput)
-}
-
 type VirtualRouterSpecListenerPortMappingOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterSpecListenerPortMappingOutput) ElementType() reflect.Type {
@@ -26983,16 +26730,6 @@ func (o VirtualRouterSpecListenerPortMappingOutput) ToVirtualRouterSpecListenerP
 	return o
 }
 
-func (o VirtualRouterSpecListenerPortMappingOutput) ToVirtualRouterSpecListenerPortMappingPtrOutput() VirtualRouterSpecListenerPortMappingPtrOutput {
-	return o.ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualRouterSpecListenerPortMappingOutput) ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPortMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouterSpecListenerPortMapping) *VirtualRouterSpecListenerPortMapping {
-		return &v
-	}).(VirtualRouterSpecListenerPortMappingPtrOutput)
-}
-
 // Port used for the port mapping.
 func (o VirtualRouterSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) int { return v.Port }).(pulumi.IntOutput)
@@ -27001,50 +26738,6 @@ func (o VirtualRouterSpecListenerPortMappingOutput) Port() pulumi.IntOutput {
 // Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
 func (o VirtualRouterSpecListenerPortMappingOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-type VirtualRouterSpecListenerPortMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualRouterSpecListenerPortMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRouterSpecListenerPortMapping)(nil)).Elem()
-}
-
-func (o VirtualRouterSpecListenerPortMappingPtrOutput) ToVirtualRouterSpecListenerPortMappingPtrOutput() VirtualRouterSpecListenerPortMappingPtrOutput {
-	return o
-}
-
-func (o VirtualRouterSpecListenerPortMappingPtrOutput) ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPortMappingPtrOutput {
-	return o
-}
-
-func (o VirtualRouterSpecListenerPortMappingPtrOutput) Elem() VirtualRouterSpecListenerPortMappingOutput {
-	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) VirtualRouterSpecListenerPortMapping {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualRouterSpecListenerPortMapping
-		return ret
-	}).(VirtualRouterSpecListenerPortMappingOutput)
-}
-
-// Port used for the port mapping.
-func (o VirtualRouterSpecListenerPortMappingPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
-func (o VirtualRouterSpecListenerPortMappingPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Protocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualServiceSpec struct {
@@ -28342,6 +28035,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteActionPtrInput)(nil)).Elem(), RouteSpecTcpRouteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteActionWeightedTargetInput)(nil)).Elem(), RouteSpecTcpRouteActionWeightedTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteActionWeightedTargetArrayInput)(nil)).Elem(), RouteSpecTcpRouteActionWeightedTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteMatchInput)(nil)).Elem(), RouteSpecTcpRouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteMatchPtrInput)(nil)).Elem(), RouteSpecTcpRouteMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteTimeoutInput)(nil)).Elem(), RouteSpecTcpRouteTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteTimeoutPtrInput)(nil)).Elem(), RouteSpecTcpRouteTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteSpecTcpRouteTimeoutIdleInput)(nil)).Elem(), RouteSpecTcpRouteTimeoutIdleArgs{})
@@ -28375,7 +28070,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsInput)(nil)).Elem(), VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrInput)(nil)).Elem(), VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerInput)(nil)).Elem(), VirtualGatewaySpecListenerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerPtrInput)(nil)).Elem(), VirtualGatewaySpecListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerArrayInput)(nil)).Elem(), VirtualGatewaySpecListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolInput)(nil)).Elem(), VirtualGatewaySpecListenerConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolPtrInput)(nil)).Elem(), VirtualGatewaySpecListenerConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerConnectionPoolGrpcInput)(nil)).Elem(), VirtualGatewaySpecListenerConnectionPoolGrpcArgs{})
@@ -28387,7 +28082,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerHealthCheckInput)(nil)).Elem(), VirtualGatewaySpecListenerHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerHealthCheckPtrInput)(nil)).Elem(), VirtualGatewaySpecListenerHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerPortMappingInput)(nil)).Elem(), VirtualGatewaySpecListenerPortMappingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerPortMappingPtrInput)(nil)).Elem(), VirtualGatewaySpecListenerPortMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerTlsInput)(nil)).Elem(), VirtualGatewaySpecListenerTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerTlsPtrInput)(nil)).Elem(), VirtualGatewaySpecListenerTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewaySpecListenerTlsCertificateInput)(nil)).Elem(), VirtualGatewaySpecListenerTlsCertificateArgs{})
@@ -28472,17 +28166,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsInput)(nil)).Elem(), VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrInput)(nil)).Elem(), VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerInput)(nil)).Elem(), VirtualNodeSpecListenerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerPtrInput)(nil)).Elem(), VirtualNodeSpecListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerArrayInput)(nil)).Elem(), VirtualNodeSpecListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolPtrInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolGrpcInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolGrpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolGrpcPtrInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolGrpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttp2Input)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolHttp2Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttp2PtrInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolHttp2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttp2ArrayInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolHttp2Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttpInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolHttpArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttpPtrInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolHttpArrayInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolHttpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolTcpInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolTcpArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolTcpPtrInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolTcpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerConnectionPoolTcpArrayInput)(nil)).Elem(), VirtualNodeSpecListenerConnectionPoolTcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerHealthCheckInput)(nil)).Elem(), VirtualNodeSpecListenerHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerHealthCheckPtrInput)(nil)).Elem(), VirtualNodeSpecListenerHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetectionInput)(nil)).Elem(), VirtualNodeSpecListenerOutlierDetectionArgs{})
@@ -28492,7 +28186,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetectionIntervalInput)(nil)).Elem(), VirtualNodeSpecListenerOutlierDetectionIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerOutlierDetectionIntervalPtrInput)(nil)).Elem(), VirtualNodeSpecListenerOutlierDetectionIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerPortMappingInput)(nil)).Elem(), VirtualNodeSpecListenerPortMappingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerPortMappingPtrInput)(nil)).Elem(), VirtualNodeSpecListenerPortMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerTimeoutInput)(nil)).Elem(), VirtualNodeSpecListenerTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerTimeoutPtrInput)(nil)).Elem(), VirtualNodeSpecListenerTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeSpecListenerTimeoutGrpcInput)(nil)).Elem(), VirtualNodeSpecListenerTimeoutGrpcArgs{})
@@ -28554,9 +28247,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecInput)(nil)).Elem(), VirtualRouterSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecPtrInput)(nil)).Elem(), VirtualRouterSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecListenerInput)(nil)).Elem(), VirtualRouterSpecListenerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecListenerPtrInput)(nil)).Elem(), VirtualRouterSpecListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecListenerArrayInput)(nil)).Elem(), VirtualRouterSpecListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecListenerPortMappingInput)(nil)).Elem(), VirtualRouterSpecListenerPortMappingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterSpecListenerPortMappingPtrInput)(nil)).Elem(), VirtualRouterSpecListenerPortMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceSpecInput)(nil)).Elem(), VirtualServiceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceSpecPtrInput)(nil)).Elem(), VirtualServiceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceSpecProviderInput)(nil)).Elem(), VirtualServiceSpecProviderArgs{})
@@ -28709,6 +28401,8 @@ func init() {
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteActionWeightedTargetArrayOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteMatchOutput{})
+	pulumi.RegisterOutputType(RouteSpecTcpRouteMatchPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(RouteSpecTcpRouteTimeoutIdleOutput{})
@@ -28742,7 +28436,7 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerOutput{})
-	pulumi.RegisterOutputType(VirtualGatewaySpecListenerPtrOutput{})
+	pulumi.RegisterOutputType(VirtualGatewaySpecListenerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerConnectionPoolGrpcOutput{})
@@ -28754,7 +28448,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerHealthCheckOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerPortMappingOutput{})
-	pulumi.RegisterOutputType(VirtualGatewaySpecListenerPortMappingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewaySpecListenerTlsCertificateOutput{})
@@ -28839,17 +28532,17 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutput{})
-	pulumi.RegisterOutputType(VirtualNodeSpecListenerPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolGrpcOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttp2Output{})
-	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttp2ArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttpOutput{})
-	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolHttpArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolTcpOutput{})
-	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNodeSpecListenerConnectionPoolTcpArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerHealthCheckPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionOutput{})
@@ -28859,7 +28552,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionIntervalOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingOutput{})
-	pulumi.RegisterOutputType(VirtualNodeSpecListenerPortMappingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeSpecListenerTimeoutGrpcOutput{})
@@ -28921,9 +28613,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualRouterSpecOutput{})
 	pulumi.RegisterOutputType(VirtualRouterSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRouterSpecListenerOutput{})
-	pulumi.RegisterOutputType(VirtualRouterSpecListenerPtrOutput{})
+	pulumi.RegisterOutputType(VirtualRouterSpecListenerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualRouterSpecListenerPortMappingOutput{})
-	pulumi.RegisterOutputType(VirtualRouterSpecListenerPortMappingPtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceSpecOutput{})
 	pulumi.RegisterOutputType(VirtualServiceSpecPtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceSpecProviderOutput{})

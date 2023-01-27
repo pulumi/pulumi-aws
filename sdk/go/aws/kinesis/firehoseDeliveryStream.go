@@ -621,8 +621,7 @@ type FirehoseDeliveryStream struct {
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput `pulumi:"httpEndpointConfiguration"`
 	// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput `pulumi:"kinesisSourceConfiguration"`
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration options if redshift is the destination.
 	// Using `redshiftConfiguration` requires the user to also specify a
@@ -689,8 +688,7 @@ type firehoseDeliveryStreamState struct {
 	HttpEndpointConfiguration *FirehoseDeliveryStreamHttpEndpointConfiguration `pulumi:"httpEndpointConfiguration"`
 	// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
 	KinesisSourceConfiguration *FirehoseDeliveryStreamKinesisSourceConfiguration `pulumi:"kinesisSourceConfiguration"`
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name *string `pulumi:"name"`
 	// Configuration options if redshift is the destination.
 	// Using `redshiftConfiguration` requires the user to also specify a
@@ -726,8 +724,7 @@ type FirehoseDeliveryStreamState struct {
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput
 	// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name pulumi.StringPtrInput
 	// Configuration options if redshift is the destination.
 	// Using `redshiftConfiguration` requires the user to also specify a
@@ -767,8 +764,7 @@ type firehoseDeliveryStreamArgs struct {
 	HttpEndpointConfiguration *FirehoseDeliveryStreamHttpEndpointConfiguration `pulumi:"httpEndpointConfiguration"`
 	// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
 	KinesisSourceConfiguration *FirehoseDeliveryStreamKinesisSourceConfiguration `pulumi:"kinesisSourceConfiguration"`
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name *string `pulumi:"name"`
 	// Configuration options if redshift is the destination.
 	// Using `redshiftConfiguration` requires the user to also specify a
@@ -803,8 +799,7 @@ type FirehoseDeliveryStreamArgs struct {
 	HttpEndpointConfiguration FirehoseDeliveryStreamHttpEndpointConfigurationPtrInput
 	// Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
 	KinesisSourceConfiguration FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput
-	// A name to identify the stream. This is unique to the
-	// AWS account and region the Stream is created in.
+	// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 	Name pulumi.StringPtrInput
 	// Configuration options if redshift is the destination.
 	// Using `redshiftConfiguration` requires the user to also specify a
@@ -953,8 +948,7 @@ func (o FirehoseDeliveryStreamOutput) KinesisSourceConfiguration() FirehoseDeliv
 	}).(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput)
 }
 
-// A name to identify the stream. This is unique to the
-// AWS account and region the Stream is created in.
+// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
 func (o FirehoseDeliveryStreamOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

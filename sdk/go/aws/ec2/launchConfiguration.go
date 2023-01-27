@@ -289,13 +289,14 @@ type LaunchConfiguration struct {
 	MetadataOptions LaunchConfigurationMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy pulumi.StringPtrOutput `pulumi:"placementTenancy"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
-	SecurityGroups  pulumi.StringArrayOutput                 `pulumi:"securityGroups"`
+	// A list of associated security group IDS.
+	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
 	SpotPrice pulumi.StringPtrOutput `pulumi:"spotPrice"`
 	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -371,13 +372,14 @@ type launchConfigurationState struct {
 	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy *string `pulumi:"placementTenancy"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *LaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevice"`
-	SecurityGroups  []string                            `pulumi:"securityGroups"`
+	// A list of associated security group IDS.
+	SecurityGroups []string `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -419,13 +421,14 @@ type LaunchConfigurationState struct {
 	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput
 	// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy pulumi.StringPtrInput
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDevicePtrInput
-	SecurityGroups  pulumi.StringArrayInput
+	// A list of associated security group IDS.
+	SecurityGroups pulumi.StringArrayInput
 	// The maximum price to use for reserving spot instances.
 	SpotPrice pulumi.StringPtrInput
 	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -469,13 +472,14 @@ type launchConfigurationArgs struct {
 	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy *string `pulumi:"placementTenancy"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *LaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevice"`
-	SecurityGroups  []string                            `pulumi:"securityGroups"`
+	// A list of associated security group IDS.
+	SecurityGroups []string `pulumi:"securityGroups"`
 	// The maximum price to use for reserving spot instances.
 	SpotPrice *string `pulumi:"spotPrice"`
 	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -516,13 +520,14 @@ type LaunchConfigurationArgs struct {
 	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput
 	// The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy pulumi.StringPtrInput
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDevicePtrInput
-	SecurityGroups  pulumi.StringArrayInput
+	// A list of associated security group IDS.
+	SecurityGroups pulumi.StringArrayInput
 	// The maximum price to use for reserving spot instances.
 	SpotPrice pulumi.StringPtrInput
 	// The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
@@ -688,7 +693,7 @@ func (o LaunchConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `securityGroups` - (Optional) A list of associated security group IDS.
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 func (o LaunchConfigurationOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
@@ -703,6 +708,7 @@ func (o LaunchConfigurationOutput) RootBlockDevice() LaunchConfigurationRootBloc
 	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfigurationRootBlockDeviceOutput { return v.RootBlockDevice }).(LaunchConfigurationRootBlockDeviceOutput)
 }
 
+// A list of associated security group IDS.
 func (o LaunchConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

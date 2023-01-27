@@ -19,6 +19,12 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs>? Hostname { get; set; }
 
         /// <summary>
+        /// The port number to match from the request.
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
         /// Specified beginning characters to rewrite.
         /// </summary>
         [Input("prefix")]

@@ -18,6 +18,11 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
      */
     private @Nullable String port;
     /**
+     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * 
+     */
+    private @Nullable Map<String,String> runtimeEnvironmentSecrets;
+    /**
      * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
      * 
      */
@@ -35,6 +40,13 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
      */
     public Optional<String> port() {
         return Optional.ofNullable(this.port);
+    }
+    /**
+     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * 
+     */
+    public Map<String,String> runtimeEnvironmentSecrets() {
+        return this.runtimeEnvironmentSecrets == null ? Map.of() : this.runtimeEnvironmentSecrets;
     }
     /**
      * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
@@ -61,12 +73,14 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String port;
+        private @Nullable Map<String,String> runtimeEnvironmentSecrets;
         private @Nullable Map<String,String> runtimeEnvironmentVariables;
         private @Nullable String startCommand;
         public Builder() {}
         public Builder(ServiceSourceConfigurationImageRepositoryImageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
+    	      this.runtimeEnvironmentSecrets = defaults.runtimeEnvironmentSecrets;
     	      this.runtimeEnvironmentVariables = defaults.runtimeEnvironmentVariables;
     	      this.startCommand = defaults.startCommand;
         }
@@ -74,6 +88,11 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
         @CustomType.Setter
         public Builder port(@Nullable String port) {
             this.port = port;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder runtimeEnvironmentSecrets(@Nullable Map<String,String> runtimeEnvironmentSecrets) {
+            this.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             return this;
         }
         @CustomType.Setter
@@ -89,6 +108,7 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfiguration {
         public ServiceSourceConfigurationImageRepositoryImageConfiguration build() {
             final var o = new ServiceSourceConfigurationImageRepositoryImageConfiguration();
             o.port = port;
+            o.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             o.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
             o.startCommand = startCommand;
             return o;

@@ -437,6 +437,7 @@
         "datasync/locationFsxLustre.ts",
         "datasync/locationFsxWindows.ts",
         "datasync/locationHdfs.ts",
+        "datasync/locationObjectStorage.ts",
         "datasync/locationSmb.ts",
         "datasync/nfsLocation.ts",
         "datasync/s3location.ts",

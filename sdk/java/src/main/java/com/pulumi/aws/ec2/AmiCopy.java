@@ -279,18 +279,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.kernelId;
     }
     /**
-     * Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-     * if this parameter is not specified, the default CMK for EBS is used
+     * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-     * if this parameter is not specified, the default CMK for EBS is used
+     * @return Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
     public Output<String> kmsKeyId() {

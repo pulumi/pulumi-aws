@@ -319,14 +319,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<Either<String,InstanceType>> instanceType;
 
     /**
-     * @return Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * @return Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     public Optional<Output<Either<String,InstanceType>>> instanceType() {
@@ -379,16 +379,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-     * See Launch Template Specification below for more details.
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
     @Import(name="launchTemplate")
     private @Nullable Output<InstanceLaunchTemplateArgs> launchTemplate;
 
     /**
-     * @return Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-     * See Launch Template Specification below for more details.
+     * @return Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
     public Optional<Output<InstanceLaunchTemplateArgs>> launchTemplate() {
@@ -1190,7 +1188,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1201,7 +1199,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1211,7 +1209,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1221,7 +1219,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+         * @param instanceType Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
          * 
          * @return builder
          * 
@@ -1304,8 +1302,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-         * See Launch Template Specification below for more details.
+         * @param launchTemplate Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
          * 
          * @return builder
          * 
@@ -1316,8 +1313,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplate Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-         * See Launch Template Specification below for more details.
+         * @param launchTemplate Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
          * 
          * @return builder
          * 

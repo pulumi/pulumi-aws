@@ -19,14 +19,14 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
     public static final WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexMatchStatementArgs Empty = new WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexMatchStatementArgs();
 
     /**
-     * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexMatchStatementFieldToMatchArgs>> fieldToMatch() {
@@ -51,7 +51,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
@@ -60,7 +60,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexMatchStatementTextTransformationArgs>> textTransformations() {
@@ -94,7 +94,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class WebAclRuleStatementAndStatementStatementNotStatementStatement
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 

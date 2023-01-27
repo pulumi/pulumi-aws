@@ -19,6 +19,7 @@ class WorkspaceArgs:
                  account_access_type: pulumi.Input[str],
                  authentication_providers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  permission_type: pulumi.Input[str],
+                 configuration: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         :param pulumi.Input[str] permission_type: The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+        :param pulumi.Input[str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] name: The Grafana workspace name.
@@ -48,6 +50,8 @@ class WorkspaceArgs:
         pulumi.set(__self__, "account_access_type", account_access_type)
         pulumi.set(__self__, "authentication_providers", authentication_providers)
         pulumi.set(__self__, "permission_type", permission_type)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if data_sources is not None:
             pulumi.set(__self__, "data_sources", data_sources)
         if description is not None:
@@ -104,6 +108,18 @@ class WorkspaceArgs:
     @permission_type.setter
     def permission_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "permission_type", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="dataSources")
@@ -232,6 +248,7 @@ class _WorkspaceState:
                  account_access_type: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -252,6 +269,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        :param pulumi.Input[str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
@@ -273,6 +291,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "arn", arn)
         if authentication_providers is not None:
             pulumi.set(__self__, "authentication_providers", authentication_providers)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if data_sources is not None:
             pulumi.set(__self__, "data_sources", data_sources)
         if description is not None:
@@ -339,6 +359,18 @@ class _WorkspaceState:
     @authentication_providers.setter
     def authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "authentication_providers", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="dataSources")
@@ -525,6 +557,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_access_type: Optional[pulumi.Input[str]] = None,
                  authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -578,6 +611,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        :param pulumi.Input[str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] name: The Grafana workspace name.
@@ -650,6 +684,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_access_type: Optional[pulumi.Input[str]] = None,
                  authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -676,6 +711,7 @@ class Workspace(pulumi.CustomResource):
             if authentication_providers is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_providers'")
             __props__.__dict__["authentication_providers"] = authentication_providers
+            __props__.__dict__["configuration"] = configuration
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -707,6 +743,7 @@ class Workspace(pulumi.CustomResource):
             account_access_type: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            configuration: Optional[pulumi.Input[str]] = None,
             data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
@@ -732,6 +769,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
+        :param pulumi.Input[str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
@@ -754,6 +792,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["account_access_type"] = account_access_type
         __props__.__dict__["arn"] = arn
         __props__.__dict__["authentication_providers"] = authentication_providers
+        __props__.__dict__["configuration"] = configuration
         __props__.__dict__["data_sources"] = data_sources
         __props__.__dict__["description"] = description
         __props__.__dict__["endpoint"] = endpoint
@@ -794,6 +833,14 @@ class Workspace(pulumi.CustomResource):
         The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         """
         return pulumi.get(self, "authentication_providers")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Output[str]:
+        """
+        The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+        """
+        return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="dataSources")

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatement
     {
         /// <summary>
-        /// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        /// Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementAndStatement? AndStatement;
         /// <summary>
-        /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        /// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementByteMatchStatement? ByteMatchStatement;
         /// <summary>
-        /// Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        /// Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementGeoMatchStatement? GeoMatchStatement;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementIpSetReferenceStatement? IpSetReferenceStatement;
         /// <summary>
-        /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        /// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
@@ -38,19 +38,19 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatement? ManagedRuleGroupStatement;
         /// <summary>
-        /// Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        /// Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementNotStatement? NotStatement;
         /// <summary>
-        /// Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        /// Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementOrStatement? OrStatement;
         /// <summary>
-        /// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+        /// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatement? RateBasedStatement;
         /// <summary>
-        /// Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        /// Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRegexMatchStatement? RegexMatchStatement;
         /// <summary>
@@ -62,15 +62,15 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatement? RuleGroupReferenceStatement;
         /// <summary>
-        /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
+        /// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSizeConstraintStatement? SizeConstraintStatement;
         /// <summary>
-        /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatement? SqliMatchStatement;
         /// <summary>
-        /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        /// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementXssMatchStatement? XssMatchStatement;
 

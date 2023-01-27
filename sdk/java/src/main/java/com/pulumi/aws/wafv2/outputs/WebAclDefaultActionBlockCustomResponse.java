@@ -25,7 +25,7 @@ public final class WebAclDefaultActionBlockCustomResponse {
      */
     private Integer responseCode;
     /**
-     * @return The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+     * @return The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
      * 
      */
     private @Nullable List<WebAclDefaultActionBlockCustomResponseResponseHeader> responseHeaders;
@@ -46,7 +46,7 @@ public final class WebAclDefaultActionBlockCustomResponse {
         return this.responseCode;
     }
     /**
-     * @return The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+     * @return The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
      * 
      */
     public List<WebAclDefaultActionBlockCustomResponseResponseHeader> responseHeaders() {

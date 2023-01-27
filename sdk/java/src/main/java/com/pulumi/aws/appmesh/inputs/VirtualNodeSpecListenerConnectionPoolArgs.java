@@ -9,6 +9,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerConnectionPoolHttpAr
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,57 +35,57 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
     }
 
     /**
-     * Connection pool information for HTTP listeners.
-     * 
-     */
-    @Import(name="http")
-    private @Nullable Output<VirtualNodeSpecListenerConnectionPoolHttpArgs> http;
-
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
-    public Optional<Output<VirtualNodeSpecListenerConnectionPoolHttpArgs>> http() {
-        return Optional.ofNullable(this.http);
-    }
-
-    /**
      * Connection pool information for HTTP2 listeners.
      * 
      */
-    @Import(name="http2")
-    private @Nullable Output<VirtualNodeSpecListenerConnectionPoolHttp2Args> http2;
+    @Import(name="http2s")
+    private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2s;
 
     /**
      * @return Connection pool information for HTTP2 listeners.
      * 
      */
-    public Optional<Output<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2() {
-        return Optional.ofNullable(this.http2);
+    public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>>> http2s() {
+        return Optional.ofNullable(this.http2s);
+    }
+
+    /**
+     * Connection pool information for HTTP listeners.
+     * 
+     */
+    @Import(name="https")
+    private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>> https;
+
+    /**
+     * @return Connection pool information for HTTP listeners.
+     * 
+     */
+    public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>>> https() {
+        return Optional.ofNullable(this.https);
     }
 
     /**
      * Connection pool information for TCP listeners.
      * 
      */
-    @Import(name="tcp")
-    private @Nullable Output<VirtualNodeSpecListenerConnectionPoolTcpArgs> tcp;
+    @Import(name="tcps")
+    private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcps;
 
     /**
      * @return Connection pool information for TCP listeners.
      * 
      */
-    public Optional<Output<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcp() {
-        return Optional.ofNullable(this.tcp);
+    public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>>> tcps() {
+        return Optional.ofNullable(this.tcps);
     }
 
     private VirtualNodeSpecListenerConnectionPoolArgs() {}
 
     private VirtualNodeSpecListenerConnectionPoolArgs(VirtualNodeSpecListenerConnectionPoolArgs $) {
         this.grpc = $.grpc;
-        this.http = $.http;
-        this.http2 = $.http2;
-        this.tcp = $.tcp;
+        this.http2s = $.http2s;
+        this.https = $.https;
+        this.tcps = $.tcps;
     }
 
     public static Builder builder() {
@@ -127,66 +128,96 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param http Connection pool information for HTTP listeners.
+         * @param http2s Connection pool information for HTTP2 listeners.
          * 
          * @return builder
          * 
          */
-        public Builder http(@Nullable Output<VirtualNodeSpecListenerConnectionPoolHttpArgs> http) {
-            $.http = http;
+        public Builder http2s(@Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2s) {
+            $.http2s = http2s;
             return this;
         }
 
         /**
-         * @param http Connection pool information for HTTP listeners.
+         * @param http2s Connection pool information for HTTP2 listeners.
          * 
          * @return builder
          * 
          */
-        public Builder http(VirtualNodeSpecListenerConnectionPoolHttpArgs http) {
-            return http(Output.of(http));
+        public Builder http2s(List<VirtualNodeSpecListenerConnectionPoolHttp2Args> http2s) {
+            return http2s(Output.of(http2s));
         }
 
         /**
-         * @param http2 Connection pool information for HTTP2 listeners.
+         * @param http2s Connection pool information for HTTP2 listeners.
          * 
          * @return builder
          * 
          */
-        public Builder http2(@Nullable Output<VirtualNodeSpecListenerConnectionPoolHttp2Args> http2) {
-            $.http2 = http2;
+        public Builder http2s(VirtualNodeSpecListenerConnectionPoolHttp2Args... http2s) {
+            return http2s(List.of(http2s));
+        }
+
+        /**
+         * @param https Connection pool information for HTTP listeners.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder https(@Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>> https) {
+            $.https = https;
             return this;
         }
 
         /**
-         * @param http2 Connection pool information for HTTP2 listeners.
+         * @param https Connection pool information for HTTP listeners.
          * 
          * @return builder
          * 
          */
-        public Builder http2(VirtualNodeSpecListenerConnectionPoolHttp2Args http2) {
-            return http2(Output.of(http2));
+        public Builder https(List<VirtualNodeSpecListenerConnectionPoolHttpArgs> https) {
+            return https(Output.of(https));
         }
 
         /**
-         * @param tcp Connection pool information for TCP listeners.
+         * @param https Connection pool information for HTTP listeners.
          * 
          * @return builder
          * 
          */
-        public Builder tcp(@Nullable Output<VirtualNodeSpecListenerConnectionPoolTcpArgs> tcp) {
-            $.tcp = tcp;
+        public Builder https(VirtualNodeSpecListenerConnectionPoolHttpArgs... https) {
+            return https(List.of(https));
+        }
+
+        /**
+         * @param tcps Connection pool information for TCP listeners.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcps(@Nullable Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcps) {
+            $.tcps = tcps;
             return this;
         }
 
         /**
-         * @param tcp Connection pool information for TCP listeners.
+         * @param tcps Connection pool information for TCP listeners.
          * 
          * @return builder
          * 
          */
-        public Builder tcp(VirtualNodeSpecListenerConnectionPoolTcpArgs tcp) {
-            return tcp(Output.of(tcp));
+        public Builder tcps(List<VirtualNodeSpecListenerConnectionPoolTcpArgs> tcps) {
+            return tcps(Output.of(tcps));
+        }
+
+        /**
+         * @param tcps Connection pool information for TCP listeners.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcps(VirtualNodeSpecListenerConnectionPoolTcpArgs... tcps) {
+            return tcps(List.of(tcps));
         }
 
         public VirtualNodeSpecListenerConnectionPoolArgs build() {

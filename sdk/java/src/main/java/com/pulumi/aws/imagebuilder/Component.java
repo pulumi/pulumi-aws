@@ -207,6 +207,20 @@ public class Component extends com.pulumi.resources.CustomResource {
         return this.platform;
     }
     /**
+     * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+     * 
+     */
+    @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipDestroy;
+
+    /**
+     * @return Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> skipDestroy() {
+        return Codegen.optional(this.skipDestroy);
+    }
+    /**
      * Set of Operating Systems (OS) supported by the component.
      * 
      */

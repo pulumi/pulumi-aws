@@ -66,45 +66,59 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "delivery.logs.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: ` {
+ *    "Version":"2012-10-17",
+ *    "Statement": [
+ *      {
+ *        "Action":"sts:AssumeRole",
+ *        "Principal":{
+ *          "Service":"firehose.amazonaws.com"
+ *        },
+ *        "Effect":"Allow",
+ *        "Sid":""
+ *      }
+ *    ]
+ *  }
  * `});
+ * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
+ *     destination: "extended_s3",
+ *     extendedS3Configuration: {
+ *         roleArn: exampleRole.arn,
+ *         bucketArn: exampleBucketV2.arn,
+ *     },
+ *     tags: {
+ *         LogDeliveryEnabled: "true",
+ *     },
+ * });
  * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
- *     iamRoleArn: exampleRole.arn,
- *     logDestination: exampleLogGroup.arn,
+ *     logDestination: exampleFirehoseDeliveryStream.arn,
+ *     logDestinationType: "kinesis-data-firehose",
  *     trafficType: "ALL",
  *     vpcId: aws_vpc.example.id,
  * });
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
+ *     bucket: exampleBucketV2.id,
+ *     acl: "private",
+ * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
  *     role: exampleRole.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "logs:CreateLogDelivery",
- *         "logs:DeleteLogDelivery",
- *         "logs:ListLogDeliveries",
- *         "logs:GetLogDelivery",
- *         "firehose:TagDeliveryStream"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
+ *     policy: ` {
+ *    "Version":"2012-10-17",
+ *    "Statement":[
+ *      {
+ *        "Action": [
+ *          "logs:CreateLogDelivery",
+ *          "logs:DeleteLogDelivery",
+ *          "logs:ListLogDeliveries",
+ *          "logs:GetLogDelivery",
+ *          "firehose:TagDeliveryStream"
+ *        ],
+ *        "Effect":"Allow",
+ *        "Resource":"*"
+ *      }
+ *    ]
+ *  }
  * `,
  * });
  * ```

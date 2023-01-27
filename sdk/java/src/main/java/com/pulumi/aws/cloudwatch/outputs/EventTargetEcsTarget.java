@@ -59,7 +59,7 @@ public final class EventTargetEcsTarget {
      */
     private @Nullable String platformVersion;
     /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
      * 
      */
     private @Nullable String propagateTags;
@@ -137,7 +137,7 @@ public final class EventTargetEcsTarget {
         return Optional.ofNullable(this.platformVersion);
     }
     /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
      * 
      */
     public Optional<String> propagateTags() {

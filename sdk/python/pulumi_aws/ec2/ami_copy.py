@@ -42,9 +42,7 @@ class AmiCopyArgs:
         :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -174,9 +172,7 @@ class AmiCopyArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-        if this parameter is not specified, the default CMK for EBS is used
+        Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -266,9 +262,7 @@ class _AmiCopyState:
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
-        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -546,9 +540,7 @@ class _AmiCopyState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-        if this parameter is not specified, the default CMK for EBS is used
+        Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -799,9 +791,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
                given by `source_ami_region`.
@@ -985,9 +975,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
-        :param pulumi.Input[str] kms_key_id: Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-               an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-               if this parameter is not specified, the default CMK for EBS is used
+        :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
@@ -1172,9 +1160,7 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
         """
-        Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-        an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-        if this parameter is not specified, the default CMK for EBS is used
+        Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         """
         return pulumi.get(self, "kms_key_id")
 

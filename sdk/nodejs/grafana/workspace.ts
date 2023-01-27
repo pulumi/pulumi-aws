@@ -85,6 +85,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly authenticationProviders!: pulumi.Output<string[]>;
     /**
+     * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     */
+    public readonly configuration!: pulumi.Output<string>;
+    /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      */
     public readonly dataSources!: pulumi.Output<string[] | undefined>;
@@ -158,6 +162,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["accountAccessType"] = state ? state.accountAccessType : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authenticationProviders"] = state ? state.authenticationProviders : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["dataSources"] = state ? state.dataSources : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
@@ -186,6 +191,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["accountAccessType"] = args ? args.accountAccessType : undefined;
             resourceInputs["authenticationProviders"] = args ? args.authenticationProviders : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -224,6 +230,10 @@ export interface WorkspaceState {
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
     authenticationProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     */
+    configuration?: pulumi.Input<string>;
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      */
@@ -295,6 +305,10 @@ export interface WorkspaceArgs {
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      */
     authenticationProviders: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
+     */
+    configuration?: pulumi.Input<string>;
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      */

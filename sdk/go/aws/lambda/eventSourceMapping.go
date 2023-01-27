@@ -356,6 +356,8 @@ type EventSourceMapping struct {
 	ParallelizationFactor pulumi.IntOutput `pulumi:"parallelizationFactor"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
 	Queues pulumi.StringArrayOutput `pulumi:"queues"`
+	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+	ScalingConfig EventSourceMappingScalingConfigPtrOutput `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
 	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrOutput `pulumi:"selfManagedEventSource"`
 	// Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
@@ -444,6 +446,8 @@ type eventSourceMappingState struct {
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
 	Queues []string `pulumi:"queues"`
+	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
 	SelfManagedEventSource *EventSourceMappingSelfManagedEventSource `pulumi:"selfManagedEventSource"`
 	// Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
@@ -501,6 +505,8 @@ type EventSourceMappingState struct {
 	ParallelizationFactor pulumi.IntPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
 	Queues pulumi.StringArrayInput
+	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+	ScalingConfig EventSourceMappingScalingConfigPtrInput
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
 	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrInput
 	// Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
@@ -556,6 +562,8 @@ type eventSourceMappingArgs struct {
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
 	Queues []string `pulumi:"queues"`
+	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
 	SelfManagedEventSource *EventSourceMappingSelfManagedEventSource `pulumi:"selfManagedEventSource"`
 	// Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
@@ -602,6 +610,8 @@ type EventSourceMappingArgs struct {
 	ParallelizationFactor pulumi.IntPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
 	Queues pulumi.StringArrayInput
+	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+	ScalingConfig EventSourceMappingScalingConfigPtrInput
 	// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.
 	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrInput
 	// Additional configuration block for Self Managed Kafka sources. Incompatible with "eventSourceArn" and "amazonManagedKafkaEventSourceConfig". Detailed below.
@@ -790,6 +800,11 @@ func (o EventSourceMappingOutput) ParallelizationFactor() pulumi.IntOutput {
 // The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
 func (o EventSourceMappingOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
+}
+
+// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
+func (o EventSourceMappingOutput) ScalingConfig() EventSourceMappingScalingConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingScalingConfigPtrOutput { return v.ScalingConfig }).(EventSourceMappingScalingConfigPtrOutput)
 }
 
 // - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `sourceAccessConfiguration`. Detailed below.

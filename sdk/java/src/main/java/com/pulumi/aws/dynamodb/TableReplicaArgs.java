@@ -33,14 +33,14 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
+     * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -142,7 +142,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
          * 
          * @return builder
          * 

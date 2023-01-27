@@ -108,11 +108,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.ec2.FlowLog;
  * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import java.util.List;
@@ -128,52 +133,66 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;delivery.logs.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
+ *  {
+ *    &#34;Version&#34;:&#34;2012-10-17&#34;,
+ *    &#34;Statement&#34;: [
+ *      {
+ *        &#34;Action&#34;:&#34;sts:AssumeRole&#34;,
+ *        &#34;Principal&#34;:{
+ *          &#34;Service&#34;:&#34;firehose.amazonaws.com&#34;
+ *        },
+ *        &#34;Effect&#34;:&#34;Allow&#34;,
+ *        &#34;Sid&#34;:&#34;&#34;
+ *      }
+ *    ]
+ *  }
  *             &#34;&#34;&#34;)
  *             .build());
  * 
+ *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream(&#34;exampleFirehoseDeliveryStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .destination(&#34;extended_s3&#34;)
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
+ *                 .roleArn(exampleRole.arn())
+ *                 .bucketArn(exampleBucketV2.arn())
+ *                 .build())
+ *             .tags(Map.of(&#34;LogDeliveryEnabled&#34;, &#34;true&#34;))
+ *             .build());
+ * 
  *         var exampleFlowLog = new FlowLog(&#34;exampleFlowLog&#34;, FlowLogArgs.builder()        
- *             .iamRoleArn(exampleRole.arn())
- *             .logDestination(exampleLogGroup.arn())
+ *             .logDestination(exampleFirehoseDeliveryStream.arn())
+ *             .logDestinationType(&#34;kinesis-data-firehose&#34;)
  *             .trafficType(&#34;ALL&#34;)
  *             .vpcId(aws_vpc.example().id())
+ *             .build());
+ * 
+ *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .acl(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.id())
  *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;logs:CreateLogDelivery&#34;,
- *         &#34;logs:DeleteLogDelivery&#34;,
- *         &#34;logs:ListLogDeliveries&#34;,
- *         &#34;logs:GetLogDelivery&#34;,
- *         &#34;firehose:TagDeliveryStream&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
+ *  {
+ *    &#34;Version&#34;:&#34;2012-10-17&#34;,
+ *    &#34;Statement&#34;:[
+ *      {
+ *        &#34;Action&#34;: [
+ *          &#34;logs:CreateLogDelivery&#34;,
+ *          &#34;logs:DeleteLogDelivery&#34;,
+ *          &#34;logs:ListLogDeliveries&#34;,
+ *          &#34;logs:GetLogDelivery&#34;,
+ *          &#34;firehose:TagDeliveryStream&#34;
+ *        ],
+ *        &#34;Effect&#34;:&#34;Allow&#34;,
+ *        &#34;Resource&#34;:&#34;*&#34;
+ *      }
+ *    ]
+ *  }
  *             &#34;&#34;&#34;)
  *             .build());
  * 

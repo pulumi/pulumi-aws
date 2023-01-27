@@ -22,14 +22,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     public static final WebAclArgs Empty = new WebAclArgs();
 
     /**
-     * Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+     * Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
      * 
      */
     @Import(name="customResponseBodies")
     private @Nullable Output<List<WebAclCustomResponseBodyArgs>> customResponseBodies;
 
     /**
-     * @return Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+     * @return Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
      * 
      */
     public Optional<Output<List<WebAclCustomResponseBodyArgs>>> customResponseBodies() {
@@ -37,14 +37,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
      * 
      */
     @Import(name="defaultAction", required=true)
     private Output<WebAclDefaultActionArgs> defaultAction;
 
     /**
-     * @return Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
      * 
      */
     public Output<WebAclDefaultActionArgs> defaultAction() {
@@ -82,14 +82,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<WebAclRuleArgs>> rules;
 
     /**
-     * @return Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * @return Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
     public Optional<Output<List<WebAclRuleArgs>>> rules() {
@@ -127,14 +127,14 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
      * 
      */
     @Import(name="visibilityConfig", required=true)
     private Output<WebAclVisibilityConfigArgs> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
      * 
      */
     public Output<WebAclVisibilityConfigArgs> visibilityConfig() {
@@ -173,7 +173,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class WebAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
          * 
          * @return builder
          * 

@@ -34,7 +34,7 @@ class WorkgroupArgs:
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -142,7 +142,7 @@ class WorkgroupArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of VPC subnet IDs to associate with the workgroup.
+        An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -189,7 +189,7 @@ class _WorkgroupState:
         :param pulumi.Input[str] namespace_name: The name of the namespace.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
@@ -322,7 +322,7 @@ class _WorkgroupState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An array of VPC subnet IDs to associate with the workgroup.
+        An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -424,7 +424,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The name of the namespace.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
@@ -544,7 +544,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The name of the namespace.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessed from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: An array of security group IDs to associate with the workgroup.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] workgroup_id: The Redshift Workgroup ID.
@@ -637,7 +637,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        An array of VPC subnet IDs to associate with the workgroup.
+        An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
         """
         return pulumi.get(self, "subnet_ids")
 

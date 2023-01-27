@@ -15,14 +15,14 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
     public static final WebAclDefaultActionAllowCustomRequestHandlingArgs Empty = new WebAclDefaultActionAllowCustomRequestHandlingArgs();
 
     /**
-     * The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
      * 
      */
     @Import(name="insertHeaders", required=true)
     private Output<List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * @return The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
      * 
      */
     public Output<List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
@@ -54,7 +54,7 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
          * 
          * @return builder
          * 

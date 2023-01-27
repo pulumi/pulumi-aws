@@ -19,6 +19,7 @@ __all__ = [
     'EventSourceMappingDestinationConfigOnFailureArgs',
     'EventSourceMappingFilterCriteriaArgs',
     'EventSourceMappingFilterCriteriaFilterArgs',
+    'EventSourceMappingScalingConfigArgs',
     'EventSourceMappingSelfManagedEventSourceArgs',
     'EventSourceMappingSelfManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingSourceAccessConfigurationArgs',
@@ -218,6 +219,29 @@ class EventSourceMappingFilterCriteriaFilterArgs:
 
 
 @pulumi.input_type
+class EventSourceMappingScalingConfigArgs:
+    def __init__(__self__, *,
+                 maximum_concurrency: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] maximum_concurrency: Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        """
+        if maximum_concurrency is not None:
+            pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
+
+    @property
+    @pulumi.getter(name="maximumConcurrency")
+    def maximum_concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        """
+        return pulumi.get(self, "maximum_concurrency")
+
+    @maximum_concurrency.setter
+    def maximum_concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_concurrency", value)
+
+
+@pulumi.input_type
 class EventSourceMappingSelfManagedEventSourceArgs:
     def __init__(__self__, *,
                  endpoints: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
@@ -326,7 +350,7 @@ class FunctionEnvironmentArgs:
     def __init__(__self__, *,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map of environment variables that are accessible from the function code during execution.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
@@ -335,7 +359,7 @@ class FunctionEnvironmentArgs:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of environment variables that are accessible from the function code during execution.
+        Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
         """
         return pulumi.get(self, "variables")
 

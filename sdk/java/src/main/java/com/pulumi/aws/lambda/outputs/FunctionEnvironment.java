@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionEnvironment {
     /**
-     * @return Map of environment variables that are accessible from the function code during execution.
+     * @return Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
      * 
      */
     private @Nullable Map<String,String> variables;
 
     private FunctionEnvironment() {}
     /**
-     * @return Map of environment variables that are accessible from the function code during execution.
+     * @return Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
      * 
      */
     public Map<String,String> variables() {

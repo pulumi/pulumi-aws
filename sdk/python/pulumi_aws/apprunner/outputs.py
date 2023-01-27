@@ -729,6 +729,8 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
         suggest = None
         if key == "buildCommand":
             suggest = "build_command"
+        elif key == "runtimeEnvironmentSecrets":
+            suggest = "runtime_environment_secrets"
         elif key == "runtimeEnvironmentVariables":
             suggest = "runtime_environment_variables"
         elif key == "startCommand":
@@ -749,12 +751,14 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
                  runtime: str,
                  build_command: Optional[str] = None,
                  port: Optional[str] = None,
+                 runtime_environment_secrets: Optional[Mapping[str, str]] = None,
                  runtime_environment_variables: Optional[Mapping[str, str]] = None,
                  start_command: Optional[str] = None):
         """
         :param str runtime: Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
         :param str build_command: Command App Runner runs to build your application.
         :param str port: Port that your application listens to in the container. Defaults to `"8080"`.
+        :param Mapping[str, str] runtime_environment_secrets: Secrets and parameters available to your service as environment variables. A map of key/value pairs.
         :param Mapping[str, str] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
         :param str start_command: Command App Runner runs to start your application.
         """
@@ -763,6 +767,8 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
             pulumi.set(__self__, "build_command", build_command)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if runtime_environment_secrets is not None:
+            pulumi.set(__self__, "runtime_environment_secrets", runtime_environment_secrets)
         if runtime_environment_variables is not None:
             pulumi.set(__self__, "runtime_environment_variables", runtime_environment_variables)
         if start_command is not None:
@@ -791,6 +797,14 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
         Port that your application listens to in the container. Defaults to `"8080"`.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="runtimeEnvironmentSecrets")
+    def runtime_environment_secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+        """
+        return pulumi.get(self, "runtime_environment_secrets")
 
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")
@@ -907,7 +921,9 @@ class ServiceSourceConfigurationImageRepositoryImageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "runtimeEnvironmentVariables":
+        if key == "runtimeEnvironmentSecrets":
+            suggest = "runtime_environment_secrets"
+        elif key == "runtimeEnvironmentVariables":
             suggest = "runtime_environment_variables"
         elif key == "startCommand":
             suggest = "start_command"
@@ -925,15 +941,19 @@ class ServiceSourceConfigurationImageRepositoryImageConfiguration(dict):
 
     def __init__(__self__, *,
                  port: Optional[str] = None,
+                 runtime_environment_secrets: Optional[Mapping[str, str]] = None,
                  runtime_environment_variables: Optional[Mapping[str, str]] = None,
                  start_command: Optional[str] = None):
         """
         :param str port: Port that your application listens to in the container. Defaults to `"8080"`.
+        :param Mapping[str, str] runtime_environment_secrets: Secrets and parameters available to your service as environment variables. A map of key/value pairs.
         :param Mapping[str, str] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
         :param str start_command: Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if runtime_environment_secrets is not None:
+            pulumi.set(__self__, "runtime_environment_secrets", runtime_environment_secrets)
         if runtime_environment_variables is not None:
             pulumi.set(__self__, "runtime_environment_variables", runtime_environment_variables)
         if start_command is not None:
@@ -946,6 +966,14 @@ class ServiceSourceConfigurationImageRepositoryImageConfiguration(dict):
         Port that your application listens to in the container. Defaults to `"8080"`.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="runtimeEnvironmentSecrets")
+    def runtime_environment_secrets(self) -> Optional[Mapping[str, str]]:
+        """
+        Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+        """
+        return pulumi.get(self, "runtime_environment_secrets")
 
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")

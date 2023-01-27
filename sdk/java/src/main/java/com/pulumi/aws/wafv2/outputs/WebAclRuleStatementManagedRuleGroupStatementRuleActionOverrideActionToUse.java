@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
+     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow allow;
     /**
-     * @return Specifies that AWS WAF should block requests by default. See Block below for details.
+     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock block;
     /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha;
     /**
-     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count;
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse() {}
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
+     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
     /**
-     * @return Specifies that AWS WAF should block requests by default. See Block below for details.
+     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock> block() {
         return Optional.ofNullable(this.block);
     }
     /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
     /**
-     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
+     * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount> count() {

@@ -38,12 +38,15 @@ namespace Pulumi.Aws.AppMesh
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualRouterSpecArgs
     ///         {
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualRouterSpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
     ///                 },
     ///             },
     ///         },

@@ -73,7 +73,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
         /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }

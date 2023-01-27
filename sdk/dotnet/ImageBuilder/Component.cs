@@ -106,6 +106,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> Platform { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// Set of Operating Systems (OS) supported by the component.
         /// </summary>
         [Output("supportedOsVersions")]
@@ -223,6 +229,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("platform", required: true)]
         public Input<string> Platform { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
         [Input("supportedOsVersions")]
         private InputList<string>? _supportedOsVersions;
 
@@ -326,6 +338,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("platform")]
         public Input<string>? Platform { get; set; }
+
+        /// <summary>
+        /// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         [Input("supportedOsVersions")]
         private InputList<string>? _supportedOsVersions;

@@ -122,16 +122,14 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * @return A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
     public Optional<Output<String>> name() {
@@ -425,8 +423,7 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the
-         * AWS account and region the Stream is created in.
+         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
          * 
          * @return builder
          * 
@@ -437,8 +434,7 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the
-         * AWS account and region the Stream is created in.
+         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
          * 
          * @return builder
          * 

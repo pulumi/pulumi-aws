@@ -2754,6 +2754,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datasync/locationObjectStorage",
+  "fqn": "pulumi_aws.datasync",
+  "classes": {
+   "aws:datasync/locationObjectStorage:LocationObjectStorage": "LocationObjectStorage"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datasync/locationSmb",
   "fqn": "pulumi_aws.datasync",
   "classes": {

@@ -42,10 +42,12 @@ import (
 //			_, err := appmesh.NewVirtualRouter(ctx, "serviceb", &appmesh.VirtualRouterArgs{
 //				MeshName: pulumi.Any(aws_appmesh_mesh.Simple.Id),
 //				Spec: &appmesh.VirtualRouterSpecArgs{
-//					Listener: &appmesh.VirtualRouterSpecListenerArgs{
-//						PortMapping: &appmesh.VirtualRouterSpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
+//					Listeners: appmesh.VirtualRouterSpecListenerArray{
+//						&appmesh.VirtualRouterSpecListenerArgs{
+//							PortMapping: &appmesh.VirtualRouterSpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
+//							},
 //						},
 //					},
 //				},

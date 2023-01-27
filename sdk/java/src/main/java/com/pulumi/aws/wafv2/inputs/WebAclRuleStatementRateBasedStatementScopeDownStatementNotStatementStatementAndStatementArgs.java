@@ -15,14 +15,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementArgs();
 
     /**
-     * Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
      * 
      */
     @Import(name="statements", required=true)
     private Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementArgs>> statements;
 
     /**
-     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
      * 
      */
     public Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementArgs>> statements() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         /**
-         * @param statements Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * @param statements Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         /**
-         * @param statements Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * @param statements Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         /**
-         * @param statements Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         * @param statements Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
          * 
          * @return builder
          * 

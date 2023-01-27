@@ -33,7 +33,7 @@ class ReportDefinitionArgs:
         :param pulumi.Input[str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         :param pulumi.Input[bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         :param pulumi.Input[str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
@@ -131,7 +131,7 @@ class ReportDefinitionArgs:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> pulumi.Input[str]:
         """
-        The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         return pulumi.get(self, "time_unit")
 
@@ -216,7 +216,7 @@ class _ReportDefinitionState:
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         if additional_artifacts is not None:
             pulumi.set(__self__, "additional_artifacts", additional_artifacts)
@@ -379,7 +379,7 @@ class _ReportDefinitionState:
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> Optional[pulumi.Input[str]]:
         """
-        The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         return pulumi.get(self, "time_unit")
 
@@ -452,7 +452,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         ...
     @overload
@@ -596,7 +596,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -708,7 +708,7 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> pulumi.Output[str]:
         """
-        The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+        The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
         return pulumi.get(self, "time_unit")
 

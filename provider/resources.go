@@ -1167,6 +1167,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datasync_location_fsx_lustre_file_system":  {Tok: awsResource(datasyncMod, "LocationFsxLustre")},
 			"aws_datasync_location_hdfs":                    {Tok: awsResource(datasyncMod, "LocationHdfs")},
 			"aws_datasync_location_fsx_openzfs_file_system": {Tok: awsResource(datasyncMod, "FsxOpenZfsFileSystem")},
+			"aws_datasync_location_object_storage":          {Tok: awsResource(datasyncMod, "LocationObjectStorage")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {
 				Tok: awsResource(dlmMod, "LifecyclePolicy"),

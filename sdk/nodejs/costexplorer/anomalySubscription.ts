@@ -168,9 +168,15 @@ export class AnomalySubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The dollar value that triggers a notification if the threshold is exceeded.
+     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+     *
+     * @deprecated use threshold_expression instead
      */
     public readonly threshold!: pulumi.Output<number>;
+    /**
+     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+     */
+    public readonly thresholdExpression!: pulumi.Output<outputs.costexplorer.AnomalySubscriptionThresholdExpression>;
 
     /**
      * Create a AnomalySubscription resource with the given unique name, arguments, and options.
@@ -194,6 +200,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["threshold"] = state ? state.threshold : undefined;
+            resourceInputs["thresholdExpression"] = state ? state.thresholdExpression : undefined;
         } else {
             const args = argsOrState as AnomalySubscriptionArgs | undefined;
             if ((!args || args.frequency === undefined) && !opts.urn) {
@@ -205,9 +212,6 @@ export class AnomalySubscription extends pulumi.CustomResource {
             if ((!args || args.subscribers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscribers'");
             }
-            if ((!args || args.threshold === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'threshold'");
-            }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["frequency"] = args ? args.frequency : undefined;
             resourceInputs["monitorArnLists"] = args ? args.monitorArnLists : undefined;
@@ -215,6 +219,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["subscribers"] = args ? args.subscribers : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["thresholdExpression"] = args ? args.thresholdExpression : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -260,9 +265,15 @@ export interface AnomalySubscriptionState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The dollar value that triggers a notification if the threshold is exceeded.
+     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+     *
+     * @deprecated use threshold_expression instead
      */
     threshold?: pulumi.Input<number>;
+    /**
+     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+     */
+    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
 }
 
 /**
@@ -294,7 +305,13 @@ export interface AnomalySubscriptionArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The dollar value that triggers a notification if the threshold is exceeded.
+     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
+     *
+     * @deprecated use threshold_expression instead
      */
-    threshold: pulumi.Input<number>;
+    threshold?: pulumi.Input<number>;
+    /**
+     * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+     */
+    thresholdExpression?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpression>;
 }

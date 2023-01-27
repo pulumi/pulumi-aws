@@ -12,6 +12,8 @@ namespace Pulumi.Aws.WafV2
     /// <summary>
     /// Creates a WAFv2 Web ACL resource.
     /// 
+    /// &gt; **Note:** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
+    /// 
     /// ## Example Usage
     /// 
     /// This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
@@ -267,13 +269,13 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         /// </summary>
         [Output("customResponseBodies")]
         public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
         /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
@@ -294,7 +296,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.WebAclRule>> Rules { get; private set; } = null!;
@@ -318,7 +320,7 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
         [Output("visibilityConfig")]
         public Output<Outputs.WebAclVisibilityConfig> VisibilityConfig { get; private set; } = null!;
@@ -373,7 +375,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         /// </summary>
         public InputList<Inputs.WebAclCustomResponseBodyArgs> CustomResponseBodies
         {
@@ -382,7 +384,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;
@@ -403,7 +405,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclRuleArgs>? _rules;
 
         /// <summary>
-        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleArgs> Rules
         {
@@ -430,7 +432,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebAclVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
@@ -459,7 +461,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclCustomResponseBodyGetArgs>? _customResponseBodies;
 
         /// <summary>
-        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         /// </summary>
         public InputList<Inputs.WebAclCustomResponseBodyGetArgs> CustomResponseBodies
         {
@@ -468,7 +470,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
         /// </summary>
         [Input("defaultAction")]
         public Input<Inputs.WebAclDefaultActionGetArgs>? DefaultAction { get; set; }
@@ -492,7 +494,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<Inputs.WebAclRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleGetArgs> Rules
         {
@@ -531,7 +533,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
         [Input("visibilityConfig")]
         public Input<Inputs.WebAclVisibilityConfigGetArgs>? VisibilityConfig { get; set; }

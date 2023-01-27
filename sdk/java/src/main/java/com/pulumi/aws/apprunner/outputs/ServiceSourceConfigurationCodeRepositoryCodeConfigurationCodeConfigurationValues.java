@@ -28,6 +28,11 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
      */
     private String runtime;
     /**
+     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * 
+     */
+    private @Nullable Map<String,String> runtimeEnvironmentSecrets;
+    /**
      * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
      * 
      */
@@ -61,6 +66,13 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         return this.runtime;
     }
     /**
+     * @return Secrets and parameters available to your service as environment variables. A map of key/value pairs.
+     * 
+     */
+    public Map<String,String> runtimeEnvironmentSecrets() {
+        return this.runtimeEnvironmentSecrets == null ? Map.of() : this.runtimeEnvironmentSecrets;
+    }
+    /**
      * @return Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
      * 
      */
@@ -87,6 +99,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
         private @Nullable String buildCommand;
         private @Nullable String port;
         private String runtime;
+        private @Nullable Map<String,String> runtimeEnvironmentSecrets;
         private @Nullable Map<String,String> runtimeEnvironmentVariables;
         private @Nullable String startCommand;
         public Builder() {}
@@ -95,6 +108,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
     	      this.buildCommand = defaults.buildCommand;
     	      this.port = defaults.port;
     	      this.runtime = defaults.runtime;
+    	      this.runtimeEnvironmentSecrets = defaults.runtimeEnvironmentSecrets;
     	      this.runtimeEnvironmentVariables = defaults.runtimeEnvironmentVariables;
     	      this.startCommand = defaults.startCommand;
         }
@@ -115,6 +129,11 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
             return this;
         }
         @CustomType.Setter
+        public Builder runtimeEnvironmentSecrets(@Nullable Map<String,String> runtimeEnvironmentSecrets) {
+            this.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
+            return this;
+        }
+        @CustomType.Setter
         public Builder runtimeEnvironmentVariables(@Nullable Map<String,String> runtimeEnvironmentVariables) {
             this.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
             return this;
@@ -129,6 +148,7 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCode
             o.buildCommand = buildCommand;
             o.port = port;
             o.runtime = runtime;
+            o.runtimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             o.runtimeEnvironmentVariables = runtimeEnvironmentVariables;
             o.startCommand = startCommand;
             return o;

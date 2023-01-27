@@ -60,14 +60,11 @@ namespace Pulumi.Aws.ApiGateway
     ///         Name = exampleDomainName.Domain,
     ///         Type = "A",
     ///         ZoneId = aws_route53_zone.Example.Id,
-    ///         Aliases = new[]
+    ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
     ///         {
-    ///             new Aws.Route53.Inputs.RecordAliasArgs
-    ///             {
-    ///                 EvaluateTargetHealth = true,
-    ///                 Name = exampleDomainName.CloudfrontDomainName,
-    ///                 ZoneId = exampleDomainName.CloudfrontZoneId,
-    ///             },
+    ///             EvaluateTargetHealth = true,
+    ///             Name = exampleDomainName.CloudfrontDomainName,
+    ///             ZoneId = exampleDomainName.CloudfrontZoneId,
     ///         },
     ///     });
     /// 
@@ -99,14 +96,11 @@ namespace Pulumi.Aws.ApiGateway
     ///         ZoneId = aws_route53_zone.Example.Id,
     ///         Name = exampleDomainName.Domain,
     ///         Type = "A",
-    ///         Aliases = new[]
+    ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
     ///         {
-    ///             new Aws.Route53.Inputs.RecordAliasArgs
-    ///             {
-    ///                 Name = exampleDomainName.CloudfrontDomainName,
-    ///                 ZoneId = exampleDomainName.CloudfrontZoneId,
-    ///                 EvaluateTargetHealth = true,
-    ///             },
+    ///             Name = exampleDomainName.CloudfrontDomainName,
+    ///             ZoneId = exampleDomainName.CloudfrontZoneId,
+    ///             EvaluateTargetHealth = true,
     ///         },
     ///     });
     /// 

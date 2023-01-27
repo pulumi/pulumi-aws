@@ -141,9 +141,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> KernelId { get; private set; } = null!;
 
         /// <summary>
-        /// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-        /// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-        /// if this parameter is not specified, the default CMK for EBS is used
+        /// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -330,9 +328,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-        /// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-        /// if this parameter is not specified, the default CMK for EBS is used
+        /// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -482,9 +478,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KernelId { get; set; }
 
         /// <summary>
-        /// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-        /// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-        /// if this parameter is not specified, the default CMK for EBS is used
+        /// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

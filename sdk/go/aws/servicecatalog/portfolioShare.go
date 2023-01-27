@@ -70,6 +70,8 @@ type PortfolioShare struct {
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
+	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+	SharePrincipals pulumi.BoolPtrOutput `pulumi:"sharePrincipals"`
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions pulumi.BoolPtrOutput `pulumi:"shareTagOptions"`
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -124,6 +126,8 @@ type portfolioShareState struct {
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId *string `pulumi:"principalId"`
+	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+	SharePrincipals *bool `pulumi:"sharePrincipals"`
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions *bool `pulumi:"shareTagOptions"`
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -141,6 +145,8 @@ type PortfolioShareState struct {
 	PortfolioId pulumi.StringPtrInput
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringPtrInput
+	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+	SharePrincipals pulumi.BoolPtrInput
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions pulumi.BoolPtrInput
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -160,6 +166,8 @@ type portfolioShareArgs struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId string `pulumi:"principalId"`
+	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+	SharePrincipals *bool `pulumi:"sharePrincipals"`
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions *bool `pulumi:"shareTagOptions"`
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -176,6 +184,8 @@ type PortfolioShareArgs struct {
 	PortfolioId pulumi.StringInput
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringInput
+	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+	SharePrincipals pulumi.BoolPtrInput
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions pulumi.BoolPtrInput
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -289,6 +299,11 @@ func (o PortfolioShareOutput) PortfolioId() pulumi.StringOutput {
 // Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 func (o PortfolioShareOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+func (o PortfolioShareOutput) SharePrincipals() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.BoolPtrOutput { return v.SharePrincipals }).(pulumi.BoolPtrOutput)
 }
 
 // Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.

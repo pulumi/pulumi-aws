@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        /// Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         /// </summary>
         [Input("fieldToMatch")]
         public Input<Inputs.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchGetArgs>? FieldToMatch { get; set; }
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         /// At least one required.
-        /// See Text Transformation below for details.
+        /// See `text_transformation` below for details.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationGetArgs> TextTransformations
         {

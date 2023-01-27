@@ -127,14 +127,14 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
         return this.globalTableArn;
     }
     /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
+     * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
     public Output<String> kmsKeyArn() {

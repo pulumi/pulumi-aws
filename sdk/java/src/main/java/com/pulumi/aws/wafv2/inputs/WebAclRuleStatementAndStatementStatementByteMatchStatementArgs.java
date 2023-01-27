@@ -19,14 +19,14 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
     public static final WebAclRuleStatementAndStatementStatementByteMatchStatementArgs Empty = new WebAclRuleStatementAndStatementStatementByteMatchStatementArgs();
 
     /**
-     * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementAndStatementStatementByteMatchStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementAndStatementStatementByteMatchStatementFieldToMatchArgs>> fieldToMatch() {
@@ -66,7 +66,7 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
@@ -75,7 +75,7 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementAndStatementStatementByteMatchStatementTextTransformationArgs>> textTransformations() {
@@ -110,7 +110,7 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class WebAclRuleStatementAndStatementStatementByteMatchStatementArg
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 

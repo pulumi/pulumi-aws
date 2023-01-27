@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableReplica {
     /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
     private @Nullable String kmsKeyArn;
@@ -35,7 +35,7 @@ public final class TableReplica {
 
     private TableReplica() {}
     /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
     public Optional<String> kmsKeyArn() {

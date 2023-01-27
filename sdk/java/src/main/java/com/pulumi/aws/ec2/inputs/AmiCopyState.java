@@ -247,18 +247,14 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-     * if this parameter is not specified, the default CMK for EBS is used
+     * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-     * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-     * if this parameter is not specified, the default CMK for EBS is used
+     * @return Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -858,9 +854,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-         * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-         * if this parameter is not specified, the default CMK for EBS is used
+         * @param kmsKeyId Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
          * 
          * @return builder
          * 
@@ -871,9 +865,7 @@ public final class AmiCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-         * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-         * if this parameter is not specified, the default CMK for EBS is used
+         * @param kmsKeyId Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
          * 
          * @return builder
          * 

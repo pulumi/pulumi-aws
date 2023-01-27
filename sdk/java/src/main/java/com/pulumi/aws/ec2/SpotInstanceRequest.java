@@ -400,14 +400,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.instanceState;
     }
     /**
-     * Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
-     * @return Instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+     * @return Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
     public Output<String> instanceType() {
@@ -472,16 +472,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.launchGroup);
     }
     /**
-     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-     * See Launch Template Specification below for more details.
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
     @Export(name="launchTemplate", refs={SpotInstanceRequestLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ SpotInstanceRequestLaunchTemplate> launchTemplate;
 
     /**
-     * @return Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
-     * See Launch Template Specification below for more details.
+     * @return Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
     public Output<Optional<SpotInstanceRequestLaunchTemplate>> launchTemplate() {

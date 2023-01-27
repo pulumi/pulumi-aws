@@ -35,14 +35,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     }
 
     /**
-     * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs>> fieldToMatch() {
@@ -67,7 +67,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
@@ -76,7 +76,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
-     * See Text Transformation below for details.
+     * See `text_transformation` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementTextTransformationArgs>> textTransformations() {
@@ -132,7 +132,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         /**
-         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
-         * See Text Transformation below for details.
+         * See `text_transformation` below for details.
          * 
          * @return builder
          * 

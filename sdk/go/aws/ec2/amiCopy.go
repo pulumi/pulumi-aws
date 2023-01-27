@@ -90,9 +90,7 @@ type AmiCopy struct {
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId pulumi.StringOutput `pulumi:"kernelId"`
-	// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-	// if this parameter is not specified, the default CMK for EBS is used
+	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 	KmsKeyId           pulumi.StringOutput `pulumi:"kmsKeyId"`
 	ManageEbsSnapshots pulumi.BoolOutput   `pulumi:"manageEbsSnapshots"`
 	// Region-unique name for the AMI.
@@ -197,9 +195,7 @@ type amiCopyState struct {
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId *string `pulumi:"kernelId"`
-	// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-	// if this parameter is not specified, the default CMK for EBS is used
+	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 	KmsKeyId           *string `pulumi:"kmsKeyId"`
 	ManageEbsSnapshots *bool   `pulumi:"manageEbsSnapshots"`
 	// Region-unique name for the AMI.
@@ -270,9 +266,7 @@ type AmiCopyState struct {
 	// ID of the kernel image (AKI) that will be used as the paravirtual
 	// kernel in created instances.
 	KernelId pulumi.StringPtrInput
-	// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-	// if this parameter is not specified, the default CMK for EBS is used
+	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 	KmsKeyId           pulumi.StringPtrInput
 	ManageEbsSnapshots pulumi.BoolPtrInput
 	// Region-unique name for the AMI.
@@ -328,9 +322,7 @@ type amiCopyArgs struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices []AmiCopyEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-	// if this parameter is not specified, the default CMK for EBS is used
+	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Region-unique name for the AMI.
 	Name *string `pulumi:"name"`
@@ -361,9 +353,7 @@ type AmiCopyArgs struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiCopyEphemeralBlockDeviceArrayInput
-	// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-	// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-	// if this parameter is not specified, the default CMK for EBS is used
+	// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 	KmsKeyId pulumi.StringPtrInput
 	// Region-unique name for the AMI.
 	Name pulumi.StringPtrInput
@@ -546,9 +536,7 @@ func (o AmiCopyOutput) KernelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.KernelId }).(pulumi.StringOutput)
 }
 
-// Full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
-// an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
-// if this parameter is not specified, the default CMK for EBS is used
+// Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
 func (o AmiCopyOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }

@@ -234,10 +234,16 @@ namespace Pulumi.Aws.CostExplorer
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The dollar value that triggers a notification if the threshold is exceeded.
+        /// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         /// </summary>
         [Output("threshold")]
         public Output<double> Threshold { get; private set; } = null!;
+
+        /// <summary>
+        /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        /// </summary>
+        [Output("thresholdExpression")]
+        public Output<Outputs.AnomalySubscriptionThresholdExpression> ThresholdExpression { get; private set; } = null!;
 
 
         /// <summary>
@@ -340,10 +346,16 @@ namespace Pulumi.Aws.CostExplorer
         }
 
         /// <summary>
-        /// The dollar value that triggers a notification if the threshold is exceeded.
+        /// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         /// </summary>
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
+        [Input("threshold")]
+        public Input<double>? Threshold { get; set; }
+
+        /// <summary>
+        /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        /// </summary>
+        [Input("thresholdExpression")]
+        public Input<Inputs.AnomalySubscriptionThresholdExpressionArgs>? ThresholdExpression { get; set; }
 
         public AnomalySubscriptionArgs()
         {
@@ -426,10 +438,16 @@ namespace Pulumi.Aws.CostExplorer
         }
 
         /// <summary>
-        /// The dollar value that triggers a notification if the threshold is exceeded.
+        /// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         /// </summary>
         [Input("threshold")]
         public Input<double>? Threshold { get; set; }
+
+        /// <summary>
+        /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
+        /// </summary>
+        [Input("thresholdExpression")]
+        public Input<Inputs.AnomalySubscriptionThresholdExpressionGetArgs>? ThresholdExpression { get; set; }
 
         public AnomalySubscriptionState()
         {

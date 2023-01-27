@@ -4,6 +4,7 @@
 package com.pulumi.aws.rum.inputs;
 
 import com.pulumi.aws.rum.inputs.AppMonitorAppMonitorConfigurationArgs;
+import com.pulumi.aws.rum.inputs.AppMonitorCustomEventsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -61,6 +62,21 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+     * 
+     */
+    @Import(name="customEvents")
+    private @Nullable Output<AppMonitorCustomEventsArgs> customEvents;
+
+    /**
+     * @return Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+     * 
+     */
+    public Optional<Output<AppMonitorCustomEventsArgs>> customEvents() {
+        return Optional.ofNullable(this.customEvents);
     }
 
     /**
@@ -159,6 +175,7 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
         this.appMonitorConfiguration = $.appMonitorConfiguration;
         this.appMonitorId = $.appMonitorId;
         this.arn = $.arn;
+        this.customEvents = $.customEvents;
         this.cwLogEnabled = $.cwLogEnabled;
         this.cwLogGroup = $.cwLogGroup;
         this.domain = $.domain;
@@ -246,6 +263,27 @@ public final class AppMonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param customEvents Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customEvents(@Nullable Output<AppMonitorCustomEventsArgs> customEvents) {
+            $.customEvents = customEvents;
+            return this;
+        }
+
+        /**
+         * @param customEvents Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customEvents(AppMonitorCustomEventsArgs customEvents) {
+            return customEvents(Output.of(customEvents));
         }
 
         /**

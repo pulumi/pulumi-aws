@@ -13,25 +13,25 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies that AWS WAF should allow requests by default. See Allow below for details.
+        /// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
         /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowGetArgs>? Allow { get; set; }
 
         /// <summary>
-        /// Specifies that AWS WAF should block requests by default. See Block below for details.
+        /// Specifies that AWS WAF should block requests by default. See `block` below for details.
         /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockGetArgs>? Block { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+        /// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
         /// </summary>
         [Input("captcha")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaGetArgs>? Captcha { get; set; }
 
         /// <summary>
-        /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
+        /// Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         /// </summary>
         [Input("count")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountGetArgs>? Count { get; set; }

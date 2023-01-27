@@ -89,7 +89,7 @@ type ReportDefinition struct {
 	S3Prefix pulumi.StringPtrOutput `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region pulumi.StringOutput `pulumi:"s3Region"`
-	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
 	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
 }
 
@@ -165,7 +165,7 @@ type reportDefinitionState struct {
 	S3Prefix *string `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region *string `pulumi:"s3Region"`
-	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
 	TimeUnit *string `pulumi:"timeUnit"`
 }
 
@@ -192,7 +192,7 @@ type ReportDefinitionState struct {
 	S3Prefix pulumi.StringPtrInput
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region pulumi.StringPtrInput
-	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
 	TimeUnit pulumi.StringPtrInput
 }
 
@@ -221,7 +221,7 @@ type reportDefinitionArgs struct {
 	S3Prefix *string `pulumi:"s3Prefix"`
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region string `pulumi:"s3Region"`
-	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
 	TimeUnit string `pulumi:"timeUnit"`
 }
 
@@ -247,7 +247,7 @@ type ReportDefinitionArgs struct {
 	S3Prefix pulumi.StringPtrInput
 	// Region of the existing S3 bucket to hold generated reports.
 	S3Region pulumi.StringInput
-	// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+	// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
 	TimeUnit pulumi.StringInput
 }
 
@@ -393,7 +393,7 @@ func (o ReportDefinitionOutput) S3Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.S3Region }).(pulumi.StringOutput)
 }
 
-// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+// The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
 func (o ReportDefinitionOutput) TimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.TimeUnit }).(pulumi.StringOutput)
 }

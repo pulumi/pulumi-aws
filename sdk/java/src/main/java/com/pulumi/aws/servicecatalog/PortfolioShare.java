@@ -127,6 +127,20 @@ public class PortfolioShare extends com.pulumi.resources.CustomResource {
         return this.principalId;
     }
     /**
+     * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+     * 
+     */
+    @Export(name="sharePrincipals", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> sharePrincipals;
+
+    /**
+     * @return Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
+     * 
+     */
+    public Output<Optional<Boolean>> sharePrincipals() {
+        return Codegen.optional(this.sharePrincipals);
+    }
+    /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      * 
      */

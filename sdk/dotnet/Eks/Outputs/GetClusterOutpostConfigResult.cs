@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string ControlPlaneInstanceType;
         /// <summary>
+        /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterOutpostConfigControlPlanePlacementResult> ControlPlanePlacements;
+        /// <summary>
         /// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         /// </summary>
         public readonly ImmutableArray<string> OutpostArns;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Eks.Outputs
         private GetClusterOutpostConfigResult(
             string controlPlaneInstanceType,
 
+            ImmutableArray<Outputs.GetClusterOutpostConfigControlPlanePlacementResult> controlPlanePlacements,
+
             ImmutableArray<string> outpostArns)
         {
             ControlPlaneInstanceType = controlPlaneInstanceType;
+            ControlPlanePlacements = controlPlanePlacements;
             OutpostArns = outpostArns;
         }
     }

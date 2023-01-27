@@ -113,7 +113,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly s3Region!: pulumi.Output<string>;
     /**
-     * The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+     * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */
     public readonly timeUnit!: pulumi.Output<string>;
 
@@ -232,7 +232,7 @@ export interface ReportDefinitionState {
      */
     s3Region?: pulumi.Input<string>;
     /**
-     * The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+     * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */
     timeUnit?: pulumi.Input<string>;
 }
@@ -282,7 +282,7 @@ export interface ReportDefinitionArgs {
      */
     s3Region: pulumi.Input<string>;
     /**
-     * The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
+     * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */
     timeUnit: pulumi.Input<string>;
 }
