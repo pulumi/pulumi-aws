@@ -11,6 +11,7 @@ require (
 	github.com/pulumi/pulumi/pkg/v3 v3.51.0
 	github.com/pulumi/pulumi/sdk/v3 v3.51.0
 )
+replace github.com/pulumi/pulumi-terraform-bridge/v3 => ../../pulumi-terraform-bridge
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
